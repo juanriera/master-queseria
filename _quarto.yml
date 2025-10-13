@@ -1,0 +1,47 @@
+project:
+  type: book
+  output-dir: docs
+execute:
+  enabled: true
+
+jupyter: python3
+
+book:
+  title: "Introducción al análisis de datos industriales utilizando Microsoft Excel y Python"
+  subtitle: "Manual para la Formación Profesional"
+  author: "Juan Riera"
+  date: 2025-10-22
+  date-format: short
+  sidebar:
+    collapse-level: 1
+  chapters:
+    - index.qmd
+    - 010-introduccion-a-python.ipynb
+    - 020-introduccion-a-python.ipynb 
+  #  - 030-industrial-stats-01.ipynb 
+  #  - 030-organizacion.qmd  
+  #  - 040-exploracion.qmd
+  #  - 050-estad-simple.qmd
+  #  - 060-forma-de-los-datos.qmd
+  #  - 070-relacion-xy.qmd
+  #  - 080-comunicacion.qmd
+  #  - "Aplicaciones prácticas"
+  appendices: 
+    - 160-bibliografia.qmd
+
+language:
+  section-title-appendices: "Anexos"
+  section-title-bibliography: "Bibliografía"
+
+number-depth: 2
+
+bibliography: bibliografia.bib
+
+format:
+  html:
+    theme: cosmo
+#  pdf:
+#    documentclass: book
+
+author-title: AUTOR
+published-title: PUBLICADO
