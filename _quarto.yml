@@ -7,8 +7,8 @@ execute:
 jupyter: python3
 
 book:
-  title: "Introducción al análisis de datos industriales utilizando Microsoft Excel y Python"
-  subtitle: "Manual para la Formación Profesional"
+  title: "Notas para el master de quesería"
+  subtitle: ""
   author: "Juan Riera"
   date: 2025-10-22
   date-format: short
