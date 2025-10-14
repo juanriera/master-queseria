@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Introducción a Python (1) – Notas para el master de quesería</title>
+<title>2&nbsp; Introducción a Python. – Notas para el master de quesería</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -149,7 +149,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./010-introduccion-a-python.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a Python (1)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./010-introduccion-a-python.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a Python.</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -183,13 +183,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./010-introduccion-a-python.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a Python (1)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a Python.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./020-introduccion-a-python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduccion a Python (2)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Trabajando con Google Colaborate</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -241,7 +241,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#las-principales-estructuras-de-datos-en-python-para-el-análisis" id="toc-las-principales-estructuras-de-datos-en-python-para-el-análisis" class="nav-link" data-scroll-target="#las-principales-estructuras-de-datos-en-python-para-el-análisis"><span class="header-section-number">2.9</span> Las principales estructuras de datos en Python para el análisis</a>
   <ul class="collapse">
-  <li><a href="#series-de-pandas-el-vector-en-python-para-datos" id="toc-series-de-pandas-el-vector-en-python-para-datos" class="nav-link" data-scroll-target="#series-de-pandas-el-vector-en-python-para-datos">Series de Pandas (El “Vector” en Python para datos)</a></li>
+  <li><a href="#series-de-pandas-el-vector-en-python-para-datos" id="toc-series-de-pandas-el-vector-en-python-para-datos" class="nav-link" data-scroll-target="#series-de-pandas-el-vector-en-python-para-datos">Series de <code>pandas</code> (El “vector” en <code>Python</code> para datos)</a></li>
   <li><a href="#dataframes-de-pandas-la-tabla-o-hoja-de-cálculo" id="toc-dataframes-de-pandas-la-tabla-o-hoja-de-cálculo" class="nav-link" data-scroll-target="#dataframes-de-pandas-la-tabla-o-hoja-de-cálculo">DataFrames de Pandas (La “Tabla” o “Hoja de Cálculo”)</a></li>
   </ul></li>
   <li><a href="#el-data-frame-continuación-con-ejemplo-real" id="toc-el-data-frame-continuación-con-ejemplo-real" class="nav-link" data-scroll-target="#el-data-frame-continuación-con-ejemplo-real"><span class="header-section-number">2.10</span> El <em>data frame</em> (continuación con ejemplo real)</a></li>
@@ -249,16 +249,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#ejemplo-1-histograma-de-la-longitud-del-sépalo-distribución-de-una-variable-numérica" id="toc-ejemplo-1-histograma-de-la-longitud-del-sépalo-distribución-de-una-variable-numérica" class="nav-link" data-scroll-target="#ejemplo-1-histograma-de-la-longitud-del-sépalo-distribución-de-una-variable-numérica">Ejemplo 1: Histograma de la longitud del sépalo (Distribución de una variable numérica)</a></li>
   <li><a href="#ejemplo-2-diagrama-de-dispersión-de-la-longitud-vs.-ancho-del-sépalo-relación-entre-dos-variables-numéricas" id="toc-ejemplo-2-diagrama-de-dispersión-de-la-longitud-vs.-ancho-del-sépalo-relación-entre-dos-variables-numéricas" class="nav-link" data-scroll-target="#ejemplo-2-diagrama-de-dispersión-de-la-longitud-vs.-ancho-del-sépalo-relación-entre-dos-variables-numéricas">Ejemplo 2: Diagrama de dispersión de la longitud vs.&nbsp;ancho del sépalo (Relación entre dos variables numéricas)</a></li>
-  <li><a href="#ejemplo-3-gráfico-de-cajas-box-plot-de-la-longitud-del-pétalo-por-especie-comparación-de-una-numérica-por-una-categórica" id="toc-ejemplo-3-gráfico-de-cajas-box-plot-de-la-longitud-del-pétalo-por-especie-comparación-de-una-numérica-por-una-categórica" class="nav-link" data-scroll-target="#ejemplo-3-gráfico-de-cajas-box-plot-de-la-longitud-del-pétalo-por-especie-comparación-de-una-numérica-por-una-categórica">Ejemplo 3: Gráfico de cajas (Box Plot) de la longitud del pétalo por especie (Comparación de una numérica por una categórica)</a></li>
+  <li><a href="#ejemplo-3-gráfico-de-cajas-boxplot-de-la-longitud-del-pétalo-por-especie-comparación-de-una-numérica-por-una-categórica" id="toc-ejemplo-3-gráfico-de-cajas-boxplot-de-la-longitud-del-pétalo-por-especie-comparación-de-una-numérica-por-una-categórica" class="nav-link" data-scroll-target="#ejemplo-3-gráfico-de-cajas-boxplot-de-la-longitud-del-pétalo-por-especie-comparación-de-una-numérica-por-una-categórica">Ejemplo 3: Gráfico de cajas (<em>boxplot</em>) de la longitud del pétalo por especie (Comparación de una numérica por una categórica)</a></li>
   <li><a href="#ejemplo-4-gráfico-de-series-utilizando-pandas." id="toc-ejemplo-4-gráfico-de-series-utilizando-pandas." class="nav-link" data-scroll-target="#ejemplo-4-gráfico-de-series-utilizando-pandas.">Ejemplo 4: Gráfico de series utilizando pandas.</a></li>
   </ul></li>
-  <li><a href="#cómo-leer-una-hoja-de-cálculo-en-google-colaborate" id="toc-cómo-leer-una-hoja-de-cálculo-en-google-colaborate" class="nav-link" data-scroll-target="#cómo-leer-una-hoja-de-cálculo-en-google-colaborate"><span class="header-section-number">2.12</span> Cómo leer una hoja de cálculo en Google Colaborate</a>
-  <ul class="collapse">
-  <li><a href="#opción-1-subir-los-datos-al-espacio-de-trabajo-de-google-colaborate" id="toc-opción-1-subir-los-datos-al-espacio-de-trabajo-de-google-colaborate" class="nav-link" data-scroll-target="#opción-1-subir-los-datos-al-espacio-de-trabajo-de-google-colaborate">Opción 1: Subir los datos al espacio de trabajo de Google Colaborate</a></li>
-  <li><a href="#opción-2-leer-directamente-los-datos-de-nuestra-carpeta-de-google-drive" id="toc-opción-2-leer-directamente-los-datos-de-nuestra-carpeta-de-google-drive" class="nav-link" data-scroll-target="#opción-2-leer-directamente-los-datos-de-nuestra-carpeta-de-google-drive">Opción 2: Leer directamente los datos de nuestra carpeta de Google Drive</a></li>
-  <li><a href="#explicación-de-los-pasos" id="toc-explicación-de-los-pasos" class="nav-link" data-scroll-target="#explicación-de-los-pasos">Explicación de los pasos:</a></li>
-  </ul></li>
-  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">2.13</span> Resumen</a></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">2.12</span> Resumen</a></li>
   </ul>
 </nav>
     </div>
@@ -267,7 +261,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a Python (1)</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introducción a Python.</span></h1>
 </div>
 
 
@@ -561,21 +555,21 @@ window.Quarto = {
 <pre><code>False</code></pre>
 </div>
 </div>
-<p>Como en python se usa <code>=</code> como operador de asignación, el operador lógico que prueba una igualdad es <code>==</code>, un doble igual, y no un <code>=</code>, un igual sencillo.</p>
+<p>Como en python se usa <code>=</code> como operador de asignación, el operador lógico que prueba una igualdad es <code>==</code>, un doble igual, y no un <code>=</code>, un igual sencillo. La desigualdad se verifica con el operador <code>!=</code> que significa “no es igual a”.</p>
 <p>Veamos otros dos ejemplos que proporcionan una respuesta de valor lógico:</p>
-<div id="cell-67" class="cell" data-execution_count="32">
+<div id="cell-68" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>mi_var_numero <span class="op">==</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>False</code></pre>
 </div>
 </div>
-<div id="cell-68" class="cell" data-execution_count="33">
+<div id="cell-69" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>mi_var_numero <span class="op">&gt;</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>False</code></pre>
 </div>
 </div>
-<div id="cell-69" class="cell" data-execution_count="34">
+<div id="cell-70" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>mi_var_numero <span class="op">!=</span> <span class="dv">5</span> <span class="co"># el operador != significa "no es igual a"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>True</code></pre>
@@ -596,7 +590,7 @@ window.Quarto = {
 <section id="print-mostrar-información" class="level3">
 <h3 class="anchored" data-anchor-id="print-mostrar-información"><code>print()</code>: Mostrar información</h3>
 <p>Esta función ya la hemos usado. Nos permite mostrar valores, texto o el contenido de variables en la consola</p>
-<div id="cell-72" class="cell" data-execution_count="35">
+<div id="cell-73" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"¡Hola, esto es una función!"</span>)</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>mi_nombre <span class="op">=</span> <span class="st">"Juan"</span></span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mi nombre es:"</span>, mi_nombre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -609,7 +603,7 @@ Mi nombre es: Juan</code></pre>
 <section id="len-obtener-la-longitud" class="level3">
 <h3 class="anchored" data-anchor-id="len-obtener-la-longitud"><code>len()</code>: Obtener la longitud</h3>
 <p>Esta función nos devuelve el número de elementos de un objeto, como el número de caracteres en una cadena de texto o el número de elementos en una lista.</p>
-<div id="cell-74" class="cell" data-execution_count="36">
+<div id="cell-75" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>frase <span class="op">=</span> <span class="st">"Programar en Python es divertido"</span></span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>longitud_frase <span class="op">=</span> <span class="bu">len</span>(frase)</span>
 <span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"La frase tiene"</span>, longitud_frase, <span class="st">"caracteres."</span>)</span>
@@ -625,7 +619,7 @@ Mi lista tiene 4 elementos.</code></pre>
 <section id="type-conocer-el-tipo-de-dato" class="level3">
 <h3 class="anchored" data-anchor-id="type-conocer-el-tipo-de-dato"><code>type()</code>: Conocer el tipo de dato</h3>
 <p>Útil para verificar qué tipo de dato tiene una variable.</p>
-<div id="cell-76" class="cell" data-execution_count="37">
+<div id="cell-77" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>mi_numero <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>mi_texto <span class="op">=</span> <span class="st">"Cien"</span></span>
 <span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>mi_booleano <span class="op">=</span> <span class="va">True</span></span>
@@ -667,7 +661,7 @@ Mi lista tiene 4 elementos.</code></pre>
 <p>Sin embargo, para las librerías de análisis de datos, es muy común y recomendado usar un <strong>alias</strong> (un nombre corto) para hacer el código más conciso y fácil de leer. Esto se hace con la palabra clave <code>as</code>:</p>
 <pre><code>import nombre_de_la_libreria as alias</code></pre>
 <p>Ahora vamos a importar las librerías que serán esenciales para trabajar con datos, realizar cálculos estadísticos y crear gráficos en Python.</p>
-<div id="cell-80" class="cell" data-execution_count="38">
+<div id="cell-81" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importando las librerías fundamentales para el análisis de datos</span></span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pandas: Es la librería principal para trabajar con estructuras de datos tabulares</span></span>
@@ -700,18 +694,18 @@ Ahora podemos acceder a sus funciones usando sus alias (pd, np, plt, sns).</code
 <h2 data-number="2.9" class="anchored" data-anchor-id="las-principales-estructuras-de-datos-en-python-para-el-análisis"><span class="header-section-number">2.9</span> Las principales estructuras de datos en Python para el análisis</h2>
 <p>Ahora que entendemos las funciones y cómo importar librerías, podemos introducir las estructuras de datos que nos permitirán organizar y manipular nuestros datos de manera eficiente. Las dos más importantes en el contexto del análisis de datos con Python (y con la librería Pandas) son las <strong>Series</strong> y los <strong>DataFrames</strong>.</p>
 <section id="series-de-pandas-el-vector-en-python-para-datos" class="level3">
-<h3 class="anchored" data-anchor-id="series-de-pandas-el-vector-en-python-para-datos">Series de Pandas (El “Vector” en Python para datos)</h3>
-<p>Si en otros lenguajes de programación o herramientas estadísticas has trabajado con el concepto de “vector” (una secuencia de valores de un mismo tipo), el equivalente más directo en Python, usando Pandas, es una <strong>Serie</strong>.</p>
+<h3 class="anchored" data-anchor-id="series-de-pandas-el-vector-en-python-para-datos">Series de <code>pandas</code> (El “vector” en <code>Python</code> para datos)</h3>
+<p>Si en otros lenguajes de programación o herramientas estadísticas has trabajado con el concepto de “vector” (una secuencia de valores de un mismo tipo), el equivalente más directo en <code>Python</code>, usando <code>pandas</code>, es una <strong>serie</strong>.</p>
 <ul>
-<li><strong>Concepto:</strong> Una Serie de Pandas es un arreglo unidimensional (como una columna de una hoja de cálculo o un vector). Puede contener cualquier tipo de dato (números enteros, flotantes, texto, booleanos, etc.) y tiene un índice asociado para acceder a sus elementos.</li>
+<li><strong>Concepto:</strong> Una <em>serie</em> de <code>pandas</code> es un arreglo unidimensional (como una columna de una hoja de cálculo o un vector). Puede contener cualquier tipo de dato (números enteros, flotantes, texto, booleanos, etc.) y tiene un índice asociado para acceder a sus elementos.</li>
 </ul>
-<p><strong>Creación de una Serie:</strong> Podemos crear una Serie a partir de una lista de Python.</p>
-<div id="cell-83" class="cell" data-execution_count="39">
+<p><strong>Creación de una serie:</strong> Podemos crear una Serie a partir de una lista de <code>Python</code>.</p>
+<div id="cell-84" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una lista de edades</span></span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>lista_edades <span class="op">=</span> [<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">22</span>, <span class="dv">35</span>, <span class="dv">28</span>, <span class="dv">40</span>, <span class="dv">33</span>, <span class="dv">29</span>]</span>
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir la lista a una Serie de Pandas</span></span>
-<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Usamos 'pd.' porque la función Series() viene de la librería Pandas</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Usamos 'pd.' porque la función Series() viene de la librería Pandas. Atención: la función se escribe con mayúsculas.</span></span>
 <span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>edades_serie <span class="op">=</span> pd.Series(lista_edades)</span>
 <span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mi Serie de Edades:"</span>)</span>
@@ -729,8 +723,8 @@ Ahora podemos acceder a sus funciones usando sus alias (pd, np, plt, sns).</code
 dtype: int64</code></pre>
 </div>
 </div>
-<p><strong>Operaciones Básicas con Series:</strong> Las Series tienen muchas funciones y métodos útiles. Por ejemplo, podemos calcular la media:</p>
-<div id="cell-85" class="cell" data-execution_count="40">
+<p><strong>Operaciones básicas con series:</strong> Las series tienen muchas funciones y métodos útiles. Por ejemplo, podemos calcular la media:</p>
+<div id="cell-86" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Edad promedio:"</span>, edades_serie.mean()) <span class="co"># Usando el método .mean() de la Serie</span></span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Edad máxima:"</span>, edades_serie.<span class="bu">max</span>())</span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Edad mínima:"</span>, edades_serie.<span class="bu">min</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -744,12 +738,12 @@ Edad mínima: 22</code></pre>
 </section>
 <section id="dataframes-de-pandas-la-tabla-o-hoja-de-cálculo" class="level3">
 <h3 class="anchored" data-anchor-id="dataframes-de-pandas-la-tabla-o-hoja-de-cálculo">DataFrames de Pandas (La “Tabla” o “Hoja de Cálculo”)</h3>
-<p>El <strong>DataFrame</strong> es la estructura de datos más importante y utilizada en Pandas para el análisis de datos. Es el equivalente a una tabla en una base de datos, una hoja de cálculo de Excel, o un “data frame” en R.</p>
+<p>El <strong>DataFrame</strong> es la estructura de datos más importante y utilizada en <code>pandas</code> para el análisis de datos. Es el equivalente a una tabla en una base de datos, una hoja de cálculo de Excel, o un “data frame” en R.</p>
 <ul>
-<li><strong>Concepto:</strong> Un DataFrame es una estructura bidimensional (filas y columnas). Piensa en ella como una colección de Series (columnas) que comparten el mismo índice (las filas). Cada columna en un DataFrame es una Serie de Pandas.</li>
+<li><strong>Concepto:</strong> Un DataFrame es una estructura bidimensional (filas y columnas). Piensa en ella como una colección de series (columnas) que comparten el mismo índice (las filas). Cada columna en un DataFrame es una serie de <code>pandas</code>.</li>
 </ul>
-<p><strong>Creación de un DataFrame (a partir de un diccionario):</strong> Una forma sencilla de crear un DataFrame pequeño es a partir de un diccionario de Python, donde las claves del diccionario se convierten en los nombres de las columnas y los valores son listas que se convierten en las columnas.</p>
-<div id="cell-87" class="cell" data-execution_count="41">
+<p><strong>Creación de un DataFrame (a partir de un diccionario):</strong> Una forma sencilla de crear un DataFrame pequeño es a partir de un diccionario de <code>Python</code>, donde las claves del diccionario se convierten en los nombres de las columnas y los valores son listas que se convierten en las columnas.</p>
+<div id="cell-88" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un diccionario con datos</span></span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>datos_alumnos <span class="op">=</span> {</span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Nombre'</span>: [<span class="st">'Ana'</span>, <span class="st">'Luis'</span>, <span class="st">'Marta'</span>, <span class="st">'Pedro'</span>, <span class="st">'Sofía'</span>],</span>
@@ -782,7 +776,7 @@ DataFrame de Alumnos:
 <li><code>df.info()</code>: Proporciona un resumen conciso del DataFrame, incluyendo el número de entradas, columnas, tipos de datos no nulos y uso de memoria.</li>
 <li><code>df.describe()</code>: Genera estadísticas descriptivas (conteo, media, desviación estándar, etc.) de las columnas numéricas.</li>
 </ul>
-<div id="cell-89" class="cell" data-execution_count="42">
+<div id="cell-90" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Primeras 3 filas del DataFrame de alumnos:"</span>)</span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_alumnos.head(<span class="dv">3</span>)) <span class="co"># Podemos especificar el número de filas</span></span>
 <span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -826,7 +820,7 @@ max    35.000000      9.100000</code></pre>
 </div>
 <p><strong>Selección de Columnas en un DataFrame:</strong></p>
 <p>Para trabajar con una columna específica de un DataFrame, la seleccionamos usando corchetes <code>[]</code> y el nombre de la columna entre comillas. El resultado será una Serie de Pandas.</p>
-<div id="cell-91" class="cell" data-execution_count="43">
+<div id="cell-92" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionar la columna 'Edad'</span></span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>edades_alumnos <span class="op">=</span> df_alumnos[<span class="st">'Edad'</span>]</span>
 <span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Columna 'Edad' (como Serie):"</span>)</span>
@@ -855,7 +849,7 @@ La calificación promedio de los alumnos es: 8.10</code></pre>
 <p>Ahora que conocemos los <code>DataFrames</code>, podemos entender mejor cómo leer datos reales. El marco de datos o <em>data frame</em> es el objeto más útil y más usado en el análisis de datos. Consiste en una estructura de dos dimensiones, formada por una serie de vectores de igual longitud, igual que una tabla de una hoja de cálculo, en la que cada columna es una variable y cada fila, un caso, observación o individuo. Algunas bibliotecas Python incluyen <em>data frames</em> de muestra, que son útiles para entender cómo están formados.</p>
 <p>Veamos uno de ellos, el famoso conjunto de datos <strong><a href="https://es.wikipedia.org/wiki/Conjunto_de_datos_flor_iris">iris</a></strong>, creada por el investigador y estadístico <a href="https://es.wikipedia.org/wiki/Ronald_Fisher">Ronald Fisher</a>, que contiene un conjunto de medidas realizadas sobre flores del género <em>Iris</em> realizadas por este investigador en los años 30 del siglo XX.</p>
 <p>Para cargar este conjunto de datos de ejemplo, vamos a utilizar una función de la librería <code>seaborn</code> que ya importamos:</p>
-<div id="cell-93" class="cell" data-execution_count="44">
+<div id="cell-94" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos el dataset 'iris' usando una función de Seaborn</span></span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>df_iris_sns <span class="op">=</span> sns.load_dataset(<span class="st">'iris'</span>)</span>
 <span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -872,7 +866,7 @@ La calificación promedio de los alumnos es: 8.10</code></pre>
 </div>
 </div>
 <p>La función <code>head()</code> es útil para presentarnos sólo el <em>encabezado</em> del <em>data frame</em>. Veamos la estructura de este <em>data frame</em> más a fondo:</p>
-<div id="cell-95" class="cell" data-execution_count="45">
+<div id="cell-96" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Información general del DataFrame Iris:"</span>)</span>
 <span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>df_iris_sns.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -892,7 +886,7 @@ dtypes: float64(4), object(1)
 memory usage: 6.0+ KB</code></pre>
 </div>
 </div>
-<div id="cell-96" class="cell" data-execution_count="46">
+<div id="cell-97" class="cell" data-execution_count="47">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Estadísticas descriptivas de las columnas numéricas del DataFrame Iris:"</span>)</span>
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_iris_sns.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -910,9 +904,9 @@ max        7.900000     4.400000      6.900000     2.500000</code></pre>
 </div>
 </div>
 <p>Para utilizar una columna de un dataframe, la seleccionamos por su nombre:</p>
-<div id="cell-98" class="cell" data-execution_count="47">
+<div id="cell-99" class="cell" data-execution_count="48">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Contenido de la columna 'sepal_length':"</span>)</span>
-<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_iris_sns[<span class="st">"sepal_length"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_iris_sns[<span class="st">"sepal_length"</span>]) <span class="co"># podemos usar también la doble comilla para designar las columnas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Contenido de la columna 'sepal_length':
@@ -930,17 +924,17 @@ Contenido de la columna 'sepal_length':
 Name: sepal_length, Length: 150, dtype: float64</code></pre>
 </div>
 </div>
-<p>Ahora que tenemos una columna seleccionada (que es una Serie de Pandas), podemos aplicar directamente funciones estadísticas sobre ella:</p>
-<div id="cell-100" class="cell" data-execution_count="48">
+<p>Ahora que tenemos una columna seleccionada (que es una serie de <code>pandas</code>), podemos aplicar directamente funciones estadísticas sobre ella:</p>
+<div id="cell-101" class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculamos la media de la columna 'sepal_length'</span></span>
 <span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>media_sepal_length <span class="op">=</span> df_iris_sns[<span class="st">"sepal_length"</span>].mean()</span>
-<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">La longitud media del sépalo es: </span><span class="sc">{</span>media_sepal_length<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">La longitud media del sépalo es: </span><span class="sc">{</span>media_sepal_length<span class="sc">:.2f}</span><span class="ss">"</span>) <span class="co"># esta es una forma de dar formato al número para imprimirlo con dos decimales fijos</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 La longitud media del sépalo es: 5.84</code></pre>
 </div>
 </div>
-<div id="cell-101" class="cell" data-execution_count="49">
+<div id="cell-102" class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># También podemos calcular la desviación estándar</span></span>
 <span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>desviacion_sepal_length <span class="op">=</span> df_iris_sns[<span class="st">"sepal_length"</span>].std()</span>
 <span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"La desviación estándar de la longitud del sépalo es: </span><span class="sc">{</span>desviacion_sepal_length<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -962,7 +956,7 @@ La longitud media del sépalo es: 5.84</code></pre>
 </ul></li>
 </ul>
 <p>Vamos a aplicar algunas de estas operaciones al DataFrame <code>df_iris_sns</code>:</p>
-<div id="cell-103" class="cell" data-execution_count="50">
+<div id="cell-104" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Estadísticas de 'petal_width' en el DataFrame Iris:"</span>)</span>
 <span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Media de petal_width: </span><span class="sc">{</span>df_iris_sns[<span class="st">'petal_width'</span>]<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
 <span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mediana de petal_width: </span><span class="sc">{</span>df_iris_sns[<span class="st">'petal_width'</span>]<span class="sc">.</span>median()<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
@@ -992,7 +986,7 @@ Número de observaciones de petal_width: 150</code></pre>
 <section id="ejemplo-1-histograma-de-la-longitud-del-sépalo-distribución-de-una-variable-numérica" class="level3">
 <h3 class="anchored" data-anchor-id="ejemplo-1-histograma-de-la-longitud-del-sépalo-distribución-de-una-variable-numérica">Ejemplo 1: Histograma de la longitud del sépalo (Distribución de una variable numérica)</h3>
 <p>Un histograma nos permite ver cómo se distribuyen los valores de una variable numérica.</p>
-<div id="cell-106" class="cell" data-execution_count="51">
+<div id="cell-107" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un histograma de la columna 'sepal_length'</span></span>
 <span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>)) <span class="co"># Define el tamaño de la figura (ancho, alto)</span></span>
 <span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>df_iris_sns, x<span class="op">=</span><span class="st">'sepal_length'</span>, kde<span class="op">=</span><span class="va">True</span>) <span class="co"># kde=True añade una estimación de densidad</span></span>
@@ -1004,7 +998,7 @@ Número de observaciones de petal_width: 150</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="010-introduccion-a-python_files/figure-html/cell-52-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="010-introduccion-a-python_files/figure-html/cell-53-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1013,7 +1007,7 @@ Número de observaciones de petal_width: 150</code></pre>
 <section id="ejemplo-2-diagrama-de-dispersión-de-la-longitud-vs.-ancho-del-sépalo-relación-entre-dos-variables-numéricas" class="level3">
 <h3 class="anchored" data-anchor-id="ejemplo-2-diagrama-de-dispersión-de-la-longitud-vs.-ancho-del-sépalo-relación-entre-dos-variables-numéricas">Ejemplo 2: Diagrama de dispersión de la longitud vs.&nbsp;ancho del sépalo (Relación entre dos variables numéricas)</h3>
 <p>Un diagrama de dispersión es excelente para visualizar la relación entre dos variables numéricas. Podemos añadir un color (<code>hue</code>) para diferenciar por una tercera variable categórica (como la especie de la flor).</p>
-<div id="cell-108" class="cell" data-execution_count="52">
+<div id="cell-109" class="cell" data-execution_count="53">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un diagrama de dispersión de sepal_length vs. sepal_width</span></span>
 <span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">6</span>))</span>
 <span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df_iris_sns, x<span class="op">=</span><span class="st">'sepal_length'</span>, y<span class="op">=</span><span class="st">'sepal_width'</span>, hue<span class="op">=</span><span class="st">'species'</span>, s<span class="op">=</span><span class="dv">80</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
@@ -1026,16 +1020,16 @@ Número de observaciones de petal_width: 150</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="010-introduccion-a-python_files/figure-html/cell-53-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="010-introduccion-a-python_files/figure-html/cell-54-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="ejemplo-3-gráfico-de-cajas-box-plot-de-la-longitud-del-pétalo-por-especie-comparación-de-una-numérica-por-una-categórica" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-3-gráfico-de-cajas-box-plot-de-la-longitud-del-pétalo-por-especie-comparación-de-una-numérica-por-una-categórica">Ejemplo 3: Gráfico de cajas (Box Plot) de la longitud del pétalo por especie (Comparación de una numérica por una categórica)</h3>
-<p>Los box plots son útiles para visualizar la distribución de una variable numérica para diferentes categorías.</p>
-<div id="cell-110" class="cell" data-execution_count="53">
+<section id="ejemplo-3-gráfico-de-cajas-boxplot-de-la-longitud-del-pétalo-por-especie-comparación-de-una-numérica-por-una-categórica" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-3-gráfico-de-cajas-boxplot-de-la-longitud-del-pétalo-por-especie-comparación-de-una-numérica-por-una-categórica">Ejemplo 3: Gráfico de cajas (<em>boxplot</em>) de la longitud del pétalo por especie (Comparación de una numérica por una categórica)</h3>
+<p>Los boxplots son útiles para visualizar la distribución de una variable numérica para diferentes categorías.</p>
+<div id="cell-111" class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un box plot de petal_length agrupado por 'species'</span></span>
 <span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">6</span>))</span>
 <span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df_iris_sns, x<span class="op">=</span><span class="st">'species'</span>, y<span class="op">=</span><span class="st">'petal_length'</span>)</span>
@@ -1047,7 +1041,7 @@ Número de observaciones de petal_width: 150</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="010-introduccion-a-python_files/figure-html/cell-54-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="010-introduccion-a-python_files/figure-html/cell-55-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1056,7 +1050,7 @@ Número de observaciones de petal_width: 150</code></pre>
 <section id="ejemplo-4-gráfico-de-series-utilizando-pandas." class="level3">
 <h3 class="anchored" data-anchor-id="ejemplo-4-gráfico-de-series-utilizando-pandas.">Ejemplo 4: Gráfico de series utilizando pandas.</h3>
 <p>Usa la biblioteca pandas y el dataset <code>air_quality</code> que tenemos que bajar del sitio oficial de <code>pandas</code></p>
-<div id="cell-112" class="cell" data-execution_count="54">
+<div id="cell-113" class="cell" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar el dataset desde URL oficial de pandas</span></span>
 <span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/air_quality_no2.csv"</span></span>
 <span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url, parse_dates<span class="op">=</span>[<span class="st">"datetime"</span>])</span>
@@ -1074,7 +1068,7 @@ datetime
 2019-05-07 06:00:00              NaN           61.9             NaN</code></pre>
 </div>
 </div>
-<div id="cell-113" class="cell" data-execution_count="55">
+<div id="cell-114" class="cell" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -1090,20 +1084,9 @@ memory usage: 32.3 KB
 None</code></pre>
 </div>
 </div>
-<div id="cell-114" class="cell" data-execution_count="56">
+<div id="cell-115" class="cell" data-execution_count="57">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>df.plot()</span>
 <span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="010-introduccion-a-python_files/figure-html/cell-57-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="cell-115" class="cell" data-execution_count="57">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>df.station_paris.plot()</span>
-<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1112,8 +1095,19 @@ None</code></pre>
 </div>
 </div>
 </div>
+<div id="cell-116" class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>df.station_paris.plot()</span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="010-introduccion-a-python_files/figure-html/cell-59-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 <p>Vamos a probar con un dataset diferente, el set <code>flights</code> incluido en <code>seaborn</code>, que proporciona los pasajeros por mes en un aeropuerto, durante varios años.</p>
-<div id="cell-117" class="cell" data-execution_count="58">
+<div id="cell-118" class="cell" data-execution_count="59">
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar dataset</span></span>
 <span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> sns.load_dataset(<span class="st">'flights'</span>) <span class="co"># load_dataset() es una función de seaborn</span></span>
 <span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1167,7 +1161,7 @@ None</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-118" class="cell" data-execution_count="59">
+<div id="cell-119" class="cell" data-execution_count="60">
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -1183,14 +1177,11 @@ memory usage: 2.9 KB</code></pre>
 </div>
 </div>
 <p>Como la columna <code>month</code> está en inglés y tiene formato <code>category</code>, vamos a crear una nueva columna <code>fecha</code> con formato DateTime, que además convertiremos en <code>index</code>, de manera que <code>pandas</code> pueda representar las series temporales correctamente:</p>
-<blockquote class="blockquote">
-<p>Añadir blockquote</p>
-</blockquote>
-<div id="cell-120" class="cell" data-execution_count="60">
+<div id="cell-121" class="cell" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'year'</span>].astype(<span class="bu">str</span>) <span class="op">+</span> <span class="st">'-'</span> <span class="op">+</span> df[<span class="st">'month'</span>].astype(<span class="bu">str</span>), <span class="bu">format</span><span class="op">=</span><span class="st">'%Y-%b'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>¿Qué hace esta línea?</p>
-<p>Crea una nueva columna llamada <code>fecha</code> en el DataFrame <code>df</code>, combinando las columnas <code>year</code> y <code>month</code> para formar una fecha completa, y luego la convierte al tipo <code>datetime64[ns]</code>, que es el formato estándar de fechas en pandas.</p>
+<p>Crea una nueva columna llamada <code>fecha</code> en el DataFrame <code>df</code>, combinando las columnas <code>year</code> y <code>month</code> para formar una fecha completa, y luego la convierte al tipo <code>datetime64[ns]</code>, que es el formato estándar de fechas en <code>pandas</code>.</p>
 <p>🔍 Paso a paso</p>
 <ol type="1">
 <li><strong><code>df['year'].astype(str)</code></strong> Convierte la columna <code>year</code> (numérica) a texto. Ejemplo: <code>1949</code> → <code>"1949"</code></li>
@@ -1203,7 +1194,7 @@ memory usage: 2.9 KB</code></pre>
 <li><code>%b</code> → mes abreviado en inglés (<code>Jan</code>, <code>Feb</code>, <code>Mar</code>, etc.)</li>
 </ul>
 <p>Veamos ahora la columna que acabamos de crear:</p>
-<div id="cell-122" class="cell" data-execution_count="61">
+<div id="cell-123" class="cell" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="56">
 <div>
@@ -1261,7 +1252,7 @@ memory usage: 2.9 KB</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-123" class="cell" data-execution_count="62">
+<div id="cell-124" class="cell" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>] <span class="op">=</span> df[<span class="st">'fecha'</span>]</span>
 <span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Establecer 'fecha_index' como índice</span></span>
@@ -1333,23 +1324,9 @@ memory usage: 2.9 KB</code></pre>
 </div>
 </div>
 <p>Ahora ya podemos hacer un gráfico de series, y <code>pandas</code> colocará automáticamente las fechas en el eje X usando la columna index <code>fecha_index</code>:</p>
-<div id="cell-125" class="cell" data-execution_count="63">
+<div id="cell-126" class="cell" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb105"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'passengers'</span>].plot()</span>
 <span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="010-introduccion-a-python_files/figure-html/cell-64-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Vamos a rotular el gráfico para mejorar la legibilidad</p>
-<div id="cell-127" class="cell" data-execution_count="64">
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'passengers'</span>].plot(title<span class="op">=</span><span class="st">'Pasajeros mensuales en vuelos comerciales'</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
-<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Número de pasajeros'</span>)</span>
-<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1358,7 +1335,21 @@ memory usage: 2.9 KB</code></pre>
 </div>
 </div>
 </div>
+<p>Vamos a rotular el gráfico para mejorar la legibilidad</p>
 <div id="cell-128" class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'passengers'</span>].plot(title<span class="op">=</span><span class="st">'Pasajeros mensuales en vuelos comerciales'</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Número de pasajeros'</span>)</span>
+<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="010-introduccion-a-python_files/figure-html/cell-66-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-129" class="cell" data-execution_count="66">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'media_movil'</span>] <span class="op">=</span> df[<span class="st">'passengers'</span>].rolling(window<span class="op">=</span><span class="dv">12</span>).mean()</span>
 <span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'passengers'</span>, <span class="st">'media_movil'</span>]].plot(title<span class="op">=</span><span class="st">'Pasajeros y media móvil (12 meses)'</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
@@ -1368,87 +1359,16 @@ memory usage: 2.9 KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="010-introduccion-a-python_files/figure-html/cell-66-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="010-introduccion-a-python_files/figure-html/cell-67-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="cómo-leer-una-hoja-de-cálculo-en-google-colaborate" class="level2" data-number="2.12">
-<h2 data-number="2.12" class="anchored" data-anchor-id="cómo-leer-una-hoja-de-cálculo-en-google-colaborate"><span class="header-section-number">2.12</span> Cómo leer una hoja de cálculo en Google Colaborate</h2>
-<section id="opción-1-subir-los-datos-al-espacio-de-trabajo-de-google-colaborate" class="level3">
-<h3 class="anchored" data-anchor-id="opción-1-subir-los-datos-al-espacio-de-trabajo-de-google-colaborate">Opción 1: Subir los datos al espacio de trabajo de Google Colaborate</h3>
-<p>Los pasos son los mismos tanto si queremos trabajar con un <code>CSV</code>o directamente con una hoja Excel: 1. Seleccionamos el icono de carpeta a la izquierda, que nos abre la barra lateral de <code>Archivos</code> 2. Hacemos click sobre el icono de la hoja con la flecha vertical, lo que nos abre una ventana de selección de archivos. 3. Seleccionamos la hoja de cálculo o <code>CSV</code>con la que vamos a trabajar y la subimos al espacio de trabajo de Google Colaborate</p>
-<p>Una vez la hoja de cálculo o el <code>CSV</code> en nuestro espacio de trabajo, procedemos a leer los datos.</p>
-<p>El mayor inconveniente de esta forma de trabajo es que cada vez que salimos de la sesión, Google Colab borra todos nuestros archivos del espacio de trabajo; cada vez que iniciemos una sesión, tendremos que repetir el proceso de subir nuestros datos al espacio de trabajo.</p>
-</section>
-<section id="opción-2-leer-directamente-los-datos-de-nuestra-carpeta-de-google-drive" class="level3">
-<h3 class="anchored" data-anchor-id="opción-2-leer-directamente-los-datos-de-nuestra-carpeta-de-google-drive">Opción 2: Leer directamente los datos de nuestra carpeta de Google Drive</h3>
-<p>Esta es una opción mucho más cómoda que nos evita los pasos intermedios, ya que no necesitamos subir la hoja de cálculo al espacio de trabajo.</p>
-<p>Veamos las dos alternativas:</p>
-<div id="cell-135" class="cell" data-execution_count="66">
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Montar Google Drive si tu archivo está allí</span></span>
-<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> google.colab <span class="im">import</span> drive</span>
-<span id="cb108-5"><a href="#cb108-5" aria-hidden="true" tabindex="-1"></a>drive.mount(<span class="st">'/content/drive'</span>)</span>
-<span id="cb108-6"><a href="#cb108-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb108-7"><a href="#cb108-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ruta de tu archivo Excel. Asegúrate de que esta ruta sea correcta.</span></span>
-<span id="cb108-8"><a href="#cb108-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Si está en la raíz de tu Drive, sería algo así:</span></span>
-<span id="cb108-9"><a href="#cb108-9" aria-hidden="true" tabindex="-1"></a>archivo_excel <span class="op">=</span> <span class="st">'/content/drive/MyDrive/ejemplo_muestreo.xlsx'</span></span>
-<span id="cb108-10"><a href="#cb108-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb108-11"><a href="#cb108-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Si el archivo está directamente en el entorno de Colab (subido o creado allí),</span></span>
-<span id="cb108-12"><a href="#cb108-12" aria-hidden="true" tabindex="-1"></a><span class="co"># la ruta podría ser simplemente el nombre del archivo si estás en el mismo directorio:</span></span>
-<span id="cb108-13"><a href="#cb108-13" aria-hidden="true" tabindex="-1"></a><span class="co"># archivo_excel = 'ejemplo_muestreo.xlsx'</span></span>
-<span id="cb108-14"><a href="#cb108-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb108-15"><a href="#cb108-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb108-16"><a href="#cb108-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Leer el archivo Excel, especificando la hoja</span></span>
-<span id="cb108-17"><a href="#cb108-17" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(archivo_excel, sheet_name<span class="op">=</span><span class="st">"Hoja1"</span>)</span>
-<span id="cb108-18"><a href="#cb108-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb108-19"><a href="#cb108-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar las primeras filas del DataFrame para verificar</span></span>
-<span id="cb108-20"><a href="#cb108-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="explicación-de-los-pasos" class="level3">
-<h3 class="anchored" data-anchor-id="explicación-de-los-pasos">Explicación de los pasos:</h3>
-<ol type="1">
-<li><p><strong><code>import pandas as pd</code></strong>:</p>
-<ul>
-<li>Esta línea importa la librería <code>pandas</code>, que es fundamental para el manejo y análisis de datos en Python. Es una convención llamarla <code>pd</code>.</li>
-</ul></li>
-<li><p><strong>Montar Google Drive (si es necesario)</strong>:</p>
-<ul>
-<li>Si tu archivo <code>ejemplo_muestreo.xlsx</code> está almacenado en tu Google Drive, necesitas montar Drive en tu entorno de Colab para poder acceder a él. Las líneas <code>from google.colab import drive</code> y <code>drive.mount('/content/drive')</code> se encargan de esto.</li>
-<li>Una vez montado, tus archivos de Drive serán accesibles a través de la ruta <code>/content/drive/MyDrive/</code>.</li>
-</ul></li>
-<li><p><strong><code>archivo_excel = '/content/drive/MyDrive/ejemplo_muestreo.xlsx'</code></strong>:</p>
-<ul>
-<li>Aquí defines la <strong>ruta completa</strong> de tu archivo Excel.</li>
-<li><strong>¡Importante!</strong> Debes ajustar esta ruta a la ubicación real de tu archivo.
-<ul>
-<li>Si lo tienes en Google Drive (y lo montaste), la ruta será similar a <code>/content/drive/MyDrive/nombre_de_tu_carpeta/ejemplo_muestreo.xlsx</code>.</li>
-<li>Si subiste el archivo directamente a Colab (usando el ícono de la carpeta en el panel izquierdo y luego “Subir”), y está en el directorio raíz de Colab, simplemente el nombre del archivo (<code>ejemplo_muestreo.xlsx</code>) debería funcionar.</li>
-</ul></li>
-</ul></li>
-<li><p><strong><code>df = pd.read_excel(archivo_excel, sheet_name="Hoja1")</code></strong>:</p>
-<ul>
-<li>Esta es la función clave.</li>
-<li><code>pd.read_excel()</code> es el equivalente directo a <code>read_excel()</code> de <code>readxl</code> en R.</li>
-<li>El primer argumento es la <strong>ruta</strong> al archivo Excel.</li>
-<li><code>sheet_name="Hoja1"</code> especifica qué hoja del libro de Excel quieres leer. Es el equivalente al argumento <code>sheet = "Hoja1"</code> en R. Puedes usar el nombre de la hoja o su índice (donde <code>0</code> es la primera hoja, <code>1</code> la segunda, etc.).</li>
-</ul></li>
-<li><p><strong><code>print(df.head())</code></strong>:</p>
-<ul>
-<li>Una vez que los datos se han cargado en un <strong>DataFrame de pandas</strong> (que es el objeto <code>df</code>), puedes usar <code>df.head()</code> para ver las primeras 5 filas y asegurarte de que los datos se cargaron correctamente. Esto es similar a <code>head(df)</code> en R.</li>
-</ul></li>
-</ol>
-<p>Con estos pasos, tendrás tus datos de Excel cargados en un DataFrame de pandas, listos para ser manipulados y analizados en Python.</p>
-</section>
-</section>
-<section id="resumen" class="level2" data-number="2.13">
-<h2 data-number="2.13" class="anchored" data-anchor-id="resumen"><span class="header-section-number">2.13</span> Resumen</h2>
-<p>En este capítulo hemos tomado contacto con python y su utilización a través de un interface Jupyter, en este caso <strong>Google Colaborate</strong>. Hemos visto los principales tipos de datos, particularmente el <em>data frame</em>, y hemos aprendido a leer datos que previamente se habían introducido en una hoja de cálculo. Ya estamos listos para empezar a utilizar python en el análisis de nuestros datos de producción.</p>
+<section id="resumen" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="resumen"><span class="header-section-number">2.12</span> Resumen</h2>
+<p>En este capítulo hemos tomado contacto con las funciones básicas de <code>Python</code> y su utilización a través de un interface Jupyter, en este caso <strong>Google Colaborate</strong>. Hemos visto los principales tipos de datos, particularmente el <em>data frame</em>, y hemos aprendido a leer datos que previamente se habían introducido en una hoja de cálculo. Ya estamos listos para empezar a utilizar python en el análisis de nuestros datos de producción.</p>
 
 
 </section>
@@ -1860,8 +1780,8 @@ memory usage: 2.9 KB</code></pre>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./020-introduccion-a-python.html" class="pagination-link" aria-label="Introduccion a Python (2)">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduccion a Python (2)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./020-introduccion-a-python.html" class="pagination-link" aria-label="Trabajando con Google Colaborate">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Trabajando con Google Colaborate</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
