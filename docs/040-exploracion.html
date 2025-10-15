@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>7&nbsp; La exploración de los datos mediante gráficos. – Notas para el master de quesería</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./050-estad-simple.html" rel="next">
+<link href="./030-organizacion.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./040-exploracion.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Notas para el master de quesería</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción general</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./001-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La estadística en el entorno industrial.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./005-herramientas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./010-introduccion-a-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a Python</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./020-intro-colab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Trabajando con Google Colaborate</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./030-organizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">La organización de los datos y el flujo de trabajo.Los datos ordenados o <em>arreglados</em> (<em>tidy data</em>)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./040-exploracion.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./050-estad-simple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./060-forma-de-los-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">La forma de los datos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./070-relacion-xy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">La relación entre las variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./080-comunicacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">La comunicación de los resultados</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./120-control-proc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">El control estadístico de procesos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./130-sistema-medicion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">El análisis del sistema de medición</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./140-mejora-procesos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><em>Six Sigma</em> y la mejora de los procesos.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Anexos</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./160-bibliografia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bibliografía</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#explorando-los-datos" id="toc-explorando-los-datos" class="nav-link active" data-scroll-target="#explorando-los-datos"><span class="header-section-number">7.1</span> Explorando los datos</a>
+  <ul class="collapse">
+  <li><a href="#el-diagrama-de-tallo-y-hojas-stem-and-leaf-plot-o-stemplot" id="toc-el-diagrama-de-tallo-y-hojas-stem-and-leaf-plot-o-stemplot" class="nav-link" data-scroll-target="#el-diagrama-de-tallo-y-hojas-stem-and-leaf-plot-o-stemplot">El diagrama de tallo y hojas (<em>stem and leaf plot</em> o <em>stemplot</em>)</a></li>
+  <li><a href="#interpretación-del-diagrama-de-tallo-y-hojas" id="toc-interpretación-del-diagrama-de-tallo-y-hojas" class="nav-link" data-scroll-target="#interpretación-del-diagrama-de-tallo-y-hojas">Interpretación del diagrama de tallo y hojas</a></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen">Resumen</a></li>
+  </ul></li>
+  <li><a href="#distribuciones-de-frecuencias" id="toc-distribuciones-de-frecuencias" class="nav-link" data-scroll-target="#distribuciones-de-frecuencias"><span class="header-section-number">7.2</span> Distribuciones de frecuencias</a>
+  <ul class="collapse">
+  <li><a href="#construcción-en-excel" id="toc-construcción-en-excel" class="nav-link" data-scroll-target="#construcción-en-excel">Construcción en Excel</a></li>
+  </ul></li>
+  <li><a href="#instrucciones-paso-a-paso-en-excel" id="toc-instrucciones-paso-a-paso-en-excel" class="nav-link" data-scroll-target="#instrucciones-paso-a-paso-en-excel"><span class="header-section-number">7.3</span> Instrucciones paso a paso en Excel</a></li>
+  <li><a href="#ejercicio-propuesto" id="toc-ejercicio-propuesto" class="nav-link" data-scroll-target="#ejercicio-propuesto"><span class="header-section-number">7.4</span> Ejercicio propuesto</a></li>
+  <li><a href="#diagrama-de-barras" id="toc-diagrama-de-barras" class="nav-link" data-scroll-target="#diagrama-de-barras"><span class="header-section-number">7.5</span> Diagrama de barras</a></li>
+  <li><a href="#histograma" id="toc-histograma" class="nav-link" data-scroll-target="#histograma"><span class="header-section-number">7.6</span> Histograma</a>
+  <ul class="collapse">
+  <li><a href="#construcción-de-un-histograma-en-excel" id="toc-construcción-de-un-histograma-en-excel" class="nav-link" data-scroll-target="#construcción-de-un-histograma-en-excel">Construcción de un histograma en Excel</a></li>
+  <li><a href="#análisis-de-un-caso-real" id="toc-análisis-de-un-caso-real" class="nav-link" data-scroll-target="#análisis-de-un-caso-real">Análisis de un caso real</a></li>
+  <li><a href="#otros-ejemplos" id="toc-otros-ejemplos" class="nav-link" data-scroll-target="#otros-ejemplos">Otros ejemplos</a></li>
+  </ul></li>
+  <li><a href="#gráficos-de-densidad" id="toc-gráficos-de-densidad" class="nav-link" data-scroll-target="#gráficos-de-densidad"><span class="header-section-number">7.7</span> Gráficos de densidad</a></li>
+  <li><a href="#diagrama-de-caja-o-boxplot" id="toc-diagrama-de-caja-o-boxplot" class="nav-link" data-scroll-target="#diagrama-de-caja-o-boxplot"><span class="header-section-number">7.8</span> Diagrama de caja o <em>boxplot</em></a>
+  <ul class="collapse">
+  <li><a href="#relación-entre-el-boxplot-y-el-histograma" id="toc-relación-entre-el-boxplot-y-el-histograma" class="nav-link" data-scroll-target="#relación-entre-el-boxplot-y-el-histograma">Relación entre el <em>boxplot</em> y el histograma</a></li>
+  </ul></li>
+  <li><a href="#gráficos-de-dispersión" id="toc-gráficos-de-dispersión" class="nav-link" data-scroll-target="#gráficos-de-dispersión"><span class="header-section-number">7.9</span> Gráficos de dispersión</a></li>
+  <li><a href="#gráficos-de-series-temporales" id="toc-gráficos-de-series-temporales" class="nav-link" data-scroll-target="#gráficos-de-series-temporales"><span class="header-section-number">7.10</span> Gráficos de series temporales</a></li>
+  <li><a href="#ejemplos-de-series-temporales" id="toc-ejemplos-de-series-temporales" class="nav-link" data-scroll-target="#ejemplos-de-series-temporales"><span class="header-section-number">7.11</span> Ejemplos de series temporales</a></li>
+  <li><a href="#algunos-ejemplos" id="toc-algunos-ejemplos" class="nav-link" data-scroll-target="#algunos-ejemplos"><span class="header-section-number">7.12</span> Algunos ejemplos</a>
+  <ul class="collapse">
+  <li><a href="#cómo-hacer-los-gráficos-de-series-temporales-en-excel-y-en-r" id="toc-cómo-hacer-los-gráficos-de-series-temporales-en-excel-y-en-r" class="nav-link" data-scroll-target="#cómo-hacer-los-gráficos-de-series-temporales-en-excel-y-en-r">Cómo hacer los gráficos de series temporales en Excel y en R</a></li>
+  <li><a href="#resumen-1" id="toc-resumen-1" class="nav-link" data-scroll-target="#resumen-1">Resumen</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>En este capítulo estudiaremos cómo describir conjuntos de datos de forma visual, utilizando varios tipos de gráficos distintos:</p>
+<ul>
+<li><em>Stemplot</em></li>
+<li>Histograma</li>
+<li>Diagrama de caja o <em>boxplot</em></li>
+<li>Gráfico de dispersión</li>
+<li>Gráfico de series temporales</li>
+</ul>
+<p>Veremos la relación visual entre un histograma y un diagrama de caja, y aprenderemos también a construir tablas de frecuencias en Excel y en <code>Python</code>. Finalmente, veremos algunos otros tipos de gráficos que son útiles para aplicaciones concretas, como los gráficos de densidad.</p>
+<p>Utilizaremos dos grupos de datos,</p>
+<p>- las alturas de un grupo de alumnos y alumnas, recogidos en un fichero CSV denominado `aula1.csv`,</p>
+<p>- los datos analíticos de una fabricación de camembert a lo largo de un año, recogidos en un fichero CSV denominado `camembert.csv`</p>
+<section id="explorando-los-datos" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="explorando-los-datos"><span class="header-section-number">7.1</span> Explorando los datos</h2>
+<section id="el-diagrama-de-tallo-y-hojas-stem-and-leaf-plot-o-stemplot" class="level3">
+<h3 class="anchored" data-anchor-id="el-diagrama-de-tallo-y-hojas-stem-and-leaf-plot-o-stemplot">El diagrama de tallo y hojas (<em>stem and leaf plot</em> o <em>stemplot</em>)</h3>
+<p>El diagrama de tallo y hojas, también conocido como <em>stemplot</em>, es una herramienta gráfica utilizada en estadística para representar la distribución de un conjunto de datos. Es especialmente útil para conjuntos de datos pequeños y proporciona una forma rápida y efectiva de visualizar la forma de los datos y su dispersión. El <em>stemplot</em> recibe este nombre porque el dibujo que resulta se asemeja a un tallo el que le salen las hojas que son los datos individuales.</p>
+<p>Los componentes de un <em>stemplot</em> son:</p>
+<ul>
+<li><p><strong>Tallo</strong>: Representa el grupo principal de los valores de los datos. Generalmente, se usa la parte más significativa del número. Por ejemplo, en el número 43, el tallo podría ser 4.</p></li>
+<li><p><strong>Hojas</strong>: Representan los dígitos finales o menos significativos de los valores de los datos. Siguiendo el ejemplo anterior, la hoja sería 3.</p></li>
+</ul>
+<section id="construcción-del-diagrama-en-la-hoja-de-cálculo" class="level4">
+<h4 class="anchored" data-anchor-id="construcción-del-diagrama-en-la-hoja-de-cálculo">Construcción del diagrama en la hoja de cálculo</h4>
+<p>Supongamos que queremos medir la altura de un grupo de alumnos de nuestra clase. Éste es nuestro grupo:</p>
+<p><img src="01-imagenes/grupo1.jpg" class="img-fluid"></p>
+<p>Realizamos la medida de altura de cada persona y registramos los valores en una hoja de cálculo, siguiendo las buenas prácticas que hemos visto al estudiar los <em>datos ordenados</em>.</p>
+<p><img src="01-imagenes/aula1.png" class="img-fluid"></p>
+<p>Vamos a utilizar los datos de medidas de altura de nuestro grupo de alumnos. Quitamos el último dígito a la derecha de nuestros valores y colocamos verticalmente los valores resultantes ordenándolos de menor a mayor, y evitando las repeticiones. Para evitar errores en la escala, debemos incluir los valores intermedios aunque no haya ninguno en nuestros datos (en el ejemplo, el valor 16 que correspondería a los 160). Esto forma el “tallo” de nuestro diagrama:</p>
+<p><img src="01-imagenes/aula1-stemplot-paso1.png" class="img-fluid"></p>
+<p>A continuación añadimos las “hojas” en la celda a la derecha, que consisten en los valores que hemos “cortado” de nuestro árbol, uno al lado de otro, incluyendo esta vez los valores repetidos, en orden de menor a mayor. Por ejemplo, para el valor 135, descartamos 13 y utlizamos 5; para el valor 138, descartamos 13 y utilizamos 8, y así sucesivamente para todos los valores.</p>
+<p><img src="01-imagenes/aula1-stemplot-paso2.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="interpretación-del-diagrama-de-tallo-y-hojas" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-del-diagrama-de-tallo-y-hojas">Interpretación del diagrama de tallo y hojas</h3>
+<ul>
+<li><strong>Tallo</strong>: Los números a la izquierda del símbolo <code>|</code> representan los valores base (o tallos), en este caso, las decenas de las alturas.</li>
+<li><strong>Hojas</strong>: Los números a la derecha del símbolo <code>|</code> representan los dígitos adicionales (o hojas). Por ejemplo, en la línea <code>13 | 58</code>, el tallo es <code>13</code> (130), y las hojas son <code>5</code> y <code>8</code>, que corresponden a los datos <code>135</code> y <code>138</code>.</li>
+</ul>
+<p>El diagrama nos dice que los valores en torno a 150 cm son los más frecuentes, y que hay un valor alto (175) que se separa un poco del resto.</p>
+</section>
+<section id="resumen" class="level3">
+<h3 class="anchored" data-anchor-id="resumen">Resumen</h3>
+<p>El <em>stemplot</em> es muy sencillo de hacer y nos da una visión rápida y compacta de la <em>distribución</em> de nuestros valores, así como de la posible existencia de valores que se separan del conjunto. Estos valores alejados, que se conocen en inglés como <em>outliers</em>, tienen mucha importancia en el analisis e interpretación de los datos, como veremos más adelante.</p>
+<p>La ventaja principal del <em>stemplot</em> es que mantiene los valores originales de las observaciones, y puede hacerse fácilmente con bolígrafo y papel, sin necesidad de más herramientas.</p>
+<p>Su principal inconveniente es la elaboración manual (aunque lenguajes como R tienen funciones que lo contruyen de forma automática), y por lo tanto, la dificultad de aplicarlo a volumenes de datos medios o grandes. El uso generalizado de los ordenadores ha hecho que actualmente esta herramienta tenga muy poco uso, y se utilicen en su lugar otras más gráficas y de construcción automática, como el <strong>histograma</strong>.</p>
+</section>
+</section>
+<section id="distribuciones-de-frecuencias" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="distribuciones-de-frecuencias"><span class="header-section-number">7.2</span> Distribuciones de frecuencias</h2>
+<p>Una <strong>distribución de frecuencias</strong> es una tabla que muestra la frecuencia con la que ocurren los valores diferentes en un conjunto de datos. Esta herramienta es fundamental en la estadística descriptiva y permite resumir y visualizar cómo se distribuyen los datos de manera clara y comprensible. A partir de una tabla de frecuencias se pueden construir diagramas de barra o histogramas para visualizar la tabla de forma gráfica.</p>
+<p>Para construir una distribución de frecuencias, agrupamos nuestros valores por intervalos, y contamos el número de observaciones que aparecen en cada intervalo. Los componentes de una distribución de frecuencias son:</p>
+<ul>
+<li>las <strong>categorías o clases</strong> son los intervalos o valores específicos de los datos que se están analizando. Cada categoría representa un rango de valores en caso de datos continuos, o valores específicos en caso de datos discretos.</li>
+<li>la <strong>frecuencia absoluta</strong> es un <em>recuento simple</em> de cuántas veces aparece cada valor en un conjunto de datos.</li>
+<li>la <strong>frecuencia relativa</strong> nos muestra la <em>proporción</em> de cada valor frente al total. Puede expresarse como fracción (entre 0 y 1) o como porcentaje (respecto a 100), y se calcula como: <span class="math display">\[
+\text{Frecuencia Relativa} = \frac{\text{Frecuencia Absoluta}}{\text{Número Total de Observaciones}}
+\]</span></li>
+<li>la <strong>frecuencia acumulada</strong> nos dice cuántas observaciones están por debajo de un cierto valor.</li>
+<li>la <strong>frecuencia relativa acumulada</strong> es la proporción de valores que están por debajo de un cierto valor</li>
+</ul>
+<section id="construcción-en-excel" class="level3">
+<h3 class="anchored" data-anchor-id="construcción-en-excel">Construcción en Excel</h3>
+<p>La tabla a continuación muestra una distribución de frecuencias de las alturas de nuestro grupo de alumnos, calculada mediante una tabla dinámica de Excel.</p>
+</section>
+</section>
+<section id="instrucciones-paso-a-paso-en-excel" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="instrucciones-paso-a-paso-en-excel"><span class="header-section-number">7.3</span> Instrucciones paso a paso en Excel</h2>
+<p>Para crear una tabla de frecuencias de la variable <code>altura_cm</code> mediante tablas dinámicas en Excel, sigue estos pasos:</p>
+<p><strong>1. Selecciona los Datos</strong></p>
+<ol type="1">
+<li>Abre tu archivo de Excel y selecciona toda la tabla que incluye los encabezados (<code>nombre</code> y <code>altura_cm</code>).</li>
+</ol>
+<p><strong>2. Inserta una tabla dinámica</strong></p>
+<ol type="1">
+<li>Ve a la pestaña <strong>Insertar</strong> en la barra de herramientas de Excel.</li>
+<li>Haz clic en <strong>Tabla Dinámica</strong>.</li>
+<li>En el cuadro de diálogo que aparece, asegúrate de que el rango de datos seleccionado es correcto y elige dónde deseas colocar la tabla dinámica (en una nueva hoja de cálculo o en la hoja actual).</li>
+</ol>
+<p><strong>3. Añade la frecuencia absoluta</strong></p>
+<ol type="1">
+<li>En el panel de campos de la tabla dinámica, arrastra el campo <code>altura_cm</code> a la sección <strong>Filas</strong>.</li>
+<li>Arrastra nuevamente el campo <code>altura_cm</code> a la sección <strong>Valores</strong>.</li>
+</ol>
+<p><strong>4. Ajusta la configuración de valores</strong></p>
+<ol type="1">
+<li>Haz clic en el campo <code>altura_cm</code> en la sección <strong>Valores</strong>.</li>
+<li>Selecciona <strong>Configuración de campo de valor</strong>.</li>
+<li>En el cuadro de diálogo que aparece, asegúrate de que esté seleccionada la opción <strong>Recuento</strong></li>
+<li>Acepta todo hasta volver a Excel.</li>
+</ol>
+<p><strong>5. Añade la frecuencia relativa</strong></p>
+<ol type="1">
+<li>En el panel de campos de la tabla dinámica, arrastra de nuevo el campo <code>altura_cm</code> a la sección <strong>Valores</strong>. Ahora la variable aparecerá como <code>altura_cm2</code>.</li>
+</ol>
+<p><strong>6. Ajusta de nuevo la configuración de valores</strong></p>
+<ol type="1">
+<li>Haz clic en el campo <code>altura_cm2</code> en la sección <strong>Valores</strong>.</li>
+<li>Selecciona <strong>Configuración de campo de valor</strong>.</li>
+<li>En el cuadro de diálogo que aparece, asegúrate de que esté seleccionada la opción <strong>Recuento</strong>.</li>
+<li>En ese mismo cuadro, haz click en el botón <strong>Formato de número</strong>, selecciona <strong>Número</strong> y <strong>2 decimales</strong>, y acepta.</li>
+<li>En ese mismo cuadro, selecciona la pestaña que dice <strong>Mostrar valores como</strong></li>
+<li>En el menú desplegable, escoge la opción <strong>% del total de columnas</strong>.</li>
+<li>Acepta todo hasta volver a Excel.</li>
+</ol>
+<p><strong>7. Ordena y formatea</strong></p>
+<ol type="1">
+<li>Puedes ordenar las alturas en orden ascendente o descendente haciendo clic en la flecha junto a <code>altura_cm</code> en la tabla dinámica.</li>
+<li>También puedes cambiar el formato de la tabla dinámica para que sea más fácil de leer.</li>
+<li>Puedes renombrar los encabezados de la tabla para que sea más fácil de leer, rotulando las columnas, por ejemplo, como <code>frec_abs</code>y <code>frec_rel</code>, o cualquier otro encabezado que te resulte claro y útil.</li>
+</ol>
+<p><img src="01-imagenes/aula1-td-frec.png" class="img-fluid"></p>
+<p>También podemos calcular las frecuencias absolutas de nuestra tabla en <code>Python</code>, de forma bastante sencilla, sin agrupar.</p>
+<div id="9c167875" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>altura_cm <span class="op">=</span> [<span class="dv">153</span>,<span class="dv">135</span>,<span class="dv">140</span>,<span class="dv">140</span>,<span class="dv">175</span>,<span class="dv">138</span>,<span class="dv">145</span>,<span class="dv">154</span>,<span class="dv">152</span>,<span class="dv">159</span>,<span class="dv">154</span>]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>frecuencias <span class="op">=</span> pd.Series(altura_cm).value_counts()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(frecuencias)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>140    2
+154    2
+153    1
+135    1
+175    1
+138    1
+145    1
+152    1
+159    1
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<p>Con un poco más de código podemos hacer la tabla agrupando los valores en clases de amplitud 10, con las frecuencias absolutas y relativas. Es un poco más complicado, tómate tu tiempo para entender cada paso de las instrucciones.</p>
+<div id="3df16e89" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>altura_cm <span class="op">=</span> [<span class="dv">153</span>,<span class="dv">135</span>,<span class="dv">140</span>,<span class="dv">140</span>,<span class="dv">175</span>,<span class="dv">138</span>,<span class="dv">145</span>,<span class="dv">154</span>,<span class="dv">152</span>,<span class="dv">159</span>,<span class="dv">154</span>]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>serie <span class="op">=</span> pd.Series(altura_cm)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear intervalos automáticamente con amplitud 10</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> np.arange(<span class="bu">min</span>(altura_cm)<span class="op">//</span><span class="dv">10</span><span class="op">*</span><span class="dv">10</span>, <span class="bu">max</span>(altura_cm)<span class="op">//</span><span class="dv">10</span><span class="op">*</span><span class="dv">10</span> <span class="op">+</span> <span class="dv">20</span>, <span class="dv">10</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Agrupar y contar</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>tabla <span class="op">=</span> pd.cut(serie, bins<span class="op">=</span>bins).value_counts(sort<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir a DataFrame con acumulados y relativos</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> tabla.to_frame(name<span class="op">=</span><span class="st">'Frecuencia'</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Frecuencia acumulada'</span>] <span class="op">=</span> df[<span class="st">'Frecuencia'</span>].cumsum()</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Frecuencia relativa (%)'</span>] <span class="op">=</span> (df[<span class="st">'Frecuencia'</span>] <span class="op">/</span> df[<span class="st">'Frecuencia'</span>].<span class="bu">sum</span>() <span class="op">*</span> <span class="dv">100</span>).<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Acumulada (%)'</span>] <span class="op">=</span> df[<span class="st">'Frecuencia relativa (%)'</span>].cumsum()</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Frecuencia  Frecuencia acumulada  Frecuencia relativa (%)  \
+(130, 140]           4                     4                    36.36   
+(140, 150]           1                     5                     9.09   
+(150, 160]           5                    10                    45.45   
+(160, 170]           0                    10                     0.00   
+(170, 180]           1                    11                     9.09   
+
+            Acumulada (%)  
+(130, 140]          36.36  
+(140, 150]          45.45  
+(150, 160]          90.90  
+(160, 170]          90.90  
+(170, 180]          99.99  </code></pre>
+</div>
+</div>
+<p>Vamos a explicar el código línea a línea.</p>
+<hr>
+<p>Este script en <code>Python</code> construye una tabla de frecuencias agrupadas a partir de un conjunto de datos numéricos (<code>altura_cm</code>), usando <code>pandas</code> y <code>numpy</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>🔹 Importa las bibliotecas necesarias: - <code>pandas</code>: para manipulación tabular. - <code>numpy</code>: para cálculos numéricos y generación de rangos.</p>
+<hr>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>altura_cm <span class="op">=</span> [<span class="dv">153</span>,<span class="dv">135</span>,<span class="dv">140</span>,<span class="dv">140</span>,<span class="dv">175</span>,<span class="dv">138</span>,<span class="dv">145</span>,<span class="dv">154</span>,<span class="dv">152</span>,<span class="dv">159</span>,<span class="dv">154</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>🔹 Define el conjunto de datos como una lista de alturas en centímetros.</p>
+<hr>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>serie <span class="op">=</span> pd.Series(altura_cm)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>🔹 Convierte la lista en una <code>Series</code> de pandas, lo que permite aplicar funciones estadísticas fácilmente.</p>
+<hr>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> np.arange(<span class="bu">min</span>(altura_cm)<span class="op">//</span><span class="dv">10</span><span class="op">*</span><span class="dv">10</span>, <span class="bu">max</span>(altura_cm)<span class="op">//</span><span class="dv">10</span><span class="op">*</span><span class="dv">10</span> <span class="op">+</span> <span class="dv">20</span>, <span class="dv">10</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>🔹 Genera los límites de clase con amplitud 10: - <code>min(altura_cm)//10*10</code>: redondea hacia abajo el mínimo a la decena más cercana. - <code>max(altura_cm)//10*10 + 20</code>: redondea hacia arriba el máximo y añade 10 extra para incluir el último dato. - <code>np.arange(...)</code>: crea un array de límites desde el mínimo hasta el máximo, en pasos de 10.</p>
+<p>📌 Ejemplo de salida: <code>[130, 140, 150, 160, 170, 180]</code></p>
+<hr>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tabla <span class="op">=</span> pd.cut(serie, bins<span class="op">=</span>bins).value_counts(sort<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>🔹 Agrupa los datos en los intervalos definidos: - <code>pd.cut(...)</code>: asigna cada dato a un intervalo. - <code>.value_counts(sort=False)</code>: cuenta cuántos datos hay en cada intervalo, sin reordenarlos.</p>
+<hr>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> tabla.to_frame(name<span class="op">=</span><span class="st">'Frecuencia'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>🔹 Convierte la serie de frecuencias en un <code>DataFrame</code> con una columna llamada <code>'Frecuencia'</code>.</p>
+<hr>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Frecuencia acumulada'</span>] <span class="op">=</span> df[<span class="st">'Frecuencia'</span>].cumsum()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>🔹 Calcula la frecuencia acumulada sumando progresivamente los valores de la columna <code>'Frecuencia'</code>.</p>
+<hr>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Frecuencia relativa (%)'</span>] <span class="op">=</span> (df[<span class="st">'Frecuencia'</span>] <span class="op">/</span> df[<span class="st">'Frecuencia'</span>].<span class="bu">sum</span>() <span class="op">*</span> <span class="dv">100</span>).<span class="bu">round</span>(<span class="dv">2</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>🔹 Calcula la frecuencia relativa en porcentaje: - Divide cada frecuencia por el total. - Multiplica por 100. - Redondea a 2 decimales.</p>
+<hr>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Acumulada (%)'</span>] <span class="op">=</span> df[<span class="st">'Frecuencia relativa (%)'</span>].cumsum()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>🔹 Calcula el porcentaje acumulado, útil para análisis tipo Pareto.</p>
+<hr>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>🔹 Muestra la tabla final con: - Intervalos - Frecuencia absoluta - Frecuencia acumulada - Frecuencia relativa (%) - Porcentaje acumulado</p>
+<hr>
+<p>Como ves en el resultado, a veces se utilizan los símbolos <code>(</code> y <code>[</code> para definir los intervalos, tal como se hace en matemáticas.</p>
+<ul>
+<li>Intervalo <strong>abierto</strong>: El símbolo <code>(</code> se utiliza para denotar un intervalo abierto. El límite correspondiente <strong>no</strong> está incluuido en el intervalo.</li>
+<li>Intervalo <strong>cerrado o semiabierto</strong>:El símbolo <code>[</code> se utiliza para denotar un intervalo cerrado o semiabierto. EL límite correspondiente <strong>sí</strong> está incluido en el intervalo.</li>
+</ul>
+<p>Ejemplos:</p>
+<ul>
+<li><span class="math inline">\((a, b)\)</span> representa todos los números reales <strong>mayores</strong> que <span class="math inline">\(a\)</span> y <strong>menores</strong> que <span class="math inline">\(b\)</span> (excluye los valores <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>).</li>
+<li><span class="math inline">\([a, b]\)</span> representa todos los números reales <strong>mayores o iguales</strong> que <span class="math inline">\(a\)</span> y <strong>menores o iguales</strong> que <span class="math inline">\(b\)</span> (incluye <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>).</li>
+<li><span class="math inline">\([a, b)\)</span> representa todos los números reales <strong>mayores o iguales</strong> que <span class="math inline">\(a\)</span> y <strong>menores</strong> que <span class="math inline">\(b\)</span> (incluye <span class="math inline">\(a\)</span>, pero excluye <span class="math inline">\(b\)</span>)</li>
+<li><span class="math inline">\((a, b]\)</span> representa todos los números reales <strong>mayores</strong> que <span class="math inline">\(a\)</span> y <strong>menores o iguales</strong> que <span class="math inline">\(b\)</span> (excluye <span class="math inline">\(a\)</span>, pero incluye <span class="math inline">\(b\)</span>). :::</li>
+</ul>
+<p>Si comparamos los dos métodos que hemos utilizado para construir la tabla de frecuencias, vemos que:</p>
+<ul>
+<li>en Excel los pasos que hemos dado no están registrados y a la vista, y, por lo tanto, no son fácilmente revisables</li>
+<li>en <code>Python</code>, todos los pasos y opciones que hemos utilizado están a la vista en el código del script</li>
+</ul>
+<p>Si otra persona quisiera modificar la tabla, le sería fácil editar el código y relanzar el script, mientras que en Excel no sería fácil asegurarse de todos y cada uno de los pasos y clicks de ratón que hemos dado para construir y formatear la tabla.</p>
+<p>Es el caso, por ejemplo, de que enviásemos la tabla a otra persona y ésta tuviese que editarla en nuestra ausencia. En Excel, tendríamos que enviar a esa persona una explicación con las instrucciones oportunas; en cambio, en <code>Python</code>, una vez que se comprende el código, no hacen falta más explicaciones adicionales. Incluso sin una comprensión total del código, se podría duplicar exactamente la tabla copiando y ejecutando el código.</p>
+<p>Esta es una de las principales razones de la conveniencia del aprendizaje de <code>Python</code> incluso para las actividades más sencillas.</p>
+</section>
+<section id="ejercicio-propuesto" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="ejercicio-propuesto"><span class="header-section-number">7.4</span> Ejercicio propuesto</h2>
+<p>En la tabla de frecuencias anterior, calcular <strong>frecuencia absoluta acumulada</strong> y <strong>frecuencia relativa acumulada</strong> en Excel, e incluirlas en la tabla como dos columnas adicionales. La <strong>frecuencia relativa acumulada</strong> nos permitirá crear <strong>diagramas de Pareto</strong>, muy útiles en los procesos de mejora de calidad.</p>
+</section>
+<section id="diagrama-de-barras" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="diagrama-de-barras"><span class="header-section-number">7.5</span> Diagrama de barras</h2>
+<p>Cuando nuestra variable es <em>discreta</em>, podemos representar las frecuencias de cada valor de forma gráfica utilizando un diagrama de barras. Este diagrama utiliza barras rectangulares para representar la frecuencia de cada categoría.</p>
+<p>Este gráfico es muy utilizado para representar, por ejemplo, resultados de encuestas, como el número de votos que han obtenido los diferentes partidos políticos en unas elecciones, o tablas discretas, como los kilos fabricados por meses en una fábrica.</p>
+<div class="quarto-layout-panel" data-layout="[[40,-20,40],[45,-10,45]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
+<p><img src="01-imagenes/2024-12-07-excel-tabla-frec-1.png" class="img-fluid"></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 20.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
+<p><img src="01-imagenes/2024-12-07-excel-tabla-frec-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 45.0%;justify-content: center;">
+<p><img src="01-imagenes/barras1.png" class="img-fluid"></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 10.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 45.0%;justify-content: center;">
+<p><img src="01-imagenes/barras2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 45.0%;justify-content: flex-start;">
+<p>Ejemplos de diagramas de barras</p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 10.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+</section>
+<section id="histograma" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="histograma"><span class="header-section-number">7.6</span> Histograma</h2>
+<p>Para visualizar las variables continuas se utiliza el <strong>histograma</strong>, que es un diagrama que utiliza las barras rectangulares para hacer un gráfico de la distribución de valores continuos, previamente agrupados en intervalos (<em>bins</em> en inglés), tal como se ha hecho en la tabla de frecuencias.</p>
+<section id="componentes-de-un-histograma" class="level4">
+<h4 class="anchored" data-anchor-id="componentes-de-un-histograma">Componentes de un histograma</h4>
+<ol type="1">
+<li><strong>Eje horizontal (X)</strong>: Representa los intervalos de valores de la variable. Cada intervalo abarca un rango específico de valores.</li>
+<li><strong>Eje vertical (Y)</strong>: Muestra la frecuencia o el número de veces que los valores caen dentro de cada intervalo.</li>
+<li><strong>Barras</strong>: Cada barra en el histograma representa un intervalo. La altura de la barra indica la frecuencia de los valores dentro de ese intervalo.</li>
+</ol>
+</section>
+<section id="cómo-interpretar-un-histograma" class="level4">
+<h4 class="anchored" data-anchor-id="cómo-interpretar-un-histograma">Cómo interpretar un histograma</h4>
+<ul>
+<li>Si las barras son altas en un intervalo específico, significa que muchos valores del conjunto de datos caen dentro de ese rango.</li>
+<li>Un histograma puede ayudar a identificar patrones, como si los datos están distribuidos de manera simétrica, sesgada, o si hay picos y valles significativos.</li>
+</ul>
+</section>
+<section id="construcción-de-un-histograma-en-excel" class="level3">
+<h3 class="anchored" data-anchor-id="construcción-de-un-histograma-en-excel">Construcción de un histograma en Excel</h3>
+<p>Usaremos el ejemplo de la altura en cm. de un grupo de alumnos, cuyos datos hemos guardado en el fichero csv <code>aula1.csv</code>.</p>
+<p>Podemos utilizar dos métodos para hacer un histograma en Excel</p>
+<section id="método-1-histograma-directo" class="level4">
+<h4 class="anchored" data-anchor-id="método-1-histograma-directo">Método 1: histograma directo</h4>
+<ul>
+<li>Seleccionamos el rango de datos. Podemos hacerlo mediante un click en el encabezado de la columna de la variable <code>altura_cm</code>, en este caso, la columna <code>B</code>.</li>
+<li>En la opción de menú <code>Insertar</code>, seleccionamos el icono <code>Seleccionar gráficos de estadística</code></li>
+<li>Seleccionamos <code>Histograma</code></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01-imagenes/excel-histo-aula1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<p>Excel calcula automáticamente la amplitud de los intervalos y el número de columnas; estas opciones pueden modificarse seleccionando con el botón derecho del ratón el elemento a modificar. En este caso, utilizamos estas opciones:</p>
+<ul>
+<li>Eliminamos título del gráfico</li>
+<li>Modificamos anchura de las barras seleccionando <code>Dar formato a serie de datos</code>, <code>Opciones de serie</code>, <code>Ancho del rango</code>= 50%</li>
+<li>Modificamos los intervalos seleccionando el eje X: <code>Dar formato al eje</code>, <code>Opciones de eje</code>, <code>Ancho del rango</code> = 10</li>
+</ul>
+<p>La descripción de los intervalos utiliza los mismos símbolos que hemos visto en las tablas de frecuencias de R.</p>
+<p>En el momento de escribir este manual, Excel no permite hacer histogramas múltiples ni agrupados por otra variable, por lo que para diseños más complejos, no hay más remedio que recurrir a otras opciones como las tablas dinámicas de Excel o, mejor aún, R.</p>
+</section>
+<section id="método-2-utilizar-una-tabla-dinámica" class="level4">
+<h4 class="anchored" data-anchor-id="método-2-utilizar-una-tabla-dinámica">Método 2: utilizar una tabla dinámica</h4>
+<p>La tabla dinámica que hemos construido en Excel ha convertido nuestra variable continua, <code>altura_cm</code>, en una tabla de valores discretos, al agrupar los valores en intervalos. En Excel podemos representar las frecuencias absolutas de nuestra tabla gráficamente, insertando un gráfico de barras a partir de la tabla:</p>
+<ul>
+<li>Con el cursor dentro de la tabla, seleccionamos la opción de menú <code>Insertar</code></li>
+<li>Insertamos un gráfico de barras</li>
+</ul>
+<p>Opcionalmente, aplicamos las siguientes opciones de formato:</p>
+<ul>
+<li>Hacemos click sobre uno de los botones del gráfico dinámico con el boton derecho del ratón, y seleccionamos la opción ocultar todos los botones del gráfico.</li>
+<li>Eliminamos el título del gráfico</li>
+<li>Abrimos el formato de la serie de datos, e introducimos en la opción <code>Ancho del rango</code> el valor <span class="math inline">\(50\%\)</span> para ensanchar las barras.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01-imagenes/aula1-diag-barras.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<p>Al utiizar la tabla dinámica para construir el gráfico, Excel utiliza las categorías de la tabla dinámica. Dado que estas categorías (los intervalos que ha formado la tabla dinámica) son discretas, Excel utiliza el resultado de la tabla dinámica para hacer el gráfico con un diagrama de barras. No es posible insertar un histograma a partir de una tabla dinámica.</p>
+</section>
+</section>
+<section id="análisis-de-un-caso-real" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-de-un-caso-real">Análisis de un caso real</h3>
+<p>El histograma muestra su utilidad cuando representamos la distribución de un conjunto de valores más grande que nuestros once alumnos. Veamos su aplicación a los datos diarios de una fabricación de queso camembert a lo largo de un año.Los datos de esta fabricación están en el fichero <code>camembert.csv</code>.</p>
+<p>La tabla de datos tiene esta estructura:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01-imagenes/camembert-tabla-datos.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<p>La tabla está formada por 211 casos.</p>
+<section id="construcción-del-histograma-con-excel" class="level4">
+<h4 class="anchored" data-anchor-id="construcción-del-histograma-con-excel">Construcción del histograma con Excel</h4>
+<section id="método-directo" class="level5">
+<h5 class="anchored" data-anchor-id="método-directo">Método directo</h5>
+<p>Seleccionamos el rango del extracto seco (columna <code>est</code>) e insertamos el histograma, ajustando el ancho de intervalo a <span class="math inline">\(1\)</span> en las opciones de gráfico:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01-imagenes/excel-histo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</section>
+<section id="método-2-mediante-una-tabla-dinámica" class="level5">
+<h5 class="anchored" data-anchor-id="método-2-mediante-una-tabla-dinámica">Método 2: mediante una tabla dinámica</h5>
+<p>Los pasos a seguir son:</p>
+<ol type="1">
+<li>Construir la tabla dinámica</li>
+<li>Agrupar los datos</li>
+<li>Insertar el gráfico a partir de la tabla</li>
+</ol>
+<p>Con una agrupación de datos en intervalos de 1, esta es nuestra tabla dinámica:</p>
+<p><img src="01-imagenes/camembert-td.png" class="img-fluid"></p>
+<p>En la figura siguiente vemos el histograma correspondiente a la tabla anterior, con un intervalo de clase de 1 punto de extracto seco total, y otras dos alternativas si el intervalo de clase fuese de 2 puntos o de de 0,5 puntos.</p>
+<div class="quarto-layout-panel" data-layout="[[1], [1,1]]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01-imagenes/camembert-histo1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="01-imagenes/camembert-histo2.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="01-imagenes/camembert-histo3.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p>La decisión de cambiar la amplitud del intervalo en un histograma influye en el aspecto del gráfico y es una opción personal; lo mejor es utilizar la que en nuestra opinión refleje mejor el aspecto de la distribución de datos, ni demasiado grande ni demasiado pequeña. En todo caso, debemos ser capaces de interpretar que la distribución de los valores es la misma en los tres casos: hay una mayoría de casos con valores entre 46 y 48, y muy pocos casos con valores muy bajos o muy altos. En este caso, la distribución de los valores es aproximadamente simétrica, y se reparten alrededor de una mayoría de valores centrales.</p>
+</section>
+</section>
+<section id="creación-del-histograma-en-python" class="level4">
+<h4 class="anchored" data-anchor-id="creación-del-histograma-en-python">Creación del histograma en <code>Python</code></h4>
+<p>Las funciones de histograma de <code>Python</code> permiten construir el histograma directamente sin necesidad de hacer previamente una tabla de frecuencias (en realidad, la tabla de frecuencias se calcula internamente). Es mucho más sencillo utilizar estas funciones, ya que el código se simplifica mucho.</p>
+<p>Como siempre, presentamos la opción básica de R junto con la opción de la función <code>ggplot()</code> de <code>tidyverse</code>, y utilizamos las opciones de personalización de <code>ggplot()</code>para trazar un histograma de aspecto semejante al gráfico básico; en esta ocasión, utilizamos el color de relleno gris.</p>
+<p>Vemos que los dos gráficos no son idénticos a pesar de provenir de los mismos datos, porque la construcción de los intervalos subyacente es ligeramente diferente. Esto no debe preocuparnos, porque el aspecto general de la distribución de los datos es el mismo.</p>
+<p>En la fase de exploración nos importa más entender estas propiedades de los datos (aspecto, forma de la distribución) que la precisión en la construcción del gráfico. En todo caso, en <code>qqplot()</code>podemos usar infinidad de opciones que nos permiten configurar el gráfico hasta los más mínimos detalles, por lo que esta función es mucho más útil que las funciones básicas para preparar gráficos que vayan destinados a informes o presentaciones. La función básica <code>hist()</code>, por su parte, es más sencilla de usar al principio cuando no tenemos todavía experiencia con <code>ggplot()</code>, y también para una visualización rápida.</p>
+</section>
+</section>
+<section id="otros-ejemplos" class="level3">
+<h3 class="anchored" data-anchor-id="otros-ejemplos">Otros ejemplos</h3>
+<p>En ocasiones, nos encontramos con datos que son asimétricos: hay una mayoría de valores bajos o bien de valores altos. Veamos un caso: los recuentos bacterianos de bacterias coliformes, que tenemos en la última columna a la derecha de nuestra tabla, en la variable ´coliformes´.</p>
+<p><img src="01-imagenes/camembert-graf-colis.png" class="img-fluid"></p>
+<p>En este caso, vemos que la mayoría de los casos tienen valor cero. Es el caso de los recuentos de bacterias contaminantes, en el que la mayoría de los análisis tienen recuentos cero o muy bajos, y sólo en pocos casos tienen valores altos. Veremos con más detalle cómo tratar estas distribuciones cuando hablemos de las distribuciones de probabilidad, en capítulos posteriores.</p>
+<p>En los histogramas de los recuentos bacterianos,utilizamos una opción para aumentar el número de barras que queremos en el histograma: <code>breaks=</code> en la función base, <code>bins=</code> en <code>ggplot()</code>:</p>
+<p>En casos de distribuciones muy asimétricas, a veces es conveniente aplicar una transformación a los datos, tal como el logaritmo decimal, mediante la función <code>log10()</code>; esto facilita la interpretación del gráfico:</p>
+</section>
+</section>
+<section id="gráficos-de-densidad" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="gráficos-de-densidad"><span class="header-section-number">7.7</span> Gráficos de densidad</h2>
+<p>Un gráfico de densidad en R es una representación visual suavizada de la distribución de un conjunto de datos. A diferencia de los histogramas, que dividen los datos en intervalos y cuentan las frecuencias, los gráficos de densidad utilizan técnicas estadísticas no paramétricas para estimar la función de densidad de probabilidad.</p>
+<p>Un gráfico de densidad, también conocido como <em>density plot</em>, es una representación visual suavizada de la distribución de un conjunto de datos.A diferencia de los histogramas, que dividen los datos en intervalos y cuentan las frecuencias, los gráficos de densidad utilizan técnicas estadísticas no paramétricas para estimar la función de densidad de probabilidad de una variable continua. El gráfico de densidad utiliza suavizamiento para proporcionar una estimación más continua de la distribución de los datos.</p>
+<p>Excel no permite la representación de los gráficos de densidad; en R pueden hacerse con la función <code>ggplot()</code>simplemente añadiendo la geometría <code>geom_density()</code></p>
+<p>Podemos representar simultáneamente el histograma y la función de densidad; hay que tener en cuenta que para representar la densidad y el histograma superpuestos, nos vemos obligados a cambiar la escala del eje Y a los valores de densidad en vez de a las frecuencias, de manera que los dos gráficos puedan solaparse sin problemas.</p>
+<p>La ventaja de los gráficos de densidad es que como no tenemos que fraccionar los datos en intervalos arbitrarios, no estamos afectados por el efecto visual de la anchura de estos intervalos. También hay otras ventajas desde el punto de vista estadístico, que veremos al hablar de las distribuciones de probabilidad.</p>
+<p>La flexibilidad de configuración de los gráficos de <code>qqplot()</code>permite la personalización de los gráficos hasta el último detalle. A continuación vemos un gráfico de densidad agrupado por meses, que nos muestra aparentes diferencias en el extracto seco <code>est</code> según los meses.</p>
+</section>
+<section id="diagrama-de-caja-o-boxplot" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="diagrama-de-caja-o-boxplot"><span class="header-section-number">7.8</span> Diagrama de caja o <em>boxplot</em></h2>
+<p>Este gráfico fue creado por el estadístico John Tukey en 1977, y es una herramienta fundamental en la exploración de datos. Se basa en un grupo de medidas que se utiliza ampliamente en la descripción de conjuntos de datos, el conjunto de <strong>cuartiles</strong>. Si dividimos un grupo de datos <strong>ordenados</strong> en cuatro partes iguales, mediante <strong>tres</strong> puntos de corte, llamamos <strong>primer cuartil</strong> o <span class="math inline">\(Q1\)</span> al valor que se situa en el 25%; <strong>segundo cuartil</strong>, o <span class="math inline">\(Q2\)</span>, al valor que se sitúa en el centro (50%), y <strong>tercer cuartil</strong>, o <span class="math inline">\(Q3\)</span>, al punto que se situa en el 75% de los datos. A estos tres valores añadimos el <strong>mínimo</strong> y el <strong>máximo</strong>, y tenemos un conjunto de <strong>cinco números</strong> que nos permiten describir la forma de la distribución de datos con cierta precisión. El segundo cuartil (<span class="math inline">\(Q2\)</span>), que corresponde al 50% de los datos, se conoce habitualmente como <strong>mediana</strong>. El valor resultante de restar <span class="math inline">\(Q3-Q1\)</span> es lo que se conoce como <strong>rango intercuartil</strong> o <span class="math inline">\(IQR\)</span>, y es una medida de la dispersión de la distribución de datos (mide la amplitud de la distribución).</p>
+<p>El <strong>diagrama de caja</strong>, también conocido como <em>boxplot</em>, es un gráfico que permite resumir las características principales de un conjunto de datos utilizando estos cinco números, tal como se explica a continuación. Sus ventajas son:</p>
+<ul>
+<li>Muestra la mediana y los cuartiles (Q1 y Q3) de los datos.</li>
+<li>Permite identificar la simetría de la distribución: si la mediana no está en el centro, la distribución no es simétrica.</li>
+<li>Permite detectar posibles valores atípicos, representando los valores atípicos (<em>outliers</em>) que están lejos del resto de los datos (un valor es atípico si está más allá de (Q3 + 1.5 IQR) o (Q1 - 1.5 IQR).</li>
+</ul>
+<p>La construcción de un diagrama de caja es como sigue:</p>
+<p><img src="01-imagenes/boxplot.svg" class="img-fluid"></p>
+<p>Microsoft Excel no dispone de un diseño de gráficos de caja que sea práctico, por lo que recurriremos siempre a R para realizarlos.</p>
+<p>Como casi siempre, hay una función de base que dibuja un <em>boxplot</em> y también una geometría de <code>ggplot()</code>que lo hace: <code>geom_boxplot()</code>, con muchas más opciones de diseño y formato que la opción de base.</p>
+<p><span class="math display">\[
+boxplot(df_aula$altura_cm)
+\]</span></p>
+<p>#| label: fig-boxplot2 #| fig-cap: “Ejemplos de boxplot” #| fig-subcap: #| - “Boxplot básico de R” #| - “Boxplot utilizando <code>ggplot()</code>” #| layout-ncol: 2</p>
+<p>df_camembert &lt;- read.csv2(“excel-R/camembert.csv”,fileEncoding=‘latin1’) df_camembert<span class="math inline">\(fecha &lt;- as.Date(df_camembert\)</span>fecha, format(“%d/%m/%Y”))</p>
+<p>boxplot(df_camembert$est)</p>
+<p>df_camembert |&gt; ggplot(aes(x=““, y=est))+ geom_boxplot() + theme_bw() + theme(axis.text.x = element_blank(), # Oculta las etiquetas del eje x axis.ticks.x = element_blank()) # Oculta las marcas del eje x</p>
+<p>Un uso muy interesante del boxplot en R consiste en agrupar los boxplot de una variable en funcion de otra. En este caso, agrupamos el extracto seco por meses previa agrupación de la fecha. Esta agrupación puede hacerse tanto en los gráficos básicos de R como en <code>ggplot()</code>:</p>
+<p><strong>Resumen</strong></p>
+<p>El código realiza las siguientes acciones:</p>
+<ul>
+<li>Añade una columna <code>mes</code> al dataframe <code>df_camembert</code>, que contiene solo el mes extraído de la columna <code>fecha</code>.</li>
+<li>Crea un boxplot básico que muestra la distribución de <code>est</code> por mes.</li>
+<li>Utiliza <code>ggplot2</code> para crear un boxplot más personalizado de <code>est</code> por mes, con etiquetas y un tema minimalista para un diseño limpio.</li>
+</ul>
+<p>#| label: fig-boxplot3 #| fig-cap: “Ejemplos de boxplot” #| fig-subcap: #| - “Boxplot básico de R” #| - “Boxplot utilizando <code>ggplot()</code>” #| layout-ncol: 2</p>
+<p>df_camembert<span class="math inline">\(mes &lt;- format(df_camembert\)</span>fecha, “%m”) boxplot (df_camembert<span class="math inline">\(est~df_camembert\)</span>mes)</p>
+<p>df_camembert |&gt; mutate (mes = format(fecha, “%m”)) |&gt; ggplot(aes(x = mes, y = est)) + geom_boxplot() + labs(title = “Boxplot de ‘est’ por Meses”, x = “Mes”, y = “Valor de est”) + theme_minimal()</p>
+<p>La agrupación de los <em>boxplots</em> por meses nos pone claramente de manifiesto las diferencias en el extracto seco <code>est</code>que ya habíamos visto con los gráficos de densidad. Estas diferencias son más claras en el mes de julio.</p>
+<section id="relación-entre-el-boxplot-y-el-histograma" class="level3">
+<h3 class="anchored" data-anchor-id="relación-entre-el-boxplot-y-el-histograma">Relación entre el <em>boxplot</em> y el histograma</h3>
+<p>Resulta muy útil comprender visualmente la relación entre el <em>boxplot</em> y el histograma para entender la distribución de los datos. En la gráfica siguiente se representan ambos simultáneamente</p>
+<p>df_camembert |&gt; ggplot(aes(x = est)) + geom_histogram(fill = “lightblue”, color = “black”, bins = 20, alpha = 0.7) + geom_boxplot(width = 2, fill = “darkgrey”, alpha = 0.7, position = position_nudge(y = -2)) + labs(title = “Histograma y Boxplot”, y = “Frecuencias”)</p>
+<p>df_camembert |&gt; ggplot(aes(x = log10(coliformes+1))) + geom_histogram(fill = “lightblue”, color = “black”, bins = 20, alpha = 0.7) + geom_boxplot(width = 4, fill = “darkgrey”, alpha = 0.7, position = position_nudge(y = -4)) + labs(title = “Histograma y Boxplot”, y = “Frecuencias”)</p>
+</section>
+</section>
+<section id="gráficos-de-dispersión" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="gráficos-de-dispersión"><span class="header-section-number">7.9</span> Gráficos de dispersión</h2>
+<p>Un gráfico de dispersión, también conocido como diagrama de dispersión o <em>scatter plot</em>, es una representación gráfica que utiliza puntos para mostrar la relación entre dos variables numéricas. Cada punto en el gráfico representa una observación del conjunto de datos y se coloca en el plano cartesiano de acuerdo con sus valores en las dos variables que se están comparando.</p>
+<p>Un gráfico de dispersión se compone mediante puntos:</p>
+<ul>
+<li>Cada punto en el gráfico representa una observación.</li>
+<li>La posición del punto en el gráfico está determinada por los valores de las dos variables para esa observación.</li>
+</ul>
+<p>Los gráficos de dispersión son útiles para identificar varios aspectos de la relación entre las dos variables:</p>
+<ul>
+<li>Si los puntos tienden a agruparse a lo largo de una línea recta ascendente, esto indica una correlación positiva (a medida que una variable aumenta, la otra también lo hace).</li>
+<li>Si los puntos se agrupan a lo largo de una línea descendente, esto indica una correlación negativa (a medida que una variable aumenta, la otra disminuye).</li>
+<li>Si los puntos forman una curva en lugar de una línea recta, esto sugiere una relación no lineal entre las variables.</li>
+<li>La dispersión de los puntos puede indicar la variabilidad de los datos. Puntos que están muy lejos del patrón general pueden ser valores atípicos.</li>
+</ul>
+<p>Como siempre, vemos el gráfico de dispersión en Excel y a continuación en R. Utilizamos la tabla de datos <code>camembert.csv</code> y representamos las variables <code>est</code>y <code>mg</code>.</p>
+<div id="fig-grafdisp" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-grafdisp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-grafdisp" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-tabladisp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-tabladisp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="01-imagenes/camembert-tabla-dispersion-est-mg.png" class="img-fluid figure-img" data-ref-parent="fig-grafdisp">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-tabladisp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Tabla de origen mostrando una parte de los datos seleccionados
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01-imagenes/camembert-dispersion-est-mg.png" class="img-fluid figure-img"></p>
+<figcaption>Gráfico de dispersión</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-grafdisp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;7.1: Gráfico de dispersión en Excel
+</figcaption>
+</figure>
+</div>
+<p>A continuación, el código R para realizar el gráfico de dispersión, con la función básica y con <code>ggplot()</code>.</p>
+<p>#| label: fig-grafdisp #| fig-cap: “Ejemplos de gráfico de dispersión” #| fig-subcap: #| - “Gráfico de dispersion básico de R” #| - “Gráfico de dispersion utilizando <code>ggplot()</code>” #| layout-ncol: 2 #| plot(df_camembert<span class="math inline">\(est, df_camembert\)</span>mg)</p>
+<p>df_camembert |&gt; ggplot(aes(x=est,y=mg))+ geom_point() + theme_bw()</p>
+<p>Lo esperable en nuestros datos es que el valor de <code>est</code> y el de <code>mg</code> estén asociados, y a valores altos de la primera variable correspondan valores altos de la segunda (para el mismo producto y sin cambios de tecnología). Sin embargo, algunos valores parecen no encajar en este modelo; es el caso de un valor de <code>est</code>por encima de 52% con un valor de <code>mg</code>inferior a 23%, o el caso de un valor de <code>mg</code> en torno al 28% con un valor de <code>est</code> por debajo de 47%. Debemos revisar estos valores aparentemente anormales para verificar si ha habido un error en la toma de muestras o un error analítico. En fábricas con productos diferentes cuyos resultados analíticos se recogen en una tabla de datos común, a veces puede haber errores en la introducción de los códigos de producto, de forma que la toma de muestras y los análisis pueden ser correctos, pero estar mal asignados al guardar los datos.</p>
+<p>Como vemos, los gráficos de dispersión son una herramienta esencial en el análisis de datos exploratorio, ya que permiten visualizar relaciones y patrones en los datos, identificar correlaciones y detectar posibles anomalías. Esta información es crucial para realizar análisis estadísticos más profundos y tomar decisiones basadas en datos.</p>
+</section>
+<section id="gráficos-de-series-temporales" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="gráficos-de-series-temporales"><span class="header-section-number">7.10</span> Gráficos de series temporales</h2>
+<p>Hasta ahora hemos utilizado gráficos y tablas que describen la estructura y forma de una variable, o las relaciones entre dos variables. Hay otros gráficos que tienen en cuenta la forma en la que esos datos cambian con el tiempo. En este caso, será necesario que hayamos recogido en una variable de nuestra tabla los intervalos de tiempo en los que se han producido nuestros valores.</p>
+</section>
+<section id="ejemplos-de-series-temporales" class="level2" data-number="7.11">
+<h2 data-number="7.11" class="anchored" data-anchor-id="ejemplos-de-series-temporales"><span class="header-section-number">7.11</span> Ejemplos de series temporales</h2>
+<p>¿Se te ocurren algunos ejemplos de series temporales?</p>
+</section>
+<section id="algunos-ejemplos" class="level2" data-number="7.12">
+<h2 data-number="7.12" class="anchored" data-anchor-id="algunos-ejemplos"><span class="header-section-number">7.12</span> Algunos ejemplos</h2>
+<ul>
+<li><p>proceso de llenado de envases de queso crema: se llena una tarrina cada 15 segundos. Nuestros datos deben recoger el tiempo y el peso.</p></li>
+<li><p>nuestro fichero de fabricación de queso camembert recoge los valores analíticos medios diarios del producto fabricado.</p></li>
+<li><p>Una fábrica recoge leche diariamente y analiza cada día la composición de la leche que entra en la fábrica.</p></li>
+</ul>
+<p>En un gráfico de series temporales,</p>
+<ul>
+<li>el eje horizontal (X) representa el tiempo. Los puntos de tiempo pueden ser minutos, horas, días, meses, años, etc.</li>
+<li>el eje vertical (Y) representa los valores de la variable que se está estudiando. Estos valores pueden ser medidas como temperatura, ventas, precios, etc.</li>
+<li>cada valor individual corresponde a un punto</li>
+<li>los valores se conectan mediante una línea que conecta los puntos de datos, mostrando cómo cambian los valores de la variable a lo largo del tiempo.</li>
+<li>normalmente, en un gráfico de series temporales no suelen representarse los puntos individuales para facilitar la legibilidad del gráfico.</li>
+</ul>
+<p>En nuestro conjunto de datos de fabricación de queso camembert, la primera columna de la tabla recoge la variable <code>fecha</code>, lo que nos permite ordenar nuestros valores en el tiempo.</p>
+<p>Cuando representamos valores en el tiempo, nunca usaremos el diagrama de barras, sino el gráfico de líneas.</p>
+<section id="cómo-hacer-los-gráficos-de-series-temporales-en-excel-y-en-r" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-hacer-los-gráficos-de-series-temporales-en-excel-y-en-r">Cómo hacer los gráficos de series temporales en Excel y en R</h3>
+<p>Para hacer el gráfico en Excel, seleccionamos la columna <code>est</code>e insertamos un gráfico de líneas. A continuación, con el cursor sobre el gráfico, pulsamos el boton derecho y seleccionamos la opción <code>Seleccionar datos</code>. Una vez abierto el cuadro de opciones, editamos las etiquetas del eje X y seleccionamos el rango de la variable <code>fecha</code> desde la fila 2 hasta la última.Aceptamos, y a continuación editamos el formato del eje Y para sustituir el valor mínimo de <span class="math inline">\(0\)</span> por <span class="math inline">\(42\)</span>, que es el valor que queremos como mínimo para nuestro gráfico.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01-imagenes/camembert-excel-graf-series.png" class="img-fluid figure-img"></p>
+<figcaption>Tabla y gráfico de series</figcaption>
+</figure>
+</div>
+<p>A continuación, los gráficos en R, como siempre con la opción de gráficos base y con <code>ggplot()</code>. R formatea automáticamente el rango del eje Y y no tenemos que hacer ninguna corrección de formato.</p>
+<p>#| label: fig-graftemp #| fig-cap: “Ejemplos de gráfico de series temporales” #| fig-subcap: #| - “Gráfico de series temporales básico de R” #| - “Gráfico de series temporales utilizando <code>ggplot()</code>” #| layout-ncol: 2</p>
+<p>plot(df_camembert<span class="math inline">\(fecha, df_camembert\)</span>est, type=“l”)</p>
+<p>df_camembert |&gt; ggplot(aes(x=fecha, y=est))+ geom_line() + theme_bw()</p>
+</section>
+<section id="resumen-1" class="level3">
+<h3 class="anchored" data-anchor-id="resumen-1">Resumen</h3>
+<p>Los gráficos de series temporales son útiles para:</p>
+<ol type="1">
+<li><strong>Identificar Tendencias</strong>:
+<ul>
+<li>Una tendencia es una dirección general en la que los datos se mueven a lo largo del tiempo. Puede ser creciente, decreciente o constante.</li>
+</ul></li>
+<li><strong>Detección de Estacionalidad</strong>:
+<ul>
+<li>La estacionalidad se refiere a patrones que se repiten en intervalos regulares de tiempo, como las ventas de productos estacionales.</li>
+</ul></li>
+<li><strong>Identificar Ciclos</strong>:
+<ul>
+<li>Los ciclos son fluctuaciones que ocurren en intervalos no regulares y pueden deberse a factores económicos o de otra índole.</li>
+</ul></li>
+<li><strong>Detección de Anomalías</strong>:
+<ul>
+<li>Los picos y caídas repentinas pueden indicar eventos inusuales o errores en los datos.</li>
+</ul></li>
+</ol>
+<p>Los gráficos de series temporales son cruciales en diversas áreas:</p>
+<ol type="1">
+<li><strong>Economía y Finanzas</strong>:
+<ul>
+<li>Seguimiento de precios de acciones, tasas de interés y otros indicadores económicos.</li>
+</ul></li>
+<li><strong>Ciencia y Tecnología</strong>:
+<ul>
+<li>Monitoreo de variables ambientales, datos meteorológicos y medidas científicas.</li>
+</ul></li>
+<li><strong>Negocios</strong>:
+<ul>
+<li>Análisis de ventas, demanda de productos y desempeño empresarial a lo largo del tiempo.</li>
+</ul></li>
+</ol>
+<p>Los gráficos de series temporales proporcionan una visión clara y concisa de cómo cambian los datos a lo largo del tiempo. Esta visualización es fundamental para el análisis predictivo, la toma de decisiones y la identificación de patrones y anomalías en los datos.</p>
+<p>https://tidyplots.org/</p>
+<p><img src="01-imagenes/1740294003188.jpg" class="img-fluid"> <img src="01-imagenes/1740121283445.jpg" class="img-fluid"></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./030-organizacion.html" class="pagination-link" aria-label="La organización de los datos y el flujo de trabajo.Los datos ordenados o *arreglados* (*tidy data*)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">La organización de los datos y el flujo de trabajo.Los datos ordenados o <em>arreglados</em> (<em>tidy data</em>)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./050-estad-simple.html" class="pagination-link" aria-label="Medidas centrales y medidas de dispersión: la media y la varianza.">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza.</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

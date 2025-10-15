@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Juan Riera">
 
-<title>Notas para el master de quesería</title>
+<title>14&nbsp; Six Sigma y la mejora de los procesos. – Notas para el master de quesería</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -51,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./001-intro.html" rel="next">
+<link href="./160-bibliografia.html" rel="next">
+<link href="./130-sistema-medicion.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -76,17 +56,17 @@ div.csl-indent {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Sin resultados",
-    "search-matching-documents-text": "documentos encontrados",
-    "search-copy-link-title": "Copiar el enlace en la búsqueda",
-    "search-hide-matches-text": "Ocultar resultados adicionales",
-    "search-more-match-text": "resultado adicional en este documento",
-    "search-more-matches-text": "resultados adicionales en este documento",
-    "search-clear-button-title": "Borrar",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar",
-    "search-label": "Buscar"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -99,13 +79,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción general</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./140-mejora-procesos.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><em>Six Sigma</em> y la mejora de los procesos.</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -122,14 +102,14 @@ div.csl-indent {
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Buscar"></div>
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción general</span></span></a>
   </div>
 </li>
@@ -207,7 +187,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./140-mejora-procesos.html" class="sidebar-item-text sidebar-link">
+  <a href="./140-mejora-procesos.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><em>Six Sigma</em> y la mejora de los procesos.</span></span></a>
   </div>
 </li>
@@ -215,7 +195,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Anexos</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -235,10 +215,17 @@ div.csl-indent {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Tabla de contenidos</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introducción-general" id="toc-introducción-general" class="nav-link active" data-scroll-target="#introducción-general"><span class="header-section-number">1</span> Introducción general</a></li>
+  <li><a href="#six-sigma-y-mejora-de-la-calidad" id="toc-six-sigma-y-mejora-de-la-calidad" class="nav-link active" data-scroll-target="#six-sigma-y-mejora-de-la-calidad"><span class="header-section-number">14.1</span> Six Sigma y mejora de la calidad</a></li>
+  <li><a href="#definir-un-problema-opex-lean-sixsigma-16" id="toc-definir-un-problema-opex-lean-sixsigma-16" class="nav-link" data-scroll-target="#definir-un-problema-opex-lean-sixsigma-16"><span class="header-section-number">14.2</span> Definir un problema [OPEX Lean SixSigma #16]</a>
+  <ul class="collapse">
+  <li><a href="#cómo-es-una-buena-definición-de-un-problema" id="toc-cómo-es-una-buena-definición-de-un-problema" class="nav-link" data-scroll-target="#cómo-es-una-buena-definición-de-un-problema">¿Cómo es una buena definición de un problema?</a></li>
+  </ul></li>
+  <li><a href="#estrategia-de-resolucion-de-problemas" id="toc-estrategia-de-resolucion-de-problemas" class="nav-link" data-scroll-target="#estrategia-de-resolucion-de-problemas"><span class="header-section-number">14.3</span> Estrategia de resolucion de problemas</a></li>
+  <li><a href="#dmaic---sixsigma" id="toc-dmaic---sixsigma" class="nav-link" data-scroll-target="#dmaic---sixsigma"><span class="header-section-number">14.4</span> DMAIC - SixSigma</a></li>
+  <li><a href="#el-papel-de-los-métodos-estadísticos-en-la-mejora-six-sigma" id="toc-el-papel-de-los-métodos-estadísticos-en-la-mejora-six-sigma" class="nav-link" data-scroll-target="#el-papel-de-los-métodos-estadísticos-en-la-mejora-six-sigma"><span class="header-section-number">14.5</span> El papel de los métodos estadísticos en la mejora Six Sigma</a></li>
   </ul>
 </nav>
     </div>
@@ -247,26 +234,14 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Notas para el master de quesería</h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><em>Six Sigma</em> y la mejora de los procesos.</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">AUTOR</div>
-    <div class="quarto-title-meta-contents">
-             <p>Juan Riera </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">PUBLICADO</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">22/10/25</p>
-    </div>
-  </div>
   
     
   </div>
@@ -276,73 +251,33 @@ div.csl-indent {
 </header>
 
 
-<section id="introducción-general" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introducción general</h1>
-<p>Este documento trata sobre el análisis de datos industriales utilizando tanto la hoja de cálculo como un lenguaje de programación moderno como es <code>Python</code> . El uso de las técnicas estadísticas se ha reducido al mínimo, orientando el análisis al uso de métodos gráficos descriptivos sencillos.</p>
-<p>¿Por qué usar <code>Python</code> como herramienta? Hay varias razones que parecen oportunas:</p>
+<section id="six-sigma-y-mejora-de-la-calidad" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="six-sigma-y-mejora-de-la-calidad"><span class="header-section-number">14.1</span> Six Sigma y mejora de la calidad</h2>
+</section>
+<section id="definir-un-problema-opex-lean-sixsigma-16" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="definir-un-problema-opex-lean-sixsigma-16"><span class="header-section-number">14.2</span> Definir un problema [OPEX Lean SixSigma #16]</h2>
+<section id="cómo-es-una-buena-definición-de-un-problema" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-es-una-buena-definición-de-un-problema">¿Cómo es una buena definición de un problema?</h3>
 <ul>
-<li><p><code>Python</code> es actualmente el lenguaje de programación más extendido y el más utilizado en los nuevos campos de la inteligencia artificial (IA). Su conocimiento, aunque sea de forma básica, aportará un plus a los alumnos en su <em>curriculum</em>.</p></li>
-<li><p>El Principado de Asturias ha establecido una línea prioritaria de desarrollo de conocimientos en las áreas relacionadas con la IA para los estudiantes de Formación Profesional. Esto, unido al hecho de que algunas empresas de la región ya están implantando algunas experiencias en esta dirección, parece indicar la conveniencia de que los alumnos empiecen a familiarizarse con estos ámbitos de conocimiento.</p></li>
-<li><p><code>Python</code> posee los elementos necesarios para construir los gráficos que se necesitan para una explicación sencilla de un conjunto de datos de producción alimentaria, y su sintaxis resulta fácil de comprender, aunque otras herramientas, como el lenguaje R, sean más utilizadas en el análisis estadístico y de datos.</p></li>
-<li><p>Tener un contacto práctico con el lenguaje facilitará la adquisición de conocimientos suplementarios, ya sea en el ámbito del análisis estadístico de datos, de los métodos cuantitativos de mejora de procesos (<em>Six Sigma</em>), en la programación informática, o en la introducción a la IA.</p></li>
-<li><p><code>Python</code> es una herramienta gratuita, por lo que tanto el lenguaje como las herramientas para trabajar con él están a disposición libre en la web. En nuestro caso, utilizaremos una herramienta de Google, llamada <code>Google colab</code> , que permite utilizar scripts <code>Python</code> mediante la interfase <strong>jupyter</strong>. Esta herramienta se usa dentro del entorno de Google Chrome, y no es necesario hacer ninguna instalación de software. Para el entorno de la enseñanza, Google Colab resulta conveniente y suficiente.</p></li>
+<li>Breve</li>
+<li>Evitar lenguaje técnico: debes ser capaz de explicarlo a cualquier persona de la organización usando términos sencillos</li>
+<li>Cuantificar el problema, usando los datos disponibles</li>
+<li>Integra y explica el coste real del problema, para justificar la necesidad del análisis. Puedes relacionarlo con los <em>costes de no calidad</em></li>
+<li>Define el ámbito del problema: usa los términos que sean necesarios para delimitarlo con precisión.</li>
+<li>La definición de un problema debe conseguir formularlo de forma que sea específico, medible, realizable, relevante y acotado en el tiempo (plazo)</li>
 </ul>
-<p>El entorno de la industria alimentaria produce un constante flujo de datos como resultado tanto de la implantación de sistemas de captura automáticos como del aumento de la tecnificación de los puestos de trabajo; se requiere por parte de los profesionales industriales que sean capaces de analizar esta enorme cantidad de datos para transformarlos en información para la decisión. En la empresa industrial actual, son los ingenieros y técnicos de planta, y no estadísticos o ingenieros informáticos, quienes participan diariamente en la presentacion y discusion de los datos y en la toma de decisiones operativas, tanto en los equipos de trabajo como ante la Dirección. Por esta razón, considero necesario proporcionar a los estudiantes de la Formación Profesional un conocimiento básico de los conceptos, herramientas y métodos del análisis de datos, así como de algunas técnicas de presentación y comunicación de la información.</p>
-<p>Mi experiencia industrial me ha mostrado que en las situaciones reales, sobre el terreno, la comprensión práctica de los conceptos es más importante que su rigurosa formulación matemática. Por esta razón, en el desarrollo del contenido del libro insistiré más en la forma de aplicar las herramientas y entender los análisis que en el conocimiento formal de las fórmulas estadísticas y su deducción matemática, o de la programación informática en sí. He hecho especial hincapié en la utilización de herramientas sencillas, casi siempre gráficas, que son una ayuda valiosa para comprender la información contenida en un conjunto de datos. El objetivo es proporcionar al estudiante de industrias alimentarias las bases de la metodología para análisis de sus datos, y cómo puede aplicarse esta metoología a la resolución de problemas técnicos concretos, más que el conocimiento de la teoría matemática de la estadística o la programación.</p>
-<p>He evitado las explicaciones formales sobre temas estadísticos. Así, por ejemplo, al explicar la media de un conjunto de datos considero más importante entender el concepto físico de “centro de gravedad” que los conceptos estadísticos de esperanza matemática, que no se tocan en este texto. En este sentido, he intentado que el alumno aprenda bien la diferencia entre “en qué consiste” un estadístico, y “cómo se calcula”. Comprender la diferencia entre el concepto y su fórmula de cálculo es fundamental para entender cómo aplicarlo.</p>
-<p>Por ejemplo, veremos cómo el modo de cálculo de la media aritmética hace que su valor sea equivalente al centro de gravedad de un conjunto de datos; si aproximamos la idea a la de un sistema de palanca en equilibrio sobre un fulcro, será muy fácil entender y hacer entender por qué los valores anómalos extremos desvían notablemente la media y deben analizarse con cuidado: una pequeña desviación en un item muy lejos de gravedad tiene un gran efecto sobre el punto de equilibrio del sistema, debido a la longitud del brazo de palanca; de la misma manera, los valores extremos pueden introducir desviaciones en el valor de la media aritmética que siempre hay que considerar.</p>
-<p>También será fácil comprender que otros estadísticos, como la mediana, que se calculan de forma diferente (la mediana es, simplemente, el valor central del conjunto de datos) resultan menos o nada afectados por los valores extremos,; veremos en la práctica las ventajas e inconvenientes de cada uno.</p>
-<div id="fig-intro-media" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-intro-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-intro-media" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-media" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01-imagenes/media-balanza.svg" class="img-fluid figure-img" data-ref-parent="fig-intro-media">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) Diagrama de puntos (dotplot) mostrando la posición de la media aritmética
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-intro-media" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-palanca" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01-imagenes/palanca.png" class="img-fluid figure-img" data-ref-parent="fig-intro-media">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) Palanca de primer grado con el fulcro como punto de equilibrio
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-intro-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.1: Comparación gráfica del significado de la media en un diagrama de puntos (<em>dotplot</em>) con una palanca de primer grado.
-</figcaption>
-</figure>
-</div>
-<p>Un curso de introducción al análisis de datos industriales debe ser, ante todo, práctico y orientado a su aplicación en el entorno industrial real. Los principales temas de trabajo de análisis de los datos en la industria tienen que ver con su captura, su almacenamiento y su depuración, su descripción utilizando gráficos, la inferencia (intervalos de confianza y tests), la construcción de modelos explicativos, el diseño de los experimentos industriales, el control estadístico de la calidad y la exposición y presentación de resultados. Dado el alcance limitado de este documento, no se entrará en los métodos estadísticos en sí, y necesitarán de un estudio posterior si el alumno tiene interés en profundizar en ellos.</p>
-<p>A pesar de que los temas más especializados puedan ser importantes en algunas aplicaciones específicas, no preparan al estudiante para lo que se va a encontrar en el terreno en la mayor parte de las ocasiones. En cambio, la resolución de problemas en equipo en un entorno de aprendizaje dinámico enfrentándose a problemas exigentes, y el desarrollo de las habilidades de análisis, de síntesis y de comunicación, tendrán un impacto mucho más positivo.</p>
-<p>He intentado mostrar la necesidad de que los estudiantes comprendan y apliquen el método científico en el entorno industrial, y no sólo apliquen un recetario de procedimientos de manera automática. Son mucho mas importantes la comprensión y la utilización adecuada del método científico y de las herramientas y gráficos básicos, antes que la aplicación rutinaria y mecánica de determinadas fórmulas matemáticas o métodos sofisticados y complejos (como la IA) que el alumno puede no comprender en toda su profundidad.</p>
-<p>Las industrias líderes destacan por la aplicación intensiva de métodos tales como Six Sigma, Lean Manufacturing, diseño robusto de productos, y otros que hacen un uso intensivo de los datos, tanto de los obtenidos en producción como de los obtenidos en la realización de experimentos bien diseñados. Pero la mejora de la competitividad en estas empresas no se debe tanto a la aplicación de unos u otros métodos, como al desarrollo del juicio analítico de sus equipos humanos y a la aplicación de lo aprendido a la mejora continua de los procesos industriales. Veremos que la experiencia y el conocimiento tecnológico de estos procesos son fundamentales para el desarrollo del buen juicio analítico, y, en consecuencia, para la buena interpretación de los resultados que se obtienen con las herramientas estadísticas y de análisis.</p>
-<p>Tratándose de un libro para el uso en la Formación Profesional, considero prioritario que su estudio se oriente al desarrollo de habilidades que sean de aplicación práctica directa en el puesto de trabajo y además faciliten la empleabilidad del estudiante, y no a la obtención de conocimiento abstracto. En la última edición del <em>Informe sobre el futuro del empleo</em> disponible cuando se edita este libro, publicada por el <a href="https://www.weforum.org/">Foro Económico Mundial</a> (WEF) en junio de 2025 <span class="citation" data-cites="wef2025">(<a href="160-bibliografia.html#ref-wef2025" role="doc-biblioref">World Economic Forum 2025</a>)</span>, el WEF considera que:</p>
-<blockquote class="blockquote">
-<p>…al igual que en las dos ediciones anteriores de este informe, el <strong>pensamiento analítico</strong> sigue siendo la principal habilidad básica para los empleadores, ya que siete de cada 10 empresas lo consideran esencial. A esto le siguen la resiliencia, la flexibilidad y la agilidad, junto con el liderazgo y la influencia social, lo que subraya el papel fundamental de la adaptabilidad y la colaboración junto con las habilidades cognitivas. El pensamiento creativo y la motivación y la autoconciencia ocupan el cuarto y quinto lugar, respectivamente. Esta combinación de habilidades cognitivas, de autoeficacia e interpersonales dentro de los cinco primeros enfatiza la importancia atribuida por los encuestados a tener una fuerza laboral ágil, innovadora y colaborativa, donde tanto la capacidad de resolución de problemas como la resiliencia personal son críticas para el éxito.</p>
-</blockquote>
-<p>A estas habilidades se suman las dos que más crecen en estos dos últimos años: la IA y el <strong>análisis de datos</strong>. La voluntad de este libro es proporcionar conocimientos que ayuden al estudiante a desarrollarse en esta dirección.</p>
+</section>
+</section>
+<section id="estrategia-de-resolucion-de-problemas" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="estrategia-de-resolucion-de-problemas"><span class="header-section-number">14.3</span> Estrategia de resolucion de problemas</h2>
+</section>
+<section id="dmaic---sixsigma" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="dmaic---sixsigma"><span class="header-section-number">14.4</span> DMAIC - SixSigma</h2>
+</section>
+<section id="el-papel-de-los-métodos-estadísticos-en-la-mejora-six-sigma" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="el-papel-de-los-métodos-estadísticos-en-la-mejora-six-sigma"><span class="header-section-number">14.5</span> El papel de los métodos estadísticos en la mejora Six Sigma</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-wef2025" class="csl-entry" role="listitem">
-World Economic Forum. 2025. <span>«Future of Jobs Report, 2025»</span>. 91-93 route de la Capite,CH-1223 Cologny/Geneva, Switzerland: World Economic Forum. <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/">https://www.weforum.org/publications/the-future-of-jobs-report-2025/</a>.
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -371,12 +306,12 @@ World Economic Forum. 2025. <span>«Future of Jobs Report, 2025»</span>. 91-93 
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copiado");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copiado");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -747,10 +682,13 @@ World Economic Forum. 2025. <span>«Future of Jobs Report, 2025»</span>. 91-93 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./130-sistema-medicion.html" class="pagination-link" aria-label="El análisis del sistema de medición">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">El análisis del sistema de medición</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./001-intro.html" class="pagination-link" aria-label="La estadística en el entorno industrial.">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La estadística en el entorno industrial.</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./160-bibliografia.html" class="pagination-link" aria-label="Bibliografía">
+        <span class="nav-page-text">Bibliografía</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

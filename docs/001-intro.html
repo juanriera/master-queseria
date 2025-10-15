@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Juan Riera">
 
-<title>Notas para el master de quesería</title>
+<title>2&nbsp; La estadística en el entorno industrial. – Notas para el master de quesería</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -51,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./001-intro.html" rel="next">
+<link href="./005-herramientas.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -90,6 +70,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -102,7 +111,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción general</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./001-intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La estadística en el entorno industrial.</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -129,13 +138,13 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción general</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./001-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="./001-intro.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La estadística en el entorno industrial.</span></span></a>
   </div>
 </li>
@@ -238,35 +247,30 @@ div.csl-indent {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#introducción-general" id="toc-introducción-general" class="nav-link active" data-scroll-target="#introducción-general"><span class="header-section-number">1</span> Introducción general</a></li>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">2.1</span> Introducción</a></li>
+  <li><a href="#el-pensamiento-estadístico-y-el-método-científico." id="toc-el-pensamiento-estadístico-y-el-método-científico." class="nav-link" data-scroll-target="#el-pensamiento-estadístico-y-el-método-científico."><span class="header-section-number">2.2</span> El pensamiento estadístico y el método científico.</a></li>
+  <li><a href="#los-datos-industriales" id="toc-los-datos-industriales" class="nav-link" data-scroll-target="#los-datos-industriales"><span class="header-section-number">2.3</span> Los datos industriales</a>
+  <ul class="collapse">
+  <li><a href="#estudios-retrospectivos-o-históricos" id="toc-estudios-retrospectivos-o-históricos" class="nav-link" data-scroll-target="#estudios-retrospectivos-o-históricos">Estudios retrospectivos o históricos</a></li>
+  <li><a href="#estudios-observacionales" id="toc-estudios-observacionales" class="nav-link" data-scroll-target="#estudios-observacionales">Estudios observacionales</a></li>
+  <li><a href="#experimentos-diseñados" id="toc-experimentos-diseñados" class="nav-link" data-scroll-target="#experimentos-diseñados">Experimentos diseñados</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Notas para el master de quesería</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La estadística en el entorno industrial.</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">AUTOR</div>
-    <div class="quarto-title-meta-contents">
-             <p>Juan Riera </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">PUBLICADO</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">22/10/25</p>
-    </div>
-  </div>
   
     
   </div>
@@ -276,73 +280,167 @@ div.csl-indent {
 </header>
 
 
-<section id="introducción-general" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introducción general</h1>
-<p>Este documento trata sobre el análisis de datos industriales utilizando tanto la hoja de cálculo como un lenguaje de programación moderno como es <code>Python</code> . El uso de las técnicas estadísticas se ha reducido al mínimo, orientando el análisis al uso de métodos gráficos descriptivos sencillos.</p>
-<p>¿Por qué usar <code>Python</code> como herramienta? Hay varias razones que parecen oportunas:</p>
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p class="page-columns page-full"><img src="01-imagenes/1520188654204.jpg" class="img-fluid figure-img column-page-inset-right"></p>
+<figcaption>Un grupo de trabajo en planta ante un panel de variables indicadoras</figcaption>
+</figure>
+</div>
+<section id="introducción" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">2.1</span> Introducción</h2>
+<p>¿Alguna vez te has preguntado cómo podemos resolver problemas en el trabajo de forma sistemática y ordenada? La estadística y el método científico nos ayudan a hacerlo, y son más sencillos de lo que parece.</p>
+<p>El método científico es como una receta que seguimos para resolver problemas: primero observamos qué está pasando, luego pensamos qué puede estar causando el problema, después hacemos pruebas para comprobarlo, y finalmente sacamos conclusiones y tomamos acciones orientadas a eliminar el problema o conseguir una mejora, aunque sea parcial, y repetimos el ciclo. La estadística nos ayuda a entender si nuestras pruebas funcionaron o no, usando números y datos reales.</p>
+<p>Pensar de forma estadística significa entender que todo lo que hacemos en el trabajo está conectado, y que es normal que las cosas cambien o varíen un poco. Lo importante es saber cuándo estos cambios son normales y cuándo indican un problema real. Es como cuando cocinamos: sabemos que cada plato puede salir un poco diferente, pero reconocemos cuando algo ha salido realmente mal.</p>
+<p>En las fábricas y talleres, estas herramientas son muy útiles. Por ejemplo, si una máquina empieza a producir piezas defectuosas, podemos:</p>
+<ol type="1">
+<li>Observar qué está pasando</li>
+<li>Pensar en posibles causas</li>
+<li>Hacer pruebas controladas para encontrar el problema</li>
+<li>Usar números y datos para confirmar si lo hemos solucionado</li>
+</ol>
+<p>La experimentación es muy importante en la industria. En vez de cambiar las cosas al azar, hacemos pruebas organizadas para ver qué funciona mejor. Es como cuando ajustas la temperatura del horno y el tiempo de cocción para que un pastel salga perfecto: pruebas diferentes combinaciones y anotas los resultados.</p>
+<p>Lo mejor de todo es que cada vez que hacemos estos experimentos, aprendemos algo nuevo. Incluso si algo no funciona como esperábamos, esa información nos ayuda a mejorar la próxima vez. Es un proceso continuo de aprendizaje y mejora.</p>
+<p>Esta forma de trabajar nos ayuda a:</p>
 <ul>
-<li><p><code>Python</code> es actualmente el lenguaje de programación más extendido y el más utilizado en los nuevos campos de la inteligencia artificial (IA). Su conocimiento, aunque sea de forma básica, aportará un plus a los alumnos en su <em>curriculum</em>.</p></li>
-<li><p>El Principado de Asturias ha establecido una línea prioritaria de desarrollo de conocimientos en las áreas relacionadas con la IA para los estudiantes de Formación Profesional. Esto, unido al hecho de que algunas empresas de la región ya están implantando algunas experiencias en esta dirección, parece indicar la conveniencia de que los alumnos empiecen a familiarizarse con estos ámbitos de conocimiento.</p></li>
-<li><p><code>Python</code> posee los elementos necesarios para construir los gráficos que se necesitan para una explicación sencilla de un conjunto de datos de producción alimentaria, y su sintaxis resulta fácil de comprender, aunque otras herramientas, como el lenguaje R, sean más utilizadas en el análisis estadístico y de datos.</p></li>
-<li><p>Tener un contacto práctico con el lenguaje facilitará la adquisición de conocimientos suplementarios, ya sea en el ámbito del análisis estadístico de datos, de los métodos cuantitativos de mejora de procesos (<em>Six Sigma</em>), en la programación informática, o en la introducción a la IA.</p></li>
-<li><p><code>Python</code> es una herramienta gratuita, por lo que tanto el lenguaje como las herramientas para trabajar con él están a disposición libre en la web. En nuestro caso, utilizaremos una herramienta de Google, llamada <code>Google colab</code> , que permite utilizar scripts <code>Python</code> mediante la interfase <strong>jupyter</strong>. Esta herramienta se usa dentro del entorno de Google Chrome, y no es necesario hacer ninguna instalación de software. Para el entorno de la enseñanza, Google Colab resulta conveniente y suficiente.</p></li>
+<li>Resolver problemas de forma ordenada</li>
+<li>Tomar mejores decisiones basadas en datos reales</li>
+<li>Mejorar la calidad de nuestro trabajo</li>
+<li>Ahorrar tiempo y dinero evitando errores</li>
 </ul>
-<p>El entorno de la industria alimentaria produce un constante flujo de datos como resultado tanto de la implantación de sistemas de captura automáticos como del aumento de la tecnificación de los puestos de trabajo; se requiere por parte de los profesionales industriales que sean capaces de analizar esta enorme cantidad de datos para transformarlos en información para la decisión. En la empresa industrial actual, son los ingenieros y técnicos de planta, y no estadísticos o ingenieros informáticos, quienes participan diariamente en la presentacion y discusion de los datos y en la toma de decisiones operativas, tanto en los equipos de trabajo como ante la Dirección. Por esta razón, considero necesario proporcionar a los estudiantes de la Formación Profesional un conocimiento básico de los conceptos, herramientas y métodos del análisis de datos, así como de algunas técnicas de presentación y comunicación de la información.</p>
-<p>Mi experiencia industrial me ha mostrado que en las situaciones reales, sobre el terreno, la comprensión práctica de los conceptos es más importante que su rigurosa formulación matemática. Por esta razón, en el desarrollo del contenido del libro insistiré más en la forma de aplicar las herramientas y entender los análisis que en el conocimiento formal de las fórmulas estadísticas y su deducción matemática, o de la programación informática en sí. He hecho especial hincapié en la utilización de herramientas sencillas, casi siempre gráficas, que son una ayuda valiosa para comprender la información contenida en un conjunto de datos. El objetivo es proporcionar al estudiante de industrias alimentarias las bases de la metodología para análisis de sus datos, y cómo puede aplicarse esta metoología a la resolución de problemas técnicos concretos, más que el conocimiento de la teoría matemática de la estadística o la programación.</p>
-<p>He evitado las explicaciones formales sobre temas estadísticos. Así, por ejemplo, al explicar la media de un conjunto de datos considero más importante entender el concepto físico de “centro de gravedad” que los conceptos estadísticos de esperanza matemática, que no se tocan en este texto. En este sentido, he intentado que el alumno aprenda bien la diferencia entre “en qué consiste” un estadístico, y “cómo se calcula”. Comprender la diferencia entre el concepto y su fórmula de cálculo es fundamental para entender cómo aplicarlo.</p>
-<p>Por ejemplo, veremos cómo el modo de cálculo de la media aritmética hace que su valor sea equivalente al centro de gravedad de un conjunto de datos; si aproximamos la idea a la de un sistema de palanca en equilibrio sobre un fulcro, será muy fácil entender y hacer entender por qué los valores anómalos extremos desvían notablemente la media y deben analizarse con cuidado: una pequeña desviación en un item muy lejos de gravedad tiene un gran efecto sobre el punto de equilibrio del sistema, debido a la longitud del brazo de palanca; de la misma manera, los valores extremos pueden introducir desviaciones en el valor de la media aritmética que siempre hay que considerar.</p>
-<p>También será fácil comprender que otros estadísticos, como la mediana, que se calculan de forma diferente (la mediana es, simplemente, el valor central del conjunto de datos) resultan menos o nada afectados por los valores extremos,; veremos en la práctica las ventajas e inconvenientes de cada uno.</p>
-<div id="fig-intro-media" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-intro-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-intro-media" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-media" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01-imagenes/media-balanza.svg" class="img-fluid figure-img" data-ref-parent="fig-intro-media">
+<p>Recuerda: no necesitas ser un genio de las matemáticas para usar estas herramientas. Lo importante es ser organizado, observar bien lo que pasa y anotar los resultados de lo que hacemos. Así, poco a poco, podemos mejorar nuestro trabajo y resolver problemas de forma más eficiente.</p>
+<p>Los métodos estadísticos nos ayudan a describir y comprender la <strong>variabilidad</strong>. Cuando hablamos de variabilidad queremos decir que sucesivas observaciones de un mismo proceso o sistema no dan exactamente los mismos resultados. Por ejemplo, el consumo de gasolina de un coche no es siempre igual, sino que varía de manera considerable. Esta variación depende de muchos factores, como la forma de conducir, el tipo de carretera, la situación del propio vehículo (presión de neumáticos, compresión del motor, …), la marca de la gasolina, el octanaje, o incluso las condiciones meteorológicas. Todos estos factores son causas de <strong>variabilidad</strong> en el consumo de gasolina. La estadística nos permite analizar estos <strong>factores</strong> y determinar cuáles son los más importantes o tienen mayor impacto en el consumo; una vez conocidos, podemos actuar sobre ellos.</p>
+<p>En este libro aprenderemos a utilizar herramientas diversas, tanto estadísticas como de la ciencia de datos, para realizar nuestro análisis. Para aprender de los datos necesitamos más que los simples números; para interpretarlos necesitaremos siempre el conocimiento del proceso industrial que estamos analizando.En un análisis de la producción de un producto lácteo, por ejemplo, los números significan poco sin un conocimiento del proceso; los valores de pH, temperatura o concentración de lactosa influyen en el resultado del proceso de forma diferente. Los datos son números dentro de un contexto, y necesitamos conocer este contexto para dar sentido a los números.</p>
+<div class="content-visible callout callout-style-default callout-important callout-titled" data-when-format="html">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) Diagrama de puntos (dotplot) mostrando la posición de la media aritmética
-</figcaption>
-</figure>
+<div class="callout-title-container flex-fill">
+Importante
 </div>
 </div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-intro-media" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-palanca" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01-imagenes/palanca.png" class="img-fluid figure-img" data-ref-parent="fig-intro-media">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) Palanca de primer grado con el fulcro como punto de equilibrio
-</figcaption>
-</figure>
+<div class="callout-body-container callout-body">
+<p>El objetivo principal de la <strong>mejora industrial</strong> es la <strong>reducción de la variabilidad</strong>.</p>
 </div>
 </div>
+</section>
+<section id="el-pensamiento-estadístico-y-el-método-científico." class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="el-pensamiento-estadístico-y-el-método-científico."><span class="header-section-number">2.2</span> El pensamiento estadístico y el método científico.</h2>
+<p>La estadística y el método científico mantienen una relación fundamental que impulsa el avance del conocimiento y la innovación. El método científico, con sus pasos de observación, hipótesis, experimentación y conclusiones, encuentra en la estadística las herramientas necesarias para validar o refutar hipótesis de manera objetiva y cuantificable.</p>
+<p>El pensamiento estadístico es una filosofía de aprendizaje y acción basada en tres principios fundamentales:</p>
+<ul>
+<li>que todo proceso industrial está compuesto a su vez por procesos interconectados,</li>
+<li>que la variabilidad existe y es inherente a estos procesos, y</li>
+<li>que entender y reducir la variación es clave para la mejora y el éxito</li>
+</ul>
+<p>En el entorno industrial, esta integración entre estadística y método científico ha revolucionado los procesos de mejora continua. Por ejemplo, cuando una línea de producción enfrenta problemas de calidad, el método científico guía la investigación sistemática: se observa el proceso, se formulan hipótesis sobre las causas del problema, se diseñan experimentos controlados, y se analizan los resultados estadísticamente para determinar la validez de las soluciones propuestas.</p>
+<p>La experimentación industrial, particularmente a través del diseño de experimentos (DOE), se ha convertido en una herramienta fundamental para la mejora continua. En lugar de modificar procesos basándose en intuiciones o experiencias pasadas, las empresas pueden realizar experimentos controlados que:</p>
+<ul>
+<li>Optimizan múltiples variables simultáneamente</li>
+<li>Identifican interacciones entre factores que afectan el proceso</li>
+<li>Reducen el tiempo y costo de las mejoras</li>
+<li>Proporcionan conclusiones respaldadas por evidencia estadística</li>
+</ul>
+<p>Al realizar experimentos controlados, las empresas pueden probar hipótesis que permitan evaluar el impacto de diferentes variables en los procesos y productos y determinar los valores óptimos de los parámetros de los procesos para maximizar la calidad y la eficiencia. Esto genera conocimiento valioso sobre los procesos y productos, permite tomar decisiones más informadas, y ayuda a crear y mantener una ventaja competitiva.</p>
+<p>La experimentación, combinada con el análisis estadístico, permite a las empresas implementar ciclos de mejora continua, donde los resultados de cada experimento se utilizan para refinar los procesos y productos.</p>
+<p>Al integrar el pensamiento estadístico con el método científico en el entorno industrial, las organizaciones pueden desarrollar una cultura de mejora continua basada en la evidencia de los datos y no en suposiciones o intuiciones. En una cultura industrial basada en el método científico, cada problema es una oportunidad para experimentar, aprender y optimizar. Esta aproximación sistemática no solo mejora la calidad y eficiencia de los procesos, sino que también fomenta la innovación y el aprendizaje organizacional continuo.</p>
+<p>La clave del éxito radica en entender que la experimentación no es un evento aislado, sino un proceso continuo de aprendizaje y mejora. Cada experimento, exitoso o no, aporta información valiosa que, analizada correctamente mediante métodos estadísticos, contribuye al conocimiento colectivo de la organización y sienta las bases para futuras mejoras. La estadística y el método científico no solo son pilares fundamentales para la investigación académica, sino que también desempeñan un papel crucial en el entorno industrial. La aplicación sistemática del método científico, respaldada por herramientas estadísticas, permite a las empresas optimizar procesos, mejorar la calidad de sus productos y servicios, y fomentar la innovación.</p>
+<div class="content-visible callout callout-style-default callout-important callout-titled" data-when-format="html">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+El pensamiento estadístico en la toma de decisiones industriales
 </div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-intro-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.1: Comparación gráfica del significado de la media en un diagrama de puntos (<em>dotplot</em>) con una palanca de primer grado.
-</figcaption>
-</figure>
+<div class="callout-body-container callout-body">
+<p>En el entorno industrial, el pensamiento estadístico es esencial para:</p>
+<ul>
+<li><strong>Tomar decisiones basadas en datos,</strong> evitando decisiones basadas en intuiciones o suposiciones.</li>
+<li><strong>Evaluar riesgos,</strong> cuantificando la incertidumbre y permitiendo tomar decisiones que minimicen los riesgos.</li>
+<li><strong>Mejorar el conocimiento</strong> de los procesos para una toma de decisiones más eficaz.<br>
+</li>
+<li><strong>Comunicar resultados,</strong> presentando los resultados de los análisis de manera clara y concisa.</li>
+</ul>
+<p>La integración del método científico y el pensamiento estadístico en la cultura empresarial impulsa la innovación, la eficiencia y la competitividad.</p>
 </div>
-<p>Un curso de introducción al análisis de datos industriales debe ser, ante todo, práctico y orientado a su aplicación en el entorno industrial real. Los principales temas de trabajo de análisis de los datos en la industria tienen que ver con su captura, su almacenamiento y su depuración, su descripción utilizando gráficos, la inferencia (intervalos de confianza y tests), la construcción de modelos explicativos, el diseño de los experimentos industriales, el control estadístico de la calidad y la exposición y presentación de resultados. Dado el alcance limitado de este documento, no se entrará en los métodos estadísticos en sí, y necesitarán de un estudio posterior si el alumno tiene interés en profundizar en ellos.</p>
-<p>A pesar de que los temas más especializados puedan ser importantes en algunas aplicaciones específicas, no preparan al estudiante para lo que se va a encontrar en el terreno en la mayor parte de las ocasiones. En cambio, la resolución de problemas en equipo en un entorno de aprendizaje dinámico enfrentándose a problemas exigentes, y el desarrollo de las habilidades de análisis, de síntesis y de comunicación, tendrán un impacto mucho más positivo.</p>
-<p>He intentado mostrar la necesidad de que los estudiantes comprendan y apliquen el método científico en el entorno industrial, y no sólo apliquen un recetario de procedimientos de manera automática. Son mucho mas importantes la comprensión y la utilización adecuada del método científico y de las herramientas y gráficos básicos, antes que la aplicación rutinaria y mecánica de determinadas fórmulas matemáticas o métodos sofisticados y complejos (como la IA) que el alumno puede no comprender en toda su profundidad.</p>
-<p>Las industrias líderes destacan por la aplicación intensiva de métodos tales como Six Sigma, Lean Manufacturing, diseño robusto de productos, y otros que hacen un uso intensivo de los datos, tanto de los obtenidos en producción como de los obtenidos en la realización de experimentos bien diseñados. Pero la mejora de la competitividad en estas empresas no se debe tanto a la aplicación de unos u otros métodos, como al desarrollo del juicio analítico de sus equipos humanos y a la aplicación de lo aprendido a la mejora continua de los procesos industriales. Veremos que la experiencia y el conocimiento tecnológico de estos procesos son fundamentales para el desarrollo del buen juicio analítico, y, en consecuencia, para la buena interpretación de los resultados que se obtienen con las herramientas estadísticas y de análisis.</p>
-<p>Tratándose de un libro para el uso en la Formación Profesional, considero prioritario que su estudio se oriente al desarrollo de habilidades que sean de aplicación práctica directa en el puesto de trabajo y además faciliten la empleabilidad del estudiante, y no a la obtención de conocimiento abstracto. En la última edición del <em>Informe sobre el futuro del empleo</em> disponible cuando se edita este libro, publicada por el <a href="https://www.weforum.org/">Foro Económico Mundial</a> (WEF) en junio de 2025 <span class="citation" data-cites="wef2025">(<a href="160-bibliografia.html#ref-wef2025" role="doc-biblioref">World Economic Forum 2025</a>)</span>, el WEF considera que:</p>
-<blockquote class="blockquote">
-<p>…al igual que en las dos ediciones anteriores de este informe, el <strong>pensamiento analítico</strong> sigue siendo la principal habilidad básica para los empleadores, ya que siete de cada 10 empresas lo consideran esencial. A esto le siguen la resiliencia, la flexibilidad y la agilidad, junto con el liderazgo y la influencia social, lo que subraya el papel fundamental de la adaptabilidad y la colaboración junto con las habilidades cognitivas. El pensamiento creativo y la motivación y la autoconciencia ocupan el cuarto y quinto lugar, respectivamente. Esta combinación de habilidades cognitivas, de autoeficacia e interpersonales dentro de los cinco primeros enfatiza la importancia atribuida por los encuestados a tener una fuerza laboral ágil, innovadora y colaborativa, donde tanto la capacidad de resolución de problemas como la resiliencia personal son críticas para el éxito.</p>
-</blockquote>
-<p>A estas habilidades se suman las dos que más crecen en estos dos últimos años: la IA y el <strong>análisis de datos</strong>. La voluntad de este libro es proporcionar conocimientos que ayuden al estudiante a desarrollarse en esta dirección.</p>
+</div>
+</section>
+<section id="los-datos-industriales" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="los-datos-industriales"><span class="header-section-number">2.3</span> Los datos industriales</h2>
+<p>En el entorno industrial, podemos organizar los datos en varias categorías, considerando tanto su naturaleza como la forma en que se obtienen:</p>
+<p><strong>Según su estructura:</strong></p>
+<ul>
+<li><strong>Datos estructurados:</strong>
+<ul>
+<li>Son datos organizados en un formato definido, como tablas de bases de datos, hojas de cálculo o archivos CSV. Su estructura facilita el análisis y la consulta.</li>
+<li>Ejemplos: lecturas de sensores, registros de producción, datos de control de calidad, información de inventario.</li>
+</ul></li>
+<li><strong>Datos no estructurados:</strong>
+<ul>
+<li>Son datos que no tienen un formato predefinido, como texto, imágenes, audio o video.Su análisis requiere técnicas más avanzadas, como el procesamiento de lenguaje natural o la visión artificial.</li>
+<li>Ejemplos: registros de mantenimiento, informes de incidentes, imágenes de inspección visual, grabaciones de audio de maquinaria.</li>
+</ul></li>
+<li><strong>Datos semiestructurados:</strong>
+<ul>
+<li>Son datos que tienen cierta estructura, pero no tan rígida como los datos estructurados, y permiten una mayor flexibilidad en el almacenamiento y el intercambio de información.</li>
+<li>Ejemplos: archivos XML o JSON, registros de eventos.</li>
+</ul></li>
+</ul>
+<p><strong>Según su origen y método de obtención:</strong></p>
+<ul>
+<li><strong>Datos históricos (Estudios retrospectivos):</strong>
+<ul>
+<li>Son datos recopilados en el pasado, que se utilizan para analizar tendencias, identificar patrones y predecir el comportamiento futuro. Permiten comprender la evolución de los procesos.</li>
+<li>Ejemplos: registros de producción de años anteriores, datos de fallos de maquinaria, históricos de ventas.</li>
+</ul></li>
+<li><strong>Datos observacionales (Estudios observacionales):</strong>
+<ul>
+<li>Son datos recopilados mediante la observación de procesos o sistemas, sin intervenir en ellos. Permiten identificar relaciones entre variables y comprender el comportamiento de los procesos en condiciones reales.</li>
+<li>Ejemplos: mediciones de temperatura, vibración o presión de maquinaria, registros de tiempo de ciclo de producción.</li>
+</ul></li>
+<li><strong>Datos experimentales (Experimentos diseñados):</strong>
+<ul>
+<li>Son datos recopilados mediante la realización de experimentos controlados, en los que se manipulan variables para evaluar su efecto. Permiten establecer relaciones de causa y efecto, estudiar las interacciones entre las variables y optimizar el rendimiento de los procesos.</li>
+<li>Ejemplos: datos de pruebas de rendimiento de nuevos materiales, resultados de experimentos de optimización de procesos.</li>
+</ul></li>
+<li><strong>Datos de monitorización o control de procesos en tiempo real:</strong>
+<ul>
+<li>son datos que se recaban de manera instantanea, y permiten actuar de manera casi inmediata en los procesos; permiten implementar el mantenimiento predictivo, y evitar perdidas de produccion.</li>
+<li>Ejemplos: datos de sensores que detectan fallos en maquinaria, alarmas de procesos fuera de control.</li>
+</ul></li>
+</ul>
+<p>En el contexto de la Industria 4.0, la cantidad y variedad de datos industriales está aumentando exponencialmente.</p>
+<section id="estudios-retrospectivos-o-históricos" class="level3">
+<h3 class="anchored" data-anchor-id="estudios-retrospectivos-o-históricos">Estudios retrospectivos o históricos</h3>
+<p>Un <strong>estudio retrospectivo o histórico</strong> es el que utiliza una muestra o todos los datos históricos de un proceso, recogidos en el pasado durante un período determinado de tiempo. El objetivo de un estudio de este tipo puede ser la investigación sobre la relación entre algunas variables, o explorar la calidad de la información disponible, o construir un modelo que permita explicar el proceso tal como es actualmente, o saber si se ha desviado. Estos modelos del proceso se denominan <strong>modelos empíricos</strong>, porque están basados en los propios datos del proceso y no en una formulación teórica sobre el mismo.</p>
+<p>Un estudio retrospectivo tiene la ventaja de tener a su disposición un gran número de datos que ya han sido recogidos, minimizando el esfuerzo de obtenerlos. Sin embargo, tiene varios problemas potenciales:</p>
+<ol type="1">
+<li>Si no disponemos de detalles suficientes, es posible que no podamos determinar si las condiciones de variación de los valores obtenidos responden a las mismas causas que en la situación actual.</li>
+<li>Es posible que nos falte algún valor clave que no haya sido recogido o que lo haya sido de manera defectuosa</li>
+<li>Algunas veces, la fiabilidad y validez de los datos de proceso históricos son dudosas, o al menos, cuestionables.</li>
+<li>Los datos históricos no siempre se han recogido con la perspectiva actual del proceso, y es posible que no nos proporciones explicaciones adecuadas del proceso en su situación actual.</li>
+<li>A veces queremos utilizar los datos históricos de proceso para fines que no estaban previstos cuando se recogieron</li>
+<li>Las notas sobre los valores del proceso, incluyendo los valores anormales, pueden ser insuficientes o inexistentes, y no tenemos ninguna explicación sobre los posibles valores anómalos que detectamos en el análisis.</li>
+</ol>
+<p>Usar datos históricos siempre tiene el riesgo de que, por la razón que sea, no se hayan recogido datos importantes, o que estos datos se hayan perdido, o se hayan transcrito de forma inadecuada o incorrecta. Es decir, los datos históricos pueden tener problemas de calidad de datos.</p>
+<p>El hecho de que algunos datos se hayan recogido históricamente no siempre quiere decir que estos datos sean relevantes o útiles. Cuando el grado de conocimiento del proceso no es suficiente, o no se basa en un análisis metódico y riguroso de los datos, es posible que no se hayan recogido algunos datos que pueden ser importantes para el proceso, a veces simplemente porque son complejos o difíciles de analizar. Los datos históricos no pueden proporcionar la información que buscamos si la información de las variables clave nunca se ha recogido o se ha hecho sin una buena base experimental.</p>
+<p>El propósito del análisis de los datos industriales es aislar las causas que están detrás de los sucesos que afectan e influyen en los procesos. En los datos históricos, estos sucesos pueden haber ocurrido semanas, meses o incluso años antes, sin que haya registros ni notas que hayan intentado explicar estas causas, y los recuerdos de las personas que han participado en ellos se pierden con el tiempo, o se alteran involuntariamente, proporcionando explicaciones supuestamente válidas pero que en realidad son incorrectas. Por eso, con frecuencia, el análisis de los datos históricos puede poner de manifiesto hechos interesantes, pero sus causas quedan sin explicar.</p>
+<p>Los estudios históricos pueden requerir una fase previa de preparación y depuración de datos que puede llegar a ser muy larga y tediosa. Se estima que en muchos estudios de ciencia de datos, el tiempo de preparación de los datos puede llegar al <span class="math inline">\(60\%\)</span> del tiempo total empleado en el estudio. Las herramientas de análisis de datos son de gran ayuda en esta fase del proceso, aunque en muchas ocasiones será necesario un trabajo manual de recolección de datos en papel, hojas de cálculo diversas y otras fuentes. Esta fase es muy útil no sólo para la preparación de datos para el estudio, sino para mejorar el conocimiento de los datos, cómo se originan y cómo se almacenan. Este conocimiento siempre es de gran utilidad para mejorar los procedimientos actuales de captura de datos, facilitando la fiabilidad de los análisis futuros.</p>
+</section>
+<section id="estudios-observacionales" class="level3">
+<h3 class="anchored" data-anchor-id="estudios-observacionales">Estudios observacionales</h3>
+<p>Como su nombre indica, un <strong>estudio observacional</strong> simplemente observa un proceso durante un tiempo de operación en rutina. Normalmente, el ingeniero o técnico interfiere lo mínimo posible en el proceso; sólo lo suficiente para recoger la información que necesita, si piensa que esa información puede ser relevante. En muchas ocasiones, el estudio no forma parte de los controles de rutina, y representa un trabajo adicional.</p>
+<p>Si se planifican adecuadamente, los estudios observacionales proporcionan datos fiables, precisos y completos para documentar un proceso. Por otra parte, estos estudios proporcionan una información limitada sobre las relaciones entre las variables del proceso, porque es posible que durante el tiempo limitado de observación, el rango de variación de las variables no recoja todas las situaciones posibles; por ejemplo, las situaciones extraordinarias.</p>
+</section>
+<section id="experimentos-diseñados" class="level3">
+<h3 class="anchored" data-anchor-id="experimentos-diseñados">Experimentos diseñados</h3>
+<p>La tercera forma de recoger información de un proceso son los <strong>experimentos diseñados</strong>. En un experimento de este tipo, el ingeniero o técnico hace un cambio deliberado en las variables que controla (llamadas <strong>factores</strong>), observa el resultado, y toma una decisión respecto a qué variable o variables son responsables de los cambios que observa en el proceso.</p>
+<p>Una diferencia importante respecto a los estudios históricos y los observacionales es que las diferentes combinaciones de factores se aplican al azar sobre un conjunto de unidades experimentales. Esto permite establecer con precisión las relaciones causa-efecto, cosa que no suele ser posible ni en los estudios históricos ni en los observacionales.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-wef2025" class="csl-entry" role="listitem">
-World Economic Forum. 2025. <span>«Future of Jobs Report, 2025»</span>. 91-93 route de la Capite,CH-1223 Cologny/Geneva, Switzerland: World Economic Forum. <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/">https://www.weforum.org/publications/the-future-of-jobs-report-2025/</a>.
-</div>
-</div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -747,10 +845,13 @@ World Economic Forum. 2025. <span>«Future of Jobs Report, 2025»</span>. 91-93 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Introducción general">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción general</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./001-intro.html" class="pagination-link" aria-label="La estadística en el entorno industrial.">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La estadística en el entorno industrial.</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./005-herramientas.html" class="pagination-link" aria-label="Herramientas para el análisis. La reproducibilidad.">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

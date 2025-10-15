@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Juan Riera">
 
-<title>Notas para el master de quesería</title>
+<title>9&nbsp; La forma de los datos – Notas para el master de quesería</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,27 +20,42 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -51,7 +65,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./001-intro.html" rel="next">
+<link href="./070-relacion-xy.html" rel="next">
+<link href="./050-estad-simple.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -102,7 +117,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción general</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./060-forma-de-los-datos.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">La forma de los datos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -129,7 +144,7 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción general</span></span></a>
   </div>
 </li>
@@ -177,7 +192,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./060-forma-de-los-datos.html" class="sidebar-item-text sidebar-link">
+  <a href="./060-forma-de-los-datos.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">La forma de los datos</span></span></a>
   </div>
 </li>
@@ -238,7 +253,12 @@ div.csl-indent {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#introducción-general" id="toc-introducción-general" class="nav-link active" data-scroll-target="#introducción-general"><span class="header-section-number">1</span> Introducción general</a></li>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#ejemplo-práctico-análisis-de-los-tiempos-de-entrega-en-una-empresa-de-reparto" id="toc-ejemplo-práctico-análisis-de-los-tiempos-de-entrega-en-una-empresa-de-reparto" class="nav-link" data-scroll-target="#ejemplo-práctico-análisis-de-los-tiempos-de-entrega-en-una-empresa-de-reparto"><strong>Ejemplo Práctico: Análisis de los Tiempos de Entrega en una Empresa de Reparto</strong></a></li>
+  <li><a href="#flujo-de-trabajo-para-el-análisis" id="toc-flujo-de-trabajo-para-el-análisis" class="nav-link" data-scroll-target="#flujo-de-trabajo-para-el-análisis"><strong>Flujo de trabajo para el análisis:</strong></a></li>
+  <li><a href="#análisis-con-excel" id="toc-análisis-con-excel" class="nav-link" data-scroll-target="#análisis-con-excel"><strong>1. Análisis con Excel</strong></a></li>
+  <li><a href="#análisis-con-r" id="toc-análisis-con-r" class="nav-link" data-scroll-target="#análisis-con-r"><strong>2. Análisis con R</strong></a></li>
+  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones"><strong>Conclusiones</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -247,26 +267,14 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Notas para el master de quesería</h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">La forma de los datos</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">AUTOR</div>
-    <div class="quarto-title-meta-contents">
-             <p>Juan Riera </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">PUBLICADO</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">22/10/25</p>
-    </div>
-  </div>
   
     
   </div>
@@ -276,73 +284,108 @@ div.csl-indent {
 </header>
 
 
-<section id="introducción-general" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introducción general</h1>
-<p>Este documento trata sobre el análisis de datos industriales utilizando tanto la hoja de cálculo como un lenguaje de programación moderno como es <code>Python</code> . El uso de las técnicas estadísticas se ha reducido al mínimo, orientando el análisis al uso de métodos gráficos descriptivos sencillos.</p>
-<p>¿Por qué usar <code>Python</code> como herramienta? Hay varias razones que parecen oportunas:</p>
+<section id="introducción" class="level3">
+<h3 class="anchored" data-anchor-id="introducción">Introducción</h3>
+<p>En estadística, comprender la <strong>forma de los datos</strong> es fundamental para interpretar correctamente la distribución de una variable. El análisis de la forma nos permite identificar patrones, tendencias y anomalías en los datos que podrían pasar desapercibidos si solo nos centramos en las estadísticas descriptivas como la media o la mediana.</p>
+<p>La <strong>distribución de los datos</strong> describe cómo se distribuyen los valores de una variable en un conjunto de datos. Al analizar la forma de una distribución, podemos observar aspectos clave como la <strong>asimetría</strong>, la <strong>curtosis</strong>, y la presencia de <strong>valores atípicos</strong>. Estos elementos nos dan pistas sobre la <strong>simetría</strong> de la distribución (si los datos están equilibrados a ambos lados de la mediana), la <strong>concentración</strong> de los datos (si los datos están agrupados en torno a un valor central), y si hay valores extremos que podrían estar afectando los resultados.</p>
+<p>En este capítulo, vamos a <strong>explorar cómo analizar la forma de los datos</strong> utilizando herramientas visuales como <strong>histogramas</strong> y <strong>boxplots</strong>, que son fundamentales para identificar las características de la distribución. Para hacerlo, vamos a partir de un <strong>ejemplo práctico</strong> que ilustra cómo llevar a cabo este análisis paso a paso, usando tanto <strong>Excel</strong> como <strong>R</strong>.</p>
+</section>
+<section id="ejemplo-práctico-análisis-de-los-tiempos-de-entrega-en-una-empresa-de-reparto" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-práctico-análisis-de-los-tiempos-de-entrega-en-una-empresa-de-reparto"><strong>Ejemplo Práctico: Análisis de los Tiempos de Entrega en una Empresa de Reparto</strong></h3>
+<p>Imaginemos que una empresa de reparto desea analizar los <strong>tiempos de entrega</strong> de 50 paquetes en un solo día. Los tiempos se han registrado en minutos, y el objetivo es evaluar la eficiencia de las entregas a través de un análisis de la distribución de los datos.</p>
+<p>Los datos que tenemos son los siguientes:</p>
+<p><code>[30, 28, 32, 35, 31, 29, 27, 33, 34, 36, 40, 45, 50, 42, 38, 37, 39, 41, 60, 62, 65, 29, 28, 30, 33, 35, 55, 58, 32, 31, 30, 30, 31, 27, 28, 29, 34, 35, 33, 32, 70, 72, 75, 29, 28, 30, 65, 68, 40, 41]</code></p>
+<p>A través de este conjunto de datos, vamos a <strong>analizar la forma de los datos</strong> y aprender a interpretar las distribuciones. Exploraremos la simetría, la dispersión, la curtosis, y los posibles valores atípicos que podrían estar presentes.</p>
+<p>Este análisis lo realizaremos utilizando dos herramientas principales: <strong>Excel</strong> y <strong>R</strong>, las cuales nos permitirán representar visualmente los datos a través de histogramas y boxplots, y extraer conclusiones importantes sobre la distribución de los tiempos de entrega.</p>
+<hr>
+</section>
+<section id="flujo-de-trabajo-para-el-análisis" class="level3">
+<h3 class="anchored" data-anchor-id="flujo-de-trabajo-para-el-análisis"><strong>Flujo de trabajo para el análisis:</strong></h3>
+<ol type="1">
+<li><p><strong>Distribución de frecuencia y histogramas:</strong><br>
+Veremos cómo usar Excel para calcular la frecuencia de los datos en intervalos y crear un histograma que nos permita identificar patrones de simetría o asimetría.</p></li>
+<li><p><strong>Boxplot:</strong><br>
+Aprenderemos a usar boxplots en Excel y R para identificar la mediana, los cuartiles y los valores atípicos. Esto nos ayudará a ver si algunos de los tiempos de entrega son inusualmente largos.</p></li>
+<li><p><strong>Interpretación de la forma de los datos:</strong><br>
+Al analizar los resultados, podremos determinar si la distribución es <strong>asimétrica</strong> o <strong>simétrica</strong>, si hay <strong>valores atípicos</strong> que podrían estar influyendo en la media y cómo estos factores pueden afectar la interpretación de los tiempos de entrega en la empresa.</p></li>
+</ol>
+<hr>
+</section>
+<section id="análisis-con-excel" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-con-excel"><strong>1. Análisis con Excel</strong></h3>
+<section id="paso-1-crear-una-tabla-de-frecuencia" class="level4">
+<h4 class="anchored" data-anchor-id="paso-1-crear-una-tabla-de-frecuencia"><strong>Paso 1: Crear una Tabla de Frecuencia</strong></h4>
+<p>En Excel, primero introducimos los datos en una columna. A continuación, creamos una tabla de frecuencias agrupando los datos en intervalos o clases, utilizando la función <code>FRECUENCIA()</code>. Por ejemplo, podemos elegir los siguientes intervalos:<br>
+<code>25-30, 30-35, 35-40, 40-45, 45-50, 50-55, 55-60, 60-65, 65-70</code>.</p>
+<p>Una vez que tenemos las frecuencias, podemos representar visualmente los datos en un <strong>histograma</strong>, lo cual nos permitirá ver la distribución de los tiempos.</p>
+</section>
+<section id="paso-2-crear-un-histograma" class="level4">
+<h4 class="anchored" data-anchor-id="paso-2-crear-un-histograma"><strong>Paso 2: Crear un Histograma</strong></h4>
+<p>Para generar un histograma, seleccionamos los datos y usamos el gráfico de histograma disponible en las opciones de gráficos de Excel. En este histograma, podemos observar la forma general de la distribución, su <strong>asimetría</strong> (si la cola se extiende más a la derecha o a la izquierda) y si es <strong>simétrica</strong>.</p>
+</section>
+<section id="paso-3-crear-un-boxplot" class="level4">
+<h4 class="anchored" data-anchor-id="paso-3-crear-un-boxplot"><strong>Paso 3: Crear un Boxplot</strong></h4>
+<p>Luego, seleccionamos los datos y creamos un <strong>boxplot</strong> en Excel. Este gráfico muestra la mediana, los cuartiles y los valores atípicos (puntos fuera de los bigotes del gráfico). En este caso, los tiempos superiores a 65 minutos se mostrarían como posibles valores atípicos.</p>
+</section>
+<section id="interpretación-de-los-resultados-en-excel" class="level4">
+<h4 class="anchored" data-anchor-id="interpretación-de-los-resultados-en-excel"><strong>Interpretación de los Resultados en Excel:</strong></h4>
 <ul>
-<li><p><code>Python</code> es actualmente el lenguaje de programación más extendido y el más utilizado en los nuevos campos de la inteligencia artificial (IA). Su conocimiento, aunque sea de forma básica, aportará un plus a los alumnos en su <em>curriculum</em>.</p></li>
-<li><p>El Principado de Asturias ha establecido una línea prioritaria de desarrollo de conocimientos en las áreas relacionadas con la IA para los estudiantes de Formación Profesional. Esto, unido al hecho de que algunas empresas de la región ya están implantando algunas experiencias en esta dirección, parece indicar la conveniencia de que los alumnos empiecen a familiarizarse con estos ámbitos de conocimiento.</p></li>
-<li><p><code>Python</code> posee los elementos necesarios para construir los gráficos que se necesitan para una explicación sencilla de un conjunto de datos de producción alimentaria, y su sintaxis resulta fácil de comprender, aunque otras herramientas, como el lenguaje R, sean más utilizadas en el análisis estadístico y de datos.</p></li>
-<li><p>Tener un contacto práctico con el lenguaje facilitará la adquisición de conocimientos suplementarios, ya sea en el ámbito del análisis estadístico de datos, de los métodos cuantitativos de mejora de procesos (<em>Six Sigma</em>), en la programación informática, o en la introducción a la IA.</p></li>
-<li><p><code>Python</code> es una herramienta gratuita, por lo que tanto el lenguaje como las herramientas para trabajar con él están a disposición libre en la web. En nuestro caso, utilizaremos una herramienta de Google, llamada <code>Google colab</code> , que permite utilizar scripts <code>Python</code> mediante la interfase <strong>jupyter</strong>. Esta herramienta se usa dentro del entorno de Google Chrome, y no es necesario hacer ninguna instalación de software. Para el entorno de la enseñanza, Google Colab resulta conveniente y suficiente.</p></li>
+<li><strong>Simetría:</strong> Si el histograma tiene una forma similar a una campana (simétrica), indicaría que los datos siguen una distribución normal. Si el histograma tiene una cola más larga hacia la derecha, los datos tienen <strong>asimetría positiva</strong> (sesgo a la derecha).</li>
+<li><strong>Dispersión y Concentración:</strong> El <strong>boxplot</strong> muestra si los tiempos están muy dispersos o si hay un rango reducido de tiempos de entrega. Si hay muchos valores en la parte inferior del gráfico, indica que la mayoría de las entregas se realizan rápidamente, mientras que los valores atípicos (más de 65 minutos) indican que algunas entregas se están demorando considerablemente.</li>
 </ul>
-<p>El entorno de la industria alimentaria produce un constante flujo de datos como resultado tanto de la implantación de sistemas de captura automáticos como del aumento de la tecnificación de los puestos de trabajo; se requiere por parte de los profesionales industriales que sean capaces de analizar esta enorme cantidad de datos para transformarlos en información para la decisión. En la empresa industrial actual, son los ingenieros y técnicos de planta, y no estadísticos o ingenieros informáticos, quienes participan diariamente en la presentacion y discusion de los datos y en la toma de decisiones operativas, tanto en los equipos de trabajo como ante la Dirección. Por esta razón, considero necesario proporcionar a los estudiantes de la Formación Profesional un conocimiento básico de los conceptos, herramientas y métodos del análisis de datos, así como de algunas técnicas de presentación y comunicación de la información.</p>
-<p>Mi experiencia industrial me ha mostrado que en las situaciones reales, sobre el terreno, la comprensión práctica de los conceptos es más importante que su rigurosa formulación matemática. Por esta razón, en el desarrollo del contenido del libro insistiré más en la forma de aplicar las herramientas y entender los análisis que en el conocimiento formal de las fórmulas estadísticas y su deducción matemática, o de la programación informática en sí. He hecho especial hincapié en la utilización de herramientas sencillas, casi siempre gráficas, que son una ayuda valiosa para comprender la información contenida en un conjunto de datos. El objetivo es proporcionar al estudiante de industrias alimentarias las bases de la metodología para análisis de sus datos, y cómo puede aplicarse esta metoología a la resolución de problemas técnicos concretos, más que el conocimiento de la teoría matemática de la estadística o la programación.</p>
-<p>He evitado las explicaciones formales sobre temas estadísticos. Así, por ejemplo, al explicar la media de un conjunto de datos considero más importante entender el concepto físico de “centro de gravedad” que los conceptos estadísticos de esperanza matemática, que no se tocan en este texto. En este sentido, he intentado que el alumno aprenda bien la diferencia entre “en qué consiste” un estadístico, y “cómo se calcula”. Comprender la diferencia entre el concepto y su fórmula de cálculo es fundamental para entender cómo aplicarlo.</p>
-<p>Por ejemplo, veremos cómo el modo de cálculo de la media aritmética hace que su valor sea equivalente al centro de gravedad de un conjunto de datos; si aproximamos la idea a la de un sistema de palanca en equilibrio sobre un fulcro, será muy fácil entender y hacer entender por qué los valores anómalos extremos desvían notablemente la media y deben analizarse con cuidado: una pequeña desviación en un item muy lejos de gravedad tiene un gran efecto sobre el punto de equilibrio del sistema, debido a la longitud del brazo de palanca; de la misma manera, los valores extremos pueden introducir desviaciones en el valor de la media aritmética que siempre hay que considerar.</p>
-<p>También será fácil comprender que otros estadísticos, como la mediana, que se calculan de forma diferente (la mediana es, simplemente, el valor central del conjunto de datos) resultan menos o nada afectados por los valores extremos,; veremos en la práctica las ventajas e inconvenientes de cada uno.</p>
-<div id="fig-intro-media" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-intro-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-intro-media" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-media" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01-imagenes/media-balanza.svg" class="img-fluid figure-img" data-ref-parent="fig-intro-media">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) Diagrama de puntos (dotplot) mostrando la posición de la media aritmética
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-intro-media" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-palanca" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01-imagenes/palanca.png" class="img-fluid figure-img" data-ref-parent="fig-intro-media">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) Palanca de primer grado con el fulcro como punto de equilibrio
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-intro-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.1: Comparación gráfica del significado de la media en un diagrama de puntos (<em>dotplot</em>) con una palanca de primer grado.
-</figcaption>
-</figure>
-</div>
-<p>Un curso de introducción al análisis de datos industriales debe ser, ante todo, práctico y orientado a su aplicación en el entorno industrial real. Los principales temas de trabajo de análisis de los datos en la industria tienen que ver con su captura, su almacenamiento y su depuración, su descripción utilizando gráficos, la inferencia (intervalos de confianza y tests), la construcción de modelos explicativos, el diseño de los experimentos industriales, el control estadístico de la calidad y la exposición y presentación de resultados. Dado el alcance limitado de este documento, no se entrará en los métodos estadísticos en sí, y necesitarán de un estudio posterior si el alumno tiene interés en profundizar en ellos.</p>
-<p>A pesar de que los temas más especializados puedan ser importantes en algunas aplicaciones específicas, no preparan al estudiante para lo que se va a encontrar en el terreno en la mayor parte de las ocasiones. En cambio, la resolución de problemas en equipo en un entorno de aprendizaje dinámico enfrentándose a problemas exigentes, y el desarrollo de las habilidades de análisis, de síntesis y de comunicación, tendrán un impacto mucho más positivo.</p>
-<p>He intentado mostrar la necesidad de que los estudiantes comprendan y apliquen el método científico en el entorno industrial, y no sólo apliquen un recetario de procedimientos de manera automática. Son mucho mas importantes la comprensión y la utilización adecuada del método científico y de las herramientas y gráficos básicos, antes que la aplicación rutinaria y mecánica de determinadas fórmulas matemáticas o métodos sofisticados y complejos (como la IA) que el alumno puede no comprender en toda su profundidad.</p>
-<p>Las industrias líderes destacan por la aplicación intensiva de métodos tales como Six Sigma, Lean Manufacturing, diseño robusto de productos, y otros que hacen un uso intensivo de los datos, tanto de los obtenidos en producción como de los obtenidos en la realización de experimentos bien diseñados. Pero la mejora de la competitividad en estas empresas no se debe tanto a la aplicación de unos u otros métodos, como al desarrollo del juicio analítico de sus equipos humanos y a la aplicación de lo aprendido a la mejora continua de los procesos industriales. Veremos que la experiencia y el conocimiento tecnológico de estos procesos son fundamentales para el desarrollo del buen juicio analítico, y, en consecuencia, para la buena interpretación de los resultados que se obtienen con las herramientas estadísticas y de análisis.</p>
-<p>Tratándose de un libro para el uso en la Formación Profesional, considero prioritario que su estudio se oriente al desarrollo de habilidades que sean de aplicación práctica directa en el puesto de trabajo y además faciliten la empleabilidad del estudiante, y no a la obtención de conocimiento abstracto. En la última edición del <em>Informe sobre el futuro del empleo</em> disponible cuando se edita este libro, publicada por el <a href="https://www.weforum.org/">Foro Económico Mundial</a> (WEF) en junio de 2025 <span class="citation" data-cites="wef2025">(<a href="160-bibliografia.html#ref-wef2025" role="doc-biblioref">World Economic Forum 2025</a>)</span>, el WEF considera que:</p>
-<blockquote class="blockquote">
-<p>…al igual que en las dos ediciones anteriores de este informe, el <strong>pensamiento analítico</strong> sigue siendo la principal habilidad básica para los empleadores, ya que siete de cada 10 empresas lo consideran esencial. A esto le siguen la resiliencia, la flexibilidad y la agilidad, junto con el liderazgo y la influencia social, lo que subraya el papel fundamental de la adaptabilidad y la colaboración junto con las habilidades cognitivas. El pensamiento creativo y la motivación y la autoconciencia ocupan el cuarto y quinto lugar, respectivamente. Esta combinación de habilidades cognitivas, de autoeficacia e interpersonales dentro de los cinco primeros enfatiza la importancia atribuida por los encuestados a tener una fuerza laboral ágil, innovadora y colaborativa, donde tanto la capacidad de resolución de problemas como la resiliencia personal son críticas para el éxito.</p>
-</blockquote>
-<p>A estas habilidades se suman las dos que más crecen en estos dos últimos años: la IA y el <strong>análisis de datos</strong>. La voluntad de este libro es proporcionar conocimientos que ayuden al estudiante a desarrollarse en esta dirección.</p>
+<hr>
+</section>
+</section>
+<section id="análisis-con-r" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-con-r"><strong>2. Análisis con R</strong></h3>
+<section id="paso-1-cargar-los-datos-en-r" class="level4">
+<h4 class="anchored" data-anchor-id="paso-1-cargar-los-datos-en-r"><strong>Paso 1: Cargar los Datos en R</strong></h4>
+<p>Primero, cargamos los datos en R, utilizando un vector de los tiempos de entrega:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tiempos <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">28</span>, <span class="dv">32</span>, <span class="dv">35</span>, <span class="dv">31</span>, <span class="dv">29</span>, <span class="dv">27</span>, <span class="dv">33</span>, <span class="dv">34</span>, <span class="dv">36</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">50</span>, <span class="dv">42</span>, <span class="dv">38</span>, <span class="dv">37</span>, <span class="dv">39</span>, <span class="dv">41</span>, <span class="dv">60</span>, <span class="dv">62</span>, <span class="dv">65</span>, <span class="dv">29</span>, <span class="dv">28</span>, <span class="dv">30</span>, <span class="dv">33</span>, <span class="dv">35</span>, <span class="dv">55</span>, <span class="dv">58</span>, <span class="dv">32</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">27</span>, <span class="dv">28</span>, <span class="dv">29</span>, <span class="dv">34</span>, <span class="dv">35</span>, <span class="dv">33</span>, <span class="dv">32</span>, <span class="dv">70</span>, <span class="dv">72</span>, <span class="dv">75</span>, <span class="dv">29</span>, <span class="dv">28</span>, <span class="dv">30</span>, <span class="dv">65</span>, <span class="dv">68</span>, <span class="dv">40</span>, <span class="dv">41</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="paso-2-crear-un-histograma-1" class="level4">
+<h4 class="anchored" data-anchor-id="paso-2-crear-un-histograma-1"><strong>Paso 2: Crear un Histograma</strong></h4>
+<p>Usamos el comando <code>hist()</code> para crear el histograma:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(tiempos, <span class="at">main=</span><span class="st">"Histograma de Tiempos de Entrega"</span>, <span class="at">xlab=</span><span class="st">"Tiempo (minutos)"</span>, <span class="at">col=</span><span class="st">"lightblue"</span>, <span class="at">border=</span><span class="st">"black"</span>, <span class="at">breaks=</span><span class="dv">10</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Este histograma nos permite visualizar si los datos están distribuidos de manera simétrica o si presentan un sesgo. En este caso, podemos observar si hay una <strong>asimetría positiva</strong>, lo que indicaría que la mayoría de las entregas son rápidas, pero algunas se demoran considerablemente.</p>
+</section>
+<section id="paso-3-crear-un-boxplot-1" class="level4">
+<h4 class="anchored" data-anchor-id="paso-3-crear-un-boxplot-1"><strong>Paso 3: Crear un Boxplot</strong></h4>
+<p>Para crear el boxplot en R, utilizamos el comando <code>boxplot()</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(tiempos, <span class="at">main=</span><span class="st">"Boxplot de Tiempos de Entrega"</span>, <span class="at">ylab=</span><span class="st">"Tiempo (minutos)"</span>, <span class="at">col=</span><span class="st">"lightgreen"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>El boxplot nos mostrará la mediana, los cuartiles y los valores atípicos. Los tiempos de entrega superiores a 65 minutos serán identificados como <strong>valores atípicos</strong>.</p>
+</section>
+<section id="paso-4-evaluar-la-simetría-y-curtosis" class="level4">
+<h4 class="anchored" data-anchor-id="paso-4-evaluar-la-simetría-y-curtosis"><strong>Paso 4: Evaluar la Simetría y Curtosis</strong></h4>
+<p>Para analizar la simetría de la distribución, calculamos la <strong>asimetría</strong> (skewness) y la <strong>curtosis</strong> (kurtosis):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(e1071)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skewness</span>(tiempos)   <span class="co"># Asimetría</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kurtosis</span>(tiempos)   <span class="co"># Curtosis</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Un valor de <strong>asimetría positiva</strong> indica que la distribución está sesgada hacia la derecha (más tiempos rápidos y unos pocos tiempos de entrega muy largos). La <strong>curtosis</strong> nos dará una idea de cuán concentrados o dispersos están los datos en torno a la mediana.</p>
+</section>
+<section id="paso-5-identificar-los-valores-atípicos" class="level4">
+<h4 class="anchored" data-anchor-id="paso-5-identificar-los-valores-atípicos"><strong>Paso 5: Identificar los Valores Atípicos</strong></h4>
+<p>Finalmente, podemos obtener los valores atípicos con el siguiente código:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(tiempos)<span class="sc">$</span>out</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Esto nos mostrará los valores que se encuentran fuera de los bigotes del boxplot, los cuales son posibles <strong>valores atípicos</strong>.</p>
+</section>
+<section id="interpretación-de-los-resultados-en-r" class="level4">
+<h4 class="anchored" data-anchor-id="interpretación-de-los-resultados-en-r"><strong>Interpretación de los Resultados en R:</strong></h4>
+<ul>
+<li><strong>Simetría:</strong> Si la <strong>asimetría</strong> es positiva, los tiempos de entrega son más rápidos para la mayoría de los paquetes, pero hay algunos muy retrasados. Si la <strong>asimetría</strong> es cercana a cero, los datos son aproximadamente simétricos.</li>
+<li><strong>Curtosis:</strong> Una <strong>curtosis alta</strong> indicaría que la mayoría de los datos están agrupados cerca de la mediana, con pocos valores extremos. Una <strong>curtosis baja</strong> indicaría que los datos están más dispersos.</li>
+<li><strong>Valores Atípicos:</strong> Los valores atípicos (&gt;65 minutos) pueden representar casos extremos que deberían ser investigados, ya que podrían indicar problemas en el proceso de entrega.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="conclusiones" class="level3">
+<h3 class="anchored" data-anchor-id="conclusiones"><strong>Conclusiones</strong></h3>
+<p>El análisis de la forma de los datos a través de histogramas y boxplots permite identificar patrones clave como la <strong>asimetría</strong>, la <strong>dispersión</strong> y la <strong>presencia de valores atípicos</strong>. Al interpretar estos gráficos, podemos obtener información valiosa sobre la eficiencia del proceso de reparto y detectar áreas que necesiten mejoras, como la gestión de entregas con tiempos excesivos.</p>
+<hr>
+<p>Este ejemplo completo, con análisis en Excel y R, ofrece una manera de aplicar herramientas estadísticas para entender la distribución y la forma de los datos en situaciones prácticas.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-wef2025" class="csl-entry" role="listitem">
-World Economic Forum. 2025. <span>«Future of Jobs Report, 2025»</span>. 91-93 route de la Capite,CH-1223 Cologny/Geneva, Switzerland: World Economic Forum. <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/">https://www.weforum.org/publications/the-future-of-jobs-report-2025/</a>.
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -747,10 +790,13 @@ World Economic Forum. 2025. <span>«Future of Jobs Report, 2025»</span>. 91-93 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./050-estad-simple.html" class="pagination-link" aria-label="Medidas centrales y medidas de dispersión: la media y la varianza.">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza.</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./001-intro.html" class="pagination-link" aria-label="La estadística en el entorno industrial.">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La estadística en el entorno industrial.</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./070-relacion-xy.html" class="pagination-link" aria-label="La relación entre las variables">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">La relación entre las variables</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
