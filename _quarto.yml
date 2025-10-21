@@ -18,17 +18,18 @@ book:
     - index.qmd
     - 001-intro.qmd
     - 005-herramientas.qmd
-    - 010-introduccion-a-python.ipynb
+    - 010-intro-python.ipynb
     - 020-intro-colab.ipynb 
-    - 030-organizacion.qmd  
-    - 040-exploracion.qmd
-    - 050-estad-simple.qmd
-    - 060-forma-de-los-datos.qmd
-    - 070-relacion-xy.qmd
-    - 080-comunicacion.qmd
-    - 120-control-proc.qmd
-    - 130-sistema-medicion.qmd
-    - 140-mejora-procesos.qmd
+    #- 030-organizacion.qmd  
+    #- 040-exploracion.qmd
+    #- 050-estad-simple.qmd
+    #- 060-forma-de-los-datos.qmd
+    #- 070-relacion-xy.qmd
+    #- 080-comunicacion.qmd
+    #- 120-control-proc.qmd
+    #- 130-sistema-medicion.qmd
+    #- 140-mejora-procesos.qmd
+    - 999-indice_dataframes.ipynb
   appendices: 
     - 160-bibliografia.qmd
 

@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./010-introduccion-a-python.html" rel="next">
+<link href="./010-intro-python.html" rel="next">
 <link href="./001-intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -127,68 +127,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./010-introduccion-a-python.html" class="sidebar-item-text sidebar-link">
+  <a href="./010-intro-python.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a Python</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./020-intro-colab.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Trabajando con Google Colaborate</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./030-organizacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">La organización de los datos y el flujo de trabajo.Los datos ordenados o <em>arreglados</em> (<em>tidy data</em>)</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./040-exploracion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./050-estad-simple.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./060-forma-de-los-datos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">La forma de los datos</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./070-relacion-xy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">La relación entre las variables</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./080-comunicacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">La comunicación de los resultados</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./120-control-proc.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">El control estadístico de procesos</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./130-sistema-medicion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">El análisis del sistema de medición</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./140-mejora-procesos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><em>Six Sigma</em> y la mejora de los procesos.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Trabajando con nuestros datos en Google Colaborate</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -222,24 +168,22 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#la-hoja-de-cálculo" id="toc-la-hoja-de-cálculo" class="nav-link" data-scroll-target="#la-hoja-de-cálculo"><span class="header-section-number">3.2</span> La hoja de cálculo</a>
   <ul class="collapse">
   <li><a href="#aplicaciones-de-la-hoja-de-cálculo" id="toc-aplicaciones-de-la-hoja-de-cálculo" class="nav-link" data-scroll-target="#aplicaciones-de-la-hoja-de-cálculo">Aplicaciones de la hoja de cálculo</a></li>
-  <li><a href="#el-uso-correcto-de-una-hoja-de-cálculo-en-el-análisis-de-datos-industriales" id="toc-el-uso-correcto-de-una-hoja-de-cálculo-en-el-análisis-de-datos-industriales" class="nav-link" data-scroll-target="#el-uso-correcto-de-una-hoja-de-cálculo-en-el-análisis-de-datos-industriales">El uso correcto de una hoja de cálculo en el análisis de datos industriales</a></li>
   </ul></li>
-  <li><a href="#el-software-estadístico-r" id="toc-el-software-estadístico-r" class="nav-link" data-scroll-target="#el-software-estadístico-r"><span class="header-section-number">3.3</span> El software estadístico R</a>
+  <li><a href="#los-lenguajes-de-programación" id="toc-los-lenguajes-de-programación" class="nav-link" data-scroll-target="#los-lenguajes-de-programación"><span class="header-section-number">3.3</span> Los lenguajes de programación</a>
   <ul class="collapse">
-  <li><a href="#usos-y-aplicaciones-de-r-en-la-estadística-industrial" id="toc-usos-y-aplicaciones-de-r-en-la-estadística-industrial" class="nav-link" data-scroll-target="#usos-y-aplicaciones-de-r-en-la-estadística-industrial">Usos y aplicaciones de R en la estadística industrial</a></li>
-  <li><a href="#utilización-práctica-de-r-en-el-entorno-industrial" id="toc-utilización-práctica-de-r-en-el-entorno-industrial" class="nav-link" data-scroll-target="#utilización-práctica-de-r-en-el-entorno-industrial">Utilización práctica de R en el entorno industrial</a></li>
+  <li><a href="#python-en-el-análisis-de-datos-industriales-una-herramienta-versátil" id="toc-python-en-el-análisis-de-datos-industriales-una-herramienta-versátil" class="nav-link" data-scroll-target="#python-en-el-análisis-de-datos-industriales-una-herramienta-versátil"><code>Python</code> en el análisis de datos industriales: una herramienta versátil</a></li>
   </ul></li>
-  <li><a href="#otras-herramientas-python-julia" id="toc-otras-herramientas-python-julia" class="nav-link" data-scroll-target="#otras-herramientas-python-julia"><span class="header-section-number">3.4</span> Otras herramientas: Python, Julia</a>
+  <li><a href="#otras-herramientas-r-julia" id="toc-otras-herramientas-r-julia" class="nav-link" data-scroll-target="#otras-herramientas-r-julia"><span class="header-section-number">3.4</span> Otras herramientas: R, Julia</a>
   <ul class="collapse">
-  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
-  <li><a href="#julia" id="toc-julia" class="nav-link" data-scroll-target="#julia">Julia</a></li>
+  <li><a href="#el-software-estadístico-r" id="toc-el-software-estadístico-r" class="nav-link" data-scroll-target="#el-software-estadístico-r">El software estadístico R</a></li>
+  <li><a href="#el-lenguaje-julia" id="toc-el-lenguaje-julia" class="nav-link" data-scroll-target="#el-lenguaje-julia">El lenguaje Julia</a></li>
   </ul></li>
   <li><a href="#el-concepto-de-reproducibilidad" id="toc-el-concepto-de-reproducibilidad" class="nav-link" data-scroll-target="#el-concepto-de-reproducibilidad"><span class="header-section-number">3.5</span> El concepto de reproducibilidad</a>
   <ul class="collapse">
   <li><a href="#importancia-en-la-ciencia" id="toc-importancia-en-la-ciencia" class="nav-link" data-scroll-target="#importancia-en-la-ciencia">Importancia en la Ciencia</a></li>
   <li><a href="#reproducibilidad-en-metrología" id="toc-reproducibilidad-en-metrología" class="nav-link" data-scroll-target="#reproducibilidad-en-metrología">Reproducibilidad en metrología</a></li>
   </ul></li>
-  <li><a href="#ventajas-de-r-frente-a-la-hoja-de-cálculo-en-la-reproducibilidad-de-un-análisis" id="toc-ventajas-de-r-frente-a-la-hoja-de-cálculo-en-la-reproducibilidad-de-un-análisis" class="nav-link" data-scroll-target="#ventajas-de-r-frente-a-la-hoja-de-cálculo-en-la-reproducibilidad-de-un-análisis"><span class="header-section-number">3.6</span> Ventajas de R frente a la hoja de cálculo en la reproducibilidad de un análisis</a></li>
+  <li><a href="#ventajas-de-los-lenguajes-de-programación-en-scripts-frente-a-la-hoja-de-cálculo-en-la-reproducibilidad-de-un-análisis" id="toc-ventajas-de-los-lenguajes-de-programación-en-scripts-frente-a-la-hoja-de-cálculo-en-la-reproducibilidad-de-un-análisis" class="nav-link" data-scroll-target="#ventajas-de-los-lenguajes-de-programación-en-scripts-frente-a-la-hoja-de-cálculo-en-la-reproducibilidad-de-un-análisis"><span class="header-section-number">3.6</span> Ventajas de los lenguajes de programación en scripts frente a la hoja de cálculo en la reproducibilidad de un análisis</a></li>
   </ul>
 </nav>
     </div>
@@ -267,8 +211,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introducción" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">3.1</span> Introducción</h2>
-<p>En este capítulo veremos las herramientas que utiizaremos en el análisis de datos industriales. Nos enfocaremos en dos de ellas: la hoja de cálculo Microsoft Excel, y el software estadístico R. Ambas herramientas están ampliamente extendidas en las empresas y en las instituciones docentes de todo el mundo. R es, además, un software libre, y por lo tanto, con un coste de adquisición cero, lo que facilita su utilización. Microsoft Excel tiene versiones web que se pueden utilizar para un uso básico también sin coste. No son las únicas opciones: hay otros programas estadísticos y de análisis muy utilizados y potentes, tales como <a href="https://es.mathworks.com/products/matlab.html">Matlab</a> o <a href="https://www.minitab.com/en-us/">Minitab</a>, que son de gran interés en ingeniería, aunque tienen un coste bastante elevado, y hojas de cálculo como Google Docs o LibreOffice, casi totalmente compatibles con Microsoft Excel.</p>
-<p>Este capítulo no es un manual de aprendizaje de estas herramientas; se supone que se dispone del conocimiento básico para comprender las instrucciones que se proporcionarán aqui. Como se indicó en el prefacio (ver <a href="index.html#sec-aprendizaje" class="quarto-xref"><span>Sección 1.5</span></a>), en internet hay multitud de alternativas de calidad para aprender tanto Excel como R de forma gratuita, en ese capítulo se presentaron algunas recomendaciones.</p>
+<p>En este capítulo veremos las herramientas que utiizaremos en el análisis de datos industriales. Nos enfocaremos en dos de ellas: la hoja de cálculo Microsoft Excel, y el lenguaje de programación <code>Python</code>. Ambas herramientas están ampliamente extendidas en las empresas y en las instituciones docentes de todo el mundo. <code>Python</code> es, además del lenguaje de programación más utilizado en el mundo, un software libre, y por lo tanto, con un coste de adquisición cero, lo que facilita su utilización. Microsoft Excel tiene versiones web que se pueden utilizar para un uso básico también sin coste. No son las únicas opciones: hay otros programas estadísticos y de análisis muy utilizados y potentes, tales como <a href="https://es.mathworks.com/products/matlab.html">Matlab</a> o <a href="https://www.minitab.com/en-us/">Minitab</a>, que son de gran interés en ingeniería, aunque tienen un coste bastante elevado, y hojas de cálculo como Google Docs o LibreOffice, casi totalmente compatibles con Microsoft Excel.</p>
 </section>
 <section id="la-hoja-de-cálculo" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="la-hoja-de-cálculo"><span class="header-section-number">3.2</span> La hoja de cálculo</h2>
@@ -319,13 +262,60 @@ ul.task-list li input[type="checkbox"] {
 <p>En todos los casos, es imprescindible asegurar que los sistemas de información pueden exportar sus datos a ficheros de texto tipo <em>fichero plano</em> o tipo CSV, de forma que podamos importarlos tanto a Excel como a R, como veremos más adelante. Estos sistemas de exportación de datos deben diseñarse de forma flexible y abierta, para que tanto la captura como la exportación puedan modificarse y adaptar la recogida de la información a las necesidades de cada momento.</p>
 <p>En este libro trataremos exclusivamente de lo que llamaremos <strong>datos rectangulares</strong>: grupos de valores que están asociados a una o más variables, y a varias observaciones. Hay muchos más datos que no se ajustan a esta organización tabular, es el caso de imágenes, sonidos o archivos documentales de texto. Pero la forma más común de almacenar datos industriales es la de las tablas rectangulares, organizadas según el principio de los <strong>datos arreglados</strong>, que detallaremos en el siguiente capítulo.</p>
 </section>
-<section id="el-uso-correcto-de-una-hoja-de-cálculo-en-el-análisis-de-datos-industriales" class="level3">
-<h3 class="anchored" data-anchor-id="el-uso-correcto-de-una-hoja-de-cálculo-en-el-análisis-de-datos-industriales">El uso correcto de una hoja de cálculo en el análisis de datos industriales</h3>
-<p>[…]</p>
+</section>
+<section id="los-lenguajes-de-programación" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="los-lenguajes-de-programación"><span class="header-section-number">3.3</span> Los lenguajes de programación</h2>
+<section id="python-en-el-análisis-de-datos-industriales-una-herramienta-versátil" class="level3">
+<h3 class="anchored" data-anchor-id="python-en-el-análisis-de-datos-industriales-una-herramienta-versátil"><code>Python</code> en el análisis de datos industriales: una herramienta versátil</h3>
+<p>Python se ha convertido en el lenguaje de referencia para el análisis de datos en entornos industriales por su combinación de simplicidad, potencia y ecosistema científico. En industrias alimentarias, donde se manejan grandes volúmenes de datos de producción, calidad, trazabilidad y consumo energético, Python ofrece ventajas clave:</p>
+<section id="ventajas-técnicas" class="level4">
+<h4 class="anchored" data-anchor-id="ventajas-técnicas">Ventajas técnicas</h4>
+<ul>
+<li><strong>Sintaxis clara y accesible</strong>: ideal para estudiantes sin experiencia previa en programación.</li>
+<li><strong>Bibliotecas especializadas</strong>:
+<ul>
+<li><code>pandas</code> para manipulación de datos tabulares (ej. registros de producción, análisis de lotes).</li>
+<li><code>matplotlib</code> y <code>seaborn</code> para gráficos de control, tendencias y correlaciones.</li>
+<li><code>numpy</code> para cálculos numéricos precisos (temperaturas, tiempos, concentraciones).</li>
+</ul></li>
+<li><strong>Automatización de tareas repetitivas</strong>: generación de informes, limpieza de datos, detección de anomalías.</li>
+</ul>
+</section>
+<section id="aplicaciones-concretas-en-industrias-alimentarias" class="level4">
+<h4 class="anchored" data-anchor-id="aplicaciones-concretas-en-industrias-alimentarias">Aplicaciones concretas en industrias alimentarias</h4>
+<ul>
+<li><strong>Control de calidad</strong>: análisis de desviaciones en parámetros críticos (pH, humedad, temperatura).</li>
+<li><strong>Optimización de procesos</strong>: visualización de curvas de cocción, enfriamiento, fermentación.</li>
+<li><strong>Trazabilidad</strong>: seguimiento de lotes desde materia prima hasta producto final.</li>
+<li><strong>Seguridad alimentaria</strong>: detección de patrones en alertas sanitarias o fallos de producción.</li>
+</ul>
+</section>
+<section id="por-qué-incluir-python-en-la-formación-profesional" class="level4">
+<h4 class="anchored" data-anchor-id="por-qué-incluir-python-en-la-formación-profesional">¿Por qué incluir <code>Python</code> en la Formación Profesional?</h4>
+<p>Un módulo básico de Python y gráficos en programas de formación profesional en industrias alimentarias permite:</p>
+</section>
+<section id="desarrollo-de-competencias-clave" class="level4">
+<h4 class="anchored" data-anchor-id="desarrollo-de-competencias-clave">Desarrollo de competencias clave</h4>
+<ul>
+<li><strong>Alfabetización digital aplicada</strong>: no solo usar software, sino entender cómo se procesan los datos.</li>
+<li><strong>Pensamiento lógico y estructurado</strong>: útil para resolver problemas técnicos y documentar procesos.</li>
+<li><strong>Autonomía en el análisis</strong>: no depender exclusivamente de hojas de cálculo o software cerrado.</li>
+</ul>
+</section>
+<section id="enfoque-pedagógico-sugerido" class="level4">
+<h4 class="anchored" data-anchor-id="enfoque-pedagógico-sugerido">Enfoque pedagógico sugerido</h4>
+<ul>
+<li><strong>Aprendizaje basado en proyectos</strong>: por ejemplo, analizar datos reales de producción o simular un sistema de trazabilidad.</li>
+<li><strong>Visualización como herramienta de comprensión</strong>: enseñar a interpretar gráficos de dispersión, histogramas, series temporales.</li>
+<li><strong>Modularidad y reproducibilidad</strong>: fomentar el uso de scripts anotados y reutilizables, alineado con tu enfoque docente.</li>
+</ul>
 </section>
 </section>
-<section id="el-software-estadístico-r" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="el-software-estadístico-r"><span class="header-section-number">3.3</span> El software estadístico R</h2>
+</section>
+<section id="otras-herramientas-r-julia" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="otras-herramientas-r-julia"><span class="header-section-number">3.4</span> Otras herramientas: R, Julia</h2>
+<section id="el-software-estadístico-r" class="level3">
+<h3 class="anchored" data-anchor-id="el-software-estadístico-r">El software estadístico R</h3>
 <p>R es un lenguaje de programación y un entorno de software utilizado para el análisis estadístico, la visualización de datos y la modelización. Algunas de las características clave de R son:</p>
 <ol type="1">
 <li><p><strong>Amplio espectro de funcionalidades</strong>: R abarca una amplia gama de herramientas y paquetes diseñados para realizar diversos análisis estadísticos, exploración de datos y modelización.</p></li>
@@ -335,8 +325,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Distribuciones de probabilidad</strong>: R incluye una amplia variedad de funciones para trabajar con distribuciones de probabilidad (por ejemplo, normal, uniforme, binomial, Poisson). Esto es útil para generar números aleatorios, calcular probabilidades y cuantiles.</p></li>
 <li><p><strong>Bibliotecas de funciones (librerías)</strong>: Además de las amplias funciones básicas de las que dispone, R es capaz de utilizar bibliotecas de funciones (llamadas <em>librerías</em>) que han sido desarrolladas por los propios usuarios, y que amplían sus funcionalidades a todos los campos imaginables, desde el análisis genético al análisis de riesgos bancarios o el control estadístico de procesos.</p></li>
 </ol>
-<section id="usos-y-aplicaciones-de-r-en-la-estadística-industrial" class="level3">
-<h3 class="anchored" data-anchor-id="usos-y-aplicaciones-de-r-en-la-estadística-industrial">Usos y aplicaciones de R en la estadística industrial</h3>
+<section id="usos-y-aplicaciones-de-r-en-la-estadística-industrial" class="level4">
+<h4 class="anchored" data-anchor-id="usos-y-aplicaciones-de-r-en-la-estadística-industrial">Usos y aplicaciones de R en la estadística industrial</h4>
 <p>En el contexto de la estadística industrial, R se utiliza para:</p>
 <ul>
 <li><p><strong>Control de calidad</strong>: R permite analizar datos de procesos industriales, identificar desviaciones y controlar la calidad de los productos.</p></li>
@@ -344,8 +334,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Análisis de fiabilidad</strong>: R se utiliza para evaluar la confiabilidad de sistemas y componentes en la industria.</p></li>
 </ul>
 </section>
-<section id="utilización-práctica-de-r-en-el-entorno-industrial" class="level3">
-<h3 class="anchored" data-anchor-id="utilización-práctica-de-r-en-el-entorno-industrial">Utilización práctica de R en el entorno industrial</h3>
+<section id="utilización-práctica-de-r-en-el-entorno-industrial" class="level4">
+<h4 class="anchored" data-anchor-id="utilización-práctica-de-r-en-el-entorno-industrial">Utilización práctica de R en el entorno industrial</h4>
 <p>[..a desarrollar..]</p>
 <ul>
 <li><p>Importación de datos y exportación de datos</p></li>
@@ -357,26 +347,9 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="otras-herramientas-python-julia" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="otras-herramientas-python-julia"><span class="header-section-number">3.4</span> Otras herramientas: Python, Julia</h2>
-<p>Tanto <strong>Python</strong> como <strong>Julia</strong> son excelentes alternativas a R en el análisis de datos industriales y la estadística industrial, cada uno con sus propias ventajas:</p>
-<section id="python" class="level3">
-<h3 class="anchored" data-anchor-id="python">Python</h3>
-<p><strong>Python</strong> es uno de los lenguajes de programación más populares en el análisis de datos industriales debido a su versatilidad y la amplia disponibilidad de bibliotecas como <strong>pandas</strong>, <strong>NumPy</strong>, <strong>SciPy</strong>, <strong>scikit-learn</strong> y <strong>Matplotlib</strong>. Su integración con otras tecnologías (como bases de datos y servicios en la nube) y su facilidad de uso lo convierten en una opción preferida para tareas de análisis de datos, machine learning y visualización de datos.</p>
-<ul>
-<li><p><strong>Ventajas</strong>:</p>
-<ul>
-<li><p><strong>Versatilidad:</strong> Más allá del análisis de datos, Python es un lenguaje generalista con una amplia gama de aplicaciones, desde desarrollo web hasta machine learning. Esto lo convierte en una herramienta altamente versátil para diversas tareas industriales.</p></li>
-<li><p><strong>Ecosistema de librerías:</strong> Cuenta con una vasta colección de librerías especializadas en ciencia de datos (Pandas, NumPy, SciPy), machine learning (Scikit-learn, TensorFlow), y visualización (Matplotlib, Seaborn).</p></li>
-<li><p><strong>Integración con otras tecnologías:</strong> Se integra fácilmente con otros lenguajes y herramientas, lo que facilita la automatización de procesos y la construcción de pipelines de datos.</p></li>
-<li><p><strong>Comunidad activa:</strong> Tiene una comunidad enorme y en constante crecimiento, lo que significa una gran cantidad de recursos, tutoriales y soporte disponible.</p></li>
-</ul>
-<p>Recientemente, Microsoft ha introducido una nueva funcionalidad que permite a los usuarios escribir código Python directamente en las celdas de Excel. Esta integración permite a los usuarios aprovechar la potencia de Python para procesar datos en Excel, realizar cálculos complejos y visualizar datos mediante gráficos de <strong>matplotlib</strong> insertados directamente en la hoja de cálculo. Para usar esta funcionalidad, los usuarios pueden seleccionar una celda y, en la pestaña Fórmulas, seleccionar Insertar Python. También se puede habilitar Python en una celda escribiendo =PY y eligiendo PY en el menú de autocompletar.</p></li>
-</ul>
-</section>
-<section id="julia" class="level3">
-<h3 class="anchored" data-anchor-id="julia">Julia</h3>
-<p><strong>Julia</strong> es un lenguaje más reciente, diseñado específicamente para el cálculo numérico y la ciencia de datos. Ofrece un rendimiento cercano al de lenguajes de bajo nivel como C, pero con la sintaxis y facilidad de uso de lenguajes de alto nivel como Python y R. Julia es especialmente útil en aplicaciones donde el rendimiento es crítico, como en simulaciones industriales y análisis de grandes volúmenes de datos.</p>
+<section id="el-lenguaje-julia" class="level3">
+<h3 class="anchored" data-anchor-id="el-lenguaje-julia">El lenguaje Julia</h3>
+<p><strong>Julia</strong> es un lenguaje de programación más reciente, diseñado específicamente para el cálculo numérico y la ciencia de datos. Ofrece un rendimiento cercano al de lenguajes de bajo nivel como C, pero con la sintaxis y facilidad de uso de lenguajes de alto nivel como Python y R. Julia es especialmente útil en aplicaciones donde el rendimiento es crítico, como en simulaciones industriales y análisis de grandes volúmenes de datos.</p>
 <ul>
 <li><p><strong>Ventajas</strong></p>
 <ul>
@@ -403,16 +376,16 @@ ul.task-list li input[type="checkbox"] {
 <p>En metrología, la reproducibilidad es la capacidad de un instrumento de dar el mismo resultado en mediciones diferentes, realizadas en las mismas condiciones a lo largo de periodos dilatados de tiempo. Esta cualidad debe evaluarse a largo plazo.</p>
 </section>
 </section>
-<section id="ventajas-de-r-frente-a-la-hoja-de-cálculo-en-la-reproducibilidad-de-un-análisis" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="ventajas-de-r-frente-a-la-hoja-de-cálculo-en-la-reproducibilidad-de-un-análisis"><span class="header-section-number">3.6</span> Ventajas de R frente a la hoja de cálculo en la reproducibilidad de un análisis</h2>
-<p>Las ventajas de utilizar R en lugar de hojas de cálculo tradicionales (como Microsoft Excel) incluyen:</p>
+<section id="ventajas-de-los-lenguajes-de-programación-en-scripts-frente-a-la-hoja-de-cálculo-en-la-reproducibilidad-de-un-análisis" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="ventajas-de-los-lenguajes-de-programación-en-scripts-frente-a-la-hoja-de-cálculo-en-la-reproducibilidad-de-un-análisis"><span class="header-section-number">3.6</span> Ventajas de los lenguajes de programación en scripts frente a la hoja de cálculo en la reproducibilidad de un análisis</h2>
+<p>Las ventajas de utilizar un lenguaje de scripts en lugar de hojas de cálculo tradicionales (como Microsoft Excel) incluyen:</p>
 <ol type="1">
-<li><strong>Código abierto (<em>scripts</em>)</strong>: R permite crear flujos de trabajo basados en código, lo que mejora la reproducibilidad de los análisis y facilita la colaboración entre investigadores. Puedes escribir scripts en <strong>R</strong> para automatizar tareas y asegurar la reproducibilidad. Los scripts son transparentes y pueden ser compartidos y verificados por otros investigadores.</li>
-<li><strong>Flexibilidad estadística</strong>: R es especialmente útil para técnicas avanzadas de análisis, lo que lo convierte en una excelente opción para investigadores que buscan análisis de vanguardia.</li>
-<li><strong>Gráficos muy potentes y completos</strong>: Los gráficos disponibles en R son una de las fortalezas de esta herramienta, no sólo por su variedad sino también por su flexibilidad.</li>
-<li><strong>Capacidad para tratar grandes cantidades de datos</strong>: R puede manejar grandes conjuntos de datos sin problemas, lo que es fundamental en la estadística industrial.</li>
-<li><strong>Precisión</strong>: <strong>R</strong> está diseñado específicamente para análisis estadístico, lo que lo hace más preciso que <strong>Excel</strong> en ciertos casos, como en análisis de regresión lineal.</li>
-<li><strong>Capacidad avanzada</strong>: <strong>R</strong> ofrece una amplia gama de paquetes y funciones para realizar análisis estadísticos avanzados, como modelos lineales, series temporales, análisis multivariante y más.</li>
+<li><strong>Código abierto (<em>scripts</em>)</strong>: los lenguajes permiten crear flujos de trabajo basados en código, lo que mejora la reproducibilidad de los análisis y facilita la colaboración entre investigadores. Puedes escribir scripts en <code>Python</code> para automatizar tareas y asegurar la reproducibilidad. Los scripts son transparentes y pueden ser compartidos y verificados por otros investigadores.</li>
+<li><strong>Flexibilidad estadística</strong>: <code>Python</code> es especialmente útil para técnicas avanzadas de análisis, lo que lo convierte en una excelente opción para investigadores que buscan análisis de vanguardia, como es el caso de los modelos de inteligencia artificial (IA)</li>
+<li><strong>Gráficos muy potentes y completos</strong>: Los gráficos disponibles en estos lenguajes son una de sus fortalezas, no sólo por su variedad sino también por su flexibilidad.</li>
+<li><strong>Capacidad para tratar grandes cantidades de datos</strong>: pueden manejar grandes conjuntos de datos sin problemas, lo que es fundamental en la estadística industrial.</li>
+<li><strong>Precisión</strong>: Aunque no está diseñado específicamente para el análisis estadístico, como sí es el caso de <strong>R</strong>, <code>Python</code> puede realizar todos los análisis que se necesitan en el entorno industrial, y es más preciso que <strong>Excel</strong> en ciertos casos, como en análisis de regresión lineal.</li>
+<li><strong>Capacidad avanzada</strong>: <code>Python</code> ofrece una amplia gama de librerías y funciones para realizar análisis estadísticos avanzados, como modelos lineales, series temporales, análisis multivariante y más.</li>
 </ol>
 <p>Por su parte, la hoja de cálculo tiene una <em>curva de aprendizaje</em> más sencilla y es en general más fácil de usar, pero tiene algunos inconvenientes:</p>
 <ol start="7" type="1">
@@ -421,7 +394,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Limitaciones estadísticas</strong>: <strong>Excel</strong> no está diseñado específicamente para análisis estadístico avanzado, por lo que puede carecer de algunas capacidades necesarias para investigaciones más complejas.</li>
 <li><strong>Falta de transparencia para la auditoría</strong>: Las fórmulas y cálculos en <strong>Excel</strong> pueden ser difíciles de rastrear y verificar, lo que afecta la reproducibilidad.</li>
 </ol>
-<p>Por estas razones usaremos Excel para el almacenamiento de datos y el análisis básico, y usaremos R para el análisis gráfico más detallado y el análisis numérico y estadístico.</p>
+<p>Por estas razones usaremos Excel para el almacenamiento de datos y el análisis básico, y usaremos <code>Python</code> para el análisis gráfico más detallado y el análisis numérico y estadístico.</p>
 
 
 </section>
@@ -833,7 +806,7 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./010-introduccion-a-python.html" class="pagination-link" aria-label="Introducción a Python">
+      <a href="./010-intro-python.html" class="pagination-link" aria-label="Introducción a Python">
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a Python</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

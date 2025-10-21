@@ -5,9 +5,8 @@ lang: es
 # Herramientas para el análisis. La reproducibilidad.
 
 ## Introducción
-En este capítulo veremos las herramientas que utiizaremos en el análisis de datos industriales. Nos enfocaremos en dos de ellas: la hoja de cálculo Microsoft Excel, y el software estadístico R. Ambas herramientas están ampliamente extendidas en las empresas y en las instituciones docentes de todo el mundo. R es, además, un software libre, y por lo tanto, con un coste de adquisición cero, lo que facilita su utilización. Microsoft Excel tiene versiones web que se pueden utilizar para un uso básico también sin coste. No son las únicas opciones: hay otros programas estadísticos y de análisis muy utilizados y potentes, tales como [Matlab](https://es.mathworks.com/products/matlab.html) o [Minitab](https://www.minitab.com/en-us/), que son de gran interés en ingeniería, aunque tienen un coste bastante elevado, y hojas de cálculo como Google Docs o LibreOffice, casi totalmente compatibles con Microsoft Excel.
+En este capítulo veremos las herramientas que utiizaremos en el análisis de datos industriales. Nos enfocaremos en dos de ellas: la hoja de cálculo Microsoft Excel, y el lenguaje de programación `Python`. Ambas herramientas están ampliamente extendidas en las empresas y en las instituciones docentes de todo el mundo. `Python` es, además del lenguaje de programación más utilizado en el mundo, un software libre, y por lo tanto, con un coste de adquisición cero, lo que facilita su utilización. Microsoft Excel tiene versiones web que se pueden utilizar para un uso básico también sin coste. No son las únicas opciones: hay otros programas estadísticos y de análisis muy utilizados y potentes, tales como [Matlab](https://es.mathworks.com/products/matlab.html) o [Minitab](https://www.minitab.com/en-us/), que son de gran interés en ingeniería, aunque tienen un coste bastante elevado, y hojas de cálculo como Google Docs o LibreOffice, casi totalmente compatibles con Microsoft Excel.
 
-Este capítulo no es un manual de aprendizaje de estas herramientas; se supone que se dispone del conocimiento básico para comprender las instrucciones que se proporcionarán aqui. Como se indicó en el prefacio (ver @sec-aprendizaje), en internet hay multitud de alternativas de calidad para aprender tanto Excel como R de forma gratuita, en ese capítulo se presentaron algunas recomendaciones.
 
 ## La hoja de cálculo
 La hoja de cálculo es una herramienta presente hoy día en todos los ámbitos de trabajo y educativos. Desde la aparición de [Visicalc](https://es.wikipedia.org/wiki/VisiCalc), en 1978, ha contribuido a la gestión de miles de empresas, se ha utilizado de manera general en análisis de datos y sus gráficos se han utilizado y se utilizan en publicaciones e informes de todas clases. En la década de los años 80 del pasado siglo, la hoja de cálculo [Lotus 1-2-3](https://es.wikipedia.org/wiki/Lotus_1-2-3) fue la aplicación más utilizada en los ordenadores IBM-PC y compatibles, y consiguió facturaciones millonarias para la empresa matriz. Lotus 1-2-3 dominó el mercado hasta la aparición de Microsoft Windows a finales de los años 80; este nuevo sistema operativo favoreció la implantación de Microsoft Excel, que desde entonces se convirtió en la hoja de cálculo dominante.
@@ -41,11 +40,43 @@ En todos los casos, es imprescindible asegurar que los sistemas de información 
 
 En este libro trataremos exclusivamente de lo que llamaremos **datos rectangulares**: grupos de valores que están asociados a una o más variables, y a varias observaciones. Hay muchos más datos que no se ajustan a esta organización tabular,  es el caso de imágenes, sonidos o archivos documentales de texto. Pero la forma más común de almacenar datos industriales es la de las tablas rectangulares, organizadas según el principio de los **datos arreglados**, que detallaremos en el siguiente capítulo.
 
-### El uso correcto de una hoja de cálculo en el análisis de datos industriales
+## Los lenguajes de programación
 
-[...]
+### `Python` en el análisis de datos industriales: una herramienta versátil
 
-## El software estadístico R
+Python se ha convertido en el lenguaje de referencia para el análisis de datos en entornos industriales por su combinación de simplicidad, potencia y ecosistema científico. En industrias alimentarias, donde se manejan grandes volúmenes de datos de producción, calidad, trazabilidad y consumo energético, Python ofrece ventajas clave:
+
+#### Ventajas técnicas
+- **Sintaxis clara y accesible**: ideal para estudiantes sin experiencia previa en programación.
+- **Bibliotecas especializadas**:
+  - `pandas` para manipulación de datos tabulares (ej. registros de producción, análisis de lotes).
+  - `matplotlib` y `seaborn` para gráficos de control, tendencias y correlaciones.
+  - `numpy` para cálculos numéricos precisos (temperaturas, tiempos, concentraciones).
+- **Automatización de tareas repetitivas**: generación de informes, limpieza de datos, detección de anomalías.
+
+#### Aplicaciones concretas en industrias alimentarias
+- **Control de calidad**: análisis de desviaciones en parámetros críticos (pH, humedad, temperatura).
+- **Optimización de procesos**: visualización de curvas de cocción, enfriamiento, fermentación.
+- **Trazabilidad**: seguimiento de lotes desde materia prima hasta producto final.
+- **Seguridad alimentaria**: detección de patrones en alertas sanitarias o fallos de producción.
+
+#### ¿Por qué incluir `Python` en la Formación Profesional?
+
+Un módulo básico de Python y gráficos en programas de formación profesional en industrias alimentarias permite:
+
+#### Desarrollo de competencias clave
+- **Alfabetización digital aplicada**: no solo usar software, sino entender cómo se procesan los datos.
+- **Pensamiento lógico y estructurado**: útil para resolver problemas técnicos y documentar procesos.
+- **Autonomía en el análisis**: no depender exclusivamente de hojas de cálculo o software cerrado.
+
+#### Enfoque pedagógico sugerido
+- **Aprendizaje basado en proyectos**: por ejemplo, analizar datos reales de producción o simular un sistema de trazabilidad.
+- **Visualización como herramienta de comprensión**: enseñar a interpretar gráficos de dispersión, histogramas, series temporales.
+- **Modularidad y reproducibilidad**: fomentar el uso de scripts anotados y reutilizables, alineado con tu enfoque docente.
+
+## Otras herramientas: R, Julia
+
+### El software estadístico R
 
 R es un lenguaje de programación y un entorno de software utilizado para el análisis estadístico, la visualización de datos y la modelización. Algunas de las características clave de R son:
 
@@ -61,7 +92,7 @@ R es un lenguaje de programación y un entorno de software utilizado para el an�
 
 6. **Bibliotecas de funciones (librerías)**: Además de las amplias funciones básicas de las que dispone, R es capaz de utilizar bibliotecas de funciones (llamadas *librerías*) que han sido desarrolladas por los propios usuarios, y que amplían sus funcionalidades a todos los campos imaginables, desde el análisis genético al análisis de riesgos bancarios o el control estadístico de procesos.
 
-### Usos y aplicaciones de R en la estadística industrial
+#### Usos y aplicaciones de R en la estadística industrial
 En el contexto de la estadística industrial, R se utiliza para:
 
 - **Control de calidad**: R permite analizar datos de procesos industriales, identificar desviaciones y controlar la calidad de los productos.
@@ -70,7 +101,7 @@ En el contexto de la estadística industrial, R se utiliza para:
 
 - **Análisis de fiabilidad**: R se utiliza para evaluar la confiabilidad de sistemas y componentes en la industria.
 
-### Utilización práctica de R en el entorno industrial
+#### Utilización práctica de R en el entorno industrial
 [..a desarrollar..]
 
 -   Importación de datos y exportación de datos
@@ -85,28 +116,9 @@ En el contexto de la estadística industrial, R se utiliza para:
 
 -   Informes automatizados
 
-## Otras herramientas: Python, Julia
-Tanto **Python** como **Julia** son excelentes alternativas a R en el análisis de datos industriales y la estadística industrial, cada uno con sus propias ventajas:
+### El lenguaje Julia
 
-### Python
-
-**Python** es uno de los lenguajes de programación más populares en el análisis de datos industriales debido a su versatilidad y la amplia disponibilidad de bibliotecas como **pandas**, **NumPy**, **SciPy**, **scikit-learn** y **Matplotlib**. Su integración con otras tecnologías (como bases de datos y servicios en la nube) y su facilidad de uso lo convierten en una opción preferida para tareas de análisis de datos, machine learning y visualización de datos.
-
-- **Ventajas**:
-
-  - **Versatilidad:** Más allá del análisis de datos, Python es un lenguaje generalista con una amplia gama de aplicaciones, desde desarrollo web hasta machine learning. Esto lo convierte en una herramienta altamente versátil para diversas tareas industriales.
-
-  - **Ecosistema de librerías:** Cuenta con una vasta colección de librerías especializadas en ciencia de datos (Pandas, NumPy, SciPy), machine learning (Scikit-learn, TensorFlow), y visualización (Matplotlib, Seaborn).
-
-  - **Integración con otras tecnologías:** Se integra fácilmente con otros lenguajes y herramientas, lo que facilita la automatización de procesos y la construcción de pipelines de datos.
-
-  - **Comunidad activa:** Tiene una comunidad enorme y en constante crecimiento, lo que significa una gran cantidad de recursos, tutoriales y soporte disponible.
-  
-  Recientemente, Microsoft ha introducido una nueva funcionalidad que permite a los usuarios escribir código Python directamente en las celdas de Excel. Esta integración permite a los usuarios aprovechar la potencia de Python para procesar datos en Excel, realizar cálculos complejos y visualizar datos mediante gráficos de **matplotlib** insertados directamente en la hoja de cálculo. Para usar esta funcionalidad, los usuarios pueden seleccionar una celda y, en la pestaña Fórmulas, seleccionar Insertar Python. También se puede habilitar Python en una celda escribiendo =PY y eligiendo PY en el menú de autocompletar.
-
-### Julia
-
-**Julia** es un lenguaje más reciente, diseñado específicamente para el cálculo numérico y la ciencia de datos. Ofrece un rendimiento cercano al de lenguajes de bajo nivel como C, pero con la sintaxis y facilidad de uso de lenguajes de alto nivel como Python y R. Julia es especialmente útil en aplicaciones donde el rendimiento es crítico, como en simulaciones industriales y análisis de grandes volúmenes de datos.
+**Julia** es un lenguaje de programación más reciente, diseñado específicamente para el cálculo numérico y la ciencia de datos. Ofrece un rendimiento cercano al de lenguajes de bajo nivel como C, pero con la sintaxis y facilidad de uso de lenguajes de alto nivel como Python y R. Julia es especialmente útil en aplicaciones donde el rendimiento es crítico, como en simulaciones industriales y análisis de grandes volúmenes de datos.
 
 - **Ventajas**
 
@@ -135,15 +147,15 @@ La reproducibilidad es esencial para la investigación científica, ya que permi
 ### Reproducibilidad en metrología
 En metrología, la reproducibilidad es la capacidad de un instrumento de dar el mismo resultado en mediciones diferentes, realizadas en las mismas condiciones a lo largo de periodos dilatados de tiempo. Esta cualidad debe evaluarse a largo plazo. 
 
-## Ventajas de R frente a la hoja de cálculo en la reproducibilidad de un análisis
-Las ventajas de utilizar R en lugar de hojas de cálculo tradicionales (como Microsoft Excel) incluyen:
+## Ventajas de los lenguajes de programación en scripts frente a la hoja de cálculo en la reproducibilidad de un análisis
+Las ventajas de utilizar un lenguaje de scripts en lugar de hojas de cálculo tradicionales (como Microsoft Excel) incluyen:
 
-1. **Código abierto (*scripts*)**: R permite crear flujos de trabajo basados en código, lo que mejora la reproducibilidad de los análisis y facilita la colaboración entre investigadores. Puedes escribir scripts en **R** para automatizar tareas y asegurar la reproducibilidad. Los scripts son transparentes y pueden ser compartidos y verificados por otros investigadores.
-2. **Flexibilidad estadística**: R es especialmente útil para técnicas avanzadas de análisis, lo que lo convierte en una excelente opción para investigadores que buscan análisis de vanguardia.
-3. **Gráficos muy potentes y completos**: Los gráficos disponibles en R son una de las fortalezas de esta herramienta, no sólo por su variedad sino también por su flexibilidad.
-4. **Capacidad para tratar grandes cantidades de datos**: R puede manejar grandes conjuntos de datos sin problemas, lo que es fundamental en la estadística industrial.
-5. **Precisión**: **R** está diseñado específicamente para análisis estadístico, lo que lo hace más preciso que **Excel** en ciertos casos, como en análisis de regresión lineal.
-6.   **Capacidad avanzada**: **R** ofrece una amplia gama de paquetes y funciones para realizar análisis estadísticos avanzados, como modelos lineales, series temporales, análisis multivariante y más.
+1. **Código abierto (*scripts*)**: los lenguajes permiten crear flujos de trabajo basados en código, lo que mejora la reproducibilidad de los análisis y facilita la colaboración entre investigadores. Puedes escribir scripts en `Python` para automatizar tareas y asegurar la reproducibilidad. Los scripts son transparentes y pueden ser compartidos y verificados por otros investigadores.
+2. **Flexibilidad estadística**: `Python` es especialmente útil para técnicas avanzadas de análisis, lo que lo convierte en una excelente opción para investigadores que buscan análisis de vanguardia, como es el caso de los modelos de inteligencia artificial (IA)
+3. **Gráficos muy potentes y completos**: Los gráficos disponibles en estos lenguajes son una de sus fortalezas, no sólo por su variedad sino también por su flexibilidad.
+4. **Capacidad para tratar grandes cantidades de datos**: pueden manejar grandes conjuntos de datos sin problemas, lo que es fundamental en la estadística industrial.
+5. **Precisión**: Aunque no está diseñado específicamente para el análisis estadístico, como sí es el caso de **R**, `Python` puede realizar todos los análisis que se necesitan en el entorno industrial, y es más preciso que **Excel** en ciertos casos, como en análisis de regresión lineal.
+6.   **Capacidad avanzada**: `Python` ofrece una amplia gama de librerías y funciones para realizar análisis estadísticos avanzados, como modelos lineales, series temporales, análisis multivariante y más.
 
 Por su parte, la hoja de cálculo tiene una *curva de aprendizaje* más sencilla y es en general más fácil de usar, pero tiene algunos inconvenientes:
 
@@ -153,4 +165,4 @@ Por su parte, la hoja de cálculo tiene una *curva de aprendizaje* más sencilla
 10.   **Falta de transparencia para la auditoría**: Las fórmulas y cálculos en **Excel** pueden ser difíciles de rastrear y verificar, lo que afecta la reproducibilidad.
 
 
-Por estas razones usaremos Excel para el almacenamiento  de datos y el análisis básico, y usaremos R para el análisis gráfico más detallado y el análisis numérico y estadístico.
+Por estas razones usaremos Excel para el almacenamiento  de datos y el análisis básico, y usaremos `Python` para el análisis gráfico más detallado y el análisis numérico y estadístico.
