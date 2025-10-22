@@ -19,7 +19,7 @@ book:
     - 001-intro.qmd
     - 005-herramientas.qmd
     - 010-intro-python.ipynb
-    - 020-intro-colab.ipynb 
+    - 020-analisis-queso.ipynb 
     #- 030-organizacion.qmd  
     #- 040-exploracion.qmd
     #- 050-estad-simple.qmd

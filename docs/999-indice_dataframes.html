@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; Indice de DataFrames utilizados – Notas para el master de quesería</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./160-bibliografia.html" rel="next">
+<link href="./020-analisis-queso.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./999-indice_dataframes.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Notas para el master de quesería</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción general</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./001-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La estadística en el entorno industrial.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./005-herramientas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./010-intro-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a Python</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./020-analisis-queso.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Trabajando con nuestros datos en Google Colaborate</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./999-indice_dataframes.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Anexos</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./160-bibliografia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bibliografía</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#datos-de-fabricación-de-diferentes-recetas-de-queso-ibérico-para-balance-de-materia" id="toc-datos-de-fabricación-de-diferentes-recetas-de-queso-ibérico-para-balance-de-materia" class="nav-link active" data-scroll-target="#datos-de-fabricación-de-diferentes-recetas-de-queso-ibérico-para-balance-de-materia"><span class="header-section-number">6.1</span> Datos de fabricación de diferentes recetas de queso ibérico para balance de materia</a></li>
+  <li><a href="#análisis-de-producto-terminado-de-una-fabricación-diaria-de-camembert" id="toc-análisis-de-producto-terminado-de-una-fabricación-diaria-de-camembert" class="nav-link" data-scroll-target="#análisis-de-producto-terminado-de-una-fabricación-diaria-de-camembert"><span class="header-section-number">6.2</span> Análisis de producto terminado de una fabricación diaria de camembert</a></li>
+  <li><a href="#lecturas-de-humedad-relativa-y-temperatura-en-una-cueva-para-maduración-de-queso" id="toc-lecturas-de-humedad-relativa-y-temperatura-en-una-cueva-para-maduración-de-queso" class="nav-link" data-scroll-target="#lecturas-de-humedad-relativa-y-temperatura-en-una-cueva-para-maduración-de-queso"><span class="header-section-number">6.3</span> Lecturas de humedad relativa y temperatura en una cueva para maduración de queso</a></li>
+  <li><a href="#datos-de-análisis-de-quesos-tipo-ibérico-a-la-salida-de-la-salmuera" id="toc-datos-de-análisis-de-quesos-tipo-ibérico-a-la-salida-de-la-salmuera" class="nav-link" data-scroll-target="#datos-de-análisis-de-quesos-tipo-ibérico-a-la-salida-de-la-salmuera"><span class="header-section-number">6.4</span> Datos de análisis de quesos tipo ibérico a la salida de la salmuera</a></li>
+  <li><a href="#datos-a-salida-de-saladero-de-quesos-ibéricos" id="toc-datos-a-salida-de-saladero-de-quesos-ibéricos" class="nav-link" data-scroll-target="#datos-a-salida-de-saladero-de-quesos-ibéricos"><span class="header-section-number">6.5</span> Datos a salida de saladero de quesos ibéricos</a></li>
+  <li><a href="#datos-de-un-proceso-de-envasado-de-queso-en-unidades-de-250-g" id="toc-datos-de-un-proceso-de-envasado-de-queso-en-unidades-de-250-g" class="nav-link" data-scroll-target="#datos-de-un-proceso-de-envasado-de-queso-en-unidades-de-250-g"><span class="header-section-number">6.6</span> Datos de un proceso de envasado de queso en unidades de 250 g</a></li>
+  <li><a href="#datos-de-entrada-de-leche-en-una-fábrica-de-queso-ibérico-de-mezcla." id="toc-datos-de-entrada-de-leche-en-una-fábrica-de-queso-ibérico-de-mezcla." class="nav-link" data-scroll-target="#datos-de-entrada-de-leche-en-una-fábrica-de-queso-ibérico-de-mezcla."><span class="header-section-number">6.7</span> Datos de entrada de leche en una fábrica de queso ibérico de mezcla.</a></li>
+  <li><a href="#datos-de-análisis-de-producto-terminado-de-diferentes-productos-en-una-tabla-excel" id="toc-datos-de-análisis-de-producto-terminado-de-diferentes-productos-en-una-tabla-excel" class="nav-link" data-scroll-target="#datos-de-análisis-de-producto-terminado-de-diferentes-productos-en-una-tabla-excel"><span class="header-section-number">6.8</span> Datos de análisis de producto terminado de diferentes productos, en una tabla Excel</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="datos-de-fabricación-de-diferentes-recetas-de-queso-ibérico-para-balance-de-materia" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="datos-de-fabricación-de-diferentes-recetas-de-queso-ibérico-para-balance-de-materia"><span class="header-section-number">6.1</span> Datos de fabricación de diferentes recetas de queso ibérico para balance de materia</h2>
+<div id="cell-3" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:634,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1760864468310,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="18e6f854-5c35-4ae4-b8e6-53ac8db063fa" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fecha</th>
+<th data-quarto-table-cell-role="th">receta</th>
+<th data-quarto-table-cell-role="th">operador</th>
+<th data-quarto-table-cell-role="th">litros_past</th>
+<th data-quarto-table-cell-role="th">kg_cuba</th>
+<th data-quarto-table-cell-role="th">mg_cuba</th>
+<th data-quarto-table-cell-role="th">mp_cuba</th>
+<th data-quarto-table-cell-role="th">lactosa_cuba</th>
+<th data-quarto-table-cell-role="th">ph_cuajado</th>
+<th data-quarto-table-cell-role="th">ph_inicio_moldeo_cuba</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">formato</th>
+<th data-quarto-table-cell-role="th">ph_inicio_moldeo_queso</th>
+<th data-quarto-table-cell-role="th">ph_inicio_desmoldeo_queso</th>
+<th data-quarto-table-cell-role="th">ph_fin_desmoldeo_queso</th>
+<th data-quarto-table-cell-role="th">tiempo_salado</th>
+<th data-quarto-table-cell-role="th">mg_salida_salmuera</th>
+<th data-quarto-table-cell-role="th">ph_salida_salmuera</th>
+<th data-quarto-table-cell-role="th">EST salida salmuera</th>
+<th data-quarto-table-cell-role="th">peso_queso_total</th>
+<th data-quarto-table-cell-role="th">sal_queso</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>22/02/2016</td>
+<td>receta 1</td>
+<td>7.0</td>
+<td>9020</td>
+<td>9404.95</td>
+<td>5.18</td>
+<td>4.06</td>
+<td>4.15</td>
+<td>6.56</td>
+<td>6.47</td>
+<td>...</td>
+<td>1 kg</td>
+<td>6.33</td>
+<td>5.66</td>
+<td>5.30</td>
+<td>7:25</td>
+<td>31.03</td>
+<td>5.66</td>
+<td>56.85</td>
+<td>8760.12</td>
+<td>1.32</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>22/02/2016</td>
+<td>receta 2</td>
+<td>7.0</td>
+<td>9830</td>
+<td>10241.07</td>
+<td>6.19</td>
+<td>4.88</td>
+<td>3.85</td>
+<td>6.60</td>
+<td>6.50</td>
+<td>...</td>
+<td>3 kg</td>
+<td>6.45</td>
+<td>5.86</td>
+<td>5.48</td>
+<td>16:22</td>
+<td>29.80</td>
+<td>5.42</td>
+<td>56.36</td>
+<td>6052.30</td>
+<td>1.52</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>22/02/2016</td>
+<td>receta 3</td>
+<td>7.0</td>
+<td>14330</td>
+<td>15059.58</td>
+<td>4.84</td>
+<td>3.78</td>
+<td>4.41</td>
+<td>6.59</td>
+<td>6.38</td>
+<td>...</td>
+<td>3 kg</td>
+<td>6.30</td>
+<td>5.26</td>
+<td>5.11</td>
+<td>16:20</td>
+<td>30.95</td>
+<td>5.45</td>
+<td>57.84</td>
+<td>12532.00</td>
+<td>1.64</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>22/02/2016</td>
+<td>receta 4</td>
+<td>7.0</td>
+<td>6780</td>
+<td>7506.26</td>
+<td>6.18</td>
+<td>4.89</td>
+<td>3.86</td>
+<td>6.60</td>
+<td>6.50</td>
+<td>...</td>
+<td>mini</td>
+<td>6.39</td>
+<td>5.82</td>
+<td>5.66</td>
+<td>8:25</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>4437.50</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>22/02/2016</td>
+<td>receta 5</td>
+<td>8.0</td>
+<td>9520</td>
+<td>10067.49</td>
+<td>4.60</td>
+<td>3.62</td>
+<td>4.28</td>
+<td>6.57</td>
+<td>6.41</td>
+<td>...</td>
+<td>mini</td>
+<td>6.20</td>
+<td>5.64</td>
+<td>5.16</td>
+<td>7:15</td>
+<td>31.54</td>
+<td>5.40</td>
+<td>57.47</td>
+<td>14215.50</td>
+<td>1.47</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 21 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="análisis-de-producto-terminado-de-una-fabricación-diaria-de-camembert" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="análisis-de-producto-terminado-de-una-fabricación-diaria-de-camembert"><span class="header-section-number">6.2</span> Análisis de producto terminado de una fabricación diaria de camembert</h2>
+<p>En formato <code>CSV</code> y <code>Excel</code></p>
+<div id="cell-6" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fecha</th>
+<th data-quarto-table-cell-role="th">fabricacion</th>
+<th data-quarto-table-cell-role="th">est</th>
+<th data-quarto-table-cell-role="th">mg</th>
+<th data-quarto-table-cell-role="th">ph</th>
+<th data-quarto-table-cell-role="th">cloruros</th>
+<th data-quarto-table-cell-role="th">coliformes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>11/01/2020</td>
+<td>1</td>
+<td>46.68</td>
+<td>24.0</td>
+<td>4.85</td>
+<td>1.50</td>
+<td>80.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>12/01/2020</td>
+<td>1</td>
+<td>48.09</td>
+<td>25.0</td>
+<td>4.67</td>
+<td>1.61</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>13/01/2020</td>
+<td>1</td>
+<td>45.97</td>
+<td>24.0</td>
+<td>4.71</td>
+<td>1.48</td>
+<td>9200.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>14/01/2020</td>
+<td>1</td>
+<td>46.24</td>
+<td>23.5</td>
+<td>4.78</td>
+<td>1.69</td>
+<td>20.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>15/01/2020</td>
+<td>1</td>
+<td>45.81</td>
+<td>23.0</td>
+<td>4.77</td>
+<td>1.56</td>
+<td>150.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="lecturas-de-humedad-relativa-y-temperatura-en-una-cueva-para-maduración-de-queso" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="lecturas-de-humedad-relativa-y-temperatura-en-una-cueva-para-maduración-de-queso"><span class="header-section-number">6.3</span> Lecturas de humedad relativa y temperatura en una cueva para maduración de queso</h2>
+<div id="cell-8" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fecha</th>
+<th data-quarto-table-cell-role="th">temp</th>
+<th data-quarto-table-cell-role="th">hrel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2020-01-01 00:00:00</td>
+<td>10.232205</td>
+<td>87.796974</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2020-01-01 00:05:00</td>
+<td>10.091809</td>
+<td>87.807218</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2020-01-01 00:10:00</td>
+<td>10.139651</td>
+<td>87.801365</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2020-01-01 00:15:00</td>
+<td>10.030622</td>
+<td>87.796916</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2020-01-01 00:20:00</td>
+<td>9.901193</td>
+<td>87.811986</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="datos-de-análisis-de-quesos-tipo-ibérico-a-la-salida-de-la-salmuera" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="datos-de-análisis-de-quesos-tipo-ibérico-a-la-salida-de-la-salmuera"><span class="header-section-number">6.4</span> Datos de análisis de quesos tipo ibérico a la salida de la salmuera</h2>
+<div id="cell-10" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fecha</th>
+<th data-quarto-table-cell-role="th">receta</th>
+<th data-quarto-table-cell-role="th">formato</th>
+<th data-quarto-table-cell-role="th">maduracion</th>
+<th data-quarto-table-cell-role="th">extractoseco</th>
+<th data-quarto-table-cell-role="th">materiagrasa</th>
+<th data-quarto-table-cell-role="th">sal</th>
+<th data-quarto-table-cell-role="th">ph</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>07/10/2012</td>
+<td>mezcla 5</td>
+<td>3 kg</td>
+<td>tierno</td>
+<td>57.330002</td>
+<td>32.139999</td>
+<td>1.04</td>
+<td>5.27</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>07/10/2012</td>
+<td>mezcla 5</td>
+<td>500 g</td>
+<td>tierno</td>
+<td>58.549999</td>
+<td>32.980000</td>
+<td>0.99</td>
+<td>5.45</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>07/10/2012</td>
+<td>mezcla 5</td>
+<td>3 kg</td>
+<td>tierno</td>
+<td>58.509998</td>
+<td>33.160000</td>
+<td>1.16</td>
+<td>5.26</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>07/10/2012</td>
+<td>mezcla 5</td>
+<td>500 g</td>
+<td>tierno</td>
+<td>59.009998</td>
+<td>33.070000</td>
+<td>1.27</td>
+<td>5.46</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>07/10/2012</td>
+<td>mezcla 5</td>
+<td>500 g</td>
+<td>tierno</td>
+<td>57.869999</td>
+<td>31.940001</td>
+<td>0.93</td>
+<td>5.47</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="datos-a-salida-de-saladero-de-quesos-ibéricos" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="datos-a-salida-de-saladero-de-quesos-ibéricos"><span class="header-section-number">6.5</span> Datos a salida de saladero de quesos ibéricos</h2>
+<div id="cell-12" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Fecha</th>
+<th data-quarto-table-cell-role="th">Num_Cuba</th>
+<th data-quarto-table-cell-role="th">Lote</th>
+<th data-quarto-table-cell-role="th">FORMATO</th>
+<th data-quarto-table-cell-role="th">PH</th>
+<th data-quarto-table-cell-role="th">ES</th>
+<th data-quarto-table-cell-role="th">MG</th>
+<th data-quarto-table-cell-role="th">SAL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>05/11/2015</td>
+<td>7</td>
+<td>42015</td>
+<td>Barra 3 kg</td>
+<td>5.51</td>
+<td>58.31</td>
+<td>32.36</td>
+<td>1.45</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>13/03/2015</td>
+<td>28</td>
+<td>18315</td>
+<td>Barra 4,2 kg</td>
+<td>5.49</td>
+<td>58.59</td>
+<td>30.90</td>
+<td>1.18</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>04/05/2016</td>
+<td>8</td>
+<td>23616</td>
+<td>Barra 3 kg</td>
+<td>5.43</td>
+<td>57.82</td>
+<td>31.60</td>
+<td>1.57</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>14/03/2016</td>
+<td>9</td>
+<td>18516</td>
+<td>Barra 3 kg</td>
+<td>5.59</td>
+<td>58.17</td>
+<td>31.24</td>
+<td>1.37</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>23/05/2016</td>
+<td>6</td>
+<td>25516</td>
+<td>1 kg</td>
+<td>5.46</td>
+<td>59.71</td>
+<td>31.92</td>
+<td>0.92</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="datos-de-un-proceso-de-envasado-de-queso-en-unidades-de-250-g" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="datos-de-un-proceso-de-envasado-de-queso-en-unidades-de-250-g"><span class="header-section-number">6.6</span> Datos de un proceso de envasado de queso en unidades de 250 g</h2>
+<div id="cell-14" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fecha</th>
+<th data-quarto-table-cell-role="th">peso</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2020-05-16 09:00:00</td>
+<td>254.55</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2020-05-16 09:00:10</td>
+<td>246.92</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2020-05-16 09:00:20</td>
+<td>236.29</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2020-05-16 09:00:30</td>
+<td>241.60</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2020-05-16 09:00:40</td>
+<td>247.41</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="datos-de-entrada-de-leche-en-una-fábrica-de-queso-ibérico-de-mezcla." class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="datos-de-entrada-de-leche-en-una-fábrica-de-queso-ibérico-de-mezcla."><span class="header-section-number">6.7</span> Datos de entrada de leche en una fábrica de queso ibérico de mezcla.</h2>
+<div id="cell-16" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">codruta</th>
+<th data-quarto-table-cell-role="th">peso</th>
+<th data-quarto-table-cell-role="th">tipoleche</th>
+<th data-quarto-table-cell-role="th">fecha</th>
+<th data-quarto-table-cell-role="th">acidez</th>
+<th data-quarto-table-cell-role="th">caseina</th>
+<th data-quarto-table-cell-role="th">densidad</th>
+<th data-quarto-table-cell-role="th">est</th>
+<th data-quarto-table-cell-role="th">lactosa</th>
+<th data-quarto-table-cell-role="th">mg</th>
+<th data-quarto-table-cell-role="th">ph</th>
+<th data-quarto-table-cell-role="th">prot</th>
+<th data-quarto-table-cell-role="th">temp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>13</td>
+<td>13380</td>
+<td>VACA</td>
+<td>04/11/2015</td>
+<td>15.0</td>
+<td>2.31</td>
+<td>1.030</td>
+<td>12.45</td>
+<td>4.71</td>
+<td>3.71</td>
+<td>6.84</td>
+<td>3.34</td>
+<td>6.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>13</td>
+<td>8520</td>
+<td>VACA</td>
+<td>04/11/2015</td>
+<td>15.0</td>
+<td>2.41</td>
+<td>1.030</td>
+<td>12.83</td>
+<td>4.74</td>
+<td>3.94</td>
+<td>6.81</td>
+<td>3.40</td>
+<td>6.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>22</td>
+<td>23900</td>
+<td>VACA</td>
+<td>04/11/2015</td>
+<td>15.0</td>
+<td>2.29</td>
+<td>1.030</td>
+<td>12.47</td>
+<td>4.85</td>
+<td>3.66</td>
+<td>6.82</td>
+<td>3.22</td>
+<td>6.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>41</td>
+<td>4180</td>
+<td>CABRA</td>
+<td>04/11/2015</td>
+<td>14.0</td>
+<td>2.88</td>
+<td>1.032</td>
+<td>14.88</td>
+<td>4.70</td>
+<td>5.50</td>
+<td>6.86</td>
+<td>3.95</td>
+<td>6.1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>24</td>
+<td>14640</td>
+<td>VACA</td>
+<td>04/11/2015</td>
+<td>15.0</td>
+<td>2.26</td>
+<td>1.030</td>
+<td>12.35</td>
+<td>4.69</td>
+<td>3.68</td>
+<td>6.86</td>
+<td>3.25</td>
+<td>7.7</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="datos-de-análisis-de-producto-terminado-de-diferentes-productos-en-una-tabla-excel" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="datos-de-análisis-de-producto-terminado-de-diferentes-productos-en-una-tabla-excel"><span class="header-section-number">6.8</span> Datos de análisis de producto terminado de diferentes productos, en una tabla Excel</h2>
+<div id="cell-18" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the Excel file and specify the sheet name</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">'datos/analisis.xlsx'</span>, sheet_name<span class="op">=</span><span class="st">'analisis'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">FECHA</th>
+<th data-quarto-table-cell-role="th">CLAVE</th>
+<th data-quarto-table-cell-role="th">CODIGO</th>
+<th data-quarto-table-cell-role="th">HUMEDAD</th>
+<th data-quarto-table-cell-role="th">EXSECO</th>
+<th data-quarto-table-cell-role="th">ESMAGRO</th>
+<th data-quarto-table-cell-role="th">HQMAGRO</th>
+<th data-quarto-table-cell-role="th">GRASA</th>
+<th data-quarto-table-cell-role="th">GRASASECO</th>
+<th data-quarto-table-cell-role="th">PH</th>
+<th data-quarto-table-cell-role="th">CLORUROS</th>
+<th data-quarto-table-cell-role="th">COLIS</th>
+<th data-quarto-table-cell-role="th">fecha_2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>7</td>
+<td>660</td>
+<td>10078</td>
+<td>48.48</td>
+<td>51.52</td>
+<td>18.52</td>
+<td>72.36</td>
+<td>33.0</td>
+<td>64.05</td>
+<td>5.17</td>
+<td>1.53</td>
+<td>160</td>
+<td>1988-01-07</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>7</td>
+<td>660</td>
+<td>20078</td>
+<td>47.35</td>
+<td>52.65</td>
+<td>17.65</td>
+<td>72.85</td>
+<td>35.0</td>
+<td>66.48</td>
+<td>5.21</td>
+<td>1.25</td>
+<td>10</td>
+<td>1988-01-07</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>7</td>
+<td>660</td>
+<td>30078</td>
+<td>47.02</td>
+<td>52.98</td>
+<td>19.98</td>
+<td>70.18</td>
+<td>33.0</td>
+<td>62.29</td>
+<td>5.28</td>
+<td>1.34</td>
+<td>20</td>
+<td>1988-01-07</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>8</td>
+<td>660</td>
+<td>10088</td>
+<td>47.02</td>
+<td>52.98</td>
+<td>18.98</td>
+<td>71.24</td>
+<td>34.0</td>
+<td>64.18</td>
+<td>5.16</td>
+<td>1.34</td>
+<td>18620</td>
+<td>1988-01-08</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>8</td>
+<td>660</td>
+<td>20088</td>
+<td>47.22</td>
+<td>52.78</td>
+<td>18.78</td>
+<td>71.55</td>
+<td>34.0</td>
+<td>64.42</td>
+<td>5.25</td>
+<td>1.34</td>
+<td>2200</td>
+<td>1988-01-08</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./020-analisis-queso.html" class="pagination-link" aria-label="Trabajando con nuestros datos en Google Colaborate">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Trabajando con nuestros datos en Google Colaborate</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./160-bibliografia.html" class="pagination-link" aria-label="Bibliografía">
+        <span class="nav-page-text">Bibliografía</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
