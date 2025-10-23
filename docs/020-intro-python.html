@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Introducción a Python en el entorno Google Colab – Notas para el master de quesería</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./030-exploracion.html" rel="next">
+<link href="./010-organizacion.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-intro-python.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introducción a Python en el entorno Google Colab</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Notas para el master de quesería</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción general</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./001-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La estadística en el entorno industrial.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./005-herramientas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./010-organizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La organización de los datos y el flujo de trabajo.Los datos ordenados o <em>arreglados</em> (<em>tidy data</em>)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./020-intro-python.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introducción a Python en el entorno Google Colab</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./030-exploracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./040-analisis-queso.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Caso 1. Análisis de una fabricación de queso camembert usando Google Colab.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./999-indice_dataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Anexos</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./160-bibliografia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bibliografía</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#cómo-usar-este-cuaderno" id="toc-cómo-usar-este-cuaderno" class="nav-link active" data-scroll-target="#cómo-usar-este-cuaderno"><span class="header-section-number">5.1</span> Cómo usar este cuaderno</a></li>
+  <li><a href="#primeros-pasos" id="toc-primeros-pasos" class="nav-link" data-scroll-target="#primeros-pasos"><span class="header-section-number">5.2</span> Primeros pasos</a></li>
+  <li><a href="#cálculos-simples-con-python" id="toc-cálculos-simples-con-python" class="nav-link" data-scroll-target="#cálculos-simples-con-python"><span class="header-section-number">5.3</span> Cálculos simples con python</a></li>
+  <li><a href="#creación-y-asignación-de-variables" id="toc-creación-y-asignación-de-variables" class="nav-link" data-scroll-target="#creación-y-asignación-de-variables"><span class="header-section-number">5.4</span> Creación y asignación de variables</a></li>
+  <li><a href="#cómo-establecer-los-nombres-de-variables" id="toc-cómo-establecer-los-nombres-de-variables" class="nav-link" data-scroll-target="#cómo-establecer-los-nombres-de-variables"><span class="header-section-number">5.5</span> Cómo establecer los nombres de variables</a>
+  <ul class="collapse">
+  <li><a href="#algunos-ejercicios" id="toc-algunos-ejercicios" class="nav-link" data-scroll-target="#algunos-ejercicios">Algunos ejercicios</a></li>
+  </ul></li>
+  <li><a href="#los-tipos-de-datos" id="toc-los-tipos-de-datos" class="nav-link" data-scroll-target="#los-tipos-de-datos"><span class="header-section-number">5.6</span> Los tipos de datos</a></li>
+  <li><a href="#las-funciones-en-python-qué-son-y-por-qué-las-usamos" id="toc-las-funciones-en-python-qué-son-y-por-qué-las-usamos" class="nav-link" data-scroll-target="#las-funciones-en-python-qué-son-y-por-qué-las-usamos"><span class="header-section-number">5.7</span> Las Funciones en Python: ¿Qué son y por qué las usamos?</a>
+  <ul class="collapse">
+  <li><a href="#print-mostrar-información" id="toc-print-mostrar-información" class="nav-link" data-scroll-target="#print-mostrar-información"><code>print()</code>: Mostrar información</a></li>
+  <li><a href="#len-obtener-la-longitud" id="toc-len-obtener-la-longitud" class="nav-link" data-scroll-target="#len-obtener-la-longitud"><code>len()</code>: Obtener la longitud</a></li>
+  <li><a href="#type-conocer-el-tipo-de-dato" id="toc-type-conocer-el-tipo-de-dato" class="nav-link" data-scroll-target="#type-conocer-el-tipo-de-dato"><code>type()</code>: Conocer el tipo de dato</a></li>
+  <li><a href="#cómo-funcionan-las-funciones-argumentos-y-retorno" id="toc-cómo-funcionan-las-funciones-argumentos-y-retorno" class="nav-link" data-scroll-target="#cómo-funcionan-las-funciones-argumentos-y-retorno">¿Cómo funcionan las funciones? Argumentos y Retorno</a></li>
+  </ul></li>
+  <li><a href="#importando-herramientas-bibliotecas-y-módulos" id="toc-importando-herramientas-bibliotecas-y-módulos" class="nav-link" data-scroll-target="#importando-herramientas-bibliotecas-y-módulos"><span class="header-section-number">5.8</span> Importando Herramientas: Bibliotecas y Módulos</a>
+  <ul class="collapse">
+  <li><a href="#sintaxis-de-import" id="toc-sintaxis-de-import" class="nav-link" data-scroll-target="#sintaxis-de-import">Sintaxis de <code>import</code></a></li>
+  </ul></li>
+  <li><a href="#las-principales-estructuras-de-datos-en-python-para-el-análisis" id="toc-las-principales-estructuras-de-datos-en-python-para-el-análisis" class="nav-link" data-scroll-target="#las-principales-estructuras-de-datos-en-python-para-el-análisis"><span class="header-section-number">5.9</span> Las principales estructuras de datos en Python para el análisis</a>
+  <ul class="collapse">
+  <li><a href="#series-de-pandas-el-vector-en-python-para-datos" id="toc-series-de-pandas-el-vector-en-python-para-datos" class="nav-link" data-scroll-target="#series-de-pandas-el-vector-en-python-para-datos">Series de <code>pandas</code> (El “vector” en <code>Python</code> para datos)</a></li>
+  <li><a href="#dataframes-de-pandas-la-tabla-o-hoja-de-cálculo" id="toc-dataframes-de-pandas-la-tabla-o-hoja-de-cálculo" class="nav-link" data-scroll-target="#dataframes-de-pandas-la-tabla-o-hoja-de-cálculo">DataFrames de Pandas (La “Tabla” o “Hoja de Cálculo”)</a></li>
+  </ul></li>
+  <li><a href="#el-data-frame-continuación-con-ejemplo-real" id="toc-el-data-frame-continuación-con-ejemplo-real" class="nav-link" data-scroll-target="#el-data-frame-continuación-con-ejemplo-real"><span class="header-section-number">5.10</span> El <em>data frame</em> (continuación con ejemplo real)</a></li>
+  <li><a href="#visualización-de-datos-con-seaborn-y-matplotlib" id="toc-visualización-de-datos-con-seaborn-y-matplotlib" class="nav-link" data-scroll-target="#visualización-de-datos-con-seaborn-y-matplotlib"><span class="header-section-number">5.11</span> Visualización de Datos con Seaborn y Matplotlib</a>
+  <ul class="collapse">
+  <li><a href="#ejemplo-histograma-de-la-longitud-del-sépalo-distribución-de-una-variable-numérica" id="toc-ejemplo-histograma-de-la-longitud-del-sépalo-distribución-de-una-variable-numérica" class="nav-link" data-scroll-target="#ejemplo-histograma-de-la-longitud-del-sépalo-distribución-de-una-variable-numérica">Ejemplo: Histograma de la longitud del sépalo (Distribución de una variable numérica)</a></li>
+  </ul></li>
+  <li><a href="#cómo-leer-nuestros-datos-en-python-desde-google-colaborate" id="toc-cómo-leer-nuestros-datos-en-python-desde-google-colaborate" class="nav-link" data-scroll-target="#cómo-leer-nuestros-datos-en-python-desde-google-colaborate"><span class="header-section-number">5.12</span> Cómo leer nuestros datos en <code>Python</code> desde Google Colaborate</a>
+  <ul class="collapse">
+  <li><a href="#opción-1-subir-los-datos-al-espacio-de-trabajo-de-google-colaborate" id="toc-opción-1-subir-los-datos-al-espacio-de-trabajo-de-google-colaborate" class="nav-link" data-scroll-target="#opción-1-subir-los-datos-al-espacio-de-trabajo-de-google-colaborate">Opción 1: Subir los datos al espacio de trabajo de Google Colaborate</a></li>
+  <li><a href="#opción-2-leer-directamente-los-datos-de-nuestra-carpeta-de-google-drive" id="toc-opción-2-leer-directamente-los-datos-de-nuestra-carpeta-de-google-drive" class="nav-link" data-scroll-target="#opción-2-leer-directamente-los-datos-de-nuestra-carpeta-de-google-drive">Opción 2: Leer directamente los datos de nuestra carpeta de Google Drive</a></li>
+  <li><a href="#explicación-de-los-pasos" id="toc-explicación-de-los-pasos" class="nav-link" data-scroll-target="#explicación-de-los-pasos">Explicación de los pasos:</a></li>
+  </ul></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">5.13</span> Resumen</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introducción a Python en el entorno Google Colab</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Python es un lenguaje de programación. Para trabajar con el lenguaje, se han desarrollado diferentes interfaces que mejoran el manejo del programa y facilitan el trabajo.</p>
+<p>Nosotros utilizaremos Google Colaborate, conocido como <a href="https://colab.research.google.com/">Colaboratory</a> o simplemente, Google Colab, basado en <a href="https://jupyter.org/">Jupyter</a>, entorno originalmente desarrollado para Python y que se ha convertido en universal para muchos lenguajes de programación. En este entorno, podemos escribir código y ejecutarlo. También podemos escribir en celdas de texto, lo que nos permite intercalar explicaciones a nuestros cálculos o cualquier otro contenido escrito.</p>
+<p>En este cuaderno vamos a ver algunas características de <code>Python</code> que resultan importantes para nuestro objetivo de análisis de datos industriales. Usaremos para ello fuentes de datos disponibles en la web y veremos diferentes aplicaciones del lenguaje sobre dichas fuentes de datos. Aunque el código resulte complejo a primera vista, el objetivo es simplemente una toma de contacto, en cuadernos sucesivos veremos datos reales y aplicación a la industria láctea.</p>
+<p>Con el fin de ayudar al desarrollo de la sesión de estudio, este cuaderno se puede seguir en el texto a continuación o puede ser abierto en Colab para trabajar directamente sobre él. Una vez abierto, es conveniente guardarlo en el espacio de Colab en el Google Drive de cada uno.</p>
+<p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/colab/01-intro-python.ipynb">Abrir cuaderno de introducción a <code>Python</code>en Google Colab/</a></p>
+<p><a href="(https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/camembert.csv')">Desargar los datos de ejemplo del archivo <code>camembert.csv</code></a></p>
+<section id="cómo-usar-este-cuaderno" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="cómo-usar-este-cuaderno"><span class="header-section-number">5.1</span> Cómo usar este cuaderno</h2>
+<ul>
+<li>Si has abierto el cuaderno en Colab por primera vez, sigue estos pasos:
+<ol type="1">
+<li>Guarda una copia en tu carpeta de Google Drive. Para ello, vete a <code>Archivo/Guardar una copia en Drive</code> y guárdalo.</li>
+<li>Una vez guardada la copia, puedes cambiar el nombre en ’Archivo/Cambiar nombre`, o bien directamente haciendo <em>click</em> sobre el nombre en la parte superior de la hoja.</li>
+<li>SI usas la versión web de Drive (abriendo el Drive en el navegador), posiblemente tendrás activada la opción de abrir los cuadernos que tengas en tu carpeta usando el botón derecho de tu ratón.</li>
+</ol></li>
+<li>Si vas a crear una hoja nueva (en blanco) mediante el enlace a Google Colaborate, sigue estos pasos:
+<ol type="1">
+<li>Haz click en el enlace a continuacion https://colab.research.google.com/, o copia y pega el texto en la barra de navegación de tu navegador, o simplemente introduce “Google Colab” en la barra de búsqueda y haz click sobre el resultado correcto de la búsqueda, irás directamente al sitio.</li>
+<li>Abre un cuaderno nuevo.</li>
+<li>Guarda una copia en <code>Archivo/Guardar una copia como</code></li>
+<li>Renombra la hoja en <code>Archivo/Cambiar nombre</code> usando el nombre que quieras</li>
+</ol></li>
+</ul>
+<p>En este cuaderno usaremos varios archivos de datos de demostración, ya existentes en diversas fuentes de Python, que nos servirán para hacer diferentes ejercicios numéricos y gráficos.</p>
+</section>
+<section id="primeros-pasos" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="primeros-pasos"><span class="header-section-number">5.2</span> Primeros pasos</h2>
+<p>Colab funciona en un entorno <strong>Jupyter</strong> En este entorno, el texto y el código <code>Python</code>se introducen en <strong>celdas</strong>.</p>
+<p>Hay dos tipos de <strong>celdas</strong>: texto y código. En la parte superior de la ventana, puedes elegir el tipo que quieres insertar haciendo <em>click</em> en <code>+ Código</code> o bien en <code>+ Texto</code></p>
+<p>Para editar una celda de texto existente, haz doble click sobre ella. Ahora puedes escribir usando las convenciones de código <strong>markdown</strong>. Cuando hayas terminado, ejecuta la celda para que Colab formatee y presente el texto.</p>
+<p>Para ejecutar una celda de código, haz click sobre ella.</p>
+<ul>
+<li><code>Shift-Enter</code>ejecuta el código <em>y pasa a la siguiente celda</em>.</li>
+<li><code>Ctrl-Enter</code>ejecuta el código <em>y permanece en la misma celda</em></li>
+</ul>
+<p>Recuerda también que las celdas de código deben ejecutarse en orden secuencial desde el principio</p>
+<p>Si la ejecución de una celda de código produce un error, no te preocupes, no tiene consecuencias graves. Simplemente, edita el código y corrige el error. En muchos casos, Google Gemini te puede ayudar a detectar los errores en el código y reescribirlo correctamente.</p>
+</section>
+<section id="cálculos-simples-con-python" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="cálculos-simples-con-python"><span class="header-section-number">5.3</span> Cálculos simples con python</h2>
+<p>En su forma más básica, python se puede utilizar como una simple calculadora, utilizando los siguientes operadores aritméticos:</p>
+<p>Adición: <span class="math inline">\(+\)</span> (Ejemplo: <span class="math inline">\(2+2\)</span>)</p>
+<p>Resta: <span class="math inline">\(-\)</span> (Ejemplo: <span class="math inline">\(2-2\)</span>)</p>
+<p>Multiplicación: <span class="math inline">\(*\)</span> (Ejemplo: <span class="math inline">\(2*2\)</span>)</p>
+<p>División: <span class="math inline">\(/\)</span> (Ejemplo: <span class="math inline">\(2/2\)</span>)</p>
+<p>Exponenciación: ** (Ejemplo: <span class="math inline">\(2\)</span>**<span class="math inline">\(2\)</span>)</p>
+<p>Prueba a ejecutar las siguientes celdas:</p>
+<div id="cell-12" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="op">+</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>4</code></pre>
+</div>
+</div>
+<div id="cell-13" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="op">-</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>0</code></pre>
+</div>
+</div>
+<div id="cell-14" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="op">*</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>4</code></pre>
+</div>
+</div>
+<div id="cell-15" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="op">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>1.0</code></pre>
+</div>
+</div>
+<div id="cell-16" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="op">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>4</code></pre>
+</div>
+</div>
+<div id="cell-17" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span><span class="op">*</span><span class="dv">4</span>)<span class="op">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>6.0</code></pre>
+</div>
+</div>
+</section>
+<section id="creación-y-asignación-de-variables" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="creación-y-asignación-de-variables"><span class="header-section-number">5.4</span> Creación y asignación de variables</h2>
+<p>Una variable permite almacenar un valor (por ejemplo, 4) o un objeto (por ejemplo, una descripción de función). Más tarde se puede usar el nombre de esta variable para acceder fácilmente al valor o al objeto que está almacenado dentro de ella.</p>
+<p>Podemos imaginar este concepto como una estantería llena de celdas vacías, en las cuales podemos colocar diferentes objetos: números, letras, frases, etc La variable es el espacio que almacena un valor, y que podemos <em>llamar</em> u obtener simplemente escribiendo su nombre.</p>
+<p>En python, una variable es un <em>objeto</em>. Podemos asignar <em>valores</em> a ese objeto, como si colocásemos libros en nuestra estantería. Esta asignación se hace siempre con el operador de asignación <code>=</code>, en la forma</p>
+<p><span class="math inline">\(nombre\_de\_objeto = valor\)</span></p>
+<p>Por ejemplo, asignaremos un valor 4 a una variable que se llame <code>mi_var</code> con el operador de asignación de la siguiente forma:</p>
+<p><span class="math inline">\(mi\_var = 4\)</span></p>
+<p>Recuerda que ahora estamos en una <strong>celda de texto</strong>; prueba a hacer la asignación en la <strong>celda de código</strong> a continuación, añadiendo el operador de asignación y ejecutando la celda con <code>Mayus-Intro</code>:</p>
+<div id="cell-19" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mi_var <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Una vez que asignamos un valor a una variable, python recuerda su valor hasta que lo cambiemos mediante una nueva asignación, borremos la variable, o finalicemos nuestra sesión.</p>
+<p>Para ver el contenido del objeto(lo que hemos almacenado en <code>mi_var</code>), escribimos el nombre y ejecutamos la celda (sólo si hemos editado y ejecutado correctamente la celda anterior, en caso contrario obtendremos un error porque <code>mi_var</code> no está definida):</p>
+<div id="cell-21" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mi_var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="cómo-establecer-los-nombres-de-variables" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="cómo-establecer-los-nombres-de-variables"><span class="header-section-number">5.5</span> Cómo establecer los nombres de variables</h2>
+<p>Para facilitar la legibilidad del código, los nombres de variables en python deben cumplir algunas normas generales. Buscaremos siempre que los nombres de los objetos sean descriptivos, por lo que necesitamos una forma de unir varias palabras.</p>
+<p>Las convenciones más aceptadas para la designación de nombres de variables en Python se basan principalmente en la <strong>PEP 8</strong>, la guía de estilo oficial para el código Python. Aquí te resumo los puntos clave:</p>
+<ol type="1">
+<li><strong>Snake Case (Recomendado para variables y funciones):</strong>
+<ul>
+<li>Para nombres de variables y funciones que constan de varias palabras, se utiliza <strong><code>snake_case</code></strong>, donde las palabras se escriben en minúscula y se separan por guiones bajos.</li>
+<li>Ejemplos: <code>mi_variable</code>, <code>nombre_completo</code>, <code>calcular_total</code>.</li>
+</ul></li>
+<li><strong>Camel Case (Para clases):</strong>
+<ul>
+<li>Para nombres de <strong>clases</strong>, se utiliza <strong><code>CamelCase</code></strong> (también conocido como PascalCase), donde cada palabra comienza con mayúscula y no hay separadores.</li>
+<li>Ejemplos: <code>MiClase</code>, <code>GestionDeUsuarios</code>, <code>HttpRequest</code>.</li>
+</ul></li>
+<li><strong>Constantes (Mayúsculas con guiones bajos):</strong>
+<ul>
+<li>Para constantes (variables cuyo valor no debería cambiar durante la ejecución del programa), se utiliza <strong><code>ALL_CAPS</code></strong> con guiones bajos para separar las palabras.</li>
+<li>Ejemplos: <code>MAX_VALOR</code>, <code>PI</code>, <code>TASA_INTERES</code>.</li>
+</ul></li>
+<li><strong>Reglas generales (obligatorias por el lenguaje):</strong>
+<ul>
+<li><strong>Longitud:</strong> Las variables pueden tener cualquier longitud.</li>
+<li><strong>Caracteres permitidos:</strong> Pueden contener letras (mayúsculas y minúsculas), números y guiones bajos (<code>_</code>).</li>
+<li><strong>No pueden empezar con un número:</strong> Un nombre de variable no puede comenzar con un dígito.</li>
+<li><strong>Sensibilidad a mayúsculas y minúsculas:</strong> Python distingue entre mayúsculas y minúsculas. <code>mi_variable</code> y <code>Mi_Variable</code> son nombres de variables diferentes.</li>
+<li><strong>Evitar palabras reservadas:</strong> No se pueden usar palabras reservadas de Python (como <code>if</code>, <code>else</code>, <code>for</code>, <code>while</code>, etc.) como nombres de variables.</li>
+<li><strong>No usar caracteres especiales:</strong> No se permiten espacios, signos de puntuación u otros símbolos especiales.</li>
+</ul></li>
+<li><strong>Recomendaciones de estilo:</strong>
+<ul>
+<li><strong>Nombres descriptivos:</strong> Elige nombres de variables que sean claros y descriptivos, que reflejen su propósito en el programa. Esto mejora la legibilidad del código.</li>
+<li><strong>Evitar nombres de una sola letra:</strong> A menos que sean contadores simples (<code>i</code>, <code>j</code>, <code>k</code> en bucles) o iteradores, es mejor evitar nombres de variables de una sola letra.</li>
+<li><strong>Evitar nombres que se confundan:</strong> Ten cuidado con letras que pueden confundirse fácilmente, como la <code>l</code> minúscula y el número <code>1</code>, o la <code>O</code> mayúscula y el número <code>0</code>.</li>
+<li><strong>Guiones bajos al principio (<code>_nombre</code>):</strong> Un solo guion bajo al principio (<code>_</code>) suele indicar que una variable o función es “interna” o “no pública” dentro de un módulo o clase. Es una convención, no una restricción estricta.</li>
+<li><strong>Dobles guiones bajos al principio (<code>__nombre</code>):</strong> Los dobles guiones bajos al principio de un nombre de atributo de clase (<code>__nombre</code>) activan el “name mangling” (mutilación de nombre) de Python, que hace que el atributo sea más difícil de acceder directamente desde fuera de la clase, actuando como una forma de “privacidad”.</li>
+</ul></li>
+</ol>
+<p>Seguir estas convenciones, especialmente las de la PEP 8, ayuda a que tu código sea más consistente, legible y fácil de entender por otros desarrolladores (y por ti mismo en el futuro).</p>
+<p>Usemos un nombre realmente largo para designar a una variable:</p>
+<div id="cell-26" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>este_es_un_nombre_realmente_largo <span class="op">=</span> <span class="fl">5.3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ahora recuperemos el valor que hemos almacenado</p>
+<div id="cell-28" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>este_es_un_nombre_realmente_largo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>5.3</code></pre>
+</div>
+</div>
+<p>Recuerda que python utiliza la escritura anglosajona para la separación de decimales, usando un punto, y no una coma como en España. ¿Qué pasaría si utilizamos una coma para separar los decimales?</p>
+<div id="cell-30" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>mi_var <span class="op">=</span> <span class="dv">2</span>,<span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Python acepta la asignación, pero cuando investigamos la variable, el resultado es diferente de lo que esperábamos, no obtenemos un valor numérico:</p>
+<div id="cell-32" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>mi_var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>(2, 5)</code></pre>
+</div>
+</div>
+<p>Python ha entendido que estábamos creando una <em>tupla</em> de dos valores (2 y 5) (en python, una <em>tupla</em> es una colección ordenada e inmutable de elementos)</p>
+<p>Para python las mayúsculas y minúsculas son diferentes: <code>mi_var</code> y <code>mi_Var</code> son variables diferentes.</p>
+<p>En una variable python podemos almacenar también texto:</p>
+<div id="cell-36" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>mi_var <span class="op">=</span> <span class="st">"Esto es una frase 12345"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Python almacena esta <em>cadena alfanumérica</em> exactamente igual que antes hizo con los valores numéricos:</p>
+<div id="cell-38" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>mi_var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>'Esto es una frase 12345'</code></pre>
+</div>
+</div>
+<div id="cell-39" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>mi_var <span class="op">=</span> <span class="fl">123.45</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-40" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>mi_var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>123.45</code></pre>
+</div>
+</div>
+<div id="cell-41" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>mi_var<span class="op">*</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>617.25</code></pre>
+</div>
+</div>
+<p>Para almacenar una <em>cadena alfanumérica</em> necesitamos encerrarla entre comillas, ya sean sencillas o dobles. De hecho, si almacenamos un número entre comillas, python no va aidentificarlo como un número, sino como un texto:</p>
+<div id="cell-43" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>mi_var <span class="op">=</span> <span class="st">"123.45"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-44" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>mi_var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>'123.45'</code></pre>
+</div>
+</div>
+<div id="cell-45" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>mi_var<span class="op">*</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>'123.45123.45123.45123.45123.45'</code></pre>
+</div>
+</div>
+<p>Como ahora <code>mi_var</code> es una cadena de letras, python interpreta <code>mi_var*5</code>no como una multiplicación, sino como una instrucción para repetir esa cadena de caracteres cinco veces.</p>
+<p>En el ejemplo que acabamos de hacer, seguro que te has dado cuenta de que python permite <strong>reutilizar</strong> los objetos simplemente reasignándoles el valor correspondiente. Al hacerlo, perdemos el valor original y lo sustituimos por el nuevo valor.</p>
+<p>Hay que tener atención con las reglas de escritura: para asignar un texto a un objeto debemos tener cuidado de <em>cerrar</em> las comillas, si no lo hacemos, python nos advertirá del error:</p>
+<div id="cell-48" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>mi_var <span class="op">=</span> <span class="st">"Esto es una cadena alfanumerica que no hemos cerrado</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="algunos-ejercicios" class="level3">
+<h3 class="anchored" data-anchor-id="algunos-ejercicios">Algunos ejercicios</h3>
+<p>Intenta detectar los errores en las siguientes celdas de código:</p>
+<div id="cell-51" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>mi_variable <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>mi_varıable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-52" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>mi_var <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>Mi_Var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Podemos asignar un objeto a otro objeto con el operador de asignación:</p>
+<div id="cell-54" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-55" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">+</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>8</code></pre>
+</div>
+</div>
+<div id="cell-56" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-57" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">+</span> y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>10</code></pre>
+</div>
+</div>
+<p>Supongamos que tenemos 5 peras y 4 manzanas. Crea una variable que se llame <code>fruta</code> que sume el total de unidades de fruta que tenemos, insertando debajo de esta celda todas las celdas de código que necesites (Pista: ¡En <code>Python</code> sí podemos sumar <code>peras</code> con <code>manzanas</code>!)</p>
+<div id="cell-59" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Celda para el ejercicio de las frutas</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>peras <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>manzanas <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>fruta <span class="op">=</span> peras <span class="op">+</span> manzanas</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>9</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="los-tipos-de-datos" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="los-tipos-de-datos"><span class="header-section-number">5.6</span> Los tipos de datos</h2>
+<p>Hemos visto que python puede trabajar con diferentes tipos de datos, tales como números y textos.</p>
+<p>Los valores decimales como 4.5 se llaman <strong>flotantes</strong>(<code>float</code>). Los números enteros como 4 se llaman <strong>enteros</strong>(<code>ìnt</code>). Los valores booleanos (VERDADERO o FALSO) se denominan <strong>booleanos</strong>(<code>bool</code> o <code>logical</code>). Los valores de texto (o cadena alfanumérica) se denominan <strong>cadenas de caracteres</strong>. También se les llama simplemente <strong>cadenas</strong>. Las comillas en el editor indican que “un texto entre comillas” es una <em>cadena de caracteres</em>. En python, una cadena de caracteres puede escribirse entre comillas dobles, como <code>"pera"</code> o simples, como <code>'pera'</code></p>
+<p>Algunos ejemplos:</p>
+<div id="cell-61" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>mi_var_numero <span class="op">=</span> <span class="fl">4.5</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>mi_var_texto <span class="op">=</span> <span class="st">"esto es un texto"</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>mi_var_texto_2 <span class="op">=</span> <span class="st">'esto también es un texto'</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>mi_var_logica <span class="op">=</span> <span class="va">False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Las variables <strong>lógicas</strong> pueden tomar los valores <code>True</code> o <code>False</code> (recuerda que las mayúsculas son significativas en python: <code>False</code> no es lo mismo que <code>false</code> o <code>FALSE</code>). Python responde también con un valor lógico cuando hacemos una <em>evaluación lógica</em>. Por ejemplo,</p>
+<div id="cell-63" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>mi_var_numero <span class="op">==</span> <span class="fl">4.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div id="cell-64" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>mi_var_texto <span class="op">==</span> <span class="fl">4.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>False</code></pre>
+</div>
+</div>
+<p>Como en python se usa <code>=</code> como operador de asignación, el operador lógico que prueba una igualdad es <code>==</code>, un doble igual, y no un <code>=</code>, un igual sencillo. La desigualdad se verifica con el operador <code>!=</code> que significa “no es igual a”.</p>
+<p>Veamos otros dos ejemplos que proporcionan una respuesta de valor lógico:</p>
+<div id="cell-68" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>mi_var_numero <span class="op">==</span> <span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>False</code></pre>
+</div>
+</div>
+<div id="cell-69" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>mi_var_numero <span class="op">&gt;</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>False</code></pre>
+</div>
+</div>
+<div id="cell-70" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>mi_var_numero <span class="op">!=</span> <span class="dv">5</span> <span class="co"># el operador != significa "no es igual a"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>True</code></pre>
+</div>
+</div>
+</section>
+<section id="las-funciones-en-python-qué-son-y-por-qué-las-usamos" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="las-funciones-en-python-qué-son-y-por-qué-las-usamos"><span class="header-section-number">5.7</span> Las Funciones en Python: ¿Qué son y por qué las usamos?</h2>
+<p>Hasta ahora hemos usado operadores aritméticos para realizar cálculos básicos y hemos asignado valores a variables. Pero, ¿qué pasa si queremos realizar tareas más complejas o repetir una misma operación muchas veces? Aquí es donde entran las <strong>funciones</strong>.</p>
+<p>Una función es un bloque de código organizado y reutilizable que se utiliza para realizar una única acción relacionada. Piensa en una función como una “receta” o un “mini-programa” que encapsula una serie de pasos. En lugar de escribir esos pasos una y otra vez, simplemente “llamamos” a la función por su nombre.</p>
+<p><strong>¿Por qué son útiles las funciones?</strong></p>
+<ul>
+<li><strong>Reutilización de Código:</strong> Evitan tener que escribir el mismo código varias veces.</li>
+<li><strong>Modularidad:</strong> Dividen el programa en partes más pequeñas y manejables.</li>
+<li><strong>Claridad:</strong> Hacen el código más fácil de leer y entender.</li>
+</ul>
+<p>Python ya trae consigo muchas <strong>funciones integradas (<em>built-in functions</em>)</strong> que podemos usar directamente. Veamos algunos ejemplos muy comunes:</p>
+<section id="print-mostrar-información" class="level3">
+<h3 class="anchored" data-anchor-id="print-mostrar-información"><code>print()</code>: Mostrar información</h3>
+<p>Esta función ya la hemos usado. Nos permite mostrar valores, texto o el contenido de variables en la consola</p>
+<div id="cell-73" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"¡Hola, esto es una función!"</span>)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>mi_nombre <span class="op">=</span> <span class="st">"Juan"</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mi nombre es:"</span>, mi_nombre)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>¡Hola, esto es una función!
+Mi nombre es: Juan</code></pre>
+</div>
+</div>
+</section>
+<section id="len-obtener-la-longitud" class="level3">
+<h3 class="anchored" data-anchor-id="len-obtener-la-longitud"><code>len()</code>: Obtener la longitud</h3>
+<p>Esta función nos devuelve el número de elementos de un objeto, como el número de caracteres en una cadena de texto o el número de elementos en una lista.</p>
+<div id="cell-75" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>frase <span class="op">=</span> <span class="st">"Programar en Python es divertido"</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>longitud_frase <span class="op">=</span> <span class="bu">len</span>(frase)</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"La frase tiene"</span>, longitud_frase, <span class="st">"caracteres."</span>)</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>mi_lista_numeros <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>]</span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mi lista tiene"</span>, <span class="bu">len</span>(mi_lista_numeros), <span class="st">"elementos."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>La frase tiene 32 caracteres.
+Mi lista tiene 4 elementos.</code></pre>
+</div>
+</div>
+</section>
+<section id="type-conocer-el-tipo-de-dato" class="level3">
+<h3 class="anchored" data-anchor-id="type-conocer-el-tipo-de-dato"><code>type()</code>: Conocer el tipo de dato</h3>
+<p>Útil para verificar qué tipo de dato tiene una variable.</p>
+<div id="cell-77" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>mi_numero <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>mi_texto <span class="op">=</span> <span class="st">"Cien"</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>mi_booleano <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(mi_numero))</span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(mi_texto))</span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(mi_booleano))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'int'&gt;
+&lt;class 'str'&gt;
+&lt;class 'bool'&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="cómo-funcionan-las-funciones-argumentos-y-retorno" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-funcionan-las-funciones-argumentos-y-retorno">¿Cómo funcionan las funciones? Argumentos y Retorno</h3>
+<ul>
+<li><strong>Argumentos:</strong> Muchas funciones necesitan información para poder trabajar. Esta información se les pasa entre paréntesis, y se llaman <strong>argumentos</strong>. Por ejemplo, a <code>print()</code> le pasamos lo que queremos mostrar.</li>
+<li><strong>Retorno de Valores:</strong> Algunas funciones realizan un cálculo o una operación y nos devuelven un resultado. Por ejemplo, <code>len()</code> nos devuelve un número.</li>
+</ul>
+<p>Entender las funciones es clave, porque las librerías que usaremos a continuación son, en esencia, grandes colecciones de funciones especializadas.</p>
+</section>
+</section>
+<section id="importando-herramientas-bibliotecas-y-módulos" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="importando-herramientas-bibliotecas-y-módulos"><span class="header-section-number">5.8</span> Importando Herramientas: Bibliotecas y Módulos</h2>
+<p>Python es un lenguaje muy potente, pero su verdadera fuerza reside en su vasto ecosistema de <strong>bibliotecas</strong> (también llamadas módulos o paquetes).</p>
+<p>Una <strong>biblioteca</strong> es una colección de código (funciones, clases, etc.) escrito por otros programadores y disponible para que tú lo uses en tus propios proyectos. Imagina que son “cajas de herramientas” especializadas:</p>
+<ul>
+<li>¿Necesitas hacer cálculos matemáticos complejos? Hay una librería para eso.</li>
+<li>¿Necesitas manipular datos en tablas? Hay una librería para eso.</li>
+<li>¿Necesitas crear gráficos? ¡También hay librerías para eso!</li>
+</ul>
+<p>Usar librerías nos permite evitar “reinventar la rueda”, ahorrando mucho tiempo y esfuerzo, y aprovechando código que ya ha sido probado y optimizado.</p>
+<p>Para poder usar las funciones y herramientas que están dentro de una librería, primero debemos <strong>importarla</strong> a nuestro entorno de trabajo. La forma más común de hacerlo es con la instrucción <code>import</code>.</p>
+<section id="sintaxis-de-import" class="level3">
+<h3 class="anchored" data-anchor-id="sintaxis-de-import">Sintaxis de <code>import</code></h3>
+<p>La sintaxis básica es:</p>
+<pre><code>import nombre_de_la_libreria</code></pre>
+<p>Sin embargo, para las librerías de análisis de datos, es muy común y recomendado usar un <strong>alias</strong> (un nombre corto) para hacer el código más conciso y fácil de leer. Esto se hace con la palabra clave <code>as</code>:</p>
+<pre><code>import nombre_de_la_libreria as alias</code></pre>
+<p>Ahora vamos a importar las librerías que serán esenciales para trabajar con datos, realizar cálculos estadísticos y crear gráficos en Python.</p>
+<div id="cell-81" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importando las librerías fundamentales para el análisis de datos</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pandas: Es la librería principal para trabajar con estructuras de datos tabulares</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="co">#         como Series (vectores) y DataFrames (tablas).</span></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="co"># NumPy: Proporciona soporte para arreglos (arrays) y matrices multidimensionales,</span></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="co">#        además de funciones matemáticas de alto nivel. Pandas se construye sobre NumPy.</span></span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Matplotlib.pyplot: Es la librería base para crear gráficos en Python.</span></span>
+<span id="cb64-12"><a href="#cb64-12" aria-hidden="true" tabindex="-1"></a><span class="co">#                    Seaborn la usa "por debajo" para dibujar.</span></span>
+<span id="cb64-13"><a href="#cb64-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb64-14"><a href="#cb64-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-15"><a href="#cb64-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Seaborn: Es una librería de visualización de datos de alto nivel</span></span>
+<span id="cb64-16"><a href="#cb64-16" aria-hidden="true" tabindex="-1"></a><span class="co">#          basada en Matplotlib. Facilita la creación de gráficos estadísticos atractivos.</span></span>
+<span id="cb64-17"><a href="#cb64-17" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb64-18"><a href="#cb64-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-19"><a href="#cb64-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"¡Librerías principales para el análisis de datos importadas correctamente!"</span>)</span>
+<span id="cb64-20"><a href="#cb64-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Ahora podemos acceder a sus funciones usando sus alias (pd, np, plt, sns)."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>¡Librerías principales para el análisis de datos importadas correctamente!
+Ahora podemos acceder a sus funciones usando sus alias (pd, np, plt, sns).</code></pre>
+</div>
+</div>
+<p>Una vez que hemos importado una librería con un alias (por ejemplo, <code>pandas as pd</code>), para usar una función de esa librería, escribimos el alias seguido de un punto y el nombre de la función: <code>pd.nombre_de_la_funcion()</code>.</p>
+</section>
+</section>
+<section id="las-principales-estructuras-de-datos-en-python-para-el-análisis" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="las-principales-estructuras-de-datos-en-python-para-el-análisis"><span class="header-section-number">5.9</span> Las principales estructuras de datos en Python para el análisis</h2>
+<p>Ahora que entendemos las funciones y cómo importar librerías, podemos introducir las estructuras de datos que nos permitirán organizar y manipular nuestros datos de manera eficiente. Las dos más importantes en el contexto del análisis de datos con Python (y con la librería Pandas) son las <strong>Series</strong> y los <strong>DataFrames</strong>.</p>
+<section id="series-de-pandas-el-vector-en-python-para-datos" class="level3">
+<h3 class="anchored" data-anchor-id="series-de-pandas-el-vector-en-python-para-datos">Series de <code>pandas</code> (El “vector” en <code>Python</code> para datos)</h3>
+<p>Si en otros lenguajes de programación o herramientas estadísticas has trabajado con el concepto de “vector” (una secuencia de valores de un mismo tipo), el equivalente más directo en <code>Python</code>, usando <code>pandas</code>, es una <strong>serie</strong>.</p>
+<ul>
+<li><strong>Concepto:</strong> Una <em>serie</em> de <code>pandas</code> es un arreglo unidimensional (como una columna de una hoja de cálculo o un vector). Puede contener cualquier tipo de dato (números enteros, flotantes, texto, booleanos, etc.) y tiene un índice asociado para acceder a sus elementos.</li>
+</ul>
+<p><strong>Creación de una serie:</strong> Podemos crear una Serie a partir de una lista de <code>Python</code>.</p>
+<div id="cell-84" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una lista de edades</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>lista_edades <span class="op">=</span> [<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">22</span>, <span class="dv">35</span>, <span class="dv">28</span>, <span class="dv">40</span>, <span class="dv">33</span>, <span class="dv">29</span>]</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir la lista a una Serie de Pandas</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Usamos 'pd.' porque la función Series() viene de la librería Pandas. Atención: la función se escribe con mayúsculas.</span></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>edades_serie <span class="op">=</span> pd.Series(lista_edades)</span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mi Serie de Edades:"</span>)</span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(edades_serie)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mi Serie de Edades:
+0    25
+1    30
+2    22
+3    35
+4    28
+5    40
+6    33
+7    29
+dtype: int64</code></pre>
+</div>
+</div>
+<p><strong>Operaciones básicas con series:</strong> Las series tienen muchas funciones y métodos útiles. Por ejemplo, podemos calcular la media:</p>
+<div id="cell-86" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Edad promedio:"</span>, edades_serie.mean()) <span class="co"># Usando el método .mean() de la Serie</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Edad máxima:"</span>, edades_serie.<span class="bu">max</span>())</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Edad mínima:"</span>, edades_serie.<span class="bu">min</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Edad promedio: 30.25
+Edad máxima: 40
+Edad mínima: 22</code></pre>
+</div>
+</div>
+</section>
+<section id="dataframes-de-pandas-la-tabla-o-hoja-de-cálculo" class="level3">
+<h3 class="anchored" data-anchor-id="dataframes-de-pandas-la-tabla-o-hoja-de-cálculo">DataFrames de Pandas (La “Tabla” o “Hoja de Cálculo”)</h3>
+<p>El <strong>DataFrame</strong> es la estructura de datos más importante y utilizada en <code>pandas</code> para el análisis de datos. Es el equivalente a una tabla en una base de datos, una hoja de cálculo de Excel, o un “data frame” en R.</p>
+<ul>
+<li><strong>Concepto:</strong> Un DataFrame es una estructura bidimensional (filas y columnas). Piensa en ella como una colección de series (columnas) que comparten el mismo índice (las filas). Cada columna en un DataFrame es una serie de <code>pandas</code>.</li>
+</ul>
+<p><strong>Creación de un DataFrame (a partir de un diccionario):</strong> Una forma sencilla de crear un DataFrame pequeño es a partir de un diccionario de <code>Python</code>, donde las claves del diccionario se convierten en los nombres de las columnas y los valores son listas que se convierten en las columnas.</p>
+<div id="cell-88" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un diccionario con datos</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>datos_alumnos <span class="op">=</span> {</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Nombre'</span>: [<span class="st">'Ana'</span>, <span class="st">'Luis'</span>, <span class="st">'Marta'</span>, <span class="st">'Pedro'</span>, <span class="st">'Sofía'</span>],</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Edad'</span>: [<span class="dv">24</span>, <span class="dv">30</span>, <span class="dv">28</span>, <span class="dv">35</span>, <span class="dv">26</span>],</span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Ciudad'</span>: [<span class="st">'Madrid'</span>, <span class="st">'Barcelona'</span>, <span class="st">'Valencia'</span>, <span class="st">'Sevilla'</span>, <span class="st">'Málaga'</span>],</span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Calificación'</span>: [<span class="fl">8.5</span>, <span class="fl">7.2</span>, <span class="fl">9.1</span>, <span class="fl">6.8</span>, <span class="fl">8.9</span>]</span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un DataFrame a partir del diccionario</span></span>
+<span id="cb70-10"><a href="#cb70-10" aria-hidden="true" tabindex="-1"></a>df_alumnos <span class="op">=</span> pd.DataFrame(datos_alumnos)</span>
+<span id="cb70-11"><a href="#cb70-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-12"><a href="#cb70-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">DataFrame de Alumnos:"</span>)</span>
+<span id="cb70-13"><a href="#cb70-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_alumnos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+DataFrame de Alumnos:
+  Nombre  Edad     Ciudad  Calificación
+0    Ana    24     Madrid           8.5
+1   Luis    30  Barcelona           7.2
+2  Marta    28   Valencia           9.1
+3  Pedro    35    Sevilla           6.8
+4  Sofía    26     Málaga           8.9</code></pre>
+</div>
+</div>
+<p><strong>Visualización y exploración básica de DataFrames:</strong></p>
+<p>Es fundamental poder echar un vistazo rápido a los datos una vez que están cargados en un DataFrame.</p>
+<ul>
+<li><code>df.head()</code>: Muestra las primeras 5 filas (útil para ver la estructura).</li>
+<li><code>df.tail()</code>: Muestra las últimas 5 filas.</li>
+<li><code>df.info()</code>: Proporciona un resumen conciso del DataFrame, incluyendo el número de entradas, columnas, tipos de datos no nulos y uso de memoria.</li>
+<li><code>df.describe()</code>: Genera estadísticas descriptivas (conteo, media, desviación estándar, etc.) de las columnas numéricas.</li>
+</ul>
+<div id="cell-90" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Primeras 3 filas del DataFrame de alumnos:"</span>)</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_alumnos.head(<span class="dv">3</span>)) <span class="co"># Podemos especificar el número de filas</span></span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Información del DataFrame de alumnos:"</span>)</span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>df_alumnos.info()</span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Estadísticas descriptivas del DataFrame de alumnos:"</span>)</span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_alumnos.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Primeras 3 filas del DataFrame de alumnos:
+  Nombre  Edad     Ciudad  Calificación
+0    Ana    24     Madrid           8.5
+1   Luis    30  Barcelona           7.2
+2  Marta    28   Valencia           9.1
+
+Información del DataFrame de alumnos:
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 5 entries, 0 to 4
+Data columns (total 4 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   Nombre        5 non-null      object 
+ 1   Edad          5 non-null      int64  
+ 2   Ciudad        5 non-null      object 
+ 3   Calificación  5 non-null      float64
+dtypes: float64(1), int64(1), object(2)
+memory usage: 292.0+ bytes
+
+Estadísticas descriptivas del DataFrame de alumnos:
+            Edad  Calificación
+count   5.000000      5.000000
+mean   28.600000      8.100000
+std     4.219005      1.036822
+min    24.000000      6.800000
+25%    26.000000      7.200000
+50%    28.000000      8.500000
+75%    30.000000      8.900000
+max    35.000000      9.100000</code></pre>
+</div>
+</div>
+<p><strong>Selección de Columnas en un DataFrame:</strong></p>
+<p>Para trabajar con una columna específica de un DataFrame, la seleccionamos usando corchetes <code>[]</code> y el nombre de la columna entre comillas. El resultado será una Serie de Pandas.</p>
+<div id="cell-92" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionar la columna 'Edad'</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>edades_alumnos <span class="op">=</span> df_alumnos[<span class="st">'Edad'</span>]</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Columna 'Edad' (como Serie):"</span>)</span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(edades_alumnos)</span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular la media de la columna 'Calificación'</span></span>
+<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a>media_calificacion <span class="op">=</span> df_alumnos[<span class="st">'Calificación'</span>].mean()</span>
+<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">La calificación promedio de los alumnos es: </span><span class="sc">{</span>media_calificacion<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Columna 'Edad' (como Serie):
+0    24
+1    30
+2    28
+3    35
+4    26
+Name: Edad, dtype: int64
+
+La calificación promedio de los alumnos es: 8.10</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="el-data-frame-continuación-con-ejemplo-real" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="el-data-frame-continuación-con-ejemplo-real"><span class="header-section-number">5.10</span> El <em>data frame</em> (continuación con ejemplo real)</h2>
+<p>Ahora que conocemos los <code>DataFrames</code>, podemos entender mejor cómo leer datos reales. El marco de datos o <em>DataFrame</em> es el objeto más útil y más usado en el análisis de datos. Consiste en una estructura de dos dimensiones, formada por una serie de vectores de igual longitud, igual que una tabla de una hoja de cálculo, en la que cada columna es una variable y cada fila, un caso, observación o individuo. Algunas bibliotecas Python incluyen <em>data frames</em> de muestra, que son útiles para entender cómo están formados.</p>
+<p>Veamos uno de ellos, el famoso conjunto de datos <strong><a href="https://es.wikipedia.org/wiki/Conjunto_de_datos_flor_iris">iris</a></strong>, creada por el investigador y estadístico <a href="https://es.wikipedia.org/wiki/Ronald_Fisher">Ronald Fisher</a>, que contiene un conjunto de medidas realizadas sobre flores del género <em>Iris</em> realizadas por este investigador en los años 30 del siglo XX.</p>
+<p>Para cargar este conjunto de datos de ejemplo, vamos a utilizar una función de la librería <code>seaborn</code> que ya importamos:</p>
+<div id="cell-94" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos el dataset 'iris' usando una función de Seaborn</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>df_iris_sns <span class="op">=</span> sns.load_dataset(<span class="st">'iris'</span>)</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Primeras 5 filas del dataset Iris:"</span>)</span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_iris_sns.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Primeras 5 filas del dataset Iris:
+   sepal_length  sepal_width  petal_length  petal_width species
+0           5.1          3.5           1.4          0.2  setosa
+1           4.9          3.0           1.4          0.2  setosa
+2           4.7          3.2           1.3          0.2  setosa
+3           4.6          3.1           1.5          0.2  setosa
+4           5.0          3.6           1.4          0.2  setosa</code></pre>
+</div>
+</div>
+<p>La función <code>head()</code> es útil para presentarnos sólo el <em>encabezado</em> del <em>data frame</em>. Veamos la estructura de este <em>data frame</em> más a fondo:</p>
+<div id="cell-96" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Información general del DataFrame Iris:"</span>)</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>df_iris_sns.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Información general del DataFrame Iris:
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 150 entries, 0 to 149
+Data columns (total 5 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   sepal_length  150 non-null    float64
+ 1   sepal_width   150 non-null    float64
+ 2   petal_length  150 non-null    float64
+ 3   petal_width   150 non-null    float64
+ 4   species       150 non-null    object 
+dtypes: float64(4), object(1)
+memory usage: 6.0+ KB</code></pre>
+</div>
+</div>
+<div id="cell-97" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Estadísticas descriptivas de las columnas numéricas del DataFrame Iris:"</span>)</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_iris_sns.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Estadísticas descriptivas de las columnas numéricas del DataFrame Iris:
+       sepal_length  sepal_width  petal_length  petal_width
+count    150.000000   150.000000    150.000000   150.000000
+mean       5.843333     3.057333      3.758000     1.199333
+std        0.828066     0.435866      1.765298     0.762238
+min        4.300000     2.000000      1.000000     0.100000
+25%        5.100000     2.800000      1.600000     0.300000
+50%        5.800000     3.000000      4.350000     1.300000
+75%        6.400000     3.300000      5.100000     1.800000
+max        7.900000     4.400000      6.900000     2.500000</code></pre>
+</div>
+</div>
+<p>Para utilizar una columna de un dataframe, la seleccionamos por su nombre:</p>
+<div id="cell-99" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Contenido de la columna 'sepal_length':"</span>)</span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_iris_sns[<span class="st">"sepal_length"</span>]) <span class="co"># podemos usar también la doble comilla para designar las columnas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Contenido de la columna 'sepal_length':
+0      5.1
+1      4.9
+2      4.7
+3      4.6
+4      5.0
+      ... 
+145    6.7
+146    6.3
+147    6.5
+148    6.2
+149    5.9
+Name: sepal_length, Length: 150, dtype: float64</code></pre>
+</div>
+</div>
+<p>Ahora que tenemos una columna seleccionada (que es una serie de <code>pandas</code>), podemos aplicar directamente funciones estadísticas sobre ella:</p>
+<div id="cell-101" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculamos la media de la columna 'sepal_length'</span></span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>media_sepal_length <span class="op">=</span> df_iris_sns[<span class="st">"sepal_length"</span>].mean()</span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">La longitud media del sépalo es: </span><span class="sc">{</span>media_sepal_length<span class="sc">:.2f}</span><span class="ss">"</span>) <span class="co"># esta es una forma de dar formato al número para imprimirlo con dos decimales fijos</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+La longitud media del sépalo es: 5.84</code></pre>
+</div>
+</div>
+<div id="cell-102" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># También podemos calcular la desviación estándar</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>desviacion_sepal_length <span class="op">=</span> df_iris_sns[<span class="st">"sepal_length"</span>].std()</span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"La desviación estándar de la longitud del sépalo es: </span><span class="sc">{</span>desviacion_sepal_length<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>La desviación estándar de la longitud del sépalo es: 0.83</code></pre>
+</div>
+</div>
+<p>Con nuestros DataFrames cargados y la comprensión de las Series, podemos realizar rápidamente cálculos estadísticos básicos sobre nuestras columnas numéricas. Pandas hace que esto sea muy sencillo.</p>
+<ul>
+<li><strong>Estadísticas Descriptivas Comunes:</strong>
+<ul>
+<li><code>.mean()</code>: Media</li>
+<li><code>.median()</code>: Mediana</li>
+<li><code>.std()</code>: Desviación estándar</li>
+<li><code>.min()</code>: Valor mínimo</li>
+<li><code>.max()</code>: Valor máximo</li>
+<li><code>.sum()</code>: Suma de todos los valores</li>
+<li><code>.count()</code>: Número de valores no nulos</li>
+</ul></li>
+</ul>
+<p>Vamos a aplicar algunas de estas operaciones al DataFrame <code>df_iris_sns</code>:</p>
+<div id="cell-104" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Estadísticas de 'petal_width' en el DataFrame Iris:"</span>)</span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Media de petal_width: </span><span class="sc">{</span>df_iris_sns[<span class="st">'petal_width'</span>]<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mediana de petal_width: </span><span class="sc">{</span>df_iris_sns[<span class="st">'petal_width'</span>]<span class="sc">.</span>median()<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Desviación estándar de petal_width: </span><span class="sc">{</span>df_iris_sns[<span class="st">'petal_width'</span>]<span class="sc">.</span>std()<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Valor mínimo de petal_width: </span><span class="sc">{</span>df_iris_sns[<span class="st">'petal_width'</span>]<span class="sc">.</span><span class="bu">min</span>()<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb88-6"><a href="#cb88-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Valor máximo de petal_width: </span><span class="sc">{</span>df_iris_sns[<span class="st">'petal_width'</span>]<span class="sc">.</span><span class="bu">max</span>()<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb88-7"><a href="#cb88-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Número de observaciones de petal_width: </span><span class="sc">{</span>df_iris_sns[<span class="st">'petal_width'</span>]<span class="sc">.</span>count()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Estadísticas de 'petal_width' en el DataFrame Iris:
+Media de petal_width: 1.20
+Mediana de petal_width: 1.30
+Desviación estándar de petal_width: 0.76
+Valor mínimo de petal_width: 0.10
+Valor máximo de petal_width: 2.50
+Número de observaciones de petal_width: 150</code></pre>
+</div>
+</div>
+</section>
+<section id="visualización-de-datos-con-seaborn-y-matplotlib" class="level2" data-number="5.11">
+<h2 data-number="5.11" class="anchored" data-anchor-id="visualización-de-datos-con-seaborn-y-matplotlib"><span class="header-section-number">5.11</span> Visualización de Datos con Seaborn y Matplotlib</h2>
+<p>Una imagen vale más que mil palabras, y en el análisis de datos, la visualización es fundamental para entender patrones, distribuciones y relaciones en nuestros datos. En Python, las librerías <code>Matplotlib</code> y <code>Seaborn</code> son las herramientas estándar para crear gráficos.</p>
+<ul>
+<li><strong>Matplotlib.pyplot (alias <code>plt</code>):</strong> Es la base, una librería de bajo nivel que da un control muy granular sobre cada aspecto del gráfico.</li>
+<li><strong>Seaborn (alias <code>sns</code>):</strong> Construye sobre Matplotlib, ofreciendo una interfaz de alto nivel para crear gráficos estadísticos complejos y estéticamente agradables con menos código. Es ideal para explorar distribuciones, relaciones entre variables y comparaciones entre grupos.</li>
+</ul>
+<p>Siempre importamos ambas, ya que Seaborn a menudo usa funciones de Matplotlib para mostrar y personalizar los gráficos (como <code>plt.title()</code> para el título o <code>plt.show()</code> para mostrar el gráfico).</p>
+<p>El texto siguiente incluye el código para crear el gráfico, no te preocupes si no lo entiendes a la primera, iremos explicándolo línea a línea.</p>
+<section id="ejemplo-histograma-de-la-longitud-del-sépalo-distribución-de-una-variable-numérica" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-histograma-de-la-longitud-del-sépalo-distribución-de-una-variable-numérica">Ejemplo: Histograma de la longitud del sépalo (Distribución de una variable numérica)</h3>
+<p>Un histograma nos permite ver cómo se distribuyen los valores de una variable numérica.</p>
+<div id="cell-107" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar el dataset iris</span></span>
+<span id="cb90-5"><a href="#cb90-5" aria-hidden="true" tabindex="-1"></a>iris <span class="op">=</span> sns.load_dataset(<span class="st">"iris"</span>)</span>
+<span id="cb90-6"><a href="#cb90-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-7"><a href="#cb90-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el histograma</span></span>
+<span id="cb90-8"><a href="#cb90-8" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>iris, x<span class="op">=</span><span class="st">"sepal_length"</span>, bins<span class="op">=</span><span class="dv">20</span>, kde<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">"skyblue"</span>, edgecolor<span class="op">=</span><span class="st">"black"</span>)</span>
+<span id="cb90-9"><a href="#cb90-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-10"><a href="#cb90-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Añadir título y etiquetas</span></span>
+<span id="cb90-11"><a href="#cb90-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribución de Sepal Length en el dataset Iris"</span>)</span>
+<span id="cb90-12"><a href="#cb90-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Sepal Length (cm)"</span>)</span>
+<span id="cb90-13"><a href="#cb90-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Frecuencia"</span>)</span>
+<span id="cb90-14"><a href="#cb90-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-15"><a href="#cb90-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar el gráfico</span></span>
+<span id="cb90-16"><a href="#cb90-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="020-intro-python_files/figure-html/cell-53-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Explicación línea por línea</strong></p>
+<p><strong>1. <code>import seaborn as sns</code></strong> - Importa la biblioteca Seaborn con el alias <code>sns</code>. - Seaborn es una capa de alto nivel sobre Matplotlib, ideal para visualizaciones estadísticas.</p>
+<p><strong>2. <code>import matplotlib.pyplot as plt</code></strong> - Importa Matplotlib para controlar aspectos del gráfico como título, ejes y visualización.</p>
+<p><strong>3. <code>iris = sns.load_dataset("iris")</code></strong> - Carga el conjunto de datos <code>iris</code> directamente desde Seaborn. - Este dataset contiene medidas de sépalos y pétalos de tres especies de iris.</p>
+<p><strong>4. <code>sns.histplot(...)</code></strong> Este es el núcleo del histograma. Vamos a desglosar cada argumento:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 55%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parámetro</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>data=iris</code></td>
+<td>Indica que usaremos el DataFrame <code>iris</code> como fuente de datos.</td>
+</tr>
+<tr class="even">
+<td><code>x="sepal_length"</code></td>
+<td>Especifica la variable que queremos graficar en el eje X.</td>
+</tr>
+<tr class="odd">
+<td><code>bins=20</code></td>
+<td>Divide el rango de valores en 20 intervalos (barras). Puedes ajustar este número para más o menos detalle.</td>
+</tr>
+<tr class="even">
+<td><code>kde=True</code></td>
+<td>Añade una curva de densidad suavizada sobre el histograma. Útil para visualizar la forma de la distribución.</td>
+</tr>
+<tr class="odd">
+<td><code>color="skyblue"</code></td>
+<td>Cambia el color de las barras del histograma. Puedes usar nombres de colores o códigos hexadecimales.</td>
+</tr>
+<tr class="even">
+<td><code>edgecolor="black"</code></td>
+<td>Añade bordes negros a cada barra para mejorar la legibilidad.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5. <code>plt.title(...)</code></strong> - Añade un título descriptivo al gráfico.</p>
+<p><strong>6. <code>plt.xlabel(...)</code> y <code>plt.ylabel(...)</code></strong> - Etiquetan los ejes X e Y respectivamente, lo que es esencial para la interpretación del gráfico.</p>
+<p><strong>7. <code>plt.show()</code></strong> - Muestra el gráfico en pantalla. Sin esta línea, el gráfico no se renderiza en algunos entornos.</p>
+<p>En el capítulo siguiente veremos con detalle distintos tipos de gráficos y su construcción en Excel y en <code>Python</code>.</p>
+</section>
+</section>
+<section id="cómo-leer-nuestros-datos-en-python-desde-google-colaborate" class="level2" data-number="5.12">
+<h2 data-number="5.12" class="anchored" data-anchor-id="cómo-leer-nuestros-datos-en-python-desde-google-colaborate"><span class="header-section-number">5.12</span> Cómo leer nuestros datos en <code>Python</code> desde Google Colaborate</h2>
+<p>Hasta ahora hemos utilizado datos que hemos creado sobre la marcha, o hemos usado un conjunto de datos preexistente, como es el caso de los datos <em>Iris</em>.</p>
+<p>Ahora vamos a ver cómo podemos leer o utilizar nuestros propios datos, a partir de ficheros <code>CSV</code>. También podemos leer directamente nuestras hojas Excel.</p>
+<section id="opción-1-subir-los-datos-al-espacio-de-trabajo-de-google-colaborate" class="level3">
+<h3 class="anchored" data-anchor-id="opción-1-subir-los-datos-al-espacio-de-trabajo-de-google-colaborate">Opción 1: Subir los datos al espacio de trabajo de Google Colaborate</h3>
+<p>Los pasos son los mismos tanto si queremos trabajar con un <code>CSV</code> o directamente con una hoja Excel: 1. Dentro del entorno Colab, seleccionamos el icono de carpeta a la izquierda, que nos abre la barra lateral de <code>Archivos</code> 2. Hacemos click sobre el icono de la hoja con la flecha vertical, lo que nos abre una ventana de selección de archivos. 3. Seleccionamos la hoja de cálculo o <code>CSV</code>con la que vamos a trabajar y la subimos al espacio de trabajo de Google Colaborate</p>
+<p>Una vez la hoja de cálculo o el <code>CSV</code> en nuestro espacio de trabajo, procedemos a leer los datos.</p>
+<p>El mayor inconveniente de esta forma de trabajo es que cada vez que salimos de la sesión, Google Colab borra todos nuestros archivos del espacio de trabajo; cada vez que iniciemos una sesión, tendremos que repetir el proceso de subir nuestros datos al espacio de trabajo. Por eso, la mejor opción es tener nuestros datos en una carpeta de Google Drive, que puede utilizarse desde Colab tal como vamos a ver a continuación.</p>
+</section>
+<section id="opción-2-leer-directamente-los-datos-de-nuestra-carpeta-de-google-drive" class="level3">
+<h3 class="anchored" data-anchor-id="opción-2-leer-directamente-los-datos-de-nuestra-carpeta-de-google-drive">Opción 2: Leer directamente los datos de nuestra carpeta de Google Drive</h3>
+<p>Esta es una opción mucho más cómoda que nos evita los pasos intermedios, ya que no necesitamos subir la hoja de cálculo al espacio de trabajo.</p>
+<p>Empezamos, como siempre, cargando las bibliotecas que nos proporcionan las funciones que vamos a utilizar durante el ejercicio. Aunque algunas no se usarán en la lectura de datos, en buenas prácticas es conveniente agrupar al principio del cuaderno todas las instrucciones de carga de bibliotecas en una misma celda.</p>
+<div id="cell-116" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd             <span class="co"># manejo de dataframes y series</span></span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt <span class="co"># funciones específicas de `matplotlib.pyplot`</span></span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>) <span class="co"># estilo de `seaborn` con fondo blanco</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A continuación, la instrucciones para acceder a nuestro Google Drive y leer el archivo de datos.</p>
+<div id="cell-118" class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Ejecuta esta celda para montar tu Google Drive.</span></span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> google.colab <span class="im">import</span> drive</span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>drive.mount(<span class="st">'/content/drive'</span>)</span>
+<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-5"><a href="#cb92-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Verifica y ajusta esta ruta de archivo si es necesario:</span></span>
+<span id="cb92-6"><a href="#cb92-6" aria-hidden="true" tabindex="-1"></a>google_drive_path_folder <span class="op">=</span> <span class="st">'/content/drive/MyDrive/'</span></span>
+<span id="cb92-7"><a href="#cb92-7" aria-hidden="true" tabindex="-1"></a>nombre_archivo_base <span class="op">=</span> <span class="st">'camembert.csv'</span></span>
+<span id="cb92-8"><a href="#cb92-8" aria-hidden="true" tabindex="-1"></a>nombre_archivo_completo <span class="op">=</span> os.path.join(google_drive_path_folder, nombre_archivo_base)</span>
+<span id="cb92-9"><a href="#cb92-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-10"><a href="#cb92-10" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb92-11"><a href="#cb92-11" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(nombre_archivo_completo, decimal <span class="op">=</span> <span class="st">","</span>, sep<span class="op">=</span><span class="st">';'</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
+<span id="cb92-12"><a href="#cb92-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"¡Archivo "</span>, nombre_archivo_base,<span class="st">" cargado correctamente!"</span>)</span>
+<span id="cb92-13"><a href="#cb92-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Dimensiones de los datos: </span><span class="sc">{</span>df<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb92-14"><a href="#cb92-14" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb92-15"><a href="#cb92-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error al cargar el archivo: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="explicación-de-los-pasos" class="level3">
+<h3 class="anchored" data-anchor-id="explicación-de-los-pasos">Explicación de los pasos:</h3>
+<section id="montar-google-drive" class="level4">
+<h4 class="anchored" data-anchor-id="montar-google-drive">1. Montar Google Drive</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Línea</th>
+<th>Explicación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>from google.colab import drive</code></td>
+<td>Importa el módulo <code>drive</code> de Google Colab para acceder a Google Drive.</td>
+</tr>
+<tr class="even">
+<td><code>drive.mount('/content/drive')</code></td>
+<td>Monta tu Google Drive en la ruta <code>/content/drive</code>. Te pedirá autorización la primera vez.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="definir-ruta-del-archivo-csv" class="level4">
+<h4 class="anchored" data-anchor-id="definir-ruta-del-archivo-csv">2. Definir ruta del archivo CSV</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Línea</th>
+<th>Explicación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>google_drive_path_folder = '/content/drive/MyDrive/'</code></td>
+<td>Ruta donde está el archivo dentro de Google Drive.</td>
+</tr>
+<tr class="even">
+<td><code>nombre_archivo_base = 'camembert.csv'</code></td>
+<td>Nombre del archivo CSV que se quiere cargar.</td>
+</tr>
+<tr class="odd">
+<td><code>os.path.join(...)</code></td>
+<td>Une la ruta y el nombre del archivo para formar la ruta completa. Evita errores en distintos sistemas operativos.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="cargar-el-archivo-csv-con-pandas" class="level4">
+<h4 class="anchored" data-anchor-id="cargar-el-archivo-csv-con-pandas">3. Cargar el archivo CSV con pandas</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Línea</th>
+<th>Explicación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>try:</code></td>
+<td>Inicia un bloque que intenta ejecutar el código. Si hay error, pasa al bloque <code>except</code>.</td>
+</tr>
+<tr class="even">
+<td><code>pd.read_csv(...)</code></td>
+<td>Carga el archivo CSV como un DataFrame de pandas. Parámetros:</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<code>decimal=","</code></td>
+<td>Indica que los decimales usan coma (formato europeo).</td>
+</tr>
+<tr class="even">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<code>sep=";"</code></td>
+<td>Indica que los campos están separados por punto y coma.</td>
+</tr>
+<tr class="odd">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<code>encoding="ISO-8859-1"</code></td>
+<td>Codificación para leer caracteres especiales como tildes.</td>
+</tr>
+<tr class="even">
+<td><code>print(...)</code></td>
+<td>Muestra mensaje de éxito si el archivo se carga correctamente.</td>
+</tr>
+<tr class="odd">
+<td><code>df.shape</code></td>
+<td>Devuelve número de filas y columnas del DataFrame.</td>
+</tr>
+<tr class="even">
+<td><code>except Exception as e:</code></td>
+<td>Captura cualquier error que ocurra al cargar el archivo.</td>
+</tr>
+<tr class="odd">
+<td><code>print(f"Error...")</code></td>
+<td>Muestra el mensaje de error en pantalla.</td>
+</tr>
+</tbody>
+</table>
+<p>En <code>Python</code> siempre se prefiere encapsular la instrucción en una estructura <code>try...except</code>, que maneja los posibles errores o <strong>excepciones</strong> que pueden producirse en la lectura, por ejemplo, que nuestro <em>path</em> sea incorrecto, o que hayamos escrito mal el nombre del fichero, o cualquier otro error que haga que la instruccion de lectura falle. Añadimos también algunas instrucciones de <code>print()</code> que nos ayuden a saber que todo ha ido bien (o mal).</p>
+<p>Una vez cargados los datos, podemos revisarlos y ver la estructura del DataFrame usando las funciones adecuadas: <code>df.dtypes</code>, <code>df.head()</code>, <code>df.info()</code>, o <code>df.describe()</code></p>
+</section>
+</section>
+</section>
+<section id="resumen" class="level2" data-number="5.13">
+<h2 data-number="5.13" class="anchored" data-anchor-id="resumen"><span class="header-section-number">5.13</span> Resumen</h2>
+<p>En este capítulo hemos tomado contacto con las funciones básicas de <code>Python</code> y su utilización a través de un interface Jupyter, en este caso <strong>Google Colaborate</strong>, y hemos visto algunas funciones gráficas básicas.</p>
+<p>Hemos visto los principales tipos de datos, particularmente el <em>data frame</em>, y hemos aprendido a leer datos que previamente se habían introducido en una hoja de cálculo.</p>
+<p>Hemos aprendido a leer nuestros datos partiendo de ficheros <code>CSV</code> exportados desde Excel o desde otros programas.</p>
+<p>En el capítulo siguiente veremos con más detalle algunos gráficos que nos permitirán describir y entender mejor nuestros conjuntos de datos.</p>
+<p>A modo de ejemplo, el siguiente enlace muestra varios ejemplos de cuadernos Jupyter de todos los nivles de complejidad, desde introducción a su uso hasta aplicaciones complejas. Explorarlos ayudará a comprender mejor la interfaz.</p>
+<p>https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./010-organizacion.html" class="pagination-link" aria-label="La organización de los datos y el flujo de trabajo.Los datos ordenados o *arreglados* (*tidy data*)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La organización de los datos y el flujo de trabajo.Los datos ordenados o <em>arreglados</em> (<em>tidy data</em>)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./030-exploracion.html" class="pagination-link" aria-label="La exploración de los datos mediante gráficos.">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -18,10 +18,10 @@ book:
     - index.qmd
     - 001-intro.qmd
     - 005-herramientas.qmd
-    - 010-intro-python.ipynb
-    - 020-analisis-queso.ipynb 
-    #- 030-organizacion.qmd  
-    #- 040-exploracion.qmd
+    - 010-organizacion.qmd
+    - 020-intro-python.ipynb  
+    - 030-exploracion.ipynb
+    - 040-analisis-queso.ipynb 
     #- 050-estad-simple.qmd
     #- 060-forma-de-los-datos.qmd
     #- 070-relacion-xy.qmd
