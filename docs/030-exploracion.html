@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -104,6 +104,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -286,6 +289,7 @@ window.Quarto = {
   <li><a href="#cómo-hacer-los-gráficos-de-series-temporales-en-excel" id="toc-cómo-hacer-los-gráficos-de-series-temporales-en-excel" class="nav-link" data-scroll-target="#cómo-hacer-los-gráficos-de-series-temporales-en-excel">Cómo hacer los gráficos de series temporales en Excel</a></li>
   <li><a href="#gráficos-de-series-temporales-en-python-utilizando-pandas" id="toc-gráficos-de-series-temporales-en-python-utilizando-pandas" class="nav-link" data-scroll-target="#gráficos-de-series-temporales-en-python-utilizando-pandas">Gráficos de series temporales en <code>Python</code> utilizando <code>pandas</code></a></li>
   <li><a href="#resumen-1" id="toc-resumen-1" class="nav-link" data-scroll-target="#resumen-1">Resumen</a></li>
+  <li><a href="#algunas-sugerencias-para-la-creación-de-gráficos" id="toc-algunas-sugerencias-para-la-creación-de-gráficos" class="nav-link" data-scroll-target="#algunas-sugerencias-para-la-creación-de-gráficos">Algunas sugerencias para la creación de gráficos</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -917,6 +921,256 @@ Figure&nbsp;6.1: Gráfico de dispersión en Excel
 </section>
 <section id="gráficos-de-series-temporales-en-python-utilizando-pandas" class="level3">
 <h3 class="anchored" data-anchor-id="gráficos-de-series-temporales-en-python-utilizando-pandas">Gráficos de series temporales en <code>Python</code> utilizando <code>pandas</code></h3>
+<p>En los procesos industriales, el manejo de datos que cambian con el tiempo (<strong>series temporales</strong>) es fundamental. Hablamos de registrar <strong>temperaturas</strong> en un proceso de cocción, el <strong>pH</strong> de una fermentación a lo largo de las horas o días, o la <strong>evolución de inventarios</strong> de productos perecederos.</p>
+<p>Para abordar este análisis de manera <strong>eficiente y sencilla</strong>, la biblioteca <code>pandas</code> de Python es la herramienta de referencia. Su principal estructura, el <strong><code>DataFrame</code></strong>, está especialmente diseñada para entender y manipular datos etiquetados con el tiempo. Esto nos ofrece una serie de ventajas clave:</p>
+<ol type="1">
+<li><strong>Fácil Indexación Temporal:</strong> Pandas permite que la fecha y hora sean el “índice” principal de los datos. Esto simplifica enormemente el <strong>filtrado</strong> (ej. “dame todos los datos del último turno”) y la <strong>selección por rangos</strong> (ej. “analiza solo el periodo de 9:00 a 11:00”).</li>
+<li><strong>Remuestreo (Resampling) Sencillo:</strong> Es habitual tener datos muy detallados (ej. una medición por minuto) y querer analizarlos a una escala mayor (ej. la media por hora). Pandas permite este cambio de frecuencia con una única función, lo que es vital para suavizar el “ruido” y ver la <strong>tendencia real</strong> del proceso.</li>
+<li><strong>Ventanas Móviles (<code>rolling</code>):</strong> Es la función estrella para la industria. Permite calcular <strong>promedios móviles</strong> o desviaciones estándar sobre un periodo de tiempo definido (ej. el promedio de temperatura de los últimos 15 minutos, o cada 15 minutos). Esto es crucial para el <strong>control de calidad</strong> y la identificación de anomalías o desviaciones en tiempo real.</li>
+</ol>
+<p>En resumen, Pandas elimina las tareas de manipulación de datos tediosas, permitiendo a los profesionales de la alimentación centrarse en lo realmente importante: la <strong>interpretación de los datos</strong> para optimizar procesos, garantizar la <strong>seguridad alimentaria</strong> y mejorar la eficiencia.</p>
+<section id="construyendo-la-serie-temporal-con-pandas" class="level4">
+<h4 class="anchored" data-anchor-id="construyendo-la-serie-temporal-con-pandas">Construyendo la serie temporal con <code>pandas</code></h4>
+<p>Vamos a incluir de nuevo el código de lectura de los datos completo, para mayor claridad. Además, vamos a incluir una opción en la función de lectura del <code>csv</code> que formatea el campo <code>fecha</code> al formato que <code>pandas</code>puede reconocer.</p>
+<div id="cell-39" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>url_datos <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/camembert.csv'</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(url_datos, </span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>      decimal <span class="op">=</span> <span class="st">","</span>, </span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>      sep<span class="op">=</span><span class="st">';'</span>, </span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>      encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error al cargar el archivo: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 211 entries, 0 to 210
+Data columns (total 7 columns):
+ #   Column       Non-Null Count  Dtype  
+---  ------       --------------  -----  
+ 0   fecha        211 non-null    object 
+ 1   fabricacion  211 non-null    int64  
+ 2   est          211 non-null    float64
+ 3   mg           211 non-null    float64
+ 4   ph           211 non-null    float64
+ 5   cloruros     211 non-null    float64
+ 6   coliformes   210 non-null    float64
+dtypes: float64(5), int64(1), object(1)
+memory usage: 11.7+ KB</code></pre>
+</div>
+</div>
+<p>Como <code>fecha</code>se ha leído como object, la convertimos en fecha</p>
+<div id="cell-41" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha'</span>] <span class="op">=</span> pd.to_datetime(</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,  </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span> <span class="co"># Si hay una fecha inválida, la convierte a 'NaT' (Not a Time) en lugar de fallar.</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Verificamos que el contenido del dataframe es correcto</p>
+<div id="cell-43" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 211 entries, 0 to 210
+Data columns (total 7 columns):
+ #   Column       Non-Null Count  Dtype         
+---  ------       --------------  -----         
+ 0   fecha        211 non-null    datetime64[ns]
+ 1   fabricacion  211 non-null    int64         
+ 2   est          211 non-null    float64       
+ 3   mg           211 non-null    float64       
+ 4   ph           211 non-null    float64       
+ 5   cloruros     211 non-null    float64       
+ 6   coliformes   210 non-null    float64       
+dtypes: datetime64[ns](1), float64(5), int64(1)
+memory usage: 11.7 KB</code></pre>
+</div>
+</div>
+<p>Ahora <code>fecha</code>ya es <code>datetime64</code> y <code>pandas</code>lo reconoce como campo de fecha. Verificamos el dataframe:</p>
+<div id="cell-45" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fecha</th>
+<th data-quarto-table-cell-role="th">fabricacion</th>
+<th data-quarto-table-cell-role="th">est</th>
+<th data-quarto-table-cell-role="th">mg</th>
+<th data-quarto-table-cell-role="th">ph</th>
+<th data-quarto-table-cell-role="th">cloruros</th>
+<th data-quarto-table-cell-role="th">coliformes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2020-01-11</td>
+<td>1</td>
+<td>46.68</td>
+<td>24.0</td>
+<td>4.85</td>
+<td>1.50</td>
+<td>80.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2020-01-12</td>
+<td>1</td>
+<td>48.09</td>
+<td>25.0</td>
+<td>4.67</td>
+<td>1.61</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2020-01-13</td>
+<td>1</td>
+<td>45.97</td>
+<td>24.0</td>
+<td>4.71</td>
+<td>1.48</td>
+<td>9200.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2020-01-14</td>
+<td>1</td>
+<td>46.24</td>
+<td>23.5</td>
+<td>4.78</td>
+<td>1.69</td>
+<td>20.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2020-01-15</td>
+<td>1</td>
+<td>45.81</td>
+<td>23.0</td>
+<td>4.77</td>
+<td>1.56</td>
+<td>150.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Para utilizar las funciones de series de <code>pandas</code> es necesario crear una columna <code>index</code>o <strong>índice</strong> y asignarla como <code>index</code> del dataframe; <code>pandas</code> utilizará el index para toda la gestión de las fechas de manera rápida y flexible.</p>
+<div id="cell-47" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>]<span class="op">=</span> pd.DatetimeIndex(df.fecha).normalize()</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La función <code>.plot()</code> nos representa los valores de la columna en orden secuencial, y toma las fechas del <code>index</code> de forma utomática, sin necesidad de explicitarlo:</p>
+<div id="cell-49" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].plot()</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="030-exploracion_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Mediante las funciones de <code>pandas</code>, podemos reformatear las fechas remuestreando para hacer las medias semanales del extracto seco total. La función <code>resample('W-MON')</code> formatea las fechas para que las semanas empiecen en lunes, como es el caso en Europa (en USA la semana empieza el domingo). Aprovechamos para mostrar una de las potencias de <code>Python</code>: podemos hacer que varios cálculos se hagan a continuacion de los otros, simplemente enlazando las funciones, hasta el <code>.plot()</code></p>
+<div id="cell-51" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">2.0</span>))</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).mean().plot(title<span class="op">=</span><span class="st">"Media del extracto seco total semanal"</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="030-exploracion_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Veamos a continuación otras formas de formatear la serie sobre la marcha, pero esta vez representando la <code>desviación típica</code>en vez de la <code>media</code>.</p>
+<div id="cell-53" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">2.0</span>))</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).std().plot(title<span class="op">=</span><span class="st">"Desviación típica del extracto seco total semanal"</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="030-exploracion_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>O podemos representar un período específico de la serie indicando a <code>pandas</code> los límites inferior y superior de las fechas que queremos.</p>
+<div id="cell-55" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">2.0</span>))</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>][<span class="st">"2020-05"</span>:<span class="st">"2020-08"</span>].resample(<span class="st">'W-MON'</span>).mean().plot(title<span class="op">=</span><span class="st">"Media del extracto seco total semanal"</span>)<span class="op">;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="030-exploracion_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Por último, combinamos el gráfico de media y el de la desviación típica semanal en un único gráfico. Queda al trabajo en clase ir buscando la explicación y comprensión de cada linea (sugerencia: copiar y pegar en Gemini el código y solicitar explicación detallada puee ayudar…)</p>
+<div id="cell-57" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Preparación de los datos (Calculando la Media y la Desviación Típica Semanal) ---</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>media_semanal <span class="op">=</span> df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).mean()</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>dt_semanal <span class="op">=</span> df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).std()</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 2. Creación de los Subgráficos (El paso clave) ---</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos una figura (conjunto de gráficos) con 2 filas y 1 columna.</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co"># El parámetro 'figsize=(10, 4)' controla el tamaño: 10 de ancho y 4 de alto total (como un gráfico normal).</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 'sharex=True' asegura que ambos gráficos compartan el mismo eje temporal.</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    nrows<span class="op">=</span><span class="dv">2</span>, </span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    ncols<span class="op">=</span><span class="dv">1</span>, </span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>), </span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>    sharex<span class="op">=</span><span class="va">True</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 3. Graficar la Media (Gráfico Superior) ---</span></span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>ax1.plot(media_semanal, label<span class="op">=</span><span class="st">"Media Semanal"</span>, color<span class="op">=</span><span class="st">'tab:blue'</span>)</span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Media y Desviación Típica Semanal del Extracto Seco Total"</span>)</span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Media (est)"</span>)</span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>ax1.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>ax1.tick_params(labelbottom<span class="op">=</span><span class="va">False</span>) <span class="co"># Quita las etiquetas de fecha/hora del gráfico superior</span></span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 4. Graficar la Desviación Típica (Gráfico Inferior) ---</span></span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>ax2.plot(dt_semanal, label<span class="op">=</span><span class="st">"Desviación Típica Semanal"</span>, color<span class="op">=</span><span class="st">'tab:orange'</span>)</span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"D. Típica (est)"</span>)</span>
+<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a>ax2.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajusta el espacio entre los gráficos para que no se superpongan</span></span>
+<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a>fig.tight_layout() </span>
+<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="030-exploracion_files/figure-html/cell-21-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="resumen-1" class="level3">
 <h3 class="anchored" data-anchor-id="resumen-1">Resumen</h3>
@@ -955,84 +1209,11 @@ Figure&nbsp;6.1: Gráfico de dispersión en Excel
 </ul></li>
 </ol>
 <p>Los gráficos de series temporales proporcionan una visión clara y concisa de cómo cambian los datos a lo largo del tiempo. Esta visualización es fundamental para el análisis predictivo, la toma de decisiones y la identificación de patrones y anomalías en los datos.</p>
+</section>
+<section id="algunas-sugerencias-para-la-creación-de-gráficos" class="level3">
+<h3 class="anchored" data-anchor-id="algunas-sugerencias-para-la-creación-de-gráficos">Algunas sugerencias para la creación de gráficos</h3>
 <p>https://tidyplots.org/</p>
 <p><img src="01-imagenes/1740294003188.jpg" class="img-fluid"> <img src="01-imagenes/1740121283445.jpg" class="img-fluid"></p>
-<div id="cell-38" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Cargar y Preprocesar los Datos</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Suponiendo que el archivo se llama 'datos_fabricacion.csv'</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Parámetros clave:</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># sep=';'          -&gt; El delimitador es el punto y coma.</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># decimal=','      -&gt; La coma es el separador decimal (formato europeo).</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co"># parse_dates=['fecha'] -&gt; Indica a Pandas que convierta la columna 'fecha'.</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># dayfirst=True    -&gt; Especifica el formato dd/mm/aaaa para la fecha.</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(</span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">'datos_fabricacion.csv'</span>, </span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>        sep<span class="op">=</span><span class="st">';'</span>, </span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>        decimal<span class="op">=</span><span class="st">','</span>,</span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>        parse_dates<span class="op">=</span>[<span class="st">'fecha'</span>], </span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>        dayfirst<span class="op">=</span><span class="va">True</span> </span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">FileNotFoundError</span>:</span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Error: Asegúrate de que tu archivo CSV esté en el directorio correcto o usa la ruta completa."</span>)</span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Crear un DataFrame de ejemplo si el archivo no se encuentra para que el código sea reproducible</span></span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> {</span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">'fecha'</span>: pd.to_datetime([<span class="st">'11/01/2020'</span>, <span class="st">'15/04/2020'</span>, <span class="st">'20/07/2020'</span>, <span class="st">'25/10/2020'</span>, <span class="st">'12/01/2020'</span>, <span class="st">'15/05/2020'</span>, <span class="st">'20/08/2020'</span>, <span class="st">'25/11/2020'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>),</span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>        <span class="st">'fabricacion'</span>: [<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>],</span>
-<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>        <span class="st">'est'</span>: [<span class="fl">46.68</span>, <span class="fl">48.09</span>, <span class="fl">45.97</span>, <span class="fl">46.24</span>, <span class="fl">47.94</span>, <span class="fl">45.69</span>, <span class="fl">46.60</span>, <span class="fl">47.10</span>],</span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>        <span class="st">'mg'</span>: [<span class="dv">24</span>, <span class="dv">25</span>, <span class="dv">24</span>, <span class="fl">23.5</span>, <span class="fl">25.5</span>, <span class="dv">26</span>, <span class="dv">28</span>, <span class="dv">24</span>],</span>
-<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>        <span class="st">'coliformes'</span>: [<span class="dv">80</span>, <span class="dv">0</span>, <span class="dv">9200</span>, <span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">175</span>]</span>
-<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Usando datos de ejemplo para continuar la ejecución."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Error: Asegúrate de que tu archivo CSV esté en el directorio correcto o usa la ruta completa.
-Usando datos de ejemplo para continuar la ejecución.</code></pre>
-</div>
-</div>
-<div id="cell-39" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Asignar Trimestre</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraer el trimestre de la columna 'fecha'</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'trimestre'</span>] <span class="op">=</span> df[<span class="st">'fecha'</span>].dt.quarter.astype(<span class="bu">str</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'trimestre_etiqueta'</span>] <span class="op">=</span> <span class="st">'T'</span> <span class="op">+</span> df[<span class="st">'trimestre'</span>]</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Visualización con Seaborn (Curva de Densidad por Trimestre)</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Usamos sns.kdeplot, que es la función ideal para comparar densidades.</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df, </span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'est'</span>, </span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'trimestre_etiqueta'</span>, <span class="co"># Columna para diferenciar las curvas</span></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    fill<span class="op">=</span><span class="va">True</span>,               <span class="co"># Rellenar el área bajo la curva</span></span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.2</span>,               <span class="co"># Transparencia del relleno</span></span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span><span class="dv">2</span>              <span class="co"># Grosor de la línea</span></span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuración del Título y Etiquetas</span></span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Comparación de la Curva de Densidad del Extracto Seco Total (EST) por Trimestre'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Extracto Seco Total (EST)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Densidad'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar leyenda y gráfico</span></span>
-<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>plt.gca().get_legend().set_title(<span class="st">"Trimestre"</span>)</span>
-<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>plt.grid(axis<span class="op">=</span><span class="st">'y'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="030-exploracion_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
 
 
 </section>

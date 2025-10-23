@@ -224,7 +224,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#el-boxplot" id="toc-el-boxplot" class="nav-link" data-scroll-target="#el-boxplot">El <em>boxplot</em></a></li>
   <li><a href="#los-gráficos-de-series-temporales" id="toc-los-gráficos-de-series-temporales" class="nav-link" data-scroll-target="#los-gráficos-de-series-temporales">Los gráficos de <em>series temporales</em></a></li>
-  <li><a href="#introducción-a-los-gráficos-de-series-temporales" id="toc-introducción-a-los-gráficos-de-series-temporales" class="nav-link" data-scroll-target="#introducción-a-los-gráficos-de-series-temporales">Introducción a los gráficos de series temporales</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -468,355 +467,28 @@ datetime64[ns]</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="introducción-a-los-gráficos-de-series-temporales" class="level3">
-<h3 class="anchored" data-anchor-id="introducción-a-los-gráficos-de-series-temporales">Introducción a los gráficos de series temporales</h3>
-<p>Para utilizar las funciones de series de <code>pandas</code> resulta conveniente convertir en una columna de fecha la primera columna, que <code>pandas</code> ha leido como texto, y asignarla como <code>index</code> del dataframe; el formateo de series temporales en esta biblioteca es uno de sus puntos más fuertes.</p>
-<div id="cell-26" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:825,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679741245,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>]<span class="op">=</span> pd.DatetimeIndex(df.fecha).normalize()</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>La función <code>.plot()</code> nos representa los valores de la columna en orden secuencial:</p>
-<div id="cell-28" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:388,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679755308,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="c33373bb-fa3e-4c25-9e5c-3851cecb0a2f" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].plot()</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-24" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:340,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679764304,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="b4c2e6fc-b83a-460b-f059-6f92f9c9b7bc" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sns.jointplot(x<span class="op">=</span><span class="st">"est"</span>, y<span class="op">=</span><span class="st">"mg"</span>, data <span class="op">=</span> df[<span class="op">~</span>df.index.duplicated(keep<span class="op">=</span><span class="st">'first'</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Si utilizamos las funciones de <code>pandas</code>, podemos reformatear las fechas como serie temporal. Creamos una serie temporal y la remuestreamos para hacer las medias semanales del extracto seco total, eliminando las semans en las que no hay valores con <code>.dropna()</code>. La función <code>resample('W-MON')</code> formatea las fechas para que las semanas empiecen en lunes, como es el caso en Europa (en USA la semana empieza el domingo). Aprovechamos para mostrar una de las potencias de <code>Python</code>: podemos hacer que varios cálculos se hagan a continuacion de los otros, simplemente enlazando las funciones, hasta el <code>.plot()</code></p>
-<div id="cell-30" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:349,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679757043,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="409fd91a-3824-43ef-9740-32108f716315" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">'figure.figsize'</span>] <span class="op">=</span> (<span class="fl">10.0</span>,<span class="fl">4.0</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ts <span class="op">=</span> pd.Series(df[<span class="st">"est"</span>].dropna())</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ts.resample(<span class="st">'W-MON'</span>).mean().plot(title<span class="op">=</span><span class="st">"Media del extracto seco total semanal"</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Veamos a continuación otras formas de formatear la serie sobre la marcha, pero esta vez representando la <code>desviación típica</code>en vez de la <code>media</code>.</p>
-<div id="cell-32" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:445,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679759493,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="c52d763f-009a-4fb4-c457-f2fce0e99f0a" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ts.resample(<span class="st">'W-MON'</span>).std().plot(title<span class="op">=</span><span class="st">"Desviación típica del extracto seco total semanal"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>O podemos representar un período específico de la serie indicando a <code>pandas</code> los límites inferior y superior de las fechas que queremos.</p>
-<div id="cell-34" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:221,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679762481,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="2e3a379c-66a1-4ede-bcee-1d9dbe3af9fb" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ts[<span class="st">"2020-05"</span>:<span class="st">"2020-08"</span>].resample(<span class="st">'W-MON'</span>).mean().plot(title<span class="op">=</span><span class="st">"Media del extracto seco total semanal"</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>A modo ilustrativo, aunque sin un interés prioritario, muestro un grafico <code>jointplot()</code> de <code>seaborn</code> que muestra la facilidad con la que esta biblioteca puede hacer un gráfico complejo de dispersión e histograma simultáneamente.</p>
-<div id="cell-36" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:340,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679764304,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="b4c2e6fc-b83a-460b-f059-6f92f9c9b7bc" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sns.jointplot(x<span class="op">=</span><span class="st">"est"</span>, y<span class="op">=</span><span class="st">"mg"</span>, data <span class="op">=</span> df[<span class="op">~</span>df.index.duplicated(keep<span class="op">=</span><span class="st">'first'</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-analisis-queso_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Finalmente, una serie de cálculos más complejos para obtener los gráficos de capacidad de un proceso, como muestra de cómo se pueden usar las funciones y gráficos de <code>Python</code> para prácticamente cualquier necesidad.</p>
 <p>A continuación, una serie de celdas que realizan gráficos diversos, puedes dedicar un rato a estudiarlas e intentar comprender bien su programación.</p>
-<div id="cell-39" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:7,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679774199,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>limite_rechazo <span class="op">=</span> <span class="dv">231</span>    <span class="co">##</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>limite_deficientes <span class="op">=</span> <span class="dv">242</span>    <span class="co">##</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>LSL <span class="op">=</span> df.est.mean() <span class="op">-</span> <span class="dv">3</span> <span class="op">*</span> df.est.std()    <span class="co">## lower specification limit</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>USL <span class="op">=</span> df.est.mean() <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> df.est.std()    <span class="co">## upper specification limit</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>df.insert(<span class="dv">6</span>,<span class="st">'LSL'</span>, LSL)</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>df.insert(<span class="dv">7</span>,<span class="st">'USL'</span>, USL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-27" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679793766,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df.copy()</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df.drop([<span class="st">'fabricacion'</span>,<span class="st">'mg'</span>, <span class="st">'cloruros'</span>,<span class="st">'coliformes'</span>], axis<span class="op">=</span><span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-40" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:19,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679776375,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha'</span>] <span class="op">=</span> df.index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-28" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:23,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679796758,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df2[<span class="st">'est'</span>].groupby(df[<span class="st">'fecha'</span>].dt.isocalendar().week).agg([<span class="st">'mean'</span>,<span class="st">'std'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-41" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:10,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679778108,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="ced4dc67-48d4-49d1-d71b-8af176a649dd" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">fecha</th>
-<th data-quarto-table-cell-role="th">fabricacion</th>
-<th data-quarto-table-cell-role="th">est</th>
-<th data-quarto-table-cell-role="th">mg</th>
-<th data-quarto-table-cell-role="th">ph</th>
-<th data-quarto-table-cell-role="th">cloruros</th>
-<th data-quarto-table-cell-role="th">LSL</th>
-<th data-quarto-table-cell-role="th">USL</th>
-<th data-quarto-table-cell-role="th">coliformes</th>
-<th data-quarto-table-cell-role="th">mes</th>
-<th data-quarto-table-cell-role="th">mes_abreviado</th>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">fecha_index</th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2020-01-11</td>
-<td>2020-01-11</td>
-<td>1</td>
-<td>46.68</td>
-<td>24.0</td>
-<td>4.85</td>
-<td>1.50</td>
-<td>42.279767</td>
-<td>50.994641</td>
-<td>80.0</td>
-<td>1</td>
-<td>Jan</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2020-01-12</td>
-<td>2020-01-12</td>
-<td>1</td>
-<td>48.09</td>
-<td>25.0</td>
-<td>4.67</td>
-<td>1.61</td>
-<td>42.279767</td>
-<td>50.994641</td>
-<td>0.0</td>
-<td>1</td>
-<td>Jan</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2020-01-13</td>
-<td>2020-01-13</td>
-<td>1</td>
-<td>45.97</td>
-<td>24.0</td>
-<td>4.71</td>
-<td>1.48</td>
-<td>42.279767</td>
-<td>50.994641</td>
-<td>9200.0</td>
-<td>1</td>
-<td>Jan</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2020-01-14</td>
-<td>2020-01-14</td>
-<td>1</td>
-<td>46.24</td>
-<td>23.5</td>
-<td>4.78</td>
-<td>1.69</td>
-<td>42.279767</td>
-<td>50.994641</td>
-<td>20.0</td>
-<td>1</td>
-<td>Jan</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2020-01-15</td>
-<td>2020-01-15</td>
-<td>1</td>
-<td>45.81</td>
-<td>23.0</td>
-<td>4.77</td>
-<td>1.56</td>
-<td>42.279767</td>
-<td>50.994641</td>
-<td>150.0</td>
-<td>1</td>
-<td>Jan</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="cell-42" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:23,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679779453,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.melt(df, id_vars<span class="op">=</span> [<span class="st">'fecha'</span>], value_vars<span class="op">=</span>[<span class="st">"est"</span>,<span class="st">"LSL"</span>, <span class="st">"USL"</span>],  value_name<span class="op">=</span><span class="st">"valores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-43" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:5,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679780979,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="fe1978bc-7226-4512-e2bb-924b6a84fe95" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">fecha</th>
-<th data-quarto-table-cell-role="th">variable</th>
-<th data-quarto-table-cell-role="th">valores</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2020-01-11</td>
-<td>est</td>
-<td>46.68</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2020-01-12</td>
-<td>est</td>
-<td>48.09</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2020-01-13</td>
-<td>est</td>
-<td>45.97</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2020-01-14</td>
-<td>est</td>
-<td>46.24</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2020-01-15</td>
-<td>est</td>
-<td>45.81</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="cell-44" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:1156,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679783296,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="7efb17e7-d3be-4bec-feac-078c93772a05" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">'figure.figsize'</span>] <span class="op">=</span> (<span class="fl">10.0</span>,<span class="fl">4.0</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.lineplot(data<span class="op">=</span>df2, x<span class="op">=</span><span class="st">"fecha"</span>, y<span class="op">=</span><span class="st">"valores"</span>, hue<span class="op">=</span><span class="st">"variable"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="cell-45" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:4,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679787116,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="op">=</span> df2.groupby([df2[<span class="st">'fecha'</span>].dt.isocalendar().week, <span class="st">"variable"</span>]).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-46" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:4,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679789365,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df3.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-47" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:47,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679790636,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="134a61d3-c0cb-41bf-fa04-bd71889411e9" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df3.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">week</th>
-<th data-quarto-table-cell-role="th">variable</th>
-<th data-quarto-table-cell-role="th">fecha</th>
-<th data-quarto-table-cell-role="th">valores</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2</td>
-<td>LSL</td>
-<td>2020-01-11 12:00:00</td>
-<td>42.279767</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>2</td>
-<td>USL</td>
-<td>2020-01-11 12:00:00</td>
-<td>50.994641</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2</td>
-<td>est</td>
-<td>2020-01-11 12:00:00</td>
-<td>47.385000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>3</td>
-<td>LSL</td>
-<td>2020-01-15 19:12:00</td>
-<td>42.279767</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>3</td>
-<td>USL</td>
-<td>2020-01-15 19:12:00</td>
-<td>50.994641</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="cell-48" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:245,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679792268,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="87b36140-56ef-47fe-e102-dfd75735d170" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">'figure.figsize'</span>] <span class="op">=</span> (<span class="fl">10.0</span>,<span class="fl">4.0</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.lineplot(data<span class="op">=</span>df3, x<span class="op">=</span><span class="st">"week"</span>, y<span class="op">=</span><span class="st">"valores"</span>, hue<span class="op">=</span><span class="st">"variable"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-26-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="cell-49" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679793766,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df.copy()</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df.drop([<span class="st">'fabricacion'</span>,<span class="st">'mg'</span>, <span class="st">'cloruros'</span>,<span class="st">'coliformes'</span>], axis<span class="op">=</span><span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-50" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:23,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679796758,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df2[<span class="st">'est'</span>].groupby(df[<span class="st">'fecha'</span>].dt.isocalendar().week).agg([<span class="st">'mean'</span>,<span class="st">'std'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-51" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:26,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679798099,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="18526a57-bcb9-43e3-d33b-c6fb906ea530" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
+<div id="cell-29" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:26,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679798099,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="18526a57-bcb9-43e3-d33b-c6fb906ea530" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
 
@@ -865,41 +537,41 @@ datetime64[ns]</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-52" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:185,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679799590,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="d5f4d2d2-aaa9-4fba-f399-78c4423accc1" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'mean'</span>].plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-30" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:185,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679799590,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="d5f4d2d2-aaa9-4fba-f399-78c4423accc1" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'mean'</span>].plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-30-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-analisis-queso_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-53" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:144,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679802612,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="5349014c-4c61-4d35-ca01-13bd215015a6" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'std'</span>].plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-31" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:144,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679802612,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="5349014c-4c61-4d35-ca01-13bd215015a6" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'std'</span>].plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-31-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-analisis-queso_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-54" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679804109,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>LSL <span class="op">=</span> df2[<span class="st">'mean'</span>] <span class="op">-</span> <span class="dv">3</span> <span class="op">*</span> df2[<span class="st">'std'</span>]    <span class="co">## lower specification limit</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>USL <span class="op">=</span> df2[<span class="st">'mean'</span>] <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> df2[<span class="st">'std'</span>]    <span class="co">## upper specification limit</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>df2.insert(<span class="dv">2</span>,<span class="st">'LSL'</span>, LSL)</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>df2.insert(<span class="dv">3</span>,<span class="st">'USL'</span>, USL)</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># limite_rechazo = 231    ##</span></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="co"># limite_deficientes = 242    ##</span></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="co"># df3.insert(5,'rechazo', limite_rechazo)</span></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="co"># df3.insert(6,'deficientes', limite_deficientes)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-32" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679804109,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>LSL <span class="op">=</span> df2[<span class="st">'mean'</span>] <span class="op">-</span> <span class="dv">3</span> <span class="op">*</span> df2[<span class="st">'std'</span>]    <span class="co">## lower specification limit</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>USL <span class="op">=</span> df2[<span class="st">'mean'</span>] <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> df2[<span class="st">'std'</span>]    <span class="co">## upper specification limit</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>df2.insert(<span class="dv">2</span>,<span class="st">'LSL'</span>, LSL)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>df2.insert(<span class="dv">3</span>,<span class="st">'USL'</span>, USL)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># limite_rechazo = 231    ##</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># limite_deficientes = 242    ##</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># df3.insert(5,'rechazo', limite_rechazo)</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co"># df3.insert(6,'deficientes', limite_deficientes)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-55" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:6,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679805343,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="b1153728-7c9a-4047-a6c4-89ae0aa57f36" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>df2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div id="cell-33" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:6,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679805343,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="b1153728-7c9a-4047-a6c4-89ae0aa57f36" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 
 
@@ -962,16 +634,125 @@ datetime64[ns]</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-56" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679806440,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'semana'</span>] <span class="op">=</span> df2.index <span class="co"># necesitamos la semana en una columna de valor</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>df3 <span class="op">=</span> pd.melt(df2, id_vars<span class="op">=</span> [<span class="st">'semana'</span>], value_vars<span class="op">=</span>[<span class="st">"mean"</span>,<span class="st">"LSL"</span>, <span class="st">"USL"</span>],  value_name<span class="op">=</span><span class="st">"valores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-34" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679806440,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'semana'</span>] <span class="op">=</span> df2.index <span class="co"># necesitamos la semana en una columna de valor</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df3 <span class="op">=</span> pd.melt(df2, id_vars<span class="op">=</span> [<span class="st">'semana'</span>], value_vars<span class="op">=</span>[<span class="st">"mean"</span>,<span class="st">"LSL"</span>, <span class="st">"USL"</span>],  value_name<span class="op">=</span><span class="st">"valores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-57" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:501,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679808911,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="98e1a3eb-9359-4d43-c2b7-672403e5ee13" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.lineplot(data<span class="op">=</span>df3, x<span class="op">=</span><span class="st">"semana"</span>, y<span class="op">=</span><span class="st">"valores"</span>, hue<span class="op">=</span><span class="st">"variable"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-35" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:501,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679808911,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="98e1a3eb-9359-4d43-c2b7-672403e5ee13" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.lineplot(data<span class="op">=</span>df3, x<span class="op">=</span><span class="st">"semana"</span>, y<span class="op">=</span><span class="st">"valores"</span>, hue<span class="op">=</span><span class="st">"variable"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-35-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-analisis-queso_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-36" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>url_datos <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/camembert.csv'</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(url_datos, </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>      decimal <span class="op">=</span> <span class="st">","</span>, </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>      sep<span class="op">=</span><span class="st">';'</span>, </span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>      encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error al cargar el archivo: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha'</span>] <span class="op">=</span> pd.to_datetime(</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,  </span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span> <span class="co"># Si hay una fecha inválida, la convierte a 'NaT' (Not a Time) en lugar de fallar.</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>]<span class="op">=</span> pd.DatetimeIndex(df.fecha).normalize()</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-37" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"hfd"</span>] <span class="op">=</span> (<span class="fl">100.0</span> <span class="op">-</span> df[<span class="st">'est'</span>]) <span class="op">/</span> (<span class="fl">100.0</span> <span class="op">-</span> df[<span class="st">'mg'</span>])</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Preparación de los datos (Calculando la Media y la Desviación Típica Semanal) ---</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>media_semanal <span class="op">=</span> df[<span class="st">"hfd"</span>].resample(<span class="st">'W-MON'</span>).mean()</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>dt_semanal <span class="op">=</span> df[<span class="st">"hfd"</span>].resample(<span class="st">'W-MON'</span>).std()</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 2. Creación de los Subgráficos (El paso clave) ---</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos una figura (conjunto de gráficos) con 2 filas y 1 columna.</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># El parámetro 'figsize=(10, 4)' controla el tamaño: 10 de ancho y 4 de alto total (como un gráfico normal).</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 'sharex=True' asegura que ambos gráficos compartan el mismo eje temporal.</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    nrows<span class="op">=</span><span class="dv">2</span>, </span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    ncols<span class="op">=</span><span class="dv">1</span>, </span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>), </span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    sharex<span class="op">=</span><span class="va">True</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 3. Graficar la Media (Gráfico Superior) ---</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>ax1.plot(media_semanal, label<span class="op">=</span><span class="st">"Media Semanal"</span>, color<span class="op">=</span><span class="st">'tab:blue'</span>)</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Media y Desviación Típica Semanal de la Humedad del queso desnatado (HFD)"</span>)</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Media (hfd)"</span>)</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>ax1.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>ax1.tick_params(labelbottom<span class="op">=</span><span class="va">False</span>) <span class="co"># Quita las etiquetas de fecha/hora del gráfico superior</span></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 4. Graficar la Desviación Típica (Gráfico Inferior) ---</span></span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>ax2.plot(dt_semanal, label<span class="op">=</span><span class="st">"Desviación Típica Semanal"</span>, color<span class="op">=</span><span class="st">'tab:orange'</span>)</span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"D. Típica (hfd)"</span>)</span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>ax2.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajusta el espacio entre los gráficos para que no se superpongan</span></span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>fig.tight_layout() </span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="040-analisis-queso_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-38" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Preparación de los datos (Usando tus variables ya calculadas) ---</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># media_semanal = df["est"].resample('W-MON').mean()</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># dt_semanal = df["est"].resample('W-MON').std()</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 2. Creación de los Subgráficos ---</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    nrows<span class="op">=</span><span class="dv">2</span>, </span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    ncols<span class="op">=</span><span class="dv">1</span>, </span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>), </span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    sharex<span class="op">=</span><span class="va">True</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 3. Graficar la Media (Gráfico Superior) ---</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>ax1.plot(media_semanal, label<span class="op">=</span><span class="st">"Media Semanal"</span>, color<span class="op">=</span><span class="st">'tab:blue'</span>)</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Media y Desviación Típica Semanal del Extracto Seco Total"</span>)</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Media (est)"</span>)</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>ax1.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>ax1.tick_params(labelbottom<span class="op">=</span><span class="va">False</span>) <span class="co"># ¡Importante! Oculta las etiquetas X en el gráfico superior</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 4. Graficar la Desviación Típica (Gráfico Inferior) ---</span></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>ax2.plot(dt_semanal, label<span class="op">=</span><span class="st">"Desviación Típica Semanal"</span>, color<span class="op">=</span><span class="st">'tab:orange'</span>)</span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"D. Típica (est)"</span>)</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">"Fecha"</span>) <span class="co"># Añadimos la etiqueta de fecha al gráfico inferior</span></span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>ax2.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 5. Ajuste para eliminar el espacio vertical (El paso clave) ---</span></span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>plt.subplots_adjust(hspace<span class="op">=</span><span class="dv">0</span>) </span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste el espacio entre los gráficos para que no se superpongan</span></span>
+<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Nota: 'tight_layout' puede interferir si no se ajusta con cuidado, por eso usamos plt.subplots_adjust</span></span>
+<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="040-analisis-queso_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
