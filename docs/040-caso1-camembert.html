@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Caso 1. Análisis de una fabricación de queso camembert usando Python y Google Colab. – Notas para el master de quesería</title>
+<title>8&nbsp; Caso 1. Análisis de una fabricación de queso camembert usando Python y Google Colab. – Notas para el master de quesería</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./999-indice_dataframes.html" rel="next">
-<link href="./030-exploracion.html" rel="prev">
+<link href="./035-estad-simple.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./040-caso1-camembert.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Caso 1. Análisis de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./040-caso1-camembert.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Caso 1. Análisis de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -183,14 +183,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./035-estad-simple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./040-caso1-camembert.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Caso 1. Análisis de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Caso 1. Análisis de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./999-indice_dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -202,6 +208,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./150-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./160-bibliografia.html" class="sidebar-item-text sidebar-link">
@@ -220,7 +232,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introducción-a-los-gráficos-básicos" id="toc-introducción-a-los-gráficos-básicos" class="nav-link active" data-scroll-target="#introducción-a-los-gráficos-básicos"><span class="header-section-number">7.1</span> Introducción a los gráficos básicos</a>
+  <li><a href="#flujo-de-trabajo" id="toc-flujo-de-trabajo" class="nav-link active" data-scroll-target="#flujo-de-trabajo"><span class="header-section-number">8.1</span> Flujo de trabajo</a>
+  <ul class="collapse">
+  <li><a href="#importar-los-datos" id="toc-importar-los-datos" class="nav-link" data-scroll-target="#importar-los-datos">1. Importar los datos</a></li>
+  <li><a href="#ordenarlimpiar-los-datos" id="toc-ordenarlimpiar-los-datos" class="nav-link" data-scroll-target="#ordenarlimpiar-los-datos">2. Ordenar/limpiar los datos</a></li>
+  </ul></li>
+  <li><a href="#introducción-a-los-gráficos-básicos" id="toc-introducción-a-los-gráficos-básicos" class="nav-link" data-scroll-target="#introducción-a-los-gráficos-básicos"><span class="header-section-number">8.2</span> Introducción a los gráficos básicos</a>
   <ul class="collapse">
   <li><a href="#el-boxplot" id="toc-el-boxplot" class="nav-link" data-scroll-target="#el-boxplot">El <em>boxplot</em></a></li>
   <li><a href="#los-gráficos-de-series-temporales" id="toc-los-gráficos-de-series-temporales" class="nav-link" data-scroll-target="#los-gráficos-de-series-temporales">Los gráficos de <em>series temporales</em></a></li>
@@ -233,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Caso 1. Análisis de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Caso 1. Análisis de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></h1>
 </div>
 
 
@@ -253,8 +270,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>En este ejercicio usaremos un fichero o archivo de datos en formato CSV que habremos exportado previamente desde nuestra hoja de cálculo. Más adelante aprenderemos cómo leer directamente los datos de nuestras hojas Excel.</p>
 <p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/040-caso1-camembert.ipynb">Abrir este cuaderno en Google Colab/</a></p>
 <p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/camembert.csv">Descargar los datos de ejemplo <code>camembert.csv</code> usados en este cuaderno</a></p>
+<section id="flujo-de-trabajo" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="flujo-de-trabajo"><span class="header-section-number">8.1</span> Flujo de trabajo</h2>
+<p>Coo vimos en el capítulo 2, es muy conveniente establecer un flujo de trabajo regular, de forma que cada etapa del análisis sea un paso que se apoye en los anteriores.</p>
+<p>Este flujo de trabajo debe cubrir las etapas que veíamos en ese capítulo:</p>
+<p><img src="01-imagenes/data-science-explore.svg" class="img-fluid"></p>
+<p>Vamos a ir desarrollando este flujo paso a paso.</p>
+<section id="importar-los-datos" class="level3">
+<h3 class="anchored" data-anchor-id="importar-los-datos">1. Importar los datos</h3>
 <p>En este cuaderno vamos a cargar los datos desde GitHub; estos datos pueden ser descargados en el ordenador o Google Drive de cada uno, junto con el cuaderno, en los enlaces facilitados al principio. Una vez en Drive, puede leerse la tabla mediante el método que vimos al final del capítulo anterior.</p>
-<div id="cell-4" class="cell" data-execution_count="1">
+<div id="cell-7" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -272,8 +297,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Dimensiones de los datos: (211, 7)</code></pre>
 </div>
 </div>
-<p>Podemos mostrar el <code>dataframe</code> que hemos leído, mediante la funcion <code>.head()</code>, que nos muestra las cinco primeras lineas.</p>
-<div id="cell-6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:32,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679742595,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="8110245b-21b1-451c-ce92-6bfeca09356d" data-execution_count="2">
+<p>Vemos el <code>dataframe</code> que hemos leído, mediante la funcion <code>.head()</code>, que nos muestra las cinco primeras lineas.</p>
+<div id="cell-9" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:32,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679742595,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="8110245b-21b1-451c-ce92-6bfeca09356d" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
@@ -349,8 +374,8 @@ Dimensiones de los datos: (211, 7)</code></pre>
 </div>
 </div>
 </div>
-<p>También podemos usar la función <code>.info()</code>, que nos dice la estructura interna de nuestro <code>dataframe</code> y el tipo de los datos (entero, numérico, carácter…). Dado que la fecha, como hemos visto, está formateada como fecha y asignada como <code>ìndex</code>, ya no aparece en el listado de columnas de datos, sino que aparece en la primera línea como <code>DateTimeIndex</code>, y la informacion nos dice los límites de esas fechas.</p>
-<div id="cell-8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:25,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679744124,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="8d6f8d1f-dd64-4ad5-b8c0-68fba50e6b92" data-execution_count="3">
+<p>Verificamos la estructura interna de nuestro <code>dataframe</code> y el tipo de los datos (entero, numérico, carácter…) mediante la función <code>.info()</code></p>
+<div id="cell-11" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:25,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679744124,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="8d6f8d1f-dd64-4ad5-b8c0-68fba50e6b92" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -369,19 +394,162 @@ dtypes: float64(5), int64(1), object(1)
 memory usage: 11.7+ KB</code></pre>
 </div>
 </div>
-<section id="introducción-a-los-gráficos-básicos" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="introducción-a-los-gráficos-básicos"><span class="header-section-number">7.1</span> Introducción a los gráficos básicos</h2>
-<p>Una vez leído correctamente el <code>DataFrame</code>, podemos hacer algunos gráficos de sus columnas numéricas. También usaremos las funciones de <code>seaborn</code> que producen salidas muy atractivas y son funcionjes fáciles de manejar.</p>
-<p>Exploremos los resultados de análisis de extracto seco total, recogidos en la variable <code>est</code> de nuestro <code>DataFrame</code>.</p>
-<p>Para ello empezamos haciendo el histograma con <code>seaborn</code>, que nos permite incluir una <strong>curva de densidad</strong> fácilmente (pregunta: ¿qué es una curva de densidad?)</p>
-<div id="cell-12" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:573,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679749575,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="1c993f1c-c3b3-4a42-c8f7-81200c5484bd" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sns.displot(df[<span class="st">"est"</span>], kde <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Como resultado de la importación el <code>csv</code>, la <code>fecha</code> aparece como columna <code>object</code>; nos interesa convertirla en un formato de fecha que <code>pandas</code> pueda reconocer</p>
+<div id="cell-13" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha'</span>] <span class="op">=</span> pd.to_datetime(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,  </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span> <span class="co"># Si hay una fecha inválida, la convierte a 'NaT' (Not a Time) en lugar de fallar.</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<p>Recuerda que si no comprendes bien el código, puedes copiarlo y pegarlo en Google Gemini y pedir a Gemini una explicación detallada de lo que hace.</p>
+</blockquote>
+<p>Verificamos la conversión:</p>
+<div id="cell-16" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 211 entries, 0 to 210
+Data columns (total 7 columns):
+ #   Column       Non-Null Count  Dtype         
+---  ------       --------------  -----         
+ 0   fecha        211 non-null    datetime64[ns]
+ 1   fabricacion  211 non-null    int64         
+ 2   est          211 non-null    float64       
+ 3   mg           211 non-null    float64       
+ 4   ph           211 non-null    float64       
+ 5   cloruros     211 non-null    float64       
+ 6   coliformes   210 non-null    float64       
+dtypes: datetime64[ns](1), float64(5), int64(1)
+memory usage: 11.7 KB</code></pre>
+</div>
+</div>
+<p>Ahora la fecha tiene formato <code>datetime64</code> que es el formato de fecha que reconoce <code>pandas</code>.</p>
+</section>
+<section id="ordenarlimpiar-los-datos" class="level3">
+<h3 class="anchored" data-anchor-id="ordenarlimpiar-los-datos">2. Ordenar/limpiar los datos</h3>
+<p>La tabla de datos que hemos leído ya está en un formato <em>tidy</em>: una línea por observación y una columna por medida, como comprobamos inspeccionando las primera lineas de código:</p>
+<div id="cell-20" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fecha</th>
+<th data-quarto-table-cell-role="th">fabricacion</th>
+<th data-quarto-table-cell-role="th">est</th>
+<th data-quarto-table-cell-role="th">mg</th>
+<th data-quarto-table-cell-role="th">ph</th>
+<th data-quarto-table-cell-role="th">cloruros</th>
+<th data-quarto-table-cell-role="th">coliformes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2020-01-11</td>
+<td>1</td>
+<td>46.68</td>
+<td>24.0</td>
+<td>4.85</td>
+<td>1.50</td>
+<td>80.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2020-01-12</td>
+<td>1</td>
+<td>48.09</td>
+<td>25.0</td>
+<td>4.67</td>
+<td>1.61</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2020-01-13</td>
+<td>1</td>
+<td>45.97</td>
+<td>24.0</td>
+<td>4.71</td>
+<td>1.48</td>
+<td>9200.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2020-01-14</td>
+<td>1</td>
+<td>46.24</td>
+<td>23.5</td>
+<td>4.78</td>
+<td>1.69</td>
+<td>20.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2020-01-15</td>
+<td>1</td>
+<td>45.81</td>
+<td>23.0</td>
+<td>4.77</td>
+<td>1.56</td>
+<td>150.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Vamos entonces a verificar que los valores que hemos leído son correctos. ¿Qué tenemos que buscar?</p>
+<ul>
+<li>Valores mal introducidos que <code>Python</code>no tiene por qué saber que son erróneos (por ejemplo, un pH de 51,5 en vez de 5,15)</li>
+<li>Valores anormalmente altos o bajos, que pueden indicar errores de medida, de toma de muestras o de introducción de datos (por ejemplo, un pH de leche de 30, que puede indicar una lectura de temperatura introducida fuera de sitio)</li>
+<li>Valores erróneos: por ejemplo, valores negativos en cualquier medida</li>
+<li>Una distribucion de los datos anormal:
+<ul>
+<li>por ejemplo, el pH de un queso debería tener la mayor frecuencia entorno al pH objetivo, y desviaciones con una frecuencia cada vez más baja a medida que se alejan del valor central</li>
+<li>en cambio, los recuentos de bacterias coliformes deberían tener la mayor frecuencia en los valores cero o muy bajos, y la distribución no debería ser simétrica</li>
+</ul></li>
+</ul>
+<p>En general, cualquier cosa que nos llame la atención en los datos y que debemos explicar.</p>
+<p>Para hacer esta verificación, analizamos cada variable (columna) por separado.</p>
+<section id="análisis-de-la-variable-est" class="level4">
+<h4 class="anchored" data-anchor-id="análisis-de-la-variable-est">Análisis de la variable <code>est</code></h4>
+<p>Utilizamos las herramientas gráficas que conocemos: <strong>histograma</strong> y <strong>diagrama de caja</strong>. Por el momento no nos preocupamos de rotular el gráfico, estamos simplemente explorando rápidamente.</p>
+<div id="cell-22" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(df[<span class="st">"est"</span>])</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-caso1-camembert_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>El histograma nos muestra la mayor frecuencia en torno a</p>
+</section>
+</section>
+</section>
+<section id="introducción-a-los-gráficos-básicos" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="introducción-a-los-gráficos-básicos"><span class="header-section-number">8.2</span> Introducción a los gráficos básicos</h2>
+<p>Una vez leído correctamente el <code>DataFrame</code>, podemos hacer algunos gráficos de sus columnas numéricas. También usaremos las funciones de <code>seaborn</code> que producen salidas muy atractivas y son funcionjes fáciles de manejar.</p>
+<p>Exploremos los resultados de análisis de extracto seco total, recogidos en la variable <code>est</code> de nuestro <code>DataFrame</code>.</p>
+<p>Para ello empezamos haciendo el histograma con <code>seaborn</code>, que nos permite incluir una <strong>curva de densidad</strong> fácilmente (pregunta: ¿qué es una curva de densidad?)</p>
+<div id="cell-27" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:573,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679749575,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="1c993f1c-c3b3-4a42-c8f7-81200c5484bd" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sns.displot(df[<span class="st">"est"</span>], kde <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="040-caso1-camembert_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -389,14 +557,14 @@ memory usage: 11.7+ KB</code></pre>
 <p>Los histogramas nos muestran con claridad la <strong>distribución</strong> de los datos: los valores más frecuentes están entre 45% y 47%, y hay algún valor un poco más alto, por encima de 52%, que no parece que haya ocurrido muchas veces.</p>
 <section id="el-boxplot" class="level3">
 <h3 class="anchored" data-anchor-id="el-boxplot">El <em>boxplot</em></h3>
-<div id="cell-15" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:125,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679750829,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="e812e45b-0e6a-46ab-f98e-c39033402041" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(df[<span class="st">'est'</span>])</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-30" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:125,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679750829,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="e812e45b-0e6a-46ab-f98e-c39033402041" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(df[<span class="st">'est'</span>])</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-caso1-camembert_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -405,18 +573,18 @@ memory usage: 11.7+ KB</code></pre>
 <section id="los-gráficos-de-series-temporales" class="level3">
 <h3 class="anchored" data-anchor-id="los-gráficos-de-series-temporales">Los gráficos de <em>series temporales</em></h3>
 <p>En la celda en la que hemos obtenido la información del DataFrame con <code>df.info()</code>, veíamos que la columna <code>fecha</code> se lee como un <code>object</code>. En <code>Python</code>, un <code>object</code> es, por ejemplo, una cadena de caracteres. <code>Python</code> no tiene forma de saber que esto es una fecha, a menos que convirtamos explcícitamente el tipo de dato en fecha. Para ello, <code>Python</code> dispone de funciones muy sofisticadas que es muy conveniente conocer. Vamos, en primer lugar a dar el formato fecha a la columna, mediantela función ’Datetime</p>
-<div id="cell-18" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Reemplazar la columna 'fecha' in-place</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha'</span>] <span class="op">=</span> pd.to_datetime(</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span> <span class="co"># Mantiene la robustez ante datos incorrectos</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Opcional: Verificar el cambio</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'fecha'</span>].head())</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'fecha'</span>].dtype)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-33" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Reemplazar la columna 'fecha' in-place</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha'</span>] <span class="op">=</span> pd.to_datetime(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span> <span class="co"># Mantiene la robustez ante datos incorrectos</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Opcional: Verificar el cambio</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'fecha'</span>].head())</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'fecha'</span>].dtype)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0   2020-01-11
 1   2020-01-12
@@ -428,67 +596,67 @@ datetime64[ns]</code></pre>
 </div>
 </div>
 <p>Para representar los datos por mes, sólo tenemos que crear una nueva columna <code>mes</code> indicando a <code>pandas</code> que extraiga del índice la parte de fecha que corresponde al mes. ¿Fácil, no?</p>
-<div id="cell-20" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>]<span class="op">=</span> pd.DatetimeIndex(df.fecha).normalize()</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-35" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>]<span class="op">=</span> pd.DatetimeIndex(df.fecha).normalize()</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-21" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:209,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679752296,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="f5df808b-cfa4-4c19-fc4a-e200ea8c679d" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mes'</span>] <span class="op">=</span> df.index.month</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">'mes'</span>, y<span class="op">=</span><span class="st">'est'</span>, data<span class="op">=</span>df)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-36" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:209,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679752296,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="f5df808b-cfa4-4c19-fc4a-e200ea8c679d" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mes'</span>] <span class="op">=</span> df.index.month</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">'mes'</span>, y<span class="op">=</span><span class="st">'est'</span>, data<span class="op">=</span>df)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-caso1-camembert_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>En vez de usar el número para el mes, podemos usar el código de letras abreviado (en este caso, <code>seaborn</code>utiliza la abreviatura en inglés, pero hemos cambiado la codificación para que lo represente en español, en la instruccion <code>locale</code> que hemos usado en la primera casilla). Aprovechamos para personalizar un poco el gráfico.</p>
-<div id="cell-23" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:279,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679753775,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="377f646b-d39c-4fc8-f655-399e8c080bd7" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mes_abreviado'</span>] <span class="op">=</span> df.index.strftime(<span class="st">'%b'</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">'mes_abreviado'</span>, y<span class="op">=</span><span class="st">'est'</span>, data<span class="op">=</span>df)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Opcional: Personalizar el gráfico</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Boxplot de la variable "est" por Mes'</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Mes'</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Valor de "est"'</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>plt.grid(axis<span class="op">=</span><span class="st">'y'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>) <span class="co"># Añadir una cuadrícula para mejor lectura</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>) <span class="co"># Rotar las etiquetas del eje X si son muchas</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>plt.tight_layout() <span class="co"># Ajusta automáticamente los parámetros de la subtrama para un diseño ajustado</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-38" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:279,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679753775,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="377f646b-d39c-4fc8-f655-399e8c080bd7" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mes_abreviado'</span>] <span class="op">=</span> df.index.strftime(<span class="st">'%b'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">'mes_abreviado'</span>, y<span class="op">=</span><span class="st">'est'</span>, data<span class="op">=</span>df)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Opcional: Personalizar el gráfico</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Boxplot de la variable "est" por Mes'</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Mes'</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Valor de "est"'</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.grid(axis<span class="op">=</span><span class="st">'y'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>) <span class="co"># Añadir una cuadrícula para mejor lectura</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>) <span class="co"># Rotar las etiquetas del eje X si son muchas</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>plt.tight_layout() <span class="co"># Ajusta automáticamente los parámetros de la subtrama para un diseño ajustado</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-caso1-camembert_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-24" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:340,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679764304,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="b4c2e6fc-b83a-460b-f059-6f92f9c9b7bc" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sns.jointplot(x<span class="op">=</span><span class="st">"est"</span>, y<span class="op">=</span><span class="st">"mg"</span>, data <span class="op">=</span> df[<span class="op">~</span>df.index.duplicated(keep<span class="op">=</span><span class="st">'first'</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-39" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:340,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679764304,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="b4c2e6fc-b83a-460b-f059-6f92f9c9b7bc" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sns.jointplot(x<span class="op">=</span><span class="st">"est"</span>, y<span class="op">=</span><span class="st">"mg"</span>, data <span class="op">=</span> df[<span class="op">~</span>df.index.duplicated(keep<span class="op">=</span><span class="st">'first'</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-caso1-camembert_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Finalmente, una serie de cálculos más complejos para obtener los gráficos de capacidad de un proceso, como muestra de cómo se pueden usar las funciones y gráficos de <code>Python</code> para prácticamente cualquier necesidad.</p>
 <p>A continuación, una serie de celdas que realizan gráficos diversos, puedes dedicar un rato a estudiarlas e intentar comprender bien su programación.</p>
-<div id="cell-27" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679793766,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df.copy()</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df.drop([<span class="st">'fabricacion'</span>,<span class="st">'mg'</span>, <span class="st">'cloruros'</span>,<span class="st">'coliformes'</span>], axis<span class="op">=</span><span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-42" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679793766,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df.copy()</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df.drop([<span class="st">'fabricacion'</span>,<span class="st">'mg'</span>, <span class="st">'cloruros'</span>,<span class="st">'coliformes'</span>], axis<span class="op">=</span><span class="dv">1</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-28" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:23,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679796758,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df2[<span class="st">'est'</span>].groupby(df[<span class="st">'fecha'</span>].dt.isocalendar().week).agg([<span class="st">'mean'</span>,<span class="st">'std'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-43" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:23,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679796758,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df2[<span class="st">'est'</span>].groupby(df[<span class="st">'fecha'</span>].dt.isocalendar().week).agg([<span class="st">'mean'</span>,<span class="st">'std'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-29" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:26,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679798099,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="18526a57-bcb9-43e3-d33b-c6fb906ea530" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div id="cell-44" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:26,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679798099,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="18526a57-bcb9-43e3-d33b-c6fb906ea530" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 
 
@@ -537,41 +705,41 @@ datetime64[ns]</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-30" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:185,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679799590,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="d5f4d2d2-aaa9-4fba-f399-78c4423accc1" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'mean'</span>].plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-45" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:185,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679799590,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="d5f4d2d2-aaa9-4fba-f399-78c4423accc1" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'mean'</span>].plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-caso1-camembert_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-31" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:144,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679802612,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="5349014c-4c61-4d35-ca01-13bd215015a6" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'std'</span>].plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-46" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:144,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679802612,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="5349014c-4c61-4d35-ca01-13bd215015a6" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'std'</span>].plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-caso1-camembert_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-32" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679804109,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>LSL <span class="op">=</span> df2[<span class="st">'mean'</span>] <span class="op">-</span> <span class="dv">3</span> <span class="op">*</span> df2[<span class="st">'std'</span>]    <span class="co">## lower specification limit</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>USL <span class="op">=</span> df2[<span class="st">'mean'</span>] <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> df2[<span class="st">'std'</span>]    <span class="co">## upper specification limit</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>df2.insert(<span class="dv">2</span>,<span class="st">'LSL'</span>, LSL)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>df2.insert(<span class="dv">3</span>,<span class="st">'USL'</span>, USL)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># limite_rechazo = 231    ##</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># limite_deficientes = 242    ##</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># df3.insert(5,'rechazo', limite_rechazo)</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co"># df3.insert(6,'deficientes', limite_deficientes)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-47" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679804109,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>LSL <span class="op">=</span> df2[<span class="st">'mean'</span>] <span class="op">-</span> <span class="dv">3</span> <span class="op">*</span> df2[<span class="st">'std'</span>]    <span class="co">## lower specification limit</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>USL <span class="op">=</span> df2[<span class="st">'mean'</span>] <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> df2[<span class="st">'std'</span>]    <span class="co">## upper specification limit</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>df2.insert(<span class="dv">2</span>,<span class="st">'LSL'</span>, LSL)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>df2.insert(<span class="dv">3</span>,<span class="st">'USL'</span>, USL)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># limite_rechazo = 231    ##</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co"># limite_deficientes = 242    ##</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># df3.insert(5,'rechazo', limite_rechazo)</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># df3.insert(6,'deficientes', limite_deficientes)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-33" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:6,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679805343,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="b1153728-7c9a-4047-a6c4-89ae0aa57f36" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div id="cell-48" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:6,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679805343,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="b1153728-7c9a-4047-a6c4-89ae0aa57f36" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
 <div>
 
 
@@ -634,125 +802,125 @@ datetime64[ns]</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-34" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679806440,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'semana'</span>] <span class="op">=</span> df2.index <span class="co"># necesitamos la semana en una columna de valor</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df3 <span class="op">=</span> pd.melt(df2, id_vars<span class="op">=</span> [<span class="st">'semana'</span>], value_vars<span class="op">=</span>[<span class="st">"mean"</span>,<span class="st">"LSL"</span>, <span class="st">"USL"</span>],  value_name<span class="op">=</span><span class="st">"valores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-49" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679806440,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'semana'</span>] <span class="op">=</span> df2.index <span class="co"># necesitamos la semana en una columna de valor</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df3 <span class="op">=</span> pd.melt(df2, id_vars<span class="op">=</span> [<span class="st">'semana'</span>], value_vars<span class="op">=</span>[<span class="st">"mean"</span>,<span class="st">"LSL"</span>, <span class="st">"USL"</span>],  value_name<span class="op">=</span><span class="st">"valores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-35" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:501,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679808911,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="98e1a3eb-9359-4d43-c2b7-672403e5ee13" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.lineplot(data<span class="op">=</span>df3, x<span class="op">=</span><span class="st">"semana"</span>, y<span class="op">=</span><span class="st">"valores"</span>, hue<span class="op">=</span><span class="st">"variable"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-50" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:501,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679808911,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="98e1a3eb-9359-4d43-c2b7-672403e5ee13" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.lineplot(data<span class="op">=</span>df3, x<span class="op">=</span><span class="st">"semana"</span>, y<span class="op">=</span><span class="st">"valores"</span>, hue<span class="op">=</span><span class="st">"variable"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-caso1-camembert_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-36" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>url_datos <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/camembert.csv'</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(url_datos, </span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>      decimal <span class="op">=</span> <span class="st">","</span>, </span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>      sep<span class="op">=</span><span class="st">';'</span>, </span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>      encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error al cargar el archivo: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha'</span>] <span class="op">=</span> pd.to_datetime(</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,  </span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span> <span class="co"># Si hay una fecha inválida, la convierte a 'NaT' (Not a Time) en lugar de fallar.</span></span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>]<span class="op">=</span> pd.DatetimeIndex(df.fecha).normalize()</span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-51" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>url_datos <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/camembert.csv'</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(url_datos, </span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>      decimal <span class="op">=</span> <span class="st">","</span>, </span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>      sep<span class="op">=</span><span class="st">';'</span>, </span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>      encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error al cargar el archivo: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha'</span>] <span class="op">=</span> pd.to_datetime(</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,  </span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span> <span class="co"># Si hay una fecha inválida, la convierte a 'NaT' (Not a Time) en lugar de fallar.</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>]<span class="op">=</span> pd.DatetimeIndex(df.fecha).normalize()</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-37" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"hfd"</span>] <span class="op">=</span> (<span class="fl">100.0</span> <span class="op">-</span> df[<span class="st">'est'</span>]) <span class="op">/</span> (<span class="fl">100.0</span> <span class="op">-</span> df[<span class="st">'mg'</span>])</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Preparación de los datos (Calculando la Media y la Desviación Típica Semanal) ---</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>media_semanal <span class="op">=</span> df[<span class="st">"hfd"</span>].resample(<span class="st">'W-MON'</span>).mean()</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>dt_semanal <span class="op">=</span> df[<span class="st">"hfd"</span>].resample(<span class="st">'W-MON'</span>).std()</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 2. Creación de los Subgráficos (El paso clave) ---</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos una figura (conjunto de gráficos) con 2 filas y 1 columna.</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># El parámetro 'figsize=(10, 4)' controla el tamaño: 10 de ancho y 4 de alto total (como un gráfico normal).</span></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 'sharex=True' asegura que ambos gráficos compartan el mismo eje temporal.</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(</span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    nrows<span class="op">=</span><span class="dv">2</span>, </span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    ncols<span class="op">=</span><span class="dv">1</span>, </span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>), </span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    sharex<span class="op">=</span><span class="va">True</span></span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 3. Graficar la Media (Gráfico Superior) ---</span></span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>ax1.plot(media_semanal, label<span class="op">=</span><span class="st">"Media Semanal"</span>, color<span class="op">=</span><span class="st">'tab:blue'</span>)</span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Media y Desviación Típica Semanal de la Humedad del queso desnatado (HFD)"</span>)</span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Media (hfd)"</span>)</span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>ax1.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>ax1.tick_params(labelbottom<span class="op">=</span><span class="va">False</span>) <span class="co"># Quita las etiquetas de fecha/hora del gráfico superior</span></span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 4. Graficar la Desviación Típica (Gráfico Inferior) ---</span></span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>ax2.plot(dt_semanal, label<span class="op">=</span><span class="st">"Desviación Típica Semanal"</span>, color<span class="op">=</span><span class="st">'tab:orange'</span>)</span>
-<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"D. Típica (hfd)"</span>)</span>
-<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>ax2.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajusta el espacio entre los gráficos para que no se superpongan</span></span>
-<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>fig.tight_layout() </span>
-<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-52" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"hfd"</span>] <span class="op">=</span> (<span class="fl">100.0</span> <span class="op">-</span> df[<span class="st">'est'</span>]) <span class="op">/</span> (<span class="fl">100.0</span> <span class="op">-</span> df[<span class="st">'mg'</span>])</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Preparación de los datos (Calculando la Media y la Desviación Típica Semanal) ---</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>media_semanal <span class="op">=</span> df[<span class="st">"hfd"</span>].resample(<span class="st">'W-MON'</span>).mean()</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>dt_semanal <span class="op">=</span> df[<span class="st">"hfd"</span>].resample(<span class="st">'W-MON'</span>).std()</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 2. Creación de los Subgráficos (El paso clave) ---</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos una figura (conjunto de gráficos) con 2 filas y 1 columna.</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co"># El parámetro 'figsize=(10, 4)' controla el tamaño: 10 de ancho y 4 de alto total (como un gráfico normal).</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 'sharex=True' asegura que ambos gráficos compartan el mismo eje temporal.</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    nrows<span class="op">=</span><span class="dv">2</span>, </span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    ncols<span class="op">=</span><span class="dv">1</span>, </span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>), </span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    sharex<span class="op">=</span><span class="va">True</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 3. Graficar la Media (Gráfico Superior) ---</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>ax1.plot(media_semanal, label<span class="op">=</span><span class="st">"Media Semanal"</span>, color<span class="op">=</span><span class="st">'tab:blue'</span>)</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Media y Desviación Típica Semanal de la Humedad del queso desnatado (HFD)"</span>)</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Media (hfd)"</span>)</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>ax1.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>ax1.tick_params(labelbottom<span class="op">=</span><span class="va">False</span>) <span class="co"># Quita las etiquetas de fecha/hora del gráfico superior</span></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 4. Graficar la Desviación Típica (Gráfico Inferior) ---</span></span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>ax2.plot(dt_semanal, label<span class="op">=</span><span class="st">"Desviación Típica Semanal"</span>, color<span class="op">=</span><span class="st">'tab:orange'</span>)</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"D. Típica (hfd)"</span>)</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>ax2.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajusta el espacio entre los gráficos para que no se superpongan</span></span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>fig.tight_layout() </span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-caso1-camembert_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-26-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-38" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Preparación de los datos (Usando tus variables ya calculadas) ---</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># media_semanal = df["est"].resample('W-MON').mean()</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># dt_semanal = df["est"].resample('W-MON').std()</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 2. Creación de los Subgráficos ---</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    nrows<span class="op">=</span><span class="dv">2</span>, </span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    ncols<span class="op">=</span><span class="dv">1</span>, </span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>), </span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    sharex<span class="op">=</span><span class="va">True</span></span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 3. Graficar la Media (Gráfico Superior) ---</span></span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>ax1.plot(media_semanal, label<span class="op">=</span><span class="st">"Media Semanal"</span>, color<span class="op">=</span><span class="st">'tab:blue'</span>)</span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Media y Desviación Típica Semanal del Extracto Seco Total"</span>)</span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Media (est)"</span>)</span>
-<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>ax1.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>ax1.tick_params(labelbottom<span class="op">=</span><span class="va">False</span>) <span class="co"># ¡Importante! Oculta las etiquetas X en el gráfico superior</span></span>
-<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 4. Graficar la Desviación Típica (Gráfico Inferior) ---</span></span>
-<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>ax2.plot(dt_semanal, label<span class="op">=</span><span class="st">"Desviación Típica Semanal"</span>, color<span class="op">=</span><span class="st">'tab:orange'</span>)</span>
-<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"D. Típica (est)"</span>)</span>
-<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">"Fecha"</span>) <span class="co"># Añadimos la etiqueta de fecha al gráfico inferior</span></span>
-<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>ax2.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 5. Ajuste para eliminar el espacio vertical (El paso clave) ---</span></span>
-<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>plt.subplots_adjust(hspace<span class="op">=</span><span class="dv">0</span>) </span>
-<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste el espacio entre los gráficos para que no se superpongan</span></span>
-<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Nota: 'tight_layout' puede interferir si no se ajusta con cuidado, por eso usamos plt.subplots_adjust</span></span>
-<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-53" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Preparación de los datos (Usando tus variables ya calculadas) ---</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># media_semanal = df["est"].resample('W-MON').mean()</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># dt_semanal = df["est"].resample('W-MON').std()</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 2. Creación de los Subgráficos ---</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    nrows<span class="op">=</span><span class="dv">2</span>, </span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    ncols<span class="op">=</span><span class="dv">1</span>, </span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>), </span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    sharex<span class="op">=</span><span class="va">True</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 3. Graficar la Media (Gráfico Superior) ---</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>ax1.plot(media_semanal, label<span class="op">=</span><span class="st">"Media Semanal"</span>, color<span class="op">=</span><span class="st">'tab:blue'</span>)</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Media y Desviación Típica Semanal del Extracto Seco Total"</span>)</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Media (est)"</span>)</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>ax1.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>ax1.tick_params(labelbottom<span class="op">=</span><span class="va">False</span>) <span class="co"># ¡Importante! Oculta las etiquetas X en el gráfico superior</span></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 4. Graficar la Desviación Típica (Gráfico Inferior) ---</span></span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>ax2.plot(dt_semanal, label<span class="op">=</span><span class="st">"Desviación Típica Semanal"</span>, color<span class="op">=</span><span class="st">'tab:orange'</span>)</span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"D. Típica (est)"</span>)</span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">"Fecha"</span>) <span class="co"># Añadimos la etiqueta de fecha al gráfico inferior</span></span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>ax2.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 5. Ajuste para eliminar el espacio vertical (El paso clave) ---</span></span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>plt.subplots_adjust(hspace<span class="op">=</span><span class="dv">0</span>) </span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajuste el espacio entre los gráficos para que no se superpongan</span></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Nota: 'tight_layout' puede interferir si no se ajusta con cuidado, por eso usamos plt.subplots_adjust</span></span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-caso1-camembert_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1164,13 +1332,13 @@ datetime64[ns]</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./030-exploracion.html" class="pagination-link" aria-label="La exploración de los datos mediante gráficos.">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span>
+      <a href="./035-estad-simple.html" class="pagination-link" aria-label="Medidas centrales y medidas de dispersión: la media y la varianza.">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza.</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./999-indice_dataframes.html" class="pagination-link" aria-label="Indice de DataFrames utilizados">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -4,6 +4,8 @@ lang: es
 
 # Medidas centrales y medidas de dispersión: la media y la varianza.
 
+## Introducción
+
 Al estudiar el diagrama de caja (_boxplot_) hemos visto que este gráfico se describe mediante los **cinco números**, que son:
 
 - mínimo y máximo,  
@@ -15,6 +17,12 @@ De estos valores, el segundo cuartil, que se corresponde con la mitad de los val
 Una de las mayores ventajas de la mediana y del rango intercuartil es que son estadísticos robustos, es decir, tiene una alta robustez a los valores atípicos. Como en el cálculo del rango intercuartil no se tienen en cuenta los valores extremos, su valor variará muy poco si aparecen nuevas observaciones atípicas (outliers). Como sus valores no dependen de la distribución de los datos, a estos estadísticos se los conoce como **no paramétricos**.
 
 Existen otras estadísticos, llamados **paramétricos**, que, en determinadas condiciones, tienen ventajas frente a los no paramétricos. Los principales son la **media aritmética**, o simplemente, **media**, y la **varianza**.
+
+## Recursos utilizados
+
+En este ejercicio usaremos diversos datos y gráficas realizados en Excel. Para facilitar el análisis, puede descargarse esta hoja Excel, con muchas tablas y gráficos, en el enlace a continuación. 
+
+[Descargar hoja Excel](https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/dibujos_varianza.xlsx)
 
 ## La media aritmética: un ejemplo de cálculo.
 

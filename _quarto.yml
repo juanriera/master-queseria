@@ -21,8 +21,8 @@ book:
     - 010-organizacion.qmd
     - 020-intro-python.ipynb  
     - 030-exploracion.ipynb
+    - 035-estad-simple.qmd    
     - 040-caso1-camembert.ipynb 
-    #- 050-estad-simple.qmd
     #- 060-forma-de-los-datos.qmd
     #- 070-relacion-xy.qmd
     #- 080-comunicacion.qmd
@@ -31,6 +31,7 @@ book:
     #- 140-mejora-procesos.qmd
     - 999-indice_dataframes.ipynb
   appendices: 
+    - 150-media-centro-gravedad.qmd
     - 160-bibliografia.qmd
 
 language:

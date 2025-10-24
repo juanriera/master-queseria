@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; La estadística en el entorno industrial. – Notas para el master de quesería</title>
+<title>Apéndice A — La media aritmética como centro de gravedad de un grupo de datos – Notas para el master de quesería</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./005-herramientas.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./160-bibliografia.html" rel="next">
+<link href="./999-indice_dataframes.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -111,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./001-intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La estadística en el entorno industrial.</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./150-media-centro-gravedad.html">Anexos</a></li><li class="breadcrumb-item"><a href="./150-media-centro-gravedad.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -144,7 +144,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./001-intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="./001-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La estadística en el entorno industrial.</span></span></a>
   </div>
 </li>
@@ -192,16 +192,16 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Anexos</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./150-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
+  <a href="./150-media-centro-gravedad.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
   </div>
 </li>
@@ -223,23 +223,24 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">2.1</span> Introducción</a></li>
-  <li><a href="#el-pensamiento-estadístico-y-el-método-científico." id="toc-el-pensamiento-estadístico-y-el-método-científico." class="nav-link" data-scroll-target="#el-pensamiento-estadístico-y-el-método-científico."><span class="header-section-number">2.2</span> El pensamiento estadístico y el método científico.</a></li>
-  <li><a href="#los-datos-industriales" id="toc-los-datos-industriales" class="nav-link" data-scroll-target="#los-datos-industriales"><span class="header-section-number">2.3</span> Los datos industriales</a>
-  <ul class="collapse">
-  <li><a href="#estudios-retrospectivos-o-históricos" id="toc-estudios-retrospectivos-o-históricos" class="nav-link" data-scroll-target="#estudios-retrospectivos-o-históricos">Estudios retrospectivos o históricos</a></li>
-  <li><a href="#estudios-observacionales" id="toc-estudios-observacionales" class="nav-link" data-scroll-target="#estudios-observacionales">Estudios observacionales</a></li>
-  <li><a href="#experimentos-diseñados" id="toc-experimentos-diseñados" class="nav-link" data-scroll-target="#experimentos-diseñados">Experimentos diseñados</a></li>
-  </ul></li>
+  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link active" data-scroll-target="#ejemplo">Ejemplo</a></li>
+  <li><a href="#paso-a-paso" id="toc-paso-a-paso" class="nav-link" data-scroll-target="#paso-a-paso">Paso a Paso</a></li>
+  <li><a href="#ejemplo-práctico" id="toc-ejemplo-práctico" class="nav-link" data-scroll-target="#ejemplo-práctico">Ejemplo Práctico</a></li>
+  <li><a href="#media-ponderada" id="toc-media-ponderada" class="nav-link" data-scroll-target="#media-ponderada">Media Ponderada</a></li>
+  <li><a href="#centro-de-gravedad-como-media-ponderada" id="toc-centro-de-gravedad-como-media-ponderada" class="nav-link" data-scroll-target="#centro-de-gravedad-como-media-ponderada">Centro de Gravedad como Media Ponderada</a></li>
+  <li><a href="#ejemplo-numérico" id="toc-ejemplo-numérico" class="nav-link" data-scroll-target="#ejemplo-numérico">Ejemplo Numérico</a></li>
+  <li><a href="#media-aritmética-y-centro-de-gravedad-con-masas-idénticas" id="toc-media-aritmética-y-centro-de-gravedad-con-masas-idénticas" class="nav-link" data-scroll-target="#media-aritmética-y-centro-de-gravedad-con-masas-idénticas">Media Aritmética y Centro de Gravedad con Masas Idénticas</a></li>
+  <li><a href="#conclusión" id="toc-conclusión" class="nav-link" data-scroll-target="#conclusión">Conclusión</a></li>
+  <li><a href="#importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos" id="toc-importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos" class="nav-link" data-scroll-target="#importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos"><span class="header-section-number">A.1</span> Importancia del concepto de la media como centro de gravedad o punto de equilibrio de un conjunto de datos</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./150-media-centro-gravedad.html">Anexos</a></li><li class="breadcrumb-item"><a href="./150-media-centro-gravedad.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">La estadística en el entorno industrial.</span></h1>
+<h1 class="title">Apéndice A — La media aritmética como centro de gravedad de un grupo de datos</h1>
 </div>
 
 
@@ -256,167 +257,186 @@ window.Quarto = {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center page-columns page-full">
-<figure class="figure page-columns page-full">
-<p class="page-columns page-full"><img src="01-imagenes/1520188654204.jpg" class="img-fluid figure-img column-page-inset-right"></p>
-<figcaption>Un grupo de trabajo en planta ante un panel de variables indicadoras</figcaption>
+<p>Para ver cómo la media aritmética equivale al punto de equilibrio o centro de gravedad de un grupo de datos, imaginaremos que tenemos un conjunto de datos cuyos valores se distribuyen en un eje longitudinal X. Podemos hacer equivalentes estos valores a un conjunto de pesos que se distribuyen a lo largo de una barra, y vamos a suponer que existe un punto a una distancia <span class="math inline">\(d_i\)</span> del origen de la barra en el cual dicha barra está en equilibrio. Para encontrar ese valor, empezaremos considerando el principio o ley de la palanca.</p>
+<p>El <strong>Principio de la Palanca</strong> o la <strong>Ley de la Palanca</strong> fue formulada por el científico y matemático griego Arquímedes. Este principio dice que, en equilibrio, el producto de la fuerza aplicada (potencia) por su distancia al punto de apoyo (brazo de la potencia) es igual al producto de la resistencia por su distancia al punto de apoyo (brazo de la resistencia). Matemáticamente, se expresa como: <span class="math display">\[
+P \cdot d_p = R \cdot d_r
+\]</span></p>
+<p>Donde:</p>
+<ul>
+<li><span class="math inline">\(P\)</span> es la potencia o fuerza aplicada.</li>
+<li><span class="math inline">\(d_p\)</span> es la distancia desde el punto de apoyo hasta el punto donde se aplica la potencia.</li>
+<li><span class="math inline">\(R\)</span> es la resistencia o carga.</li>
+<li><span class="math inline">\(d_r\)</span> es la distancia desde el punto de apoyo hasta el punto donde se aplica la resistencia.</li>
+</ul>
+<div id="fig-palanca" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="01-imagenes/palanca.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;A.1: Palanca de primer grado con el fulcro como punto de equilibrio
+</figcaption>
 </figure>
 </div>
-<section id="introducción" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">2.1</span> Introducción</h2>
-<p>¿Alguna vez te has preguntado cómo podemos resolver problemas en el trabajo de forma sistemática y ordenada? La estadística y el método científico nos ayudan a hacerlo, y son más sencillos de lo que parece.</p>
-<p>El método científico es como una receta que seguimos para resolver problemas: primero observamos qué está pasando, luego pensamos qué puede estar causando el problema, después hacemos pruebas para comprobarlo, y finalmente sacamos conclusiones y tomamos acciones orientadas a eliminar el problema o conseguir una mejora, aunque sea parcial, y repetimos el ciclo. La estadística nos ayuda a entender si nuestras pruebas funcionaron o no, usando números y datos reales.</p>
-<p>Pensar de forma estadística significa entender que todo lo que hacemos en el trabajo está conectado, y que es normal que las cosas cambien o varíen un poco. Lo importante es saber cuándo estos cambios son normales y cuándo indican un problema real. Es como cuando cocinamos: sabemos que cada plato puede salir un poco diferente, pero reconocemos cuando algo ha salido realmente mal.</p>
-<p>En las fábricas y talleres, estas herramientas son muy útiles. Por ejemplo, si una máquina empieza a producir piezas defectuosas, podemos:</p>
+<section id="ejemplo" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo">Ejemplo</h3>
+<p>Si tienes una palanca con una longitud de 5 metros y aplicas una fuerza de 10 Newtons a 1 metro del punto de apoyo, para mantener el equilibrio, la fuerza de resistencia en el otro extremo a 4 metros del punto de apoyo debería ser: <span class="math display">\[
+P \cdot d_p = R \cdot d_r
+\]</span></p>
+<p><span class="math display">\[
+10 \, \text{N} \cdot 1 \, \text{m} = R \cdot 4 \, \text{m}
+\]</span></p>
+<p><span class="math display">\[
+R = \frac{10 \cdot 1}{4} = 2,5 \text{N}
+\]</span></p>
+<p>Ahora vamos a considerar el punto de equilibrio de una barra de la que se cuelgan diferentes pesos a diferente distancias de su origen. Calcular el punto de equilibrio de una barra de la que se cuelgan diferentes pesos a diferentes distancias de su origen es un problema clásico de física que se puede resolver usando el principio de momentos.</p>
+</section>
+<section id="paso-a-paso" class="level3">
+<h3 class="anchored" data-anchor-id="paso-a-paso">Paso a Paso</h3>
 <ol type="1">
-<li>Observar qué está pasando</li>
-<li>Pensar en posibles causas</li>
-<li>Hacer pruebas controladas para encontrar el problema</li>
-<li>Usar números y datos para confirmar si lo hemos solucionado</li>
+<li><p><strong>Identificar las fuerzas</strong>: Supongamos que tienes varios pesos <span class="math inline">\(W_1, W_2, W_3, \ldots, W_n\)</span> colgados a distancias <span class="math inline">\(d_1, d_2, d_3, \ldots, d_n\)</span> del origen (punto de apoyo).</p></li>
+<li><p><strong>Calcular los momentos</strong>: El momento (<span class="math inline">\(M\)</span>) de un peso alrededor del punto de apoyo se calcula como el producto de la fuerza (peso) y la distancia al punto de apoyo:</p></li>
 </ol>
-<p>La experimentación es muy importante en la industria. En vez de cambiar las cosas al azar, hacemos pruebas organizadas para ver qué funciona mejor. Es como cuando ajustas la temperatura del horno y el tiempo de cocción para que un pastel salga perfecto: pruebas diferentes combinaciones y anotas los resultados.</p>
-<p>Lo mejor de todo es que cada vez que hacemos estos experimentos, aprendemos algo nuevo. Incluso si algo no funciona como esperábamos, esa información nos ayuda a mejorar la próxima vez. Es un proceso continuo de aprendizaje y mejora.</p>
-<p>Esta forma de trabajar nos ayuda a:</p>
-<ul>
-<li>Resolver problemas de forma ordenada</li>
-<li>Tomar mejores decisiones basadas en datos reales</li>
-<li>Mejorar la calidad de nuestro trabajo</li>
-<li>Ahorrar tiempo y dinero evitando errores</li>
-</ul>
-<p>Recuerda: no necesitas ser un genio de las matemáticas para usar estas herramientas. Lo importante es ser organizado, observar bien lo que pasa y anotar los resultados de lo que hacemos. Así, poco a poco, podemos mejorar nuestro trabajo y resolver problemas de forma más eficiente.</p>
-<p>Los métodos estadísticos nos ayudan a describir y comprender la <strong>variabilidad</strong>. Cuando hablamos de variabilidad queremos decir que sucesivas observaciones de un mismo proceso o sistema no dan exactamente los mismos resultados. Por ejemplo, el consumo de gasolina de un coche no es siempre igual, sino que varía de manera considerable. Esta variación depende de muchos factores, como la forma de conducir, el tipo de carretera, la situación del propio vehículo (presión de neumáticos, compresión del motor, …), la marca de la gasolina, el octanaje, o incluso las condiciones meteorológicas. Todos estos factores son causas de <strong>variabilidad</strong> en el consumo de gasolina. La estadística nos permite analizar estos <strong>factores</strong> y determinar cuáles son los más importantes o tienen mayor impacto en el consumo; una vez conocidos, podemos actuar sobre ellos.</p>
-<p>En este libro aprenderemos a utilizar herramientas diversas, tanto estadísticas como de la ciencia de datos, para realizar nuestro análisis. Para aprender de los datos necesitamos más que los simples números; para interpretarlos necesitaremos siempre el conocimiento del proceso industrial que estamos analizando.En un análisis de la producción de un producto lácteo, por ejemplo, los números significan poco sin un conocimiento del proceso; los valores de pH, temperatura o concentración de lactosa influyen en el resultado del proceso de forma diferente. Los datos son números dentro de un contexto, y necesitamos conocer este contexto para dar sentido a los números.</p>
-<div class="content-visible callout callout-style-default callout-important callout-titled" data-when-format="html">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Importante
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>El objetivo principal de la <strong>mejora industrial</strong> es la <strong>reducción de la variabilidad</strong>.</p>
-</div>
-</div>
+<p><span class="math display">\[
+    M_i = W_i \times d_i
+\]</span></p>
+<ol start="3" type="1">
+<li><p><strong>Sumar los momentos</strong>: Calcula la suma de todos los momentos: <span class="math display">\[
+M_{\text{total}} = W_1 \times d_1 + W_2 \times d_2 + W_3 \times d_3 + \ldots + W_n \times d_n
+\]</span></p></li>
+<li><p><strong>Calcular el peso total</strong>: Suma todos los pesos: <span class="math display">\[
+W_{\text{total}} = W_1 + W_2 + W_3 + \ldots + W_n
+\]</span></p></li>
+<li><p><strong>Determinar el punto de equilibrio (</strong><span class="math inline">\(x\)</span>): El punto de equilibrio se encuentra dividiendo la suma de los momentos por el peso total: <span class="math display">\[
+x = \frac{\sum (W_i \times d_i)}{\sum W_i}
+\]</span></p></li>
+</ol>
 </section>
-<section id="el-pensamiento-estadístico-y-el-método-científico." class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="el-pensamiento-estadístico-y-el-método-científico."><span class="header-section-number">2.2</span> El pensamiento estadístico y el método científico.</h2>
-<p>La estadística y el método científico mantienen una relación fundamental que impulsa el avance del conocimiento y la innovación. El método científico, con sus pasos de observación, hipótesis, experimentación y conclusiones, encuentra en la estadística las herramientas necesarias para validar o refutar hipótesis de manera objetiva y cuantificable.</p>
-<p>El pensamiento estadístico es una filosofía de aprendizaje y acción basada en tres principios fundamentales:</p>
+<section id="ejemplo-práctico" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-práctico">Ejemplo Práctico</h3>
+<p>Supongamos que tenemos tres pesos de 4, 9 y 1 kg, situados, respectivamente, a 2, 1 y 3 m respectivamente del origen de la barra.</p>
 <ul>
-<li>que todo proceso industrial está compuesto a su vez por procesos interconectados,</li>
-<li>que la variabilidad existe y es inherente a estos procesos, y</li>
-<li>que entender y reducir la variación es clave para la mejora y el éxito</li>
+<li><span class="math inline">\(W_1 = 4 \, \text{kg}\)</span> a <span class="math inline">\(d_1 = 2 \, \text{m}\)</span></li>
+<li><span class="math inline">\(W_2 = 9 \, \text{kg}\)</span> a <span class="math inline">\(d_2 = 1 \, \text{m}\)</span></li>
+<li><span class="math inline">\(W_3 = 1 \, \text{kg}\)</span> a <span class="math inline">\(d_3 = 3 \, \text{m}\)</span></li>
 </ul>
-<p>En el entorno industrial, esta integración entre estadística y método científico ha revolucionado los procesos de mejora continua. Por ejemplo, cuando una línea de producción enfrenta problemas de calidad, el método científico guía la investigación sistemática: se observa el proceso, se formulan hipótesis sobre las causas del problema, se diseñan experimentos controlados, y se analizan los resultados estadísticamente para determinar la validez de las soluciones propuestas.</p>
-<p>La experimentación industrial, particularmente a través del diseño de experimentos (DOE), se ha convertido en una herramienta fundamental para la mejora continua. En lugar de modificar procesos basándose en intuiciones o experiencias pasadas, las empresas pueden realizar experimentos controlados que:</p>
-<ul>
-<li>Optimizan múltiples variables simultáneamente</li>
-<li>Identifican interacciones entre factores que afectan el proceso</li>
-<li>Reducen el tiempo y costo de las mejoras</li>
-<li>Proporcionan conclusiones respaldadas por evidencia estadística</li>
-</ul>
-<p>Al realizar experimentos controlados, las empresas pueden probar hipótesis que permitan evaluar el impacto de diferentes variables en los procesos y productos y determinar los valores óptimos de los parámetros de los procesos para maximizar la calidad y la eficiencia. Esto genera conocimiento valioso sobre los procesos y productos, permite tomar decisiones más informadas, y ayuda a crear y mantener una ventaja competitiva.</p>
-<p>La experimentación, combinada con el análisis estadístico, permite a las empresas implementar ciclos de mejora continua, donde los resultados de cada experimento se utilizan para refinar los procesos y productos.</p>
-<p>Al integrar el pensamiento estadístico con el método científico en el entorno industrial, las organizaciones pueden desarrollar una cultura de mejora continua basada en la evidencia de los datos y no en suposiciones o intuiciones. En una cultura industrial basada en el método científico, cada problema es una oportunidad para experimentar, aprender y optimizar. Esta aproximación sistemática no solo mejora la calidad y eficiencia de los procesos, sino que también fomenta la innovación y el aprendizaje organizacional continuo.</p>
-<p>La clave del éxito radica en entender que la experimentación no es un evento aislado, sino un proceso continuo de aprendizaje y mejora. Cada experimento, exitoso o no, aporta información valiosa que, analizada correctamente mediante métodos estadísticos, contribuye al conocimiento colectivo de la organización y sienta las bases para futuras mejoras. La estadística y el método científico no solo son pilares fundamentales para la investigación académica, sino que también desempeñan un papel crucial en el entorno industrial. La aplicación sistemática del método científico, respaldada por herramientas estadísticas, permite a las empresas optimizar procesos, mejorar la calidad de sus productos y servicios, y fomentar la innovación.</p>
-<div class="content-visible callout callout-style-default callout-important callout-titled" data-when-format="html">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-El pensamiento estadístico en la toma de decisiones industriales
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>En el entorno industrial, el pensamiento estadístico es esencial para:</p>
-<ul>
-<li><strong>Tomar decisiones basadas en datos,</strong> evitando decisiones basadas en intuiciones o suposiciones.</li>
-<li><strong>Evaluar riesgos,</strong> cuantificando la incertidumbre y permitiendo tomar decisiones que minimicen los riesgos.</li>
-<li><strong>Mejorar el conocimiento</strong> de los procesos para una toma de decisiones más eficaz.<br>
-</li>
-<li><strong>Comunicar resultados,</strong> presentando los resultados de los análisis de manera clara y concisa.</li>
-</ul>
-<p>La integración del método científico y el pensamiento estadístico en la cultura empresarial impulsa la innovación, la eficiencia y la competitividad.</p>
-</div>
-</div>
-</section>
-<section id="los-datos-industriales" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="los-datos-industriales"><span class="header-section-number">2.3</span> Los datos industriales</h2>
-<p>En el entorno industrial, podemos organizar los datos en varias categorías, considerando tanto su naturaleza como la forma en que se obtienen:</p>
-<p><strong>Según su estructura:</strong></p>
-<ul>
-<li><strong>Datos estructurados:</strong>
-<ul>
-<li>Son datos organizados en un formato definido, como tablas de bases de datos, hojas de cálculo o archivos CSV. Su estructura facilita el análisis y la consulta.</li>
-<li>Ejemplos: lecturas de sensores, registros de producción, datos de control de calidad, información de inventario.</li>
-</ul></li>
-<li><strong>Datos no estructurados:</strong>
-<ul>
-<li>Son datos que no tienen un formato predefinido, como texto, imágenes, audio o video.Su análisis requiere técnicas más avanzadas, como el procesamiento de lenguaje natural o la visión artificial.</li>
-<li>Ejemplos: registros de mantenimiento, informes de incidentes, imágenes de inspección visual, grabaciones de audio de maquinaria.</li>
-</ul></li>
-<li><strong>Datos semiestructurados:</strong>
-<ul>
-<li>Son datos que tienen cierta estructura, pero no tan rígida como los datos estructurados, y permiten una mayor flexibilidad en el almacenamiento y el intercambio de información.</li>
-<li>Ejemplos: archivos XML o JSON, registros de eventos.</li>
-</ul></li>
-</ul>
-<p><strong>Según su origen y método de obtención:</strong></p>
-<ul>
-<li><strong>Datos históricos (Estudios retrospectivos):</strong>
-<ul>
-<li>Son datos recopilados en el pasado, que se utilizan para analizar tendencias, identificar patrones y predecir el comportamiento futuro. Permiten comprender la evolución de los procesos.</li>
-<li>Ejemplos: registros de producción de años anteriores, datos de fallos de maquinaria, históricos de ventas.</li>
-</ul></li>
-<li><strong>Datos observacionales (Estudios observacionales):</strong>
-<ul>
-<li>Son datos recopilados mediante la observación de procesos o sistemas, sin intervenir en ellos. Permiten identificar relaciones entre variables y comprender el comportamiento de los procesos en condiciones reales.</li>
-<li>Ejemplos: mediciones de temperatura, vibración o presión de maquinaria, registros de tiempo de ciclo de producción.</li>
-</ul></li>
-<li><strong>Datos experimentales (Experimentos diseñados):</strong>
-<ul>
-<li>Son datos recopilados mediante la realización de experimentos controlados, en los que se manipulan variables para evaluar su efecto. Permiten establecer relaciones de causa y efecto, estudiar las interacciones entre las variables y optimizar el rendimiento de los procesos.</li>
-<li>Ejemplos: datos de pruebas de rendimiento de nuevos materiales, resultados de experimentos de optimización de procesos.</li>
-</ul></li>
-<li><strong>Datos de monitorización o control de procesos en tiempo real:</strong>
-<ul>
-<li>son datos que se recaban de manera instantanea, y permiten actuar de manera casi inmediata en los procesos; permiten implementar el mantenimiento predictivo, y evitar perdidas de produccion.</li>
-<li>Ejemplos: datos de sensores que detectan fallos en maquinaria, alarmas de procesos fuera de control.</li>
-</ul></li>
-</ul>
-<p>En el contexto de la Industria 4.0, la cantidad y variedad de datos industriales está aumentando exponencialmente.</p>
-<section id="estudios-retrospectivos-o-históricos" class="level3">
-<h3 class="anchored" data-anchor-id="estudios-retrospectivos-o-históricos">Estudios retrospectivos o históricos</h3>
-<p>Un <strong>estudio retrospectivo o histórico</strong> es el que utiliza una muestra o todos los datos históricos de un proceso, recogidos en el pasado durante un período determinado de tiempo. El objetivo de un estudio de este tipo puede ser la investigación sobre la relación entre algunas variables, o explorar la calidad de la información disponible, o construir un modelo que permita explicar el proceso tal como es actualmente, o saber si se ha desviado. Estos modelos del proceso se denominan <strong>modelos empíricos</strong>, porque están basados en los propios datos del proceso y no en una formulación teórica sobre el mismo.</p>
-<p>Un estudio retrospectivo tiene la ventaja de tener a su disposición un gran número de datos que ya han sido recogidos, minimizando el esfuerzo de obtenerlos. Sin embargo, tiene varios problemas potenciales:</p>
 <ol type="1">
-<li>Si no disponemos de detalles suficientes, es posible que no podamos determinar si las condiciones de variación de los valores obtenidos responden a las mismas causas que en la situación actual.</li>
-<li>Es posible que nos falte algún valor clave que no haya sido recogido o que lo haya sido de manera defectuosa</li>
-<li>Algunas veces, la fiabilidad y validez de los datos de proceso históricos son dudosas, o al menos, cuestionables.</li>
-<li>Los datos históricos no siempre se han recogido con la perspectiva actual del proceso, y es posible que no nos proporciones explicaciones adecuadas del proceso en su situación actual.</li>
-<li>A veces queremos utilizar los datos históricos de proceso para fines que no estaban previstos cuando se recogieron</li>
-<li>Las notas sobre los valores del proceso, incluyendo los valores anormales, pueden ser insuficientes o inexistentes, y no tenemos ninguna explicación sobre los posibles valores anómalos que detectamos en el análisis.</li>
+<li><p><strong>Calcular los momentos</strong>: <span class="math display">\[
+M_1 = 4 \times 2 = 8 \, \text{kg·m}
+\]</span> <span class="math display">\[
+M_2 = 9 \times 1 = 9 \, \text{kg·m}
+\]</span> <span class="math display">\[
+M_3 = 1 \times 3 = 3 \, \text{kg·m}
+\]</span></p></li>
+<li><p><strong>Sumar los momentos</strong>: <span class="math display">\[
+M_{\text{total}} = 8 + 9 + 3 = 20 \, \text{kg·m}
+\]</span></p></li>
+<li><p><strong>Calcular el peso total</strong>: <span class="math display">\[
+W_{\text{total}} = 4 + 9 + 1 = 14 \, \text{kg}
+\]</span></p></li>
+<li><p><strong>Determinar el punto de equilibrio</strong>:</p></li>
 </ol>
-<p>Usar datos históricos siempre tiene el riesgo de que, por la razón que sea, no se hayan recogido datos importantes, o que estos datos se hayan perdido, o se hayan transcrito de forma inadecuada o incorrecta. Es decir, los datos históricos pueden tener problemas de calidad de datos.</p>
-<p>El hecho de que algunos datos se hayan recogido históricamente no siempre quiere decir que estos datos sean relevantes o útiles. Cuando el grado de conocimiento del proceso no es suficiente, o no se basa en un análisis metódico y riguroso de los datos, es posible que no se hayan recogido algunos datos que pueden ser importantes para el proceso, a veces simplemente porque son complejos o difíciles de analizar. Los datos históricos no pueden proporcionar la información que buscamos si la información de las variables clave nunca se ha recogido o se ha hecho sin una buena base experimental.</p>
-<p>El propósito del análisis de los datos industriales es aislar las causas que están detrás de los sucesos que afectan e influyen en los procesos. En los datos históricos, estos sucesos pueden haber ocurrido semanas, meses o incluso años antes, sin que haya registros ni notas que hayan intentado explicar estas causas, y los recuerdos de las personas que han participado en ellos se pierden con el tiempo, o se alteran involuntariamente, proporcionando explicaciones supuestamente válidas pero que en realidad son incorrectas. Por eso, con frecuencia, el análisis de los datos históricos puede poner de manifiesto hechos interesantes, pero sus causas quedan sin explicar.</p>
-<p>Los estudios históricos pueden requerir una fase previa de preparación y depuración de datos que puede llegar a ser muy larga y tediosa. Se estima que en muchos estudios de ciencia de datos, el tiempo de preparación de los datos puede llegar al <span class="math inline">\(60\%\)</span> del tiempo total empleado en el estudio. Las herramientas de análisis de datos son de gran ayuda en esta fase del proceso, aunque en muchas ocasiones será necesario un trabajo manual de recolección de datos en papel, hojas de cálculo diversas y otras fuentes. Esta fase es muy útil no sólo para la preparación de datos para el estudio, sino para mejorar el conocimiento de los datos, cómo se originan y cómo se almacenan. Este conocimiento siempre es de gran utilidad para mejorar los procedimientos actuales de captura de datos, facilitando la fiabilidad de los análisis futuros.</p>
+<p><span class="math display">\[
+    x = \frac{20}{14} \approx 1.43 \, \text{m}
+\]</span></p>
+<p>El punto de equilibrio se encuentra a aproximadamente 1.43 metros del origen.</p>
 </section>
-<section id="estudios-observacionales" class="level3">
-<h3 class="anchored" data-anchor-id="estudios-observacionales">Estudios observacionales</h3>
-<p>Como su nombre indica, un <strong>estudio observacional</strong> simplemente observa un proceso durante un tiempo de operación en rutina. Normalmente, el ingeniero o técnico interfiere lo mínimo posible en el proceso; sólo lo suficiente para recoger la información que necesita, si piensa que esa información puede ser relevante. En muchas ocasiones, el estudio no forma parte de los controles de rutina, y representa un trabajo adicional.</p>
-<p>Si se planifican adecuadamente, los estudios observacionales proporcionan datos fiables, precisos y completos para documentar un proceso. Por otra parte, estos estudios proporcionan una información limitada sobre las relaciones entre las variables del proceso, porque es posible que durante el tiempo limitado de observación, el rango de variación de las variables no recoja todas las situaciones posibles; por ejemplo, las situaciones extraordinarias.</p>
+<section id="media-ponderada" class="level3">
+<h3 class="anchored" data-anchor-id="media-ponderada">Media Ponderada</h3>
+<p>En muchas situaciones, el centro de gravedad de un sistema de masas puede interpretarse como una <strong>media ponderada</strong> de las posiciones de las masas.</p>
+<section id="media-aritmética" class="level4">
+<h4 class="anchored" data-anchor-id="media-aritmética">Media Aritmética</h4>
+<p>Para un conjunto de números <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>, la media aritmética es: <span class="math display">\[
+\text{Media} = \frac{x_1 + x_2 + \cdots + x_n}{n}
+\]</span></p>
 </section>
-<section id="experimentos-diseñados" class="level3">
-<h3 class="anchored" data-anchor-id="experimentos-diseñados">Experimentos diseñados</h3>
-<p>La tercera forma de recoger información de un proceso son los <strong>experimentos diseñados</strong>. En un experimento de este tipo, el ingeniero o técnico hace un cambio deliberado en las variables que controla (llamadas <strong>factores</strong>), observa el resultado, y toma una decisión respecto a qué variable o variables son responsables de los cambios que observa en el proceso.</p>
-<p>Una diferencia importante respecto a los estudios históricos y los observacionales es que las diferentes combinaciones de factores se aplican al azar sobre un conjunto de unidades experimentales. Esto permite establecer con precisión las relaciones causa-efecto, cosa que no suele ser posible ni en los estudios históricos ni en los observacionales.</p>
+<section id="media-ponderada-1" class="level4">
+<h4 class="anchored" data-anchor-id="media-ponderada-1">Media Ponderada</h4>
+<p>Para un conjunto de valores <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> con pesos asociados <span class="math inline">\(w_1, w_2, \ldots, w_n\)</span>, la media ponderada es: <span class="math display">\[
+\text{Media ponderada} = \frac{w_1 x_1 + w_2 x_2 + \cdots + w_n x_n}{w_1 + w_2 + \cdots + w_n}
+\]</span></p>
+</section>
+</section>
+<section id="centro-de-gravedad-como-media-ponderada" class="level3">
+<h3 class="anchored" data-anchor-id="centro-de-gravedad-como-media-ponderada">Centro de Gravedad como Media Ponderada</h3>
+<p>Cuando calculamos el centro de gravedad (<span class="math inline">\(x_{\text{cg}}\)</span>) de un sistema de masas, estamos esencialmente calculando una media ponderada de las posiciones (<span class="math inline">\(x_i\)</span>) de esas masas (<span class="math inline">\(m_i\)</span>):</p>
+<p><span class="math display">\[
+x_{\text{cg}} = \frac{\sum (m_i \cdot x_i)}{\sum m_i}
+\]</span></p>
+<p>Aquí, las posiciones <span class="math inline">\(x_i\)</span> son ponderadas por las masas <span class="math inline">\(m_i\)</span>.</p>
+</section>
+<section id="ejemplo-numérico" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-numérico">Ejemplo Numérico</h3>
+<p>En nuestro ejemplo anterior,</p>
+<ul>
+<li>Masa 1: <span class="math inline">\(m_1 = 4 \, \text{kg}\)</span> en posición <span class="math inline">\(x_1 = 2 \, \text{m}\)</span></li>
+<li>Masa 2: <span class="math inline">\(m_2 = 9 \, \text{kg}\)</span> en posición <span class="math inline">\(x_2 = 1 \, \text{m}\)</span></li>
+<li>Masa 3: <span class="math inline">\(m_3 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_3 = 3 \, \text{m}\)</span></li>
+</ul>
+<p>La media aritmética de las posiciones sería: <span class="math display">\[
+\text{Media} = \frac{2 + 1 + 3}{3} = 2 \, \text{m}
+\]</span></p>
+<p>El punto de equlibrio de la barra, o centro de gravedad, calculado como media ponderada, sería:</p>
+<p><span class="math display">\[
+x_{\text{cg}} = \frac{(4 \cdot 2) + (9 \cdot 1) + (1 \cdot 3)}{4 + 9 + 1} = \frac{8 + 9 + 3}{14} = \frac{20}{14} \approx 1,43 \, \text{m}
+\]</span></p>
+<p>que es el mismo resultado que obteníamos formulando el cálculo de los momentos; la fórmula resulta ser idéntica.</p>
+</section>
+<section id="media-aritmética-y-centro-de-gravedad-con-masas-idénticas" class="level3">
+<h3 class="anchored" data-anchor-id="media-aritmética-y-centro-de-gravedad-con-masas-idénticas">Media Aritmética y Centro de Gravedad con Masas Idénticas</h3>
+<p>En los ejemplos anteriores, calculábamos el punto de equilibrio para diferentes pesos colocados a lo largo de una barra. Si en vez de eso suponemos que la distancia al origen de la barra equivale a nuestro eje <span class="math inline">\(X\)</span>, que recoge los valores de los que queremos calcular nuestra media aritmética, podemos eliminar el efecto de la masa suponiendo que todas las masas son iguales.</p>
+<p>Si las masas de los diferentes objetos son idénticas, podemos decir que la media aritmética de las posiciones coincide con el centro de gravedad. Esto se debe a que, en este caso, cada masa tiene el mismo peso o influencia en el cálculo del centro de gravedad. Esta es la explicación detallada:</p>
+<p><strong>Suposición:</strong> Cada objeto tiene la misma masa <span class="math inline">\(m\)</span>.</p>
+<section id="media-aritmética-1" class="level4">
+<h4 class="anchored" data-anchor-id="media-aritmética-1">Media Aritmética</h4>
+<p>Para un conjunto de posiciones <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>, la media aritmética es: <span class="math display">\[
+\text{Media} = \frac{x_1 + x_2 + \cdots + x_n}{n}
+\]</span></p>
+</section>
+<section id="centro-de-gravedad" class="level4">
+<h4 class="anchored" data-anchor-id="centro-de-gravedad">Centro de Gravedad</h4>
+<p>El centro de gravedad (<span class="math inline">\(x_{\text{cg}}\)</span>) para un conjunto de masas idénticas en posiciones <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> es: <span class="math display">\[
+x_{\text{cg}} = \frac{\sum (m \cdot x_i)}{\sum m}
+\]</span></p>
+<p>Dado que las masas <span class="math inline">\(m\)</span> son idénticas, el numerador se convierte en: <span class="math display">\[
+\sum (m \cdot x_i) = m \cdot (x_1 + x_2 + \cdots + x_n)
+\]</span></p>
+<p>Y el denominador se convierte en: <span class="math display">\[
+\sum m = n \cdot m
+\]</span></p>
+<p>Al sustituir estos en la fórmula del centro de gravedad, obtenemos: <span class="math display">\[
+x_{\text{cg}} = \frac{m \cdot (x_1 + x_2 + \cdots + x_n)}{n \cdot m}
+\]</span></p>
+<p>Al simplificar, los términos <span class="math inline">\(m\)</span> se cancelan, y nos queda: <span class="math display">\[
+x_{\text{cg}} = \frac{x_1 + x_2 + \cdots + x_n}{n}
+\]</span></p>
+<p>que es exactamente la fórmula de la media aritmética.</p>
+<p>Si repetimos nuestro ejemplo anterior, suponiendo en este caso masas idénticas</p>
+<ul>
+<li>Masa 1: <span class="math inline">\(m_1 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_1 = 2 \, \text{m}\)</span></li>
+<li>Masa 2: <span class="math inline">\(m_2 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_2 = 1 \, \text{m}\)</span></li>
+<li>Masa 3: <span class="math inline">\(m_3 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_3 = 3 \, \text{m}\)</span></li>
+</ul>
+<p>La media aritmética de las posiciones sería:</p>
+<p><span class="math display">\[
+\text{Media} = \frac{2 + 1 + 3}{3} = 2 \, \text{cm}
+\]</span></p>
+<p>El punto de equlibrio de la barra, o centro de gravedad, calculado como media ponderada, sería:</p>
+<p><span class="math display">\[
+x_{\text{cg}} = \frac{(1 \cdot 2) + (1 \cdot 1) + (1 \cdot 3)}{1 + 1 + 1} = \frac{2 + 1 + 3}{3} = \frac{6}{3} = 2 \, \text{m}
+\]</span></p>
+<p>que es el mismo resultado que obteníamos con la fórmula de la media aritmética de las distancias.</p>
+</section>
+</section>
+<section id="conclusión" class="level3">
+<h3 class="anchored" data-anchor-id="conclusión">Conclusión</h3>
+<p>Cuando las masas son idénticas, la media aritmética de las posiciones coincide con el centro de gravedad. Esto nos permite afirmar que en el caso de una dimensión (por ejemplo, el peso) la media aritmética de un conjunto de valores coincide con el centro de gravedad o punto de equilibrio de ese conjunto de valores. Este es un resultado interesante que muestra la conexión entre conceptos estadísticos y físicos.</p>
+</section>
+<section id="importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos"><span class="header-section-number">A.1</span> Importancia del concepto de la media como centro de gravedad o punto de equilibrio de un conjunto de datos</h2>
+<p>Efecto de los <em>outliers</em>: desequilibrio, desplazamiento de la media, incremento de la varianza (gan diferencia), mientras que la mediana y el rango intercuartil no se ven afectados</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -821,13 +841,13 @@ El pensamiento estadístico en la toma de decisiones industriales
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Introducción general">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción general</span></span>
+      <a href="./999-indice_dataframes.html" class="pagination-link" aria-label="Indice de DataFrames utilizados">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./005-herramientas.html" class="pagination-link" aria-label="Herramientas para el análisis. La reproducibilidad.">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./160-bibliografia.html" class="pagination-link" aria-label="Bibliografía">
+        <span class="nav-page-text">Bibliografía</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
