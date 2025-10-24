@@ -224,7 +224,20 @@ En este caso, vemos que tanto la media como la desviación típica son idéntico
 
 ![Gráfico con dos conjuntos de datos diferentes, con la misma media y desviación típica](01-imagenes/image-20221116164430210.png)
 
-La existencia de valores anormales o extremos muestra una de las debilidades de la media y la desviación típicas como *descriptores* de una población: ambos parámetros son muy sensibles a los casos extremos. En realidad, sólo deberíamos utilizar la media y la desviación típica para describir un conjunto de datos cuando estamos seguros de que *la distribución de estos datos* tienen una *forma* determinada, la de la **campana de Gauss**. En otros casos, la mediana y el rango intercuartil son estadísticos más robustos, y por lo tanto más seguros.
+La existencia de valores anormales o extremos muestra una de las debilidades de la media y la desviación típica como descriptores de un conjunto de datos: **ambos son muy sensibles a los casos extremos**.  
+
+Por eso, **solo deberíamos usar la media y la desviación típica cuando estamos razonablemente seguros de que los datos tienen una forma aproximadamente simétrica y equilibrada**, como la famosa **campana de Gauss** (distribución normal), 
+
+[](01-imagenes/campana-de-gauss.png)
+
+que podemos relacionar con el boxplot, tal como vemos aquí, 
+
+[](01-imagenes/campana-de-gauss-boxplot.png)
+
+En otros casos, especialmente cuando hay valores muy altos o muy bajos, **la mediana y el rango intercuartílico** (que ya vimos en el boxplot) son **estadísticos más robustos**, es decir, **más resistentes a los extremos y más seguros para describir el conjunto de datos**.  
+
+Esta diferencia entre estadísticos sensibles y robustos es clave para elegir bien qué medidas usar según el tipo de datos.  
+En el próximo capítulo aprenderemos a detectar visualmente esos valores extremos usando histogramas y boxplots, sin necesidad de cálculos complicados.
 
 ## Resumen
 
@@ -257,212 +270,4 @@ Las medidas paramétricas, como la media y la varianza, y las no paramétricas, 
 
 Las medidas paramétricas son útiles para datos que siguen suposiciones específicas, como la normalidad, y son precisas y sensibles, pero pueden ser distorsionadas por valores atípicos. Las medidas no paramétricas son robustas y flexibles, ideales para distribuciones no normales y resistentes a valores atípicos, aunque pueden perder sensibilidad y precisión en ciertos contextos.
 
-
-Modelo: práctica de puntos con un dado, dos dados, tres dados, etc hasta 30
-
-suma \<- rowSums(replicate(30, sample(6, 10\^6, replace=T))) length(suma) hist(suma)
-
-## La media aritmética como centro de gravedad de un grupo de datos
-
-Para ver cómo la media aritmética equivale al punto de equilibrio o centro de gravedad de un grupo de datos, imaginaremos que tenemos un conjunto de datos cuyos valores se distribuyen en un eje longitudinal X. Podemos hacer equivalentes estos valores a un conjunto de pesos que se distribuyen a lo largo de una barra, y vamos a suponer que existe un punto a una distancia $d_i$ del origen de la barra en el cual dicha barra está en equilibrio. Para encontrar ese valor, empezaremos considerando el principio o ley de la palanca.
-
-El **Principio de la Palanca** o la **Ley de la Palanca** fue formulada por el científico y matemático griego Arquímedes. Este principio dice que, en equilibrio, el producto de la fuerza aplicada (potencia) por su distancia al punto de apoyo (brazo de la potencia) es igual al producto de la resistencia por su distancia al punto de apoyo (brazo de la resistencia). Matemáticamente, se expresa como:
-$$
-P \cdot d_p = R \cdot d_r
-$$
-
-Donde:
-- $P$ es la potencia o fuerza aplicada.
-- $d_p$ es la distancia desde el punto de apoyo hasta el punto donde se aplica la potencia.
-- $R$ es la resistencia o carga.
-- $d_r$ es la distancia desde el punto de apoyo hasta el punto donde se aplica la resistencia.
-
-### Ejemplo
-Si tienes una palanca con una longitud de 5 metros y aplicas una fuerza de 10 Newtons a 1 metro del punto de apoyo, para mantener el equilibrio, la fuerza de resistencia en el otro extremo a 4 metros del punto de apoyo debería ser:
-$$
-P \cdot d_p = R \cdot d_r
-$$
-$$
-10 \, \text{N} \cdot 1 \, \text{m} = R \cdot 4 \, \text{m}
-$$
-$$
-R = \frac{10 \cdot 1}{4} = 2,5 \text{N}
-$$
-
-Ahora vamos a considerar el punto de equilibrio de una barra de la que se cuelgan diferentes pesos a diferente distancias de su origen.
-
-Calcular el punto de equilibrio de una barra de la que se cuelgan diferentes pesos a diferentes distancias de su origen es un problema clásico de física que se puede resolver usando el principio de momentos.
-
-### Paso a Paso
-
-1. **Identificar las fuerzas**: Supongamos que tienes varios pesos $W_1, W_2, W_3, \ldots, W_n$ colgados a distancias $d_1, d_2, d_3, \ldots, d_n$ del origen (punto de apoyo).
-
-2. **Calcular los momentos**: El momento ($M$) de un peso alrededor del punto de apoyo se calcula como el producto de la fuerza (peso) y la distancia al punto de apoyo:
-   $$
-   M_i = W_i \times d_i
-   $$
-
-3. **Sumar los momentos**: Calcula la suma de todos los momentos:
-   $$
-   M_{\text{total}} = W_1 \times d_1 + W_2 \times d_2 + W_3 \times d_3 + \ldots + W_n \times d_n
-   $$
-
-4. **Calcular el peso total**: Suma todos los pesos:
-   $$
-   W_{\text{total}} = W_1 + W_2 + W_3 + \ldots + W_n
-   $$
-
-5. **Determinar el punto de equilibrio ($x$)**: El punto de equilibrio se encuentra dividiendo la suma de los momentos por el peso total:
-   $$
-x = \frac{\sum (W_i \times d_i)}{\sum W_i}
-   $$
-
-### Ejemplo Práctico
-Supongamos que tenemos tres pesos de 4, 9 y 1 kg, situados, respectivamente, a 2, 1 y 3 m respectivamente del origen de la barra.
-
-- $W_1 = 4 \, \text{kg}$ a $d_1 = 2 \, \text{m}$
-- $W_2 = 9 \, \text{kg}$ a $d_2 = 1 \, \text{m}$
-- $W_3 = 1 \, \text{kg}$ a $d_3 = 3 \, \text{m}$
-
-1. **Calcular los momentos**:
-   $$
-   M_1 = 4 \times 2 = 8 \, \text{kg·m}
-   $$
-   $$
-   M_2 = 9 \times 1 = 9 \, \text{kg·m}
-   $$
-   $$
-   M_3 = 1 \times 3 = 3 \, \text{kg·m}
-   $$
-
-2. **Sumar los momentos**:
-   $$
-   M_{\text{total}} = 8 + 9 + 3 = 20 \, \text{kg·m}
-   $$
-
-3. **Calcular el peso total**:
-   $$
-   W_{\text{total}} = 4 + 9 + 1 = 14 \, \text{kg}
-   $$
-
-4. **Determinar el punto de equilibrio**:
-
-   $$
-   x = \frac{20}{14} \approx 1.43 \, \text{m}
-   $$
-
-El punto de equilibrio se encuentra a aproximadamente 1.43 metros del origen.
-
-### Media Ponderada
-
-En muchas situaciones, el centro de gravedad de un sistema de masas puede interpretarse como una **media ponderada** de las posiciones de las masas. 
-
-#### Media Aritmética
-Para un conjunto de números $x_1, x_2, \ldots, x_n$, la media aritmética es:
-$$
-\text{Media} = \frac{x_1 + x_2 + \cdots + x_n}{n}
-$$
-
-#### Media Ponderada
-Para un conjunto de valores $x_1, x_2, \ldots, x_n$ con pesos asociados $w_1, w_2, \ldots, w_n$, la media ponderada es:
-$$
-\text{Media ponderada} = \frac{w_1 x_1 + w_2 x_2 + \cdots + w_n x_n}{w_1 + w_2 + \cdots + w_n}
-$$
-
-### Centro de Gravedad como Media Ponderada
-
-Cuando calculamos el centro de gravedad ($x_{\text{cg}}$) de un sistema de masas, estamos esencialmente calculando una media ponderada de las posiciones ($x_i$) de esas masas ($m_i$):
-
-$$
-x_{\text{cg}} = \frac{\sum (m_i \cdot x_i)}{\sum m_i}
-$$
-
-Aquí, las posiciones $x_i$ son ponderadas por las masas $m_i$.
-
-### Ejemplo Numérico
-
-En nuestro ejemplo anterior,
-
-- Masa 1: $m_1 = 4 \, \text{kg}$ en posición $x_1 = 2 \, \text{m}$
-- Masa 2: $m_2 = 9 \, \text{kg}$ en posición $x_2 = 1 \, \text{m}$
-- Masa 3: $m_3 = 1 \, \text{kg}$ en posición $x_3 = 3 \, \text{m}$
-
-La media aritmética de las posiciones sería:
-$$
-\text{Media} = \frac{2 + 1 + 3}{3} = 2 \, \text{m}
-$$
-
-El punto de equlibrio de la barra, o centro de gravedad, calculado como media ponderada, sería:
-
-$$
-x_{\text{cg}} = \frac{(4 \cdot 2) + (9 \cdot 1) + (1 \cdot 3)}{4 + 9 + 1} = \frac{8 + 9 + 3}{14} = \frac{20}{14} \approx 1,43 \, \text{m}
-$$
-que es el mismo resultado que obteníamos formulando el cálculo de los momentos; la fórmula resulta ser idéntica.
-
-### Media Aritmética y Centro de Gravedad con Masas Idénticas
-
-En los ejemplos anteriores, calculábamos el punto de equilibrio para diferentes pesos colocados a lo largo de una barra. Si en vez de eso suponemos que la distancia al origen de la barra equivale a nuestro eje $X$, que recoge los valores de los que queremos calcular nuestra media aritmética, podemos eliminar el efecto de la masa suponiendo que todas las masas son iguales.
-
-Si las masas de los diferentes objetos son idénticas, podemos decir que la media aritmética de las posiciones coincide con el centro de gravedad. Esto se debe a que, en este caso, cada masa tiene el mismo peso o influencia en el cálculo del centro de gravedad. Esta es la explicación detallada:
-
-
-#### Suposición
-Cada objeto tiene la misma masa $m$.
-
-#### Media Aritmética
-Para un conjunto de posiciones $x_1, x_2, \ldots, x_n$, la media aritmética es:
-$$
-\text{Media} = \frac{x_1 + x_2 + \cdots + x_n}{n}
-$$
-
-#### Centro de Gravedad
-El centro de gravedad ($x_{\text{cg}}$) para un conjunto de masas idénticas en posiciones $x_1, x_2, \ldots, x_n$ es:
-$$
-x_{\text{cg}} = \frac{\sum (m \cdot x_i)}{\sum m}
-$$
-
-Dado que las masas $m$ son idénticas, el numerador se convierte en:
-$$
-\sum (m \cdot x_i) = m \cdot (x_1 + x_2 + \cdots + x_n)
-$$
-
-Y el denominador se convierte en:
-$$
-\sum m = n \cdot m
-$$
-
-Al sustituir estos en la fórmula del centro de gravedad, obtenemos:
-$$
-x_{\text{cg}} = \frac{m \cdot (x_1 + x_2 + \cdots + x_n)}{n \cdot m}
-$$
-
-Al simplificar, los términos $m$ se cancelan, y nos queda:
-$$
-x_{\text{cg}} = \frac{x_1 + x_2 + \cdots + x_n}{n}
-$$
-que es exactamente la fórmula de la media aritmética.
-
-Si repetimos nuestro ejemplo anterior, suponiendo en este caso masas idénticas
-
-- Masa 1: $m_1 = 1 \, \text{kg}$ en posición $x_1 = 2 \, \text{m}$
-- Masa 2: $m_2 = 1 \, \text{kg}$ en posición $x_2 = 1 \, \text{m}$
-- Masa 3: $m_3 = 1 \, \text{kg}$ en posición $x_3 = 3 \, \text{m}$
-
-La media aritmética de las posiciones sería:
-$$
-\text{Media} = \frac{2 + 1 + 3}{3} = 2 \, \text{cm}
-$$
-
-El punto de equlibrio de la barra, o centro de gravedad, calculado como media ponderada, sería:
-
-$$
-x_{\text{cg}} = \frac{(1 \cdot 2) + (1 \cdot 1) + (1 \cdot 3)}{1 + 1 + 1} = \frac{2 + 1 + 3}{3} = \frac{6}{3} = 2 \, \text{m}
-$$
-que es el mismo resultado que obteníamos con la fórmula de la media aritmética de las distancias.
-
-
-### Conclusión
-Cuando las masas son idénticas, la media aritmética de las posiciones coincide con el centro de gravedad. Esto nos permite afirmar que en el caso de una dimensión (por ejemplo, el peso) la media aritmética de un conjunto de valores coincide con el centro de gravedad o punto de equilibrio de ese conjunto de valores.Este es un resultado interesante que muestra la conexión entre conceptos estadísticos y físicos.
-
-## Importancia del concepto de la media como centro de gravedad o punto de equilibrio de un conjunto de datos
-Efecto de los _outliers_: desequilibrio, desplazamiento de la media, incremento de la varianza (gan diferencia), mientras que la mediana y el rango intercuartil no se ven afectados
+En el capítulo siguiente aplicaremos estos conceptos al análisis de un conjunto de datos de fabricación de queso.
