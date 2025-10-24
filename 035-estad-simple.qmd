@@ -228,11 +228,11 @@ La existencia de valores anormales o extremos muestra una de las debilidades de 
 
 Por eso, **solo deberíamos usar la media y la desviación típica cuando estamos razonablemente seguros de que los datos tienen una forma aproximadamente simétrica y equilibrada**, como la famosa **campana de Gauss** (distribución normal), 
 
-[](01-imagenes/campana-de-gauss.png)
+![](01-imagenes/campana-de-gauss.png)
 
 que podemos relacionar con el boxplot, tal como vemos aquí, 
 
-[](01-imagenes/campana-de-gauss-boxplot.png)
+![](01-imagenes/campana-de-gauss-boxplot.png)
 
 En otros casos, especialmente cuando hay valores muy altos o muy bajos, **la mediana y el rango intercuartílico** (que ya vimos en el boxplot) son **estadísticos más robustos**, es decir, **más resistentes a los extremos y más seguros para describir el conjunto de datos**.  
 
