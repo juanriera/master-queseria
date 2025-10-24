@@ -21,7 +21,7 @@ book:
     - 010-organizacion.qmd
     - 020-intro-python.ipynb  
     - 030-exploracion.ipynb
-    - 040-analisis-queso.ipynb 
+    - 040-caso1-camembert.ipynb 
     #- 050-estad-simple.qmd
     #- 060-forma-de-los-datos.qmd
     #- 070-relacion-xy.qmd
