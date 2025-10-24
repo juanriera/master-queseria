@@ -199,7 +199,7 @@ Si repetimos nuestro ejemplo anterior, suponiendo en este caso masas idénticas
 La media aritmética de las posiciones sería:
 
 $$
-\text{Media} = \frac{2 + 1 + 3}{3} = 2 \, \text{cm}
+\text{Media} = \frac{2 + 1 + 3}{3} = 2 \, \text{m}
 $$
 
 El punto de equlibrio de la barra, o centro de gravedad, calculado como media ponderada, sería:
