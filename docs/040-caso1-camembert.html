@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Caso 1. Análisis de una fabricación de queso camembert usando Google Colab. – Notas para el master de quesería</title>
+<title>7&nbsp; Caso 1. Análisis de una fabricación de queso camembert usando Python y Google Colab. – Notas para el master de quesería</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./040-analisis-queso.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Caso 1. Análisis de una fabricación de queso camembert usando Google Colab.</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./040-caso1-camembert.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Caso 1. Análisis de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -183,8 +183,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./040-analisis-queso.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Caso 1. Análisis de una fabricación de queso camembert usando Google Colab.</span></span></a>
+  <a href="./040-caso1-camembert.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Caso 1. Análisis de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -233,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Caso 1. Análisis de una fabricación de queso camembert usando Google Colab.</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Caso 1. Análisis de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></h1>
 </div>
 
 
@@ -251,8 +251,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>En este ejercicio usaremos un fichero o archivo de datos en formato CSV que habremos exportado previamente desde nuestra hoja de cálculo. Más adelante aprenderemos cómo leer directamente los datos de nuestras hojas Excel.</p>
-<p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/020-analisis-queso.ipynb">Abrir cuaderno en Google Colab/</a></p>
-<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/camembert.csv'">Descargar los datos de ejemplo <code>camembert.csv</code> usados en este cuaderno</a></p>
+<p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/040-caso1-camembert.ipynb">Abrir este cuaderno en Google Colab/</a></p>
+<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/camembert.csv">Descargar los datos de ejemplo <code>camembert.csv</code> usados en este cuaderno</a></p>
 <p>En este cuaderno vamos a cargar los datos desde GitHub; estos datos pueden ser descargados en el ordenador o Google Drive de cada uno, junto con el cuaderno, en los enlaces facilitados al principio. Una vez en Drive, puede leerse la tabla mediante el método que vimos al final del capítulo anterior.</p>
 <div id="cell-4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -381,7 +381,7 @@ memory usage: 11.7+ KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -396,7 +396,7 @@ memory usage: 11.7+ KB</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -441,7 +441,7 @@ datetime64[ns]</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -462,7 +462,7 @@ datetime64[ns]</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -472,7 +472,7 @@ datetime64[ns]</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -542,7 +542,7 @@ datetime64[ns]</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -552,7 +552,7 @@ datetime64[ns]</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -643,7 +643,7 @@ datetime64[ns]</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -709,7 +709,7 @@ datetime64[ns]</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -752,7 +752,7 @@ datetime64[ns]</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="040-analisis-queso_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="040-caso1-camembert_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
