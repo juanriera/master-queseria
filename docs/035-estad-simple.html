@@ -232,12 +232,12 @@ window.Quarto = {
   <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo:</a></li>
   </ul></li>
   <li><a href="#las-medidas-de-dispersión-la-varianza-y-la-desviación-típica" id="toc-las-medidas-de-dispersión-la-varianza-y-la-desviación-típica" class="nav-link" data-scroll-target="#las-medidas-de-dispersión-la-varianza-y-la-desviación-típica"><span class="header-section-number">7.4</span> Las medidas de dispersión: la varianza y la desviación típica</a></li>
-  <li><a href="#las-limitaciones-de-la-media-y-la-desviación-típica" id="toc-las-limitaciones-de-la-media-y-la-desviación-típica" class="nav-link" data-scroll-target="#las-limitaciones-de-la-media-y-la-desviación-típica"><span class="header-section-number">7.5</span> Las limitaciones de la media y la desviación típica</a></li>
-  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">7.6</span> Resumen</a>
+  <li><a href="#las-limitaciones-de-la-media-y-la-desviación-típica" id="toc-las-limitaciones-de-la-media-y-la-desviación-típica" class="nav-link" data-scroll-target="#las-limitaciones-de-la-media-y-la-desviación-típica"><span class="header-section-number">7.5</span> Las limitaciones de la media y la desviación típica</a>
   <ul class="collapse">
   <li><a href="#ventajas-e-inconvenientes-de-las-medidas-paramétricas" id="toc-ventajas-e-inconvenientes-de-las-medidas-paramétricas" class="nav-link" data-scroll-target="#ventajas-e-inconvenientes-de-las-medidas-paramétricas">Ventajas e inconvenientes de las medidas paramétricas</a></li>
   <li><a href="#ventajas-e-inconvenientes-de-las-medidas-no-paramétricas" id="toc-ventajas-e-inconvenientes-de-las-medidas-no-paramétricas" class="nav-link" data-scroll-target="#ventajas-e-inconvenientes-de-las-medidas-no-paramétricas">Ventajas e inconvenientes de las medidas no paramétricas</a></li>
   </ul></li>
+  <li><a href="#resumen" id="toc-resumen" class="nav-link" data-scroll-target="#resumen"><span class="header-section-number">7.6</span> Resumen</a></li>
   </ul>
 </nav>
     </div>
@@ -469,12 +469,7 @@ d(A,B)=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
 </figure>
 </div>
 <p>En otros casos, especialmente cuando hay valores muy altos o muy bajos, <strong>la mediana y el rango intercuartílico</strong> (que ya vimos en el boxplot) son <strong>estadísticos más robustos</strong>, es decir, <strong>más resistentes a los extremos y más seguros para describir el conjunto de datos</strong>.</p>
-<p>Esta diferencia entre estadísticos sensibles y robustos es clave para elegir bien qué medidas usar según el tipo de datos.<br>
-En el próximo capítulo aprenderemos a detectar visualmente esos valores extremos usando histogramas y boxplots, sin necesidad de cálculos complicados.</p>
-</section>
-<section id="resumen" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="resumen"><span class="header-section-number">7.6</span> Resumen</h2>
-<p>Las medidas paramétricas, como la media y la varianza, y las no paramétricas, como la mediana y el rango intercuartil, tienen diferentes ventajas e inconvenientes según el contexto y los datos con los que se trabaja.</p>
+<p>Esta diferencia entre estadísticos sensibles y robustos es clave para elegir bien qué medidas usar según el tipo de datos.</p>
 <section id="ventajas-e-inconvenientes-de-las-medidas-paramétricas" class="level3">
 <h3 class="anchored" data-anchor-id="ventajas-e-inconvenientes-de-las-medidas-paramétricas">Ventajas e inconvenientes de las medidas paramétricas</h3>
 <section id="ventajas" class="level4">
@@ -510,11 +505,15 @@ En el próximo capítulo aprenderemos a detectar visualmente esos valores extrem
 <li>Menor Precisión en Ciertos Contextos: En situaciones donde los datos siguen una distribución normal, las medidas no paramétricas pueden ser menos precisas.</li>
 </ol>
 <p>Las medidas paramétricas son útiles para datos que siguen suposiciones específicas, como la normalidad, y son precisas y sensibles, pero pueden ser distorsionadas por valores atípicos. Las medidas no paramétricas son robustas y flexibles, ideales para distribuciones no normales y resistentes a valores atípicos, aunque pueden perder sensibilidad y precisión en ciertos contextos.</p>
-<p>En el capítulo siguiente aplicaremos estos conceptos al análisis de un conjunto de datos de fabricación de queso.</p>
-
-
 </section>
 </section>
+</section>
+<section id="resumen" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="resumen"><span class="header-section-number">7.6</span> Resumen</h2>
+<p>Las medidas paramétricas, como la media y la varianza, y las no paramétricas, como la mediana y el rango intercuartil, proporcionan información sobre el centro y la dispersión de la distribución de los datos, y tienen diferentes ventajas e inconvenientes según el contexto y los datos con los que se trabaja.</p>
+<p>En el capítulo siguiente aplicaremos estos conceptos al análisis de un conjunto de datos de fabricación de queso. Veremos también algunas formas de detectar visualmente los valores extremos que pueden afectar a la media, usando histogramas y boxplots, sin necesidad de cálculos complicados.</p>
+
+
 </section>
 
 </main> <!-- /main -->

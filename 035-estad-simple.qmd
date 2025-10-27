@@ -231,11 +231,6 @@ Por eso, **solo deberíamos usar la media y la desviación típica cuando estamo
 En otros casos, especialmente cuando hay valores muy altos o muy bajos, **la mediana y el rango intercuartílico** (que ya vimos en el boxplot) son **estadísticos más robustos**, es decir, **más resistentes a los extremos y más seguros para describir el conjunto de datos**.  
 
 Esta diferencia entre estadísticos sensibles y robustos es clave para elegir bien qué medidas usar según el tipo de datos.  
-En el próximo capítulo aprenderemos a detectar visualmente esos valores extremos usando histogramas y boxplots, sin necesidad de cálculos complicados.
-
-## Resumen
-
-Las medidas paramétricas, como la media y la varianza, y las no paramétricas, como la mediana y el rango intercuartil, tienen diferentes ventajas e inconvenientes según el contexto y los datos con los que se trabaja.
 
 ### Ventajas e inconvenientes de las medidas paramétricas
 
@@ -264,4 +259,8 @@ Las medidas paramétricas, como la media y la varianza, y las no paramétricas, 
 
 Las medidas paramétricas son útiles para datos que siguen suposiciones específicas, como la normalidad, y son precisas y sensibles, pero pueden ser distorsionadas por valores atípicos. Las medidas no paramétricas son robustas y flexibles, ideales para distribuciones no normales y resistentes a valores atípicos, aunque pueden perder sensibilidad y precisión en ciertos contextos.
 
-En el capítulo siguiente aplicaremos estos conceptos al análisis de un conjunto de datos de fabricación de queso.
+## Resumen
+
+Las medidas paramétricas, como la media y la varianza, y las no paramétricas, como la mediana y el rango intercuartil, proporcionan información sobre el centro y la dispersión de la distribución de los datos, y tienen diferentes ventajas e inconvenientes según el contexto y los datos con los que se trabaja. 
+
+En el capítulo siguiente aplicaremos estos conceptos al análisis de un conjunto de datos de fabricación de queso. Veremos también algunas formas de detectar visualmente los valores extremos que pueden afectar a la media, usando histogramas y boxplots, sin necesidad de cálculos complicados.
