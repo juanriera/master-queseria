@@ -7,10 +7,10 @@ execute:
 jupyter: python3
 
 book:
-  title: "Notas para el master de quesería"
-  subtitle: ""
+  title: "Análisis de datos industriales usando Excel y Python"
+  subtitle: "Notas para el master de FP en tecnología quesera"
   author: "Juan Riera"
-  date: 2025-10-22
+  date: 2025-10-27
   date-format: short
   sidebar:
     collapse-level: 1
