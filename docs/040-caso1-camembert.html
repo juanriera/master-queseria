@@ -265,9 +265,9 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#importar-los-datos" id="toc-importar-los-datos" class="nav-link" data-scroll-target="#importar-los-datos">1. Importar los datos</a></li>
   <li><a href="#ordenarlimpiar-los-datos" id="toc-ordenarlimpiar-los-datos" class="nav-link" data-scroll-target="#ordenarlimpiar-los-datos">2. Ordenar/limpiar los datos</a></li>
-  <li><a href="#análisis-de-la-variable-est" id="toc-análisis-de-la-variable-est" class="nav-link" data-scroll-target="#análisis-de-la-variable-est">Análisis de la variable <code>est</code></a></li>
+  <li><a href="#visualizar-análisis-gráfico" id="toc-visualizar-análisis-gráfico" class="nav-link" data-scroll-target="#visualizar-análisis-gráfico">3. Visualizar: Análisis gráfico</a></li>
   <li><a href="#los-gráficos-de-series-temporales" id="toc-los-gráficos-de-series-temporales" class="nav-link" data-scroll-target="#los-gráficos-de-series-temporales">Los gráficos de <em>series temporales</em></a></li>
-  <li><a href="#análisis-de-los-resultados" id="toc-análisis-de-los-resultados" class="nav-link" data-scroll-target="#análisis-de-los-resultados">Análisis de los resultados</a></li>
+  <li><a href="#comunicar-discusión-de-la-información-en-equipo." id="toc-comunicar-discusión-de-la-información-en-equipo." class="nav-link" data-scroll-target="#comunicar-discusión-de-la-información-en-equipo.">4. Comunicar: discusión de la información en equipo.</a></li>
   </ul></li>
   <li><a href="#resumen-del-capítulo" id="toc-resumen-del-capítulo" class="nav-link" data-scroll-target="#resumen-del-capítulo"><span class="header-section-number">8.2</span> Resumen del capítulo</a></li>
   </ul>
@@ -548,9 +548,9 @@ memory usage: 11.7 KB</code></pre>
 <p>En general, cualquier cosa que nos llame la atención en los datos y que debemos explicar.</p>
 <p>Para hacer esta verificación, analizamos cada variable (columna) por separado.</p>
 </section>
-<section id="análisis-de-la-variable-est" class="level3">
-<h3 class="anchored" data-anchor-id="análisis-de-la-variable-est">Análisis de la variable <code>est</code></h3>
-<p>Utilizamos las herramientas gráficas que conocemos: <strong>histograma</strong> y <strong>diagrama de caja</strong>. Por el momento no nos preocupamos de rotular el gráfico, estamos simplemente explorando de forma rápida.</p>
+<section id="visualizar-análisis-gráfico" class="level3">
+<h3 class="anchored" data-anchor-id="visualizar-análisis-gráfico">3. Visualizar: Análisis gráfico</h3>
+<p>Comenzamos el análisis estudiando la variable o columna <code>est</code>, que almacena los valores de <strong>extracto seco total</strong>. Utilizamos las herramientas gráficas que conocemos: <strong>histograma</strong> y <strong>diagrama de caja</strong>. Por el momento no nos preocupamos de rotular el gráfico, estamos simplemente explorando de forma rápida.</p>
 <section id="el-histograma" class="level4">
 <h4 class="anchored" data-anchor-id="el-histograma">El histograma</h4>
 <div id="cell-22" class="cell" data-execution_count="7">
@@ -1006,9 +1006,8 @@ memory usage: 13.2 KB</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="análisis-de-los-resultados" class="level3">
-<h3 class="anchored" data-anchor-id="análisis-de-los-resultados">Análisis de los resultados</h3>
+<section id="análisis-de-los-resultados" class="level4">
+<h4 class="anchored" data-anchor-id="análisis-de-los-resultados">Análisis de los resultados</h4>
 <p>Una vez explorados los datos, siempre tenemos que formular hipótesis de trabajo para entender lo que nos dicen, y estudiar estas hipótesis con detalle hasta encontrar una explicación razonable. De estas conclusiones se deducirá una toma de decisiones para la mejora del proceso, que continúa con nuevos análisis y nuebas hipótesis.</p>
 <p>A la vista de las series de datos, podemos establecer varias hipótesis:</p>
 <ol type="1">
@@ -1018,8 +1017,10 @@ memory usage: 13.2 KB</code></pre>
 <li>En verano se han tenido valores de extracto seco muy altos que han producido una bajada brusca en <code>hqd</code>hasta de casi 7 puntos hasta un valor de 65%, lo que es un gran problema para la textura de un queso camembert.</li>
 <li>Además de esto, los tres valores anómalos que encontramos en el análisis del <code>jointplot</code> probablemente sean errores analíticos o de toma de muestras, ya que no se corresponden con el grueso de los valores. Lo más seguro sería eliminarlos del análisis.</li>
 </ol>
-<section id="conclusiones" class="level4">
-<h4 class="anchored" data-anchor-id="conclusiones">Conclusiones</h4>
+</section>
+</section>
+<section id="comunicar-discusión-de-la-información-en-equipo." class="level3">
+<h3 class="anchored" data-anchor-id="comunicar-discusión-de-la-información-en-equipo.">4. Comunicar: discusión de la información en equipo.</h3>
 <p>Hemos ido a una reunión de trabajo con el quesero responsable de fabricación del queso, y después de la discusión, hemos obtenido las siguientes conclusiones.</p>
 <ul>
 <li>Debido a las variaciones de composición, el responsable de fabricación nos confirma que, efectivamente, a lolargo del año hace pequeñas modificaciones en la estandarización y el trabajo en cuba, buscando mantener constante la <code>hqd</code>.</li>
@@ -1027,7 +1028,6 @@ memory usage: 13.2 KB</code></pre>
 <li>Este año ha habido un problema adicional en el verano, y es que durante las vacaciones, el quesero ha sido sustituido por una persona con menos experiencia, que ha forzado el extracto seco más de lo debido, y ha habido reclamaciones de consumidores por queso demasiado seco.</li>
 <li>El laboratorio ha confirmado que los valores anómalos sospechosos pueden haber sido debidos a análisis incorrectos, y recomienda no tenerlos en cuenta. En consecuencia, deberíamos repetir el análisis eliminando estos valores, para que las conclusiones no se vean afectadas por ellos.</li>
 </ul>
-</section>
 <section id="posible-plan-de-trabajo" class="level4">
 <h4 class="anchored" data-anchor-id="posible-plan-de-trabajo">Posible plan de trabajo</h4>
 <p>A la vista de estos resultados, el equipo propone las siguentes acciones:</p>
