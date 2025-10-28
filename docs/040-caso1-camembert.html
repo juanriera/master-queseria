@@ -266,7 +266,6 @@ window.Quarto = {
   <li><a href="#importar-los-datos" id="toc-importar-los-datos" class="nav-link" data-scroll-target="#importar-los-datos">1. Importar los datos</a></li>
   <li><a href="#ordenarlimpiar-los-datos" id="toc-ordenarlimpiar-los-datos" class="nav-link" data-scroll-target="#ordenarlimpiar-los-datos">2. Ordenar/limpiar los datos</a></li>
   <li><a href="#visualizar-análisis-gráfico" id="toc-visualizar-análisis-gráfico" class="nav-link" data-scroll-target="#visualizar-análisis-gráfico">3. Visualizar: Análisis gráfico</a></li>
-  <li><a href="#los-gráficos-de-series-temporales" id="toc-los-gráficos-de-series-temporales" class="nav-link" data-scroll-target="#los-gráficos-de-series-temporales">Los gráficos de <em>series temporales</em></a></li>
   <li><a href="#comunicar-discusión-de-la-información-en-equipo." id="toc-comunicar-discusión-de-la-información-en-equipo." class="nav-link" data-scroll-target="#comunicar-discusión-de-la-información-en-equipo.">4. Comunicar: discusión de la información en equipo.</a></li>
   </ul></li>
   <li><a href="#resumen-del-capítulo" id="toc-resumen-del-capítulo" class="nav-link" data-scroll-target="#resumen-del-capítulo"><span class="header-section-number">8.2</span> Resumen del capítulo</a></li>
@@ -597,9 +596,8 @@ memory usage: 11.7 KB</code></pre>
 </div>
 <p>El <em>boxplot</em> nos indica que no sólo el valor ligeramente por encima de 52 parece anormal, también lo parecen algunos valores por encima de 50.</p>
 </section>
-</section>
-<section id="los-gráficos-de-series-temporales" class="level3">
-<h3 class="anchored" data-anchor-id="los-gráficos-de-series-temporales">Los gráficos de <em>series temporales</em></h3>
+<section id="los-gráficos-de-series-temporales" class="level4">
+<h4 class="anchored" data-anchor-id="los-gráficos-de-series-temporales">Los gráficos de <em>series temporales</em></h4>
 <p>Ya sabemos que paree haber algún valor atípico, anormalmente alto, en nuestros datos. ¿Cómo podemos profundizar un poco más y decidir si debemos excluir estos valores analíticos?</p>
 <p>Sabemso que estos resultados se han obtenido a lo largo de un año. ¿Puede haber pasado algo en algún momento que haya hecho que algunos resultados se hayan desviado? Veamos cuál ha sido la evolución anual del extracto seco total de nuestra fabricación.</p>
 <div id="cell-32" class="cell" data-execution_count="10">
@@ -628,13 +626,16 @@ memory usage: 11.7 KB</code></pre>
 <p>Como hemos convertido la columna <code>fecha</code> a un formato de fecha, <code>seaborn</code>la reconoce y rotula el eje correctamente.</p>
 <p>Vemos estos valores anormales se han producido en el verano, en torno a julio-agosto. En esta época ha habido una subida de los valores de extracto seco total. A la vista del gráfico, los valores por encima de 50, aunque extremos, parece que están dentro de un momento en el que el extracto seco se había desviado hacia arriba. Esto sitúa a esos valores en un contexto temporal en el que probablemente puede que no fueran tan anormales. ¿Qué quiere decir esto? Pues que si un valor de 52 es <em>atípico</em> frente al conjunto de datos completo, es posible que no lo sea si los valores que lo rodean también lo eran.</p>
 <p>Vamos a explorar esto un poco más y mostrar los datos por meses, para ver si considerados mes a mes, el valor de 52 sigue pareciendo anormal, y vamos a utilizar también <code>pandas</code>para hacer los gráficos de series.</p>
+</section>
+<section id="el-boxplot-por-categorías" class="level4">
+<h4 class="anchored" data-anchor-id="el-boxplot-por-categorías">El <em>boxplot</em> por categorías</h4>
 <p>Para representar los datos por mes con <code>pandas</code>, tenemos que crear una columna índice con la fecha:</p>
-<div id="cell-38" class="cell" data-execution_count="12">
+<div id="cell-39" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>]<span class="op">=</span> pd.DatetimeIndex(df.fecha).normalize()</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-39" class="cell" data-execution_count="13">
+<div id="cell-40" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -654,11 +655,11 @@ memory usage: 13.2 KB</code></pre>
 </div>
 </div>
 <p>Ahora nos aparece un <em>DateTimeIndex</em> que no está entre las columnas, pero que muestra entradas desde el 11/1/2020 hasta el 29/12/2020. Usamos este índice para crear una columna con el mes:</p>
-<div id="cell-41" class="cell" data-execution_count="14">
+<div id="cell-42" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mes'</span>] <span class="op">=</span> df.index.month</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Veamos la columna en nuestro <em>DataFrame</em>:</p>
-<div id="cell-43" class="cell" data-execution_count="15">
+<div id="cell-44" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
@@ -752,7 +753,7 @@ memory usage: 13.2 KB</code></pre>
 </div>
 </div>
 <p>Ahora podemos agrupar nuestros valores por meses, y comprobar los valores anormales <em>dentro de cada mes</em>. Para ello, simplemente indicamos a <code>seaborn</code> la variable que va a estar en el eje X:</p>
-<div id="cell-45" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:209,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679752296,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="f5df808b-cfa4-4c19-fc4a-e200ea8c679d" data-execution_count="16">
+<div id="cell-46" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:209,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679752296,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="f5df808b-cfa4-4c19-fc4a-e200ea8c679d" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">'mes'</span>, y<span class="op">=</span><span class="st">'est'</span>, data<span class="op">=</span>df)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -765,7 +766,7 @@ memory usage: 13.2 KB</code></pre>
 </div>
 </div>
 <p>En vez de usar el número para el mes, podemos usar el código de letras abreviado. En este caso, <code>seaborn</code>utiliza la abreviatura en inglés , pero podríamos cambiar la codificación para que lo represente en español con la instruccion <code>locale</code>: queda como ejercicio personal). Aprovechamos para personalizar un poco el gráfico.</p>
-<div id="cell-47" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:279,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679753775,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="377f646b-d39c-4fc8-f655-399e8c080bd7" data-execution_count="17">
+<div id="cell-48" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:279,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679753775,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="377f646b-d39c-4fc8-f655-399e8c080bd7" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mes_abreviado'</span>] <span class="op">=</span> df.index.strftime(<span class="st">'%b'</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">'mes_abreviado'</span>, y<span class="op">=</span><span class="st">'est'</span>, data<span class="op">=</span>df)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Opcional: Personalizar el gráfico</span></span>
@@ -785,7 +786,7 @@ memory usage: 13.2 KB</code></pre>
 </div>
 </div>
 <p>¡Ahora nuestra visión de los datos ha cambiado! Resulta que los valores anaíticos de extracto seco han ido variando a lo largo del año, y el valor supuestamente anómalo de 52 ya no lo es considerando los datos mes a mes, porque <em>todos lo valores de julio</em> han sido muy altos, y 52 no parece extremo en este contexto. En cambio, vemos que en mayo sí ha habido valores anómalos en relación a los obtenidos en el mes. ¿Debe preocuparnos? Probablemente no, porque están dentro del conjunto de los valores anuales. Los valores de julio sí parecen excesivamente altos casi durante todo el mes. Vamos a detallar un poco más, viendo los valores semanales:</p>
-<div id="cell-49" class="cell" data-execution_count="18">
+<div id="cell-50" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).mean().plot(title<span class="op">=</span><span class="st">"Media del extracto seco total semanal"</span>)<span class="op">;</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -797,7 +798,7 @@ memory usage: 13.2 KB</code></pre>
 </div>
 </div>
 <p>Haganos un zoom en los valores de julio y agosto:</p>
-<div id="cell-51" class="cell" data-execution_count="19">
+<div id="cell-52" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>][<span class="st">"2020-07"</span>:<span class="st">"2020-08"</span>].resample(<span class="st">'W-MON'</span>).mean().plot(title<span class="op">=</span><span class="st">"Media del extracto seco total semanal"</span>)<span class="op">;</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -809,7 +810,7 @@ memory usage: 13.2 KB</code></pre>
 </div>
 </div>
 <p>Efectivamente, las semanas de julio han tenido valores crecientes de extracto seco, y esto no se ha corregido hasta el mes de agosto. En realidad, a partir de octubre se habajado el extracto seco de nuevo a valores más cercanos a los del primer semestre. Aunque podemos pensar en posibles causas, vamos a hacer el mismo análisis en la materia grasa, antes de lanzar una hipótesis de trabajo que explique esta desviación.</p>
-<div id="cell-53" class="cell" data-execution_count="20">
+<div id="cell-54" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sns.displot(df[<span class="st">"mg"</span>], kde <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -821,7 +822,7 @@ memory usage: 13.2 KB</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-54" class="cell" data-execution_count="21">
+<div id="cell-55" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(x<span class="op">=</span><span class="st">'mes'</span>, y<span class="op">=</span><span class="st">'mg'</span>, data<span class="op">=</span>df)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -834,8 +835,11 @@ memory usage: 13.2 KB</code></pre>
 </div>
 </div>
 <p>Vemos que también en la materia grasa hay valores anormales, el único que parece fuera de contexto es el valor anormal de enero.</p>
+</section>
+<section id="el-gráfico-de-dispersión" class="level4">
+<h4 class="anchored" data-anchor-id="el-gráfico-de-dispersión">El gráfico de dispersión</h4>
 <p>En general, cuando en una fabricación de queso aumenta el extracto seco, lo más común es que aumente también la materia grasa, que forma parte de ese extracto seco. ¿Cómo han variado la <code>mg</code> y el <code>est</code>durante el perído que estamos considerando? Veámoslo con un diagrama de dispersión:</p>
-<div id="cell-57" class="cell" data-execution_count="22">
+<div id="cell-59" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'est'</span>, y<span class="op">=</span><span class="st">'mg'</span>)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>plt.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -847,7 +851,7 @@ memory usage: 13.2 KB</code></pre>
 </div>
 </div>
 <p><code>Seaborn</code> Nos permite incluir una zona de confianza o <em>intervalo de confianza</em> para los valores que varían conjuntamente; utilizaremos la curva equivalente a la función de densidad que veíamos en el histograma:</p>
-<div id="cell-59" class="cell" data-execution_count="23">
+<div id="cell-61" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'est'</span>, y<span class="op">=</span><span class="st">'mg'</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'est'</span>, y<span class="op">=</span><span class="st">'mg'</span>, levels<span class="op">=</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">'r'</span>, linewidths<span class="op">=</span><span class="fl">1.5</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>plt.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -860,7 +864,7 @@ memory usage: 13.2 KB</code></pre>
 </div>
 </div>
 <p><code>Seaborn</code> tiene un gráfico muy interesante que nos permite ver ambas variables en un gráfico conjunto, que nos muestra histogramas y un diagrama de dispersión.</p>
-<div id="cell-61" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:340,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679764304,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="b4c2e6fc-b83a-460b-f059-6f92f9c9b7bc" data-execution_count="24">
+<div id="cell-63" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:340,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1759679764304,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="b4c2e6fc-b83a-460b-f059-6f92f9c9b7bc" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>sns.jointplot(</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"est"</span>, </span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">"mg"</span>, </span>
@@ -881,8 +885,11 @@ memory usage: 13.2 KB</code></pre>
 <li>El valor de 28 de materia grasa</li>
 <li>Un valor que los <em>boxplot</em> no nos habían detectado, por debajo de 22 de <code>mg</code> y por encima de 48 de <code>est</code>, lo que resulta anormal dentro de la composición habitual del queso.</li>
 </ol>
+</section>
+<section id="completando-el-análisis" class="level4">
+<h4 class="anchored" data-anchor-id="completando-el-análisis">Completando el análisis</h4>
 <p>Antes de pasar al análisis y conclusiones, veamos dos gráficos complementarios de los anteriores, que muestran simultáneamente la media y la desviación típica semanales del extracto seco y la materia grasa,</p>
-<div id="cell-63" class="cell" data-execution_count="25">
+<div id="cell-67" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Preparación de los datos (Calculando la Media y la Desviación Típica Semanal) ---</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>media_semanal <span class="op">=</span> df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).mean()</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>dt_semanal <span class="op">=</span> df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).std()</span>
@@ -921,7 +928,7 @@ memory usage: 13.2 KB</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-64" class="cell" data-execution_count="26">
+<div id="cell-68" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Preparación de los datos (Calculando la Media y la Desviación Típica Semanal) ---</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>media_semanal <span class="op">=</span> df[<span class="st">"mg"</span>].resample(<span class="st">'W-MON'</span>).mean()</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>dt_semanal <span class="op">=</span> df[<span class="st">"mg"</span>].resample(<span class="st">'W-MON'</span>).std()</span>
@@ -965,7 +972,7 @@ memory usage: 13.2 KB</code></pre>
 \text{hqd} = \frac{(100 - \text{est\%})}{(100 - \text{mg\%})} \times 100
 \]</span></p>
 <p>Vamos a hacer un último gráfico, de la <code>hqd</code>, para completar nuestro análisis.</p>
-<div id="cell-66" class="cell" data-execution_count="27">
+<div id="cell-70" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'hqd'</span>] <span class="op">=</span> ((<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'est'</span>]) <span class="op">/</span> (<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'mg'</span>])) <span class="op">*</span> <span class="dv">100</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Preparación de los datos (Calculando la Media y la Desviación Típica Semanal) ---</span></span>
@@ -1006,6 +1013,7 @@ memory usage: 13.2 KB</code></pre>
 </div>
 </div>
 </div>
+</section>
 <section id="análisis-de-los-resultados" class="level4">
 <h4 class="anchored" data-anchor-id="análisis-de-los-resultados">Análisis de los resultados</h4>
 <p>Una vez explorados los datos, siempre tenemos que formular hipótesis de trabajo para entender lo que nos dicen, y estudiar estas hipótesis con detalle hasta encontrar una explicación razonable. De estas conclusiones se deducirá una toma de decisiones para la mejora del proceso, que continúa con nuevos análisis y nuebas hipótesis.</p>
