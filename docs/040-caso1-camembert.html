@@ -996,11 +996,11 @@ memory usage: 13.2 KB</code></pre>
 </div>
 </div>
 </div>
-<p>Como tecnólogos queseros, sabemos que un factor crítico de la textura del queso, y en cusecuencia, de su calidad, es la humedad del extracto seco desnatado, que calculamos a partir del extracto seco y la materia grasa como:</p>
+<p>Como tecnólogos queseros, sabemos que un factor crítico de la textura del queso, y en consecuencia, de su calidad, es la humedad del extracto seco desnatado, que calculamos a partir del extracto seco y la materia grasa como:</p>
 <p><span class="math display">\[
 \text{hqd} = \frac{(100 - \text{est\%})}{(100 - \text{mg\%})} \times 100
 \]</span></p>
-<p>Vamos a hacer un último gráfico, de la <code>hqd</code>, para completar nuestro análisis.</p>
+<p>Vamos a hacer un último gráfico, de la <code>hqd</code>, para completar nuestro análisis, creando una nueva columna en el <code>DataFrame</code>:</p>
 <div id="cell-75" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'hqd'</span>] <span class="op">=</span> ((<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'est'</span>]) <span class="op">/</span> (<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'mg'</span>])) <span class="op">*</span> <span class="dv">100</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
