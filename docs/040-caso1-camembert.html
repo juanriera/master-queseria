@@ -269,7 +269,11 @@ window.Quarto = {
   <li><a href="#comunicar-discusión-de-la-información-en-equipo." id="toc-comunicar-discusión-de-la-información-en-equipo." class="nav-link" data-scroll-target="#comunicar-discusión-de-la-información-en-equipo.">4. Comunicar: discusión de la información en equipo.</a></li>
   </ul></li>
   <li><a href="#resumen-del-capítulo" id="toc-resumen-del-capítulo" class="nav-link" data-scroll-target="#resumen-del-capítulo"><span class="header-section-number">8.2</span> Resumen del capítulo</a></li>
-  <li><a href="#ejercicio-propuesto" id="toc-ejercicio-propuesto" class="nav-link" data-scroll-target="#ejercicio-propuesto"><span class="header-section-number">8.3</span> Ejercicio propuesto</a></li>
+  <li><a href="#ejercicios-propuestos" id="toc-ejercicios-propuestos" class="nav-link" data-scroll-target="#ejercicios-propuestos"><span class="header-section-number">8.3</span> Ejercicios propuestos</a>
+  <ul class="collapse">
+  <li><a href="#ejercicio-1" id="toc-ejercicio-1" class="nav-link" data-scroll-target="#ejercicio-1">Ejercicio 1</a></li>
+  <li><a href="#ejercicio-2-avanzado" id="toc-ejercicio-2-avanzado" class="nav-link" data-scroll-target="#ejercicio-2-avanzado">Ejercicio 2 (avanzado)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1086,14 +1090,36 @@ memory usage: 13.2 KB</code></pre>
 <p>En este capítulo hemos analizado una fabricación anual de queso camembert y hemos aprendido a detectar posibles errores en los atos, así como a interpretar lo sucedido durante una temporada de fabricación, sacando conclusiones para establecer planes de mejora.</p>
 <p>En el capítulo siguiente nos enfrentaremos al análisis de las entradas de leche en una gran fábrica de queso.</p>
 </section>
-<section id="ejercicio-propuesto" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="ejercicio-propuesto"><span class="header-section-number">8.3</span> Ejercicio propuesto</h2>
+<section id="ejercicios-propuestos" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="ejercicios-propuestos"><span class="header-section-number">8.3</span> Ejercicios propuestos</h2>
+<section id="ejercicio-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-1">Ejercicio 1</h3>
 <p>En el análisis de resultados, encontramos tres valores anormales de <code>est</code>y <code>mg</code>, y concluimos que deberíamos repetir el análisis sin estos valores.</p>
 <p>Utilizando el filtro de Excel, busca los tres valores y elimínalos del <code>camembert.csv</code>. Guarda el archivo editado como <code>camembert_corregido.csv</code>. Modifica las instrucciones de lectura de datos del cuaderno para leer este nuevo archivo y repite el análisis. ¿Llegas a las mismas conclusiones? Elabora un nuevo informe de conclusiones y prepara un PowerPoint para presentarlo al grupo. Puedes incluso usar los resultados del primer análisis y compararlos lado a lado con los del segundo.</p>
 <p>Podrás comprobar que los scripts <code>python</code> nos permiten repetir el análisis sin ninguna modificación (salvo el nombre del archivo de datos) en escasos minutos, y que rápidamente podemos usar los resultados para escribir un informe.</p>
 <p>Como sugerencia, puedes copiar los gráficos en cualquier otro programa (por ejemplo, en PowerPoint) simplemente copiando el gráfico del cuaderno y pegándolo donde quieras. Es un sistema manual pero muy flexible y suficientemente rápido.</p>
+</section>
+<section id="ejercicio-2-avanzado" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-2-avanzado">Ejercicio 2 (avanzado)</h3>
+<p>En este ejercicio, vamos a añadir la fase <strong>Transformar</strong> a nuestro flujo de datos en <code>Python</code>.</p>
+<p>En vez de editar el <code>csv</code> para modificar los datos, vamos a utilizar <code>Python</code>para hacer un filtro de los datos anómalos, y nos vamos a apoyar en Gemini o en ChatGPT para escribir el código.</p>
+<p>Abre Gemini y haz esta pregunta:</p>
+<blockquote class="blockquote">
+<p>Tengo un dataframe <code>df</code> con dos columnas, <code>est</code>y <code>mg</code>. Quiero filtrar algunos valores y convertirlos en ‘NaN’: los valores con <code>mg</code>mayor que 27, los valores con <code>est</code> mayor que 52 y los valores que sean simultáneamente con <code>mg</code> menor que 22 y <code>est</code>mayor que 48. Dame el código python para hacerlo de la manera más sencilla posible.</p>
+</blockquote>
+<p>Copia la respuesta de Gemini e insértala en una casilla de código al final de este mismo cuaderno, después del último texto.</p>
+<p>Ahora vete copiando y pegando a continuación las casillas de código del análisis que hemos realizado y que quieras repetir para verificar el filtrado de datos:</p>
+<ul>
+<li>el histograma</li>
+<li>el boxplot general</li>
+<li>el boxplot por meses</li>
+<li>el gráfico de dispersión</li>
+<li>el gráfico de series</li>
+</ul>
+<p>Comprueba si las conclusiones que hemos hecho se mantienen o hay que modificarlas, y escribe las nuevas conclusiones si crees necesario modificarlas. Establece un plan de trabajo acorde con estas conclusiones y prepara un PowerPoint para comunicar al equipo el resultado del análisis y el nuevo plan de acción.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
