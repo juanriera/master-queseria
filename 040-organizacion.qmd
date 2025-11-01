@@ -40,12 +40,6 @@ Para obtener resultados fiables, es fundamental que la muestra sea representativ
 En este caso, la **población** está formada por el conjunto total de quesos en proceso de maduración dentro de la cámara.
 :::
 
-::: {.callout-important .content-visible when-format="html"}
-### ¿Qué es la probabilidad?
-
-El concepto de probabilidad se explica de forma detallada en el capítulo 9
-:::
-
 ### Parámetro y estadístico
 
 Un **parámetro** es una característica de una población. Podemos estimar su valor mediante la extracción de una **muestra**, que utilizaremos para calcular un **estadístico muestral**. Llamamos **estadístico** a un número que representa una propiedad o característica de la muestra, y constituye una estimación del valor de un parámetro de la población que estamos estudiando.

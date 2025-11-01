@@ -16,20 +16,21 @@ book:
     collapse-level: 1
   chapters:
     - index.qmd
-    - 001-intro.qmd
-    - 005-herramientas.qmd
-    - 010-organizacion.qmd
-    - 020-intro-python.ipynb  
-    - 030-exploracion.ipynb
-    - 035-estad-simple.qmd    
-    - 040-caso1-camembert.ipynb 
+    - 020-estad-entorno.qmd
+    - 030-herramientas.qmd
+    - 040-organizacion.qmd
+    - 050-intro-python.ipynb  
+    - 060-exploracion.ipynb
+    - 070-estad-simple.qmd    
+    - 080-caso1-camembert.ipynb 
+    - 090-indice_dataframes.ipynb
     #- 060-forma-de-los-datos.qmd
     #- 070-relacion-xy.qmd
     #- 080-comunicacion.qmd
     #- 120-control-proc.qmd
     #- 130-sistema-medicion.qmd
     #- 140-mejora-procesos.qmd
-    - 999-indice_dataframes.ipynb
+    
   appendices: 
     - 150-media-centro-gravedad.qmd
     - 160-bibliografia.qmd
