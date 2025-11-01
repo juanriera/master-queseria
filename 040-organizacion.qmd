@@ -128,7 +128,7 @@ Para la construcción correcta de estos nombres, se han establecido un conjunto 
 
     -   el signo de subrayado $\_$, como en $peso\_en\_cm$
 
-    Algunas de estas opciones son utilizadas en distintas comunidades de usuarios, por ejemplo la opción 1 es utilizada en la guía de estilo de Google, y la opción 2 es muy utilizada por los programadores del entorno de los lenguajes de Microsoft. Nosotros utilizaremos el signo de subrayado ($\_$), que es la forma más usada en el entorno de programación de R.
+    Algunas de estas opciones son utilizadas en distintas comunidades de usuarios, por ejemplo la opción 1 es utilizada en la guía de estilo de Google, y la opción 2 es muy utilizada por los programadores del entorno de los lenguajes de Microsoft. Nosotros utilizaremos el signo de subrayado ($\_$), que es la forma más usada en el entorno de programación de `Python`.
 
 6.  Siempre se separarán las palabras mediante el signo de subrayado (\_) para facilitar la lectura. Así, aunque $temperatura1$ es un nombre válido, preferiremos $temp\_1$; es más corto y de lectura más clara. Igualmente, preferiremos $peso\_empaquetado$ a $pesoempaquetado$
 
@@ -146,7 +146,7 @@ Alternativas válidas:
 -   $pH\_leche\_rec$ (en este caso, de manera excepcional, podemos mantener el uso de la mayúscula por corrección formal)
 -   $est\_salida\_sal$
 
-Un caso particular es el uso de la $\tilde{n}$, ya que no hay una alternativa fácil para el uso en las fechas ($a\tilde{n}o$). R admite el uso de la $\tilde{n}$ en los nombres de variables, por lo que podremos usarlo con cuidado, poniendo atención a los posibles errores que se pudiesen producir en algunas librerías.
+Un caso particular es el uso de la $\tilde{n}$, ya que no hay una alternativa fácil para el uso en las fechas ($a\tilde{n}o$). `Python` admite el uso de la $\tilde{n}$ en los nombres de variables, por lo que podremos usarlo con cuidado, poniendo atención a los posibles errores que se pudiesen producir en algunas librerías.
 
 ## El flujo de trabajo
 
@@ -286,7 +286,7 @@ Datos rectangulares: formato tabla
 
 ## Qué es un fichero plano y un fichero CSV
 
-Se suele llamar **fichero plano** a un fichero de datos de texto sin ningún tipo de formato, donde los datos están separados por espacios o tabulaciones. Muchos equipos automáticos, como balanzas de laboratorio o básculas de proceso, producen ficheros planos de texto, que se pueden importar a Excel o R. Un [fichero CSV](https://es.wikipedia.org/wiki/Valores_separados_por_comas) es un fichero plano en el que los valores están separados por un carácter especial, llamado **separador**. Este separador puede ser una coma `,` (cuando los decimales se separan mediante un punto, como en EEUU) o un punto y coma `;` (cuando los decimales se separan mediante una coma, como en España)
+Se suele llamar **fichero plano** a un fichero de datos de texto sin ningún tipo de formato, donde los datos están separados por espacios o tabulaciones. Muchos equipos automáticos, como balanzas de laboratorio o básculas de proceso, producen ficheros planos de texto, que se pueden importar a Excel o `Python`. Un [fichero CSV](https://es.wikipedia.org/wiki/Valores_separados_por_comas) es un fichero plano en el que los valores están separados por un carácter especial, llamado **separador**. Este separador puede ser una coma `,` (cuando los decimales se separan mediante un punto, como en EEUU) o un punto y coma `;` (cuando los decimales se separan mediante una coma, como en España)
 
 ::: {#fig-ficheros-texto layout="[[1,1], [1]]"}
 ![Fichero plano separado por espacios](01-imagenes/fichero_txt.png)
