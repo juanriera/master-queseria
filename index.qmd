@@ -2,7 +2,7 @@
 lang: es
 ---
 
-# Introducción general
+# Introducción
 
 Este documento trata sobre el análisis de datos industriales utilizando tanto la hoja de cálculo como un lenguaje de programación moderno como es `Python` . El uso de las técnicas estadísticas se ha reducido al mínimo, orientando el análisis al uso de métodos gráficos descriptivos sencillos.
 
