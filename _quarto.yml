@@ -22,8 +22,9 @@ book:
     - 050-intro-python.ipynb  
     - 060-exploracion.ipynb
     - 070-estad-simple.qmd    
-    - 080-caso1-camembert.ipynb 
-    - 090-indice_dataframes.ipynb
+    - 080-pract01-camembert.ipynb 
+    - 090-pract02-rendimientos.ipynb 
+    - 900-indice_dataframes.ipynb
     #- 060-forma-de-los-datos.qmd
     #- 070-relacion-xy.qmd
     #- 080-comunicacion.qmd
