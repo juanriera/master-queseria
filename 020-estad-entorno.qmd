@@ -2,7 +2,7 @@
 lang: es
 ---
 
-# La estadística en el entorno industrial.
+# El análisis de datos de producción en el entorno industrial.
 
 ![Un grupo de trabajo en planta ante un panel de variables indicadoras](01-imagenes/1520188654204.jpg){.column-page-inset-right}
 

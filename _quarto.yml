@@ -47,6 +47,7 @@ bibliography: bibliografia.bib
 format:
   html:
     theme: cosmo
+    link-external-newtab: true
 #  pdf:
 #    documentclass: book
 
