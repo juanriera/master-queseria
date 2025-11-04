@@ -267,12 +267,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <p><strong><em>Documento en elaboración</em></strong></p>
 <hr>
-<p>En esta práctica utilizaremos un archivo de datos con diferentes valores analíticos para calcular los rendimientos queseros utilizando Python, y nos apoyaremos en diferentes tipos de gráficos para entenderlos.</p>
-<p>En la práctica siguiente, utilizaremos los datos calculados aquí para hacer un balance de materia y calcular las pérdidas de nuestra fabricación.</p>
+<p>En esta práctica utilizaremos un conjunto de datos que provienen de una fábrica de queso tipo ibérico. Con los valores analíticos calcularemos los rendimientos queseros utilizando Python, y nos apoyaremos en diferentes tipos de gráficos para explicar los resultados que hemos obtenido. Utilizaremos los datos calculados aquí para hacer un balance de materia y calcular las pérdidas de nuestra fabricación.</p>
+<p>Para ayudar a concentrarse en los resultados, el código <em>python</em> se presenta plegado, de manera que no interfiera demasiado en la presentación. Puede desplegarse para ver cómo se han generado cada tabla y cada gráfico.</p>
+<p>Como siempre, es opcional descargar los datos de ejemplo y abrir el cuaderno en Colab para ejecutar el código a medida que se avanza ne el estudio.</p>
 <p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/090-pract02-rendimientos.ipynb">Abrir este cuaderno en Google Colab/</a></p>
 <p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm_limpio.csv">Descargar los datos de ejemplo utilizados en este cuaderno (archivo <code>fab_queso_bm_limpio.csv</code>)</a></p>
 <p>Empezamos el análisis inicializando las bibliotecas de <code>Python</code>, cargamos los datos del <code>CSV</code>, creamos el índice de fecha y mostramos los primeros registros del dataframe para comprobar que todo es correcto.</p>
-<div id="cell-7" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:470,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1760773316807,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="1">
+<hr>
+<div id="cell-6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:470,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1760773316807,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="1">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -440,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Nuestros datos provienen de una fábrica de queso tipo ibérico. En total, tenemos 45 entradas que corresponden a fabricaciones diarias, desde el 23/02/2022 hasta el 30/5/2022.</p>
+<p>En total, tenemos 45 entradas que corresponden a fabricaciones diarias, desde el 23/02/2022 hasta el 30/5/2022.</p>
 <p>El fichero de datos incluye diferentes datos analíticos:</p>
 <table class="caption-top table">
 <colgroup>
@@ -551,15 +553,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="9.1" class="anchored" data-anchor-id="presentación-de-algunos-gráficos-básicos"><span class="header-section-number">9.1</span> Presentación de algunos gráficos básicos</h2>
 <p>Vamos a explorar los datos antes de empezar el análisis, y los usaremos para visualizar las diferencias de rendimiento entre mezclas.</p>
 <p>Podemos calcular el rendimiento simple como los kilos de queso que podemos obtener con 100 L de leche</p>
-<div id="cell-12" class="cell" data-execution_count="3">
+<div id="cell-11" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'rendimiento_simple'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>]<span class="op">/</span>df[<span class="st">'litros_past'</span>]<span class="op">*</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-13" class="cell" data-execution_count="4">
+<div id="cell-12" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'rendimiento_simple'</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Rendimiento por receta (orden alfabético)'</span>)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Receta'</span>)</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Kilos obtenidos con 100 L de leche'</span>)</span>
@@ -575,14 +577,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Aunque es más frecuente calcular el rendimiento simple como los litros de leche que necesitamos para hacer un kilo de queso</p>
-<div id="cell-15" class="cell" data-execution_count="5">
+<div id="cell-14" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'rendimiento_simple'</span>] <span class="op">=</span> df[<span class="st">'litros_past'</span>]<span class="op">/</span>df[<span class="st">'peso_queso_total'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-16" class="cell" data-execution_count="6">
+<div id="cell-15" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'rendimiento_simple'</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Boxplot: rendimiento simple por receta'</span>)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Receta'</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Litros necesarios para obtener 1 kg de queso'</span>)</span>
@@ -598,7 +600,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>El <em>boxplot</em> es muy útil para resumir grandes cantidades de información, pero cuando el número de puntos es muy bajo, puede resultarnos más útil la visualización mediante otro tipo de gráficos que nos muestren los puntos individuales agrupados. Entre estas visualizaciones, la biblioteca <code>seaborn</code> nos ofrece el gráfico llamado <em>beeswarm</em> mediante la función <code>swarmplot()</code>, y también el <em>dotplot</em>, mediante la función <code>stripplot()</code>.</p>
-<div id="cell-18" class="cell" data-execution_count="7">
+<div id="cell-17" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'rendimiento_simple'</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
@@ -618,7 +620,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>El <em>stripplot</em> muestra los puntos en distribución vertical sobre las categorías; para evitar que los puntos con las mismas coordenada se solapen, utilizamos la opción <em>jitter</em>, que introduce un pequeño <em>ruido</em> aleatorio para desplazar las coordenadas de los puntos evitando su solapamiento.</p>
-<div id="cell-20" class="cell" data-execution_count="8">
+<div id="cell-19" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sns.stripplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'rendimiento_simple'</span>, jitter<span class="op">=</span><span class="va">True</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
@@ -636,7 +638,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Este diagrama puede superponerse al <em>boxplot</em>, lo que nos permite completar la visualización de los puntos y la interpretación que hace el <em>boxplot</em> de su distribución.</p>
-<div id="cell-22" class="cell" data-execution_count="9">
+<div id="cell-21" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'rendimiento_simple'</span>, color<span class="op">=</span><span class="st">'lightgray'</span>)</span>
@@ -655,7 +657,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>En este caso, seguiremos utilizando el <em>beeswarm</em>, y lo utilizaremos para ver si el formato en el que ha sido moldeado el queso puede haber influido en los valores de rendimiento obtenidos, para todos los productos, ¿quizás por pérdidas de producto en el moldeo?</p>
-<div id="cell-24" class="cell" data-execution_count="10">
+<div id="cell-23" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'formato'</span>, y<span class="op">=</span><span class="st">'rendimiento_simple'</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
@@ -673,7 +675,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>A la vista de la gráfica, parece que el moldeo en barra nos hace empeorar el rendimiento. Pero si miramos con más detalle, vemos que no es así. Si introducimos un código de color para cada receta, vemos que los rendimientos de las diferentes recetas son <em>aproximadamente</em> los mismos con independencia del formato.</p>
-<div id="cell-26" class="cell" data-execution_count="11">
+<div id="cell-25" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'formato'</span>, y<span class="op">=</span><span class="st">'rendimiento_simple'</span>, hue<span class="op">=</span><span class="st">'receta'</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
@@ -696,7 +698,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Esto nos ayuda a comprender que no debemos sacar conclusiones apresuradas antes de haber completado el análisis detallado de la información disponible.</p>
 <p>Volvamos al rendimiento; como estamos evaluando el rendimiento como los litros necesarios para obtener 1 kg de queso, resulta que la cantidad de agua que tenga el queso nos influye en el cálculo: cuanto más húmedo el queso, más favorable será el valor el rendimiento simple. Veamos las diferencias entre recetas.</p>
-<div id="cell-29" class="cell" data-execution_count="12">
+<div id="cell-28" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'humedad_salida_salmuera'</span>] <span class="op">=</span> <span class="dv">100</span> <span class="op">-</span> df[<span class="st">'est_salida_salmuera'</span>] </span>
@@ -725,7 +727,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Una mala retención de extracto seco magro</li>
 </ul>
 <p>Realicemos todos los cálculos en un solo bloque.</p>
-<div id="cell-31" class="cell" data-execution_count="13">
+<div id="cell-30" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">### 1. Cálculos de Entrada</span></span>
@@ -800,7 +802,7 @@ fecha_index
 2022-03-04    oveja      -592.48      -67.25          NaN</code></pre>
 </div>
 </div>
-<div id="cell-32" class="cell" data-execution_count="14">
+<div id="cell-31" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_balance_sns <span class="op">=</span> df_balance.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
@@ -819,7 +821,7 @@ fecha_index
 </div>
 </div>
 </div>
-<div id="cell-33" class="cell" data-execution_count="15">
+<div id="cell-32" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(data<span class="op">=</span>df_balance_sns, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'coef_recup_mp'</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
@@ -836,7 +838,7 @@ fecha_index
 </div>
 </div>
 </div>
-<div id="cell-34" class="cell" data-execution_count="16">
+<div id="cell-33" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(data<span class="op">=</span>df_balance_sns, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'coef_recup_esm'</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
@@ -853,7 +855,7 @@ fecha_index
 </div>
 </div>
 </div>
-<div id="cell-35" class="cell" data-execution_count="17">
+<div id="cell-34" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df_balance_sns, x<span class="op">=</span><span class="st">'coef_recup_mg'</span>, y<span class="op">=</span><span class="st">'coef_recup_mp'</span>, hue<span class="op">=</span><span class="st">'receta'</span>, s<span class="op">=</span><span class="dv">80</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
@@ -873,7 +875,7 @@ fecha_index
 </div>
 </div>
 <p>Filtremos los resultados de i+D que no son relevantes para nuestro análisis y están distorionando la escala del gráfico.</p>
-<div id="cell-37" class="cell" data-execution_count="18">
+<div id="cell-36" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df_balance[df_balance[<span class="st">'receta'</span>] <span class="op">!=</span> <span class="st">'i+D'</span>], </span>
@@ -898,7 +900,7 @@ fecha_index
 </div>
 </div>
 <p>Calculemos los centroides de cada grupo (receta) mediante la mediana.</p>
-<div id="cell-39" class="cell" data-execution_count="19">
+<div id="cell-38" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a></span>
@@ -951,7 +953,7 @@ fecha_index
 </div>
 </div>
 </div>
-<div id="cell-40" class="cell" data-execution_count="20">
+<div id="cell-39" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df_balance[df_balance[<span class="st">'receta'</span>] <span class="op">!=</span> <span class="st">'i+D'</span>], </span>
@@ -995,7 +997,7 @@ fecha_index
 </div>
 </div>
 </div>
-<div id="cell-41" class="cell" data-execution_count="21">
+<div id="cell-40" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Crear la columna 'semana' usando el formato ISO (Lunes=Día 1)</span></span>
@@ -1008,7 +1010,7 @@ fecha_index
 <pre><code>✅ Columna 'semana_iso' creada con el estándar Lunes-Domingo.</code></pre>
 </div>
 </div>
-<div id="cell-42" class="cell" data-execution_count="22">
+<div id="cell-41" class="cell" data-execution_count="22">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Columnas que queremos sumarizar (Balances + Entradas + Salidas)</span></span>
@@ -1058,7 +1060,7 @@ semana_iso receta
            oveja             -592.48            -67.25               0.00  </code></pre>
 </div>
 </div>
-<div id="cell-43" class="cell" data-execution_count="23">
+<div id="cell-42" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Definir el nombre del archivo de salida</span></span>
