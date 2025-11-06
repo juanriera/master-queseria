@@ -91,7 +91,9 @@ Hemos definido nuestro producto mediante los análisis de EST y MG; necesitamos 
 
 Estos análisis están definidos en porcentajes peso/peso, ya que en el queso no analizamos volumen sino peso. Por lo tanto, 100 gramos de nuestro queso tendrán 27 gramos de extracto seco magro.
 
-En nuestro análisis de rendimiento hemos calculado el porcentaje de recuperación de la proteína de la leche en el extracto seco magro; en nuestro ejemplo, este porcentaje es de 94,65%.
+En el capítulo siguiente calcularemos el porcentaje de recuperación de la proteína de la leche en el extracto seco magro a partir de nuestros datos analíticos de un conjunto de fabricaciones; en nuestro ejemplo actual, vamos a suponer que es de 94,65%. La hoja Excel siguiente muestra los cálculos precisos.
+
+[Descargar hoja Excel de rendimientos](https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/2025-11-06-ejemplo-std-tecnico.xlsx){target="_blank" rel="noopener noreferrer"}
 
 Como sabemos la cantidad de proteína que tenemos en la leche, 31,13 g/L, sabemos que con 1 L de leche vamos a obtener en el queso
 
@@ -99,12 +101,12 @@ $$
 \frac{31,13\ g\ proteína}{1\ L\ leche}*\ \frac{0.9465\ g\ ESM}{1\ g\ proteína} = 29,46\ g\ ESM\ en\ el\ queso\ por\ litro\ de\ leche
 $$
 
-Esta es la conversión clave de nuestra tecnología, y es conocida como ***coeficiente G***, en honor a su autor, Antoine M Guérault, que lo introdujo formalmente por primera vez por en su libro *La fromagerie devant les techniques nouvelles,* en 1966; desde entonces sigue utilizándose con plena validez. Inicialmente, el factor de conversión relaciona el ESM obtenido con el ESM puesto en fabricación; como para una tecnología concreta, normalmente la cantidad de sal incluida en el salado y las pérdidas de ESM son aproximadamente las mismas, usamos la proteína de la leche en vez del ESM. Esto lleva a una pequeña variación en el valor del coeficiente, variación que debe ser constante para la misma tecnología.
+Esta es la conversión clave de nuestra tecnología, y es conocida como ***coeficiente G*** en honor a su autor, Antoine M Guérault, que lo introdujo formalmente por primera vez por en su libro *La fromagerie devant les techniques nouvelles,* en 1966; desde entonces sigue utilizándose con plena validez. Inicialmente, el factor de conversión relaciona el ESM obtenido con el ESM puesto en fabricación, por lo tanto es simplemente el coeficiente de recuperación de ESM en nuestro queso; como para una tecnología concreta, normalmente la cantidad de sal incluida en el salado y las pérdidas de ESM son aproximadamente las mismas (salvo accidentes de fabricación), usamos la proteína de la leche en vez del ESM. Esto lleva a una pequeña diferencia en el valor del coeficiente, que  se mantiene constante para la misma tecnología.
 
-Como sabemos la cantidad de ESM que vamos a obtener de 1 L de leche, podemos calcular los litros de leche que necesitamos para obtener 1 kg de queso mediante una regla de tres simple: si para obtener 100 g de queso con 29,46 g de ESM necesitamos 1 L de leche, para obtener 1 kg de queso con el mismo ESM necesitaremos X litros de leche:
+Como sabemos la cantidad de ESM que vamos a obtener de 1 L de leche, podemos calcular los litros de leche que necesitamos para obtener 1 kg de queso mediante una regla de tres simple: si para obtener 100 g de queso con 29,46 g de ESM necesitamos 1 L de leche, para obtener 1 kg de queso con el mismo ESM necesitaremos X litros de leche. A este valor lo llamaremos *litraje unitario*.
 
 $$
-\frac{27\ g\ ESM}{100\ g\ queso\ }*\ \frac{1000\ g\ queso}{1\ kg\ queso}*\ \frac{1\ L\ leche}{29,46\ g\ ESM} = 9,165\ L\ leche\ para\ hacer\ 1\ kg\ de\ queso
+\text{Litraje unitario} = \frac{27\ g\ ESM}{100\ g\ queso\ }*\ \frac{1000\ g\ queso}{1\ kg\ queso}*\ \frac{1\ L\ leche}{29,46\ g\ ESM} = 9,165\ L\ leche\ para\ hacer\ 1\ kg\ de\ queso
 $$
 
 Es necesario insistir en que este litraje sólo es válido en nuestras condiciones precisas:
@@ -115,7 +117,7 @@ Es necesario insistir en que este litraje sólo es válido en nuestras condicion
 
 - con la tasa de recuperación de la proteína de la leche en el ESM del queso de nuestro específico proceso de fabricación.
 
-Para cualquier otro producto, otra composición de leche y/u otro proceso de fabricación, deberemos recalcular nuestro litraje por kilo.
+Es un valor teórico que utilizamos como valor objetivo, y que puede variar a medida que adaptemos o variemos nuestra tecnología. Para cualquier otro producto, otra composición de leche y/u otro proceso de fabricación, deberemos recalcular nuestro litraje por kilo.
 
 Sabemos que, en nuestras condiciones, 9,165 L de leche deben darnos 1 kg de queso. Si obtenemos más o menos queso querrá decir que nuestras hipótesis de partida no se han cumplido, y analizando los tres elementos básicos, sabremos la razón de la desviación:
 

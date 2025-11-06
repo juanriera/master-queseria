@@ -244,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#presentación-de-algunos-gráficos-básicos" id="toc-presentación-de-algunos-gráficos-básicos" class="nav-link active" data-scroll-target="#presentación-de-algunos-gráficos-básicos"><span class="header-section-number">10.1</span> Presentación de algunos gráficos básicos</a></li>
+  <li><a href="#exploración-gráfica-de-los-datos" id="toc-exploración-gráfica-de-los-datos" class="nav-link active" data-scroll-target="#exploración-gráfica-de-los-datos"><span class="header-section-number">10.1</span> Exploración gráfica de los datos</a></li>
   <li><a href="#análisis-previo-de-los-datos" id="toc-análisis-previo-de-los-datos" class="nav-link" data-scroll-target="#análisis-previo-de-los-datos"><span class="header-section-number">10.2</span> Análisis previo de los datos</a></li>
   </ul>
 </nav>
@@ -277,8 +277,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>En esta práctica utilizaremos un conjunto de datos que provienen de una fábrica de queso tipo ibérico. Con los valores analíticos calcularemos los rendimientos queseros utilizando Python, y nos apoyaremos en diferentes tipos de gráficos para explicar los resultados que hemos obtenido. Utilizaremos los datos calculados aquí para hacer un balance de materia y calcular las pérdidas de nuestra fabricación.</p>
 <p>Para ayudar a concentrarse en los resultados, el código <em>python</em> se presenta plegado, de manera que no interfiera demasiado en la presentación. Puede desplegarse para ver cómo se han generado cada tabla y cada gráfico.</p>
 <p>Como siempre, es opcional descargar los datos de ejemplo y abrir el cuaderno en Colab para ejecutar el código a medida que se avanza ne el estudio.</p>
-<p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/090-pract02-rendimientos.ipynb">Abrir este cuaderno en Google Colab/</a></p>
-<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm_limpio.csv">Descargar los datos de ejemplo utilizados en este cuaderno (archivo <code>fab_queso_bm_limpio.csv</code>)</a></p>
+<p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/090-pract02-rendimientos.ipynb">Abrir este cuaderno en Google Colab/</a>{target = “_blank” noopener noreferrer}</p>
+<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm_limpio.csv">Descargar los datos de ejemplo utilizados en este cuaderno (archivo <code>fab_queso_bm_limpio.csv</code>)</a>{target = “_blank” noopener noreferrer}</p>
 <p>Empezamos el análisis inicializando las bibliotecas de <code>Python</code>, cargamos los datos del <code>CSV</code>, creamos el índice de fecha y mostramos los primeros registros del dataframe para comprobar que todo es correcto.</p>
 <hr>
 <div id="cell-6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:470,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1760773316807,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="1">
@@ -568,8 +568,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p>El fichero de datos contiene varios ensayos del departamento de i+D que se han mantenido para mostrar que a veces las cosas no salen bien a la primera…</p>
-<section id="presentación-de-algunos-gráficos-básicos" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="presentación-de-algunos-gráficos-básicos"><span class="header-section-number">10.1</span> Presentación de algunos gráficos básicos</h2>
+<section id="exploración-gráfica-de-los-datos" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="exploración-gráfica-de-los-datos"><span class="header-section-number">10.1</span> Exploración gráfica de los datos</h2>
 <p>Vamos a explorar los datos antes de empezar el análisis, y los usaremos para visualizar las diferencias de rendimiento entre mezclas.</p>
 <p>Podemos calcular el rendimiento simple como los kilos de queso que podemos obtener con 100 L de leche</p>
 <div id="cell-11" class="cell" data-execution_count="3">
@@ -621,7 +621,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="análisis-previo-de-los-datos" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="análisis-previo-de-los-datos"><span class="header-section-number">10.2</span> Análisis previo de los datos</h2>
-<p>Como tenemos relativamente pocos datos, vamos a utilizar el <em>beeswarm</em>, junto conel <em>boxplot</em>, para visualizar el <em>rendimiento simple</em> entre las diferentes recetas.</p>
+<p>Tenemos pocos datos por receta, por lo que vamos a utilizar el <em>beeswarm</em>, junto con el <em>boxplot</em>, para visualizar el <em>rendimiento simple</em> entre las diferentes recetas.</p>
 <div id="cell-18" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Mostrar código</summary>
@@ -707,7 +707,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Por esta razón, debemos calcular el rendimiento mediante parámetros que no se vean afectados por la humedad del queso, sino que reflejen con precisión la calidad del trabajo quesero. La mejor forma de hacerlo consiste en calcular el porcentaje de materia quesera que hemos sido capaces de retener en el queso. Dado que los elementos de valor de la leche, que son los que se utilizan en el pago por calidad, son la materia grasa y la proteína, calcularemos la recuperación de materia grasa, de materia proteica y de extracto seco magro.</p>
+<p>CLaramente, el rendimiento en litros/kilo está afectado por la humedad del queso, ya que, para la misma tecnología, cuanta más humedad más peso tendremos en el queso, y en consecuencia, menos litros necesitaremos para hacer un kilo de queso.</p>
+<p>Por esta razón, como hemos visto en el capitulo anterior, debemos calcular el rendimiento mediante parámetros que no se vean afectados por la humedad del queso (o lo que es equivalente, el extracto seco total), sino que reflejen con precisión la calidad del trabajo quesero. La mejor forma de hacerlo consiste en calcular el porcentaje de materia quesera que hemos sido capaces de retener en el queso. Dado que los elementos de valor de la leche, que son los que se utilizan en el pago por calidad, son la materia grasa y la proteína, calcularemos la recuperación de materia grasa, de materia proteica y de extracto seco magro.</p>
 <p>Estos valores son propios de cada tecnología quesera, y cada uno sirve de referencia para comprender cuáles son los diferentes problemas en fabricación,</p>
 <ul>
 <li>Una mala retención de materia grasa</li>
