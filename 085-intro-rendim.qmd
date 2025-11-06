@@ -228,8 +228,6 @@ Como hemos visto, la construcción del estándar técnico y el seguimiento de la
 | MG Pérddas suero neta (g/L)                      | 2,81       |
 | MG Pérddas suero neta (%)                        | 8,43%      |
 | MG STD sin nata de suero (g/L)                   | 33,37      |
-| **Consumo MG (sólo MG comprada) (g/K queso)**    | **305,79** |
-| **Consumo MP (sólo MP comprada) (g/K queso)**    | **285,26** |
 
 En este caso, vemos un proceso de fabricación que *no* está recuperando la materia grasa del suero; las diferencias entre la MG en cuba y la MG en el queso se consideran pérdidas de proceso.
 
