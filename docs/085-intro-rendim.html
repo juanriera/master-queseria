@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9&nbsp; Introducción a los rendimientos queseros – Análisis de datos industriales usando Excel y Python</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./090-pract02-rendimientos.html" rel="next">
+<link href="./080-pract01-camembert.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-364982630eef5352dd1537128a8ed5cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-rendim.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción a los rendimientos queseros</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Análisis de datos industriales usando Excel y Python</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./020-estad-entorno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El análisis de datos de producción en el entorno industrial.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./030-herramientas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./040-organizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La organización de los datos y el flujo de trabajo.Los datos ordenados o <em>arreglados</em> (<em>tidy data</em>)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./050-intro-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introducción a Python en el entorno Google Colab</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./060-exploracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./070-estad-simple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./080-pract01-camembert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Práctica 1. Análisis exploratorio de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./085-intro-rendim.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción a los rendimientos queseros</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./090-pract02-rendimientos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./900-indice_dataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Anexos</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./150-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./160-bibliografia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bibliografía</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#densidad-y-conversión-entre-porcentajes" id="toc-densidad-y-conversión-entre-porcentajes" class="nav-link active" data-scroll-target="#densidad-y-conversión-entre-porcentajes"><span class="header-section-number">9.1</span> Densidad y conversión entre porcentajes</a></li>
+  <li><a href="#cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" id="toc-cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" class="nav-link" data-scroll-target="#cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso"><span class="header-section-number">9.2</span> Cálculo de la cantidad de leche necesaria para fabricar 1 kg de queso</a></li>
+  <li><a href="#la-materia-grasa" id="toc-la-materia-grasa" class="nav-link" data-scroll-target="#la-materia-grasa"><span class="header-section-number">9.3</span> La materia grasa</a></li>
+  <li><a href="#el-estándar-de-fabricación" id="toc-el-estándar-de-fabricación" class="nav-link" data-scroll-target="#el-estándar-de-fabricación"><span class="header-section-number">9.4</span> El estándar de fabricación</a></li>
+  <li><a href="#el-estándar-técnico-final" id="toc-el-estándar-técnico-final" class="nav-link" data-scroll-target="#el-estándar-técnico-final"><span class="header-section-number">9.5</span> El estándar técnico final</a></li>
+  <li><a href="#la-importancia-de-la-estandarización-de-la-leche" id="toc-la-importancia-de-la-estandarización-de-la-leche" class="nav-link" data-scroll-target="#la-importancia-de-la-estandarización-de-la-leche"><span class="header-section-number">9.6</span> La importancia de la estandarización de la leche</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción a los rendimientos queseros</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Supongamos que somos un fabricante de queso, fabricamos un producto determinado del que tenemos valores analíticos de producto terminado y de la materia en proceso.</p>
+<p>Es un producto que, más o menos, siempre fabricaremos con los mismos pasos tecnológicos. Puesto que siempre hacemos el mismo producto, siempre fabricamos igual, con la variabilidad inherente a nuestro proceso.</p>
+<p>Vamos a ir definiendo por pasos nuestra tecnología.</p>
+<p>Los dos primeros pasos consisten en</p>
+<ol type="1">
+<li><p>definir el producto, y</p></li>
+<li><p>la materia prima con la que lo hacemos.</p></li>
+</ol>
+<p>En nuestro caso, supongamos que hacemos un queso que tiene una composición determinada, que caracterizamos mediante un análisis de extracto seco y una grasa butirométrica, en un punto determinado de nuestro proceso (por ejemplo, a la salida de la salmuera, después de escurrido) y mediante un muestreo repetible, de forma que nuestro análisis sea representativo.</p>
+<p>Supongamos que este es el resultado analítico de nuestro producto:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Datos del producto</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EST a salida de sal (%)</td>
+<td>55,00%</td>
+</tr>
+<tr class="even">
+<td>MG a salida de sal (%)</td>
+<td>28,00%</td>
+</tr>
+</tbody>
+</table>
+<p>Para hacer este producto, estamos trabajando con una leche cuya composición es:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Datos de materia prima</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Composición leche (g/L)</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>MG</td>
+<td>33,37</td>
+</tr>
+<tr class="odd">
+<td>MP</td>
+<td>31,13</td>
+</tr>
+</tbody>
+</table>
+<section id="densidad-y-conversión-entre-porcentajes" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="densidad-y-conversión-entre-porcentajes"><span class="header-section-number">9.1</span> Densidad y conversión entre porcentajes</h2>
+<p>Estamos expresando la composición de nuestra leche en gramos por litro (g/L). Podemos expresarla también en porcentaje, es decir, cuántos gramos de grasa y de proteína tenemos en 100 ml o en 100 g de leche.</p>
+<p>Para expresar esta cantidad en gramos/100 ml no tenemos más que dividir por 1000 y multiplicar por 100, para expresar la cantidad en %:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Datos de materia prima</strong></th>
+<th><strong>g/L</strong></th>
+<th><strong>% peso/volumen</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Composición leche (g/L)</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>MG</td>
+<td>33,37</td>
+<td>3,34%</td>
+</tr>
+<tr class="odd">
+<td>MP</td>
+<td>31,13</td>
+<td>3,11%</td>
+</tr>
+</tbody>
+</table>
+<p>Para expresar las cantidades en g/100 g de leche necesitamos un parámetro adicional que nos define cuál es el peso de nuestros 100 ml de leche: la densidad.</p>
+<p>La densidad aproximada de la leche de vaca es 1,030. Esto quiere decir que 1 L de leche entera pesa aproximadamente 1,030 k</p>
+<p><span class="math display">\[
+\frac{3.34\ \text{g grasa}}{100\ \text{ml leche}} \cdot \frac{1\ \text{ml leche}}{1.030\ \text{g leche}} = \frac{3.34}{1.030} \cdot \frac{\text{g grasa}}{100\ \text{g leche}} = 3.24\% \text{ en peso}
+\]</span> Esto quiere decir que si 100 ml de leche pesan 103,0 gramos, 100 gramos de leche ocuparán un volumen que será un poco menos de 100 ml, exactamente:</p>
+<p><span class="math display">\[
+\frac{100\ g*100\ ml}{103\ ,0\ g} = 97.08\ ml
+\]</span></p>
+<p>Luego, la cantidad de materia grasa en 100 ml de leche siempre será algo superior a la cantidad en 100 g de leche.</p>
+<p>Por último, a título de curiosidad, podemos recuperar la densidad de la leche a partir de los porcentajes, como es lógico: <span class="math display">\[
+\frac{3,34\ g\ grasa}{100\ ml\ leche}*\ \frac{100\ g\ leche}{3,24\ g\ grasa} = 1,030\ \frac{g}{ml}\ leche
+\]</span></p>
+<p>De esta forma, nuestra tabla de valores analíticos de la leche, expresada en las diferentes unidades que hemos visto, quedaría de la siguiente forma:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 9%">
+<col style="width: 27%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Datos de materia prima</strong></th>
+<th><strong>g/L</strong></th>
+<th><strong>% peso/volumen</strong></th>
+<th><strong>% peso/peso</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Composición leche (g/L)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>MG</td>
+<td>33,37</td>
+<td>3,337%</td>
+<td>3,240%</td>
+</tr>
+<tr class="odd">
+<td>MP</td>
+<td>31,13</td>
+<td>3,113%</td>
+<td>3,022%</td>
+</tr>
+</tbody>
+</table>
+<p>Conociendo estas conversiones, y para evitar dudas y posibles errores, utilizaremos siempre los gramos por litro (g/L) para expresar la cantidad de grasa y proteína en la leche.</p>
+</section>
+<section id="cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso"><span class="header-section-number">9.2</span> Cálculo de la cantidad de leche necesaria para fabricar 1 kg de queso</h2>
+<p>Sabemos que nuestro proceso de fabricación quesera consiste en la coagulación de la caseína y expulsión de suero, y que la materia grasa queda retenida en la red de caseína.</p>
+<p>Este concepto es la base fundamental de la comprensión de la tecnología quesera: es el rendimiento en la recuperación de la proteína el que nos va a definir todo el proceso, la materia grasa “acompañará” de forma estática (aunque tendrá influencia en el desuerado)</p>
+<p>Por esta razón, el principal elemento del rendimiento en la definición de la tecnología es el porcentaje de recuperación de proteína en el extracto seco magro (aislamos el efecto la grasa)</p>
+<p>Hemos definido nuestro producto mediante los análisis de EST y MG; necesitamos saber el resto de parámetros, en concreto el extracto seco magro que estamos definiendo para nuestro producto:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Análisis salida sal</strong> (g/100g)</th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EST %</td>
+<td style="text-align: center;">55,00%</td>
+</tr>
+<tr class="even">
+<td>MG</td>
+<td style="text-align: center;">28,00%</td>
+</tr>
+<tr class="odd">
+<td>G/ES %</td>
+<td style="text-align: center;">50,91%</td>
+</tr>
+<tr class="even">
+<td>HFD</td>
+<td style="text-align: center;">62,50%</td>
+</tr>
+<tr class="odd">
+<td>ESM</td>
+<td style="text-align: center;">27,00%</td>
+</tr>
+</tbody>
+</table>
+<p>Estos análisis están definidos en porcentajes peso/peso, ya que en el queso no analizamos volumen sino peso. Por lo tanto, 100 gramos de nuestro queso tendrán 27 gramos de extracto seco magro.</p>
+<p>En nuestro análisis de rendimiento hemos calculado el porcentaje de recuperación de la proteína de la leche en el extracto seco magro; en nuestro ejemplo, este porcentaje es de 94,65%.</p>
+<p>Como sabemos la cantidad de proteína que tenemos en la leche, 31,13 g/L, sabemos que con 1 L de leche vamos a obtener en el queso</p>
+<p><span class="math display">\[
+\frac{31,13\ g\ proteína}{1\ L\ leche}*\ \frac{0.9465\ g\ ESM}{1\ g\ proteína} = 29,46\ g\ ESM\ en\ el\ queso\ por\ litro\ de\ leche
+\]</span></p>
+<p>Esta es la conversión clave de nuestra tecnología, y es conocida como <strong><em>coeficiente G</em></strong>, en honor a su autor, Antoine M Guérault, que lo introdujo formalmente por primera vez por en su libro <em>La fromagerie devant les techniques nouvelles,</em> en 1966; desde entonces sigue utilizándose con plena validez. Inicialmente, el factor de conversión relaciona el ESM obtenido con el ESM puesto en fabricación; como para una tecnología concreta, normalmente la cantidad de sal incluida en el salado y las pérdidas de ESM son aproximadamente las mismas, usamos la proteína de la leche en vez del ESM. Esto lleva a una pequeña variación en el valor del coeficiente, variación que debe ser constante para la misma tecnología.</p>
+<p>Como sabemos la cantidad de ESM que vamos a obtener de 1 L de leche, podemos calcular los litros de leche que necesitamos para obtener 1 kg de queso mediante una regla de tres simple: si para obtener 100 g de queso con 29,46 g de ESM necesitamos 1 L de leche, para obtener 1 kg de queso con el mismo ESM necesitaremos X litros de leche:</p>
+<p><span class="math display">\[
+\frac{27\ g\ ESM}{100\ g\ queso\ }*\ \frac{1000\ g\ queso}{1\ kg\ queso}*\ \frac{1\ L\ leche}{29,46\ g\ ESM} = 9,165\ L\ leche\ para\ hacer\ 1\ kg\ de\ queso
+\]</span></p>
+<p>Es necesario insistir en que este litraje sólo es válido en nuestras condiciones precisas:</p>
+<ul>
+<li><p>con la composición en ESM de nuestro queso</p></li>
+<li><p>con la composición de proteína de nuestra leche</p></li>
+<li><p>con la tasa de recuperación de la proteína de la leche en el ESM del queso de nuestro específico proceso de fabricación.</p></li>
+</ul>
+<p>Para cualquier otro producto, otra composición de leche y/u otro proceso de fabricación, deberemos recalcular nuestro litraje por kilo.</p>
+<p>Sabemos que, en nuestras condiciones, 9,165 L de leche deben darnos 1 kg de queso. Si obtenemos más o menos queso querrá decir que nuestras hipótesis de partida no se han cumplido, y analizando los tres elementos básicos, sabremos la razón de la desviación:</p>
+<ul>
+<li><p>Nuestra leche tiene una composición diferente</p></li>
+<li><p>Nuestro queso tiene una composición diferente</p></li>
+<li><p>Nuestra recuperación de proteína no ha sido la adecuada, o ha sido diferente.</p></li>
+</ul>
+<p>Si disponemos de la analítica correspondiente, podremos tomar las decisiones correctas; no es lo mismo actuar ante un problema de composición de leche que ante un problema de composición de queso o un problema de tecnología quesera (el extracto seco magro del queso es consecuencia de la tecnología quesera). Otros factores pueden influir directamente en el coeficiente de recuperación de proteína, por ejemplo, la cantidad de proteína coagulable (caseína) frente a la proteína total analizada puede variar a lo largo del año, y el análisis de proteína total no nos da una indicación de esta ratio.</p>
+</section>
+<section id="la-materia-grasa" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="la-materia-grasa"><span class="header-section-number">9.3</span> La materia grasa</h2>
+<p>Hasta aquí hemos hablado de proteína y ESM, pero ¿y la materia grasa?</p>
+<p>En nuestro análisis de rendimiento hemos calculado también un % de recuperación de MG. Sin embargo, no utilizaremos este % para calcular el litraje, lo haremos tal como hemos visto, con la transformación de la proteína en ESM. La razón es que <em>la tecnología quesera nos permite actuar sobre el ESM del queso, pero la MG depende de la estandarización</em>, como veremos a continuación.</p>
+<p>Como el coef G nos da los litros de leche que necesitamos para hacer 1 kg de queso, y tenemos una composición de nuestra leche, podemos saber la cantidad de MG que tenemos en esa leche. Por otra parte, sabemos la MG que hemos definido en nuestro queso de forma empírica, es decir, en la práctica: mediante un promedio de los diferentes análisis de nuestro producto que hemos ido obteniendo.</p>
+<p>Según el coef G, necesitamos 9,165 L leche para hacer 1 kg de queso.</p>
+<p>Según nuestra composición de leche, 1 L de leche tiene 31,13 g de MG, luego los 9,165 L de leche tendrán</p>
+<p><span class="math display">\[
+9,165\ L\ leche*\ \frac{33.37\ g\ MG}{1\ L\ leche} = 305.8361\ g\ MG
+\]</span></p>
+<p>Es decir, para fabricar 1 kg de queso necesitamos 9,165 L leche, que según su composición tienen 305.8361 g MG</p>
+<p>Sin embargo, la analítica de nuestro queso nos dice que en 1 kg de queso tenemos un 28% de MG, es decir 280 g de MG po kilo de queso.</p>
+<p>¿A qué se debe esta diferencia? La respuesta es: <em>a las pérdidas de MG en el proceso</em>, es decir, <em>a nuestro porcentaje de recuperación de MG.</em></p>
+<p>Podemos calcular este porcentaje mediante la fracción</p>
+<p><span class="math display">\[
+\frac{MG\ en\ el\ queso}{MG\ en\ la\ leche\ de\ fabricación}\ =\ \frac{280\ g\ MG/kg\ en\ el\ queso}{305.8361\ g\ MG/kg\ en\ la\ leche\ de\ fabricación} = 0,9155
+\]</span></p>
+<p>Es decir, nuestra recuperación teórica de MG es del 91,55%</p>
+<p>¿Por qué <em>recuperación teórica</em>? Porque es la que resulta de hacer los cálculos según nuestros datos de composición de leche, composición del queso y recuperación de proteína.</p>
+<p>De la misma forma que en el caso de la recuperación de proteína, si nuestra recuperación de MG es diferente de la calculada teóricamente, debemos encontrar la explicación en los mismos factores:</p>
+<ul>
+<li><p>Composición real de la leche</p></li>
+<li><p>Composición real del queso</p></li>
+<li><p>Variaciones en la tecnología</p></li>
+</ul>
+<p>Estas variaciones implicarán una mayor pérdida de MG, que se irá en el suero de quesería, y que en parte puede recuperarse mediante un desnatado del suero.</p>
+</section>
+<section id="el-estándar-de-fabricación" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="el-estándar-de-fabricación"><span class="header-section-number">9.4</span> El estándar de fabricación</h2>
+<p>El razonamiento y cálculos que hemos ido realizando, se suelen recoger en lo que se llama un <em>estándar técnico de fabricación</em>. Este documento recoge los valores estándar de nuestra tecnología dada una composición media de nuestro queso obtenido (o un objetivo a obtener) y una composición de leche de partida</p>
+<p>Un estándar técnico de fabricación tiene este aspecto:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>ESTANDAR TECNICO</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Análisis salida sal</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>EST %</td>
+<td>55,00%</td>
+</tr>
+<tr class="odd">
+<td>MG</td>
+<td>28,00%</td>
+</tr>
+<tr class="even">
+<td>G/ES %</td>
+<td>50,91%</td>
+</tr>
+<tr class="odd">
+<td>HFD</td>
+<td>62,50%</td>
+</tr>
+<tr class="even">
+<td>ESM</td>
+<td>27,00%</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>MP en cuba (g/L)</td>
+<td>31,13</td>
+</tr>
+<tr class="odd">
+<td>Ratio recuperación MP (Rendimiento MP %)</td>
+<td>94,65%</td>
+</tr>
+<tr class="even">
+<td>Coef G (ESM queso obtenido a partir de MP leche)</td>
+<td>29,46</td>
+</tr>
+<tr class="odd">
+<td>Litraje unitario</td>
+<td>9,164</td>
+</tr>
+<tr class="even">
+<td>Ratio recuperación MG (%)</td>
+<td>91,57%</td>
+</tr>
+<tr class="odd">
+<td>MG teórica en la cuba (g/L)</td>
+<td>30,56</td>
+</tr>
+<tr class="even">
+<td>MG Pérdidas brutas suero (g/L)</td>
+<td>2,814</td>
+</tr>
+<tr class="odd">
+<td>MG Pérdidas brutas suero (%)</td>
+<td>8,43%</td>
+</tr>
+<tr class="even">
+<td>MG estándar en la mezcla (g/L)</td>
+<td>33,37</td>
+</tr>
+</tbody>
+</table>
+<p>Llamamos MG estándar en la mezcla a la cantidad de MG que tendremos en la cuba, es decir, en nuestros 9,164 L de leche a fabricar. Esta MG puede provenir de la leche de partida o del resultado de añadir nata a la leche para conseguir la cantidad necesaria.</p>
+<p>De la misma forma, llamamos MP en cuba a la cantidad de MP que hemos puesto en cuba, ya sea la de la leche de partida o del resultado de haber añadido proteínas a esta leche.</p>
+</section>
+<section id="el-estándar-técnico-final" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="el-estándar-técnico-final"><span class="header-section-number">9.5</span> El estándar técnico final</h2>
+<p>Como hemos visto, la construcción del estándar técnico y el seguimiento de la tecnología quesera no se hacen siguiendo el consumo de <em>litros de leche</em>, sino de la cantidad de proteína y grasa utilizadas. Por esta razón, la construcción del estándar debe proporcionar las cantidades de MG y MP necesarias para obtener 1 kg de queso, y no sólo el litraje en cuba</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>ESTANDAR TECNICO</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Análisis salida sal</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>EST %</td>
+<td>55,00%</td>
+</tr>
+<tr class="odd">
+<td>MG</td>
+<td>28,00%</td>
+</tr>
+<tr class="even">
+<td>G/ES %</td>
+<td>50,91%</td>
+</tr>
+<tr class="odd">
+<td>HFD</td>
+<td>62,50%</td>
+</tr>
+<tr class="even">
+<td>ESM</td>
+<td>27,00%</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>MP en cuba (g/L)</td>
+<td>31,13</td>
+</tr>
+<tr class="odd">
+<td>Ratio recuperación MP (Rendimiento MP %)</td>
+<td>94,65%</td>
+</tr>
+<tr class="even">
+<td>Coef G (ESM queso obtenido a partir de MP leche)</td>
+<td>29,46</td>
+</tr>
+<tr class="odd">
+<td>Litraje unitario</td>
+<td>9,164</td>
+</tr>
+<tr class="even">
+<td>Ratio recuperación MG (%)</td>
+<td>91,57%</td>
+</tr>
+<tr class="odd">
+<td>MG teórica en la cuba (g/L)</td>
+<td>30,56</td>
+</tr>
+<tr class="even">
+<td>MG Pérdidas brutas suero (g/L)</td>
+<td>2,814</td>
+</tr>
+<tr class="odd">
+<td>MG Pérdidas brutas suero (%)</td>
+<td>8,43%</td>
+</tr>
+<tr class="even">
+<td>MG estándar en la mezcla (g/L)</td>
+<td>33,37</td>
+</tr>
+<tr class="odd">
+<td><strong>Consumo MG total leche en cuba</strong></td>
+<td><strong>305,79</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Consumo MP total leche en cuba</strong></td>
+<td><strong>285,26</strong></td>
+</tr>
+<tr class="odd">
+<td>MG suero en cuba (g/L)</td>
+<td>0,00</td>
+</tr>
+<tr class="even">
+<td>MG Pérddas suero neta (g/L)</td>
+<td>2,81</td>
+</tr>
+<tr class="odd">
+<td>MG Pérddas suero neta (%)</td>
+<td>8,43%</td>
+</tr>
+<tr class="even">
+<td>MG STD sin nata de suero (g/L)</td>
+<td>33,37</td>
+</tr>
+<tr class="odd">
+<td><strong>Consumo MG (sólo MG comprada) (g/K queso)</strong></td>
+<td><strong>305,79</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Consumo MP (sólo MP comprada) (g/K queso)</strong></td>
+<td><strong>285,26</strong></td>
+</tr>
+</tbody>
+</table>
+<p>En este caso, vemos un proceso de fabricación que <em>no</em> está recuperando la materia grasa del suero; las diferencias entre la MG en cuba y la MG en el queso se consideran pérdidas de proceso.</p>
+</section>
+<section id="la-importancia-de-la-estandarización-de-la-leche" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="la-importancia-de-la-estandarización-de-la-leche"><span class="header-section-number">9.6</span> La importancia de la estandarización de la leche</h2>
+<p>Como hemos visto, la tecnología quesera se construye para obtener un coeficiente de recuperación de proteína, y la materia grasa se retiene de forma más o menos pasiva en la matriz proteica.</p>
+<p>Cuando la cantidad de MG en la leche es <em>superior</em> a lo que hemos definido en nuestro proceso, ocurrirán dos cosas:</p>
+<ul>
+<li><p>Una parte de este exceso de MG quedará retenida en la matriz proteica, subiendo la cantidad de MG en el queso, y, por tanto, variando la composición</p></li>
+<li><p>Otra parte de la MG se perderá en el suero, porque siempre están en relación con la cantidad total de MG de partida. Es decir, aumentarán nuestras pérdidas de MG en el suero.</p></li>
+</ul>
+<p>Desgraciadamente, no es fácil calcular teóricamente cuánta MG vamos a retener en el queso y cuánta MG vamos a perder en el suero, porque estas cantidades no siguen una función conocida. Lo que sí sabemos es que</p>
+<ul>
+<li><p>Aumentaremos las perdidas</p></li>
+<li><p>Variaremos la composición del queso, lo que implica cambios en la textura y en el valor nutricional que podemos tener declarado</p></li>
+<li><p>Modificaremos la expulsión de suero de la matriz proteica, lo que implicará cambios en la cantidad de lactosa retenida en la cuajada, y en consecuencia, en las curvas de acidificación, extracto seco, etc</p></li>
+</ul>
+<p>Cuando la MG es <em>inferior</em> a lo definido, estos cambios se producirán en sentido inverso, afectando a la composición del queso, pero también al comportamiento tecnológico.</p>
+<p>La forma de minimizar las variaciones, manteniendo el producto con una composición constante, es:</p>
+<ul>
+<li><p>Procurar trabajar con leche que tenga el mismo contenido en MG y MP. Como la composición de la leche tiene una componente estacional, esto implica estandarizar la leche en MG y MP, <em>manteniendo constante la relación MG/MP</em>.</p></li>
+<li><p>Adaptar la tecnología estacionalmente, porque la variación estacional no sólo afecta al factor MG/MP sino a la proporción de caseína coagulable en el total de proteínas</p></li>
+</ul>
+<p>Es muy importante recordar lo que hemos comentado antes al preparar el estándar técnico: <em>la tecnología nos va a permitir modificar el ESM del queso, pero la MG va a depender de la cantidad presente en la leche de fabricación</em>. <strong>No podemos modificar la cantidad de grasa en el queso mediante la tecnología quesera en la cuba,</strong> necesitamos preparar la leche con la cantidad de grasa necesaria para lo que se va a retener en el queso más las perdidas esperadas.</p>
+<p>En la medida en la que no podamos realizar estas adaptaciones, tendremos que aceptar una variabilidad mayor en el producto, con dos consecuencias:</p>
+<ul>
+<li><p>Irregularidad en el producto final, que impacta en la aceptación por el consumidor</p></li>
+<li><p>Variación en el coste del producto, que puede llevarnos a situaciones de pérdidas no prevista</p></li>
+</ul>
+<p>Por estas razones, es imprescindible hacer un seguimiento detallado de las desviaciones tecnológicas, de manera que podamos entender mejor nuestra tecnología y actuar de manera efectiva sobre sus causas, estableciendo los planes correctores oportunos.</p>
+<p>Añado una tabla con un supuesto teórico y real, para ver cómo comparan los diferentes valores. El real se hace con una fabricación hipotética de 1000 kg de queso; el teórico se construye a partir del estándar teórico, aplicando los diferentes coeficientes a esta cantidad real, lo que nos da los diferentes valores teóricos que deberíamos haber tenido según nuestro estándar.</p>
+<p>Las explicaciones deben hacerse a partir de estas desviaciones y el conocimiento de la tecnología, y a partir de esto, establecer los planes correctivos necesarios.</p>
+<p>Conociendo el coste de la MG y de la MP pagada, se puede calcular el valor en euros de cada desviación, de forma que se pueda priorizar el plan de acción sobre las desviaciones con mayor impacto económico.</p>
+<p>Hay una hoja Excel con todos los cálculos.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 73%">
+<col style="width: 15%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Análisis de desviaciones</strong></th>
+<th><strong>Teórico</strong></th>
+<th style="text-align: right;"><strong>Real</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fabricación, KG</td>
+<td></td>
+<td style="text-align: right;">1.000</td>
+</tr>
+<tr class="even">
+<td>EST</td>
+<td>55,00%</td>
+<td style="text-align: right;">54,00%</td>
+</tr>
+<tr class="odd">
+<td>MG</td>
+<td>28,00%</td>
+<td style="text-align: right;">27,50%</td>
+</tr>
+<tr class="even">
+<td>ESM</td>
+<td>27,00%</td>
+<td style="text-align: right;">26,50%</td>
+</tr>
+<tr class="odd">
+<td>HFD</td>
+<td>62,50%</td>
+<td style="text-align: right;">63,45%</td>
+</tr>
+<tr class="even">
+<td>G/ES</td>
+<td>50,91%</td>
+<td style="text-align: right;">50,93%</td>
+</tr>
+<tr class="odd">
+<td>Litros leche puestos en fab (cuba)</td>
+<td>9.164</td>
+<td style="text-align: right;">8.780</td>
+</tr>
+<tr class="even">
+<td>Composición leche en cuba MG (g/L)</td>
+<td>33,37</td>
+<td style="text-align: right;">39,66</td>
+</tr>
+<tr class="odd">
+<td>Composición leche en cuba MP (g/L)</td>
+<td>31,13</td>
+<td style="text-align: right;">31,15</td>
+</tr>
+<tr class="even">
+<td>KMG puestos en fabricacion (cuba)</td>
+<td>306</td>
+<td style="text-align: right;">348</td>
+</tr>
+<tr class="odd">
+<td>KMP puestos en fabricacion (cuba)</td>
+<td>285</td>
+<td style="text-align: right;">274</td>
+</tr>
+<tr class="even">
+<td>KMG Nata suero recuperada puesta en fab</td>
+<td>0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>factor MG/MP leche cubas</td>
+<td>1,072</td>
+<td style="text-align: right;">1,273</td>
+</tr>
+<tr class="even">
+<td>g MP/L leche en cuba</td>
+<td>31,130</td>
+<td style="text-align: right;">31,150</td>
+</tr>
+<tr class="odd">
+<td>g MG/L leche en cuba</td>
+<td>33,370</td>
+<td style="text-align: right;">39,658</td>
+</tr>
+<tr class="even">
+<td>MG teórica en cuba g/L</td>
+<td>30,556</td>
+<td style="text-align: right;">31,321</td>
+</tr>
+<tr class="odd">
+<td>Litraje unitario (L/Kg)</td>
+<td>9,164</td>
+<td style="text-align: right;">8,780</td>
+</tr>
+<tr class="even">
+<td>Recup MG</td>
+<td>91,57%</td>
+<td style="text-align: right;">78,98%</td>
+</tr>
+<tr class="odd">
+<td>Recup MP</td>
+<td>94,65%</td>
+<td style="text-align: right;">96,89%</td>
+</tr>
+<tr class="even">
+<td>gr MG queso/kg queso</td>
+<td>280,000</td>
+<td style="text-align: right;">275,000</td>
+</tr>
+<tr class="odd">
+<td>g ESM queso/kg queso</td>
+<td>270,000</td>
+<td style="text-align: right;">265,000</td>
+</tr>
+<tr class="even">
+<td>factor MG/MP queso</td>
+<td>1,037</td>
+<td style="text-align: right;">1,038</td>
+</tr>
+<tr class="odd">
+<td>MG pérdida bruta (g/L)</td>
+<td>2,814</td>
+<td style="text-align: right;">8,337</td>
+</tr>
+<tr class="even">
+<td>MG pérdida bruta %</td>
+<td>8,43%</td>
+<td style="text-align: right;">21,02%</td>
+</tr>
+<tr class="odd">
+<td>MG suero recuperada puesta en fab g/L</td>
+<td>0,000</td>
+<td style="text-align: right;">0,000</td>
+</tr>
+<tr class="even">
+<td>MG pérdida neta g/L</td>
+<td>2,814</td>
+<td style="text-align: right;">8,337</td>
+</tr>
+<tr class="odd">
+<td>MG pérdida neta %</td>
+<td>8,43%</td>
+<td style="text-align: right;">21,02%</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td>Consumo técnico MG/kg queso (total cuba)</td>
+<td>305,79</td>
+<td style="text-align: right;">348,20</td>
+</tr>
+<tr class="even">
+<td>Consumo técnico MP/kg queso</td>
+<td>285,26</td>
+<td style="text-align: right;">273,50</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./080-pract01-camembert.html" class="pagination-link" aria-label="Práctica 1. Análisis exploratorio de una fabricación de queso camembert usando `Python` y Google Colab.">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Práctica 1. Análisis exploratorio de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./090-pract02-rendimientos.html" class="pagination-link" aria-label="Práctica 2. Análisis de los rendimientos en fabricación de queso mediante `Python`">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

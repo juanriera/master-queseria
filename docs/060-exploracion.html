@@ -224,14 +224,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./085-intro-rendim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción a los rendimientos queseros</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./090-pract02-rendimientos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./900-indice_dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -296,13 +302,14 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#relación-entre-el-boxplot-y-el-histograma" id="toc-relación-entre-el-boxplot-y-el-histograma" class="nav-link" data-scroll-target="#relación-entre-el-boxplot-y-el-histograma">Relación entre el <em>boxplot</em> y el histograma</a></li>
   </ul></li>
-  <li><a href="#gráficos-de-densidad" id="toc-gráficos-de-densidad" class="nav-link" data-scroll-target="#gráficos-de-densidad"><span class="header-section-number">6.9</span> Gráficos de densidad</a>
+  <li><a href="#alternativas-al-boxplot" id="toc-alternativas-al-boxplot" class="nav-link" data-scroll-target="#alternativas-al-boxplot"><span class="header-section-number">6.9</span> Alternativas al boxplot</a></li>
+  <li><a href="#gráficos-de-densidad" id="toc-gráficos-de-densidad" class="nav-link" data-scroll-target="#gráficos-de-densidad"><span class="header-section-number">6.10</span> Gráficos de densidad</a>
   <ul class="collapse">
-  <li><a href="#una-alternativa-al-boxplot-el-violin-plot" id="toc-una-alternativa-al-boxplot-el-violin-plot" class="nav-link" data-scroll-target="#una-alternativa-al-boxplot-el-violin-plot">Una alternativa al <em>boxplot</em>: el <em>violin plot</em></a></li>
+  <li><a href="#otra-alternativa-al-boxplot-el-violin-plot" id="toc-otra-alternativa-al-boxplot-el-violin-plot" class="nav-link" data-scroll-target="#otra-alternativa-al-boxplot-el-violin-plot">Otra alternativa al <em>boxplot</em>: el <em>violin plot</em></a></li>
   </ul></li>
-  <li><a href="#gráficos-de-dispersión" id="toc-gráficos-de-dispersión" class="nav-link" data-scroll-target="#gráficos-de-dispersión"><span class="header-section-number">6.10</span> Gráficos de dispersión</a></li>
-  <li><a href="#gráficos-de-series-temporales" id="toc-gráficos-de-series-temporales" class="nav-link" data-scroll-target="#gráficos-de-series-temporales"><span class="header-section-number">6.11</span> Gráficos de series temporales</a></li>
-  <li><a href="#algunos-ejemplos" id="toc-algunos-ejemplos" class="nav-link" data-scroll-target="#algunos-ejemplos"><span class="header-section-number">6.12</span> Algunos ejemplos</a>
+  <li><a href="#gráficos-de-dispersión" id="toc-gráficos-de-dispersión" class="nav-link" data-scroll-target="#gráficos-de-dispersión"><span class="header-section-number">6.11</span> Gráficos de dispersión</a></li>
+  <li><a href="#gráficos-de-series-temporales" id="toc-gráficos-de-series-temporales" class="nav-link" data-scroll-target="#gráficos-de-series-temporales"><span class="header-section-number">6.12</span> Gráficos de series temporales</a></li>
+  <li><a href="#algunos-ejemplos" id="toc-algunos-ejemplos" class="nav-link" data-scroll-target="#algunos-ejemplos"><span class="header-section-number">6.13</span> Algunos ejemplos</a>
   <ul class="collapse">
   <li><a href="#cómo-hacer-los-gráficos-de-series-temporales-en-excel" id="toc-cómo-hacer-los-gráficos-de-series-temporales-en-excel" class="nav-link" data-scroll-target="#cómo-hacer-los-gráficos-de-series-temporales-en-excel">Cómo hacer los gráficos de series temporales en Excel</a></li>
   <li><a href="#gráficos-de-series-temporales-en-python-utilizando-pandas" id="toc-gráficos-de-series-temporales-en-python-utilizando-pandas" class="nav-link" data-scroll-target="#gráficos-de-series-temporales-en-python-utilizando-pandas">Gráficos de series temporales en <code>Python</code> utilizando <code>pandas</code></a></li>
@@ -792,12 +799,16 @@ Name: count, dtype: int64</code></pre>
 </div>
 </section>
 </section>
-<section id="gráficos-de-densidad" class="level2" data-number="6.9">
-<h2 data-number="6.9" class="anchored" data-anchor-id="gráficos-de-densidad"><span class="header-section-number">6.9</span> Gráficos de densidad</h2>
-<p>Un gráfico de densidad es una representación visual suavizada de la distribución de un conjunto de datos. A diferencia de los histogramas, que dividen los datos en intervalos y cuentan las frecuencias, los gráficos de densidad utilizan técnicas estadísticas no paramétricas para estimar la función de densidad de probabilidad.</p>
-<p>Excel no permite la representación de los gráficos de densidad; en <code>Python</code>lo hemos hecho arriba hacerlo con <code>seaborn</code>, añadiendo la funcion de densidad a un histograma añadiendo la opción <code>kde = True</code>.</p>
-<p>Los gráficos de densidad son especialmente útiles cuando estamos comparando diferentes grupos de datos entre sí, por ejemplo en este caso comparamos el extracto seco total de nuestra fabricación de camembert trimestre a trimestre:</p>
-<div id="cell-23" class="cell" data-execution_count="7">
+<section id="alternativas-al-boxplot" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="alternativas-al-boxplot"><span class="header-section-number">6.9</span> Alternativas al boxplot</h2>
+<p>El <em>boxplot</em> es muy útil para resumir grandes cantidades de información, pero cuando el número de puntos es muy bajo, puede resultarnos más útil la visualización mediante otro tipo de gráficos que nos muestren los puntos individuales agrupados. Entre estas visualizaciones, la biblioteca <code>seaborn</code> nos ofrece el gráfico llamado <em>beeswarm</em> mediante la función <code>swarmplot()</code>, y también el <em>dotplot</em>, mediante la función <code>stripplot()</code>.</p>
+<div id="cell-24" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'est'</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>) <span class="co"># es opcional rotar lo rótulos para mejorar la visibilidad cuando los titulos son largos y se solapan</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Beeswarm: extracto seco total'</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Extracto seco total'</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -806,14 +817,14 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<p>La curva de densidad nos permite visualizar la desviación que se produce por el verano (T3); son los valores que el <em>boxplot</em> nos ha mostrado como <em>outliers</em>.</p>
-<section id="una-alternativa-al-boxplot-el-violin-plot" class="level3">
-<h3 class="anchored" data-anchor-id="una-alternativa-al-boxplot-el-violin-plot">Una alternativa al <em>boxplot</em>: el <em>violin plot</em></h3>
-<p>El <em>violin plot</em> es una alternativa reciente al <em>boxplot</em>, tiene la ventaja de que muestra la <em>densidad</em> de la distribución superpuesta al <em>boxplot</em>, lo que permite visualizar con más claridad la distribución de los datos:</p>
-<div id="cell-27" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sns.violinplot(y<span class="op">=</span><span class="st">'est'</span>, data<span class="op">=</span>df)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>El <em>beeswarm</em> nos da una distribución aproximada de los valores individuales, y los coloa cal lado para evitar solapamientos.</p>
+<p>El <em>stripplot</em> muestra los puntos en distribución vertical sobre las categorías; para evitar que los puntos con las mismas coordenada se solapen, utilizamos la opción <em>jitter</em>, que introduce un pequeño <em>ruido</em> aleatorio horizontal para desplazar las coordenadas de los puntos evitando su solapamiento.</p>
+<div id="cell-26" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sns.stripplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'est'</span>, jitter<span class="op">=</span><span class="va">True</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Dotplot con jitter: extracto seco total'</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -822,11 +833,14 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<p>El <em>violin plot</em>, como el <em>boxplot</em>, se usan muy a menudo para comparar distribuciones de datos. Puedes comparar el gráfico de densidades por trimestres que hemos hecho antes con este <em>violin plot</em> múltiple por trimestres.</p>
-<div id="cell-29" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span> <span class="st">'trimestre'</span>, y<span class="op">=</span><span class="st">'est'</span>, data<span class="op">=</span>df, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Este diagrama puede superponerse al <em>boxplot</em>, lo que nos permite completar la visualización de los puntos y la interpretación que hace el <em>boxplot</em> de su distribución.</p>
+<div id="cell-28" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'est'</span>, color<span class="op">=</span><span class="st">'lightgray'</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'est'</span>, size<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Boxplot + Beeswarm: extracto seco total'</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -836,9 +850,53 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 </section>
+<section id="gráficos-de-densidad" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="gráficos-de-densidad"><span class="header-section-number">6.10</span> Gráficos de densidad</h2>
+<p>Un gráfico de densidad es una representación visual suavizada de la distribución de un conjunto de datos. A diferencia de los histogramas, que dividen los datos en intervalos y cuentan las frecuencias, los gráficos de densidad utilizan técnicas estadísticas no paramétricas para estimar la función de densidad de probabilidad.</p>
+<p>Excel no permite la representación de los gráficos de densidad; en <code>Python</code>lo hemos hecho arriba hacerlo con <code>seaborn</code>, añadiendo la funcion de densidad a un histograma añadiendo la opción <code>kde = True</code>.</p>
+<p>Los gráficos de densidad son especialmente útiles cuando estamos comparando diferentes grupos de datos entre sí, por ejemplo en este caso comparamos el extracto seco total de nuestra fabricación de camembert trimestre a trimestre:</p>
+<div id="cell-30" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="060-exploracion_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La curva de densidad nos permite visualizar la desviación que se produce por el verano (T3); son los valores que el <em>boxplot</em> nos ha mostrado como <em>outliers</em>.</p>
+<section id="otra-alternativa-al-boxplot-el-violin-plot" class="level3">
+<h3 class="anchored" data-anchor-id="otra-alternativa-al-boxplot-el-violin-plot">Otra alternativa al <em>boxplot</em>: el <em>violin plot</em></h3>
+<p>El <em>violin plot</em> es una alternativa reciente al <em>boxplot</em>, tiene la ventaja de que muestra la <em>densidad</em> de la distribución superpuesta al <em>boxplot</em>, lo que permite visualizar con más claridad la distribución de los datos:</p>
+<div id="cell-34" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sns.violinplot(y<span class="op">=</span><span class="st">'est'</span>, data<span class="op">=</span>df)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="060-exploracion_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>El <em>violin plot</em>, como el <em>boxplot</em>, se usan muy a menudo para comparar distribuciones de datos. Puedes comparar el gráfico de densidades por trimestres que hemos hecho antes con este <em>violin plot</em> múltiple por trimestres.</p>
+<div id="cell-36" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sns.violinplot(x<span class="op">=</span> <span class="st">'trimestre'</span>, y<span class="op">=</span><span class="st">'est'</span>, data<span class="op">=</span>df, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="060-exploracion_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="gráficos-de-dispersión" class="level2" data-number="6.10">
-<h2 data-number="6.10" class="anchored" data-anchor-id="gráficos-de-dispersión"><span class="header-section-number">6.10</span> Gráficos de dispersión</h2>
+</section>
+<section id="gráficos-de-dispersión" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="gráficos-de-dispersión"><span class="header-section-number">6.11</span> Gráficos de dispersión</h2>
 <p>Un gráfico de dispersión, también conocido como diagrama de dispersión o <em>scatter plot</em>, es una representación gráfica que utiliza puntos para mostrar la relación entre dos variables numéricas. Cada punto en el gráfico representa una observación del conjunto de datos y se coloca en el plano cartesiano de acuerdo con sus valores en las dos variables que se están comparando.</p>
 <p>Un gráfico de dispersión se compone mediante puntos:</p>
 <ul>
@@ -886,31 +944,31 @@ Figure&nbsp;6.1: Gráfico de dispersión en Excel
 </div>
 <p>Lo esperable en nuestros datos es que el valor de <code>est</code> y el de <code>mg</code> estén asociados, y a valores altos de la primera variable correspondan valores altos de la segunda (para el mismo producto y sin cambios de tecnología). Sin embargo, algunos valores parecen no encajar en este modelo; es el caso de un valor de <code>est</code>por encima de 52% con un valor de <code>mg</code>inferior a 23%, o el caso de un valor de <code>mg</code> en torno al 28% con un valor de <code>est</code> por debajo de 47%. Debemos revisar estos valores aparentemente anormales para verificar si ha habido un error en la toma de muestras o un error analítico. En fábricas con productos diferentes cuyos resultados analíticos se recogen en una tabla de datos común, a veces puede haber errores en la introducción de los códigos de producto, de forma que la toma de muestras y los análisis pueden ser correctos, pero estar mal asignados al guardar los datos.</p>
 <p><code>Python</code> nos permite separar el diagrama de dispersión en función de una tercera variable, en este caso, usremos el trimestre para ver lo que ha sucedido por el verano.</p>
-<div id="cell-32" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">6</span>))</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'est'</span>, y<span class="op">=</span><span class="st">'mg'</span>, hue<span class="op">=</span><span class="st">'trimestre'</span>, s<span class="op">=</span><span class="dv">80</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Relación entre el EST y la MG en una fabricación anual de camembert'</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'EST (%)'</span>)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'MG (%)'</span>)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Trimestre'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-39" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">6</span>))</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'est'</span>, y<span class="op">=</span><span class="st">'mg'</span>, hue<span class="op">=</span><span class="st">'trimestre'</span>, s<span class="op">=</span><span class="dv">80</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Relación entre el EST y la MG en una fabricación anual de camembert'</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'EST (%)'</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'MG (%)'</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Trimestre'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="060-exploracion_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="060-exploracion_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Como vemos, los gráficos de dispersión son una herramienta esencial en el análisis exploratorio de datos, ya que permiten visualizar relaciones y patrones en los datos, identificar correlaciones y detectar posibles anomalías. Esta información es crucial para realizar análisis estadísticos más profundos y tomar decisiones basadas en datos.</p>
 </section>
-<section id="gráficos-de-series-temporales" class="level2" data-number="6.11">
-<h2 data-number="6.11" class="anchored" data-anchor-id="gráficos-de-series-temporales"><span class="header-section-number">6.11</span> Gráficos de series temporales</h2>
+<section id="gráficos-de-series-temporales" class="level2" data-number="6.12">
+<h2 data-number="6.12" class="anchored" data-anchor-id="gráficos-de-series-temporales"><span class="header-section-number">6.12</span> Gráficos de series temporales</h2>
 <p>Hasta ahora hemos utilizado gráficos y tablas que describen la estructura y forma de una variable, o las relaciones entre dos variables. Hay otros gráficos que tienen en cuenta la forma en la que esos datos cambian con el tiempo. En este caso, será necesario que hayamos recogido en una variable de nuestra tabla los intervalos de tiempo en los que se han producido nuestros valores.</p>
 </section>
-<section id="algunos-ejemplos" class="level2" data-number="6.12">
-<h2 data-number="6.12" class="anchored" data-anchor-id="algunos-ejemplos"><span class="header-section-number">6.12</span> Algunos ejemplos</h2>
+<section id="algunos-ejemplos" class="level2" data-number="6.13">
+<h2 data-number="6.13" class="anchored" data-anchor-id="algunos-ejemplos"><span class="header-section-number">6.13</span> Algunos ejemplos</h2>
 <ul>
 <li><p>proceso de llenado de envases de queso crema: se llena una tarrina cada 15 segundos. Nuestros datos deben recoger el tiempo y el peso.</p></li>
 <li><p>nuestro fichero de fabricación de queso camembert recoge los valores analíticos medios diarios del producto fabricado.</p></li>
@@ -949,22 +1007,22 @@ Figure&nbsp;6.1: Gráfico de dispersión en Excel
 <section id="construyendo-la-serie-temporal-con-pandas" class="level4">
 <h4 class="anchored" data-anchor-id="construyendo-la-serie-temporal-con-pandas">Construyendo la serie temporal con <code>pandas</code></h4>
 <p>Vamos a incluir de nuevo el código de lectura de los datos completo, para mayor claridad. Además, vamos a incluir una opción en la función de lectura del <code>csv</code> que formatea el campo <code>fecha</code> al formato que <code>pandas</code>puede reconocer.</p>
-<div id="cell-39" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>url_datos <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/camembert.csv'</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(url_datos, </span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>      decimal <span class="op">=</span> <span class="st">","</span>, </span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>      sep<span class="op">=</span><span class="st">';'</span>, </span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>      encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error al cargar el archivo: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-46" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>url_datos <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/camembert.csv'</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(url_datos, </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>      decimal <span class="op">=</span> <span class="st">","</span>, </span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>      sep<span class="op">=</span><span class="st">';'</span>, </span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>      encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error al cargar el archivo: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 211 entries, 0 to 210
@@ -983,16 +1041,16 @@ memory usage: 11.7+ KB</code></pre>
 </div>
 </div>
 <p>Como <code>fecha</code>se ha leído como object, la convertimos en fecha</p>
-<div id="cell-41" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha'</span>] <span class="op">=</span> pd.to_datetime(</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,  </span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span> <span class="co"># Si hay una fecha inválida, la convierte a 'NaT' (Not a Time) en lugar de fallar.</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-48" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha'</span>] <span class="op">=</span> pd.to_datetime(</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,  </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span> <span class="co"># Si hay una fecha inválida, la convierte a 'NaT' (Not a Time) en lugar de fallar.</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Verificamos que el contenido del dataframe es correcto</p>
-<div id="cell-43" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-50" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 211 entries, 0 to 210
@@ -1011,9 +1069,9 @@ memory usage: 11.7 KB</code></pre>
 </div>
 </div>
 <p>Ahora <code>fecha</code>ya es <code>datetime64</code> y <code>pandas</code>lo reconoce como campo de fecha. Verificamos el dataframe:</p>
-<div id="cell-45" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div id="cell-52" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 
 
@@ -1088,54 +1146,15 @@ memory usage: 11.7 KB</code></pre>
 </div>
 </div>
 <p>Para utilizar las funciones de series de <code>pandas</code> es necesario crear una columna <code>index</code>o <strong>índice</strong> y asignarla como <code>index</code> del dataframe; <code>pandas</code> utilizará el index para toda la gestión de las fechas de manera rápida y flexible.</p>
-<div id="cell-47" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>]<span class="op">=</span> pd.DatetimeIndex(df.fecha).normalize()</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-54" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>]<span class="op">=</span> pd.DatetimeIndex(df.fecha).normalize()</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>La función <code>.plot()</code> nos representa los valores de la columna en orden secuencial, y toma las fechas del <code>index</code> de forma utomática, sin necesidad de explicitarlo:</p>
-<div id="cell-49" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].plot()</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="060-exploracion_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Mediante las funciones de <code>pandas</code>, podemos reformatear las fechas remuestreando para hacer las medias semanales del extracto seco total. La función <code>resample('W-MON')</code> formatea las fechas para que las semanas empiecen en lunes, como es el caso en Europa (en USA la semana empieza el domingo). Aprovechamos para mostrar una de las potencias de <code>Python</code>: podemos hacer que varios cálculos se hagan a continuacion de los otros, simplemente enlazando las funciones, hasta el <code>.plot()</code></p>
-<div id="cell-51" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">2.0</span>))</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).mean().plot(title<span class="op">=</span><span class="st">"Media del extracto seco total semanal"</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="060-exploracion_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Veamos a continuación otras formas de formatear la serie sobre la marcha, pero esta vez representando la <code>desviación típica</code>en vez de la <code>media</code>.</p>
-<div id="cell-53" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">2.0</span>))</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).std().plot(title<span class="op">=</span><span class="st">"Desviación típica del extracto seco total semanal"</span>)</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="060-exploracion_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>O podemos representar un período específico de la serie indicando a <code>pandas</code> los límites inferior y superior de las fechas que queremos.</p>
-<div id="cell-55" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">2.0</span>))</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>][<span class="st">"2020-05"</span>:<span class="st">"2020-08"</span>].resample(<span class="st">'W-MON'</span>).mean().plot(title<span class="op">=</span><span class="st">"Media del extracto seco total semanal"</span>)<span class="op">;</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-56" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].plot()</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1144,45 +1163,84 @@ memory usage: 11.7 KB</code></pre>
 </div>
 </div>
 </div>
-<p>Por último, combinamos el gráfico de media y el de la desviación típica semanal en un único gráfico. Queda para el trabajo en clase ir buscando la explicación y comprensión de cada linea (sugerencia: copiar y pegar en Gemini el código y solicitar explicación detallada)</p>
-<div id="cell-57" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Preparación de los datos (Calculando la Media y la Desviación Típica Semanal) ---</span></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>media_semanal <span class="op">=</span> df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).mean()</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>dt_semanal <span class="op">=</span> df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).std()</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 2. Creación de los Subgráficos (El paso clave) ---</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos una figura (conjunto de gráficos) con 2 filas y 1 columna.</span></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co"># El parámetro 'figsize=(10, 4)' controla el tamaño: 10 de ancho y 4 de alto total (como un gráfico normal).</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 'sharex=True' asegura que ambos gráficos compartan el mismo eje temporal.</span></span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(</span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    nrows<span class="op">=</span><span class="dv">2</span>, </span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    ncols<span class="op">=</span><span class="dv">1</span>, </span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>), </span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>    sharex<span class="op">=</span><span class="va">True</span></span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 3. Graficar la Media (Gráfico Superior) ---</span></span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>ax1.plot(media_semanal, label<span class="op">=</span><span class="st">"Media Semanal"</span>, color<span class="op">=</span><span class="st">'tab:blue'</span>)</span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Media y Desviación Típica Semanal del Extracto Seco Total"</span>)</span>
-<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Media (est)"</span>)</span>
-<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>ax1.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>ax1.tick_params(labelbottom<span class="op">=</span><span class="va">False</span>) <span class="co"># Quita las etiquetas de fecha/hora del gráfico superior</span></span>
-<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 4. Graficar la Desviación Típica (Gráfico Inferior) ---</span></span>
-<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>ax2.plot(dt_semanal, label<span class="op">=</span><span class="st">"Desviación Típica Semanal"</span>, color<span class="op">=</span><span class="st">'tab:orange'</span>)</span>
-<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"D. Típica (est)"</span>)</span>
-<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a>ax2.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajusta el espacio entre los gráficos para que no se superpongan</span></span>
-<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a>fig.tight_layout() </span>
-<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Mediante las funciones de <code>pandas</code>, podemos reformatear las fechas remuestreando para hacer las medias semanales del extracto seco total. La función <code>resample('W-MON')</code> formatea las fechas para que las semanas empiecen en lunes, como es el caso en Europa (en USA la semana empieza el domingo). Aprovechamos para mostrar una de las potencias de <code>Python</code>: podemos hacer que varios cálculos se hagan a continuacion de los otros, simplemente enlazando las funciones, hasta el <code>.plot()</code></p>
+<div id="cell-58" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">2.0</span>))</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).mean().plot(title<span class="op">=</span><span class="st">"Media del extracto seco total semanal"</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="060-exploracion_files/figure-html/cell-21-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Veamos a continuación otras formas de formatear la serie sobre la marcha, pero esta vez representando la <code>desviación típica</code>en vez de la <code>media</code>.</p>
+<div id="cell-60" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">2.0</span>))</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).std().plot(title<span class="op">=</span><span class="st">"Desviación típica del extracto seco total semanal"</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="060-exploracion_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>O podemos representar un período específico de la serie indicando a <code>pandas</code> los límites inferior y superior de las fechas que queremos.</p>
+<div id="cell-62" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">2.0</span>))</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>][<span class="st">"2020-05"</span>:<span class="st">"2020-08"</span>].resample(<span class="st">'W-MON'</span>).mean().plot(title<span class="op">=</span><span class="st">"Media del extracto seco total semanal"</span>)<span class="op">;</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="060-exploracion_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Por último, combinamos el gráfico de media y el de la desviación típica semanal en un único gráfico. Queda para el trabajo en clase ir buscando la explicación y comprensión de cada linea (sugerencia: copiar y pegar en Gemini el código y solicitar explicación detallada)</p>
+<div id="cell-64" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. Preparación de los datos (Calculando la Media y la Desviación Típica Semanal) ---</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>media_semanal <span class="op">=</span> df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).mean()</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>dt_semanal <span class="op">=</span> df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).std()</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 2. Creación de los Subgráficos (El paso clave) ---</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos una figura (conjunto de gráficos) con 2 filas y 1 columna.</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="co"># El parámetro 'figsize=(10, 4)' controla el tamaño: 10 de ancho y 4 de alto total (como un gráfico normal).</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 'sharex=True' asegura que ambos gráficos compartan el mismo eje temporal.</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>    nrows<span class="op">=</span><span class="dv">2</span>, </span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>    ncols<span class="op">=</span><span class="dv">1</span>, </span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>), </span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    sharex<span class="op">=</span><span class="va">True</span></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 3. Graficar la Media (Gráfico Superior) ---</span></span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>ax1.plot(media_semanal, label<span class="op">=</span><span class="st">"Media Semanal"</span>, color<span class="op">=</span><span class="st">'tab:blue'</span>)</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Media y Desviación Típica Semanal del Extracto Seco Total"</span>)</span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Media (est)"</span>)</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>ax1.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>ax1.tick_params(labelbottom<span class="op">=</span><span class="va">False</span>) <span class="co"># Quita las etiquetas de fecha/hora del gráfico superior</span></span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 4. Graficar la Desviación Típica (Gráfico Inferior) ---</span></span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>ax2.plot(dt_semanal, label<span class="op">=</span><span class="st">"Desviación Típica Semanal"</span>, color<span class="op">=</span><span class="st">'tab:orange'</span>)</span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"D. Típica (est)"</span>)</span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>ax2.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajusta el espacio entre los gráficos para que no se superpongan</span></span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>fig.tight_layout() </span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="060-exploracion_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>

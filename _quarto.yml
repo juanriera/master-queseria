@@ -23,6 +23,7 @@ book:
     - 060-exploracion.ipynb
     - 070-estad-simple.qmd    
     - 080-pract01-camembert.ipynb 
+    - 085-intro-rendim.qmd
     - 090-pract02-rendimientos.ipynb 
     - 900-indice_dataframes.ipynb
     #- 060-forma-de-los-datos.qmd
