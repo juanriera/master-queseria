@@ -235,7 +235,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#densidad-y-conversión-entre-porcentajes" id="toc-densidad-y-conversión-entre-porcentajes" class="nav-link active" data-scroll-target="#densidad-y-conversión-entre-porcentajes"><span class="header-section-number">9.1</span> Densidad y conversión entre porcentajes</a></li>
+  <li><a href="#un-ejemplo-de-cálculo-de-rendimientos" id="toc-un-ejemplo-de-cálculo-de-rendimientos" class="nav-link active" data-scroll-target="#un-ejemplo-de-cálculo-de-rendimientos"><span class="header-section-number">9.1</span> Un ejemplo de cálculo de rendimientos</a></li>
   <li><a href="#cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" id="toc-cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" class="nav-link" data-scroll-target="#cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso"><span class="header-section-number">9.2</span> Cálculo de la cantidad de leche necesaria para fabricar 1 kg de queso</a></li>
   <li><a href="#la-materia-grasa" id="toc-la-materia-grasa" class="nav-link" data-scroll-target="#la-materia-grasa"><span class="header-section-number">9.3</span> La materia grasa</a></li>
   <li><a href="#el-estándar-de-fabricación" id="toc-el-estándar-de-fabricación" class="nav-link" data-scroll-target="#el-estándar-de-fabricación"><span class="header-section-number">9.4</span> El estándar de fabricación</a></li>
@@ -266,31 +266,44 @@ window.Quarto = {
 </header>
 
 
-<p>Supongamos que somos un fabricante de queso, fabricamos un producto determinado del que tenemos valores analíticos de producto terminado y de la materia en proceso.</p>
-<p>Es un producto que, más o menos, siempre fabricaremos con los mismos pasos tecnológicos. Puesto que siempre hacemos el mismo producto, siempre fabricamos igual, con la variabilidad inherente a nuestro proceso.</p>
+<p>La elaboración de queso tiene como objetivo principal <strong>preservar y concentrar los componentes nutritivos de la leche</strong>, transformándolos en un producto alimentario con <strong>elevado valor sensorial, nutricional y comercial</strong>. Este proceso da lugar a una amplia variedad de quesos, cada uno con características únicas que responden a factores como el tipo de leche, la tecnología aplicada y las condiciones de maduración.</p>
+<p>El propósito de la tecnología quesera es <strong>optimizar esta transformación</strong>, guiando el proceso de forma que se obtenga el mejor producto posible, <strong>garantizando la calidad sanitaria, tecnológica y organoléptica</strong>, y todo ello de manera <strong>eficiente y rentable</strong>. Para lograrlo, los objetivos técnicos se centran en <strong>minimizar las pérdidas de materia</strong>, especialmente de <strong>grasa y proteína</strong>, que son los componentes clave en la formación del queso. Al mismo tiempo, se busca <strong>preservar los atributos sensoriales</strong> —como sabor, textura y aroma— y <strong>cumplir con los requisitos higiénico-sanitarios</strong> establecidos por la normativa vigente.</p>
+<p>El análisis del proceso quesero se estructura en dos etapas diferenciadas:</p>
+<ul>
+<li><strong>Balance de materia global:</strong> comprende desde la recepción de la leche cruda hasta el final del proceso de elaboración, momento en que el queso está listo para entrar en la fase de maduración. Este balance permite evaluar el rendimiento general y detectar posibles pérdidas o desviaciones.</li>
+<li><strong>Transformación quesera propiamente dicha:</strong> abarca el tramo desde la leche destinada a fabricación una vez en la cuba, hasta la obtención del queso fresco. Aquí se analizan los rendimientos específicos, la eficiencia de coagulación, el corte, el desuerado, el moldeado y otros parámetros tecnológicos que inciden directamente en la calidad y cantidad del producto final.</li>
+</ul>
+<p>En este capítulo abordaremos la segunda parte, la transformación quesera, analizando los valores analíticos de la leche de fabricación y del queso recién elaborado, y extraeremos diversas consecuencias:</p>
+<ul>
+<li>Estableceremos los parámetros de referencia de nuestro propio proceso, que nos servirán de punto de comparación para las fabricaciones que vayamos realizando.</li>
+<li>Evaluaremos las causas posibles de las desviaciones, y veremos cómo proponer planes de acción para la reducción o eliminación de estas desviaciones.</li>
+</ul>
+<section id="un-ejemplo-de-cálculo-de-rendimientos" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="un-ejemplo-de-cálculo-de-rendimientos"><span class="header-section-number">9.1</span> Un ejemplo de cálculo de rendimientos</h2>
+<p>En este ejemplo, vamos a suponer que somos un fabricante elaborador de un queso del que tenemos valores analíticos de producto terminado y de la materia en proceso. Es un producto que siempre fabricamos con los mismos pasos tecnológicos, con la variabilidad que suponemos inherente a nuestro proceso.</p>
 <p>Vamos a ir definiendo por pasos nuestra tecnología.</p>
 <p>Los dos primeros pasos consisten en</p>
 <ol type="1">
-<li><p>definir el producto, y</p></li>
-<li><p>la materia prima con la que lo hacemos.</p></li>
+<li>definir el producto, y</li>
+<li>la materia prima con la que lo hacemos.</li>
 </ol>
-<p>En nuestro caso, supongamos que hacemos un queso que tiene una composición determinada, que caracterizamos mediante un análisis de extracto seco y una grasa butirométrica, en un punto determinado de nuestro proceso (por ejemplo, a la salida de la salmuera, después de escurrido) y mediante un muestreo repetible, de forma que nuestro análisis sea representativo.</p>
+<p>Caracterizaremos nuestro queso mediante un análisis de extracto seco total y una grasa butirométrica, en un punto determinado de nuestro proceso (por ejemplo, a la salida de la salmuera, después de escurrido) y mediante un muestreo repetible, de forma que nuestro análisis sea representativo. A partir de estos dos análisis, calculamos otros parámetros técnicos necesarios, tales como la materia grasa sobre el extracto seco total (G/ES), el extracto seco magro o desnatado (ESM) y la humedad del queso desnatado (HQD), valores que se calculan a partir de los primeros.</p>
 <p>Supongamos que este es el resultado analítico de nuestro producto:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th><strong>Datos del producto</strong></th>
-<th></th>
+<th><strong>Composición del queso</strong></th>
+<th style="text-align: center;"><strong>g/100 g</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>EST a salida de sal (%)</td>
-<td>55,00%</td>
+<td>EST a salida de sal</td>
+<td style="text-align: center;">55,00%</td>
 </tr>
 <tr class="even">
-<td>MG a salida de sal (%)</td>
-<td>28,00%</td>
+<td>MG a salida de sal</td>
+<td style="text-align: center;">28,00%</td>
 </tr>
 </tbody>
 </table>
@@ -298,101 +311,82 @@ window.Quarto = {
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th><strong>Datos de materia prima</strong></th>
+<th><strong>Composición materia prima</strong></th>
+<th style="text-align: center;"><strong>g/L</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Materia grasa (MG)</td>
+<td style="text-align: center;">33,40</td>
+</tr>
+<tr class="even">
+<td>Proteínas totales (MP)</td>
+<td style="text-align: center;">31,33</td>
+</tr>
+<tr class="odd">
+<td>Extracto seco total (ESM)</td>
+<td style="text-align: center;">121,73</td>
+</tr>
+<tr class="even">
+<td>Lactosa</td>
+<td style="text-align: center;">48,00</td>
+</tr>
+<tr class="odd">
+<td>Sales minerales</td>
+<td style="text-align: center;">9,00</td>
+</tr>
+</tbody>
+</table>
+<p>Estamos expresando la composición de nuestra leche en <strong>gramos por litro (g/L)</strong>. Podemos expresarla también en porcentaje, es decir, cuántos gramos de grasa y de proteína tenemos en 100 ml o en 100 g de leche (<strong>Importante</strong>: los porcentajes <strong>siempre tienen dimensiones</strong>.)</p>
+<ul>
+<li>Para expresar las cantidades en <strong>gramos/100 ml (porcentaje masa/volumen)</strong> no tenemos más que dividir por 10.</li>
+<li>Para expresar las cantidades en <strong>g/100 g de leche (porcentaje masa/masa)</strong> necesitamos un parámetro adicional que nos define cuál es el peso de nuestros 100 ml de leche: la densidad.</li>
+</ul>
+<p>La densidad de la leche de vaca oscila entre 1,028 y 1,035 g/ml; a veces se expresa en g/L, en cuyo caso los valores oscilarán entre 1028 y 1030 g/L. Aquí tomaremos como referencia el valor de 1,030 g/ml. lo que quiere decir que 1 L de leche entera pesa aproximadamente 1,030 kilogramos.</p>
+<p><span class="math display">\[
+\frac{3,34\ \text{g grasa}}{100\ \text{ml leche}} \cdot \frac{1\ \text{ml leche}}{1,030\ \text{g leche}} = \frac{3,34}{1,030} \cdot \frac{\text{g grasa}}{100\ \text{g leche}} = 3,24\% \text{ en peso}
+\]</span></p>
+<p>Hacemos el resto de conversiones, y nuestra tabla de valores analíticos de la leche, expresada en las diferentes unidades que hemos visto, quedaría de la siguiente forma:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
 <th></th>
+<th style="text-align: right;">g/L</th>
+<th style="text-align: right;">g/100 ml</th>
+<th style="text-align: right;">g/100 g</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Composición leche (g/L)</strong></td>
-<td></td>
+<td>MG</td>
+<td style="text-align: right;">33,37</td>
+<td style="text-align: right;">3,337</td>
+<td style="text-align: right;">3,240</td>
 </tr>
 <tr class="even">
-<td>MG</td>
-<td>33,37</td>
-</tr>
-<tr class="odd">
 <td>MP</td>
-<td>31,13</td>
+<td style="text-align: right;">31,13</td>
+<td style="text-align: right;">3,113</td>
+<td style="text-align: right;">3,022</td>
 </tr>
-</tbody>
-</table>
-<section id="densidad-y-conversión-entre-porcentajes" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="densidad-y-conversión-entre-porcentajes"><span class="header-section-number">9.1</span> Densidad y conversión entre porcentajes</h2>
-<p>Estamos expresando la composición de nuestra leche en gramos por litro (g/L). Podemos expresarla también en porcentaje, es decir, cuántos gramos de grasa y de proteína tenemos en 100 ml o en 100 g de leche.</p>
-<p>Para expresar esta cantidad en gramos/100 ml no tenemos más que dividir por 1000 y multiplicar por 100, para expresar la cantidad en %:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><strong>Datos de materia prima</strong></th>
-<th><strong>g/L</strong></th>
-<th><strong>% peso/volumen</strong></th>
-</tr>
-</thead>
-<tbody>
 <tr class="odd">
-<td><strong>Composición leche (g/L)</strong></td>
-<td></td>
-<td></td>
+<td>EST</td>
+<td style="text-align: right;">129,60</td>
+<td style="text-align: right;">12,96</td>
+<td style="text-align: right;">12,583</td>
 </tr>
 <tr class="even">
-<td>MG</td>
-<td>33,37</td>
-<td>3,34%</td>
+<td>dens</td>
+<td style="text-align: right;">1,030</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
 </tr>
 <tr class="odd">
-<td>MP</td>
-<td>31,13</td>
-<td>3,11%</td>
-</tr>
-</tbody>
-</table>
-<p>Para expresar las cantidades en g/100 g de leche necesitamos un parámetro adicional que nos define cuál es el peso de nuestros 100 ml de leche: la densidad.</p>
-<p>La densidad aproximada de la leche de vaca es 1,030. Esto quiere decir que 1 L de leche entera pesa aproximadamente 1,030 k</p>
-<p><span class="math display">\[
-\frac{3.34\ \text{g grasa}}{100\ \text{ml leche}} \cdot \frac{1\ \text{ml leche}}{1.030\ \text{g leche}} = \frac{3.34}{1.030} \cdot \frac{\text{g grasa}}{100\ \text{g leche}} = 3.24\% \text{ en peso}
-\]</span> Esto quiere decir que si 100 ml de leche pesan 103,0 gramos, 100 gramos de leche ocuparán un volumen que será un poco menos de 100 ml, exactamente:</p>
-<p><span class="math display">\[
-\frac{100\ g*100\ ml}{103\ ,0\ g} = 97.08\ ml
-\]</span></p>
-<p>Luego, la cantidad de materia grasa en 100 ml de leche siempre será algo superior a la cantidad en 100 g de leche.</p>
-<p>Por último, a título de curiosidad, podemos recuperar la densidad de la leche a partir de los porcentajes, como es lógico: <span class="math display">\[
-\frac{3,34\ g\ grasa}{100\ ml\ leche}*\ \frac{100\ g\ leche}{3,24\ g\ grasa} = 1,030\ \frac{g}{ml}\ leche
-\]</span></p>
-<p>De esta forma, nuestra tabla de valores analíticos de la leche, expresada en las diferentes unidades que hemos visto, quedaría de la siguiente forma:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 38%">
-<col style="width: 9%">
-<col style="width: 27%">
-<col style="width: 24%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Datos de materia prima</strong></th>
-<th><strong>g/L</strong></th>
-<th><strong>% peso/volumen</strong></th>
-<th><strong>% peso/peso</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Composición leche (g/L)</strong></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>MG</td>
-<td>33,37</td>
-<td>3,337%</td>
-<td>3,240%</td>
-</tr>
-<tr class="odd">
-<td>MP</td>
-<td>31,13</td>
-<td>3,113%</td>
-<td>3,022%</td>
+<td>ESM</td>
+<td style="text-align: right;">96,23</td>
+<td style="text-align: right;">9,62</td>
+<td style="text-align: right;">9,34</td>
 </tr>
 </tbody>
 </table>
@@ -407,8 +401,8 @@ window.Quarto = {
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th><strong>Análisis salida sal</strong> (g/100g)</th>
-<th style="text-align: center;"></th>
+<th><strong>Análisis salida salmuera</strong></th>
+<th style="text-align: center;"><strong>g/100g</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -441,7 +435,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \frac{31,13\ g\ proteína}{1\ L\ leche}*\ \frac{0.9465\ g\ ESM}{1\ g\ proteína} = 29,46\ g\ ESM\ en\ el\ queso\ por\ litro\ de\ leche
 \]</span></p>
-<p>Esta es la conversión clave de nuestra tecnología, y es conocida como <strong><em>coeficiente G</em></strong> en honor a su autor, Antoine M Guérault, que lo introdujo formalmente por primera vez por en su libro <em>La fromagerie devant les techniques nouvelles,</em> en 1966; desde entonces sigue utilizándose con plena validez. Inicialmente, el factor de conversión relaciona el ESM obtenido con el ESM puesto en fabricación, por lo tanto es simplemente el coeficiente de recuperación de ESM en nuestro queso; como para una tecnología concreta, normalmente la cantidad de sal incluida en el salado y las pérdidas de ESM son aproximadamente las mismas (salvo accidentes de fabricación), usamos la proteína de la leche en vez del ESM. Esto lleva a una pequeña diferencia en el valor del coeficiente, que se mantiene constante para la misma tecnología.</p>
+<p>Esta es la conversión clave de nuestra tecnología, y es conocida como <strong><em>coeficiente G</em></strong> en honor a su autor, Antoine M Guérault, que lo introdujo formalmente por primera vez por en su libro <em>La fromagerie devant les techniques nouvelles,</em> en 1966; desde entonces sigue utilizándose con plena validez. Originalmente, el coeficiente indica el porcentaje de ESM que hemos recuperado en el queso, dividiendo el ESM del queso entre el ESM de la leche puesta en fabricación. En vez de coeficiente G, lo llamaremos <strong>coeficiente de recuperación de ESM</strong>. Para una tecnología concreta, normalmente la cantidad de sal incluida en el salado y las pérdidas de ESM en el proceso de fabricación suelen mantenerse en una horquilla regular, de acuerdo con la variabilidad de nuestro proceso y nuestra precisión analítica. Las diferencias en el valor del coeficiente nos indican si la transformación se ha realizado dentro de los valores normales de la tecnología o si hemos tenido valores anormalmente altos o bajos por lo que también usamos la proteína de la leche en vez del ESM. Esto lleva a una pequeña diferencia en el valor del coeficiente, que se mantiene constante para la misma tecnología.</p>
 <p>Como sabemos la cantidad de ESM que vamos a obtener de 1 L de leche, podemos calcular los litros de leche que necesitamos para obtener 1 kg de queso mediante una regla de tres simple: si para obtener 100 g de queso con 29,46 g de ESM necesitamos 1 L de leche, para obtener 1 kg de queso con el mismo ESM necesitaremos X litros de leche. A este valor lo llamaremos <em>litraje unitario</em>.</p>
 <p><span class="math display">\[
 \text{Litraje unitario} = \frac{27\ g\ ESM}{100\ g\ queso\ }*\ \frac{1000\ g\ queso}{1\ kg\ queso}*\ \frac{1\ L\ leche}{29,46\ g\ ESM} = 9,165\ L\ leche\ para\ hacer\ 1\ kg\ de\ queso
@@ -704,11 +698,6 @@ window.Quarto = {
 <p>Conociendo el coste de la MG y de la MP pagada, es posible calcular el valor económico de cada desviación, lo que permite priorizar las acciones correctivas según su impacto financiero.</p>
 <p>Hay una hoja Excel con todos los cálculos.</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 73%">
-<col style="width: 15%">
-<col style="width: 11%">
-</colgroup>
 <thead>
 <tr class="header">
 <th><strong>Análisis de desviaciones</strong></th>

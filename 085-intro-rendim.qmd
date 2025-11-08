@@ -1,73 +1,69 @@
 # Introducción a los rendimientos queseros
 
-Supongamos que somos un fabricante de queso, fabricamos un producto determinado del que tenemos valores analíticos de producto terminado y de la materia en proceso.
+La elaboración de queso tiene como objetivo principal **preservar y concentrar los componentes nutritivos de la leche**, transformándolos en un producto alimentario con **elevado valor sensorial, nutricional y comercial**. Este proceso da lugar a una amplia variedad de quesos, cada uno con características únicas que responden a factores como el tipo de leche, la tecnología aplicada y las condiciones de maduración.
 
-Es un producto que, más o menos, siempre fabricaremos con los mismos pasos tecnológicos. Puesto que siempre hacemos el mismo producto, siempre fabricamos igual, con la variabilidad inherente a nuestro proceso.
+El propósito de la tecnología quesera es **optimizar esta transformación**, guiando el proceso de forma que se obtenga el mejor producto posible, **garantizando la calidad sanitaria, tecnológica y organoléptica**, y todo ello de manera **eficiente y rentable**. Para lograrlo, los objetivos técnicos se centran en **minimizar las pérdidas de materia**, especialmente de **grasa y proteína**, que son los componentes clave en la formación del queso. Al mismo tiempo, se busca **preservar los atributos sensoriales** —como sabor, textura y aroma— y **cumplir con los requisitos higiénico-sanitarios** establecidos por la normativa vigente.
+
+El análisis del proceso quesero se estructura en dos partes diferenciadas:
+
+-   **Balance de materia global:** comprende desde la recepción de la leche cruda hasta el final del proceso de elaboración, momento en que el queso está listo para entrar en la fase de maduración. Este balance permite evaluar el rendimiento general y detectar posibles pérdidas o desviaciones.
+-   **Transformación quesera propiamente dicha:** abarca el tramo desde la leche destinada a fabricación una vez en la cuba, hasta la obtención del queso fresco (antes o después del salado). Aquí se analizan los rendimientos específicos, la eficiencia de coagulación, el corte, el desuerado, el moldeado y otros parámetros tecnológicos que inciden directamente en la calidad y cantidad del producto final.
+
+En este capítulo abordaremos la segunda parte, la transformación quesera, analizando los valores analíticos de la leche de fabricación y del queso recién elaborado, y extraeremos diversas consecuencias:
+
+-   Estableceremos los parámetros de referencia de nuestro propio proceso, que nos servirán de punto de comparación para las fabricaciones que vayamos realizando.
+-   Evaluaremos las causas posibles de las desviaciones, y veremos cómo proponer planes de acción para la reducción o eliminación de estas desviaciones.
+
+## Un ejemplo de cálculo de rendimientos
+
+En este ejemplo, vamos a suponer que somos un fabricante elaborador de un queso del que tenemos valores analíticos de producto terminado y de la materia en proceso. Es un producto que siempre fabricamos con los mismos pasos tecnológicos, con la variabilidad que suponemos inherente a nuestro proceso.
 
 Vamos a ir definiendo por pasos nuestra tecnología.
 
-Los dos primeros pasos consisten en
+Los dos primeros pasos consisten en definir:
 
-1.  definir el producto, y
+1.  las características analíticas del queso, y
+2.  las características analíticas de la leche con la que lo hacemos.
 
-2.  la materia prima con la que lo hacemos.
-
-En nuestro caso, supongamos que hacemos un queso que tiene una composición determinada, que caracterizamos mediante un análisis de extracto seco y una grasa butirométrica, en un punto determinado de nuestro proceso (por ejemplo, a la salida de la salmuera, después de escurrido) y mediante un muestreo repetible, de forma que nuestro análisis sea representativo.
+Caracterizaremos nuestro queso mediante un análisis de extracto seco total (EST) y una grasa butirométrica (MG), en un punto determinado de nuestro proceso (por ejemplo, a la salida de la salmuera, después de escurrido) y mediante un muestreo repetible, de forma que nuestro análisis sea representativo. A partir de estos dos análisis, calculamos otros parámetros técnicos necesarios, tales como la materia grasa sobre el extracto seco total (G/ES), el extracto seco magro o desnatado (ESM) y la humedad del queso desnatado (HQD), valores que se calculan a partir de los primeros.
 
 Supongamos que este es el resultado analítico de nuestro producto:
 
-| **Datos del producto**  |        |
-| ----------------------- | ------ |
-| EST a salida de sal (%) | 55,00% |
-| MG a salida de sal (%)  | 28,00% |
+| **Composición del queso** | **g/100 g** |
+|---------------------------|:-----------:|
+| EST a salida de salado    |   55,00%    |
+| MG a salida de salado     |   28,00%    |
 
 Para hacer este producto, estamos trabajando con una leche cuya composición es:
 
-| **Datos de materia prima**  |       |
-| --------------------------- | ----- |
-| **Composición leche (g/L)** |       |
-| MG                          | 33,37 |
-| MP                          | 31,13 |
+| **Composición materia prima** | **g/L** |
+|-------------------------------|:-------:|
+| Materia grasa (MG)            |  33,40  |
+| Proteínas totales (MP)        |  31,33  |
+| Extracto seco total (ESM)     | 121,73  |
+| Lactosa                       |  48,00  |
+| Sales minerales               |  9,00   |
 
-## Densidad y conversión entre porcentajes
+Estamos expresando la composición de nuestra leche en **gramos por litro (g/L)**. Podemos expresarla también en porcentaje, es decir, cuántos gramos de grasa y de proteína tenemos en 100 ml o en 100 g de leche (**Importante**: los porcentajes **siempre tienen dimensiones**.)
 
-Estamos expresando la composición de nuestra leche en gramos por litro (g/L). Podemos expresarla también en porcentaje, es decir, cuántos gramos de grasa y de proteína tenemos en 100 ml o en 100 g de leche.
+-   Para expresar las cantidades en **gramos/100 ml (porcentaje masa/volumen)** no tenemos más que dividir por 10.
+-   Para expresar las cantidades en **g/100 g de leche (porcentaje masa/masa)** necesitamos un parámetro adicional que nos define cuál es el peso de nuestros 100 ml de leche: la densidad.
 
-Para expresar esta cantidad en gramos/100 ml no tenemos más que dividir por 1000 y multiplicar por 100, para expresar la cantidad en %:
-
-| **Datos de  materia prima**  | **g/L** | **%   peso/volumen** |
-| ---------------------------- | ------- | -------------------- |
-| **Composición  leche (g/L)** |         |                      |
-| MG                           | 33,37   | 3,34%                |
-| MP                           | 31,13   | 3,11%                |
-
-Para expresar las cantidades en g/100 g de leche necesitamos un parámetro adicional que nos define cuál es el peso de nuestros 100 ml de leche: la densidad.
-
-La densidad aproximada de la leche de vaca es 1,030. Esto quiere decir que 1 L de leche entera pesa aproximadamente 1,030 k
+La densidad de la leche de vaca oscila entre 1,028 y 1,035 g/ml; a veces se expresa en g/L, en cuyo caso los valores oscilarán entre 1028 y 1030 g/L. Aquí tomaremos como referencia el valor de 1,030 g/ml. lo que quiere decir que 1 L de leche entera pesa aproximadamente 1,030 kilogramos.
 
 $$
-\frac{3.34\ \text{g grasa}}{100\ \text{ml leche}} \cdot \frac{1\ \text{ml leche}}{1.030\ \text{g leche}} = \frac{3.34}{1.030} \cdot \frac{\text{g grasa}}{100\ \text{g leche}} = 3.24\% \text{ en peso}
-$$
-Esto quiere decir que si 100 ml de leche pesan 103,0 gramos, 100 gramos de leche ocuparán un volumen que será un poco menos de 100 ml, exactamente:
-
-$$
-\frac{100\ g*100\ ml}{103\ ,0\ g} = 97.08\ ml
+\frac{3,34\ \text{g grasa}}{100\ \text{ml leche}} \cdot \frac{1\ \text{ml leche}}{1,030\ \text{g leche}} = \frac{3,34}{1,030} \cdot \frac{\text{g grasa}}{100\ \text{g leche}} = 3,24\% \text{ en peso}
 $$
 
-Luego, la cantidad de materia grasa en 100 ml de leche siempre será algo superior a la cantidad en 100 g de leche.
+Hacemos el resto de conversiones, y nuestra tabla de valores analíticos de la leche, expresada en las diferentes unidades que hemos visto, quedaría de la siguiente forma:
 
-Por último, a título de curiosidad, podemos recuperar la densidad de la leche a partir de los porcentajes, como es lógico:
-$$
-\frac{3,34\ g\ grasa}{100\ ml\ leche}*\ \frac{100\ g\ leche}{3,24\ g\ grasa} = 1,030\ \frac{g}{ml}\ leche
-$$
-
-De esta forma, nuestra tabla de valores analíticos de la leche, expresada en las diferentes unidades que hemos visto, quedaría de la siguiente forma:
-
-| **Datos  de materia prima**  | **g/L** | **%   peso/volumen** | **%    peso/peso** |
-| ---------------------------- | ------- | -------------------- | ------------------ |
-| **Composición  leche (g/L)** |         |                      |                    |
-| MG                           | 33,37   | 3,337%               | 3,240%             |
-| MP                           | 31,13   | 3,113%               | 3,022%             |
+|      |    g/L | g/100 ml | g/100 g |
+|------|-------:|---------:|--------:|
+| MG   |  33,37 |    3,337 |   3,240 |
+| MP   |  31,13 |    3,113 |   3,022 |
+| EST  | 129,60 |    12,96 |  12,583 |
+| ESM  |  96,23 |     9,62 |    9,34 |
+| dens |  1,030 |          |         |
 
 Conociendo estas conversiones, y para evitar dudas y posibles errores, utilizaremos siempre los gramos por litro (g/L) para expresar la cantidad de grasa y proteína en la leche.
 
@@ -79,19 +75,19 @@ Este concepto es la base fundamental de la comprensión de la tecnología queser
 
 Por esta razón, el principal elemento del rendimiento en la definición de la tecnología es el porcentaje de recuperación de proteína en el extracto seco magro (aislamos el efecto la grasa)
 
-Hemos definido nuestro producto mediante los análisis de EST y MG; necesitamos saber el resto de parámetros, en concreto el extracto seco magro que estamos definiendo para nuestro producto:
+Hemos definido nuestro producto mediante los análisis de EST y MG; necesitamos saber el resto de parámetros, en concreto el ESM que estamos definiendo para nuestro producto:
 
-| **Análisis salida sal** (g/100g) |        |
-| -------------------------------- | :----: |
-| EST %                            | 55,00% |
-| MG                               | 28,00% |
-| G/ES %                           | 50,91% |
-| HFD                              | 62,50% |
-| ESM                              | 27,00% |
+| **Análisis salida salado**   | **g/100g** |
+|------------------------------|:----------:|
+| EST %                        |   55,00%   |
+| MG                           |   28,00%   |
+| G/ES %                       |   50,91%   |
+| HFD                          |   62,50%   |
+| ESM                          |   27,00%   |
 
-Estos análisis están definidos en porcentajes peso/peso, ya que en el queso no analizamos volumen sino peso. Por lo tanto, 100 gramos de nuestro queso tendrán 27 gramos de extracto seco magro.
+Estos análisis están definidos en porcentajes peso/peso, ya que en el queso no analizamos volumen sino peso. Por lo tanto, 100 gramos de nuestro queso tendrán 27 gramos de ESM.
 
-En el capítulo siguiente calcularemos el porcentaje de recuperación de la proteína de la leche en el extracto seco magro a partir de nuestros datos analíticos de un conjunto de fabricaciones; en nuestro ejemplo actual, vamos a suponer que es de 94,65%. La hoja Excel siguiente muestra los cálculos precisos.
+En el capítulo siguiente calcularemos el coeficiente de recuperación de la proteína de la leche en el extracto seco magro a partir de nuestros datos analíticos de un conjunto de fabricaciones; en nuestro ejemplo actual, vamos a suponer que este coeficiente tiene un valor de 94,65%. La hoja Excel siguiente muestra los cálculos precisos.
 
 [Descargar hoja Excel de rendimientos](https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/2025-11-06-ejemplo-std-tecnico.xlsx){target="_blank" rel="noopener noreferrer"}
 
@@ -101,7 +97,7 @@ $$
 \frac{31,13\ g\ proteína}{1\ L\ leche}*\ \frac{0.9465\ g\ ESM}{1\ g\ proteína} = 29,46\ g\ ESM\ en\ el\ queso\ por\ litro\ de\ leche
 $$
 
-Esta es la conversión clave de nuestra tecnología, y es conocida como ***coeficiente G*** en honor a su autor, Antoine M Guérault, que lo introdujo formalmente por primera vez por en su libro *La fromagerie devant les techniques nouvelles,* en 1966; desde entonces sigue utilizándose con plena validez. Inicialmente, el factor de conversión relaciona el ESM obtenido con el ESM puesto en fabricación, por lo tanto es simplemente el coeficiente de recuperación de ESM en nuestro queso; como para una tecnología concreta, normalmente la cantidad de sal incluida en el salado y las pérdidas de ESM son aproximadamente las mismas (salvo accidentes de fabricación), usamos la proteína de la leche en vez del ESM. Esto lleva a una pequeña diferencia en el valor del coeficiente, que  se mantiene constante para la misma tecnología.
+Esta es la conversión clave de nuestra tecnología, y es conocida como ***coeficiente G*** en honor a su autor, Antoine M Guérault, que lo introdujo formalmente por primera vez por en su libro *La fromagerie devant les techniques nouvelles,* en 1966; desde entonces sigue utilizándose con plena validez. Originalmente, el coeficiente indica el porcentaje de ESM que hemos recuperado en el queso, dividiendo el ESM del queso entre el ESM de la leche puesta en fabricación. En vez de coeficiente G, lo llamaremos **coeficiente de recuperación de ESM**. Para una tecnología concreta, normalmente la cantidad de sal incluida en el salado y las pérdidas de ESM en el proceso de fabricación suelen mantenerse en una horquilla regular, de acuerdo con la variabilidad de nuestro proceso y nuestra precisión analítica. Las diferencias en el valor del coeficiente nos indican si la transformación se ha realizado dentro de los valores normales de la tecnología o si hemos tenido valores anormalmente altos o bajos por lo que también usamos la proteína de la leche en vez del ESM. Esto lleva a una pequeña diferencia en el valor del coeficiente, que se mantiene constante para la misma tecnología.
 
 Como sabemos la cantidad de ESM que vamos a obtener de 1 L de leche, podemos calcular los litros de leche que necesitamos para obtener 1 kg de queso mediante una regla de tres simple: si para obtener 100 g de queso con 29,46 g de ESM necesitamos 1 L de leche, para obtener 1 kg de queso con el mismo ESM necesitaremos X litros de leche. A este valor lo llamaremos *litraje unitario*.
 
@@ -111,21 +107,21 @@ $$
 
 Es necesario insistir en que este litraje sólo es válido en nuestras condiciones precisas:
 
-- con la composición en ESM de nuestro queso
+-   con la composición en ESM de nuestro queso
 
-- con la composición de proteína de nuestra leche
+-   con la composición de proteína de nuestra leche
 
-- con la tasa de recuperación de la proteína de la leche en el ESM del queso de nuestro específico proceso de fabricación.
+-   con la tasa de recuperación de la proteína de la leche en el ESM del queso de nuestro específico proceso de fabricación.
 
 Es un valor teórico que utilizamos como valor objetivo, y que puede variar a medida que adaptemos o variemos nuestra tecnología. Para cualquier otro producto, otra composición de leche y/u otro proceso de fabricación, deberemos recalcular nuestro litraje por kilo.
 
 Sabemos que, en nuestras condiciones, 9,165 L de leche deben darnos 1 kg de queso. Si obtenemos más o menos queso querrá decir que nuestras hipótesis de partida no se han cumplido, y analizando los tres elementos básicos, sabremos la razón de la desviación:
 
-- Nuestra leche tiene una composición diferente
+-   Nuestra leche tiene una composición diferente
 
-- Nuestro queso tiene una composición diferente
+-   Nuestro queso tiene una composición diferente
 
-- Nuestra recuperación de proteína no ha sido la adecuada, o ha sido diferente.
+-   Nuestra recuperación de proteína no ha sido la adecuada, o ha sido diferente.
 
 Si disponemos de la analítica correspondiente, podremos tomar las decisiones correctas; no es lo mismo actuar ante un problema de composición de leche que ante un problema de composición de queso o un problema de tecnología quesera (el extracto seco magro del queso es consecuencia de la tecnología quesera). Otros factores pueden influir directamente en el coeficiente de recuperación de proteína, por ejemplo, la cantidad de proteína coagulable (caseína) frente a la proteína total analizada puede variar a lo largo del año, y el análisis de proteína total no nos da una indicación de esta ratio.
 
@@ -163,11 +159,11 @@ Es decir, nuestra recuperación teórica de MG es del 91,55%
 
 De la misma forma que en el caso de la recuperación de proteína, si nuestra recuperación de MG es diferente de la calculada teóricamente, debemos encontrar la explicación en los mismos factores:
 
-- Composición real de la leche
+-   Composición real de la leche
 
-- Composición real del queso
+-   Composición real del queso
 
-- Variaciones en la tecnología
+-   Variaciones en la tecnología
 
 Estas variaciones implicarán una mayor pérdida de MG, que se irá en el suero de quesería, y que en parte puede recuperarse mediante un desnatado del suero.
 
@@ -177,25 +173,6 @@ El razonamiento y cálculos que hemos ido realizando, se suelen recoger en lo qu
 
 Un estándar técnico de fabricación tiene este aspecto:
 
-| **ESTANDAR TECNICO**                             |        |
-| ------------------------------------------------ | ------ |
-| **Análisis salida sal**                          |        |
-| EST %                                            | 55,00% |
-| MG                                               | 28,00% |
-| G/ES %                                           | 50,91% |
-| HFD                                              | 62,50% |
-| ESM                                              | 27,00% |
-|                                                  |        |
-| MP en cuba (g/L)                                 | 31,13  |
-| Ratio recuperación MP (Rendimiento MP %)         | 94,65% |
-| Coef G (ESM queso obtenido a partir de MP leche) | 29,46  |
-| Litraje unitario                                 | 9,164  |
-| Ratio recuperación MG (%)                        | 91,57% |
-| MG teórica en la cuba (g/L)                      | 30,56  |
-| MG Pérdidas brutas suero (g/L)                   | 2,814  |
-| MG Pérdidas brutas suero (%)                     | 8,43%  |
-| MG estándar en la mezcla (g/L)                   | 33,37  |
-
 Llamamos MG estándar en la mezcla a la cantidad de MG que tendremos en la cuba, es decir, en nuestros 9,164 L de leche a fabricar. Esta MG puede provenir de la leche de partida o del resultado de añadir nata a la leche para conseguir la cantidad necesaria.
 
 De la misma forma, llamamos MP en cuba a la cantidad de MP que hemos puesto en cuba, ya sea la de la leche de partida o del resultado de haber añadido proteínas a esta leche.
@@ -203,31 +180,6 @@ De la misma forma, llamamos MP en cuba a la cantidad de MP que hemos puesto en c
 ## El estándar técnico final
 
 Como hemos visto, la construcción del estándar técnico y el seguimiento de la tecnología quesera no se hacen siguiendo el consumo de *litros de leche*, sino de la cantidad de proteína y grasa utilizadas. Por esta razón, la construcción del estándar debe proporcionar las cantidades de MG y MP necesarias para obtener 1 kg de queso, y no sólo el litraje en cuba
-
-| **ESTANDAR TECNICO**                             |            |
-| ------------------------------------------------ | ---------- |
-| **Análisis salida sal**                          |            |
-| EST %                                            | 55,00%     |
-| MG                                               | 28,00%     |
-| G/ES %                                           | 50,91%     |
-| HFD                                              | 62,50%     |
-| ESM                                              | 27,00%     |
-|                                                  |            |
-| MP en cuba (g/L)                                 | 31,13      |
-| Ratio recuperación MP (Rendimiento MP %)         | 94,65%     |
-| Coef G (ESM queso obtenido a partir de MP leche) | 29,46      |
-| Litraje unitario                                 | 9,164      |
-| Ratio recuperación MG (%)                        | 91,57%     |
-| MG teórica en la cuba (g/L)                      | 30,56      |
-| MG Pérdidas brutas suero (g/L)                   | 2,814      |
-| MG Pérdidas brutas suero (%)                     | 8,43%      |
-| MG estándar en la mezcla (g/L)                   | 33,37      |
-| **Consumo MG total leche en cuba**               | **305,79** |
-| **Consumo MP total leche en cuba**               | **285,26** |
-| MG suero en cuba (g/L)                           | 0,00       |
-| MG Pérddas suero neta (g/L)                      | 2,81       |
-| MG Pérddas suero neta (%)                        | 8,43%      |
-| MG STD sin nata de suero (g/L)                   | 33,37      |
 
 En este caso, vemos un proceso de fabricación que *no* está recuperando la materia grasa del suero; las diferencias entre la MG en cuba y la MG en el queso se consideran pérdidas de proceso.
 
@@ -237,33 +189,33 @@ Como hemos visto, la tecnología quesera se diseña para optimizar el coeficient
 
 En una tecnología concreta, con parámetros de trabajo fijados, cuando la cantidad de MG en la leche es superior a la definida en el proceso, se producen dos efectos:
 
-- Una parte del exceso de MG queda retenida en la matriz proteica, lo que incrementa la cantidad de grasa en el queso y, por tanto, modifica su composición.
+-   Una parte del exceso de MG queda retenida en la matriz proteica, lo que incrementa la cantidad de grasa en el queso y, por tanto, modifica su composición.
 
-- Otra parte de la MG se pierde en el suero, ya que las condiciones del proceso determinan una relación fija con la cantidad total de MG de partida. Es decir, al aumentar la MG inicial, también aumentan las pérdidas relativas en el suero.
+-   Otra parte de la MG se pierde en el suero, ya que las condiciones del proceso determinan una relación fija con la cantidad total de MG de partida. Es decir, al aumentar la MG inicial, también aumentan las pérdidas relativas en el suero.
 
 Desgraciadamente, no es posible calcular teóricamente cuánta MG se retendrá en el queso y cuánta se perderá en el suero, ya que estas cantidades no responden a una función conocida. Lo que sí sabemos es que:
 
-- Aumentarán las pérdidas.
+-   Aumentarán las pérdidas.
 
-- Se modificará la composición del queso, lo que puede alterar su textura y el valor nutricional declarado.
+-   Se modificará la composición del queso, lo que puede alterar su textura y el valor nutricional declarado.
 
-- Se alterará la expulsión de suero de la matriz proteica, lo que afectará la cantidad de lactosa retenida en la cuajada y, en consecuencia, las curvas de acidificación, el extracto seco, etc.
+-   Se alterará la expulsión de suero de la matriz proteica, lo que afectará la cantidad de lactosa retenida en la cuajada y, en consecuencia, las curvas de acidificación, el extracto seco, etc.
 
 Cuando la MG es *inferior* a la definida, estos efectos se producen en sentido inverso, afectando tanto la composición del queso como su comportamiento tecnológico.
 
 Para minimizar estas variaciones y mantener una composición constante del producto, es necesario:
 
-- Trabajar con leche que tenga un contenido estable de MG y materia proteica (MP). Dado que la composición de la leche varía estacionalmente, esto implica estandarizarla en MG y MP, *manteniendo constante la relación MG/MP*.
+-   Trabajar con leche que tenga un contenido estable de MG y materia proteica (MP). Dado que la composición de la leche varía estacionalmente, esto implica estandarizarla en MG y MP, *manteniendo constante la relación MG/MP*.
 
-- Adaptar la tecnología de forma estacional, ya que la variación no solo afecta la relación MG/MP, sino también la proporción de caseína coagulable dentro del total de proteínas.
+-   Adaptar la tecnología de forma estacional, ya que la variación no solo afecta la relación MG/MP, sino también la proporción de caseína coagulable dentro del total de proteínas.
 
 Es fundamental recordar lo señalado al definir el estándar técnico: *la tecnología permite modificar el extracto seco magro (ESM) del queso, pero la MG depende exclusivamente de la cantidad presente en la leche de fabricación*. **No es posible modificar la cantidad de grasa en el queso mediante la tecnología quesera en la cuba**; es necesario preparar la leche con la cantidad de grasa adecuada para cubrir tanto la retención esperada como las pérdidas previstas.
 
 En la medida en que no se puedan realizar estas adaptaciones, se deberá aceptar una mayor variabilidad en el producto, con dos consecuencias:
 
-- Irregularidad en el producto final, que afecta la aceptación por parte del consumidor.
+-   Irregularidad en el producto final, que afecta la aceptación por parte del consumidor.
 
-- Variación en el coste del producto, que puede generar pérdidas no previstas.
+-   Variación en el coste del producto, que puede generar pérdidas no previstas.
 
 Por estas razones, es imprescindible realizar un seguimiento detallado de las desviaciones tecnológicas, para comprender mejor el comportamiento del proceso y actuar eficazmente sobre sus causas, estableciendo los planes correctivos oportunos.
 
@@ -274,37 +226,4 @@ Las desviaciones observadas deben analizarse con base en el conocimiento tecnol�
 Conociendo el coste de la MG y de la MP pagada, es posible calcular el valor económico de cada desviación, lo que permite priorizar las acciones correctivas según su impacto financiero.
 
 Hay una hoja Excel con todos los cálculos.
-
-| **Análisis de desviaciones**                         | **Teórico** | **Real** |
-| ---------------------------------------------------- | ----------- | -------: |
-| Fabricación, KG                                      |             |    1.000 |
-| EST                                                  | 55,00%      |   54,00% |
-| MG                                                   | 28,00%      |   27,50% |
-| ESM                                                  | 27,00%      |   26,50% |
-| HFD                                                  | 62,50%      |   63,45% |
-| G/ES                                                 | 50,91%      |   50,93% |
-| Litros leche puestos en fab (cuba)                   | 9.164       |    8.780 |
-| Composición leche en cuba MG (g/L)                   | 33,37       |    39,66 |
-| Composición leche en cuba MP (g/L)                   | 31,13       |    31,15 |
-| KMG puestos en fabricacion (cuba)                    | 306         |      348 |
-| KMP puestos en fabricacion (cuba)                    | 285         |      274 |
-| KMG Nata suero recuperada puesta en fab              | 0           |        0 |
-| factor MG/MP leche cubas                             | 1,072       |    1,273 |
-| g MP/L leche en cuba                                 | 31,130      |   31,150 |
-| g MG/L leche en cuba                                 | 33,370      |   39,658 |
-| MG teórica en cuba g/L                               | 30,556      |   31,321 |
-| Litraje unitario (L/Kg)                              | 9,164       |    8,780 |
-| Recup MG                                             | 91,57%      |   78,98% |
-| Recup MP                                             | 94,65%      |   96,89% |
-| gr MG queso/kg queso                                 | 280,000     |  275,000 |
-| g ESM queso/kg queso                                 | 270,000     |  265,000 |
-| factor MG/MP queso                                   | 1,037       |    1,038 |
-| MG pérdida bruta (g/L)                               | 2,814       |    8,337 |
-| MG pérdida bruta %                                   | 8,43%       |   21,02% |
-| MG suero recuperada puesta en fab g/L                | 0,000       |    0,000 |
-| MG pérdida neta g/L                                  | 2,814       |    8,337 |
-| MG pérdida neta %                                    | 8,43%       |   21,02% |
-|                                                      |             |          |
-| Consumo técnico MG/kg queso (total cuba)             | 305,79      |   348,20 |
-| Consumo técnico MP/kg queso                          | 285,26      |   273,50 |
 
