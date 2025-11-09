@@ -277,9 +277,8 @@ window.Quarto = {
   <li><a href="#lectura-y-exploración-de-los-datos" id="toc-lectura-y-exploración-de-los-datos" class="nav-link" data-scroll-target="#lectura-y-exploración-de-los-datos"><span class="header-section-number">9.2</span> Lectura y exploración de los datos</a></li>
   <li><a href="#cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" id="toc-cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" class="nav-link" data-scroll-target="#cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso"><span class="header-section-number">9.3</span> Cálculo de la cantidad de leche necesaria para fabricar 1 kg de queso</a></li>
   <li><a href="#la-materia-grasa" id="toc-la-materia-grasa" class="nav-link" data-scroll-target="#la-materia-grasa"><span class="header-section-number">9.4</span> La materia grasa</a></li>
-  <li><a href="#el-estándar-de-fabricación" id="toc-el-estándar-de-fabricación" class="nav-link" data-scroll-target="#el-estándar-de-fabricación"><span class="header-section-number">9.5</span> El estándar de fabricación</a></li>
-  <li><a href="#el-estándar-técnico-final" id="toc-el-estándar-técnico-final" class="nav-link" data-scroll-target="#el-estándar-técnico-final"><span class="header-section-number">9.6</span> El estándar técnico final</a></li>
-  <li><a href="#la-importancia-de-la-estandarización-de-la-leche" id="toc-la-importancia-de-la-estandarización-de-la-leche" class="nav-link" data-scroll-target="#la-importancia-de-la-estandarización-de-la-leche"><span class="header-section-number">9.7</span> La importancia de la estandarización de la leche</a></li>
+  <li><a href="#el-estándar-de-fabricación-o-estándar-técnico" id="toc-el-estándar-de-fabricación-o-estándar-técnico" class="nav-link" data-scroll-target="#el-estándar-de-fabricación-o-estándar-técnico"><span class="header-section-number">9.5</span> El estándar de fabricación o estándar técnico</a></li>
+  <li><a href="#la-importancia-de-la-estandarización-de-la-leche" id="toc-la-importancia-de-la-estandarización-de-la-leche" class="nav-link" data-scroll-target="#la-importancia-de-la-estandarización-de-la-leche"><span class="header-section-number">9.6</span> La importancia de la estandarización de la leche</a></li>
   </ul>
 </nav>
     </div>
@@ -521,7 +520,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Los datos se corresponden con un conjunto de fabricaciones de queso de vaca, como hemos dicho. LAs principales variables recogidas son las siguientes:</p>
+<p>Los datos se corresponden con un conjunto de fabricaciones de queso de vaca, como hemos dicho. Las principales variables recogidas son las siguientes:</p>
 <div id="91f86b98-7b0b-438f-b36a-93ea4bf89b11" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Mostrar código</summary>
@@ -940,12 +939,13 @@ Coeficiente de recuperación de extracto seco magro (ESM queso/ESM leche en cuba
 </div>
 </div>
 <p>A partir de aquí, hacemos los cálculos teóricos del estándar técnico.</p>
-<p>Utilizando el coeficiente de recuperación de la MP, podemos calcular la cantidad de ESM que vamos a recuperar. La mediana de la cantidad de proteína que tenemos en la leche es 33,50 g/L; sabemos que con 1 L de leche vamos a obtener en el queso</p>
+<p>Utilizando el coeficiente de recuperación de la MP, podemos calcular la cantidad de ESM que vamos a recuperar. La mediana de la cantidad de proteína que tenemos en la leche es 32,10 g/L; sabemos que con 1 L de leche vamos a obtener en el queso</p>
 <p><span class="math display">\[
 \frac{32.10\ g\ proteína}{1\ L\ leche}*\ \frac{0.94457\ g\ ESM}{1\ g\ proteína} = 30.32\ g\ ESM\ en\ el\ queso\ por\ litro\ de\ leche
 \]</span></p>
-<p>Esta es la conversión clave de nuestra tecnología, y es conocida como <strong><em>coeficiente G</em></strong> en honor a su autor, Antoine M Guérault, que lo introdujo formalmente por primera vez por en su libro <em>La fromagerie devant les techniques nouvelles,</em> en 1966; desde entonces sigue utilizándose con plena validez. Originalmente, el coeficiente indica el porcentaje de ESM que hemos recuperado en el queso, dividiendo el ESM del queso entre el ESM de la leche puesta en fabricación. Como comentamos más atrás, para una tecnología concreta, normalmente la cantidad de sal incluida en el salado y las pérdidas de ESM en el proceso de fabricación suelen mantenerse en una horquilla regular, de acuerdo con la variabilidad de nuestro proceso y nuestra precisión analítica. Las diferencias en el valor del coeficiente nos indican si la transformación se ha realizado dentro de los valores normales de la tecnología o si hemos tenido valores anormalmente altos o bajos por lo que también usamos la proteína de la leche en vez del ESM. Esto lleva a una pequeña diferencia en el valor del coeficiente, que también se mantiene constante para la misma tecnología.</p>
-<p>Como sabemos la cantidad de ESM que vamos a obtener de 1 L de leche, podemos calcular los litros de leche que necesitamos para obtener 1 kg de queso mediante una regla de tres simple: si para obtener 100 g de queso con 25.05 g de ESM necesitamos 1 L de leche, para obtener 1 kg de queso con el mismo ESM necesitaremos X litros de leche. A este valor lo llamaremos <em>litraje unitario</em>.</p>
+<p>Esta es la conversión clave de nuestra tecnología, y es conocida como <strong><em>coeficiente G</em></strong> en honor a su autor, Antoine M Guérault, que lo introdujo formalmente por primera vez por en su libro <em>La fromagerie devant les techniques nouvelles,</em> en 1966; desde entonces sigue utilizándose con plena validez. Originalmente, el coeficiente indica el porcentaje de ESM que hemos recuperado en el queso, dividiendo el ESM del queso entre el ESM de la leche puesta en fabricación, aunque es más habitual usar el coeficiente de recuperación de proteína en vez del de ESM, como hemos hecho arriba.</p>
+<p>Como comentamos más atrás, para una tecnología concreta, normalmente la cantidad de sal incluida en el salado y las pérdidas de ESM en el proceso de fabricación deberían mantenerse en una horquilla más o menos estrecha, de acuerdo con la variabilidad de nuestro proceso y nuestra precisión analítica. Si el valor del coeficiente se mantiene en estos límites, nos indicará que la transformación se ha realizado dentro de los valores normales de la tecnología; en caso contrario, si hemos tenido valores anormalmente altos o bajos, será indicador de incidencias tecnológicas que intentaremos explicar para poner en marcha acciones correctivas. En este capítulo veremos el cálculo de los índices; en un capítulo posterior abordaremos el análisis de las desviaciones.</p>
+<p>Como sabemos la cantidad de ESM que vamos a obtener de 1 L de leche, podemos calcular los litros de leche que necesitamos para obtener 1 kg de queso mediante una conversión simple. A este valor lo llamaremos <em>litraje unitario</em>.</p>
 <p><span class="math display">\[
 \text{Litraje unitario} = \frac{25.05\ g\ ESM}{100\ g\ queso\ }*\ \frac{1000\ g\ queso}{1\ kg\ queso}*\ \frac{1\ L\ leche}{30,32\ g\ ESM} = 8,261\ L\ leche\ para\ hacer\ 1\ kg\ de\ queso
 \]</span></p>
@@ -959,8 +959,8 @@ Coeficiente de recuperación de extracto seco magro (ESM queso/ESM leche en cuba
 <li><p>con la composición de proteína de nuestra leche</p></li>
 <li><p>con la tasa de recuperación de la proteína de la leche en el ESM del queso de nuestro específico proceso de fabricación.</p></li>
 </ul>
-<p>Son valores teóricos que utilizamos como valor objetivo, y que pueden variar a medida que adaptemos o variemos nuestra tecnología. Para cualquier otro producto, otra composición de leche y/u otro proceso de fabricación, deberemos recalcular nuestro litraje por kilo y nuestro consumo,</p>
-<p>Sabemos que, en nuestras condiciones, 8,255 L de leche deben darnos 1 kg de queso. Si obtenemos más o menos queso querrá decir que nuestras hipótesis de partida no se han cumplido, y analizando los tres elementos básicos, sabremos la razón de la desviación:</p>
+<p>Son valores teóricos que utilizamos como valor objetivo, y que pueden variar a medida que adaptemos o variemos nuestra tecnología. Para cualquier otro producto, otra composición de leche y/u otro proceso de fabricación, deberemos recalcular nuestro litraje por kilo y nuestro consumo de materia.</p>
+<p>Sabemos que, en nuestras condiciones, 8,261 L de leche deben darnos 1 kg de queso. Si obtenemos más o menos queso querrá decir que nuestras hipótesis de partida no se han cumplido, y analizando los tres elementos básicos, sabremos la razón de la desviación:</p>
 <ul>
 <li><p>Nuestra leche tiene una composición diferente</p></li>
 <li><p>Nuestro queso tiene una composición diferente</p></li>
@@ -995,19 +995,16 @@ Coeficiente de recuperación de extracto seco magro (ESM queso/ESM leche en cuba
 </ul>
 <p>Estas variaciones pueden implicar una mayor pérdida de MG, en el suero de quesería o en los finos de queso (o en ambos), y que en parte puede recuperarse mediante un desnatado del suero.</p>
 </section>
-<section id="el-estándar-de-fabricación" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="el-estándar-de-fabricación"><span class="header-section-number">9.5</span> El estándar de fabricación</h2>
+<section id="el-estándar-de-fabricación-o-estándar-técnico" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="el-estándar-de-fabricación-o-estándar-técnico"><span class="header-section-number">9.5</span> El estándar de fabricación o estándar técnico</h2>
+<p>Como hemos visto, la construcción del estándar técnico y el seguimiento de la tecnología quesera no se hacen siguiendo el consumo de <em>litros de leche</em>, sino de la cantidad de proteína y grasa utilizadas. Por esta razón, la construcción del estándar debe proporcionar las cantidades de MG y MP necesarias para obtener 1 kg de queso, y no sólo el litraje en cuba.</p>
 <p>El razonamiento y cálculos que hemos ido realizando, se suelen recoger en lo que se llama un <em>estándar técnico de fabricación</em>. Este documento recoge los valores estándar de nuestra tecnología dada una composición media de nuestro queso obtenido (o un objetivo a obtener) y una composición de leche de partida. Al final del capítulo se puede descargar una hoja Excel con el estándar de fabricacion que hemos ido construyendo para nuestro queso de vaca.</p>
-<p>Llamamos <strong>MG teórica en la cuba</strong> a la cantidad de MG que calculamos que vamos a tener en la cuba, es decir, en nuestros 8,255 L de leche a fabricar. Esta MG puede provenir de la leche de partida o del resultado de añadir nata a la leche para conseguir la cantidad necesaria.</p>
-<p>De la misma forma, llamamos <strong>MP en cuba</strong> a la cantidad de MP que hemos puesto en cuba, ya sea la de la leche de partida o del resultado de haber añadido proteínas a esta leche.</p>
+<p>Llamamos <strong>MG teórica en la cuba</strong> a la cantidad de MG que calculamos que vamos a tener en la cuba, es decir, en nuestros 8,261 L de leche a fabricar. Esta MG puede provenir de la leche de partida o del resultado de estandarizar la leche en MG, añadiendo nata o bien leche desnatada, para conseguir la cantidad de MG que nos permita alcanzar los valores de MG deseada en el queso.</p>
+<p>De la misma forma, llamamos <strong>MP en cuba</strong> a la cantidad de MP que hemos puesto en cuba, ya sea la de la leche de partida o del resultado de haber estandarizado la leche mediante el añadido de proteínas.</p>
+<p>En el caso de nuestro queso de vaca, vemos un proceso de fabricación que <em>no</em> usa estandarización y que no está recuperando la materia grasa del suero; las diferencias entre la MG en cuba y la MG en el queso se consideran pérdidas de proceso y su reducción es un objetivo prioritario del proceso de mejora.</p>
 </section>
-<section id="el-estándar-técnico-final" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="el-estándar-técnico-final"><span class="header-section-number">9.6</span> El estándar técnico final</h2>
-<p>Como hemos visto, la construcción del estándar técnico y el seguimiento de la tecnología quesera no se hacen siguiendo el consumo de <em>litros de leche</em>, sino de la cantidad de proteína y grasa utilizadas. Por esta razón, la construcción del estándar debe proporcionar las cantidades de MG y MP necesarias para obtener 1 kg de queso, y no sólo el litraje en cuba</p>
-<p>En este caso, vemos un proceso de fabricación que <em>no</em> está recuperando la materia grasa del suero; las diferencias entre la MG en cuba y la MG en el queso se consideran pérdidas de proceso.</p>
-</section>
-<section id="la-importancia-de-la-estandarización-de-la-leche" class="level2" data-number="9.7">
-<h2 data-number="9.7" class="anchored" data-anchor-id="la-importancia-de-la-estandarización-de-la-leche"><span class="header-section-number">9.7</span> La importancia de la estandarización de la leche</h2>
+<section id="la-importancia-de-la-estandarización-de-la-leche" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="la-importancia-de-la-estandarización-de-la-leche"><span class="header-section-number">9.6</span> La importancia de la estandarización de la leche</h2>
 <p>La tecnología quesera se diseña para optimizar el coeficiente de recuperación de proteína. Aunque la retención de materia grasa (MG) también depende de factores tecnológicos como el corte, el calentamiento y el pH, no está directamente controlada por la tecnología, aunque sí influenciada por ella.</p>
 <p>En una tecnología concreta, con parámetros de trabajo fijados, cuando la cantidad de MG en la leche es superior a la definida en el proceso, se producen dos efectos:</p>
 <ul>
@@ -1023,21 +1020,19 @@ Coeficiente de recuperación de extracto seco magro (ESM queso/ESM leche en cuba
 <p>Cuando la MG es <em>inferior</em> a la definida, estos efectos se producen en sentido inverso, afectando tanto la composición del queso como su comportamiento tecnológico.</p>
 <p>Para minimizar estas variaciones y mantener una composición constante del producto, es necesario:</p>
 <ul>
-<li><p>Trabajar con leche que tenga un contenido estable de materia grasa (MG) y materia proteica (MP). Dado que la composición de la leche varía estacionalmente, esto implica estandarizarla en MG y MP, <em>manteniendo constante la relación MG/MP</em>.</p></li>
+<li><p>Trabajar con leche que tenga un contenido estable de materia grasa (MG) y materia proteica (MP). Dado que la composición de la leche varía estacionalmente, esto implica estandarizarla en MG y MP, <strong>manteniendo constante la relación MG/MP</strong>.</p></li>
 <li><p>Adaptar la tecnología de forma estacional, ya que la variación estacional no solo afecta la relación MG/MP, sino también la proporción de caseína coagulable dentro del total de proteínas.</p></li>
 </ul>
 <p>Es fundamental recordar lo señalado al definir el estándar técnico: <em>la tecnología permite modificar el extracto seco magro (ESM) del queso, pero la MG depende principalmente de la cantidad presente en la leche de fabricación</em>. <strong>No es posible modificar la cantidad de grasa en el queso mediante la tecnología quesera en la cuba</strong>; es necesario preparar la leche con la cantidad de grasa adecuada para cubrir tanto la retención esperada como las pérdidas previstas.</p>
 <p>En la medida en que no se puedan realizar estas adaptaciones, se deberá aceptar una mayor variabilidad en el producto, con dos consecuencias:</p>
 <ul>
 <li><p>Irregularidad en el producto final, que afecta la aceptación por parte del consumidor.</p></li>
-<li><p>Variación en el coste del producto, que puede generar pérdidas no previstas.</p></li>
+<li><p>Variación en el coste del producto, que puede dar lugar a pérdidas económicas no previstas.</p></li>
 </ul>
-<p>Por estas razones, es imprescindible realizar un seguimiento detallado de las desviaciones tecnológicas, para comprender mejor el comportamiento del proceso y actuar eficazmente sobre sus causas, estableciendo los planes correctivos oportunos.</p>
-<p>En una pestaña adicional a la hoja Excel del estándar técnico, se incluye una tabla con un estándar teórico y un resultado real, para comparar los diferentes valores. El supuesto real parte de una fabricación hipotética de 105 L de leche, con los que hemos obtenido 11,2 kg de queso; el teórico se construye a partir del estándar técnico, aplicando los coeficientes correspondientes a esa cantidad, lo que permite calcular los valores teóricos esperados. Los cálculos se realizan de diferente manera, para llegar a los resultados comparables: el estándar teórico se calcula como hemos ido viendo aquí, el real se calcula con los datos reales del queso fabricado y la materia prima utilizada. El análisis de desviaciones incluye una estimación del coste de las desviaciones a partir de un precio de leche supuesto.</p>
-<p>Las desviaciones observadas deben analizarse con base en el conocimiento tecnológico, para establecer planes correctivos adecuados.</p>
-<p>Conociendo el coste de la MG y de la MP pagada, es posible calcular el valor económico de cada desviación, lo que permite priorizar las acciones correctivas según su impacto financiero.</p>
+<p>Por estas razones, es imprescindible realizar un seguimiento detallado de las desviaciones tecnológicas, para comprender mejor el comportamiento del proceso y actuar eficazmente sobre sus causas. Las desviaciones observadas deben analizarse siempre apoyándose en el conocimiento tecnológico, para que los planes correctivos sean eficaces.</p>
+<p>Conociendo el coste de la MG y de la MP pagada, es posible calcular el valor económico de cada desviación, lo que permite priorizar las acciones correctivas según su impacto financiero. El análisis de las desviaciones se hace en un capítulo posterior.</p>
 <p>Hay una hoja Excel con todos los cálculos, que incluye también los estándares de fabricacion que veremos en el capítulo siguiente para el resto de recetas.</p>
-<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/2025-11-06-ejemplo-std-tecnico.xlsx" target="_blank" rel="noopener noreferrer">Abrir hoja Excel con modelo</a></p>
+<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/2025-11-06-ejemplo-std-tecnico.xlsx" target="_blank" rel="noopener noreferrer">Abrir hoja Excel con estándar técnico</a></p>
 
 
 </section>
