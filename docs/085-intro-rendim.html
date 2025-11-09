@@ -268,10 +268,10 @@ window.Quarto = {
 
 <p>La elaboración de queso tiene como objetivo principal <strong>preservar y concentrar los componentes nutritivos de la leche</strong>, transformándolos en un producto alimentario con <strong>elevado valor sensorial, nutricional y comercial</strong>. Este proceso da lugar a una amplia variedad de quesos, cada uno con características únicas que responden a factores como el tipo de leche, la tecnología aplicada y las condiciones de maduración.</p>
 <p>El propósito de la tecnología quesera es <strong>optimizar esta transformación</strong>, guiando el proceso de forma que se obtenga el mejor producto posible, <strong>garantizando la calidad sanitaria, tecnológica y organoléptica</strong>, y todo ello de manera <strong>eficiente y rentable</strong>. Para lograrlo, los objetivos técnicos se centran en <strong>minimizar las pérdidas de materia</strong>, especialmente de <strong>grasa y proteína</strong>, que son los componentes clave en la formación del queso. Al mismo tiempo, se busca <strong>preservar los atributos sensoriales</strong> —como sabor, textura y aroma— y <strong>cumplir con los requisitos higiénico-sanitarios</strong> establecidos por la normativa vigente.</p>
-<p>El análisis del proceso quesero se estructura en dos etapas diferenciadas:</p>
+<p>El análisis del proceso quesero se estructura en dos partes diferenciadas:</p>
 <ul>
 <li><strong>Balance de materia global:</strong> comprende desde la recepción de la leche cruda hasta el final del proceso de elaboración, momento en que el queso está listo para entrar en la fase de maduración. Este balance permite evaluar el rendimiento general y detectar posibles pérdidas o desviaciones.</li>
-<li><strong>Transformación quesera propiamente dicha:</strong> abarca el tramo desde la leche destinada a fabricación una vez en la cuba, hasta la obtención del queso fresco. Aquí se analizan los rendimientos específicos, la eficiencia de coagulación, el corte, el desuerado, el moldeado y otros parámetros tecnológicos que inciden directamente en la calidad y cantidad del producto final.</li>
+<li><strong>Transformación quesera propiamente dicha:</strong> abarca el tramo desde la leche destinada a fabricación una vez en la cuba, hasta la obtención del queso fresco (antes o después del salado). Aquí se analizan los rendimientos específicos, la eficiencia de coagulación, el corte, el desuerado, el moldeado y otros parámetros tecnológicos que inciden directamente en la calidad y cantidad del producto final.</li>
 </ul>
 <p>En este capítulo abordaremos la segunda parte, la transformación quesera, analizando los valores analíticos de la leche de fabricación y del queso recién elaborado, y extraeremos diversas consecuencias:</p>
 <ul>
@@ -280,15 +280,15 @@ window.Quarto = {
 </ul>
 <section id="un-ejemplo-de-cálculo-de-rendimientos" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="un-ejemplo-de-cálculo-de-rendimientos"><span class="header-section-number">9.1</span> Un ejemplo de cálculo de rendimientos</h2>
-<p>En este ejemplo, vamos a suponer que somos un fabricante elaborador de un queso del que tenemos valores analíticos de producto terminado y de la materia en proceso. Es un producto que siempre fabricamos con los mismos pasos tecnológicos, con la variabilidad que suponemos inherente a nuestro proceso.</p>
-<p>Vamos a ir definiendo por pasos nuestra tecnología.</p>
-<p>Los dos primeros pasos consisten en</p>
+<p>En este ejemplo, vamos a suponer que elaboramos un queso de vaca, del que tenemos valores analíticos de producto terminado y de la leche utilizada en su elaboración. El proceso siempre tiene los mismos pasos tecnológicos, con la variabilidad que suponemos inherente.</p>
+<p>Nuestros datos técnicos de fabricación están registraos en un fichero de datos en formato <code>csv</code>, que incluye:</p>
 <ol type="1">
-<li>definir el producto, y</li>
-<li>la materia prima con la que lo hacemos.</li>
+<li>las analíticas del queso, y</li>
+<li>las analíticas de la leche con la que lo hacemos.</li>
 </ol>
-<p>Caracterizaremos nuestro queso mediante un análisis de extracto seco total y una grasa butirométrica, en un punto determinado de nuestro proceso (por ejemplo, a la salida de la salmuera, después de escurrido) y mediante un muestreo repetible, de forma que nuestro análisis sea representativo. A partir de estos dos análisis, calculamos otros parámetros técnicos necesarios, tales como la materia grasa sobre el extracto seco total (G/ES), el extracto seco magro o desnatado (ESM) y la humedad del queso desnatado (HQD), valores que se calculan a partir de los primeros.</p>
-<p>Supongamos que este es el resultado analítico de nuestro producto:</p>
+<p>Caracterizaremos nuestro queso mediante un análisis de extracto seco total (EST) y una grasa butirométrica (MG), en un punto determinado de nuestro proceso (por ejemplo, a la salida de la salmuera, después de escurrido) y mediante un muestreo repetible, de forma que nuestro análisis sea representativo. A partir de estos dos análisis, calculamos otros parámetros técnicos necesarios, tales como la materia grasa sobre el extracto seco total (G/ES), el extracto seco magro o desnatado (ESM) y la humedad del queso desnatado (HQD), valores que se calculan a partir de los primeros.</p>
+<p>En el recorrido de cálculo utilizaremos <code>Python</code>, aunque al final se proporciona una hoja de cálculo con la información necesaria.</p>
+<p>El resultado analítico de nuestro producto elaborado es:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -298,11 +298,11 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>EST a salida de sal</td>
+<td>EST a salida de salado</td>
 <td style="text-align: center;">55,00%</td>
 </tr>
 <tr class="even">
-<td>MG a salida de sal</td>
+<td>MG a salida de salado</td>
 <td style="text-align: center;">28,00%</td>
 </tr>
 </tbody>
@@ -377,16 +377,16 @@ window.Quarto = {
 <td style="text-align: right;">12,583</td>
 </tr>
 <tr class="even">
-<td>dens</td>
-<td style="text-align: right;">1,030</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-</tr>
-<tr class="odd">
 <td>ESM</td>
 <td style="text-align: right;">96,23</td>
 <td style="text-align: right;">9,62</td>
 <td style="text-align: right;">9,34</td>
+</tr>
+<tr class="odd">
+<td>dens</td>
+<td style="text-align: right;">1,030</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
 </tr>
 </tbody>
 </table>
@@ -397,11 +397,11 @@ window.Quarto = {
 <p>Sabemos que nuestro proceso de fabricación quesera consiste en la coagulación de la caseína y expulsión de suero, y que la materia grasa queda retenida en la red de caseína.</p>
 <p>Este concepto es la base fundamental de la comprensión de la tecnología quesera: es el rendimiento en la recuperación de la proteína el que nos va a definir todo el proceso, la materia grasa “acompañará” de forma estática (aunque tendrá influencia en el desuerado)</p>
 <p>Por esta razón, el principal elemento del rendimiento en la definición de la tecnología es el porcentaje de recuperación de proteína en el extracto seco magro (aislamos el efecto la grasa)</p>
-<p>Hemos definido nuestro producto mediante los análisis de EST y MG; necesitamos saber el resto de parámetros, en concreto el extracto seco magro que estamos definiendo para nuestro producto:</p>
+<p>Hemos definido nuestro producto mediante los análisis de EST y MG; necesitamos saber el resto de parámetros, en concreto el ESM que estamos definiendo para nuestro producto:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th><strong>Análisis salida salmuera</strong></th>
+<th><strong>Análisis salida salado</strong></th>
 <th style="text-align: center;"><strong>g/100g</strong></th>
 </tr>
 </thead>
@@ -428,8 +428,8 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p>Estos análisis están definidos en porcentajes peso/peso, ya que en el queso no analizamos volumen sino peso. Por lo tanto, 100 gramos de nuestro queso tendrán 27 gramos de extracto seco magro.</p>
-<p>En el capítulo siguiente calcularemos el porcentaje de recuperación de la proteína de la leche en el extracto seco magro a partir de nuestros datos analíticos de un conjunto de fabricaciones; en nuestro ejemplo actual, vamos a suponer que es de 94,65%. La hoja Excel siguiente muestra los cálculos precisos.</p>
+<p>Estos análisis están definidos en porcentajes peso/peso, ya que en el queso no analizamos volumen sino peso. Por lo tanto, 100 gramos de nuestro queso tendrán 27 gramos de ESM.</p>
+<p>En el capítulo siguiente calcularemos el coeficiente de recuperación de la proteína de la leche en el extracto seco magro a partir de nuestros datos analíticos de un conjunto de fabricaciones; en nuestro ejemplo actual, vamos a suponer que este coeficiente tiene un valor de 94,65%. La hoja Excel siguiente muestra los cálculos precisos.</p>
 <p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/2025-11-06-ejemplo-std-tecnico.xlsx" target="_blank" rel="noopener noreferrer">Descargar hoja Excel de rendimientos</a></p>
 <p>Como sabemos la cantidad de proteína que tenemos en la leche, 31,13 g/L, sabemos que con 1 L de leche vamos a obtener en el queso</p>
 <p><span class="math display">\[
@@ -486,184 +486,12 @@ window.Quarto = {
 <h2 data-number="9.4" class="anchored" data-anchor-id="el-estándar-de-fabricación"><span class="header-section-number">9.4</span> El estándar de fabricación</h2>
 <p>El razonamiento y cálculos que hemos ido realizando, se suelen recoger en lo que se llama un <em>estándar técnico de fabricación</em>. Este documento recoge los valores estándar de nuestra tecnología dada una composición media de nuestro queso obtenido (o un objetivo a obtener) y una composición de leche de partida</p>
 <p>Un estándar técnico de fabricación tiene este aspecto:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><strong>ESTANDAR TECNICO</strong></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Análisis salida sal</strong></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>EST %</td>
-<td>55,00%</td>
-</tr>
-<tr class="odd">
-<td>MG</td>
-<td>28,00%</td>
-</tr>
-<tr class="even">
-<td>G/ES %</td>
-<td>50,91%</td>
-</tr>
-<tr class="odd">
-<td>HFD</td>
-<td>62,50%</td>
-</tr>
-<tr class="even">
-<td>ESM</td>
-<td>27,00%</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>MP en cuba (g/L)</td>
-<td>31,13</td>
-</tr>
-<tr class="odd">
-<td>Ratio recuperación MP (Rendimiento MP %)</td>
-<td>94,65%</td>
-</tr>
-<tr class="even">
-<td>Coef G (ESM queso obtenido a partir de MP leche)</td>
-<td>29,46</td>
-</tr>
-<tr class="odd">
-<td>Litraje unitario</td>
-<td>9,164</td>
-</tr>
-<tr class="even">
-<td>Ratio recuperación MG (%)</td>
-<td>91,57%</td>
-</tr>
-<tr class="odd">
-<td>MG teórica en la cuba (g/L)</td>
-<td>30,56</td>
-</tr>
-<tr class="even">
-<td>MG Pérdidas brutas suero (g/L)</td>
-<td>2,814</td>
-</tr>
-<tr class="odd">
-<td>MG Pérdidas brutas suero (%)</td>
-<td>8,43%</td>
-</tr>
-<tr class="even">
-<td>MG estándar en la mezcla (g/L)</td>
-<td>33,37</td>
-</tr>
-</tbody>
-</table>
 <p>Llamamos MG estándar en la mezcla a la cantidad de MG que tendremos en la cuba, es decir, en nuestros 9,164 L de leche a fabricar. Esta MG puede provenir de la leche de partida o del resultado de añadir nata a la leche para conseguir la cantidad necesaria.</p>
 <p>De la misma forma, llamamos MP en cuba a la cantidad de MP que hemos puesto en cuba, ya sea la de la leche de partida o del resultado de haber añadido proteínas a esta leche.</p>
 </section>
 <section id="el-estándar-técnico-final" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="el-estándar-técnico-final"><span class="header-section-number">9.5</span> El estándar técnico final</h2>
 <p>Como hemos visto, la construcción del estándar técnico y el seguimiento de la tecnología quesera no se hacen siguiendo el consumo de <em>litros de leche</em>, sino de la cantidad de proteína y grasa utilizadas. Por esta razón, la construcción del estándar debe proporcionar las cantidades de MG y MP necesarias para obtener 1 kg de queso, y no sólo el litraje en cuba</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><strong>ESTANDAR TECNICO</strong></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Análisis salida sal</strong></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>EST %</td>
-<td>55,00%</td>
-</tr>
-<tr class="odd">
-<td>MG</td>
-<td>28,00%</td>
-</tr>
-<tr class="even">
-<td>G/ES %</td>
-<td>50,91%</td>
-</tr>
-<tr class="odd">
-<td>HFD</td>
-<td>62,50%</td>
-</tr>
-<tr class="even">
-<td>ESM</td>
-<td>27,00%</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>MP en cuba (g/L)</td>
-<td>31,13</td>
-</tr>
-<tr class="odd">
-<td>Ratio recuperación MP (Rendimiento MP %)</td>
-<td>94,65%</td>
-</tr>
-<tr class="even">
-<td>Coef G (ESM queso obtenido a partir de MP leche)</td>
-<td>29,46</td>
-</tr>
-<tr class="odd">
-<td>Litraje unitario</td>
-<td>9,164</td>
-</tr>
-<tr class="even">
-<td>Ratio recuperación MG (%)</td>
-<td>91,57%</td>
-</tr>
-<tr class="odd">
-<td>MG teórica en la cuba (g/L)</td>
-<td>30,56</td>
-</tr>
-<tr class="even">
-<td>MG Pérdidas brutas suero (g/L)</td>
-<td>2,814</td>
-</tr>
-<tr class="odd">
-<td>MG Pérdidas brutas suero (%)</td>
-<td>8,43%</td>
-</tr>
-<tr class="even">
-<td>MG estándar en la mezcla (g/L)</td>
-<td>33,37</td>
-</tr>
-<tr class="odd">
-<td><strong>Consumo MG total leche en cuba</strong></td>
-<td><strong>305,79</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Consumo MP total leche en cuba</strong></td>
-<td><strong>285,26</strong></td>
-</tr>
-<tr class="odd">
-<td>MG suero en cuba (g/L)</td>
-<td>0,00</td>
-</tr>
-<tr class="even">
-<td>MG Pérddas suero neta (g/L)</td>
-<td>2,81</td>
-</tr>
-<tr class="odd">
-<td>MG Pérddas suero neta (%)</td>
-<td>8,43%</td>
-</tr>
-<tr class="even">
-<td>MG STD sin nata de suero (g/L)</td>
-<td>33,37</td>
-</tr>
-</tbody>
-</table>
 <p>En este caso, vemos un proceso de fabricación que <em>no</em> está recuperando la materia grasa del suero; las diferencias entre la MG en cuba y la MG en el queso se consideran pérdidas de proceso.</p>
 </section>
 <section id="la-importancia-de-la-estandarización-de-la-leche" class="level2" data-number="9.6">
@@ -697,167 +525,6 @@ window.Quarto = {
 <p>Las desviaciones observadas deben analizarse con base en el conocimiento tecnológico, para establecer planes correctivos adecuados.</p>
 <p>Conociendo el coste de la MG y de la MP pagada, es posible calcular el valor económico de cada desviación, lo que permite priorizar las acciones correctivas según su impacto financiero.</p>
 <p>Hay una hoja Excel con todos los cálculos.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><strong>Análisis de desviaciones</strong></th>
-<th><strong>Teórico</strong></th>
-<th style="text-align: right;"><strong>Real</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Fabricación, KG</td>
-<td></td>
-<td style="text-align: right;">1.000</td>
-</tr>
-<tr class="even">
-<td>EST</td>
-<td>55,00%</td>
-<td style="text-align: right;">54,00%</td>
-</tr>
-<tr class="odd">
-<td>MG</td>
-<td>28,00%</td>
-<td style="text-align: right;">27,50%</td>
-</tr>
-<tr class="even">
-<td>ESM</td>
-<td>27,00%</td>
-<td style="text-align: right;">26,50%</td>
-</tr>
-<tr class="odd">
-<td>HFD</td>
-<td>62,50%</td>
-<td style="text-align: right;">63,45%</td>
-</tr>
-<tr class="even">
-<td>G/ES</td>
-<td>50,91%</td>
-<td style="text-align: right;">50,93%</td>
-</tr>
-<tr class="odd">
-<td>Litros leche puestos en fab (cuba)</td>
-<td>9.164</td>
-<td style="text-align: right;">8.780</td>
-</tr>
-<tr class="even">
-<td>Composición leche en cuba MG (g/L)</td>
-<td>33,37</td>
-<td style="text-align: right;">39,66</td>
-</tr>
-<tr class="odd">
-<td>Composición leche en cuba MP (g/L)</td>
-<td>31,13</td>
-<td style="text-align: right;">31,15</td>
-</tr>
-<tr class="even">
-<td>KMG puestos en fabricacion (cuba)</td>
-<td>306</td>
-<td style="text-align: right;">348</td>
-</tr>
-<tr class="odd">
-<td>KMP puestos en fabricacion (cuba)</td>
-<td>285</td>
-<td style="text-align: right;">274</td>
-</tr>
-<tr class="even">
-<td>KMG Nata suero recuperada puesta en fab</td>
-<td>0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td>factor MG/MP leche cubas</td>
-<td>1,072</td>
-<td style="text-align: right;">1,273</td>
-</tr>
-<tr class="even">
-<td>g MP/L leche en cuba</td>
-<td>31,130</td>
-<td style="text-align: right;">31,150</td>
-</tr>
-<tr class="odd">
-<td>g MG/L leche en cuba</td>
-<td>33,370</td>
-<td style="text-align: right;">39,658</td>
-</tr>
-<tr class="even">
-<td>MG teórica en cuba g/L</td>
-<td>30,556</td>
-<td style="text-align: right;">31,321</td>
-</tr>
-<tr class="odd">
-<td>Litraje unitario (L/Kg)</td>
-<td>9,164</td>
-<td style="text-align: right;">8,780</td>
-</tr>
-<tr class="even">
-<td>Recup MG</td>
-<td>91,57%</td>
-<td style="text-align: right;">78,98%</td>
-</tr>
-<tr class="odd">
-<td>Recup MP</td>
-<td>94,65%</td>
-<td style="text-align: right;">96,89%</td>
-</tr>
-<tr class="even">
-<td>gr MG queso/kg queso</td>
-<td>280,000</td>
-<td style="text-align: right;">275,000</td>
-</tr>
-<tr class="odd">
-<td>g ESM queso/kg queso</td>
-<td>270,000</td>
-<td style="text-align: right;">265,000</td>
-</tr>
-<tr class="even">
-<td>factor MG/MP queso</td>
-<td>1,037</td>
-<td style="text-align: right;">1,038</td>
-</tr>
-<tr class="odd">
-<td>MG pérdida bruta (g/L)</td>
-<td>2,814</td>
-<td style="text-align: right;">8,337</td>
-</tr>
-<tr class="even">
-<td>MG pérdida bruta %</td>
-<td>8,43%</td>
-<td style="text-align: right;">21,02%</td>
-</tr>
-<tr class="odd">
-<td>MG suero recuperada puesta en fab g/L</td>
-<td>0,000</td>
-<td style="text-align: right;">0,000</td>
-</tr>
-<tr class="even">
-<td>MG pérdida neta g/L</td>
-<td>2,814</td>
-<td style="text-align: right;">8,337</td>
-</tr>
-<tr class="odd">
-<td>MG pérdida neta %</td>
-<td>8,43%</td>
-<td style="text-align: right;">21,02%</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td style="text-align: right;"></td>
-</tr>
-<tr class="odd">
-<td>Consumo técnico MG/kg queso (total cuba)</td>
-<td>305,79</td>
-<td style="text-align: right;">348,20</td>
-</tr>
-<tr class="even">
-<td>Consumo técnico MP/kg queso</td>
-<td>285,26</td>
-<td style="text-align: right;">273,50</td>
-</tr>
-</tbody>
-</table>
 
 
 </section>

@@ -278,7 +278,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Para ayudar a concentrarse en los resultados, el código <em>python</em> se presenta plegado, de manera que no interfiera demasiado en la presentación. Puede desplegarse para ver cómo se han generado cada tabla y cada gráfico.</p>
 <p>Como siempre, es opcional descargar los datos de ejemplo y abrir el cuaderno en Colab para ejecutar el código a medida que se avanza ne el estudio.</p>
 <p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/090-pract02-rendimientos.ipynb" target="_blank" rel="noopener noreferrer">Abrir este cuaderno en Google Colab</a></p>
-<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm_limpio.csv" target="_blank" rel="noopener noreferrer">Descargar los datos de ejemplo utilizados en este cuaderno (archivo <code>fab_queso_bm_limpio.csv</code>)</a></p>
+<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm.csv" target="_blank" rel="noopener noreferrer">Descargar los datos de ejemplo utilizados en este cuaderno (archivo <code>fab_queso_bm.csv</code>)</a></p>
 <p>Empezamos el análisis inicializando las bibliotecas de <code>Python</code>, cargamos los datos del <code>CSV</code>, creamos el índice de fecha y mostramos los primeros registros del dataframe para comprobar que todo es correcto.</p>
 <hr>
 <div id="cell-6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:470,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1760773316807,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="1">
@@ -287,27 +287,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>url_datos <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm_limpio.csv'</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(url_datos, decimal <span class="op">=</span> <span class="st">","</span>, sep<span class="op">=</span><span class="st">';'</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error al cargar el archivo: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># crear index con fecha</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>] <span class="op">=</span> pd.to_datetime(</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,  <span class="co"># Formato Día/Mes/Año confirmado</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span>     <span class="co"># Clave: convierte los valores que no puede leer a NaT (Not a Time)</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Limpiar NaT y establecer el índice</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>df.dropna(subset<span class="op">=</span>[<span class="st">'fecha_index'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>url_datos <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm.csv'</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(url_datos, decimal <span class="op">=</span> <span class="st">","</span>, sep<span class="op">=</span><span class="st">';'</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error al cargar el archivo: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># crear index con fecha</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>] <span class="op">=</span> pd.to_datetime(</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,  <span class="co"># Formato Día/Mes/Año confirmado</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span>     <span class="co"># Clave: convierte los valores que no puede leer a NaT (Not a Time)</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Limpiar NaT y establecer el índice</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>df.dropna(subset<span class="op">=</span>[<span class="st">'fecha_index'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
@@ -320,12 +321,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th">fecha</th>
 <th data-quarto-table-cell-role="th">receta</th>
 <th data-quarto-table-cell-role="th">litros_past</th>
+<th data-quarto-table-cell-role="th">est_past</th>
+<th data-quarto-table-cell-role="th">mg_past</th>
+<th data-quarto-table-cell-role="th">mp_past</th>
 <th data-quarto-table-cell-role="th">kg_cuba</th>
 <th data-quarto-table-cell-role="th">est_cuba</th>
 <th data-quarto-table-cell-role="th">mg_cuba</th>
 <th data-quarto-table-cell-role="th">mp_cuba</th>
-<th data-quarto-table-cell-role="th">lactosa_cuba</th>
-<th data-quarto-table-cell-role="th">ph_final_moldeo_cuba</th>
 <th data-quarto-table-cell-role="th">formato</th>
 <th data-quarto-table-cell-role="th">est_salida_salmuera</th>
 <th data-quarto-table-cell-role="th">mg_salida_salmuera</th>
@@ -350,6 +352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
 </tr>
 </thead>
 <tbody>
@@ -357,91 +360,96 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td data-quarto-table-cell-role="th">2022-02-23</td>
 <td>23/02/2022</td>
 <td>bajo mg</td>
-<td>12330</td>
+<td>12380</td>
+<td>10.760</td>
+<td>2.580</td>
+<td>3.550</td>
 <td>12860.510</td>
 <td>10.28</td>
 <td>2.46</td>
 <td>3.38</td>
-<td>4.44</td>
-<td>6.46</td>
 <td>3 kg</td>
 <td>50.85</td>
 <td>20.34</td>
 <td>5.44</td>
-<td>1419.3</td>
+<td>1419.30</td>
 <td>1.47</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">2022-02-24</td>
 <td>24/02/2022</td>
 <td>mezcla</td>
-<td>7500</td>
+<td>7440</td>
+<td>13.290</td>
+<td>5.150</td>
+<td>4.090</td>
 <td>7704.462</td>
 <td>12.80</td>
 <td>4.90</td>
 <td>3.89</td>
-<td>4.01</td>
-<td>6.35</td>
 <td>barra</td>
 <td>59.42</td>
 <td>32.13</td>
 <td>5.40</td>
-<td>1062.4</td>
+<td>1062.40</td>
 <td>1.31</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2022-03-01</td>
 <td>01/03/2022</td>
-<td>bajo mg</td>
-<td>13030</td>
-<td>13867.370</td>
-<td>10.41</td>
-<td>2.47</td>
-<td>3.43</td>
-<td>4.51</td>
-<td>6.40</td>
-<td>barra</td>
-<td>52.10</td>
-<td>21.15</td>
-<td>5.34</td>
-<td>1536.0</td>
-<td>1.17</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">2022-03-01</td>
-<td>01/03/2022</td>
 <td>vaca</td>
-<td>14820</td>
+<td>14910</td>
+<td>12.542</td>
+<td>3.994</td>
+<td>3.076</td>
 <td>15810.990</td>
-<td>12.85</td>
-<td>5.03</td>
-<td>3.97</td>
-<td>3.85</td>
-<td>6.38</td>
+<td>11.37</td>
+<td>4.02</td>
+<td>2.78</td>
 <td>barra</td>
 <td>55.94</td>
 <td>30.50</td>
 <td>5.41</td>
-<td>2351.0</td>
+<td>1959.76</td>
 <td>1.55</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022-03-01</td>
+<td>01/03/2022</td>
+<td>bajo mg</td>
+<td>13080</td>
+<td>11.090</td>
+<td>2.590</td>
+<td>3.600</td>
+<td>13867.370</td>
+<td>10.41</td>
+<td>2.47</td>
+<td>3.43</td>
+<td>barra</td>
+<td>52.10</td>
+<td>21.15</td>
+<td>5.34</td>
+<td>1536.00</td>
+<td>1.17</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2022-03-04</td>
 <td>04/03/2022</td>
-<td>oveja</td>
-<td>11890</td>
-<td>12344.190</td>
-<td>14.37</td>
-<td>5.86</td>
-<td>4.55</td>
-<td>3.96</td>
-<td>6.42</td>
-<td>barra</td>
-<td>57.60</td>
-<td>31.99</td>
-<td>5.42</td>
-<td>2051.0</td>
-<td>NaN</td>
+<td>mezcla</td>
+<td>13420</td>
+<td>14.220</td>
+<td>5.450</td>
+<td>4.310</td>
+<td>14131.770</td>
+<td>13.61</td>
+<td>5.20</td>
+<td>4.11</td>
+<td>3 kg</td>
+<td>52.65</td>
+<td>28.80</td>
+<td>5.44</td>
+<td>2397.00</td>
+<td>1.02</td>
 </tr>
 </tbody>
 </table>
@@ -578,14 +586,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="cell-12" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'rendimiento_simple'</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Rendimiento por receta (orden alfabético)'</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Receta'</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Kilos obtenidos con 100 L de leche'</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'rendimiento_simple'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Rendimiento por receta (orden alfabético)'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Receta'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Kilos obtenidos con 100 L de leche'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -717,35 +724,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Dado que nuestros valores analíticos están expresados en porcentaje en peso, calculamos las cantidades de materia como se indica a continuación:</p>
 <div id="cell-23" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">### 1. Cálculos de Entrada</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'est_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'kg_cuba'</span>] <span class="op">*</span> df[<span class="st">'est_cuba'</span>] <span class="op">/</span> <span class="dv">100</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mg_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'kg_cuba'</span>] <span class="op">*</span> df[<span class="st">'mg_cuba'</span>] <span class="op">/</span> <span class="dv">100</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mp_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'kg_cuba'</span>] <span class="op">*</span> df[<span class="st">'mp_cuba'</span>] <span class="op">/</span> <span class="dv">100</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'est_kg_cuba'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_cuba'</span>] </span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">### 1. Cálculos de pasteurizacion</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'est_kg_past'</span>] <span class="op">=</span> df[<span class="st">'litros_past'</span>] <span class="op">*</span> df[<span class="st">'est_past'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mg_kg_past'</span>] <span class="op">=</span> df[<span class="st">'litros_past'</span>] <span class="op">*</span> df[<span class="st">'mg_past'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mp_kg_past'</span>] <span class="op">=</span> df[<span class="st">'litros_past'</span>] <span class="op">*</span> df[<span class="st">'mp_past'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_kg_past'</span>] <span class="op">=</span> df[<span class="st">'est_kg_past'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_past'</span>] </span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">### 2. Cálculos de Salida</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'est_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'est_salida_salmuera'</span>] <span class="op">/</span> <span class="dv">100</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mg_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'mg_salida_salmuera'</span>] <span class="op">/</span> <span class="dv">100</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'est_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_queso'</span>]</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sal_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'sal_queso'</span>]<span class="op">/</span><span class="dv">100</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">### 1. Cálculos de cuba</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'est_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'kg_cuba'</span>] <span class="op">*</span> df[<span class="st">'est_cuba'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mg_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'kg_cuba'</span>] <span class="op">*</span> df[<span class="st">'mg_cuba'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mp_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'kg_cuba'</span>] <span class="op">*</span> df[<span class="st">'mp_cuba'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'est_kg_cuba'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_cuba'</span>] </span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">### 3. Coeficientes de recuperación (expresado en porcentaje)</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_mg'</span>]  <span class="op">=</span> df[<span class="st">'mg_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'mg_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_mp'</span>]  <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'mp_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span> <span class="co"># atencion a la fórmula de cálculo, deberia ser mp_kg_queso</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_esm'</span>] <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'esm_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">### 4. Consumos de materia por kilo de queso (expresado en gramos de materia por kilo de queso)</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'consumo_mg_kg'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> <span class="dv">1000</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'consumo_mp_kg'</span>] <span class="op">=</span> df[<span class="st">'mp_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> <span class="dv">1000</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co">### 5. Otros cálculos: relación MG/MP en la leche de entrada y en el queso</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ratio_mg_mp_leche'</span>]  <span class="op">=</span> df[<span class="st">'mg_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'mp_kg_cuba'</span>]</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ratio_mg_esm_leche'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'esm_kg_cuba'</span>]</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ratio_mg_esm_queso'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_queso'</span>] <span class="op">/</span> df[<span class="st">'esm_kg_queso'</span>]</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co">### 6. Otros coeficientes: HQD y G/ES</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'hqd_salida_salmuera'</span>] <span class="op">=</span> (<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'est_salida_salmuera'</span>]) <span class="op">/</span> (<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'mg_salida_salmuera'</span>]) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ges_salida_salmuera'</span>] <span class="op">=</span> df[<span class="st">'mg_salida_salmuera'</span>] <span class="op">/</span> df[<span class="st">'est_salida_salmuera'</span>] <span class="op">*</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">### 2. Cálculos de queso</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'est_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'est_salida_salmuera'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mg_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'mg_salida_salmuera'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'est_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_queso'</span>]</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sal_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'sal_queso'</span>]<span class="op">/</span><span class="dv">100</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">### 3. Coeficientes de recuperación (expresado en porcentaje)</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_mg'</span>]  <span class="op">=</span> df[<span class="st">'mg_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'mg_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_mp'</span>]  <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'mp_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span> <span class="co"># atencion a la fórmula de cálculo, deberia ser mp_kg_queso</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_esm'</span>] <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'esm_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co">### 4. Consumos de materia por kilo de queso (expresado en gramos de materia por kilo de queso)</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'consumo_mg_kg'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> <span class="dv">1000</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'consumo_mp_kg'</span>] <span class="op">=</span> df[<span class="st">'mp_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> <span class="dv">1000</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co">### 5. Otros cálculos: relación MG/MP en la leche de entrada y en el queso</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ratio_mg_mp_leche'</span>]  <span class="op">=</span> df[<span class="st">'mg_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'mp_kg_cuba'</span>]</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ratio_mg_esm_leche'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'esm_kg_cuba'</span>]</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ratio_mg_esm_queso'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_queso'</span>] <span class="op">/</span> df[<span class="st">'esm_kg_queso'</span>]</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="co">### 6. Otros coeficientes: HQD y G/ES</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'hqd_salida_salmuera'</span>] <span class="op">=</span> (<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'est_salida_salmuera'</span>]) <span class="op">/</span> (<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'mg_salida_salmuera'</span>]) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ges_salida_salmuera'</span>] <span class="op">=</span> df[<span class="st">'mg_salida_salmuera'</span>] <span class="op">/</span> df[<span class="st">'est_salida_salmuera'</span>] <span class="op">*</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Comparemos ahora la recuperación de materia medida por estos coeficientes entre recetas.</p>
 <div id="cell-25" class="cell" data-execution_count="11">
@@ -912,7 +925,7 @@ bajo mg      88.229046      97.329485
 i+D          76.630772      77.697322
 mezcla       92.047224      96.738573
 oveja        91.215043      93.482273
-vaca         91.451507      95.284041</code></pre>
+vaca         93.750788      93.114933</code></pre>
 </div>
 </div>
 <div id="cell-34" class="cell" data-execution_count="18">
@@ -971,46 +984,53 @@ bajo mg      88.229046       41.760190
 i+D          76.630772       35.290377
 mezcla       92.047224       46.876581
 oveja        91.215043       50.769829
-vaca         91.451507       48.461305</code></pre>
+vaca         93.750788       38.212185</code></pre>
 </div>
 </div>
 <p>Finalmente, aprovechamos nuestros cálculos para crear un documento con los rendimientos y el balance de materia de la fabricación, que exportaremos a un ‘csv’ y que podemos analizar sea en <em>python</em> o en Excel mediante tablas dinámicas.</p>
 <div id="cell-37" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">### 5. Balance de Materia (Salida - Entrada)</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># La falta de producto queda como negativo al hacer Salida - Entrada</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'balance_est'</span>] <span class="op">=</span> df[<span class="st">'est_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'est_kg_cuba'</span>]</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'balance_mg'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_cuba'</span>]</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'balance_esm'</span>] <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'esm_kg_cuba'</span>] <span class="op">-</span> df[<span class="st">'sal_kg_queso'</span>]</span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">### 5. Balance de Materia de pasteurizacion (Salida - Entrada)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># La falta de producto queda como negativo al hacer Salida - Entrada</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'balance_est_past'</span>] <span class="op">=</span> df[<span class="st">'est_kg_cuba'</span>] <span class="op">-</span> df[<span class="st">'est_kg_past'</span>]</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'balance_mg_past'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_cuba'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_past'</span>]</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'balance_mp_past'</span>] <span class="op">=</span> df[<span class="st">'mp_kg_cuba'</span>] <span class="op">-</span> df[<span class="st">'mp_kg_past'</span>]</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'balance_esm_past'</span>] <span class="op">=</span> df[<span class="st">'esm_kg_cuba'</span>] <span class="op">-</span> df[<span class="st">'esm_kg_past'</span>]</span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">### 6. Preparación y Exportación del DataFrame de Resultados</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Columnas finales a incluir en el reporte</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>columnas_balance <span class="op">=</span> [</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'fecha'</span>, <span class="st">'receta'</span>, <span class="st">'formato'</span>,</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'litros_past'</span>, <span class="st">'peso_queso_total'</span>,</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'est_kg_cuba'</span>, <span class="st">'est_kg_queso'</span>, </span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mg_kg_cuba'</span>, <span class="st">'mg_kg_queso'</span>, </span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mp_kg_cuba'</span>,</span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'esm_kg_cuba'</span>, <span class="st">'esm_kg_queso'</span>, </span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'balance_est'</span>, <span class="st">'balance_mg'</span>, <span class="st">'balance_esm'</span>,</span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'coef_recup_mg'</span>, <span class="st">'coef_recup_mp'</span>, <span class="st">'coef_recup_esm'</span>,</span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'consumo_mg_kg'</span>, <span class="st">'consumo_mp_kg'</span></span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un nuevo DataFrame con las columnas de interés</span></span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>df_balance <span class="op">=</span> df[columnas_balance].copy()</span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar el DataFrame con punto decimal y separador ';'</span></span>
-<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>nombre_archivo_salida <span class="op">=</span> <span class="st">'datos/informe_balance_materia.csv'</span></span>
-<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>df_balance.to_csv(</span>
-<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>    nombre_archivo_salida, </span>
-<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>    sep<span class="op">=</span><span class="st">';'</span>, </span>
-<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>    decimal<span class="op">=</span><span class="st">','</span></span>
-<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">### 6. Balance de Materia de cubas (Salida - Entrada)</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># La falta de producto queda como negativo al hacer Salida - Entrada</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'balance_est_cuba'</span>] <span class="op">=</span> df[<span class="st">'est_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'est_kg_cuba'</span>]</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'balance_mg_cuba'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_cuba'</span>]</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'balance_esm_cuba'</span>] <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'esm_kg_cuba'</span>] <span class="op">-</span> df[<span class="st">'sal_kg_queso'</span>]</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="co">### 7. Preparación y Exportación del DataFrame de Resultados</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Columnas finales a incluir en el reporte</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>columnas_balance <span class="op">=</span> [</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'fecha'</span>, <span class="st">'receta'</span>, <span class="st">'formato'</span>,</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'litros_past'</span>, <span class="st">'peso_queso_total'</span>,</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'est_kg_past'</span>,<span class="st">'est_kg_cuba'</span>, <span class="st">'est_kg_queso'</span>, </span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mg_kg_past'</span>,<span class="st">'mg_kg_cuba'</span>, <span class="st">'mg_kg_queso'</span>, </span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mp_kg_past'</span>,<span class="st">'mp_kg_cuba'</span>,</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">'esm_kg_past'</span>,<span class="st">'esm_kg_cuba'</span>, <span class="st">'esm_kg_queso'</span>, </span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'balance_est_past'</span>, <span class="st">'balance_mg_past'</span>, <span class="st">'balance_mp_past'</span>, <span class="st">'balance_esm_past'</span>,</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">'balance_est_cuba'</span>, <span class="st">'balance_mg_cuba'</span>, <span class="st">'balance_esm_cuba'</span>,</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">'coef_recup_mg'</span>, <span class="st">'coef_recup_mp'</span>, <span class="st">'coef_recup_esm'</span>,</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">'consumo_mg_kg'</span>, <span class="st">'consumo_mp_kg'</span></span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un nuevo DataFrame con las columnas de interés</span></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>df_balance <span class="op">=</span> df[columnas_balance].copy()</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar el DataFrame con punto decimal y separador ';'</span></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>nombre_archivo_salida <span class="op">=</span> <span class="st">'datos/informe_balance_materia.csv'</span></span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>df_balance.to_csv(</span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>    nombre_archivo_salida, </span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a>    sep<span class="op">=</span><span class="st">';'</span>, </span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a>    decimal<span class="op">=</span><span class="st">','</span></span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Veamos las características de los quesos.</p>
@@ -1151,7 +1171,7 @@ bajo mg     226.119987     314.108816
 i+D         411.975490     325.622549
 mezcla      330.181811     258.288108
 oveja       341.012161     270.611497
-vaca        325.532130     266.991197</code></pre>
+vaca        319.086010     278.531476</code></pre>
 </div>
 </div>
 <div id="cell-44" class="cell" data-execution_count="26">
