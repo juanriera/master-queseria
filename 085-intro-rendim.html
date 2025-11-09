@@ -73,6 +73,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -131,14 +160,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>En el recorrido de cálculo utilizaremos <code>Python</code>, al final se proporciona una hoja de cálculo con la información necesaria.</p>
 <p>Como siempre, es opcional descargar los datos de ejemplo y abrir el cuaderno en Colab para ejecutar el código a medida que se avanza en el estudio.</p>
 <p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/085-intro-rendim.ipynb" target="_blank" rel="noopener noreferrer">Abrir este cuaderno en Google Colab</a></p>
-<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm_vaca.csv" target="_blank" rel="noopener noreferrer">Descargar los datos de ejemplo utilizados en este cuaderno (archivo <code>fab_queso_bm.csv</code>)</a></p>
+<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm.csv" target="_blank" rel="noopener noreferrer">Descargar los datos de ejemplo utilizados en este cuaderno (archivo <code>fab_queso_bm.csv</code>)</a></p>
 </section>
 <section id="lectura-y-exploración-de-los-datos" class="level2">
 <h2 class="anchored" data-anchor-id="lectura-y-exploración-de-los-datos">Lectura y exploración de los datos</h2>
 <p>Antes de lanzarnos al análisis cuantitativo, siempre es conveniente una primera visualización de los datos, por si hubiese algún valor que nos pueda resultar cuestionable.</p>
 <p>Es una mala práctica, aunque muy extendida, usar la hoja de cálculo para hacer la media aritmética de cada parámetro que vayamos a utilizar y trabajar con estos valores medios. En un conjunto de datos que recoja muchas fabricaciones, nunca podemos estar seguros de que el 100% de los valores sean correctos, que no haya habido errores de muestreo, analíticos o problemas de fabricación que hayan producido valores anormales. Por eso vamos a utilizar siempre los valores <em>medianos</em> y no los valores medios; como sabemos, la <strong>mediana</strong> es resistente a los valores anormales y extremos, mientras que la media no lo es.</p>
 <p>Procedemos a leer los datos, y visualizamos las primeras lineas. Se incluye el código <code>python</code>que permite visualizar las tablas, en algunos casos se han formateado mediante <code>HTML</code>.</p>
-<div id="95946e37" class="cell" data-execution_count="1">
+<div id="95946e37" class="cell" data-execution_count="92">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -147,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>url_datos <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm_vaca.csv'</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>url_datos <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm.csv'</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(url_datos, decimal <span class="op">=</span> <span class="st">","</span>, sep<span class="op">=</span><span class="st">';'</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
@@ -165,7 +194,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtramos sólo queso de vaca</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'receta'</span>]<span class="op">==</span><span class="st">'vaca'</span>]</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -185,8 +217,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th">est_cuba</th>
 <th data-quarto-table-cell-role="th">mg_cuba</th>
 <th data-quarto-table-cell-role="th">mp_cuba</th>
-<th data-quarto-table-cell-role="th">lactosa_cuba</th>
-<th data-quarto-table-cell-role="th">ph_final_moldeo_cuba</th>
 <th data-quarto-table-cell-role="th">formato</th>
 <th data-quarto-table-cell-role="th">est_salida_salmuera</th>
 <th data-quarto-table-cell-role="th">mg_salida_salmuera</th>
@@ -212,8 +242,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
 </tr>
 </thead>
 <tbody>
@@ -222,20 +250,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>01/03/2022</td>
 <td>vaca</td>
 <td>14910</td>
-<td>14.00</td>
-<td>5.27</td>
-<td>4.17</td>
+<td>12.542</td>
+<td>3.994</td>
+<td>3.076</td>
 <td>15810.99</td>
-<td>12.85</td>
-<td>5.03</td>
-<td>3.97</td>
-<td>3.85</td>
-<td>6.38</td>
+<td>11.37</td>
+<td>4.02</td>
+<td>2.78</td>
 <td>barra</td>
 <td>55.94</td>
 <td>30.50</td>
 <td>5.41</td>
-<td>2351</td>
+<td>1959.76</td>
 <td>1.55</td>
 </tr>
 <tr class="even">
@@ -243,20 +269,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>04/03/2022</td>
 <td>vaca</td>
 <td>14100</td>
-<td>13.60</td>
-<td>5.11</td>
-<td>4.15</td>
+<td>13.312</td>
+<td>4.002</td>
+<td>3.673</td>
 <td>14989.74</td>
-<td>12.50</td>
-<td>4.87</td>
-<td>3.95</td>
-<td>3.68</td>
-<td>6.41</td>
+<td>13.25</td>
+<td>4.02</td>
+<td>3.78</td>
 <td>barra</td>
 <td>54.58</td>
 <td>29.80</td>
 <td>5.88</td>
-<td>2266</td>
+<td>1888.48</td>
 <td>1.77</td>
 </tr>
 <tr class="odd">
@@ -264,20 +288,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>25/03/2022</td>
 <td>vaca</td>
 <td>13310</td>
-<td>13.51</td>
-<td>5.07</td>
-<td>4.04</td>
+<td>12.856</td>
+<td>3.889</td>
+<td>3.372</td>
 <td>13011.79</td>
-<td>12.37</td>
-<td>4.83</td>
-<td>3.84</td>
-<td>3.70</td>
-<td>6.42</td>
+<td>12.89</td>
+<td>4.02</td>
+<td>3.35</td>
 <td>barra</td>
 <td>54.10</td>
 <td>30.63</td>
 <td>5.48</td>
-<td>1867</td>
+<td>1555.84</td>
 <td>1.32</td>
 </tr>
 <tr class="even">
@@ -285,20 +307,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>01/04/2022</td>
 <td>vaca</td>
 <td>15430</td>
-<td>13.50</td>
-<td>5.16</td>
-<td>4.04</td>
+<td>13.151</td>
+<td>3.886</td>
+<td>3.218</td>
 <td>15946.80</td>
-<td>12.60</td>
-<td>4.92</td>
-<td>3.84</td>
-<td>3.84</td>
-<td>6.48</td>
+<td>11.88</td>
+<td>3.76</td>
+<td>3.42</td>
 <td>barra</td>
 <td>56.76</td>
 <td>30.51</td>
 <td>5.36</td>
-<td>2261</td>
+<td>1884.96</td>
 <td>1.36</td>
 </tr>
 <tr class="odd">
@@ -306,20 +326,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>08/04/2022</td>
 <td>vaca</td>
 <td>15930</td>
-<td>13.71</td>
-<td>5.09</td>
-<td>4.05</td>
+<td>13.103</td>
+<td>4.022</td>
+<td>3.396</td>
 <td>16452.76</td>
-<td>12.67</td>
-<td>4.85</td>
-<td>3.85</td>
-<td>3.97</td>
-<td>6.41</td>
+<td>11.93</td>
+<td>3.99</td>
+<td>3.27</td>
 <td>barra</td>
 <td>55.63</td>
 <td>30.01</td>
 <td>5.31</td>
-<td>2346</td>
+<td>1955.36</td>
 <td>1.90</td>
 </tr>
 </tbody>
@@ -329,7 +347,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Los datos se corresponden con un conjunto de fabricaciones de queso de vaca, como hemos dicho. LAs principales variables recogidas son las siguientes:</p>
-<div id="c133ce3c" class="cell" data-execution_count="20">
+<div id="c133ce3c" class="cell" data-execution_count="93">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Diccionario de variables con espacio para completar descripciones</span></span>
@@ -471,7 +489,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Si el volumen de leche en cuba se midiese también con contador volumétrico, necesitaríamos convertir los resultados analíticos a masa/volumen para obtener los kilos de cada materia, utilizando la densidad.</p>
 <p>En la práctica, usar una densidad promedio fija o ajustada por estaciones funciona bastante bien, y evita los errores de medida de este parámetro que parecen sencillos pero siempre están sometidos al error de muestreo, además de la necesidad de corregir la temperatura.</p>
 <p>Veamos los datos analíticos del queso</p>
-<div id="ace8f948" class="cell" data-execution_count="14">
+<div id="ace8f948" class="cell" data-execution_count="94">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular media y mediana</span></span>
@@ -534,19 +552,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<p>Para hacer este producto, estamos trabajando con una leche cuya composición es:</p>
-<div id="879e078d" class="cell" data-execution_count="21">
+<p>Para hacer este producto, estamos trabajando con una leche que hemos enriquecido en MG y MP, cuya composición es:</p>
+<div id="879e078d" class="cell" data-execution_count="95">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular medias y medianas desde df</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>media_est <span class="op">=</span> df[<span class="st">'est_cuba'</span>].mean()</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mediana_est <span class="op">=</span> df[<span class="st">'est_cuba'</span>].median()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>media_est <span class="op">=</span> df[<span class="st">'est_cuba'</span>].mean()<span class="op">*</span><span class="dv">10</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mediana_est <span class="op">=</span> df[<span class="st">'est_cuba'</span>].median()<span class="op">*</span><span class="dv">10</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>media_mg <span class="op">=</span> df[<span class="st">'mg_cuba'</span>].mean()</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>mediana_mg <span class="op">=</span> df[<span class="st">'mg_cuba'</span>].median()</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>media_mg <span class="op">=</span> df[<span class="st">'mg_cuba'</span>].mean()<span class="op">*</span><span class="dv">10</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>mediana_mg <span class="op">=</span> df[<span class="st">'mg_cuba'</span>].median()<span class="op">*</span><span class="dv">10</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>media_mp <span class="op">=</span> df[<span class="st">'mp_cuba'</span>].mean()</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>mediana_mp <span class="op">=</span> df[<span class="st">'mp_cuba'</span>].median()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>media_mp <span class="op">=</span> df[<span class="st">'mp_cuba'</span>].mean()<span class="op">*</span><span class="dv">10</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>mediana_mp <span class="op">=</span> df[<span class="st">'mp_cuba'</span>].median()<span class="op">*</span><span class="dv">10</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear tabla HTML</span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>html <span class="op">=</span> <span class="ss">f"""</span></span>
@@ -594,18 +612,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Extracto seco total (ESM)</td>
-<td style="text-align: left;">12.63</td>
-<td style="text-align: left;">12.64</td>
+<td style="text-align: left;">123.17</td>
+<td style="text-align: left;">119.30</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Materia grasa (MG)</td>
-<td style="text-align: left;">4.87</td>
-<td style="text-align: left;">4.87</td>
+<td style="text-align: left;">39.58</td>
+<td style="text-align: left;">40.10</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Proteínas totales (MP)</td>
-<td style="text-align: left;">3.91</td>
-<td style="text-align: left;">3.92</td>
+<td style="text-align: left;">33.84</td>
+<td style="text-align: left;">33.50</td>
 </tr>
 </tbody>
 </table>
@@ -618,7 +636,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Este concepto es la base fundamental de la comprensión de la tecnología quesera: es el rendimiento en la recuperación de la proteína el que nos va a definir todo el proceso, la materia grasa “acompañará” de forma estática (aunque tendrá influencia en el desuerado)</p>
 <p>Por esta razón, el principal elemento del rendimiento en la definición de la tecnología es el porcentaje de recuperación de proteína en el extracto seco magro (aislamos el efecto la grasa)</p>
 <p>Hemos definido nuestro producto mediante los análisis de EST y MG; necesitamos saber el resto de parámetros, en concreto el ESM que estamos definiendo para nuestro producto:</p>
-<div id="4af451ed" class="cell" data-execution_count="24">
+<div id="4af451ed" class="cell" data-execution_count="96">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular medias y medianas</span></span>
@@ -709,7 +727,139 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<p>Ahora necesitamos conocer cuál es la tasa o ratio de conversión en ESM de queso del ESM de la leche en cubas. Para ello calculamos este ratio, que vamos a llamar <strong>coeficiente de recuperación de ESM</strong>.</p>
+<p>Ahora necesitamos conocer cuál es la tasa o ratio de conversión en ESM de queso del ESM, o bien de la MP, de la leche en cubas. Para ello calculamos estos ratios, que vamos a llamar <strong>coeficiente de recuperación de ESM</strong>, y el <strong>coeficiente de recuperación de MP</strong> junto con el <strong>coeficiente de recuperación de MG</strong>,que indicará la cantidad de MG que somos capaces de recuperar en el queso.</p>
+<p>Si la recuperación de MG fuese perfecta, el coeficiente de recuperación sería 100%. El coeficiente refleja que hay pérdidas de MG, bien en el suero, bien en los finos de moldeo o en cuajada que se ha caído, etc, en resumen, que no ha ido a parar al queso moldeado. Podemos argumentar, correctamente, que la parte de los finos recoge también la eficiencia de la coagulación, pero al final lo que nos interesa es recoger la conversión real en queso de nuestra materia prima, excluyendo todo lo que constituyen las <strong>pérdidas de proceso</strong>.</p>
+<p>El <strong>coeficiente de recuperación de ESM</strong> tiene un valor mucho más bajo, porque hay una parte significativa del ESM de la leche que vamos a perder en el suero y durante el salado, como las proteínas solubles, la lactosas y las sales minerales; por otra parte, vamos a incorporar a ese ESM la sal añadida durante el salado.</p>
+<p>Lo importante es que el valor de este coeficiente, si nuestro proceso es estable, debe ser siempre constante: en un proceso estable, tanto las pérdidas como las ganancias deben ser muy semejantes de un día a otro, si las condiciones del proceso se han mantenido. Por lo tanto, lo que nos interesa es este valor <em>mediano</em> del coeficiente, y debemos asegurarnos de que es regular.</p>
+<p>EL último coeficiente, el <strong>coeficiente de recuperación de MP</strong> se basa en esta misma regularidad del proceso para establecer la relación entre la proteína puesta en cuba y el ESM del queo. La ventaja de este coeficiente es que con los medios analíticos habituales, es más fácil analizar la leche mediante un NIR (<em>near-infrared</em>) como el MilkoScan, que hacer un extraco seco convencional en estufa.</p>
+<div id="6febfbd8" class="cell" data-execution_count="100">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">### 1. Cálculos de cuba</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'est_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'kg_cuba'</span>] <span class="op">*</span> df[<span class="st">'est_cuba'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mg_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'kg_cuba'</span>] <span class="op">*</span> df[<span class="st">'mg_cuba'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mp_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'kg_cuba'</span>] <span class="op">*</span> df[<span class="st">'mp_cuba'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'est_kg_cuba'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_cuba'</span>] </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">### 2. Cálculos de queso</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'est_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'est_salida_salmuera'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mg_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'mg_salida_salmuera'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'est_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_queso'</span>]</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sal_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'sal_queso'</span>]<span class="op">/</span><span class="dv">100</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">### 3. Coeficientes de recuperación (expresado en porcentaje)</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_mg'</span>]  <span class="op">=</span> df[<span class="st">'mg_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'mg_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_mp'</span>]  <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'mp_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span> <span class="co"># atencion a la fórmula de cálculo, deberia ser mp_kg_queso</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_esm'</span>] <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'esm_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Coeficiente de recuperación de materia grasa (MG queso/MG leche en cuba): </span><span class="sc">{</span>df[<span class="st">'coef_recup_mg'</span>]<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Coeficiente de recuperación de proteína (ESM queso/MP leche en cuba): </span><span class="sc">{</span>df[<span class="st">'coef_recup_mp'</span>]<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Coeficiente de recuperación de extracto seco magro (ESM queso/ESM leche en cuba): </span><span class="sc">{</span>df[<span class="st">'coef_recup_esm'</span>]<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Coeficiente de recuperación de materia grasa (MG queso/MG leche en cuba): 94.178
+Coeficiente de recuperación de proteína (ESM queso/MP leche en cuba): 92.498
+Coeficiente de recuperación de extracto seco magro (ESM queso/ESM leche en cuba): 37.546</code></pre>
+</div>
+</div>
+<p>A partir de aquí, hacemos los cálculos teóricos del estándar técnico.</p>
+<p>Utilizando el coeficiente de recuperación de la MP, podemos calcular la cantidad de ESM que vamos a recuperar. La mediana de la cantidad de proteína que tenemos en la leche es 33,50 g/L; sabemos que con 1 L de leche vamos a obtener en el queso</p>
+<p><span class="math display">\[
+\frac{33,50\ g\ proteína}{1\ L\ leche}*\ \frac{0.92498\ g\ ESM}{1\ g\ proteína} = 30,987\ g\ ESM\ en\ el\ queso\ por\ litro\ de\ leche
+\]</span></p>
+<p>Esta es la conversión clave de nuestra tecnología, y es conocida como <strong><em>coeficiente G</em></strong> en honor a su autor, Antoine M Guérault, que lo introdujo formalmente por primera vez por en su libro <em>La fromagerie devant les techniques nouvelles,</em> en 1966; desde entonces sigue utilizándose con plena validez. Originalmente, el coeficiente indica el porcentaje de ESM que hemos recuperado en el queso, dividiendo el ESM del queso entre el ESM de la leche puesta en fabricación. Como comentamos más atrás, para una tecnología concreta, normalmente la cantidad de sal incluida en el salado y las pérdidas de ESM en el proceso de fabricación suelen mantenerse en una horquilla regular, de acuerdo con la variabilidad de nuestro proceso y nuestra precisión analítica. Las diferencias en el valor del coeficiente nos indican si la transformación se ha realizado dentro de los valores normales de la tecnología o si hemos tenido valores anormalmente altos o bajos por lo que también usamos la proteína de la leche en vez del ESM. Esto lleva a una pequeña diferencia en el valor del coeficiente, que también se mantiene constante para la misma tecnología.</p>
+<p>Como sabemos la cantidad de ESM que vamos a obtener de 1 L de leche, podemos calcular los litros de leche que necesitamos para obtener 1 kg de queso mediante una regla de tres simple: si para obtener 100 g de queso con 30,987 g de ESM necesitamos 1 L de leche, para obtener 1 kg de queso con el mismo ESM necesitaremos X litros de leche. A este valor lo llamaremos <em>litraje unitario</em>.</p>
+<p><span class="math display">\[
+\text{Litraje unitario} = \frac{25,58\ g\ ESM}{100\ g\ queso\ }*\ \frac{1000\ g\ queso}{1\ kg\ queso}*\ \frac{1\ L\ leche}{30,987\ g\ ESM} = 8,255\ L\ leche\ para\ hacer\ 1\ kg\ de\ queso
+\]</span></p>
+<p>Es necesario insistir en que este litraje sólo es válido en nuestras condiciones precisas:</p>
+<ul>
+<li><p>con la composición en ESM de nuestro queso</p></li>
+<li><p>con la composición de proteína de nuestra leche</p></li>
+<li><p>con la tasa de recuperación de la proteína de la leche en el ESM del queso de nuestro específico proceso de fabricación.</p></li>
+</ul>
+<p>Es un valor teórico que utilizamos como valor objetivo, y que puede variar a medida que adaptemos o variemos nuestra tecnología. Para cualquier otro producto, otra composición de leche y/u otro proceso de fabricación, deberemos recalcular nuestro litraje por kilo.</p>
+<p>Sabemos que, en nuestras condiciones, 8,255 L de leche deben darnos 1 kg de queso. Si obtenemos más o menos queso querrá decir que nuestras hipótesis de partida no se han cumplido, y analizando los tres elementos básicos, sabremos la razón de la desviación:</p>
+<ul>
+<li><p>Nuestra leche tiene una composición diferente</p></li>
+<li><p>Nuestro queso tiene una composición diferente</p></li>
+<li><p>Nuestra recuperación de proteína no ha sido la adecuada, o ha sido diferente.</p></li>
+</ul>
+<p>Si disponemos de la analítica correspondiente, podremos tomar las decisiones correctas; no es lo mismo actuar ante un problema de composición de leche que ante un problema de composición de queso o un problema de tecnología quesera (el extracto seco magro del queso es consecuencia de la tecnología quesera). Otros factores pueden influir directamente en el coeficiente de recuperación de proteína, por ejemplo, la cantidad de proteína coagulable (caseína) frente a la proteína total analizada puede variar a lo largo del año, y el análisis de proteína total no nos da una indicación de esta ratio.</p>
+</section>
+<section id="la-materia-grasa" class="level2">
+<h2 class="anchored" data-anchor-id="la-materia-grasa">La materia grasa</h2>
+<p>Hasta aquí hemos hablado de proteína y ESM, pero ¿y la materia grasa?</p>
+<p>En nuestro análisis de rendimiento hemos calculado también un % de recuperación de MG. Sin embargo, no utilizaremos este % para calcular el litraje, lo haremos tal como hemos visto, con la transformación de la proteína en ESM. La razón es que <em>la tecnología quesera nos permite actuar sobre el ESM del queso, pero la MG depende de la estandarización</em>, como veremos a continuación.</p>
+<p>Como el coef G nos da los litros de leche que necesitamos para hacer 1 kg de queso, y tenemos una composición de nuestra leche, podemos saber la cantidad de MG que tenemos en esa leche. Por otra parte, sabemos la MG que hemos definido en nuestro queso de forma empírica, es decir, en la práctica: mediante un promedio de los diferentes análisis de nuestro producto que hemos ido obteniendo.</p>
+<p>Según el coef G, necesitamos 9,165 L leche para hacer 1 kg de queso.</p>
+<p>Según nuestra composición de leche, 1 L de leche tiene 31,13 g de MG, luego los 9,165 L de leche tendrán</p>
+<p><span class="math display">\[
+8,255\ L\ leche*\ \frac{40,10\ g\ MG}{1\ L\ leche} = 331,026\ g\ MG
+\]</span></p>
+<p>Es decir, para fabricar 1 kg de queso necesitamos 8.255 L leche, que según su composición tienen 331,026 g MG</p>
+<p>Sin embargo, la analítica de nuestro queso nos dice que en 1 kg de queso tenemos 30,05% de MG, es decir 300,5 g de MG por kilo de queso.</p>
+<p>¿A qué se debe esta diferencia? La respuesta es: <em>a las pérdidas de MG en el proceso</em>, es decir, <em>a nuestro porcentaje de recuperación de MG.</em></p>
+<p>Podemos calcular este porcentaje mediante la fracción</p>
+<p><span class="math display">\[
+\frac{MG\ en\ el\ queso}{MG\ en\ la\ leche\ de\ fabricación}\ =\ \frac{300,5\ g\ MG/kg\ en\ el\ queso}{331,026\ g\ MG/kg\ en\ la\ leche\ de\ fabricación} = 0,9078
+\]</span></p>
+<p>Es decir, nuestra recuperación teórica de MG es del 90.78%</p>
+<p>¿Por qué <em>recuperación teórica</em>? Porque es la que resulta de hacer los cálculos según nuestros datos de composición de leche, composición del queso y recuperación de proteína.</p>
+<p>De la misma forma que en el caso de la recuperación de proteína, si nuestra recuperación de MG es diferente de la calculada teóricamente, debemos encontrar la explicación en los mismos factores:</p>
+<ul>
+<li><p>Composición real de la leche</p></li>
+<li><p>Composición real del queso</p></li>
+<li><p>Variaciones en la tecnología</p></li>
+</ul>
+<p>Estas variaciones implicarán una mayor pérdida de MG, que se irá en el suero de quesería, y que en parte puede recuperarse mediante un desnatado del suero.</p>
+</section>
+<section id="el-estándar-de-fabricación" class="level2">
+<h2 class="anchored" data-anchor-id="el-estándar-de-fabricación">El estándar de fabricación</h2>
+<p>El razonamiento y cálculos que hemos ido realizando, se suelen recoger en lo que se llama un <em>estándar técnico de fabricación</em>. Este documento recoge los valores estándar de nuestra tecnología dada una composición media de nuestro queso obtenido (o un objetivo a obtener) y una composición de leche de partida</p>
+<p>Un estándar técnico de fabricación tiene este aspecto:</p>
+<p>Llamamos MG estándar en la mezcla a la cantidad de MG que tendremos en la cuba, es decir, en nuestros 9,164 L de leche a fabricar. Esta MG puede provenir de la leche de partida o del resultado de añadir nata a la leche para conseguir la cantidad necesaria.</p>
+<p>De la misma forma, llamamos MP en cuba a la cantidad de MP que hemos puesto en cuba, ya sea la de la leche de partida o del resultado de haber añadido proteínas a esta leche.</p>
+</section>
+<section id="el-estándar-técnico-final" class="level2">
+<h2 class="anchored" data-anchor-id="el-estándar-técnico-final">El estándar técnico final</h2>
+<p>Como hemos visto, la construcción del estándar técnico y el seguimiento de la tecnología quesera no se hacen siguiendo el consumo de <em>litros de leche</em>, sino de la cantidad de proteína y grasa utilizadas. Por esta razón, la construcción del estándar debe proporcionar las cantidades de MG y MP necesarias para obtener 1 kg de queso, y no sólo el litraje en cuba</p>
+<p>En este caso, vemos un proceso de fabricación que <em>no</em> está recuperando la materia grasa del suero; las diferencias entre la MG en cuba y la MG en el queso se consideran pérdidas de proceso.</p>
+</section>
+<section id="la-importancia-de-la-estandarización-de-la-leche" class="level2">
+<h2 class="anchored" data-anchor-id="la-importancia-de-la-estandarización-de-la-leche">La importancia de la estandarización de la leche</h2>
+<p>Como hemos visto, la tecnología quesera se diseña para optimizar el coeficiente de recuperación de proteína. Aunque la retención de materia grasa (MG) también depende de factores tecnológicos como el corte, el calentamiento y el pH, no está directamente controlada por la tecnología, aunque sí influenciada por ella.</p>
+<p>En una tecnología concreta, con parámetros de trabajo fijados, cuando la cantidad de MG en la leche es superior a la definida en el proceso, se producen dos efectos:</p>
+<ul>
+<li><p>Una parte del exceso de MG queda retenida en la matriz proteica, lo que incrementa la cantidad de grasa en el queso y, por tanto, modifica su composición.</p></li>
+<li><p>Otra parte de la MG se pierde en el suero, ya que las condiciones del proceso determinan una relación fija con la cantidad total de MG de partida. Es decir, al aumentar la MG inicial, también aumentan las pérdidas relativas en el suero.</p></li>
+</ul>
+<p>Desgraciadamente, no es posible calcular teóricamente cuánta MG se retendrá en el queso y cuánta se perderá en el suero, ya que estas cantidades no responden a una función conocida. Lo que sí sabemos es que:</p>
+<ul>
+<li><p>Aumentarán las pérdidas.</p></li>
+<li><p>Se modificará la composición del queso, lo que puede alterar su textura y el valor nutricional declarado.</p></li>
+<li><p>Se alterará la expulsión de suero de la matriz proteica, lo que afectará la cantidad de lactosa retenida en la cuajada y, en consecuencia, las curvas de acidificación, el extracto seco, etc.</p></li>
+</ul>
+<p>Cuando la MG es <em>inferior</em> a la definida, estos efectos se producen en sentido inverso, afectando tanto la composición del queso como su comportamiento tecnológico.</p>
+<p>Para minimizar estas variaciones y mantener una composición constante del producto, es necesario:</p>
+<ul>
+<li><p>Trabajar con leche que tenga un contenido estable de MG y materia proteica (MP). Dado que la composición de la leche varía estacionalmente, esto implica estandarizarla en MG y MP, <em>manteniendo constante la relación MG/MP</em>.</p></li>
+<li><p>Adaptar la tecnología de forma estacional, ya que la variación no solo afecta la relación MG/MP, sino también la proporción de caseína coagulable dentro del total de proteínas.</p></li>
+</ul>
+<p>Es fundamental recordar lo señalado al definir el estándar técnico: <em>la tecnología permite modificar el extracto seco magro (ESM) del queso, pero la MG depende exclusivamente de la cantidad presente en la leche de fabricación</em>. <strong>No es posible modificar la cantidad de grasa en el queso mediante la tecnología quesera en la cuba</strong>; es necesario preparar la leche con la cantidad de grasa adecuada para cubrir tanto la retención esperada como las pérdidas previstas.</p>
+<p>En la medida en que no se puedan realizar estas adaptaciones, se deberá aceptar una mayor variabilidad en el producto, con dos consecuencias:</p>
+<ul>
+<li><p>Irregularidad en el producto final, que afecta la aceptación por parte del consumidor.</p></li>
+<li><p>Variación en el coste del producto, que puede generar pérdidas no previstas.</p></li>
+</ul>
+<p>Por estas razones, es imprescindible realizar un seguimiento detallado de las desviaciones tecnológicas, para comprender mejor el comportamiento del proceso y actuar eficazmente sobre sus causas, estableciendo los planes correctivos oportunos.</p>
+<p>Se incluye una tabla con un supuesto teórico y uno real, para comparar los diferentes valores. El supuesto real parte de una fabricación hipotética de 1000 kg de queso; el teórico se construye a partir del estándar técnico, aplicando los coeficientes correspondientes a esa cantidad, lo que permite calcular los valores teóricos esperados.</p>
+<p>Las desviaciones observadas deben analizarse con base en el conocimiento tecnológico, para establecer planes correctivos adecuados.</p>
+<p>Conociendo el coste de la MG y de la MP pagada, es posible calcular el valor económico de cada desviación, lo que permite priorizar las acciones correctivas según su impacto financiero.</p>
+<p>Hay una hoja Excel con todos los cálculos, que incluye también los estándares de fabricacion que veremos en el capítulo siguiente para el resto de recetas.</p>
+<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/2025-11-06-ejemplo-std-tecnico.xlsx" target="_blank" rel="noopener noreferrer">Abrir hoja Excel con modelo</a></p>
 </section>
 
 </main>
