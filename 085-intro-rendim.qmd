@@ -16,18 +16,18 @@ En este capítulo abordaremos la segunda parte, la transformación quesera, anal
 
 ## Un ejemplo de cálculo de rendimientos
 
-En este ejemplo, vamos a suponer que somos un fabricante elaborador de un queso del que tenemos valores analíticos de producto terminado y de la materia en proceso. Es un producto que siempre fabricamos con los mismos pasos tecnológicos, con la variabilidad que suponemos inherente a nuestro proceso.
+En este ejemplo, vamos a suponer que elaboramos un queso de vaca, del que tenemos valores analíticos de producto terminado y de la leche utilizada en su elaboración. El proceso siempre tiene los mismos pasos tecnológicos, con la variabilidad que suponemos inherente.
 
-Vamos a ir definiendo por pasos nuestra tecnología.
+Nuestros datos técnicos de fabricación están registraos en un fichero de datos en formato `csv`, que incluye:
 
-Los dos primeros pasos consisten en definir:
-
-1.  las características analíticas del queso, y
-2.  las características analíticas de la leche con la que lo hacemos.
+1.  las analíticas del queso, y
+2.  las analíticas de la leche con la que lo hacemos.
 
 Caracterizaremos nuestro queso mediante un análisis de extracto seco total (EST) y una grasa butirométrica (MG), en un punto determinado de nuestro proceso (por ejemplo, a la salida de la salmuera, después de escurrido) y mediante un muestreo repetible, de forma que nuestro análisis sea representativo. A partir de estos dos análisis, calculamos otros parámetros técnicos necesarios, tales como la materia grasa sobre el extracto seco total (G/ES), el extracto seco magro o desnatado (ESM) y la humedad del queso desnatado (HQD), valores que se calculan a partir de los primeros.
 
-Supongamos que este es el resultado analítico de nuestro producto:
+En el recorrido de cálculo utilizaremos `Python`, aunque al final se proporciona una hoja de cálculo con la información necesaria.
+
+El resultado analítico de nuestro producto elaborado es:
 
 | **Composición del queso** | **g/100 g** |
 |---------------------------|:-----------:|
