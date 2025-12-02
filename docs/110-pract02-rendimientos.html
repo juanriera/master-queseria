@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Práctica 2. Análisis de los rendimientos en fabricación de queso mediante Python – Análisis de datos industriales usando Excel y Python</title>
+<title>13&nbsp; Práctica 2. Análisis de los rendimientos en fabricación de queso mediante Python – Análisis de datos industriales usando Excel y Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./900-indice_dataframes.html" rel="next">
-<link href="./085-intro-rendim-2.html" rel="prev">
+<link href="./800-media-centro-gravedad.html" rel="next">
+<link href="./105-valoracion-bmat.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./090-pract02-rendimientos.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./110-pract02-rendimientos.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -151,70 +151,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./020-estad-entorno.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El análisis de datos de producción en el entorno industrial.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./030-herramientas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./040-organizacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La organización de los datos y el flujo de trabajo.Los datos ordenados o <em>arreglados</em> (<em>tidy data</em>)</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./050-intro-python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introducción a Python en el entorno Google Colab</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./060-exploracion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./070-estad-simple.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./080-pract01-camembert.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Práctica 1. Análisis exploratorio de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./085-intro-rendim-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción a los rendimientos queseros</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./090-pract02-rendimientos.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./900-indice_dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Anexos</span></a>
+ <span class="menu-text">Introducción</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -222,14 +162,114 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./150-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
+  <a href="./020-estad-entorno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El análisis de datos de producción en el entorno industrial.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./030-herramientas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./040-organizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La organización de los datos y el flujo de trabajo.Los datos ordenados o <em>arreglados</em> (<em>tidy data</em>)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./050-intro-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introducción a Python en el entorno Google Colab</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./060-exploracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./070-estad-simple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./080-pract01-camembert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Práctica 1. Análisis exploratorio de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Análisis cuantitativo de la producción quesera</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./085-intro-balance-materia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El balance de materia y los rendimientos queseros.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./090-balance-materia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El balance de materia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./100-rendimientos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./105-valoracion-bmat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La valoración económica del balance de materia y los rendimientos.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./110-pract02-rendimientos.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Anexos</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./800-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./160-bibliografia.html" class="sidebar-item-text sidebar-link">
+  <a href="./810-bibliografia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bibliografía</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./900-indice_dataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
   </div>
 </li>
       </ul>
@@ -244,17 +284,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#exploración-gráfica-de-los-datos" id="toc-exploración-gráfica-de-los-datos" class="nav-link active" data-scroll-target="#exploración-gráfica-de-los-datos"><span class="header-section-number">10.1</span> Exploración gráfica de los datos</a></li>
-  <li><a href="#análisis-previo-de-los-datos" id="toc-análisis-previo-de-los-datos" class="nav-link" data-scroll-target="#análisis-previo-de-los-datos"><span class="header-section-number">10.2</span> Análisis previo de los datos</a></li>
+  <li><a href="#exploración-gráfica-de-los-datos" id="toc-exploración-gráfica-de-los-datos" class="nav-link active" data-scroll-target="#exploración-gráfica-de-los-datos"><span class="header-section-number">13.1</span> Exploración gráfica de los datos</a></li>
+  <li><a href="#análisis-previo-de-los-datos" id="toc-análisis-previo-de-los-datos" class="nav-link" data-scroll-target="#análisis-previo-de-los-datos"><span class="header-section-number">13.2</span> Análisis previo de los datos</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./110-pract02-rendimientos.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></h1>
 </div>
 
 
@@ -271,9 +311,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<hr>
-<p><strong><em>Documento en elaboración</em></strong></p>
-<hr>
 <p>En esta práctica utilizaremos un conjunto de datos que provienen de una fábrica de queso tipo ibérico. Con los valores analíticos calcularemos los rendimientos queseros utilizando Python, y nos apoyaremos en diferentes tipos de gráficos para explicar los resultados que hemos obtenido. Utilizaremos los datos calculados aquí para hacer un balance de materia y calcular las pérdidas de nuestra fabricación.</p>
 <p>Para ayudar a concentrarse en los resultados, el código <em>python</em> se presenta plegado, de manera que no interfiera demasiado en la presentación. Puede desplegarse para ver cómo se han generado cada tabla y cada gráfico.</p>
 <p>Como siempre, es opcional descargar los datos de ejemplo y abrir el cuaderno en Colab para ejecutar el código a medida que se avanza ne el estudio.</p>
@@ -281,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm.csv" target="_blank" rel="noopener noreferrer">Descargar los datos de ejemplo utilizados en este cuaderno (archivo <code>fab_queso_bm.csv</code>)</a></p>
 <p>Empezamos el análisis inicializando las bibliotecas de <code>Python</code>, cargamos los datos del <code>CSV</code>, creamos el índice de fecha y mostramos los primeros registros del dataframe para comprobar que todo es correcto.</p>
 <hr>
-<div id="cell-6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:470,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1760773316807,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="1">
+<div id="cell-5" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:470,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1760773316807,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-execution_count="1">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -290,25 +327,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>url_datos <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm.csv'</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(url_datos, decimal <span class="op">=</span> <span class="st">","</span>, sep<span class="op">=</span><span class="st">';'</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error al cargar el archivo: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># crear index con fecha</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>] <span class="op">=</span> pd.to_datetime(</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,  <span class="co"># Formato Día/Mes/Año confirmado</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span>     <span class="co"># Clave: convierte los valores que no puede leer a NaT (Not a Time)</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Limpiar NaT y establecer el índice</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>df.dropna(subset<span class="op">=</span>[<span class="st">'fecha_index'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Python encadena de forma automática las líneas como una sola</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>url_datos <span class="op">=</span> (</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">'https://raw.githubusercontent.com/'</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">'juanriera/master-queseria/master/datos/fab_queso_bm.csv'</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>) </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(url_datos, </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                    decimal <span class="op">=</span> <span class="st">","</span>, </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                    sep<span class="op">=</span><span class="st">';'</span>, </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                    encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error al cargar el archivo: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># crear index con fecha</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>] <span class="op">=</span> pd.to_datetime(</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>, <span class="co"># Formato Día/Mes/Año confirmado</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span>    <span class="co"># convierte los valores que no puede leer a NaT</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>                       <span class="co"># (Not a Time)</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Limpiar NaT y establecer el índice</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>df.dropna(subset<span class="op">=</span>[<span class="st">'fecha_index'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
@@ -576,14 +621,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p>El fichero de datos contiene varios ensayos del departamento de i+D que se han mantenido para mostrar que a veces las cosas no salen bien a la primera…</p>
-<section id="exploración-gráfica-de-los-datos" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="exploración-gráfica-de-los-datos"><span class="header-section-number">10.1</span> Exploración gráfica de los datos</h2>
+<section id="exploración-gráfica-de-los-datos" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="exploración-gráfica-de-los-datos"><span class="header-section-number">13.1</span> Exploración gráfica de los datos</h2>
 <p>Vamos a explorar los datos antes de empezar el análisis, y los usaremos para visualizar las diferencias de rendimiento entre mezclas.</p>
 <p>Podemos calcular el rendimiento simple como los kilos de queso que podemos obtener con 100 L de leche</p>
-<div id="cell-11" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'rendimiento_simple'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>]<span class="op">/</span>df[<span class="st">'litros_past'</span>]<span class="op">*</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-10" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'rendimiento_simple'</span>] <span class="op">=</span> (</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'peso_queso_total'</span>]<span class="op">/</span>df[<span class="st">'litros_past'</span>]<span class="op">*</span><span class="dv">100</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-12" class="cell" data-execution_count="4">
+<div id="cell-11" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'rendimiento_simple'</span>)</span>
@@ -597,16 +644,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Aunque es más frecuente calcular el rendimiento simple como los litros de leche que necesitamos para hacer un kilo de queso</p>
-<div id="cell-14" class="cell" data-execution_count="5">
+<div id="cell-13" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'rendimiento_simple'</span>] <span class="op">=</span> df[<span class="st">'litros_past'</span>]<span class="op">/</span>df[<span class="st">'peso_queso_total'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="6">
+<div id="cell-14" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'rendimiento_simple'</span>)</span>
@@ -620,16 +667,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="análisis-previo-de-los-datos" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="análisis-previo-de-los-datos"><span class="header-section-number">10.2</span> Análisis previo de los datos</h2>
+<section id="análisis-previo-de-los-datos" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="análisis-previo-de-los-datos"><span class="header-section-number">13.2</span> Análisis previo de los datos</h2>
 <p>Tenemos pocos datos por receta, por lo que vamos a utilizar el <em>beeswarm</em>, junto con el <em>boxplot</em>, para visualizar el <em>rendimiento simple</em> entre las diferentes recetas.</p>
-<div id="cell-18" class="cell" data-execution_count="7">
+<div id="cell-17" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot como fondo tenue</span></span>
@@ -637,44 +684,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df,</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'receta'</span>,</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'rendimiento_simple'</span>,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    boxprops<span class="op">=</span><span class="bu">dict</span>(facecolor<span class="op">=</span><span class="st">'lightgray'</span>, alpha<span class="op">=</span><span class="fl">0.2</span>),  <span class="co"># gris claro y muy transparente</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    showcaps<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    whiskerprops<span class="op">=</span>{<span class="st">'linewidth'</span>: <span class="fl">0.5</span>},</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    medianprops<span class="op">=</span>{<span class="st">'linewidth'</span>: <span class="fl">0.5</span>}</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Beeswarm destacado encima</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df,</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'receta'</span>,</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'rendimiento_simple'</span>,</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span><span class="dv">5</span>,</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'navy'</span>,  <span class="co"># color fuerte y contrastante</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.8</span>  <span class="co"># casi opaco para destacar</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Estética general</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Rendimiento simple por receta'</span>)</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Rendimiento simple'</span>)</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># boxplots en gris claro y muy transparente</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    boxprops<span class="op">=</span><span class="bu">dict</span>(facecolor<span class="op">=</span><span class="st">'lightgray'</span>, alpha<span class="op">=</span><span class="fl">0.2</span>),  </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    showcaps<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    whiskerprops<span class="op">=</span>{<span class="st">'linewidth'</span>: <span class="fl">0.5</span>},</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    medianprops<span class="op">=</span>{<span class="st">'linewidth'</span>: <span class="fl">0.5</span>}</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Beeswarm destacado encima</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'receta'</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'rendimiento_simple'</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'navy'</span>,  <span class="co"># color fuerte y contrastante</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.8</span>  <span class="co"># casi opaco para destacar</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Estética general</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Rendimiento simple por receta'</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Rendimiento simple'</span>)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Como estamos evaluando el rendimiento como los litros necesarios para obtener 1 kg de queso, resulta que la cantidad de agua que tenga el queso nos influye en el cálculo: cuanto más húmedo el queso, más favorable será el valor el rendimiento simple. Fijémonos en el queso de mezcla: hay un valor de rendimiento muy favorable, de poco más de 5 L/kg de queso, pero vemos que el queso ha tenido casi un 52% de humedad. En cambio, otra fabricación de esa misma receta, que sólo tiene algo más de 40% de humedad, ha necesitado 7 L/kg.</p>
 <p>Así, dentro de cada receta, los mejores rendimientos en L/kg aparecen siempre en quesos más húmedos, y los peores, en quesos más secos. Veámoslo creando una columna adicional para los valores d humedad.</p>
-<div id="cell-20" class="cell" data-execution_count="8">
+<div id="cell-19" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear columna de humedad</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'humedad_salida_salmuera'</span>] <span class="op">=</span> <span class="dv">100</span> <span class="op">-</span> df[<span class="st">'est_salida_salmuera'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-21" class="cell" data-execution_count="9">
+<div id="cell-20" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># crear dataframe para seaborn sin index para evitar errores</span></span>
@@ -683,8 +731,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear gráfico con regresión lineal por receta</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> sns.lmplot(</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df_plot_sns,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'rendimiento_simple'</span>,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'humedad_salida_salmuera'</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'humedad_salida_salmuera'</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'rendimiento_simple'</span>,</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'receta'</span>,</span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    ci<span class="op">=</span><span class="va">None</span>,</span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    scatter_kws<span class="op">=</span>{<span class="st">'s'</span>: <span class="dv">80</span>, <span class="st">'alpha'</span>: <span class="fl">0.7</span>},</span>
@@ -695,21 +743,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>g._legend.remove()</span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Personalizar título y ejes</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>g.fig.suptitle(<span class="st">'Influencia de la humedad del queso en la evaluación del rendimiento en litros/kilo'</span>, y<span class="op">=</span><span class="fl">1.03</span>)</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>g.set_axis_labels(<span class="st">'Rendimiento simple (litros/kilo)'</span>, <span class="st">'Humedad del queso a salida de salmuera'</span>)</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>g.ax.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Mover la leyenda fuera del gráfico</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>, borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>g.fig.suptitle(<span class="st">'Influencia de la humedad del queso '</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>               <span class="st">'en la evaluación del rendimiento en litros/kilo'</span>, </span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>               y<span class="op">=</span><span class="fl">1.03</span>)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>g.set_axis_labels(<span class="st">'Humedad del queso a salida de salmuera'</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>                <span class="st">'Rendimiento simple (litros/kilo)'</span>, )</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>g.ax.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
 <span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Mover la leyenda fuera del gráfico</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), </span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>           loc<span class="op">=</span><span class="st">'upper left'</span>, borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -723,7 +775,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Una mala retención de extracto seco magro</li>
 </ul>
 <p>Dado que nuestros valores analíticos están expresados en porcentaje en peso, calculamos las cantidades de materia como se indica a continuación:</p>
-<div id="cell-23" class="cell" data-execution_count="10">
+<div id="cell-22" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">### 1. Cálculos de pasteurizacion</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'est_kg_past'</span>] <span class="op">=</span> df[<span class="st">'litros_past'</span>] <span class="op">*</span> df[<span class="st">'est_past'</span>] <span class="op">/</span> <span class="dv">100</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mg_kg_past'</span>] <span class="op">=</span> df[<span class="st">'litros_past'</span>] <span class="op">*</span> df[<span class="st">'mg_past'</span>] <span class="op">/</span> <span class="dv">100</span></span>
@@ -737,31 +789,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'est_kg_cuba'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_cuba'</span>] </span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">### 2. Cálculos de queso</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'est_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'est_salida_salmuera'</span>] <span class="op">/</span> <span class="dv">100</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mg_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'mg_salida_salmuera'</span>] <span class="op">/</span> <span class="dv">100</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'est_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_queso'</span>]</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sal_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'sal_queso'</span>]<span class="op">/</span><span class="dv">100</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">### 3. Coeficientes de recuperación (expresado en porcentaje)</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_mg'</span>]  <span class="op">=</span> df[<span class="st">'mg_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'mg_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_mp'</span>]  <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'mp_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span> <span class="co"># atencion a la fórmula de cálculo, deberia ser mp_kg_queso</span></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_esm'</span>] <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'esm_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co">### 4. Consumos de materia por kilo de queso (expresado en gramos de materia por kilo de queso)</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'consumo_mg_kg'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> <span class="dv">1000</span></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'consumo_mp_kg'</span>] <span class="op">=</span> df[<span class="st">'mp_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> <span class="dv">1000</span></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co">### 5. Otros cálculos: relación MG/MP en la leche de entrada y en el queso</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ratio_mg_mp_leche'</span>]  <span class="op">=</span> df[<span class="st">'mg_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'mp_kg_cuba'</span>]</span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ratio_mg_esm_leche'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'esm_kg_cuba'</span>]</span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ratio_mg_esm_queso'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_queso'</span>] <span class="op">/</span> df[<span class="st">'esm_kg_queso'</span>]</span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="co">### 6. Otros coeficientes: HQD y G/ES</span></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'hqd_salida_salmuera'</span>] <span class="op">=</span> (<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'est_salida_salmuera'</span>]) <span class="op">/</span> (<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'mg_salida_salmuera'</span>]) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ges_salida_salmuera'</span>] <span class="op">=</span> df[<span class="st">'mg_salida_salmuera'</span>] <span class="op">/</span> df[<span class="st">'est_salida_salmuera'</span>] <span class="op">*</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'est_kg_queso'</span>] <span class="op">=</span> (</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'est_salida_salmuera'</span>] <span class="op">/</span> <span class="dv">100</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mg_kg_queso'</span>] <span class="op">=</span> (</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'mg_salida_salmuera'</span>] <span class="op">/</span> <span class="dv">100</span>)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'est_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_queso'</span>]</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sal_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'sal_queso'</span>]<span class="op">/</span><span class="dv">100</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co">### 3. Coeficientes de recuperación (expresado en porcentaje)</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_mg'</span>]  <span class="op">=</span> df[<span class="st">'mg_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'mg_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_mp'</span>]  <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'mp_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_esm'</span>] <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'esm_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co">### 4. Consumos de materia por kilo de queso </span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co"># (expresado en gramos de materia por kilo de queso)</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'consumo_mg_kg'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> <span class="dv">1000</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'consumo_mp_kg'</span>] <span class="op">=</span> df[<span class="st">'mp_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> <span class="dv">1000</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="co">### 5. Otros cálculos: relación MG/MP en la leche de entrada </span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="co">#   y en el queso</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ratio_mg_mp_leche'</span>]  <span class="op">=</span> df[<span class="st">'mg_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'mp_kg_cuba'</span>]</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ratio_mg_esm_leche'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_cuba'</span>] <span class="op">/</span> df[<span class="st">'esm_kg_cuba'</span>]</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ratio_mg_esm_queso'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_queso'</span>] <span class="op">/</span> df[<span class="st">'esm_kg_queso'</span>]</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="co">### 6. Otros coeficientes: HQD y G/ES</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'hqd_salida_salmuera'</span>] <span class="op">=</span> (</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'est_salida_salmuera'</span>]) <span class="op">/</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'mg_salida_salmuera'</span>]) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ges_salida_salmuera'</span>] <span class="op">=</span> (</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'mg_salida_salmuera'</span>] <span class="op">/</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'est_salida_salmuera'</span>] <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Comparemos ahora la recuperación de materia medida por estos coeficientes entre recetas.</p>
-<div id="cell-25" class="cell" data-execution_count="11">
+<div id="cell-24" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># crear dataframe para seaborn sin index para evitar errores</span></span>
@@ -776,12 +839,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-26" class="cell" data-execution_count="12">
+<div id="cell-25" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(data<span class="op">=</span>df_sns, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'coef_recup_mp'</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
@@ -793,12 +856,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-27" class="cell" data-execution_count="13">
+<div id="cell-26" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(data<span class="op">=</span>df_sns, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'coef_recup_esm'</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
@@ -810,32 +873,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-28" class="cell" data-execution_count="14">
+<div id="cell-27" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df_sns, x<span class="op">=</span><span class="st">'coef_recup_mg'</span>, y<span class="op">=</span><span class="st">'coef_recup_mp'</span>, hue<span class="op">=</span><span class="st">'receta'</span>, s<span class="op">=</span><span class="dv">80</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Rendimientos de MP y MG en fabricación de queso'</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Coeficiente recuperación MG'</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Coeficiente recuperación MP'</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df_sns, </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                 x<span class="op">=</span><span class="st">'coef_recup_mg'</span>, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                 y<span class="op">=</span><span class="st">'coef_recup_mp'</span>, </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                 hue<span class="op">=</span><span class="st">'receta'</span>, </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                 s<span class="op">=</span><span class="dv">80</span>, </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>                 alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Rendimientos de MP y MG en fabricación de queso'</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Coeficiente recuperación MG'</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Coeficiente recuperación MP'</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Filtremos los resultados de i+D que no son relevantes para nuestro análisis y están distorionando la escala del gráfico.</p>
-<div id="cell-30" class="cell" data-execution_count="15">
+<div id="cell-29" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df[df[<span class="st">'receta'</span>] <span class="op">!=</span> <span class="st">'i+D'</span>], </span>
@@ -854,13 +922,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Calculemos los centroides de cada grupo (receta) mediante la mediana.</p>
-<div id="cell-32" class="cell" data-execution_count="16">
+<div id="cell-31" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a></span>
@@ -882,38 +950,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>                alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
 <span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular y dibujar centroides</span></span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>centroides_mg_mp <span class="op">=</span> df.groupby(<span class="st">'receta'</span>)[[<span class="st">'coef_recup_mg'</span>, <span class="st">'coef_recup_mp'</span>]].median()</span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> receta <span class="kw">in</span> recetas:</span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    centro <span class="op">=</span> centroides_mg_mp.loc[receta]</span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>    plt.scatter(</span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'coef_recup_mg'</span>],</span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'coef_recup_mp'</span>],</span>
-<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>color_dict[receta],</span>
-<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">'X'</span>,</span>
-<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span><span class="dv">150</span>,</span>
-<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>        edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
-<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'Centroide </span><span class="sc">{</span>receta<span class="sc">}</span><span class="ss">'</span></span>
-<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Rendimientos de MP y MG en fabricación de queso'</span>)</span>
-<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Coeficiente recuperación MG'</span>)</span>
-<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Coeficiente recuperación MP'</span>)</span>
-<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
-<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Mover la leyenda fuera del gráfico</span></span>
-<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>, borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
-<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>centroides_mg_mp <span class="op">=</span> (</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    df.groupby(<span class="st">'receta'</span>)[[<span class="st">'coef_recup_mg'</span>, <span class="st">'coef_recup_mp'</span>]]</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>    .median()</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> receta <span class="kw">in</span> recetas:</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>    centro <span class="op">=</span> centroides_mg_mp.loc[receta]</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    plt.scatter(</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'coef_recup_mg'</span>],</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'coef_recup_mp'</span>],</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>color_dict[receta],</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">'X'</span>,</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span><span class="dv">150</span>,</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>        edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'Centroide </span><span class="sc">{</span>receta<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Rendimientos de MP y MG en fabricación de queso'</span>)</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Coeficiente recuperación MG'</span>)</span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Coeficiente recuperación MP'</span>)</span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Mover la leyenda fuera del gráfico</span></span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), </span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>           loc<span class="op">=</span><span class="st">'upper left'</span>,</span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a>           borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-33" class="cell" data-execution_count="17">
+<div id="cell-32" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(centroides_mg_mp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -928,7 +1001,7 @@ oveja        91.215043      93.482273
 vaca         90.794847      94.250704</code></pre>
 </div>
 </div>
-<div id="cell-34" class="cell" data-execution_count="18">
+<div id="cell-33" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df[df[<span class="st">'receta'</span>] <span class="op">!=</span> <span class="st">'i+D'</span>], </span>
@@ -941,38 +1014,41 @@ vaca         90.794847      94.250704</code></pre>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>                alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular y dibujar centroides</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>centroides_mg_esm <span class="op">=</span> df.groupby(<span class="st">'receta'</span>)[[<span class="st">'coef_recup_mg'</span>, <span class="st">'coef_recup_esm'</span>]].median()</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> receta <span class="kw">in</span> recetas:</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    centro <span class="op">=</span> centroides_mg_esm.loc[receta]</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    plt.scatter(</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'coef_recup_mg'</span>],</span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'coef_recup_esm'</span>],</span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>color_dict[receta],</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">'X'</span>,</span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span><span class="dv">150</span>,</span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>        edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'Centroide </span><span class="sc">{</span>receta<span class="sc">}</span><span class="ss">'</span></span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Rendimientos de MG y ESM en fabricación de queso'</span>)</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Coeficiente recuperación MG'</span>)</span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Coeficiente recuperación ESM'</span>)</span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Mover la leyenda fuera del gráfico</span></span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>, borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>centroides_mg_esm <span class="op">=</span> (</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    df.groupby(<span class="st">'receta'</span>)[[<span class="st">'coef_recup_mg'</span>, <span class="st">'coef_recup_esm'</span>]]</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    .median()</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> receta <span class="kw">in</span> recetas:</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    centro <span class="op">=</span> centroides_mg_esm.loc[receta]</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    plt.scatter(</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'coef_recup_mg'</span>],</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'coef_recup_esm'</span>],</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>color_dict[receta],</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">'X'</span>,</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span><span class="dv">150</span>,</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>        edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'Centroide </span><span class="sc">{</span>receta<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Rendimientos de MG y ESM en fabricación de queso'</span>)</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Coeficiente recuperación MG'</span>)</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Coeficiente recuperación ESM'</span>)</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Mover la leyenda fuera del gráfico</span></span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>, borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-35" class="cell" data-execution_count="19">
+<div id="cell-34" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(centroides_mg_esm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -988,7 +1064,7 @@ vaca         90.794847       34.385900</code></pre>
 </div>
 </div>
 <p>Finalmente, aprovechamos nuestros cálculos para crear un documento con los rendimientos y el balance de materia de la fabricación, que exportaremos a un ‘csv’ y que podemos analizar sea en <em>python</em> o en Excel mediante tablas dinámicas.</p>
-<div id="cell-37" class="cell" data-execution_count="20">
+<div id="cell-36" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">### 5. Balance de Materia de pasteurizacion (Salida - Entrada)</span></span>
@@ -1002,47 +1078,56 @@ vaca         90.794847       34.385900</code></pre>
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># La falta de producto queda como negativo al hacer Salida - Entrada</span></span>
 <span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'balance_est_cuba'</span>] <span class="op">=</span> df[<span class="st">'est_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'est_kg_cuba'</span>]</span>
 <span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'balance_mg_cuba'</span>] <span class="op">=</span> df[<span class="st">'mg_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_cuba'</span>]</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'balance_esm_cuba'</span>] <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'esm_kg_cuba'</span>] <span class="op">-</span> df[<span class="st">'sal_kg_queso'</span>]</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="co">### 7. Preparación y Exportación del DataFrame de Resultados</span></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Columnas finales a incluir en el reporte</span></span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>columnas_balance <span class="op">=</span> [</span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'fecha'</span>, <span class="st">'receta'</span>, <span class="st">'formato'</span>,</span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'litros_past'</span>, <span class="st">'peso_queso_total'</span>,</span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'est_kg_past'</span>,<span class="st">'est_kg_cuba'</span>, <span class="st">'est_kg_queso'</span>, </span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mg_kg_past'</span>,<span class="st">'mg_kg_cuba'</span>, <span class="st">'mg_kg_queso'</span>, </span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mp_kg_past'</span>,<span class="st">'mp_kg_cuba'</span>,</span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">'esm_kg_past'</span>,<span class="st">'esm_kg_cuba'</span>, <span class="st">'esm_kg_queso'</span>, </span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'balance_est_past'</span>, <span class="st">'balance_mg_past'</span>, <span class="st">'balance_mp_past'</span>, <span class="st">'balance_esm_past'</span>,</span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">'balance_est_cuba'</span>, <span class="st">'balance_mg_cuba'</span>, <span class="st">'balance_esm_cuba'</span>,</span>
-<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">'coef_recup_mg'</span>, <span class="st">'coef_recup_mp'</span>, <span class="st">'coef_recup_esm'</span>,</span>
-<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">'consumo_mg_kg'</span>, <span class="st">'consumo_mp_kg'</span></span>
-<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un nuevo DataFrame con las columnas de interés</span></span>
-<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>df_balance <span class="op">=</span> df[columnas_balance].copy()</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'balance_esm_cuba'</span>] <span class="op">=</span> (</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>     df[<span class="st">'esm_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'esm_kg_cuba'</span>] <span class="op">-</span> df[<span class="st">'sal_kg_queso'</span>]</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="co">### 7. Preparación y Exportación del DataFrame de Resultados</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Columnas finales a incluir en el reporte</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>columnas_balance <span class="op">=</span> [</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'fecha'</span>, <span class="st">'receta'</span>, <span class="st">'formato'</span>,</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'litros_past'</span>, <span class="st">'peso_queso_total'</span>,</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'est_kg_past'</span>,<span class="st">'est_kg_cuba'</span>, <span class="st">'est_kg_queso'</span>, </span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mg_kg_past'</span>,<span class="st">'mg_kg_cuba'</span>, <span class="st">'mg_kg_queso'</span>, </span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mp_kg_past'</span>,<span class="st">'mp_kg_cuba'</span>,</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">'esm_kg_past'</span>,<span class="st">'esm_kg_cuba'</span>, <span class="st">'esm_kg_queso'</span>, </span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">'balance_est_past'</span>, <span class="st">'balance_mg_past'</span>, <span class="st">'balance_mp_past'</span>, </span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">'balance_esm_past'</span>,</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">'balance_est_cuba'</span>, <span class="st">'balance_mg_cuba'</span>, <span class="st">'balance_esm_cuba'</span>,</span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">'coef_recup_mg'</span>, <span class="st">'coef_recup_mp'</span>, <span class="st">'coef_recup_esm'</span>,</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">'consumo_mg_kg'</span>, <span class="st">'consumo_mp_kg'</span></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>]</span>
 <span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar el DataFrame con punto decimal y separador ';'</span></span>
-<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>nombre_archivo_salida <span class="op">=</span> <span class="st">'datos/informe_balance_materia.csv'</span></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un nuevo DataFrame con las columnas de interés</span></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>df_balance <span class="op">=</span> df[columnas_balance].copy()</span>
 <span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>df_balance.to_csv(</span>
-<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>    nombre_archivo_salida, </span>
-<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a>    sep<span class="op">=</span><span class="st">';'</span>, </span>
-<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a>    decimal<span class="op">=</span><span class="st">','</span></span>
-<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar el DataFrame con punto decimal y separador ';'</span></span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>nombre_archivo_salida <span class="op">=</span> <span class="st">'datos/informe_balance_materia.csv'</span></span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>df_balance.to_csv(</span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a>    nombre_archivo_salida, </span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>    sep<span class="op">=</span><span class="st">';'</span>, </span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a>    decimal<span class="op">=</span><span class="st">','</span></span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Veamos las características de los quesos.</p>
-<div id="cell-39" class="cell" data-execution_count="21">
+<div id="cell-38" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_salida_salmuera'</span>] <span class="op">=</span> df[<span class="st">'est_salida_salmuera'</span>]<span class="op">-</span>df[<span class="st">'mg_salida_salmuera'</span>]</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'hqd_salida_salmuera'</span>] <span class="op">=</span> (<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'est_salida_salmuera'</span>])<span class="op">/</span>(<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'mg_salida_salmuera'</span>]) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ges_salida_salmuera'</span>] <span class="op">=</span> df[<span class="st">'mg_salida_salmuera'</span>] <span class="op">/</span> df[<span class="st">'est_salida_salmuera'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_salida_salmuera'</span>] <span class="op">=</span> (</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'est_salida_salmuera'</span>]<span class="op">-</span>df[<span class="st">'mg_salida_salmuera'</span>]</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'hqd_salida_salmuera'</span>] <span class="op">=</span> (</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a> (<span class="dv">100</span><span class="op">-</span>df[<span class="st">'est_salida_salmuera'</span>])<span class="op">/</span>(<span class="dv">100</span><span class="op">-</span>df[<span class="st">'mg_salida_salmuera'</span>]) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>) </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ges_salida_salmuera'</span>] <span class="op">=</span> (</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'mg_salida_salmuera'</span>] <span class="op">/</span> df[<span class="st">'est_salida_salmuera'</span>]</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-40" class="cell" data-execution_count="22">
+<div id="cell-39" class="cell" data-execution_count="22">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a></span>
@@ -1064,38 +1149,43 @@ vaca         90.794847       34.385900</code></pre>
 <span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>                alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
 <span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular y dibujar centroides</span></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>centroides_est_mg <span class="op">=</span> df.groupby(<span class="st">'receta'</span>)[[<span class="st">'est_salida_salmuera'</span>, <span class="st">'mg_salida_salmuera'</span>]].median()</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> receta <span class="kw">in</span> recetas:</span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    centro <span class="op">=</span> centroides_est_mg.loc[receta]</span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    plt.scatter(</span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'est_salida_salmuera'</span>],</span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'mg_salida_salmuera'</span>],</span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>color_dict[receta],</span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">'X'</span>,</span>
-<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span><span class="dv">150</span>,</span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>        edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
-<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'Centroide </span><span class="sc">{</span>receta<span class="sc">}</span><span class="ss">'</span></span>
-<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Rendimientos de MP y MG en fabricación de queso'</span>)</span>
-<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Composicion EST'</span>)</span>
-<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Composicion MG'</span>)</span>
-<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
-<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Mover la leyenda fuera del gráfico</span></span>
-<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>, borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
-<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>centroides_est_mg <span class="op">=</span> (</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a> df.groupby(<span class="st">'receta'</span>)[[<span class="st">'est_salida_salmuera'</span>, <span class="st">'mg_salida_salmuera'</span>]]</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a> .median()</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> receta <span class="kw">in</span> recetas:</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>    centro <span class="op">=</span> centroides_est_mg.loc[receta]</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>    plt.scatter(</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'est_salida_salmuera'</span>],</span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'mg_salida_salmuera'</span>],</span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>color_dict[receta],</span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">'X'</span>,</span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span><span class="dv">150</span>,</span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>        edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'Centroide </span><span class="sc">{</span>receta<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Rendimientos de MP y MG en fabricación de queso'</span>)</span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Composicion EST'</span>)</span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Composicion MG'</span>)</span>
+<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
+<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Mover la leyenda fuera del gráfico</span></span>
+<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), </span>
+<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a>           loc<span class="op">=</span><span class="st">'upper left'</span>, </span>
+<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a>           borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
+<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-41" class="cell" data-execution_count="23">
+<div id="cell-40" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(centroides_est_mg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1110,7 +1200,7 @@ oveja                 56.350              30.935
 vaca                  54.850              29.800</code></pre>
 </div>
 </div>
-<div id="cell-42" class="cell" data-execution_count="24">
+<div id="cell-41" class="cell" data-execution_count="24">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear paleta de colores por receta</span></span>
@@ -1128,38 +1218,42 @@ vaca                  54.850              29.800</code></pre>
 <span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>                alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
 <span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular y dibujar centroides</span></span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>centroides_consumos_materia <span class="op">=</span> df.groupby(<span class="st">'receta'</span>)[[<span class="st">'consumo_mg_kg'</span>, <span class="st">'consumo_mp_kg'</span>]].median()</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> receta <span class="kw">in</span> recetas:</span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>    centro <span class="op">=</span> centroides_consumos_materia.loc[receta]</span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>    plt.scatter(</span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'consumo_mg_kg'</span>],</span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'consumo_mp_kg'</span>],</span>
-<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>color_dict[receta],</span>
-<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">'X'</span>,</span>
-<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span><span class="dv">150</span>,</span>
-<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>        edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
-<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'Centroide </span><span class="sc">{</span>receta<span class="sc">}</span><span class="ss">'</span></span>
-<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Consumos de MG y MP por kg de queso'</span>)</span>
-<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Consumo MG/kg queso'</span>)</span>
-<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Consumo MP/kg queso ESM'</span>)</span>
-<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
-<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Mover la leyenda fuera del gráfico</span></span>
-<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>, borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
-<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>centroides_consumos_materia <span class="op">=</span> (</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    df.groupby(<span class="st">'receta'</span>)[[<span class="st">'consumo_mg_kg'</span>, <span class="st">'consumo_mp_kg'</span>]].median()</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> receta <span class="kw">in</span> recetas:</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>    centro <span class="op">=</span> centroides_consumos_materia.loc[receta]</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>    plt.scatter(</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'consumo_mg_kg'</span>],</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'consumo_mp_kg'</span>],</span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>color_dict[receta],</span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">'X'</span>,</span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span><span class="dv">150</span>,</span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>        edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'Centroide </span><span class="sc">{</span>receta<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Consumos de MG y MP por kg de queso'</span>)</span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Consumo MG/kg queso'</span>)</span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Consumo MP/kg queso ESM'</span>)</span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Mover la leyenda fuera del gráfico</span></span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), </span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a>           loc<span class="op">=</span><span class="st">'upper left'</span>, </span>
+<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a>           borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
+<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-25-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-25-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-43" class="cell" data-execution_count="25">
+<div id="cell-42" class="cell" data-execution_count="25">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(centroides_consumos_materia)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1174,7 +1268,7 @@ oveja       341.012161     270.611497
 vaca        323.479948     272.676000</code></pre>
 </div>
 </div>
-<div id="cell-44" class="cell" data-execution_count="26">
+<div id="cell-43" class="cell" data-execution_count="26">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear paleta de colores por receta</span></span>
@@ -1192,38 +1286,43 @@ vaca        323.479948     272.676000</code></pre>
 <span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>                alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
 <span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular y dibujar centroides</span></span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>centroides_consumos_materia <span class="op">=</span> df.groupby(<span class="st">'receta'</span>)[[<span class="st">'mg_salida_salmuera'</span>, <span class="st">'hqd_salida_salmuera'</span>]].median()</span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> receta <span class="kw">in</span> recetas:</span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>    centro <span class="op">=</span> centroides_consumos_materia.loc[receta]</span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>    plt.scatter(</span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'mg_salida_salmuera'</span>],</span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'hqd_salida_salmuera'</span>],</span>
-<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>color_dict[receta],</span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">'X'</span>,</span>
-<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span><span class="dv">150</span>,</span>
-<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>        edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
-<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'Centroide </span><span class="sc">{</span>receta<span class="sc">}</span><span class="ss">'</span></span>
-<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Composición del quesp'</span>)</span>
-<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'mg a salida de salmuera'</span>)</span>
-<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'hqd a salida de salmuera'</span>)</span>
-<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
-<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Mover la leyenda fuera del gráfico</span></span>
-<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>, borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
-<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>centroides_consumos_materia <span class="op">=</span> (</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a> df.groupby(<span class="st">'receta'</span>)[[<span class="st">'mg_salida_salmuera'</span>, <span class="st">'hqd_salida_salmuera'</span>]]</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a> .median()</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> receta <span class="kw">in</span> recetas:</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>    centro <span class="op">=</span> centroides_consumos_materia.loc[receta]</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>    plt.scatter(</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'mg_salida_salmuera'</span>],</span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'hqd_salida_salmuera'</span>],</span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>color_dict[receta],</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">'X'</span>,</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span><span class="dv">150</span>,</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>        edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'Centroide </span><span class="sc">{</span>receta<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Composición del quesp'</span>)</span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'mg a salida de salmuera'</span>)</span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'hqd a salida de salmuera'</span>)</span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Mover la leyenda fuera del gráfico</span></span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), </span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a>           loc<span class="op">=</span><span class="st">'upper left'</span>, </span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a>           borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-45" class="cell" data-execution_count="27">
+<div id="cell-44" class="cell" data-execution_count="27">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(data<span class="op">=</span>df_sns, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'ratio_mg_mp_leche'</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
@@ -1235,12 +1334,12 @@ vaca        323.479948     272.676000</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-28-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-28-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-46" class="cell" data-execution_count="28">
+<div id="cell-45" class="cell" data-execution_count="28">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -1281,36 +1380,39 @@ vaca        323.479948     272.676000</code></pre>
 <span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a>                line_kws<span class="op">=</span>{<span class="st">'linewidth'</span>: <span class="dv">2</span>})</span>
 <span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-38"><a href="#cb31-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular y dibujar centroides</span></span>
-<span id="cb31-39"><a href="#cb31-39" aria-hidden="true" tabindex="-1"></a>centroides <span class="op">=</span> df_filtrado.groupby(<span class="st">'receta'</span>)[[<span class="st">'est_salida_salmuera'</span>, <span class="st">'hqd_salida_salmuera'</span>]].median()</span>
-<span id="cb31-40"><a href="#cb31-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-41"><a href="#cb31-41" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> receta <span class="kw">in</span> recetas:</span>
-<span id="cb31-42"><a href="#cb31-42" aria-hidden="true" tabindex="-1"></a>    centro <span class="op">=</span> centroides.loc[receta]</span>
-<span id="cb31-43"><a href="#cb31-43" aria-hidden="true" tabindex="-1"></a>    plt.scatter(centro[<span class="st">'est_salida_salmuera'</span>],</span>
-<span id="cb31-44"><a href="#cb31-44" aria-hidden="true" tabindex="-1"></a>                centro[<span class="st">'hqd_salida_salmuera'</span>],</span>
-<span id="cb31-45"><a href="#cb31-45" aria-hidden="true" tabindex="-1"></a>                color<span class="op">=</span>color_dict[receta],</span>
-<span id="cb31-46"><a href="#cb31-46" aria-hidden="true" tabindex="-1"></a>                marker<span class="op">=</span><span class="st">'X'</span>,</span>
-<span id="cb31-47"><a href="#cb31-47" aria-hidden="true" tabindex="-1"></a>                s<span class="op">=</span><span class="dv">150</span>,</span>
-<span id="cb31-48"><a href="#cb31-48" aria-hidden="true" tabindex="-1"></a>                edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
-<span id="cb31-49"><a href="#cb31-49" aria-hidden="true" tabindex="-1"></a>                label<span class="op">=</span><span class="ss">f'Centroide </span><span class="sc">{</span>receta<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb31-50"><a href="#cb31-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-51"><a href="#cb31-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Etiquetas y estilo</span></span>
-<span id="cb31-52"><a href="#cb31-52" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Composición del queso con regresión por receta'</span>)</span>
-<span id="cb31-53"><a href="#cb31-53" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'EST a salida de salmuera'</span>)</span>
-<span id="cb31-54"><a href="#cb31-54" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'HQD a salida de salmuera'</span>)</span>
-<span id="cb31-55"><a href="#cb31-55" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>, borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
-<span id="cb31-56"><a href="#cb31-56" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb31-57"><a href="#cb31-57" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb31-58"><a href="#cb31-58" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-39"><a href="#cb31-39" aria-hidden="true" tabindex="-1"></a>centroides <span class="op">=</span> (</span>
+<span id="cb31-40"><a href="#cb31-40" aria-hidden="true" tabindex="-1"></a> df_filtrado.groupby(<span class="st">'receta'</span>)[[<span class="st">'est_salida_salmuera'</span>, <span class="st">'hqd_salida_salmuera'</span>]]</span>
+<span id="cb31-41"><a href="#cb31-41" aria-hidden="true" tabindex="-1"></a> .median()</span>
+<span id="cb31-42"><a href="#cb31-42" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-43"><a href="#cb31-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-44"><a href="#cb31-44" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> receta <span class="kw">in</span> recetas:</span>
+<span id="cb31-45"><a href="#cb31-45" aria-hidden="true" tabindex="-1"></a>    centro <span class="op">=</span> centroides.loc[receta]</span>
+<span id="cb31-46"><a href="#cb31-46" aria-hidden="true" tabindex="-1"></a>    plt.scatter(centro[<span class="st">'est_salida_salmuera'</span>],</span>
+<span id="cb31-47"><a href="#cb31-47" aria-hidden="true" tabindex="-1"></a>                centro[<span class="st">'hqd_salida_salmuera'</span>],</span>
+<span id="cb31-48"><a href="#cb31-48" aria-hidden="true" tabindex="-1"></a>                color<span class="op">=</span>color_dict[receta],</span>
+<span id="cb31-49"><a href="#cb31-49" aria-hidden="true" tabindex="-1"></a>                marker<span class="op">=</span><span class="st">'X'</span>,</span>
+<span id="cb31-50"><a href="#cb31-50" aria-hidden="true" tabindex="-1"></a>                s<span class="op">=</span><span class="dv">150</span>,</span>
+<span id="cb31-51"><a href="#cb31-51" aria-hidden="true" tabindex="-1"></a>                edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb31-52"><a href="#cb31-52" aria-hidden="true" tabindex="-1"></a>                label<span class="op">=</span><span class="ss">f'Centroide </span><span class="sc">{</span>receta<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb31-53"><a href="#cb31-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-54"><a href="#cb31-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Etiquetas y estilo</span></span>
+<span id="cb31-55"><a href="#cb31-55" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Composición del queso con regresión por receta'</span>)</span>
+<span id="cb31-56"><a href="#cb31-56" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'EST a salida de salmuera'</span>)</span>
+<span id="cb31-57"><a href="#cb31-57" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'HQD a salida de salmuera'</span>)</span>
+<span id="cb31-58"><a href="#cb31-58" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>, borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
+<span id="cb31-59"><a href="#cb31-59" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb31-60"><a href="#cb31-60" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb31-61"><a href="#cb31-61" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-29-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-29-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-47" class="cell" data-execution_count="29">
+<div id="cell-46" class="cell" data-execution_count="29">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(data<span class="op">=</span>df_sns, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'est_salida_salmuera'</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
@@ -1322,12 +1424,12 @@ vaca        323.479948     272.676000</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-30-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-30-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-48" class="cell" data-execution_count="30">
+<div id="cell-47" class="cell" data-execution_count="30">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(data<span class="op">=</span>df_sns, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'mg_salida_salmuera'</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
@@ -1339,12 +1441,12 @@ vaca        323.479948     272.676000</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-31-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-31-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-49" class="cell" data-execution_count="31">
+<div id="cell-48" class="cell" data-execution_count="31">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(data<span class="op">=</span>df_sns, x<span class="op">=</span><span class="st">'receta'</span>, y<span class="op">=</span><span class="st">'hqd_salida_salmuera'</span>, size<span class="op">=</span><span class="dv">5</span>)</span>
@@ -1356,7 +1458,7 @@ vaca        323.479948     272.676000</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-pract02-rendimientos_files/figure-html/cell-32-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="110-pract02-rendimientos_files/figure-html/cell-32-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -1767,13 +1869,13 @@ vaca        323.479948     272.676000</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./085-intro-rendim-2.html" class="pagination-link" aria-label="Introducción a los rendimientos queseros">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción a los rendimientos queseros</span></span>
+      <a href="./105-valoracion-bmat.html" class="pagination-link" aria-label="La valoración económica del balance de materia y los rendimientos.">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La valoración económica del balance de materia y los rendimientos.</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./900-indice_dataframes.html" class="pagination-link" aria-label="Indice de DataFrames utilizados">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./800-media-centro-gravedad.html" class="pagination-link" aria-label="La media aritmética como centro de gravedad de un grupo de datos">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

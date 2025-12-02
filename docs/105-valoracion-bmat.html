@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Juan Riera">
 
-<title>Análisis de datos industriales usando Excel y Python</title>
+<title>12&nbsp; La valoración económica del balance de materia y los rendimientos. – Análisis de datos industriales usando Excel y Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -51,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./020-estad-entorno.html" rel="next">
+<link href="./110-pract02-rendimientos.html" rel="next">
+<link href="./100-rendimientos.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -76,20 +56,49 @@ div.csl-indent {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Sin resultados",
-    "search-matching-documents-text": "documentos encontrados",
-    "search-copy-link-title": "Copiar el enlace en la búsqueda",
-    "search-hide-matches-text": "Ocultar resultados adicionales",
-    "search-more-match-text": "resultado adicional en este documento",
-    "search-more-matches-text": "resultados adicionales en este documento",
-    "search-clear-button-title": "Borrar",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar",
-    "search-label": "Buscar"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -99,13 +108,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./105-valoracion-bmat.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La valoración económica del balance de materia y los rendimientos.</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -122,14 +131,14 @@ div.csl-indent {
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Buscar"></div>
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
   </div>
 </li>
@@ -137,7 +146,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Introducción</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -188,13 +197,13 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Análisis cuantitativo de la producción quesera</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./085-intro-balance-materia.html" class="sidebar-item-text sidebar-link">
@@ -215,7 +224,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./105-valoracion-bmat.html" class="sidebar-item-text sidebar-link">
+  <a href="./105-valoracion-bmat.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La valoración económica del balance de materia y los rendimientos.</span></span></a>
   </div>
 </li>
@@ -231,7 +240,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Anexos</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -263,39 +272,30 @@ div.csl-indent {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Tabla de contenidos</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">1</span> Introducción</a></li>
+  <li><a href="#el-pago-de-la-leche-por-calidad-en-españa" id="toc-el-pago-de-la-leche-por-calidad-en-españa" class="nav-link active" data-scroll-target="#el-pago-de-la-leche-por-calidad-en-españa"><span class="header-section-number">12.1</span> El pago de la leche por calidad en España</a>
+  <ul class="collapse">
+  <li><a href="#conceptos-clave-del-pago-por-calidad" id="toc-conceptos-clave-del-pago-por-calidad" class="nav-link" data-scroll-target="#conceptos-clave-del-pago-por-calidad">Conceptos clave del pago por calidad</a></li>
+  <li><a href="#aplicación-práctica-ejemplo-de-cálculo" id="toc-aplicación-práctica-ejemplo-de-cálculo" class="nav-link" data-scroll-target="#aplicación-práctica-ejemplo-de-cálculo">Aplicación práctica: ejemplo de cálculo</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./105-valoracion-bmat.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La valoración económica del balance de materia y los rendimientos.</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Análisis de datos industriales usando Excel y Python</h1>
-<p class="subtitle lead">Notas para el master de FP en tecnología quesera</p>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La valoración económica del balance de materia y los rendimientos.</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">AUTOR</div>
-    <div class="quarto-title-meta-contents">
-             <p>Juan Riera </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">PUBLICADO</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">27/10/25</p>
-    </div>
-  </div>
   
     
   </div>
@@ -305,73 +305,143 @@ div.csl-indent {
 </header>
 
 
-<section id="introducción" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introducción</h1>
-<p>Este documento trata sobre el análisis de datos industriales utilizando tanto la hoja de cálculo como un lenguaje de programación moderno como es <code>Python</code> . El uso de las técnicas estadísticas se ha reducido al mínimo, orientando el análisis al uso de métodos gráficos descriptivos sencillos.</p>
-<p>¿Por qué usar <code>Python</code> como herramienta? Hay varias razones que parecen oportunas:</p>
+<section id="el-pago-de-la-leche-por-calidad-en-españa" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="el-pago-de-la-leche-por-calidad-en-españa"><span class="header-section-number">12.1</span> El pago de la leche por calidad en España</h2>
+<p>El pago por calidad de la leche de vaca en España se basa en parámetros físico-químicos y sanitarios como la materia grasa (MG), materia proteica (MP), células somáticas y bacterias. Estos factores determinan el precio final que recibe el ganadero por litro entregado.</p>
+<section id="conceptos-clave-del-pago-por-calidad" class="level3">
+<h3 class="anchored" data-anchor-id="conceptos-clave-del-pago-por-calidad">Conceptos clave del pago por calidad</h3>
+<p>El sistema de pago por calidad busca incentivar la producción de leche con mejores características nutricionales e higiénicas. Los principales criterios son:</p>
+<section id="composición-química" class="level4">
+<h4 class="anchored" data-anchor-id="composición-química">1. <strong>Composición química</strong></h4>
 <ul>
-<li><p><code>Python</code> es actualmente el lenguaje de programación más extendido y el más utilizado en los nuevos campos de la inteligencia artificial (IA). Su conocimiento, aunque sea de forma básica, aportará un plus a los alumnos en su <em>curriculum</em>.</p></li>
-<li><p>El Principado de Asturias ha establecido una línea prioritaria de desarrollo de conocimientos en las áreas relacionadas con la IA para los estudiantes de Formación Profesional. Esto, unido al hecho de que algunas empresas de la región ya están implantando algunas experiencias en esta dirección, parece indicar la conveniencia de que los alumnos empiecen a familiarizarse con estos ámbitos de conocimiento.</p></li>
-<li><p><code>Python</code> posee los elementos necesarios para construir los gráficos que se necesitan para una explicación sencilla de un conjunto de datos de producción alimentaria, y su sintaxis resulta fácil de comprender, aunque otras herramientas, como el lenguaje R, sean más utilizadas en el análisis estadístico y de datos.</p></li>
-<li><p>Tener un contacto práctico con el lenguaje facilitará la adquisición de conocimientos suplementarios, ya sea en el ámbito del análisis estadístico de datos, de los métodos cuantitativos de mejora de procesos (<em>Six Sigma</em>), en la programación informática, o en la introducción a la IA.</p></li>
-<li><p><code>Python</code> es una herramienta gratuita, por lo que tanto el lenguaje como las herramientas para trabajar con él están a disposición libre en la web. En nuestro caso, utilizaremos una aplicación de Google, llamada <a href="https://colab.research.google.com/" target="_blank" rel="noopener noreferrer">Google Colaboratory</a> conocido coloquialmente como <strong>Colab</strong>, que permite utilizar scripts <code>Python</code> mediante la interfase <a href="https://jupyter.org/">jupyter</a>. Colab se usa en el navegador web, Google Chrome u otro, y no es necesario hacer ninguna instalación de software. Para los objetivos de la enseñanza, Google Colab resulta conveniente y suficiente (<a href="https://docs.jupyter.org/es/stable/projects/education.html">ver uso de jupyter en educación</a>).</p></li>
+<li><strong>Materia Grasa (MG)</strong>: Aporta valor energético. Cuanto mayor el porcentaje, mayor el precio.</li>
+<li><strong>Materia Proteica (MP)</strong>: Indicador de calidad nutricional. Muy valorada por la industria quesera.</li>
+<li><strong>Urea</strong>: Indicador del equilibrio nutricional de la dieta del ganado.</li>
 </ul>
-<p>En la industria alimentaria actual se produce un constante flujo de datos como resultado tanto de la implantación de sistemas de captura automáticos como de la tecnificación de los puestos de trabajo; se requiere por parte de los profesionales industriales que sean capaces de analizar esta enorme cantidad de datos para transformarlos en información para la decisión. En la empresa industrial media actual, son los ingenieros y técnicos de planta, y no estadísticos o ingenieros informáticos, quienes participan diariamente en la presentacion y discusion de los datos y en la toma de decisiones operativas, tanto en los equipos de trabajo como ante la Dirección. Por esta razón, es necesario proporcionar a los estudiantes de la Formación Profesional un conocimiento básico de los conceptos, herramientas y métodos del análisis de datos, así como de algunas técnicas de presentación y comunicación de la información.</p>
-<p>La experiencia industrial muestra que en las situaciones reales, sobre el terreno, la comprensión práctica de los conceptos es más importante que su rigurosa formulación matemática. Por esta razón, en el desarrollo del contenido de este documento insistiré más en la forma de aplicar las herramientas y entender los análisis que en el conocimiento formal de las fórmulas estadísticas y su deducción matemática, o de la programación informática en sí. He hecho especial hincapié en la utilización de herramientas sencillas, casi siempre gráficas, que son una ayuda valiosa para comprender la información contenida en un conjunto de datos. El objetivo es proporcionar al estudiante de industrias alimentarias las bases de la metodología para análisis de sus datos y su aplicación a la resolución de problemas técnicos concretos, más que el conocimiento de la teoría matemática de la estadística o de la programación informática.</p>
-<p>Se evitan las explicaciones formales sobre temas estadísticos. Así, por ejemplo, al explicar la media de un conjunto de datos considero más importante entender el concepto físico de “centro de gravedad” que los conceptos estadísticos de esperanza matemática, que no se tocan en este texto. En este sentido, se ha intentado que el alumno aprenda bien la diferencia entre “en qué consiste” un estadístico, y “cómo se calcula”. Comprender la diferencia entre el concepto y su fórmula de cálculo es fundamental para entender cómo aplicarlo.</p>
-<p>Por ejemplo, veremos cómo el modo de cálculo de la media aritmética hace que su valor sea equivalente al centro de gravedad de un conjunto de datos; si aproximamos esta idea a la de un sistema de palanca en equilibrio sobre un fulcro, será muy fácil entender y hacer entender por qué los valores anómalos extremos desvían notablemente la media y deben analizarse con cuidado: una pequeña desviación en un item muy lejos del centro de gravedad tiene un gran efecto sobre el punto de equilibrio del sistema, debido a la longitud del brazo de palanca; de la misma manera, los valores extremos pueden introducir desviaciones en el valor de la media aritmética que siempre hay que considerar.</p>
-<p>También será fácil comprender que otros estadísticos, como la mediana, que se calculan de forma diferente (la mediana es, simplemente, el valor central del conjunto de datos) resultan menos o nada afectados por los valores extremos,; veremos en la práctica las ventajas e inconvenientes de cada uno.</p>
-<div id="fig-intro-media" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-intro-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-intro-media" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-media" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01-imagenes/media-balanza.svg" class="img-fluid figure-img" data-ref-parent="fig-intro-media">
+</section>
+<section id="calidad-higiénico-sanitaria" class="level4">
+<h4 class="anchored" data-anchor-id="calidad-higiénico-sanitaria">2. <strong>Calidad higiénico-sanitaria</strong></h4>
+<ul>
+<li><strong>Recuento de células somáticas (RCS)</strong>: Refleja la salud mamaria. Valores altos penalizan el precio.</li>
+<li><strong>Recuento de bacterias (RB)</strong>: Mide la higiene en el ordeño y conservación. Penaliza si supera ciertos umbrales.</li>
+<li><strong>Inhibidores</strong>: Presencia de antibióticos u otras sustancias. Si se detectan, la leche se rechaza.</li>
+</ul>
+</section>
+<section id="otros-factores" class="level4">
+<h4 class="anchored" data-anchor-id="otros-factores">3. <strong>Otros factores</strong></h4>
+<ul>
+<li><strong>Punto crioscópico</strong>: Detecta adulteraciones (agua añadida).</li>
+<li><strong>Letra Q</strong>: Etiquetado voluntario que certifica calidad superior. Está controlado por la autoridades veterinarias de cada región.</li>
+<li><strong>Marcas de calidad</strong>: DOP, IGP, ecológica, etc., pueden mejorar el precio.</li>
+</ul>
+</section>
+</section>
+<section id="aplicación-práctica-ejemplo-de-cálculo" class="level3">
+<h3 class="anchored" data-anchor-id="aplicación-práctica-ejemplo-de-cálculo">Aplicación práctica: ejemplo de cálculo</h3>
+<p>Supongamos que un ganadero entrega 10.000 litros de leche con la siguiente composición:</p>
+<ul>
+<li><strong>MG</strong>: 4,10%</li>
+<li><strong>MP</strong>: 3,45%</li>
+<li><strong>RCS</strong>: 180.000 células/ml</li>
+<li><strong>RB</strong>: 20.000 ufc/ml</li>
+</ul>
+<p>La industria tiene una tabla de precios base de 0,490 €/litro, con bonificaciones:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Parámetro</th>
+<th>Valor</th>
+<th>Bonificación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MG &gt; 4,00%</td>
+<td>✅</td>
+<td>+0,005 €/l</td>
+</tr>
+<tr class="even">
+<td>MP &gt; 3,40%</td>
+<td>✅</td>
+<td>+0,004 €/l</td>
+</tr>
+<tr class="odd">
+<td>RCS &lt; 200.000</td>
+<td>✅</td>
+<td>+0,003 €/l</td>
+</tr>
+<tr class="even">
+<td>RB &lt; 50.000</td>
+<td>✅</td>
+<td>+0,002 €/l</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Precio final por litro</strong>:<br>
+<span class="math display">\[
+0,490 + 0,005 + 0,004 + 0,003 + 0,002 = 0,504\ €/l
+\]</span></p>
+<p><strong>Total a percibir</strong>:<br>
+<span class="math display">\[
+10.000\ l \cdot 0,504\ €/l = 5.040\ €
+\]</span></p>
+<p>De esta manera se establece un precio por litro, que se aplica mensualmente tras el análisis de las muestras representativas. En las diferentes regiones, este proceso es gestionado por los laboratorios interprofesionales lecheros mediante protocolos de muestreo y análisis estandarizados. El Ministerio de Agricultura también ofrece ayudas específicas por calidad bajo marcas reconocidas o la Letra Q.</p>
+<p>Es importante recordar que cada industria puede tener su propia tabla de bonificaciones y penalizaciones, es decir, la importancia de las bonificaciones y penalizaciones son acordadas por la negociación entre ganaderos (o centrales lecheras) y la industria. En el ejemplo actual, vemos que la bonificación por materia grasa es superior a la bonificación por proteína; este tipo de bonificación, aplicable en la industria lechera, no es recomendable en la industria quesera, que valora sobre todo la riqueza en proteina coagulable (caseína). Por esta razón, no siempre las características de la leche recogida por la industria lechera es idónea para la fabricación de queso. ### La conversión del precio por litro en los costes totales de materia prima, grasa y proteína. Una vez establecido el precio de la leche, a la industria quesera (y lechera) le interesa descomponer este precio en los ingredientes que van a ser objeto de transformación, la materia grasa y la proteína, para poder establecer con precisión los costes de materia en producción.</p>
+<p>La transformación quesera está determinads por la eficiencia en la retención de estas materias primas en el queso, como veremos en el análisis de los rendimientos queseros. La materia prima más importante para el quesero es la proteína, que forma la matriz quesera; la materia grasa se necesita como elemento que confiere sabor y textura al queso.</p>
+<p>Hasta hace unos años, el precio de la leche se determinaba por su riqueza en <strong>materia seca útil (MSU)</strong>, también llamada <strong>extracto seco quesero (ESQ)</strong>, que se calcula sumando el contenido de materia grasa más la proteína:</p>
+<p><span class="math display">\[
+MSU = MG + MP
+\]</span></p>
+<p>Este parámetro, que sigue siendo aplicado en el caso de la leche de oveja y la leche de cabra, no es, sin embargo, de uso recomendable en la industria quesera, porque el productor puede incrementar la cantidad de materia grasa en la leche con determinados tipos de alimentación animal que permiten subir el contenido en MG de la leche, pero no el de la proteina, que está determinado fundamentalmente por la genética del animal.</p>
+<p>El efecto de un contenido en materia grasa demasiado elevado es una leche desequilibrada, con una cantidad de materia grasa que no puede ser utilizada en la producción de queso porque se rebasaría el contenido en grasa del queso, obligando al quesero a desnatar parte de la leche y vender la nata como excedente a bajo precio, impactando negativamente en sus resultados.</p>
+<p>La forma de controlar la cantidad de materia grasa necesaria en la leche de aprovisionamiento (compra) consiste en el control del factor MG/MP, que debe ser sólo ligeramente superior al del producto final (queso), para cubrir las necesidades del queso más las perdidas de producción.</p>
+<p>Por esta razón, es muy frecuente que la industria quesera no valore de al misma manera la materia grasa y la proteína en la leche de compra, y establezca un criterio de valoración que bonifique la riqueza en proteína, por ejemplo, 40/60.</p>
+<p>Si aplicamos este criterio a nuestro precio de leche calculado antes, suponiendo una composición media de la leche de 3,4 g MG/L y 3,1 g MP/L, calcularíamos el precio para el kg de MG y de MP como</p>
+<p><span class="math display">\[
+\text{Precio de la MG:}\ \frac{\text{0{,}504\ euros}}{\text{1 L leche}}\cdot \frac{1\ \text{L leche}}{0{,}0034\ \text{kg MG}} \cdot 0{,}40 = 139,73\ \frac{\text{euros}}{\text{kg MG}}
+\]</span></p>
+<p>De la misma manera, podemos establecer el precio de la proteína como sigue:</p>
+<p><span class="math display">\[
+\text{Precio de la MP:}\ 0{,}504\ \frac{\text{euros}}{\text{L leche}} \cdot \frac{1\ \text{L leche}}{1,030\ \text{kg leche}} \cdot \frac{1\ \text{L leche}}{1,030\ \text{kg leche}}\cdot \frac{1\ \text{L leche}}{0,0031\ \text{kg MG}}\cdot 0{,}60 = 139,73\ \frac{\text{euros}}{\text{kg MG}}
+\]</span></p>
+<div id="2a52c5c2" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>                  fecha receta  litros_past  est_past  mg_past  mp_past  \
+fecha_index                                                               
+2022-03-01   01/03/2022   vaca        15350    12.542    4.200    3.076   
+2022-03-04   04/03/2022   vaca        14530    13.312    4.002    3.673   
+2022-03-25   25/03/2022   vaca        12633    12.856    3.889    3.372   
+2022-04-01   01/04/2022   vaca        15430    13.151    3.886    3.218   
+2022-04-08   08/04/2022   vaca        15930    13.103    4.022    3.396   
+
+              kg_cuba  est_cuba  mg_cuba  mp_cuba formato  \
+fecha_index                                                 
+2022-03-01   15810.99     11.37     4.01     2.94   barra   
+2022-03-04   14989.74     13.25     3.79     3.45   barra   
+2022-03-25   13011.79     12.89     3.69     3.21   barra   
+2022-04-01   15946.80     11.88     3.71     3.02   barra   
+2022-04-08   16452.76     11.93     3.81     3.23   barra   
+
+             est_salida_salmuera  mg_salida_salmuera  ph_salida_salmuera  \
+fecha_index                                                                
+2022-03-01                 55.94               29.50                5.41   
+2022-03-04                 54.58               29.80                5.88   
+2022-03-25                 54.10               30.63                5.48   
+2022-04-01                 56.76               30.51                5.36   
+2022-04-08                 55.63               30.01                5.31   
+
+             peso_queso_total  sal_queso  
+fecha_index                               
+2022-03-01             1960.0       1.55  
+2022-03-04             1888.0       1.77  
+2022-03-25             1555.0       1.32  
+2022-04-01             1750.0       1.36  
+2022-04-08             1955.0       1.90  </code></pre>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) Diagrama de puntos (dotplot) mostrando la posición de la media aritmética
-</figcaption>
-</figure>
 </div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-intro-media" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-palanca" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01-imagenes/palanca.png" class="img-fluid figure-img" data-ref-parent="fig-intro-media">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) Palanca de primer grado con el fulcro como punto de equilibrio
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-intro-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.1: Comparación gráfica del significado de la media en un diagrama de puntos (<em>dotplot</em>) con una palanca de primer grado.
-</figcaption>
-</figure>
-</div>
-<p>Un curso de introducción al análisis de datos industriales debe ser, ante todo, práctico y orientado a su aplicación en el entorno industrial real. Los principales temas de trabajo de análisis de los datos en la industria tienen que ver con su captura, su almacenamiento y su depuración, su descripción utilizando gráficos, la inferencia (intervalos de confianza y tests), la construcción de modelos explicativos, el diseño de los experimentos industriales, el control estadístico de la calidad y la exposición y presentación de resultados. Dado el alcance limitado de este documento, no se entrará en los métodos estadísticos en sí, y necesitarán de un estudio posterior si el alumno tiene interés en profundizar en ellos.</p>
-<p>A pesar de que los temas más especializados puedan ser importantes en algunas aplicaciones específicas, no preparan al estudiante para lo que se va a encontrar en el terreno en la mayor parte de las ocasiones. En cambio, la resolución de problemas en equipo en un entorno de aprendizaje dinámico enfrentándose a problemas exigentes, y el desarrollo de las habilidades de análisis, de síntesis y de comunicación, tendrán un impacto mucho más positivo.</p>
-<p>He intentado mostrar la necesidad de que los estudiantes comprendan y apliquen el método científico en el entorno industrial, y no sólo apliquen un recetario de procedimientos de manera automática. Son mucho mas importantes la comprensión y la utilización adecuada del método científico y de las herramientas y gráficos básicos, antes que la aplicación rutinaria y mecánica de determinadas fórmulas matemáticas o métodos sofisticados y complejos (como la IA) que el alumno puede no comprender en toda su profundidad.</p>
-<p>Las industrias líderes destacan por la aplicación intensiva de métodos tales como <em>Six Sigma</em>, <em>Lean Manufacturing</em>, diseño robusto de productos, y otros que hacen un uso intensivo de los datos, tanto de los obtenidos en producción como de los obtenidos en la realización de experimentos diseñados. Pero la mejora de la competitividad en estas empresas no se debe tanto a la aplicación de unos u otros métodos, como al desarrollo del juicio analítico de sus equipos humanos y a la aplicación de lo aprendido a la mejora continua de los procesos industriales. Veremos que la experiencia y el conocimiento tecnológico de estos procesos son fundamentales para el desarrollo del buen juicio analítico, y, en consecuencia, para la buena interpretación de los resultados que se obtienen con las herramientas estadísticas y de análisis.</p>
-<p>Tratándose de un libro para el uso en la Formación Profesional, considero prioritario que su estudio se oriente al desarrollo de habilidades que sean de aplicación práctica directa en el puesto de trabajo y además faciliten la empleabilidad del estudiante, y no a la obtención de conocimiento abstracto. En la última edición del <em>Informe sobre el futuro del empleo</em> disponible cuando se edita este libro, publicada por el <a href="https://www.weforum.org/">Foro Económico Mundial</a> (WEF) en junio de 2025 <span class="citation" data-cites="wef2025">(<a href="810-bibliografia.html#ref-wef2025" role="doc-biblioref">World Economic Forum 2025</a>)</span>, el WEF considera que:</p>
-<blockquote class="blockquote">
-<p>…al igual que en las dos ediciones anteriores de este informe, el <strong>pensamiento analítico</strong> sigue siendo la principal habilidad básica para los empleadores, ya que siete de cada 10 empresas lo consideran esencial. A esto le siguen la resiliencia, la flexibilidad y la agilidad, junto con el liderazgo y la influencia social, lo que subraya el papel fundamental de la adaptabilidad y la colaboración junto con las habilidades cognitivas. El pensamiento creativo y la motivación y la autoconciencia ocupan el cuarto y quinto lugar, respectivamente. Esta combinación de habilidades cognitivas, de autoeficacia e interpersonales dentro de los cinco primeros enfatiza la importancia atribuida por los encuestados a tener una fuerza laboral ágil, innovadora y colaborativa, donde tanto la capacidad de resolución de problemas como la resiliencia personal son críticas para el éxito.</p>
-</blockquote>
-<p>A estas habilidades se suman las dos que más crecen en estos dos últimos años: la <strong>inteligencia artificial (IA)</strong> y el <strong>análisis de datos</strong>. El objetivo de este documento es proporcionar conocimientos que ayuden al estudiante a desarrollarse en esta dirección, y servir de apoyo a los docentes para conseguir ese objetivo. En este sentido, se incluyen casos de análisis con ejemplos prácticos de la metodología presentada aplicada al análisis, y con propuestas de ejercicios a resolver, apoyándose en las herramientas de IA.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-wef2025" class="csl-entry" role="listitem">
-World Economic Forum. 2025. <span>«Future of Jobs Report, 2025»</span>. 91-93 route de la Capite,CH-1223 Cologny/Geneva, Switzerland: World Economic Forum. <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/">https://www.weforum.org/publications/the-future-of-jobs-report-2025/</a>.
-</div>
-</div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -400,12 +470,12 @@ World Economic Forum. 2025. <span>«Future of Jobs Report, 2025»</span>. 91-93 
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copiado");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copiado");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -776,10 +846,13 @@ World Economic Forum. 2025. <span>«Future of Jobs Report, 2025»</span>. 91-93 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./100-rendimientos.html" class="pagination-link" aria-label="Los rendimientos queseros">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./020-estad-entorno.html" class="pagination-link" aria-label="El análisis de datos de producción en el entorno industrial.">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El análisis de datos de producción en el entorno industrial.</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./110-pract02-rendimientos.html" class="pagination-link" aria-label="Práctica 2. Análisis de los rendimientos en fabricación de queso mediante `Python`">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

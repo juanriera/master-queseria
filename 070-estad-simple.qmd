@@ -151,20 +151,27 @@ Usemos la hoja de cálculo para ello:
 
 Algo parece que no está funcionando aquí: el promedio de las diferencias es cero en los tres casos; no podemos usar este cálculo para calcular la dispersión. Pero esto es esperable: ya que la media es un valor central, como hemos visto antes, la suma de las diferencias de todos los valores respecto de su media debe ser forzosamente cero, y esto es lo que estamos obteniendo.
 
-Para encontrar una solución, vamos a recurrir al viejo teorema de Pitágoras, que si recuerdas, nos dice que, en un triángulo rectángulo, el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos (una explicación gráfica muy divertida en el anexo ...): $$
+Para encontrar una solución, vamos a recurrir al viejo teorema de Pitágoras, que si recuerdas, nos dice que, en un triángulo rectángulo, el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos (una explicación gráfica muy divertida en el anexo ...): 
+$$
 h^2= a^2+b^2
-$$ Esta fórmula es la base del cálculo de la distancia entre dos puntos:
+$$ 
+
+Esta fórmula es la base del cálculo de la distancia entre dos puntos:
 
 ![Distancia entre dos puntos](01-imagenes/image-20221116114659713.png){.column-margin}
 
 $$
 d(A,B)=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
 $$ 
+
 Podemos adaptar esta fórmula al cálculo de nuestra distancia media. Como estamos calculando la distancia en una dimensión, sólo necesitamos la coordenada $X$. Si tenemos en cuenta un solo punto, esta distancia $d$ sería: 
+
 $$
 (d{\ }del{\ }valor{\ }1{\ }a{\ }la{\ }media)^2=(x_1-\bar{x})^2
 $$
-¡El hecho de elevar al cuadrado las diferencias nos da la solución! Las diferencias negativas ya no son un problema porque sabemos que al elevar un numero negativo al cuadrado, el resultado es positivo; de esta manera conseguimos que las diferencias no se anulen. Ahora sí podemos calcular una distancia media $\bar{d}$ entre el conjunto de puntos y su media, calculando el promedio de las diferencias elevadas al cuadrado: $$
+
+¡El hecho de elevar al cuadrado las diferencias nos da la solución! Las diferencias negativas ya no son un problema porque sabemos que al elevar un numero negativo al cuadrado, el resultado es positivo; de esta manera conseguimos que las diferencias no se anulen. Ahora sí podemos calcular una distancia media $\bar{d}$ entre el conjunto de puntos y su media, calculando el promedio de las diferencias elevadas al cuadrado: 
+$$
 (\bar{d}{\ }de{\ }los{\ }n{\ }valores{\ }a{\ }la{\ }media)^2=\frac{(x_1-\bar{x})^2 + (x_2-\bar{x})^2+\cdots+(x_n-\bar{x})^2}{n}
 $$
 
@@ -214,7 +221,7 @@ En ocasiones nos enfrentamos a conjuntos de datos con valores de media y desviac
 
 ![Hoja de cálculo con dos conjuntos de datos diferentes, con la misma media y desviación típica](01-imagenes/image-20221116164339577.png){.column-margin}
 
-![Diagrama de puntos de las alturas de los alumnos, con indicación del valor medio](01-imagenes/media-balanza.svg)
+![Diagrama de puntos de las alturas de los alumnos, con indicación del valor medio](01-imagenes/media-balanza.png)
 
 ![Diagrama de puntos indicando la variabilidad](01-imagenes/plot_varianzas.png)
 

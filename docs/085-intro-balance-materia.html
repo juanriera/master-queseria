@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Bibliografía – Análisis de datos industriales usando Excel y Python</title>
+<title>9&nbsp; El balance de materia y los rendimientos queseros. – Análisis de datos industriales usando Excel y Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./150-media-centro-gravedad.html" rel="prev">
+<link href="./090-balance-materia.html" rel="next">
+<link href="./080-pract01-camembert.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -100,7 +82,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./150-media-centro-gravedad.html">Anexos</a></li><li class="breadcrumb-item"><a href="./160-bibliografia.html">Bibliografía</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El balance de materia y los rendimientos queseros.</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -131,85 +113,125 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Introducción</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./020-estad-entorno.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El análisis de datos de producción en el entorno industrial.</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./030-herramientas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./040-organizacion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La organización de los datos y el flujo de trabajo.Los datos ordenados o <em>arreglados</em> (<em>tidy data</em>)</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./050-intro-python.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introducción a Python en el entorno Google Colab</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./060-exploracion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./070-estad-simple.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza.</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./080-pract01-camembert.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Práctica 1. Análisis exploratorio de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./085-intro-rendim-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción a los rendimientos queseros</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./090-pract02-rendimientos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./900-indice_dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
-  </div>
-</li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Anexos</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Análisis cuantitativo de la producción quesera</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./150-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
+  <a href="./085-intro-balance-materia.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El balance de materia y los rendimientos queseros.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./090-balance-materia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El balance de materia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./100-rendimientos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./105-valoracion-bmat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La valoración económica del balance de materia y los rendimientos.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./110-pract02-rendimientos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Anexos</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./800-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./160-bibliografia.html" class="sidebar-item-text sidebar-link active">
+  <a href="./810-bibliografia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bibliografía</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./900-indice_dataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
   </div>
 </li>
       </ul>
@@ -219,15 +241,24 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#etapas-generales-en-el-proceso-de-fabricación-de-queso." id="toc-etapas-generales-en-el-proceso-de-fabricación-de-queso." class="nav-link active" data-scroll-target="#etapas-generales-en-el-proceso-de-fabricación-de-queso."><span class="header-section-number">9.1</span> Etapas generales en el proceso de fabricación de queso.</a></li>
+  <li><a href="#algunas-causas-de-las-pérdidas-de-materia-en-el-proceso-quesero" id="toc-algunas-causas-de-las-pérdidas-de-materia-en-el-proceso-quesero" class="nav-link" data-scroll-target="#algunas-causas-de-las-pérdidas-de-materia-en-el-proceso-quesero"><span class="header-section-number">9.2</span> Algunas causas de las pérdidas de materia en el proceso quesero</a></li>
+  <li><a href="#algunas-causas-de-las-pérdidas-de-eficiencia-en-la-transformación-quesera" id="toc-algunas-causas-de-las-pérdidas-de-eficiencia-en-la-transformación-quesera" class="nav-link" data-scroll-target="#algunas-causas-de-las-pérdidas-de-eficiencia-en-la-transformación-quesera"><span class="header-section-number">9.3</span> Algunas causas de las pérdidas de eficiencia en la transformación quesera</a></li>
+  <li><a href="#análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable" id="toc-análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable" class="nav-link" data-scroll-target="#análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable"><span class="header-section-number">9.4</span> Análisis de datos en producción con Python: más allá del balance contable</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./150-media-centro-gravedad.html">Anexos</a></li><li class="breadcrumb-item"><a href="./160-bibliografia.html">Bibliografía</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El balance de materia y los rendimientos queseros.</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Bibliografía</h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El balance de materia y los rendimientos queseros.</span></h1>
 </div>
 
 
@@ -244,24 +275,84 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-wickham2023es" class="csl-entry" role="listitem">
-Hadley Wickham, Garret Grolemund. 2023. <span>“R Para Ciencia de
-Datos.”</span> 2023. <a href="https://es.r4ds.hadley.nz/">https://es.r4ds.hadley.nz/</a>.
+<p>La elaboración de queso tiene como objetivo principal <strong>preservar y concentrar los componentes nutritivos de la leche</strong>, transformándolos en un producto alimentario con <strong>elevado valor sensorial, nutricional y comercial</strong>. Este proceso da lugar a una amplia variedad de quesos, cada uno con características únicas que responden a factores como el tipo de leche, la tecnología aplicada y las condiciones de maduración.</p>
+<p>El propósito de la tecnología quesera es <strong>optimizar esta transformación</strong>, guiando el proceso de forma que se obtenga el mejor producto posible, <strong>garantizando la calidad sanitaria, tecnológica y organoléptica</strong>, y todo ello de manera <strong>eficiente y rentable</strong>. Para lograrlo, los objetivos técnicos se centran en <strong>minimizar las pérdidas de materia</strong>, especialmente de <strong>grasa y proteína</strong>, que son los componentes clave en la formación del queso. Al mismo tiempo, se busca <strong>preservar los atributos sensoriales</strong> —como sabor, textura y aroma— y <strong>cumplir con los requisitos higiénico-sanitarios</strong> establecidos por la normativa vigente.</p>
+<p>El análisis cuantitativo del proceso quesero se estructura en dos partes diferenciadas:</p>
+<ul>
+<li><strong>Balance de materia global:</strong> comprende desde la recepción de la leche cruda hasta el final del proceso de elaboración, momento en que el queso está listo para entrar en la fase de maduración. Este balance permite evaluar el rendimiento general y detectar posibles pérdidas o desviaciones.</li>
+<li><strong>Transformación quesera propiamente dicha:</strong> incluído en el balance de materia global, abarca el tramo desde la leche destinada a fabricación una vez en la cuba, hasta la obtención del queso fresco (antes o después del salado). Aquí se analizan los rendimientos específicos, la eficiencia de coagulación, el corte, el desuerado, el moldeado y otros parámetros tecnológicos que inciden directamente en la calidad y cantidad del producto final.</li>
+</ul>
+<p>Ambos analisis deben estar <strong>valorados económicamente</strong> para conocer el impacto de nuestras desviaciones y pérdidas. Este conocimiento permitirá establecer las prioridades del trabajo de mejora, que consisten fundamentalmente en:</p>
+<ul>
+<li>la reducción de las pérdidas de materia, y</li>
+<li>el aumento de la eficiencia de la transformación e la leche en queso.</li>
+</ul>
+<p>En los siguientes capítulos abordaremos, pues:</p>
+<ul>
+<li>El balance de materia</li>
+<li>El análisis de rendimientos queseros</li>
+<li>La valoración del balance de materia, el rendimiento y las pérdidas a partir del precio de la leche.</li>
+</ul>
+<section id="etapas-generales-en-el-proceso-de-fabricación-de-queso." class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="etapas-generales-en-el-proceso-de-fabricación-de-queso."><span class="header-section-number">9.1</span> Etapas generales en el proceso de fabricación de queso.</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01-imagenes/la-fabrica-lactalis.png" class="img-fluid figure-img"></p>
+<figcaption>Las diferentes unidades de una fábrica de queso y las medidas del balance de materia</figcaption>
+</figure>
 </div>
-<div id="ref-wickham2023" class="csl-entry" role="listitem">
-Hadley Wickham, Garret Grolemund, Mine Çetinkaya-Rundel. 2023. <em>R for
-Data Science, 2nd Ed.</em> 1005 Gravenstein Highway North, Sebastopol,
-CA95472: O’Reilly Media Inc. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>.
-</div>
-<div id="ref-wef2025" class="csl-entry" role="listitem">
-World Economic Forum. 2025. <span>“Future of Jobs Report, 2025.”</span>
-91-93 route de la Capite,CH-1223 Cologny/Geneva, Switzerland: World
-Economic Forum. <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/">https://www.weforum.org/publications/the-future-of-jobs-report-2025/</a>.
-</div>
-</div>
+<p>El proceso de la leche para elaborar queso empieza con el ordeño, y el almacenamiento en frío. La leche almacenada es cargada en el camión de transporte, que la lleva a la fábrica. En el momento de la carga, se toma una muestra representativa, que será analizada por el laboratorio interprofesional lechero de la zona, y que tiene como objetivo el pago por calidad, y se registran los litros cargados en la cisterna. En otras ocasiones, es el propio personal del laboratorio interprofesional el que toma la muestra, para evitar posibles conflictos con la industria, y el resultado es enviado por el laboratorio tanto al ganadero como a la industria.</p>
+<p>A su llegada a fábrica, se toma una muestra representativa de la leche, después de agitarla adecuadamente; esta muestra será analizada en el laboratorio de fábrica, y este análisis establece las cantidades de materia que se dan de entrada en la unidad de producción.</p>
+<p>Debido a los procesos de muestreo, y a los posibles arrastres con agua de los depósitos y tuberías, casi siempre se presentan diferencias entre las analíticas realizadas por el laboratorio interprofesional y las realizadas en fábrica a la recepción. Estas diferencias, tanto de analíticas como de cantidad medida (litros o kg), forman parte de lo que en el sector se conoce como <strong>diferencia pagado-recibido</strong>. Habitualmente, forman parte de la negociación en el proceso de compra y pueden partirse a medias, siempre que el promedio acumulado esté muy próximo a cero, indicando que no hay sesgos, o repartirlas entre comprador y vendendor con otros criterios, siempre de forma negociada y acordada.</p>
+<p>Hay que tener en cuenta que en la aparición de diferencias analíticas puede influir incluso las diferencias en los métodos analíticos o sistemas automáticos utilizados; es fundamental realizar procesos de calibración inter-laboratorios y auditorías de proceso para asegurar que las analíticas de laboratorio interprofesional y de la fábrica proporcionan los mismos resultados para muestras de calibración idénticas.</p>
+<p>Para el control del balance de materia de la fábrica, es fundamental que estas diferencias pagado-recibido no se incluyan en el balance, ya que coresponden a eventos o situaciones fuera de su control, y su resolución no puede hacerse por otros medios que no sean la negociación del reparto de diferencias.</p>
+<p>El balance de materia propiamente dicho comienza con los volúmenes y analíticas que la unidad de producción ha dado de entrada en fábrica, teniendo cuidado de que no se intente llevar a diferencias pagado-recibido lo que realmente son pérdidas dentro de la fábrica.</p>
+<p>El proceso de la leche puede tener varias etapas antes de llegar a la cuba:</p>
+<ul>
+<li><strong>Termización</strong></li>
+<li><strong>Estandarización</strong> en grasa y/o proteína, que puede implicar <strong>desnatado</strong> y posterior <strong>reconstitución</strong></li>
+<li>En algunos casos, como la elaboración de queso azul, una <strong>homogeneización</strong> de parte de la materia grasa</li>
+<li>El <strong>trasvase</strong> y movimiento de la leche y otras materias dentro de la sección de <strong>recepción-tratamiento</strong> entre tanques, desnatadoras, homogeneizadores y resto de sistemas.</li>
+</ul>
+<p>Como resultado de todos estos movimientos y procesos, se producen una serie de pérdidas de materia por diversas razones, entre las que también hay que considerar la pérdida física de materia por valvulas averiadas, malos cierres, juntas estropeadas, etc. La consecuencia es que el total de la materia enviada a las cubas es menor que la recibida en fábrica. Estas diferencias se analizan mediante el <strong>balance líquido</strong>, que con mayor o menor detalle va contabilizando las diferencias entre entradas y salidas de los diferentes procesos realizados sobre la materia líquida <strong>hasta</strong> su llegada a la cuba de fabricación.</p>
+<p>Las cantidades analizadas en la cuba de fabricación constituyen el cierre (salida) del balance líquido y el inicio del <strong>balance de producción</strong>, que recoge la transformación quesera en sentido estricto, desde la leche en la cuba lista para fabricación, hasta el queso obtenido, antes o después de salado (opcional)</p>
+<p>En el proceso de obtención del queso se produce una eliminación del suero de quesería, en el que se recogerá la mayor cantidad de la lactosa de la leche, proteínas solubles, y algo de grasa y proteína. Como resultado de la manipulación de la cuajada en la cuba y los procesos de corte y agitación, se producen pequeñas pérdidas de finos de quesería, que consisten en grasa y proteína coagulada que no se ha podido retener en la cuajada enviada a moldear. En el proceso de moldeo se produce también una pérdida de materia que puede ser significativa, según el proceso y según el control que el equipo de quesería tenga sobre el proceso. Finalmente, en los intercambios osmóticos en el proceso de salado, se produce una pérdida de suero y una ganancia de extracto seco magro en forma de aporte de sal.</p>
+<p>El suero de quesería, que contiene una pequeña cantidad de grasa, en la mayor parte de las ocasiones, es desnatado para recuperar esta materia grasa, en forma de nata de suero. Esta nata de suero, si está producida y conservada en las condiciones adecuadas, puede adicionarse a la siguiente fabricación de queso en la estandarización,reduciendo las pérdidas de grasa, siempre que el producto lo admita y no haya problemas de calidad.</p>
+<p>En resumen, todos los procesos que llevan a la elaboración de queso, constan a su vez de otros subprocesos, en los cuales se van a producir pérdidas de materia grasa y proteína en mayor o menor cantidad. Dado que en el pago por calidad de la leche, la grasa y la proteína son las materias que se valoran y son el objeto del pago, parece lógico que la optimización de la eficiencia de la elaboración de queso se enfoque en la reducción de las perdidas de materia en todas las partes del proceso.</p>
+</section>
+<section id="algunas-causas-de-las-pérdidas-de-materia-en-el-proceso-quesero" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="algunas-causas-de-las-pérdidas-de-materia-en-el-proceso-quesero"><span class="header-section-number">9.2</span> Algunas causas de las pérdidas de materia en el proceso quesero</h2>
+<p>Pérdidas de balance: sólo aquellas que son diferencias entre entradas y salidas. Por ejemplo, pérdidas de finos bien medidas en el suero pueden no ser unapérdida de balance si están biencontabilizadas, perosonpérdidas de rendimiento porque esos finos no se recuperan en el queso</p>
+<ul>
+<li>Mala calibración de la báscula de entrada o de los contadores de medida en la descarga</li>
+<li>Pérdidas en válvulas que cierran mal y no tienen un buen programa e mantenimiento preventivo de cierres y juntas</li>
+<li>Operaciones mal descritas y que dejan demasiado espacio a las decisiones individuales que pueden ser improvisadas</li>
+<li>Falta de auditorías de procesos que permitan evaluar la calidad de las operaciones y detectar los puntos críticos de mala operación</li>
+<li>Procedimientos de arrastres (fin de línea, depósitos) mal temporizados, lo quehace que sean demasiado cortos (pérdidas de materia) o demasiado largos(dilución excesiva)</li>
+<li>Mal estado de los útiles de corte en la cuba, lo que aumenta las pérdidas de finos en la cuba</li>
+<li>Información insuficiente (pocas muestras) para evaluar bien el balance y conocer los puntos de pérdida . Desconocimeinto del error de medida (muestreo, variabilidad de analistas, repetibilidad de los análisis), lo que lleva a correcciones que pueden no corresponder a valores de pérdida real sino a errores analíticos.</li>
+<li>Insuficiente formación en la toma de muestras, que se realiza de manera incorrecta</li>
+<li>Uso de bombas centrífugas para el transporte de cuajada, lo que hace que aumente la cantidade de finos que se pierden en el suero (estrictamente, puede no ser una pérdida de balance sino de rendimiento quesero)</li>
+</ul>
+</section>
+<section id="algunas-causas-de-las-pérdidas-de-eficiencia-en-la-transformación-quesera" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="algunas-causas-de-las-pérdidas-de-eficiencia-en-la-transformación-quesera"><span class="header-section-number">9.3</span> Algunas causas de las pérdidas de eficiencia en la transformación quesera</h2>
+<p>Recogida y almcenamiento de leche en la granja:</p>
+<ul>
+<li>Almacenamiento en frío durante tiempo prolongado: desarrollo de bateria psicrotrofas que degradan la caseína</li>
+</ul>
+</section>
+<section id="análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable"><span class="header-section-number">9.4</span> Análisis de datos en producción con Python: más allá del balance contable</h2>
+<p>Cuando realizamos un balance de materia en una fábrica o calculamos los rendimientos, no lo hacemos con un enfoque contable o notarial, cuyo objetivo principal es dejar constancia del resultado. Aunque registrar los datos es importante, lo que realmente necesita un técnico o ingeniero de producción es otra cosa: poder revisar esos resultados a lo largo del tiempo, analizar tendencias y cruzar la información con otras variables que ayuden a entender por qué se obtuvieron esos resultados.</p>
+<p>En un entorno de mejora continua, el análisis de resultados no es un fin en sí mismo, sino una herramienta clave para avanzar. Su objetivo es reducir las pérdidas de materia y comprender mejor los procesos tecnológicos que las generan, con la intención de modificarlos y corregirlos.</p>
+<p>Herramientas como Python permiten trabajar con los datos de forma progresiva y creativa. Podemos agruparlos por fechas, aplicar distintos criterios de análisis y explorar dinámica y gráficamente nuevas perspectivas que quizás no habíamos considerado al inicio. Muchas veces, es durante el análisis cuando surgen las preguntas más interesantes.</p>
+<p>Además, trabajar con scripts tiene una ventaja fundamental: separa claramente las instrucciones de análisis (el código) de los datos en sí, que suelen almacenarse en archivos .csv. Estos datos, por lo general, requieren una limpieza previa antes de analizarlos.</p>
+<p>Tanto el proceso de limpieza como los pasos del análisis quedan documentados en el script. Esto facilita compartir el trabajo con otras personas, reproducir el análisis y, lo más importante, garantizar su trazabilidad. En cambio, en una hoja de cálculo es fácil mezclar datos y análisis: las fórmulas quedan ocultas en las celdas y el algoritmo utilizado suele estar disperso y poco visible entre fórmulas, datos y formatos de presentación.</p>
+<p>Por esta razón, el análisis del balance de materia y de los rendimientos se hace aquí mediante python.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -665,11 +756,14 @@ Economic Forum. <a href="https://www.weforum.org/publications/the-future-of-jobs
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./150-media-centro-gravedad.html" class="pagination-link" aria-label="La media aritmética como centro de gravedad de un grupo de datos">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span>
+      <a href="./080-pract01-camembert.html" class="pagination-link" aria-label="Práctica 1. Análisis exploratorio de una fabricación de queso camembert usando `Python` y Google Colab.">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Práctica 1. Análisis exploratorio de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./090-balance-materia.html" class="pagination-link" aria-label="El balance de materia">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El balance de materia</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

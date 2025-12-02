@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; Introducción a los rendimientos queseros – Análisis de datos industriales usando Excel y Python</title>
+<title>11&nbsp; Los rendimientos queseros – Análisis de datos industriales usando Excel y Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./090-pract02-rendimientos.html" rel="next">
-<link href="./080-pract01-camembert.html" rel="prev">
+<link href="./105-valoracion-bmat.html" rel="next">
+<link href="./090-balance-materia.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -149,7 +149,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-rendim-2.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción a los rendimientos queseros</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./100-rendimientos.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -180,70 +180,10 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./020-estad-entorno.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El análisis de datos de producción en el entorno industrial.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./030-herramientas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./040-organizacion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La organización de los datos y el flujo de trabajo.Los datos ordenados o <em>arreglados</em> (<em>tidy data</em>)</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./050-intro-python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introducción a Python en el entorno Google Colab</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./060-exploracion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./070-estad-simple.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./080-pract01-camembert.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Práctica 1. Análisis exploratorio de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./085-intro-rendim-2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción a los rendimientos queseros</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./090-pract02-rendimientos.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./900-indice_dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Anexos</span></a>
+ <span class="menu-text">Introducción</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -251,14 +191,114 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./150-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
+  <a href="./020-estad-entorno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El análisis de datos de producción en el entorno industrial.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./030-herramientas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./040-organizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">La organización de los datos y el flujo de trabajo.Los datos ordenados o <em>arreglados</em> (<em>tidy data</em>)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./050-intro-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Introducción a Python en el entorno Google Colab</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./060-exploracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./070-estad-simple.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./080-pract01-camembert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Práctica 1. Análisis exploratorio de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Análisis cuantitativo de la producción quesera</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./085-intro-balance-materia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El balance de materia y los rendimientos queseros.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./090-balance-materia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El balance de materia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./100-rendimientos.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./105-valoracion-bmat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La valoración económica del balance de materia y los rendimientos.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./110-pract02-rendimientos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Anexos</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./800-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./160-bibliografia.html" class="sidebar-item-text sidebar-link">
+  <a href="./810-bibliografia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bibliografía</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./900-indice_dataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
   </div>
 </li>
       </ul>
@@ -273,21 +313,22 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#un-ejemplo-de-cálculo-de-rendimientos" id="toc-un-ejemplo-de-cálculo-de-rendimientos" class="nav-link active" data-scroll-target="#un-ejemplo-de-cálculo-de-rendimientos"><span class="header-section-number">9.1</span> Un ejemplo de cálculo de rendimientos</a></li>
-  <li><a href="#lectura-y-exploración-de-los-datos" id="toc-lectura-y-exploración-de-los-datos" class="nav-link" data-scroll-target="#lectura-y-exploración-de-los-datos"><span class="header-section-number">9.2</span> Lectura y exploración de los datos</a></li>
-  <li><a href="#cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" id="toc-cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" class="nav-link" data-scroll-target="#cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso"><span class="header-section-number">9.3</span> Cálculo de la cantidad de leche necesaria para fabricar 1 kg de queso</a></li>
-  <li><a href="#la-materia-grasa" id="toc-la-materia-grasa" class="nav-link" data-scroll-target="#la-materia-grasa"><span class="header-section-number">9.4</span> La materia grasa</a></li>
-  <li><a href="#el-estándar-de-fabricación-o-estándar-técnico" id="toc-el-estándar-de-fabricación-o-estándar-técnico" class="nav-link" data-scroll-target="#el-estándar-de-fabricación-o-estándar-técnico"><span class="header-section-number">9.5</span> El estándar de fabricación o estándar técnico</a></li>
-  <li><a href="#la-importancia-de-la-estandarización-de-la-leche" id="toc-la-importancia-de-la-estandarización-de-la-leche" class="nav-link" data-scroll-target="#la-importancia-de-la-estandarización-de-la-leche"><span class="header-section-number">9.6</span> La importancia de la estandarización de la leche</a></li>
+  <li><a href="#un-ejemplo-de-cálculo-de-rendimientos" id="toc-un-ejemplo-de-cálculo-de-rendimientos" class="nav-link active" data-scroll-target="#un-ejemplo-de-cálculo-de-rendimientos"><span class="header-section-number">11.1</span> Un ejemplo de cálculo de rendimientos</a></li>
+  <li><a href="#lectura-y-exploración-de-los-datos" id="toc-lectura-y-exploración-de-los-datos" class="nav-link" data-scroll-target="#lectura-y-exploración-de-los-datos"><span class="header-section-number">11.2</span> Lectura y exploración de los datos</a></li>
+  <li><a href="#rendimiento-simple" id="toc-rendimiento-simple" class="nav-link" data-scroll-target="#rendimiento-simple"><span class="header-section-number">11.3</span> Rendimiento simple</a></li>
+  <li><a href="#cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" id="toc-cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" class="nav-link" data-scroll-target="#cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso"><span class="header-section-number">11.4</span> Cálculo de la cantidad de leche necesaria para fabricar 1 kg de queso</a></li>
+  <li><a href="#la-materia-grasa" id="toc-la-materia-grasa" class="nav-link" data-scroll-target="#la-materia-grasa"><span class="header-section-number">11.5</span> La materia grasa</a></li>
+  <li><a href="#el-estándar-de-fabricación-o-estándar-técnico" id="toc-el-estándar-de-fabricación-o-estándar-técnico" class="nav-link" data-scroll-target="#el-estándar-de-fabricación-o-estándar-técnico"><span class="header-section-number">11.6</span> El estándar de fabricación o estándar técnico</a></li>
+  <li><a href="#la-importancia-de-la-estandarización-de-la-leche" id="toc-la-importancia-de-la-estandarización-de-la-leche" class="nav-link" data-scroll-target="#la-importancia-de-la-estandarización-de-la-leche"><span class="header-section-number">11.7</span> La importancia de la estandarización de la leche</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./100-rendimientos.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción a los rendimientos queseros</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></h1>
 </div>
 
 
@@ -304,75 +345,25 @@ window.Quarto = {
 </header>
 
 
-<p>La elaboración de queso tiene como objetivo principal <strong>preservar y concentrar los componentes nutritivos de la leche</strong>, transformándolos en un producto alimentario con <strong>elevado valor sensorial, nutricional y comercial</strong>. Este proceso da lugar a una amplia variedad de quesos, cada uno con características únicas que responden a factores como el tipo de leche, la tecnología aplicada y las condiciones de maduración.</p>
-<p>El propósito de la tecnología quesera es <strong>optimizar esta transformación</strong>, guiando el proceso de forma que se obtenga el mejor producto posible, <strong>garantizando la calidad sanitaria, tecnológica y organoléptica</strong>, y todo ello de manera <strong>eficiente y rentable</strong>. Para lograrlo, los objetivos técnicos se centran en <strong>minimizar las pérdidas de materia</strong>, especialmente de <strong>grasa y proteína</strong>, que son los componentes clave en la formación del queso. Al mismo tiempo, se busca <strong>preservar los atributos sensoriales</strong> —como sabor, textura y aroma— y <strong>cumplir con los requisitos higiénico-sanitarios</strong> establecidos por la normativa vigente.</p>
-<p>El análisis del proceso quesero se estructura en dos partes diferenciadas:</p>
-<ul>
-<li><strong>Balance de materia global:</strong> comprende desde la recepción de la leche cruda hasta el final del proceso de elaboración, momento en que el queso está listo para entrar en la fase de maduración. Este balance permite evaluar el rendimiento general y detectar posibles pérdidas o desviaciones.</li>
-<li><strong>Transformación quesera propiamente dicha:</strong> incluído en el balance de materia global, abarca el tramo desde la leche destinada a fabricación una vez en la cuba, hasta la obtención del queso fresco (antes o después del salado). Aquí se analizan los rendimientos específicos, la eficiencia de coagulación, el corte, el desuerado, el moldeado y otros parámetros tecnológicos que inciden directamente en la calidad y cantidad del producto final.</li>
-</ul>
-<p>En este capítulo abordaremos la segunda parte, la transformación quesera, analizando los valores analíticos de la leche de fabricación y del queso recién elaborado, y extraeremos diversas consecuencias:</p>
+<p>En este capítulo abordaremos el análisis de la eficiencia de la transformación quesera, mediante los indicadores del rendimiento quesero, que calcularemos a partir de los valores analíticos de la leche de fabricación y del queso recién elaborado. Extraeremos diversas conclusiones:</p>
 <ul>
 <li>Estableceremos los parámetros de referencia de nuestro propio proceso, que nos servirán de punto de comparación para las fabricaciones que vayamos realizando.</li>
 <li>Evaluaremos las causas posibles de las desviaciones, y veremos cómo proponer planes de acción para la reducción o eliminación de estas desviaciones.</li>
 </ul>
-<section id="un-ejemplo-de-cálculo-de-rendimientos" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="un-ejemplo-de-cálculo-de-rendimientos"><span class="header-section-number">9.1</span> Un ejemplo de cálculo de rendimientos</h2>
+<section id="un-ejemplo-de-cálculo-de-rendimientos" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="un-ejemplo-de-cálculo-de-rendimientos"><span class="header-section-number">11.1</span> Un ejemplo de cálculo de rendimientos</h2>
 <p>En este ejemplo, vamos a suponer que elaboramos un queso de vaca, del que tenemos valores analíticos de producto terminado y de la leche utilizada en su elaboración. El proceso siempre tiene los mismos pasos tecnológicos, con la variabilidad que suponemos que es la habitual.</p>
-<p>Podemos imaginar dos situaciones en las que nos encontremos con la necesidad de analizar unos datos acumulados:</p>
-<ul>
-<li>Llegamos a una empresa en la que han estado acumulando datos de producción, pero no han sabido cómo formalizar y estructurar los datos adecuadamente</li>
-<li>Estamos trabajando en una empresa en la que se analizan los datos, y se plantean establecer un presupuesto más formal para el siguiente año, lo que exige el análisis de los datos del año en curso y el establecimiento de las hipótesis de presupuesto, entre ellas, el consumo de materia, que determinará las necesidades de aprovisionamiento y el precio de venta del queso.</li>
-</ul>
-<p>En ambos casos, necesitaremos analizar un conjunto de datos de fabricación; siguiendo nuestra línea de trabajo, lo haremos con <code>python</code>y Excel.</p>
-<p>Los datos técnicos de ejemplo que vamos a utilizar están registrados en un fichero de datos en formato <code>csv</code>, que incluye:</p>
-<ol type="1">
-<li>las analíticas del queso, y</li>
-<li>las analíticas de la leche con la que lo hacemos.</li>
-</ol>
-<p>Caracterizaremos nuestro queso mediante un análisis de extracto seco total (EST) y una grasa butirométrica (MG), en un punto determinado de nuestro proceso (por ejemplo, a la salida de la salmuera, después de escurrido) y mediante un muestreo repetible, de forma que nuestro análisis sea representativo. A partir de estos dos análisis, calculamos otros parámetros técnicos necesarios, tales como la materia grasa sobre el extracto seco total (G/ES), el extracto seco magro o desnatado (ESM) y la humedad del queso desnatado (HQD), valores que se calculan a partir de los primeros.</p>
-<p>En el recorrido de cálculo utilizaremos <code>Python</code>, al final se proporciona una hoja de cálculo con la información necesaria.</p>
+<p>Utilizaremos <code>Python</code> para el cálculo, al final se proporciona también una hoja de cálculo con la información necesaria.</p>
 <p>Como siempre, es opcional descargar los datos de ejemplo y abrir el cuaderno en Colab para ejecutar el código a medida que se avanza en el estudio.</p>
 <p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/085-intro-rendim.ipynb" target="_blank" rel="noopener noreferrer">Abrir este cuaderno en Google Colab</a></p>
 <p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm.csv" target="_blank" rel="noopener noreferrer">Descargar los datos de ejemplo utilizados en este cuaderno (archivo <code>fab_queso_bm.csv</code>)</a></p>
 </section>
-<section id="lectura-y-exploración-de-los-datos" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="lectura-y-exploración-de-los-datos"><span class="header-section-number">9.2</span> Lectura y exploración de los datos</h2>
+<section id="lectura-y-exploración-de-los-datos" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="lectura-y-exploración-de-los-datos"><span class="header-section-number">11.2</span> Lectura y exploración de los datos</h2>
 <p>Antes de lanzarnos al análisis cuantitativo, siempre es conveniente una primera visualización de los datos, por si hubiese algún valor que nos pueda resultar cuestionable.</p>
 <p>Es una mala práctica, aunque muy extendida, usar la hoja de cálculo para hacer la media aritmética de cada parámetro que vayamos a utilizar y trabajar con estos valores medios. En un conjunto de datos que recoja muchas fabricaciones, nunca podemos estar seguros de que el 100% de los valores sean correctos, que no haya habido errores de muestreo, analíticos o problemas de fabricación que hayan producido valores anormales. Por eso vamos a utilizar siempre los valores <em>medianos</em> y no los valores medios; como sabemos, la <strong>mediana</strong> es resistente a los valores anormales y extremos, mientras que la media no lo es.</p>
 <p>Procedemos a leer los datos, y visualizamos las primeras lineas. Se incluye el código <code>python</code>que permite visualizar las tablas, en algunos casos se han formateado mediante <code>HTML</code>.</p>
 <div id="e86eaa0c-670c-42ea-a5b4-3c5c42841039" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>url_datos <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm.csv'</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(url_datos, decimal <span class="op">=</span> <span class="st">","</span>, sep<span class="op">=</span><span class="st">';'</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error al cargar el archivo: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># crear index con fecha</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>] <span class="op">=</span> pd.to_datetime(</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,  <span class="co"># Formato Día/Mes/Año confirmado</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span>     <span class="co"># Clave: convierte los valores que no puede leer a NaT (Not a Time)</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Limpiar NaT y establecer el índice</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>df.dropna(subset<span class="op">=</span>[<span class="st">'fecha_index'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtramos sólo queso de vaca</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[df[<span class="st">'receta'</span>]<span class="op">==</span><span class="st">'vaca'</span>]</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
@@ -522,58 +513,6 @@ window.Quarto = {
 </div>
 <p>Los datos se corresponden con un conjunto de fabricaciones de queso de vaca, como hemos dicho. Las principales variables recogidas son las siguientes:</p>
 <div id="91f86b98-7b0b-438f-b36a-93ea4bf89b11" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Diccionario de variables con espacio para completar descripciones</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>descripcion_variables <span class="op">=</span> {</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'fecha'</span>: <span class="st">'Fecha de producción'</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'receta'</span>: <span class="st">'Tipo de receta utilizada'</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'litros_past'</span>: <span class="st">'Litros de leche pasteurizada'</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'est_past'</span>: <span class="st">'Extracto seco total de la leche pasteurizada (g/100 ml leche)'</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mg_past'</span>: <span class="st">'Materia grasa de la leche pasteurizada (g/100 ml leche)'</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mp_past'</span>: <span class="st">'Materia proteica de la leche pasteurizada (g/100 ml leche)'</span>,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'kg_cuba'</span>: <span class="st">'Kilos totales de leche en la cuba'</span>,</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'est_cuba'</span>: <span class="st">'Extracto seco total en cuba (g/100 g leche)'</span>,</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mg_cuba'</span>: <span class="st">'Materia grasa en cuba (g/100 g leche)'</span>,</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mp_cuba'</span>: <span class="st">'Materia proteica en cuba (g/100 g leche)'</span>,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'lactosa_cuba'</span>: <span class="st">'Contenido de lactosa en cuba (g/100 g leche)'</span>,</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ph_final_moldeo_cuba'</span>: <span class="st">'pH final antes del moldeo'</span>,</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'formato'</span>: <span class="st">'Formato del queso una vez moldeado'</span>,</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'est_salida_salmuera'</span>: <span class="st">'Extracto seco total tras salida de salado (g/100 g queso)'</span>,</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'mg_salida_salmuera'</span>: <span class="st">'Materia grasa tras salida de salado (g/100 g queso)'</span>,</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ph_salida_salmuera'</span>: <span class="st">'pH tras salida de salado'</span>,</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'peso_queso_total'</span>: <span class="st">'Peso total del queso producido (medido a la salida de la salmuera)'</span>,</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'sal_queso'</span>: <span class="st">'Contenido de sal en el queso tras salida de salado (g/ 100 g queso)'</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimir como tabla Markdown</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># print("| Variable             | Descripción                                                            |")</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># print("|----------------------|------------------------------------------------------------------------|")</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># for variable, descripcion in descripcion_variables.items():</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">#     print(f"| {variable:&lt;20} | {descripcion:&lt;70} |")</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Construir tabla HTML</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>html <span class="op">=</span> <span class="st">"""</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;table border="1"&gt;</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="st">    &lt;thead&gt;</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="st">        &lt;tr&gt;</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="st">           &lt;th style="text-align:left;"&gt;&lt;strong&gt;Variable&lt;/strong&gt;&lt;/th&gt;</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="st">           &lt;th style="text-align:left;"&gt;&lt;strong&gt;Descripción&lt;/strong&gt;&lt;/th&gt;</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="st">        &lt;/tr&gt;</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="st">    &lt;/thead&gt;</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="st">    &lt;tbody&gt;</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> variable, descripcion <span class="kw">in</span> descripcion_variables.items():</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    html <span class="op">+=</span> <span class="ss">f'        &lt;tr&gt;&lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>variable<span class="sc">}</span><span class="ss">&lt;/td&gt;&lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>descripcion<span class="sc">}</span><span class="ss">&lt;/td&gt;&lt;/tr&gt;</span><span class="ch">\n</span><span class="ss">'</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>html <span class="op">+=</span> <span class="st">"    &lt;/tbody&gt;</span><span class="ch">\n</span><span class="st">&lt;/table&gt;"</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar en entorno compatible (como Jupyter Notebook)</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, HTML</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>display(HTML(html))</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -659,49 +598,22 @@ window.Quarto = {
 </table>
 </div>
 </div>
+</section>
+<section id="rendimiento-simple" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="rendimiento-simple"><span class="header-section-number">11.3</span> Rendimiento simple</h2>
+<p>Por esta razón, debemos calcular el rendimiento mediante parámetros que no se vean afectados por la humedad del queso, sino que reflejen con precisión la calidad del trabajo quesero. La mejor forma de hacerlo consiste en calcular el porcentaje de materia quesera que hemos sido capaces de retener en el queso. Dado que los elementos de valor de la leche, que son los que se utilizan en el pago por calidad, son la materia grasa y la proteína, calcularemos la recuperación de materia grasa, de materia proteica y de extracto seco magro.</p>
+<p>Estos valores son propios de cada tecnología quesera, y cada uno sirve de referencia para comprender cuáles son los diferentes problemas en fabricación,</p>
+<ul>
+<li>Una mala retención de materia grasa</li>
+<li>Una mala retención de proteína</li>
+<li>Una mala retención de extracto seco magro</li>
+</ul>
+<hr>
 <p>El laboratorio nos facillita la información analítica de la leche pasteurizada en porcentaje masa/volumen, mientas que la leche en cubas y el queso es masa/masa. Esto es así porque la cantidad de leche que pasa por el pasteurizador se mide con un contador volumétrico, mientras que en la cuba se mide con una célula de carga.</p>
 <p>Si el volumen de leche en cuba se midiese también con contador volumétrico, necesitaríamos convertir los resultados analíticos a masa/volumen para obtener los kilos de cada materia, utilizando la densidad.</p>
 <p>En la práctica, usar una densidad promedio fija o ajustada por estaciones funciona bastante bien, y evita los errores de medida de este parámetro que parecen sencillos pero siempre están sometidos al error de muestreo, además de la necesidad de corregir la temperatura.</p>
 <p>Veamos los datos analíticos del queso</p>
 <div id="f808574a-96d4-4fad-9574-5f776a536522" class="cell" data-execution_count="3">
-<details class="code-fold">
-<summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular media y mediana</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>media_est <span class="op">=</span> df[<span class="st">'est_salida_salmuera'</span>].mean()</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mediana_est <span class="op">=</span> df[<span class="st">'est_salida_salmuera'</span>].median()</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>media_mg <span class="op">=</span> df[<span class="st">'mg_salida_salmuera'</span>].mean()</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>mediana_mg <span class="op">=</span> df[<span class="st">'mg_salida_salmuera'</span>].median()</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear tabla HTML</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>html <span class="op">=</span> <span class="ss">f"""</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;table border="1"&gt;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;thead&gt;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;tr&gt;</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;th&gt;&lt;strong&gt;Composición del queso&lt;/strong&gt;&lt;/th&gt;</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;th&gt;&lt;strong&gt;Media (g/100 g)&lt;/strong&gt;&lt;/th&gt;</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;th&gt;&lt;strong&gt;Mediana (g/100 g)&lt;/strong&gt;&lt;/th&gt;</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;/tr&gt;</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;/thead&gt;</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;tbody&gt;</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;tr&gt;</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td&gt;EST a salida de salado&lt;/td&gt;</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td&gt;</span><span class="sc">{</span>media_est<span class="sc">:.2f}</span><span class="ss">%&lt;/td&gt;</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td&gt;</span><span class="sc">{</span>mediana_est<span class="sc">:.2f}</span><span class="ss">%&lt;/td&gt;</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;/tr&gt;</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;tr&gt;</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td&gt;MG a salida de salado&lt;/td&gt;</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td&gt;</span><span class="sc">{</span>media_mg<span class="sc">:.2f}</span><span class="ss">%&lt;/td&gt;</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td&gt;</span><span class="sc">{</span>mediana_mg<span class="sc">:.2f}</span><span class="ss">%&lt;/td&gt;</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;/tr&gt;</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;/tbody&gt;</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;/table&gt;</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar tabla en notebook</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, HTML</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>display(HTML(html))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -728,52 +640,6 @@ window.Quarto = {
 </div>
 <p>Para hacer este producto, estamos trabajando con una leche que hemos enriquecido en MG y MP, cuya composición es:</p>
 <div id="3428c6b6-d6ab-47ca-a91a-2e5fe9f2dd94" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular medias y medianas desde df</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>media_est <span class="op">=</span> df[<span class="st">'est_cuba'</span>].mean()<span class="op">*</span><span class="dv">10</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mediana_est <span class="op">=</span> df[<span class="st">'est_cuba'</span>].median()<span class="op">*</span><span class="dv">10</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>media_mg <span class="op">=</span> df[<span class="st">'mg_cuba'</span>].mean()<span class="op">*</span><span class="dv">10</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>mediana_mg <span class="op">=</span> df[<span class="st">'mg_cuba'</span>].median()<span class="op">*</span><span class="dv">10</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>media_mp <span class="op">=</span> df[<span class="st">'mp_cuba'</span>].mean()<span class="op">*</span><span class="dv">10</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>mediana_mp <span class="op">=</span> df[<span class="st">'mp_cuba'</span>].median()<span class="op">*</span><span class="dv">10</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear tabla HTML</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>html <span class="op">=</span> <span class="ss">f"""</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;table border="1"&gt;</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;thead&gt;</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;tr&gt;</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;th style="text-align:left;"&gt;&lt;strong&gt;Composición materia prima&lt;/strong&gt;&lt;/th&gt;</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;th style="text-align:left;"&gt;&lt;strong&gt;Media (g/L)&lt;/strong&gt;&lt;/th&gt;</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;th style="text-align:left;"&gt;&lt;strong&gt;Mediana (g/L)&lt;/strong&gt;&lt;/th&gt;</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;/tr&gt;</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;/thead&gt;</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;tbody&gt;</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;tr&gt;</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;Extracto seco total (ESM)&lt;/td&gt;</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>media_est<span class="sc">:.2f}</span><span class="ss">&lt;/td&gt;</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>mediana_est<span class="sc">:.2f}</span><span class="ss">&lt;/td&gt;</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;/tr&gt;</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;tr&gt;</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;Materia grasa (MG)&lt;/td&gt;</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>media_mg<span class="sc">:.2f}</span><span class="ss">&lt;/td&gt;</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>mediana_mg<span class="sc">:.2f}</span><span class="ss">&lt;/td&gt;</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;/tr&gt;</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;tr&gt;</span></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;Proteínas totales (MP)&lt;/td&gt;</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>media_mp<span class="sc">:.2f}</span><span class="ss">&lt;/td&gt;</span></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>mediana_mp<span class="sc">:.2f}</span><span class="ss">&lt;/td&gt;</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;/tr&gt;</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;/tbody&gt;</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;/table&gt;</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar en entorno compatible (como Jupyter Notebook)</span></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, HTML</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>display(HTML(html))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -804,69 +670,13 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso"><span class="header-section-number">9.3</span> Cálculo de la cantidad de leche necesaria para fabricar 1 kg de queso</h2>
+<section id="cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso"><span class="header-section-number">11.4</span> Cálculo de la cantidad de leche necesaria para fabricar 1 kg de queso</h2>
 <p>Sabemos que nuestro proceso de fabricación quesera consiste en la coagulación de la caseína y expulsión de suero, y que la materia grasa queda retenida en la red de caseína.</p>
 <p>Este concepto es la base fundamental de la comprensión de la tecnología quesera: es el rendimiento en la recuperación de la proteína el que nos va a definir todo el proceso, la materia grasa “acompañará” de forma estática (aunque tendrá influencia en el desuerado)</p>
 <p>Por esta razón, el principal elemento del rendimiento en la definición de la tecnología es el porcentaje de recuperación de proteína en el extracto seco magro (aislamos el efecto la grasa)</p>
 <p>Hemos definido nuestro producto mediante los análisis de EST y MG; necesitamos saber el resto de parámetros, en concreto el ESM que estamos definiendo para nuestro producto:</p>
 <div id="c248e5d4-b774-4ad1-bd5d-a14f6bb715cf" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular medias y medianas</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>media_est <span class="op">=</span> df[<span class="st">'est_salida_salmuera'</span>].mean()</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>mediana_est <span class="op">=</span> df[<span class="st">'est_salida_salmuera'</span>].median()</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>media_mg <span class="op">=</span> df[<span class="st">'mg_salida_salmuera'</span>].mean()</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>mediana_mg <span class="op">=</span> df[<span class="st">'mg_salida_salmuera'</span>].median()</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular ESM (Extracto Seco Magro)</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>media_esm <span class="op">=</span> media_est <span class="op">-</span> media_mg</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>mediana_esm <span class="op">=</span> mediana_est <span class="op">-</span> mediana_mg</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular índice MG/EST correctamente</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>media_mg_est <span class="op">=</span> (media_mg <span class="op">/</span> media_est) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>mediana_mg_est <span class="op">=</span> (mediana_mg <span class="op">/</span> mediana_est) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear tabla HTML</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>html <span class="op">=</span> <span class="ss">f"""</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;table border="1"&gt;</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;thead&gt;</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;tr&gt;</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;th style="text-align:left;"&gt;&lt;strong&gt;Composición del queso&lt;/strong&gt;&lt;/th&gt;</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;th style="text-align:left;"&gt;&lt;strong&gt;Media (g/100 g)&lt;/strong&gt;&lt;/th&gt;</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;th style="text-align:left;"&gt;&lt;strong&gt;Mediana (g/100 g)&lt;/strong&gt;&lt;/th&gt;</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;/tr&gt;</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;/thead&gt;</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;tbody&gt;</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;tr&gt;</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;EST a salida de salado&lt;/td&gt;</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>media_est<span class="sc">:.2f}</span><span class="ss">%&lt;/td&gt;</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>mediana_est<span class="sc">:.2f}</span><span class="ss">%&lt;/td&gt;</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;/tr&gt;</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;tr&gt;</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;MG a salida de salado&lt;/td&gt;</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>media_mg<span class="sc">:.2f}</span><span class="ss">%&lt;/td&gt;</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>mediana_mg<span class="sc">:.2f}</span><span class="ss">%&lt;/td&gt;</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;/tr&gt;</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;tr&gt;</span></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;ESM a salida de salado)&lt;/td&gt;</span></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>media_esm<span class="sc">:.2f}</span><span class="ss">%&lt;/td&gt;</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>mediana_esm<span class="sc">:.2f}</span><span class="ss">%&lt;/td&gt;</span></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;/tr&gt;</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;tr&gt;</span></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;MG/EST a salida de salado&lt;/td&gt;</span></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>media_mg_est<span class="sc">:.2f}</span><span class="ss">%&lt;/td&gt;</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;td style="text-align:left;"&gt;</span><span class="sc">{</span>mediana_mg_est<span class="sc">:.2f}</span><span class="ss">%&lt;/td&gt;</span></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="ss">        &lt;/tr&gt;</span></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="ss">    &lt;/tbody&gt;</span></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="ss">&lt;/table&gt;</span></span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="ss">"""</span></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar tabla en notebook</span></span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, HTML</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>display(HTML(html))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-display">
 <table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
@@ -909,28 +719,47 @@ window.Quarto = {
 <div id="64ee31df-cdec-4029-8ba1-b1cbcb7dd28f" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">### 1. Cálculos de cuba</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'est_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'kg_cuba'</span>] <span class="op">*</span> df[<span class="st">'est_cuba'</span>] <span class="op">/</span> <span class="dv">100</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mg_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'kg_cuba'</span>] <span class="op">*</span> df[<span class="st">'mg_cuba'</span>] <span class="op">/</span> <span class="dv">100</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mp_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'kg_cuba'</span>] <span class="op">*</span> df[<span class="st">'mp_cuba'</span>] <span class="op">/</span> <span class="dv">100</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'est_kg_cuba'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_cuba'</span>] </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">### 2. Cálculos de queso</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'est_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'est_salida_salmuera'</span>] <span class="op">/</span> <span class="dv">100</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mg_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'mg_salida_salmuera'</span>] <span class="op">/</span> <span class="dv">100</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'est_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_queso'</span>]</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sal_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'sal_queso'</span>]<span class="op">/</span><span class="dv">100</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">### 3. Coeficientes de recuperación (expresado en porcentaje)</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_mg'</span>]  <span class="op">=</span> df[<span class="st">'mg_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'mg_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_mp'</span>]  <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'mp_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span> <span class="co"># Atencion a la formula</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_esm'</span>] <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'esm_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Coeficiente de recuperación de materia grasa (MG queso/MG leche en cuba): </span><span class="sc">{</span>df[<span class="st">'coef_recup_mg'</span>]<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Coeficiente de recuperación de proteína (ESM queso/MP leche en cuba): </span><span class="sc">{</span>df[<span class="st">'coef_recup_mp'</span>]<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Coeficiente de recuperación de extracto seco magro (ESM queso/ESM leche en cuba): </span><span class="sc">{</span>df[<span class="st">'coef_recup_esm'</span>]<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">### 1. Cálculos de cuba</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'est_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'kg_cuba'</span>] <span class="op">*</span> df[<span class="st">'est_cuba'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mg_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'kg_cuba'</span>] <span class="op">*</span> df[<span class="st">'mg_cuba'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mp_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'kg_cuba'</span>] <span class="op">*</span> df[<span class="st">'mp_cuba'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_kg_cuba'</span>] <span class="op">=</span> df[<span class="st">'est_kg_cuba'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_cuba'</span>] </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">### 2. Cálculos de queso </span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">### ejemplo de cómo poner fórmulas largas para que no desborden</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">### la línea</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'est_kg_queso'</span>] <span class="op">=</span> (</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'est_salida_salmuera'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'mg_kg_queso'</span>] <span class="op">=</span> (</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'mg_salida_salmuera'</span>] <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'est_kg_queso'</span>] <span class="op">-</span> df[<span class="st">'mg_kg_queso'</span>]</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'sal_kg_queso'</span>] <span class="op">=</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> df[<span class="st">'sal_queso'</span>]<span class="op">/</span><span class="dv">100</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">### 3. Coeficientes de recuperación (expresado en porcentaje)</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_mg'</span>]  <span class="op">=</span> df[<span class="st">'mg_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'mg_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_mp'</span>]  <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'mp_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span> </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'coef_recup_esm'</span>] <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'esm_kg_cuba'</span>] <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"Coeficiente de recuperación de materia grasa "</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"(MG queso/MG leche en cuba): "</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>df[<span class="st">'coef_recup_mg'</span>]<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss">"</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"Coeficiente de recuperación de proteína "</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"(ESM queso/MP leche en cuba): "</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>df[<span class="st">'coef_recup_mp'</span>]<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss">"</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"Coeficiente de recuperación de extracto seco magro "</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"(ESM queso/ESM leche en cuba): "</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"</span><span class="sc">{</span>df[<span class="st">'coef_recup_esm'</span>]<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss">"</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Coeficiente de recuperación de materia grasa (MG queso/MG leche en cuba): 91.694
@@ -953,7 +782,50 @@ Coeficiente de recuperación de extracto seco magro (ESM queso/ESM leche en cuba
 <p><span class="math display">\[
 8,261\ L\ leche*\ \frac{32.10\ g\ MP}{1\ L\ leche} = 265,18\ g\ MP\ por\ kilo\ de\ queso
 \]</span></p>
-<p>Es necesario insistir en que estos cálculos sólo son válidos en nuestras condiciones de trabajo precisas:</p>
+<div id="0d8849d6" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">### 5. Litrajes unitarios: (g ESM en queso por kilo de queso) / (g MP leche en cuba por litro de leche) </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'litraje_unitario'</span>]  <span class="op">=</span> (df[<span class="st">'esm_kg_queso'</span>]<span class="op">/</span>df[<span class="st">'peso_queso_total'</span>]) <span class="op">*</span> <span class="dv">100</span> <span class="op">/</span> ((df[<span class="st">'mp_cuba'</span>] <span class="op">/</span> <span class="dv">100</span> ) <span class="op">*</span> df[<span class="st">'coef_recup_mp'</span>])</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">### 6. Consumos de materia por kilo de queso (g / kg)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'consumo_mg_kg'</span>]  <span class="op">=</span> df[<span class="st">'mg_kg_cuba'</span>]<span class="op">/</span>df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> <span class="dv">1000</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'consumo_mp_kg'</span>]  <span class="op">=</span> df[<span class="st">'mp_kg_cuba'</span>]<span class="op">/</span>df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> <span class="dv">1000</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="926a46e1" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.dates <span class="im">as</span> mdates</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>esm_queso <span class="op">=</span> df[<span class="st">'esm_kg_queso'</span>] <span class="op">/</span> df[<span class="st">'peso_queso_total'</span>] <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>mp_cuba <span class="op">=</span> df[<span class="st">'mp_cuba'</span>] <span class="op">*</span> <span class="dv">10</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Graficar y capturar los ejes</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> esm_queso.plot(label<span class="op">=</span><span class="st">'ESM del Queso (g/100g)'</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>mp_cuba.plot(label<span class="op">=</span><span class="st">'Materia Prima en Cuba (g/L)'</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Definir y aplicar el formateador</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Usamos "%d-%m" para mostrar Día-Mes sin el año.</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(df.index)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>date_form <span class="op">=</span> mdates.DateFormatter(<span class="st">"</span><span class="sc">%d</span><span class="st">-%m"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_formatter(date_form)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Ajustes de visualización</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>) </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>plt.tight_layout() <span class="co"># Ajusta automáticamente el gráfico para que las etiquetas no se corten</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="100-rendimientos_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Es necesario insistir en que estos cálculos teóricos sólo son válidos en nuestras condiciones de trabajo precisas:</p>
 <ul>
 <li><p>con la composición en ESM de nuestro queso</p></li>
 <li><p>con la composición de proteína de nuestra leche</p></li>
@@ -968,8 +840,8 @@ Coeficiente de recuperación de extracto seco magro (ESM queso/ESM leche en cuba
 </ul>
 <p>Si disponemos de la analítica correspondiente, podremos tomar las decisiones correctas; no es lo mismo actuar ante un problema de composición de leche que ante un problema de composición de queso o un problema de tecnología quesera (el extracto seco magro del queso es consecuencia de la tecnología quesera). Otros factores pueden influir directamente en el coeficiente de recuperación de proteína, por ejemplo, la cantidad de proteína coagulable (caseína) frente a la proteína total analizada puede variar a lo largo del año, y el análisis de proteína total no nos da una indicación de esta ratio.</p>
 </section>
-<section id="la-materia-grasa" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="la-materia-grasa"><span class="header-section-number">9.4</span> La materia grasa</h2>
+<section id="la-materia-grasa" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="la-materia-grasa"><span class="header-section-number">11.5</span> La materia grasa</h2>
 <p>Hasta aquí hemos hablado de proteína y ESM, pero ¿y la materia grasa?</p>
 <p>En nuestro análisis de rendimiento hemos calculado también un % de recuperación de MG. Sin embargo, no utilizaremos este % para calcular el litraje, lo haremos tal como hemos visto, con la transformación de la proteína en ESM. La razón es que <em>la tecnología quesera nos permite actuar sobre el ESM del queso, pero la MG depende de la estandarización</em>, como veremos a continuación.</p>
 <p>Como el cálculo que hemos realizado con el coeficiente de recuperación de la MP nos da los litros de leche que necesitamos para hacer 1 kg de queso, y tenemos una composición de nuestra leche, podemos saber la cantidad de MG que vamos a tener en esos litros. Por otra parte, sabemos la MG que hemos definido en nuestro queso de forma empírica, es decir, en la práctica: mediante un promedio de los diferentes análisis de nuestro producto que hemos ido obteniendo.</p>
@@ -995,16 +867,16 @@ Coeficiente de recuperación de extracto seco magro (ESM queso/ESM leche en cuba
 </ul>
 <p>Estas variaciones pueden implicar una mayor pérdida de MG, en el suero de quesería o en los finos de queso (o en ambos), y que en parte puede recuperarse mediante un desnatado del suero.</p>
 </section>
-<section id="el-estándar-de-fabricación-o-estándar-técnico" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="el-estándar-de-fabricación-o-estándar-técnico"><span class="header-section-number">9.5</span> El estándar de fabricación o estándar técnico</h2>
+<section id="el-estándar-de-fabricación-o-estándar-técnico" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="el-estándar-de-fabricación-o-estándar-técnico"><span class="header-section-number">11.6</span> El estándar de fabricación o estándar técnico</h2>
 <p>Como hemos visto, la construcción del estándar técnico y el seguimiento de la tecnología quesera no se hacen siguiendo el consumo de <em>litros de leche</em>, sino de la cantidad de proteína y grasa utilizadas. Por esta razón, la construcción del estándar debe proporcionar las cantidades de MG y MP necesarias para obtener 1 kg de queso, y no sólo el litraje en cuba.</p>
 <p>El razonamiento y cálculos que hemos ido realizando, se suelen recoger en lo que se llama un <em>estándar técnico de fabricación</em>. Este documento recoge los valores estándar de nuestra tecnología dada una composición media de nuestro queso obtenido (o un objetivo a obtener) y una composición de leche de partida. Al final del capítulo se puede descargar una hoja Excel con el estándar de fabricacion que hemos ido construyendo para nuestro queso de vaca.</p>
 <p>Llamamos <strong>MG teórica en la cuba</strong> a la cantidad de MG que calculamos que vamos a tener en la cuba, es decir, en nuestros 8,261 L de leche a fabricar. Esta MG puede provenir de la leche de partida o del resultado de estandarizar la leche en MG, añadiendo nata o bien leche desnatada, para conseguir la cantidad de MG que nos permita alcanzar los valores de MG deseada en el queso.</p>
 <p>De la misma forma, llamamos <strong>MP en cuba</strong> a la cantidad de MP que hemos puesto en cuba, ya sea la de la leche de partida o del resultado de haber estandarizado la leche mediante el añadido de proteínas.</p>
 <p>En el caso de nuestro queso de vaca, vemos un proceso de fabricación que <em>no</em> usa estandarización y que no está recuperando la materia grasa del suero; las diferencias entre la MG en cuba y la MG en el queso se consideran pérdidas de proceso y su reducción es un objetivo prioritario del proceso de mejora.</p>
 </section>
-<section id="la-importancia-de-la-estandarización-de-la-leche" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="la-importancia-de-la-estandarización-de-la-leche"><span class="header-section-number">9.6</span> La importancia de la estandarización de la leche</h2>
+<section id="la-importancia-de-la-estandarización-de-la-leche" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="la-importancia-de-la-estandarización-de-la-leche"><span class="header-section-number">11.7</span> La importancia de la estandarización de la leche</h2>
 <p>La tecnología quesera se diseña para optimizar el coeficiente de recuperación de proteína. Aunque la retención de materia grasa (MG) también depende de factores tecnológicos como el corte, el calentamiento y el pH, no está directamente controlada por la tecnología, aunque sí influenciada por ella.</p>
 <p>En una tecnología concreta, con parámetros de trabajo fijados, cuando la cantidad de MG en la leche es superior a la definida en el proceso, se producen dos efectos:</p>
 <ul>
@@ -1033,6 +905,316 @@ Coeficiente de recuperación de extracto seco magro (ESM queso/ESM leche en cuba
 <p>Conociendo el coste de la MG y de la MP pagada, es posible calcular el valor económico de cada desviación, lo que permite priorizar las acciones correctivas según su impacto financiero. El análisis de las desviaciones se hace en un capítulo posterior.</p>
 <p>Hay una hoja Excel con todos los cálculos, que incluye también los estándares de fabricacion que veremos en el capítulo siguiente para el resto de recetas.</p>
 <p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/2025-11-06-ejemplo-std-tecnico.xlsx" target="_blank" rel="noopener noreferrer">Abrir hoja Excel con estándar técnico</a></p>
+<p>Veamos las características de los quesos, excluyendo ya los ensayos de I+D</p>
+<div id="e16abdb7" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'esm_salida_salmuera'</span>] <span class="op">=</span> df[<span class="st">'est_salida_salmuera'</span>]<span class="op">-</span>df[<span class="st">'mg_salida_salmuera'</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'hqd_salida_salmuera'</span>] <span class="op">=</span> (<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'est_salida_salmuera'</span>])<span class="op">/</span>(<span class="dv">100</span> <span class="op">-</span> df[<span class="st">'mg_salida_salmuera'</span>])</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ges_salida_salmuera'</span>] <span class="op">=</span> df[<span class="st">'mg_salida_salmuera'</span>] <span class="op">/</span> df[<span class="st">'est_salida_salmuera'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="27433acc" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar receta 'i+D'</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df_filtrado <span class="op">=</span> df[df[<span class="st">'receta'</span>] <span class="op">!=</span> <span class="st">'i+D'</span>].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear paleta de colores por receta</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>recetas <span class="op">=</span> df_filtrado[<span class="st">'receta'</span>].unique()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>palette <span class="op">=</span> sns.color_palette(<span class="st">'tab10'</span>, n_colors<span class="op">=</span><span class="bu">len</span>(recetas))</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>color_dict <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(recetas, palette))</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df[df[<span class="st">'receta'</span>] <span class="op">!=</span> <span class="st">'i+D'</span>], </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>                x<span class="op">=</span><span class="st">'est_salida_salmuera'</span>, </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>                y<span class="op">=</span><span class="st">'mg_salida_salmuera'</span>, </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                hue<span class="op">=</span><span class="st">'receta'</span>, </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>                palette <span class="op">=</span> color_dict,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                s<span class="op">=</span><span class="dv">80</span>, </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                <span class="co"># edgecolor = 'black',</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>                alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular y dibujar centroides</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>centroides_est_mg <span class="op">=</span> df.groupby(<span class="st">'receta'</span>)[[<span class="st">'est_salida_salmuera'</span>, <span class="st">'mg_salida_salmuera'</span>]].median()</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> receta <span class="kw">in</span> recetas:</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    centro <span class="op">=</span> centroides_est_mg.loc[receta]</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    plt.scatter(</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'est_salida_salmuera'</span>],</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'mg_salida_salmuera'</span>],</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>color_dict[receta],</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">'X'</span>,</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span><span class="dv">150</span>,</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>        edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'Centroide </span><span class="sc">{</span>receta<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Rendimientos de MP y MG en fabricación de queso'</span>)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Composicion EST'</span>)</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Composicion MG'</span>)</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Mover la leyenda fuera del gráfico</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>, borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="100-rendimientos_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="0561c744" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(centroides_est_mg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>        est_salida_salmuera  mg_salida_salmuera
+receta                                         
+vaca                  54.85                29.8</code></pre>
+</div>
+</div>
+<div id="ce164b41" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">fecha</th>
+<th data-quarto-table-cell-role="th">receta</th>
+<th data-quarto-table-cell-role="th">litros_past</th>
+<th data-quarto-table-cell-role="th">est_past</th>
+<th data-quarto-table-cell-role="th">mg_past</th>
+<th data-quarto-table-cell-role="th">mp_past</th>
+<th data-quarto-table-cell-role="th">kg_cuba</th>
+<th data-quarto-table-cell-role="th">est_cuba</th>
+<th data-quarto-table-cell-role="th">mg_cuba</th>
+<th data-quarto-table-cell-role="th">mp_cuba</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">sal_kg_queso</th>
+<th data-quarto-table-cell-role="th">coef_recup_mg</th>
+<th data-quarto-table-cell-role="th">coef_recup_mp</th>
+<th data-quarto-table-cell-role="th">coef_recup_esm</th>
+<th data-quarto-table-cell-role="th">litraje_unitario</th>
+<th data-quarto-table-cell-role="th">consumo_mg_kg</th>
+<th data-quarto-table-cell-role="th">consumo_mp_kg</th>
+<th data-quarto-table-cell-role="th">esm_salida_salmuera</th>
+<th data-quarto-table-cell-role="th">hqd_salida_salmuera</th>
+<th data-quarto-table-cell-role="th">ges_salida_salmuera</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">fecha_index</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-03-01</td>
+<td>01/03/2022</td>
+<td>vaca</td>
+<td>15350</td>
+<td>12.542</td>
+<td>4.200</td>
+<td>3.076</td>
+<td>15810.99</td>
+<td>11.37</td>
+<td>4.01</td>
+<td>2.94</td>
+<td>...</td>
+<td>30.3800</td>
+<td>91.195761</td>
+<td>111.483637</td>
+<td>44.532866</td>
+<td>8.066832</td>
+<td>323.479948</td>
+<td>237.164850</td>
+<td>26.44</td>
+<td>0.624965</td>
+<td>0.527351</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022-03-04</td>
+<td>04/03/2022</td>
+<td>vaca</td>
+<td>14530</td>
+<td>13.312</td>
+<td>4.002</td>
+<td>3.673</td>
+<td>14989.74</td>
+<td>13.25</td>
+<td>3.79</td>
+<td>3.45</td>
+<td>...</td>
+<td>33.4176</td>
+<td>99.034142</td>
+<td>90.466981</td>
+<td>32.992715</td>
+<td>7.939481</td>
+<td>300.906327</td>
+<td>273.912092</td>
+<td>24.78</td>
+<td>0.647009</td>
+<td>0.545988</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-03-25</td>
+<td>25/03/2022</td>
+<td>vaca</td>
+<td>12633</td>
+<td>12.856</td>
+<td>3.889</td>
+<td>3.372</td>
+<td>13011.79</td>
+<td>12.89</td>
+<td>3.69</td>
+<td>3.21</td>
+<td>...</td>
+<td>20.5260</td>
+<td>99.200527</td>
+<td>87.377860</td>
+<td>30.487275</td>
+<td>8.367711</td>
+<td>308.768522</td>
+<td>268.603511</td>
+<td>23.47</td>
+<td>0.661669</td>
+<td>0.566174</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022-04-01</td>
+<td>01/04/2022</td>
+<td>vaca</td>
+<td>15430</td>
+<td>13.151</td>
+<td>3.886</td>
+<td>3.218</td>
+<td>15946.80</td>
+<td>11.88</td>
+<td>3.71</td>
+<td>3.02</td>
+<td>...</td>
+<td>23.8000</td>
+<td>90.247005</td>
+<td>95.386490</td>
+<td>35.259143</td>
+<td>9.112457</td>
+<td>338.072160</td>
+<td>275.196206</td>
+<td>26.25</td>
+<td>0.622248</td>
+<td>0.537526</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-04-08</td>
+<td>08/04/2022</td>
+<td>vaca</td>
+<td>15930</td>
+<td>13.103</td>
+<td>4.022</td>
+<td>3.396</td>
+<td>16452.76</td>
+<td>11.93</td>
+<td>3.81</td>
+<td>3.23</td>
+<td>...</td>
+<td>37.1450</td>
+<td>93.594218</td>
+<td>94.250704</td>
+<td>37.491351</td>
+<td>8.415734</td>
+<td>320.639466</td>
+<td>271.828209</td>
+<td>25.62</td>
+<td>0.633948</td>
+<td>0.539457</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 33 columns</p>
+</div>
+</div>
+</div>
+<div id="343cf6f8" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear paleta de colores por receta</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>recetas <span class="op">=</span> df[<span class="st">'receta'</span>].unique()</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>palette <span class="op">=</span> sns.color_palette(<span class="st">'tab10'</span>, n_colors<span class="op">=</span><span class="bu">len</span>(recetas))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>color_dict <span class="op">=</span> <span class="bu">dict</span>(<span class="bu">zip</span>(recetas, palette))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>df[df[<span class="st">'receta'</span>] <span class="op">!=</span> <span class="st">'i+D'</span>], </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                x<span class="op">=</span><span class="st">'consumo_mg_kg'</span>, </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                y<span class="op">=</span><span class="st">'consumo_mp_kg'</span>, </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                hue<span class="op">=</span><span class="st">'receta'</span>, </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                palette <span class="op">=</span> color_dict,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                s<span class="op">=</span><span class="dv">80</span>, </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                <span class="co"># edgecolor = 'black',</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>                alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular y dibujar centroides</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>centroides_consumos_materia <span class="op">=</span> df.groupby(<span class="st">'receta'</span>)[[<span class="st">'consumo_mg_kg'</span>, <span class="st">'consumo_mp_kg'</span>]].median()</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> receta <span class="kw">in</span> recetas:</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    centro <span class="op">=</span> centroides_consumos_materia.loc[receta]</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    plt.scatter(</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'consumo_mg_kg'</span>],</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        centro[<span class="st">'consumo_mp_kg'</span>],</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>color_dict[receta],</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">'X'</span>,</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        s<span class="op">=</span><span class="dv">150</span>,</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        edgecolor<span class="op">=</span><span class="st">'black'</span>,</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="ss">f'Centroide </span><span class="sc">{</span>receta<span class="sc">}</span><span class="ss">'</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Consumos de MG y MP por kg de queso'</span>)</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Consumo MG/kg queso'</span>)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Consumo MP/kg queso ESM'</span>)</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Receta'</span>) <span class="co"># Mostrar leyenda para la especie</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Mover la leyenda fuera del gráfico</span></span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>, borderaxespad<span class="op">=</span><span class="fl">0.</span>)</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="100-rendimientos_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
@@ -1439,13 +1621,13 @@ Coeficiente de recuperación de extracto seco magro (ESM queso/ESM leche en cuba
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./080-pract01-camembert.html" class="pagination-link" aria-label="Práctica 1. Análisis exploratorio de una fabricación de queso camembert usando `Python` y Google Colab.">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Práctica 1. Análisis exploratorio de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></span>
+      <a href="./090-balance-materia.html" class="pagination-link" aria-label="El balance de materia">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El balance de materia</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./090-pract02-rendimientos.html" class="pagination-link" aria-label="Práctica 2. Análisis de los rendimientos en fabricación de queso mediante `Python`">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./105-valoracion-bmat.html" class="pagination-link" aria-label="La valoración económica del balance de materia y los rendimientos.">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">La valoración económica del balance de materia y los rendimientos.</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
