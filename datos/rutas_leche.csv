@@ -1,4 +1,4 @@
-fecha;codruta;tipoleche;peso;temp;acidez;ph;densidad;est;mg;prot;lactosa;caseina
+fecha;cod_ruta;tipo_leche;peso;temp;acidez;ph;densidad;est;mg;prot;lactosa;caseina
 04/11/2015;13;VACA;13380;6;15;6,84;1,03;12,45;3,71;3,34;4,71;2,31
 04/11/2015;13;VACA;8520;6;15;6,81;1,03;12,83;3,94;3,4;4,74;2,41
 04/11/2015;22;VACA;23900;6;15;6,82;1,03;12,47;3,66;3,22;4,85;2,29
