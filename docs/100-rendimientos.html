@@ -245,7 +245,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./085-intro-balance-materia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El balance de materia y los rendimientos queseros.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción al balance de materia. Conceptos generales.</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -379,6 +379,7 @@ window.Quarto = {
 <th data-quarto-table-cell-role="th">mg_past</th>
 <th data-quarto-table-cell-role="th">mp_past</th>
 <th data-quarto-table-cell-role="th">kg_cuba</th>
+<th data-quarto-table-cell-role="th">dens_cuba</th>
 <th data-quarto-table-cell-role="th">est_cuba</th>
 <th data-quarto-table-cell-role="th">mg_cuba</th>
 <th data-quarto-table-cell-role="th">mp_cuba</th>
@@ -407,6 +408,7 @@ window.Quarto = {
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
 </tr>
 </thead>
 <tbody>
@@ -418,7 +420,8 @@ window.Quarto = {
 <td>12.542</td>
 <td>4.200</td>
 <td>3.076</td>
-<td>15810.99</td>
+<td>15811</td>
+<td>1.030</td>
 <td>11.37</td>
 <td>4.01</td>
 <td>2.94</td>
@@ -437,7 +440,8 @@ window.Quarto = {
 <td>13.312</td>
 <td>4.002</td>
 <td>3.673</td>
-<td>14989.74</td>
+<td>14990</td>
+<td>1.032</td>
 <td>13.25</td>
 <td>3.79</td>
 <td>3.45</td>
@@ -456,7 +460,8 @@ window.Quarto = {
 <td>12.856</td>
 <td>3.889</td>
 <td>3.372</td>
-<td>13011.79</td>
+<td>13012</td>
+<td>1.030</td>
 <td>12.89</td>
 <td>3.69</td>
 <td>3.21</td>
@@ -475,7 +480,8 @@ window.Quarto = {
 <td>13.151</td>
 <td>3.886</td>
 <td>3.218</td>
-<td>15946.80</td>
+<td>15947</td>
+<td>1.033</td>
 <td>11.88</td>
 <td>3.71</td>
 <td>3.02</td>
@@ -494,7 +500,8 @@ window.Quarto = {
 <td>13.103</td>
 <td>4.022</td>
 <td>3.396</td>
-<td>16452.76</td>
+<td>16453</td>
+<td>1.033</td>
 <td>11.93</td>
 <td>3.81</td>
 <td>3.23</td>
@@ -764,7 +771,7 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code>Coeficiente de recuperación de materia grasa (MG queso/MG leche en cuba): 91.694
 Coeficiente de recuperación de proteína (ESM queso/MP leche en cuba): 94.457
-Coeficiente de recuperación de extracto seco magro (ESM queso/ESM leche en cuba): 35.949</code></pre>
+Coeficiente de recuperación de extracto seco magro (ESM queso/ESM leche en cuba): 35.948</code></pre>
 </div>
 </div>
 <p>A partir de aquí, hacemos los cálculos teóricos del estándar técnico.</p>
@@ -998,9 +1005,9 @@ vaca                  54.85                29.8</code></pre>
 <th data-quarto-table-cell-role="th">mg_past</th>
 <th data-quarto-table-cell-role="th">mp_past</th>
 <th data-quarto-table-cell-role="th">kg_cuba</th>
+<th data-quarto-table-cell-role="th">dens_cuba</th>
 <th data-quarto-table-cell-role="th">est_cuba</th>
 <th data-quarto-table-cell-role="th">mg_cuba</th>
-<th data-quarto-table-cell-role="th">mp_cuba</th>
 <th data-quarto-table-cell-role="th">...</th>
 <th data-quarto-table-cell-role="th">sal_kg_queso</th>
 <th data-quarto-table-cell-role="th">coef_recup_mg</th>
@@ -1047,18 +1054,18 @@ vaca                  54.85                29.8</code></pre>
 <td>12.542</td>
 <td>4.200</td>
 <td>3.076</td>
-<td>15810.99</td>
+<td>15811</td>
+<td>1.030</td>
 <td>11.37</td>
 <td>4.01</td>
-<td>2.94</td>
 <td>...</td>
 <td>30.3800</td>
-<td>91.195761</td>
-<td>111.483637</td>
-<td>44.532866</td>
-<td>8.066832</td>
-<td>323.479948</td>
-<td>237.164850</td>
+<td>91.195703</td>
+<td>111.483566</td>
+<td>44.532838</td>
+<td>8.066837</td>
+<td>323.480153</td>
+<td>237.165000</td>
 <td>26.44</td>
 <td>0.624965</td>
 <td>0.527351</td>
@@ -1071,18 +1078,18 @@ vaca                  54.85                29.8</code></pre>
 <td>13.312</td>
 <td>4.002</td>
 <td>3.673</td>
-<td>14989.74</td>
+<td>14990</td>
+<td>1.032</td>
 <td>13.25</td>
 <td>3.79</td>
-<td>3.45</td>
 <td>...</td>
 <td>33.4176</td>
-<td>99.034142</td>
-<td>90.466981</td>
-<td>32.992715</td>
-<td>7.939481</td>
-<td>300.906327</td>
-<td>273.912092</td>
+<td>99.032424</td>
+<td>90.465412</td>
+<td>32.992143</td>
+<td>7.939619</td>
+<td>300.911547</td>
+<td>273.916843</td>
 <td>24.78</td>
 <td>0.647009</td>
 <td>0.545988</td>
@@ -1095,18 +1102,18 @@ vaca                  54.85                29.8</code></pre>
 <td>12.856</td>
 <td>3.889</td>
 <td>3.372</td>
-<td>13011.79</td>
+<td>13012</td>
+<td>1.030</td>
 <td>12.89</td>
 <td>3.69</td>
-<td>3.21</td>
 <td>...</td>
 <td>20.5260</td>
-<td>99.200527</td>
-<td>87.377860</td>
-<td>30.487275</td>
-<td>8.367711</td>
-<td>308.768522</td>
-<td>268.603511</td>
+<td>99.198926</td>
+<td>87.376450</td>
+<td>30.486783</td>
+<td>8.367846</td>
+<td>308.773505</td>
+<td>268.607846</td>
 <td>23.47</td>
 <td>0.661669</td>
 <td>0.566174</td>
@@ -1119,18 +1126,18 @@ vaca                  54.85                29.8</code></pre>
 <td>13.151</td>
 <td>3.886</td>
 <td>3.218</td>
-<td>15946.80</td>
+<td>15947</td>
+<td>1.033</td>
 <td>11.88</td>
 <td>3.71</td>
-<td>3.02</td>
 <td>...</td>
 <td>23.8000</td>
-<td>90.247005</td>
-<td>95.386490</td>
-<td>35.259143</td>
-<td>9.112457</td>
-<td>338.072160</td>
-<td>275.196206</td>
+<td>90.245873</td>
+<td>95.385293</td>
+<td>35.258701</td>
+<td>9.112571</td>
+<td>338.076400</td>
+<td>275.199657</td>
 <td>26.25</td>
 <td>0.622248</td>
 <td>0.537526</td>
@@ -1143,18 +1150,18 @@ vaca                  54.85                29.8</code></pre>
 <td>13.103</td>
 <td>4.022</td>
 <td>3.396</td>
-<td>16452.76</td>
+<td>16453</td>
+<td>1.033</td>
 <td>11.93</td>
 <td>3.81</td>
-<td>3.23</td>
 <td>...</td>
 <td>37.1450</td>
-<td>93.594218</td>
-<td>94.250704</td>
-<td>37.491351</td>
-<td>8.415734</td>
-<td>320.639466</td>
-<td>271.828209</td>
+<td>93.592852</td>
+<td>94.249329</td>
+<td>37.490805</td>
+<td>8.415857</td>
+<td>320.644143</td>
+<td>271.832174</td>
 <td>25.62</td>
 <td>0.633948</td>
 <td>0.539457</td>
@@ -1162,7 +1169,7 @@ vaca                  54.85                29.8</code></pre>
 </tbody>
 </table>
 
-<p>5 rows × 33 columns</p>
+<p>5 rows × 34 columns</p>
 </div>
 </div>
 </div>

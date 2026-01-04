@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; El balance de materia y los rendimientos queseros. – Análisis de datos industriales usando Excel y Python</title>
+<title>9&nbsp; Introducción al balance de materia. Conceptos generales. – Análisis de datos industriales usando Excel y Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -82,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El balance de materia y los rendimientos queseros.</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción al balance de materia. Conceptos generales.</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -178,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./085-intro-balance-materia.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El balance de materia y los rendimientos queseros.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción al balance de materia. Conceptos generales.</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -246,19 +275,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#etapas-generales-en-el-proceso-de-fabricación-de-queso." id="toc-etapas-generales-en-el-proceso-de-fabricación-de-queso." class="nav-link active" data-scroll-target="#etapas-generales-en-el-proceso-de-fabricación-de-queso."><span class="header-section-number">9.1</span> Etapas generales en el proceso de fabricación de queso.</a></li>
-  <li><a href="#algunas-causas-de-las-pérdidas-de-materia-en-el-proceso-quesero" id="toc-algunas-causas-de-las-pérdidas-de-materia-en-el-proceso-quesero" class="nav-link" data-scroll-target="#algunas-causas-de-las-pérdidas-de-materia-en-el-proceso-quesero"><span class="header-section-number">9.2</span> Algunas causas de las pérdidas de materia en el proceso quesero</a></li>
-  <li><a href="#algunas-causas-de-las-pérdidas-de-eficiencia-en-la-transformación-quesera" id="toc-algunas-causas-de-las-pérdidas-de-eficiencia-en-la-transformación-quesera" class="nav-link" data-scroll-target="#algunas-causas-de-las-pérdidas-de-eficiencia-en-la-transformación-quesera"><span class="header-section-number">9.3</span> Algunas causas de las pérdidas de eficiencia en la transformación quesera</a></li>
-  <li><a href="#análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable" id="toc-análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable" class="nav-link" data-scroll-target="#análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable"><span class="header-section-number">9.4</span> Análisis de datos en producción con Python: más allá del balance contable</a></li>
+  <li><a href="#etapas-en-el-proceso-de-fabricación-de-queso." id="toc-etapas-en-el-proceso-de-fabricación-de-queso." class="nav-link active" data-scroll-target="#etapas-en-el-proceso-de-fabricación-de-queso."><span class="header-section-number">9.1</span> Etapas en el proceso de fabricación de queso.</a></li>
+  <li><a href="#análisis-cuantitativo-del-proceso-quesero" id="toc-análisis-cuantitativo-del-proceso-quesero" class="nav-link" data-scroll-target="#análisis-cuantitativo-del-proceso-quesero"><span class="header-section-number">9.2</span> Análisis cuantitativo del proceso quesero</a></li>
+  <li><a href="#las-pérdidas-de-materia-y-las-pérdidas-de-rendimiento-en-quesería" id="toc-las-pérdidas-de-materia-y-las-pérdidas-de-rendimiento-en-quesería" class="nav-link" data-scroll-target="#las-pérdidas-de-materia-y-las-pérdidas-de-rendimiento-en-quesería"><span class="header-section-number">9.3</span> Las pérdidas de materia y las pérdidas de rendimiento en quesería</a></li>
+  <li><a href="#algunas-causas-de-las-pérdidas-de-materia-en-el-proceso-quesero" id="toc-algunas-causas-de-las-pérdidas-de-materia-en-el-proceso-quesero" class="nav-link" data-scroll-target="#algunas-causas-de-las-pérdidas-de-materia-en-el-proceso-quesero"><span class="header-section-number">9.4</span> Algunas causas de las pérdidas de materia en el proceso quesero</a></li>
+  <li><a href="#análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable" id="toc-análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable" class="nav-link" data-scroll-target="#análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable"><span class="header-section-number">9.5</span> Análisis de datos en producción con Python: más allá del balance contable</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El balance de materia y los rendimientos queseros.</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción al balance de materia. Conceptos generales.</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El balance de materia y los rendimientos queseros.</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción al balance de materia. Conceptos generales.</span></h1>
 </div>
 
 
@@ -277,24 +307,8 @@ ul.task-list li input[type="checkbox"] {
 
 <p>La elaboración de queso tiene como objetivo principal <strong>preservar y concentrar los componentes nutritivos de la leche</strong>, transformándolos en un producto alimentario con <strong>elevado valor sensorial, nutricional y comercial</strong>. Este proceso da lugar a una amplia variedad de quesos, cada uno con características únicas que responden a factores como el tipo de leche, la tecnología aplicada y las condiciones de maduración.</p>
 <p>El propósito de la tecnología quesera es <strong>optimizar esta transformación</strong>, guiando el proceso de forma que se obtenga el mejor producto posible, <strong>garantizando la calidad sanitaria, tecnológica y organoléptica</strong>, y todo ello de manera <strong>eficiente y rentable</strong>. Para lograrlo, los objetivos técnicos se centran en <strong>minimizar las pérdidas de materia</strong>, especialmente de <strong>grasa y proteína</strong>, que son los componentes clave en la formación del queso. Al mismo tiempo, se busca <strong>preservar los atributos sensoriales</strong> —como sabor, textura y aroma— y <strong>cumplir con los requisitos higiénico-sanitarios</strong> establecidos por la normativa vigente.</p>
-<p>El análisis cuantitativo del proceso quesero se estructura en dos partes diferenciadas:</p>
-<ul>
-<li><strong>Balance de materia global:</strong> comprende desde la recepción de la leche cruda hasta el final del proceso de elaboración, momento en que el queso está listo para entrar en la fase de maduración. Este balance permite evaluar el rendimiento general y detectar posibles pérdidas o desviaciones.</li>
-<li><strong>Transformación quesera propiamente dicha:</strong> incluído en el balance de materia global, abarca el tramo desde la leche destinada a fabricación una vez en la cuba, hasta la obtención del queso fresco (antes o después del salado). Aquí se analizan los rendimientos específicos, la eficiencia de coagulación, el corte, el desuerado, el moldeado y otros parámetros tecnológicos que inciden directamente en la calidad y cantidad del producto final.</li>
-</ul>
-<p>Ambos analisis deben estar <strong>valorados económicamente</strong> para conocer el impacto de nuestras desviaciones y pérdidas. Este conocimiento permitirá establecer las prioridades del trabajo de mejora, que consisten fundamentalmente en:</p>
-<ul>
-<li>la reducción de las pérdidas de materia, y</li>
-<li>el aumento de la eficiencia de la transformación e la leche en queso.</li>
-</ul>
-<p>En los siguientes capítulos abordaremos, pues:</p>
-<ul>
-<li>El balance de materia</li>
-<li>El análisis de rendimientos queseros</li>
-<li>La valoración del balance de materia, el rendimiento y las pérdidas a partir del precio de la leche.</li>
-</ul>
-<section id="etapas-generales-en-el-proceso-de-fabricación-de-queso." class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="etapas-generales-en-el-proceso-de-fabricación-de-queso."><span class="header-section-number">9.1</span> Etapas generales en el proceso de fabricación de queso.</h2>
+<section id="etapas-en-el-proceso-de-fabricación-de-queso." class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="etapas-en-el-proceso-de-fabricación-de-queso."><span class="header-section-number">9.1</span> Etapas en el proceso de fabricación de queso.</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="01-imagenes/la-fabrica-lactalis.png" class="img-fluid figure-img"></p>
@@ -304,24 +318,72 @@ ul.task-list li input[type="checkbox"] {
 <p>El proceso de la leche para elaborar queso empieza con el ordeño, y el almacenamiento en frío. La leche almacenada es cargada en el camión de transporte, que la lleva a la fábrica. En el momento de la carga, se toma una muestra representativa, que será analizada por el laboratorio interprofesional lechero de la zona, y que tiene como objetivo el pago por calidad, y se registran los litros cargados en la cisterna. En otras ocasiones, es el propio personal del laboratorio interprofesional el que toma la muestra, para evitar posibles conflictos con la industria, y el resultado es enviado por el laboratorio tanto al ganadero como a la industria.</p>
 <p>A su llegada a fábrica, se toma una muestra representativa de la leche, después de agitarla adecuadamente; esta muestra será analizada en el laboratorio de fábrica, y este análisis establece las cantidades de materia que se dan de entrada en la unidad de producción.</p>
 <p>Debido a los procesos de muestreo, y a los posibles arrastres con agua de los depósitos y tuberías, casi siempre se presentan diferencias entre las analíticas realizadas por el laboratorio interprofesional y las realizadas en fábrica a la recepción. Estas diferencias, tanto de analíticas como de cantidad medida (litros o kg), forman parte de lo que en el sector se conoce como <strong>diferencia pagado-recibido</strong>. Habitualmente, forman parte de la negociación en el proceso de compra y pueden partirse a medias, siempre que el promedio acumulado esté muy próximo a cero, indicando que no hay sesgos, o repartirlas entre comprador y vendendor con otros criterios, siempre de forma negociada y acordada.</p>
-<p>Hay que tener en cuenta que en la aparición de diferencias analíticas puede influir incluso las diferencias en los métodos analíticos o sistemas automáticos utilizados; es fundamental realizar procesos de calibración inter-laboratorios y auditorías de proceso para asegurar que las analíticas de laboratorio interprofesional y de la fábrica proporcionan los mismos resultados para muestras de calibración idénticas.</p>
-<p>Para el control del balance de materia de la fábrica, es fundamental que estas diferencias pagado-recibido no se incluyan en el balance, ya que coresponden a eventos o situaciones fuera de su control, y su resolución no puede hacerse por otros medios que no sean la negociación del reparto de diferencias.</p>
-<p>El balance de materia propiamente dicho comienza con los volúmenes y analíticas que la unidad de producción ha dado de entrada en fábrica, teniendo cuidado de que no se intente llevar a diferencias pagado-recibido lo que realmente son pérdidas dentro de la fábrica.</p>
-<p>El proceso de la leche puede tener varias etapas antes de llegar a la cuba:</p>
+<p>Hay que tener en cuenta que en la aparición de diferencias analíticas pueden influir incluso las diferencias en los métodos analíticos o sistemas automáticos utilizados; es fundamental realizar procesos de calibración inter-laboratorios y auditorías de proceso para asegurar que las analíticas de laboratorio interprofesional y de la fábrica proporcionan los mismos resultados para muestras de calibración idénticas, y que los sistemas de medida de fábrica proporcionan medidas correctas y son fiables y repetitivos.</p>
+<p>El balance de materia propiamente dicho comienza con los volúmenes y analíticas que la unidad de producción ha dado de entrada en fábrica, teniendo cuidado de que no se intente llevar a diferencias pagado-recibido lo que realmente son pérdidas dentro de la fábrica. Para el control del balance de materia de la fábrica, es fundamental que las diferencias pagado-recibido no se incluyan en el balance, ya que coresponden a eventos o situaciones fuera de su control, y su resolución no puede hacerse por otros medios que no sean la negociación del reparto de diferencias.</p>
+<p>Una vez en fábrica, el proceso de la leche puede tener varias etapas antes de llegar a la cuba:</p>
 <ul>
 <li><strong>Termización</strong></li>
 <li><strong>Estandarización</strong> en grasa y/o proteína, que puede implicar <strong>desnatado</strong> y posterior <strong>reconstitución</strong></li>
 <li>En algunos casos, como la elaboración de queso azul, una <strong>homogeneización</strong> de parte de la materia grasa</li>
 <li>El <strong>trasvase</strong> y movimiento de la leche y otras materias dentro de la sección de <strong>recepción-tratamiento</strong> entre tanques, desnatadoras, homogeneizadores y resto de sistemas.</li>
 </ul>
-<p>Como resultado de todos estos movimientos y procesos, se producen una serie de pérdidas de materia por diversas razones, entre las que también hay que considerar la pérdida física de materia por valvulas averiadas, malos cierres, juntas estropeadas, etc. La consecuencia es que el total de la materia enviada a las cubas es menor que la recibida en fábrica. Estas diferencias se analizan mediante el <strong>balance líquido</strong>, que con mayor o menor detalle va contabilizando las diferencias entre entradas y salidas de los diferentes procesos realizados sobre la materia líquida <strong>hasta</strong> su llegada a la cuba de fabricación.</p>
+<p>Como resultado de todos estos movimientos y procesos, se producen pérdidas de materia por diversas razones, entre las que hay que considerar la pérdida física por valvulas averiadas, malos cierres, juntas estropeadas, etc, y las pérdidas ficticias por errores de muestreo o analíticos. La consecuencia es que, casi siempre, el total de la materia enviada a las cubas es menor que la recibida en fábrica. Estas diferencias se analizan mediante el <strong>balance líquido</strong>, que con mayor o menor detalle va contabilizando las diferencias entre entradas y salidas de los diferentes procesos realizados sobre la materia líquida <strong>hasta</strong> su llegada a la cuba de fabricación.</p>
 <p>Las cantidades analizadas en la cuba de fabricación constituyen el cierre (salida) del balance líquido y el inicio del <strong>balance de producción</strong>, que recoge la transformación quesera en sentido estricto, desde la leche en la cuba lista para fabricación, hasta el queso obtenido, antes o después de salado (opcional)</p>
-<p>En el proceso de obtención del queso se produce una eliminación del suero de quesería, en el que se recogerá la mayor cantidad de la lactosa de la leche, proteínas solubles, y algo de grasa y proteína. Como resultado de la manipulación de la cuajada en la cuba y los procesos de corte y agitación, se producen pequeñas pérdidas de finos de quesería, que consisten en grasa y proteína coagulada que no se ha podido retener en la cuajada enviada a moldear. En el proceso de moldeo se produce también una pérdida de materia que puede ser significativa, según el proceso y según el control que el equipo de quesería tenga sobre el proceso. Finalmente, en los intercambios osmóticos en el proceso de salado, se produce una pérdida de suero y una ganancia de extracto seco magro en forma de aporte de sal.</p>
-<p>El suero de quesería, que contiene una pequeña cantidad de grasa, en la mayor parte de las ocasiones, es desnatado para recuperar esta materia grasa, en forma de nata de suero. Esta nata de suero, si está producida y conservada en las condiciones adecuadas, puede adicionarse a la siguiente fabricación de queso en la estandarización,reduciendo las pérdidas de grasa, siempre que el producto lo admita y no haya problemas de calidad.</p>
+<p>Como resultado de la manipulación de la cuajada en la cuba y los procesos de corte y agitación, se producen pequeñas pérdidas de finos de quesería, que consisten en grasa y proteína coagulada que no se ha podido retener en la cuajada enviada a moldear. En el proceso de moldeo se produce también una pérdida de materia que puede ser significativa, según el proceso y según el control que el equipo de quesería tenga sobre el proceso. Finalmente, en los intercambios osmóticos en el proceso de salado, se produce una pérdida de suero y una ganancia de extracto seco magro en forma de aporte de sal.</p>
+<p>En el proceso de obtención del queso se produce una eliminación del suero de quesería, que recogerá la mayor cantidad de la lactosa de la leche, proteínas solubles, y algo de grasa y proteína. En la mayor parte de las ocasiones, el suero es desnatado para recuperar esta materia grasa, en forma de <strong>nata de suero</strong>. Si está producida y conservada en las condiciones adecuadas, la nata de suero puede adicionarse a la leche de fabricación de la siguiente fabricación de queso en la estandarización. Este reciclado de la materia grasa ayuda a reducir las pérdidas de grasa, y es realizable siempre que el producto lo admita y no haya problemas de calidad.</p>
 <p>En resumen, todos los procesos que llevan a la elaboración de queso, constan a su vez de otros subprocesos, en los cuales se van a producir pérdidas de materia grasa y proteína en mayor o menor cantidad. Dado que en el pago por calidad de la leche, la grasa y la proteína son las materias que se valoran y son el objeto del pago, parece lógico que la optimización de la eficiencia de la elaboración de queso se enfoque en la reducción de las perdidas de materia en todas las partes del proceso.</p>
 </section>
-<section id="algunas-causas-de-las-pérdidas-de-materia-en-el-proceso-quesero" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="algunas-causas-de-las-pérdidas-de-materia-en-el-proceso-quesero"><span class="header-section-number">9.2</span> Algunas causas de las pérdidas de materia en el proceso quesero</h2>
+<section id="análisis-cuantitativo-del-proceso-quesero" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="análisis-cuantitativo-del-proceso-quesero"><span class="header-section-number">9.2</span> Análisis cuantitativo del proceso quesero</h2>
+<p>Vamos a dividir el análisis cuantitativo del proceso quesero en dos partes diferenciadas:</p>
+<ul>
+<li><strong>Balance de materia:</strong> comprende desde la recepción de la leche cruda hasta el final del proceso de elaboración, momento en que el queso está listo para entrar en la fase de maduración. Este balance permite evaluar el rendimiento general y detectar posibles pérdidas o desviaciones.</li>
+<li><strong>Análisis de rendimientos:</strong> abarca el tramo desde la leche destinada a fabricación una vez en la cuba, hasta la obtención del queso fresco (antes o después del salado). Aquí se analiza la eficiencia del proceso de transformación quesera, para evaluar si esta transformación se ha ajustado a lo esperado.</li>
+</ul>
+<p>Ambos analisis deben estar <strong>valorados económicamente</strong> para conocer el impacto de nuestras desviaciones y pérdidas. Este conocimiento permitirá establecer las prioridades del trabajo de mejora, que consisten fundamentalmente en:</p>
+<ul>
+<li>la reducción de las pérdidas de materia, y</li>
+<li>el aumento de la eficiencia de la transformación de la leche en queso.</li>
+</ul>
+<p>En los siguientes capítulos abordaremos, pues:</p>
+<ul>
+<li>El balance de materia</li>
+<li>El análisis de rendimientos queseros</li>
+<li>La valoración del balance de materia, el rendimiento y las pérdidas a partir del precio de la leche.</li>
+</ul>
+</section>
+<section id="las-pérdidas-de-materia-y-las-pérdidas-de-rendimiento-en-quesería" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="las-pérdidas-de-materia-y-las-pérdidas-de-rendimiento-en-quesería"><span class="header-section-number">9.3</span> Las pérdidas de materia y las pérdidas de rendimiento en quesería</h2>
+<p>Los procesos de preparación de leche y fabricación que tienen lugar en una fábrica de queso, pueden esquematizarse así:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01-imagenes/balance_materia.png" class="img-fluid figure-img"></p>
+<figcaption>Balance de materia</figcaption>
+</figure>
+</div>
+<p>Hemos organizado la información de los procesos de fábrica en dos grandes grupos, la <strong>preparación de leche</strong> y la <strong>fabricación</strong>. En la terminología del balance de materia, llamaremos a estos grupos <strong>balance de preparación</strong> (o <strong>balance líquido</strong>) y <strong>balance de fabricación</strong>.</p>
+<p>Los diferentes procesos de manipulación de la materia prima en quesería tienen como consecuencia que en cada etapa se vayan produciendo pérdidas de materia, lo que hace que la cantidad de materia real que tenemos para su transformación en queso es siempre menor que la que hemos pagado.</p>
+<p>La fórmula general de cualquier balance, heredada de los balances contables, es siempre:</p>
+<p><span class="math display">\[
+Existencia\ inicial + Entradas = Salidas + Existencia\ final \pm Pérdidas
+\]</span></p>
+<p>El término <strong>Pérdidas</strong> recoge las diferencias entre entradas y salidas, para que pueda producirse la identidad de los dos términos a cada lado del signo igual (<strong>=</strong>)</p>
+<p>Aunque en este esquema indicamos de forma genérica las compras de leche, nata y otras materias primas, así como su envío a fabricación para obtener el queso, no debemos perder de vista que, en realidad, lo que pagamos al comprar la leche, y lo que transformamos en fábrica, es la <strong>grasa</strong> y la <strong>proteína</strong> de la leche. Por esta razón, resulta más conveniente representar en nuestros balances los movimientos de MG y MP:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01-imagenes/balance_mg.png" class="img-fluid figure-img"></p>
+<figcaption>Balance de MG</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01-imagenes/balance_mp.png" class="img-fluid figure-img"></p>
+<figcaption>Balance de MP</figcaption>
+</figure>
+</div>
+</section>
+<section id="algunas-causas-de-las-pérdidas-de-materia-en-el-proceso-quesero" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="algunas-causas-de-las-pérdidas-de-materia-en-el-proceso-quesero"><span class="header-section-number">9.4</span> Algunas causas de las pérdidas de materia en el proceso quesero</h2>
 <p>Pérdidas de balance: sólo aquellas que son diferencias entre entradas y salidas. Por ejemplo, pérdidas de finos bien medidas en el suero pueden no ser unapérdida de balance si están biencontabilizadas, perosonpérdidas de rendimiento porque esos finos no se recuperan en el queso</p>
 <ul>
 <li>Mala calibración de la báscula de entrada o de los contadores de medida en la descarga</li>
@@ -331,21 +393,15 @@ ul.task-list li input[type="checkbox"] {
 <li>Procedimientos de arrastres (fin de línea, depósitos) mal temporizados, lo quehace que sean demasiado cortos (pérdidas de materia) o demasiado largos(dilución excesiva)</li>
 <li>Mal estado de los útiles de corte en la cuba, lo que aumenta las pérdidas de finos en la cuba</li>
 <li>Información insuficiente (pocas muestras) para evaluar bien el balance y conocer los puntos de pérdida . Desconocimeinto del error de medida (muestreo, variabilidad de analistas, repetibilidad de los análisis), lo que lleva a correcciones que pueden no corresponder a valores de pérdida real sino a errores analíticos.</li>
+<li>Errores en el control de los stocks a final de día o de la semana</li>
 <li>Insuficiente formación en la toma de muestras, que se realiza de manera incorrecta</li>
 <li>Uso de bombas centrífugas para el transporte de cuajada, lo que hace que aumente la cantidade de finos que se pierden en el suero (estrictamente, puede no ser una pérdida de balance sino de rendimiento quesero)</li>
 </ul>
 </section>
-<section id="algunas-causas-de-las-pérdidas-de-eficiencia-en-la-transformación-quesera" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="algunas-causas-de-las-pérdidas-de-eficiencia-en-la-transformación-quesera"><span class="header-section-number">9.3</span> Algunas causas de las pérdidas de eficiencia en la transformación quesera</h2>
-<p>Recogida y almcenamiento de leche en la granja:</p>
-<ul>
-<li>Almacenamiento en frío durante tiempo prolongado: desarrollo de bateria psicrotrofas que degradan la caseína</li>
-</ul>
-</section>
-<section id="análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable"><span class="header-section-number">9.4</span> Análisis de datos en producción con Python: más allá del balance contable</h2>
+<section id="análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable"><span class="header-section-number">9.5</span> Análisis de datos en producción con Python: más allá del balance contable</h2>
 <p>Cuando realizamos un balance de materia en una fábrica o calculamos los rendimientos, no lo hacemos con un enfoque contable o notarial, cuyo objetivo principal es dejar constancia del resultado. Aunque registrar los datos es importante, lo que realmente necesita un técnico o ingeniero de producción es otra cosa: poder revisar esos resultados a lo largo del tiempo, analizar tendencias y cruzar la información con otras variables que ayuden a entender por qué se obtuvieron esos resultados.</p>
-<p>En un entorno de mejora continua, el análisis de resultados no es un fin en sí mismo, sino una herramienta clave para avanzar. Su objetivo es reducir las pérdidas de materia y comprender mejor los procesos tecnológicos que las generan, con la intención de modificarlos y corregirlos.</p>
+<p>En un entorno de mejora continua, el análisis de resultados no es un fin en sí mismo, sino una herramienta clave para progresar. El objetivo es reducir las pérdidas de materia y comprender mejor los procesos tecnológicos que las generan, con la intención de modificarlos y corregirlos.</p>
 <p>Herramientas como Python permiten trabajar con los datos de forma progresiva y creativa. Podemos agruparlos por fechas, aplicar distintos criterios de análisis y explorar dinámica y gráficamente nuevas perspectivas que quizás no habíamos considerado al inicio. Muchas veces, es durante el análisis cuando surgen las preguntas más interesantes.</p>
 <p>Además, trabajar con scripts tiene una ventaja fundamental: separa claramente las instrucciones de análisis (el código) de los datos en sí, que suelen almacenarse en archivos .csv. Estos datos, por lo general, requieren una limpieza previa antes de analizarlos.</p>
 <p>Tanto el proceso de limpieza como los pasos del análisis quedan documentados en el script. Esto facilita compartir el trabajo con otras personas, reproducir el análisis y, lo más importante, garantizar su trazabilidad. En cambio, en una hoja de cálculo es fácil mezclar datos y análisis: las fórmulas quedan ocultas en las celdas y el algoritmo utilizado suele estar disperso y poco visible entre fórmulas, datos y formatos de presentación.</p>

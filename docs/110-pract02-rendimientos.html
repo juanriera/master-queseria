@@ -216,7 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./085-intro-balance-materia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El balance de materia y los rendimientos queseros.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introducción al balance de materia. Conceptos generales.</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -370,6 +370,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th">mg_past</th>
 <th data-quarto-table-cell-role="th">mp_past</th>
 <th data-quarto-table-cell-role="th">kg_cuba</th>
+<th data-quarto-table-cell-role="th">dens_cuba</th>
 <th data-quarto-table-cell-role="th">est_cuba</th>
 <th data-quarto-table-cell-role="th">mg_cuba</th>
 <th data-quarto-table-cell-role="th">mp_cuba</th>
@@ -398,6 +399,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
 </tr>
 </thead>
 <tbody>
@@ -409,7 +411,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>10.760</td>
 <td>2.58</td>
 <td>3.550</td>
-<td>12860.510</td>
+<td>12861</td>
+<td>1.039</td>
 <td>10.28</td>
 <td>2.46</td>
 <td>3.38</td>
@@ -424,11 +427,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td data-quarto-table-cell-role="th">2022-02-24</td>
 <td>24/02/2022</td>
 <td>mezcla</td>
-<td>7440</td>
+<td>7480</td>
 <td>13.290</td>
 <td>5.15</td>
 <td>4.090</td>
-<td>7704.462</td>
+<td>7704</td>
+<td>1.030</td>
 <td>12.80</td>
 <td>4.90</td>
 <td>3.89</td>
@@ -447,7 +451,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>12.542</td>
 <td>4.20</td>
 <td>3.076</td>
-<td>15810.990</td>
+<td>15811</td>
+<td>1.030</td>
 <td>11.37</td>
 <td>4.01</td>
 <td>2.94</td>
@@ -462,11 +467,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td data-quarto-table-cell-role="th">2022-03-01</td>
 <td>01/03/2022</td>
 <td>bajo mg</td>
-<td>13080</td>
+<td>13325</td>
 <td>11.090</td>
 <td>2.59</td>
 <td>3.600</td>
-<td>13867.370</td>
+<td>13867</td>
+<td>1.041</td>
 <td>10.41</td>
 <td>2.47</td>
 <td>3.43</td>
@@ -481,11 +487,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td data-quarto-table-cell-role="th">2022-03-04</td>
 <td>04/03/2022</td>
 <td>mezcla</td>
-<td>13420</td>
+<td>13650</td>
 <td>14.220</td>
 <td>5.45</td>
 <td>4.310</td>
-<td>14131.770</td>
+<td>14132</td>
+<td>1.035</td>
 <td>13.61</td>
 <td>5.20</td>
 <td>4.11</td>
@@ -994,11 +1001,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>         coef_recup_mg  coef_recup_mp
 receta                               
-bajo mg      88.229046      97.329485
-i+D          76.630772      77.697322
-mezcla       92.047224      96.738573
-oveja        91.215043      93.482273
-vaca         90.794847      94.250704</code></pre>
+bajo mg      88.228403      97.328432
+i+D          76.628784      77.695306
+mezcla       92.049865      96.744375
+oveja        91.214199      93.481566
+vaca         90.797955      94.249329</code></pre>
 </div>
 </div>
 <div id="cell-33" class="cell" data-execution_count="18">
@@ -1056,11 +1063,11 @@ vaca         90.794847      94.250704</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>         coef_recup_mg  coef_recup_esm
 receta                                
-bajo mg      88.229046       41.760190
-i+D          76.630772       35.290377
-mezcla       92.047224       46.876581
-oveja        91.215043       50.769829
-vaca         90.794847       34.385900</code></pre>
+bajo mg      88.228403       41.760478
+i+D          76.628784       35.289461
+mezcla       92.049865       46.875243
+oveja        91.214199       50.769055
+vaca         90.797955       34.386593</code></pre>
 </div>
 </div>
 <p>Finalmente, aprovechamos nuestros cálculos para crear un documento con los rendimientos y el balance de materia de la fabricación, que exportaremos a un ‘csv’ y que podemos analizar sea en <em>python</em> o en Excel mediante tablas dinámicas.</p>
@@ -1261,11 +1268,11 @@ vaca                  54.850              29.800</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>         consumo_mg_kg  consumo_mp_kg
 receta                               
-bajo mg     226.119987     314.108816
-i+D         411.975490     325.622549
-mezcla      330.181811     258.288108
-oveja       341.012161     270.611497
-vaca        323.479948     272.676000</code></pre>
+bajo mg     226.118587     314.112424
+i+D         411.986181     325.630999
+mezcla      330.172879     258.285424
+oveja       341.016097     270.615058
+vaca        323.480153     272.666667</code></pre>
 </div>
 </div>
 <div id="cell-43" class="cell" data-execution_count="26">
