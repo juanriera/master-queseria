@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Juan Riera">
 
-<title>Análisis de datos industriales usando Excel y Python</title>
+<title>Apéndice A — La media aritmética como centro de gravedad de un grupo de datos – Análisis de datos industriales usando Excel y Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -51,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./020-estad-entorno.html" rel="next">
+<link href="./810-bibliografia.html" rel="next">
+<link href="./110-pract02-rendimientos.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -90,6 +70,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -102,7 +111,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./800-media-centro-gravedad.html">Anexos</a></li><li class="breadcrumb-item"><a href="./800-media-centro-gravedad.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -129,7 +138,7 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
   </div>
 </li>
@@ -229,16 +238,16 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Anexos</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./800-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
+  <a href="./800-media-centro-gravedad.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
   </div>
 </li>
@@ -266,36 +275,31 @@ div.csl-indent {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">1</span> Introducción</a></li>
+  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link active" data-scroll-target="#ejemplo">Ejemplo</a></li>
+  <li><a href="#paso-a-paso" id="toc-paso-a-paso" class="nav-link" data-scroll-target="#paso-a-paso">Paso a Paso</a></li>
+  <li><a href="#ejemplo-práctico" id="toc-ejemplo-práctico" class="nav-link" data-scroll-target="#ejemplo-práctico">Ejemplo Práctico</a></li>
+  <li><a href="#media-ponderada" id="toc-media-ponderada" class="nav-link" data-scroll-target="#media-ponderada">Media Ponderada</a></li>
+  <li><a href="#centro-de-gravedad-como-media-ponderada" id="toc-centro-de-gravedad-como-media-ponderada" class="nav-link" data-scroll-target="#centro-de-gravedad-como-media-ponderada">Centro de Gravedad como Media Ponderada</a></li>
+  <li><a href="#ejemplo-numérico" id="toc-ejemplo-numérico" class="nav-link" data-scroll-target="#ejemplo-numérico">Ejemplo Numérico</a></li>
+  <li><a href="#media-aritmética-y-centro-de-gravedad-con-masas-idénticas" id="toc-media-aritmética-y-centro-de-gravedad-con-masas-idénticas" class="nav-link" data-scroll-target="#media-aritmética-y-centro-de-gravedad-con-masas-idénticas">Media Aritmética y Centro de Gravedad con Masas Idénticas</a></li>
+  <li><a href="#conclusión" id="toc-conclusión" class="nav-link" data-scroll-target="#conclusión">Conclusión</a></li>
+  <li><a href="#importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos" id="toc-importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos" class="nav-link" data-scroll-target="#importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos"><span class="header-section-number">A.1</span> Importancia del concepto de la media como centro de gravedad o punto de equilibrio de un conjunto de datos</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./800-media-centro-gravedad.html">Anexos</a></li><li class="breadcrumb-item"><a href="./800-media-centro-gravedad.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Análisis de datos industriales usando Excel y Python</h1>
-<p class="subtitle lead">Notas para el master de FP en tecnología quesera</p>
+<h1 class="title">Apéndice A — La media aritmética como centro de gravedad de un grupo de datos</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">AUTOR</div>
-    <div class="quarto-title-meta-contents">
-             <p>Juan Riera </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">PUBLICADO</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">27/10/25</p>
-    </div>
-  </div>
   
     
   </div>
@@ -305,73 +309,186 @@ div.csl-indent {
 </header>
 
 
-<section id="introducción" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introducción</h1>
-<p>Este documento trata sobre el análisis de datos industriales utilizando tanto la hoja de cálculo como un lenguaje de programación moderno como es <code>Python</code> . El uso de las técnicas estadísticas se ha reducido al mínimo, orientando el análisis al uso de métodos gráficos descriptivos sencillos.</p>
-<p>¿Por qué usar <code>Python</code> como herramienta? Hay varias razones que parecen oportunas:</p>
+<p>Para ver cómo la media aritmética equivale al punto de equilibrio o centro de gravedad de un grupo de datos, imaginaremos que tenemos un conjunto de datos cuyos valores se distribuyen en un eje longitudinal X. Podemos hacer equivalentes estos valores a un conjunto de pesos que se distribuyen a lo largo de una barra, y vamos a suponer que existe un punto a una distancia <span class="math inline">\(d_i\)</span> del origen de la barra en el cual dicha barra está en equilibrio. Para encontrar ese valor, empezaremos considerando el principio o ley de la palanca.</p>
+<p>El <strong>Principio de la Palanca</strong> o la <strong>Ley de la Palanca</strong> fue formulada por el científico y matemático griego Arquímedes. Este principio dice que, en equilibrio, el producto de la fuerza aplicada (potencia) por su distancia al punto de apoyo (brazo de la potencia) es igual al producto de la resistencia por su distancia al punto de apoyo (brazo de la resistencia). Matemáticamente, se expresa como: <span class="math display">\[
+P \cdot d_p = R \cdot d_r
+\]</span></p>
+<p>Donde:</p>
 <ul>
-<li><p><code>Python</code> es actualmente el lenguaje de programación más extendido y el más utilizado en los nuevos campos de la inteligencia artificial (IA). Su conocimiento, aunque sea de forma básica, aportará un plus a los alumnos en su <em>curriculum</em>.</p></li>
-<li><p>El Principado de Asturias ha establecido una línea prioritaria de desarrollo de conocimientos en las áreas relacionadas con la IA para los estudiantes de Formación Profesional. Esto, unido al hecho de que algunas empresas de la región ya están implantando algunas experiencias en esta dirección, parece indicar la conveniencia de que los alumnos empiecen a familiarizarse con estos ámbitos de conocimiento.</p></li>
-<li><p><code>Python</code> posee los elementos necesarios para construir los gráficos que se necesitan para una explicación sencilla de un conjunto de datos de producción alimentaria, y su sintaxis resulta fácil de comprender, aunque otras herramientas, como el lenguaje R, sean más utilizadas en el análisis estadístico y de datos.</p></li>
-<li><p>Tener un contacto práctico con el lenguaje facilitará la adquisición de conocimientos suplementarios, ya sea en el ámbito del análisis estadístico de datos, de los métodos cuantitativos de mejora de procesos (<em>Six Sigma</em>), en la programación informática, o en la introducción a la IA.</p></li>
-<li><p><code>Python</code> es una herramienta gratuita, por lo que tanto el lenguaje como las herramientas para trabajar con él están a disposición libre en la web. En nuestro caso, utilizaremos una aplicación de Google, llamada <a href="https://colab.research.google.com/" target="_blank" rel="noopener noreferrer">Google Colaboratory</a> conocido coloquialmente como <strong>Colab</strong>, que permite utilizar scripts <code>Python</code> mediante la interfase <a href="https://jupyter.org/">jupyter</a>. Colab se usa en el navegador web, Google Chrome u otro, y no es necesario hacer ninguna instalación de software. Para los objetivos de la enseñanza, Google Colab resulta conveniente y suficiente (<a href="https://docs.jupyter.org/es/stable/projects/education.html">ver uso de jupyter en educación</a>).</p></li>
+<li><span class="math inline">\(P\)</span> es la potencia o fuerza aplicada.</li>
+<li><span class="math inline">\(d_p\)</span> es la distancia desde el punto de apoyo hasta el punto donde se aplica la potencia.</li>
+<li><span class="math inline">\(R\)</span> es la resistencia o carga.</li>
+<li><span class="math inline">\(d_r\)</span> es la distancia desde el punto de apoyo hasta el punto donde se aplica la resistencia.</li>
 </ul>
-<p>En la industria alimentaria actual se produce un constante flujo de datos como resultado tanto de la implantación de sistemas de captura automáticos como de la tecnificación de los puestos de trabajo; se requiere por parte de los profesionales industriales que sean capaces de analizar esta enorme cantidad de datos para transformarlos en información para la decisión. En la empresa industrial media actual, son los ingenieros y técnicos de planta, y no estadísticos o ingenieros informáticos, quienes participan diariamente en la presentacion y discusion de los datos y en la toma de decisiones operativas, tanto en los equipos de trabajo como ante la Dirección. Por esta razón, es necesario proporcionar a los estudiantes de la Formación Profesional un conocimiento básico de los conceptos, herramientas y métodos del análisis de datos, así como de algunas técnicas de presentación y comunicación de la información.</p>
-<p>La experiencia industrial muestra que en las situaciones reales, sobre el terreno, la comprensión práctica de los conceptos es más importante que su rigurosa formulación matemática. Por esta razón, en el desarrollo del contenido de este documento insistiré más en la forma de aplicar las herramientas y entender los análisis que en el conocimiento formal de las fórmulas estadísticas y su deducción matemática, o de la programación informática en sí. He hecho especial hincapié en la utilización de herramientas sencillas, casi siempre gráficas, que son una ayuda valiosa para comprender la información contenida en un conjunto de datos. El objetivo es proporcionar al estudiante de industrias alimentarias las bases de la metodología para análisis de sus datos y su aplicación a la resolución de problemas técnicos concretos, más que el conocimiento de la teoría matemática de la estadística o de la programación informática.</p>
-<p>Se evitan las explicaciones formales sobre temas estadísticos. Así, por ejemplo, al explicar la media de un conjunto de datos considero más importante entender el concepto físico de “centro de gravedad” que los conceptos estadísticos de esperanza matemática, que no se tocan en este texto. En este sentido, se ha intentado que el alumno aprenda bien la diferencia entre “en qué consiste” un estadístico, y “cómo se calcula”. Comprender la diferencia entre el concepto y su fórmula de cálculo es fundamental para entender cómo aplicarlo.</p>
-<p>Por ejemplo, veremos cómo el modo de cálculo de la media aritmética hace que su valor sea equivalente al centro de gravedad de un conjunto de datos; si aproximamos esta idea a la de un sistema de palanca en equilibrio sobre un fulcro, será muy fácil entender y hacer entender por qué los valores anómalos extremos desvían notablemente la media y deben analizarse con cuidado: una pequeña desviación en un item muy lejos del centro de gravedad tiene un gran efecto sobre el punto de equilibrio del sistema, debido a la longitud del brazo de palanca; de la misma manera, los valores extremos pueden introducir desviaciones en el valor de la media aritmética que siempre hay que considerar.</p>
-<p>También será fácil comprender que otros estadísticos, como la mediana, que se calculan de forma diferente (la mediana es, simplemente, el valor central del conjunto de datos) resultan menos o nada afectados por los valores extremos,; veremos en la práctica las ventajas e inconvenientes de cada uno.</p>
-<div id="fig-intro-media" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-intro-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row quarto-layout-valign-bottom">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-intro-media" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-media" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01-imagenes/media-balanza.svg" class="img-fluid figure-img" data-ref-parent="fig-intro-media">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) Diagrama de puntos (dotplot) mostrando la posición de la media aritmética
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-intro-media" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-palanca" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
+<figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01-imagenes/palanca.png" class="img-fluid figure-img" data-ref-parent="fig-intro-media">
+<img src="01-imagenes/palanca.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) Palanca de primer grado con el fulcro como punto de equilibrio
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;A.1: Palanca de primer grado con el fulcro como punto de equilibrio
 </figcaption>
 </figure>
 </div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-intro-media-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.1: Comparación gráfica del significado de la media en un diagrama de puntos (<em>dotplot</em>) con una palanca de primer grado.
-</figcaption>
-</figure>
-</div>
-<p>Un curso de introducción al análisis de datos industriales debe ser, ante todo, práctico y orientado a su aplicación en el entorno industrial real. Los principales temas de trabajo de análisis de los datos en la industria tienen que ver con su captura, su almacenamiento y su depuración, su descripción utilizando gráficos, la inferencia (intervalos de confianza y tests), la construcción de modelos explicativos, el diseño de los experimentos industriales, el control estadístico de la calidad y la exposición y presentación de resultados. Dado el alcance limitado de este documento, no se entrará en los métodos estadísticos en sí, y necesitarán de un estudio posterior si el alumno tiene interés en profundizar en ellos.</p>
-<p>A pesar de que los temas más especializados puedan ser importantes en algunas aplicaciones específicas, no preparan al estudiante para lo que se va a encontrar en el terreno en la mayor parte de las ocasiones. En cambio, la resolución de problemas en equipo en un entorno de aprendizaje dinámico enfrentándose a problemas exigentes, y el desarrollo de las habilidades de análisis, de síntesis y de comunicación, tendrán un impacto mucho más positivo.</p>
-<p>He intentado mostrar la necesidad de que los estudiantes comprendan y apliquen el método científico en el entorno industrial, y no sólo apliquen un recetario de procedimientos de manera automática. Son mucho mas importantes la comprensión y la utilización adecuada del método científico y de las herramientas y gráficos básicos, antes que la aplicación rutinaria y mecánica de determinadas fórmulas matemáticas o métodos sofisticados y complejos (como la IA) que el alumno puede no comprender en toda su profundidad.</p>
-<p>Las industrias líderes destacan por la aplicación intensiva de métodos tales como <em>Six Sigma</em>, <em>Lean Manufacturing</em>, diseño robusto de productos, y otros que hacen un uso intensivo de los datos, tanto de los obtenidos en producción como de los obtenidos en la realización de experimentos diseñados. Pero la mejora de la competitividad en estas empresas no se debe tanto a la aplicación de unos u otros métodos, como al desarrollo del juicio analítico de sus equipos humanos y a la aplicación de lo aprendido a la mejora continua de los procesos industriales. Veremos que la experiencia y el conocimiento tecnológico de estos procesos son fundamentales para el desarrollo del buen juicio analítico, y, en consecuencia, para la buena interpretación de los resultados que se obtienen con las herramientas estadísticas y de análisis.</p>
-<p>Tratándose de un libro para el uso en la Formación Profesional, considero prioritario que su estudio se oriente al desarrollo de habilidades que sean de aplicación práctica directa en el puesto de trabajo y además faciliten la empleabilidad del estudiante, y no a la obtención de conocimiento abstracto. En la última edición del <em>Informe sobre el futuro del empleo</em> disponible cuando se edita este libro, publicada por el <a href="https://www.weforum.org/">Foro Económico Mundial</a> (WEF) en junio de 2025 <span class="citation" data-cites="wef2025">(<a href="810-bibliografia.html#ref-wef2025" role="doc-biblioref">World Economic Forum 2025</a>)</span>, el WEF considera que:</p>
-<blockquote class="blockquote">
-<p>…al igual que en las dos ediciones anteriores de este informe, el <strong>pensamiento analítico</strong> sigue siendo la principal habilidad básica para los empleadores, ya que siete de cada 10 empresas lo consideran esencial. A esto le siguen la resiliencia, la flexibilidad y la agilidad, junto con el liderazgo y la influencia social, lo que subraya el papel fundamental de la adaptabilidad y la colaboración junto con las habilidades cognitivas. El pensamiento creativo y la motivación y la autoconciencia ocupan el cuarto y quinto lugar, respectivamente. Esta combinación de habilidades cognitivas, de autoeficacia e interpersonales dentro de los cinco primeros enfatiza la importancia atribuida por los encuestados a tener una fuerza laboral ágil, innovadora y colaborativa, donde tanto la capacidad de resolución de problemas como la resiliencia personal son críticas para el éxito.</p>
-</blockquote>
-<p>A estas habilidades se suman las dos que más crecen en estos dos últimos años: la <strong>inteligencia artificial (IA)</strong> y el <strong>análisis de datos</strong>. El objetivo de este documento es proporcionar conocimientos que ayuden al estudiante a desarrollarse en esta dirección, y servir de apoyo a los docentes para conseguir ese objetivo. En este sentido, se incluyen casos de análisis con ejemplos prácticos de la metodología presentada aplicada al análisis, y con propuestas de ejercicios a resolver, apoyándose en las herramientas de IA.</p>
+<section id="ejemplo" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo">Ejemplo</h3>
+<p>Si tienes una palanca con una longitud de 5 metros y aplicas una fuerza de 10 Newtons a 1 metro del punto de apoyo, para mantener el equilibrio, la fuerza de resistencia en el otro extremo a 4 metros del punto de apoyo debería ser: <span class="math display">\[
+P \cdot d_p = R \cdot d_r
+\]</span></p>
+<p><span class="math display">\[
+10 \, \text{N} \cdot 1 \, \text{m} = R \cdot 4 \, \text{m}
+\]</span></p>
+<p><span class="math display">\[
+R = \frac{10 \cdot 1}{4} = 2,5 \text{N}
+\]</span></p>
+<p>Ahora vamos a considerar el punto de equilibrio de una barra de la que se cuelgan diferentes pesos a diferente distancias de su origen. Calcular el punto de equilibrio de una barra de la que se cuelgan diferentes pesos a diferentes distancias de su origen es un problema clásico de física que se puede resolver usando el principio de momentos.</p>
+</section>
+<section id="paso-a-paso" class="level3">
+<h3 class="anchored" data-anchor-id="paso-a-paso">Paso a Paso</h3>
+<ol type="1">
+<li><p><strong>Identificar las fuerzas</strong>: Supongamos que tienes varios pesos <span class="math inline">\(W_1, W_2, W_3, \ldots, W_n\)</span> colgados a distancias <span class="math inline">\(d_1, d_2, d_3, \ldots, d_n\)</span> del origen (punto de apoyo).</p></li>
+<li><p><strong>Calcular los momentos</strong>: El momento (<span class="math inline">\(M\)</span>) de un peso alrededor del punto de apoyo se calcula como el producto de la fuerza (peso) y la distancia al punto de apoyo:</p></li>
+</ol>
+<p><span class="math display">\[
+    M_i = W_i \times d_i
+\]</span></p>
+<ol start="3" type="1">
+<li><p><strong>Sumar los momentos</strong>: Calcula la suma de todos los momentos: <span class="math display">\[
+M_{\text{total}} = W_1 \times d_1 + W_2 \times d_2 + W_3 \times d_3 + \ldots + W_n \times d_n
+\]</span></p></li>
+<li><p><strong>Calcular el peso total</strong>: Suma todos los pesos: <span class="math display">\[
+W_{\text{total}} = W_1 + W_2 + W_3 + \ldots + W_n
+\]</span></p></li>
+<li><p><strong>Determinar el punto de equilibrio (</strong><span class="math inline">\(x\)</span>): El punto de equilibrio se encuentra dividiendo la suma de los momentos por el peso total: <span class="math display">\[
+x = \frac{\sum (W_i \times d_i)}{\sum W_i}
+\]</span></p></li>
+</ol>
+</section>
+<section id="ejemplo-práctico" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-práctico">Ejemplo Práctico</h3>
+<p>Supongamos que tenemos tres pesos de 4, 9 y 1 kg, situados, respectivamente, a 2, 1 y 3 m respectivamente del origen de la barra.</p>
+<ul>
+<li><span class="math inline">\(W_1 = 4 \, \text{kg}\)</span> a <span class="math inline">\(d_1 = 2 \, \text{m}\)</span></li>
+<li><span class="math inline">\(W_2 = 9 \, \text{kg}\)</span> a <span class="math inline">\(d_2 = 1 \, \text{m}\)</span></li>
+<li><span class="math inline">\(W_3 = 1 \, \text{kg}\)</span> a <span class="math inline">\(d_3 = 3 \, \text{m}\)</span></li>
+</ul>
+<ol type="1">
+<li><p><strong>Calcular los momentos</strong>: <span class="math display">\[
+M_1 = 4 \times 2 = 8 \, \text{kg·m}
+\]</span> <span class="math display">\[
+M_2 = 9 \times 1 = 9 \, \text{kg·m}
+\]</span> <span class="math display">\[
+M_3 = 1 \times 3 = 3 \, \text{kg·m}
+\]</span></p></li>
+<li><p><strong>Sumar los momentos</strong>: <span class="math display">\[
+M_{\text{total}} = 8 + 9 + 3 = 20 \, \text{kg·m}
+\]</span></p></li>
+<li><p><strong>Calcular el peso total</strong>: <span class="math display">\[
+W_{\text{total}} = 4 + 9 + 1 = 14 \, \text{kg}
+\]</span></p></li>
+<li><p><strong>Determinar el punto de equilibrio</strong>:</p></li>
+</ol>
+<p><span class="math display">\[
+    x = \frac{20}{14} \approx 1.43 \, \text{m}
+\]</span></p>
+<p>El punto de equilibrio se encuentra a aproximadamente 1.43 metros del origen.</p>
+</section>
+<section id="media-ponderada" class="level3">
+<h3 class="anchored" data-anchor-id="media-ponderada">Media Ponderada</h3>
+<p>En muchas situaciones, el centro de gravedad de un sistema de masas puede interpretarse como una <strong>media ponderada</strong> de las posiciones de las masas.</p>
+<section id="media-aritmética" class="level4">
+<h4 class="anchored" data-anchor-id="media-aritmética">Media Aritmética</h4>
+<p>Para un conjunto de números <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>, la media aritmética es: <span class="math display">\[
+\text{Media} = \frac{x_1 + x_2 + \cdots + x_n}{n}
+\]</span></p>
+</section>
+<section id="media-ponderada-1" class="level4">
+<h4 class="anchored" data-anchor-id="media-ponderada-1">Media Ponderada</h4>
+<p>Para un conjunto de valores <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> con pesos asociados <span class="math inline">\(w_1, w_2, \ldots, w_n\)</span>, la media ponderada es: <span class="math display">\[
+\text{Media ponderada} = \frac{w_1 x_1 + w_2 x_2 + \cdots + w_n x_n}{w_1 + w_2 + \cdots + w_n}
+\]</span></p>
+</section>
+</section>
+<section id="centro-de-gravedad-como-media-ponderada" class="level3">
+<h3 class="anchored" data-anchor-id="centro-de-gravedad-como-media-ponderada">Centro de Gravedad como Media Ponderada</h3>
+<p>Cuando calculamos el centro de gravedad (<span class="math inline">\(x_{\text{cg}}\)</span>) de un sistema de masas, estamos esencialmente calculando una media ponderada de las posiciones (<span class="math inline">\(x_i\)</span>) de esas masas (<span class="math inline">\(m_i\)</span>):</p>
+<p><span class="math display">\[
+x_{\text{cg}} = \frac{\sum (m_i \cdot x_i)}{\sum m_i}
+\]</span></p>
+<p>Aquí, las posiciones <span class="math inline">\(x_i\)</span> son ponderadas por las masas <span class="math inline">\(m_i\)</span>.</p>
+</section>
+<section id="ejemplo-numérico" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-numérico">Ejemplo Numérico</h3>
+<p>En nuestro ejemplo anterior,</p>
+<ul>
+<li>Masa 1: <span class="math inline">\(m_1 = 4 \, \text{kg}\)</span> en posición <span class="math inline">\(x_1 = 2 \, \text{m}\)</span></li>
+<li>Masa 2: <span class="math inline">\(m_2 = 9 \, \text{kg}\)</span> en posición <span class="math inline">\(x_2 = 1 \, \text{m}\)</span></li>
+<li>Masa 3: <span class="math inline">\(m_3 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_3 = 3 \, \text{m}\)</span></li>
+</ul>
+<p>La media aritmética de las posiciones sería: <span class="math display">\[
+\text{Media} = \frac{2 + 1 + 3}{3} = 2 \, \text{m}
+\]</span></p>
+<p>El punto de equlibrio de la barra, o centro de gravedad, calculado como media ponderada, sería:</p>
+<p><span class="math display">\[
+x_{\text{cg}} = \frac{(4 \cdot 2) + (9 \cdot 1) + (1 \cdot 3)}{4 + 9 + 1} = \frac{8 + 9 + 3}{14} = \frac{20}{14} \approx 1,43 \, \text{m}
+\]</span></p>
+<p>que es el mismo resultado que obteníamos formulando el cálculo de los momentos; la fórmula resulta ser idéntica.</p>
+</section>
+<section id="media-aritmética-y-centro-de-gravedad-con-masas-idénticas" class="level3">
+<h3 class="anchored" data-anchor-id="media-aritmética-y-centro-de-gravedad-con-masas-idénticas">Media Aritmética y Centro de Gravedad con Masas Idénticas</h3>
+<p>En los ejemplos anteriores, calculábamos el punto de equilibrio para diferentes pesos colocados a lo largo de una barra. Si en vez de eso suponemos que la distancia al origen de la barra equivale a nuestro eje <span class="math inline">\(X\)</span>, que recoge los valores de los que queremos calcular nuestra media aritmética, podemos eliminar el efecto de la masa suponiendo que todas las masas son iguales.</p>
+<p>Si las masas de los diferentes objetos son idénticas, podemos decir que la media aritmética de las posiciones coincide con el centro de gravedad. Esto se debe a que, en este caso, cada masa tiene el mismo peso o influencia en el cálculo del centro de gravedad. Esta es la explicación detallada:</p>
+<p><strong>Suposición:</strong> Cada objeto tiene la misma masa <span class="math inline">\(m\)</span>.</p>
+<section id="media-aritmética-1" class="level4">
+<h4 class="anchored" data-anchor-id="media-aritmética-1">Media Aritmética</h4>
+<p>Para un conjunto de posiciones <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>, la media aritmética es: <span class="math display">\[
+\text{Media} = \frac{x_1 + x_2 + \cdots + x_n}{n}
+\]</span></p>
+</section>
+<section id="centro-de-gravedad" class="level4">
+<h4 class="anchored" data-anchor-id="centro-de-gravedad">Centro de Gravedad</h4>
+<p>El centro de gravedad (<span class="math inline">\(x_{\text{cg}}\)</span>) para un conjunto de masas idénticas en posiciones <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> es: <span class="math display">\[
+x_{\text{cg}} = \frac{\sum (m \cdot x_i)}{\sum m}
+\]</span></p>
+<p>Dado que las masas <span class="math inline">\(m\)</span> son idénticas, el numerador se convierte en: <span class="math display">\[
+\sum (m \cdot x_i) = m \cdot (x_1 + x_2 + \cdots + x_n)
+\]</span></p>
+<p>Y el denominador se convierte en: <span class="math display">\[
+\sum m = n \cdot m
+\]</span></p>
+<p>Al sustituir estos en la fórmula del centro de gravedad, obtenemos: <span class="math display">\[
+x_{\text{cg}} = \frac{m \cdot (x_1 + x_2 + \cdots + x_n)}{n \cdot m}
+\]</span></p>
+<p>Al simplificar, los términos <span class="math inline">\(m\)</span> se cancelan, y nos queda: <span class="math display">\[
+x_{\text{cg}} = \frac{x_1 + x_2 + \cdots + x_n}{n}
+\]</span></p>
+<p>que es exactamente la fórmula de la media aritmética.</p>
+<p>Si repetimos nuestro ejemplo anterior, suponiendo en este caso masas idénticas</p>
+<ul>
+<li>Masa 1: <span class="math inline">\(m_1 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_1 = 2 \, \text{m}\)</span></li>
+<li>Masa 2: <span class="math inline">\(m_2 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_2 = 1 \, \text{m}\)</span></li>
+<li>Masa 3: <span class="math inline">\(m_3 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_3 = 3 \, \text{m}\)</span></li>
+</ul>
+<p>La media aritmética de las posiciones sería:</p>
+<p><span class="math display">\[
+\text{Media} = \frac{2 + 1 + 3}{3} = 2 \, \text{m}
+\]</span></p>
+<p>El punto de equlibrio de la barra, o centro de gravedad, calculado como media ponderada, sería:</p>
+<p><span class="math display">\[
+x_{\text{cg}} = \frac{(1 \cdot 2) + (1 \cdot 1) + (1 \cdot 3)}{1 + 1 + 1} = \frac{2 + 1 + 3}{3} = \frac{6}{3} = 2 \, \text{m}
+\]</span></p>
+<p>que es el mismo resultado que obteníamos con la fórmula de la media aritmética de las distancias.</p>
+</section>
+</section>
+<section id="conclusión" class="level3">
+<h3 class="anchored" data-anchor-id="conclusión">Conclusión</h3>
+<p>Cuando las masas son idénticas, la media aritmética de las posiciones coincide con el centro de gravedad. Esto nos permite afirmar que en el caso de una dimensión (por ejemplo, el peso) la media aritmética de un conjunto de valores coincide con el centro de gravedad o punto de equilibrio de ese conjunto de valores. Este es un resultado interesante que muestra la conexión entre conceptos estadísticos y físicos.</p>
+</section>
+<section id="importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos"><span class="header-section-number">A.1</span> Importancia del concepto de la media como centro de gravedad o punto de equilibrio de un conjunto de datos</h2>
+<p>Efecto de los <em>outliers</em>: desequilibrio, desplazamiento de la media, incremento de la varianza (gan diferencia), mientras que la mediana y el rango intercuartil no se ven afectados</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-wef2025" class="csl-entry" role="listitem">
-World Economic Forum. 2025. <span>«Future of Jobs Report, 2025»</span>. 91-93 route de la Capite,CH-1223 Cologny/Geneva, Switzerland: World Economic Forum. <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/">https://www.weforum.org/publications/the-future-of-jobs-report-2025/</a>.
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -776,10 +893,13 @@ World Economic Forum. 2025. <span>«Future of Jobs Report, 2025»</span>. 91-93 
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./110-pract02-rendimientos.html" class="pagination-link" aria-label="Práctica 2. Análisis de los rendimientos en fabricación de queso mediante `Python`">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Práctica 2. Análisis de los rendimientos en fabricación de queso mediante <code>Python</code></span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./020-estad-entorno.html" class="pagination-link" aria-label="El análisis de datos de producción en el entorno industrial.">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El análisis de datos de producción en el entorno industrial.</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./810-bibliografia.html" class="pagination-link" aria-label="Bibliografía">
+        <span class="nav-page-text">Bibliografía</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
