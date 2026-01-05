@@ -745,6 +745,8 @@ None</code></pre>
 <hr>
 <p>Ahora podemos hacer el balance de materia semanal, calculando la desviación semanal entre entradas y salidas, y lo que representa esta pÉrdida en porcentaje respecto a la entrada de materia.</p>
 <div id="cell-25" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Balance de Materia (Salida - Entrada)</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># La falta de producto queda como negativo al hacer Salida - Entrada</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df_semanal[<span class="st">'balance_liquido_mg'</span>] <span class="op">=</span> df_semanal[<span class="st">'envio_fab_mg_kg'</span>] <span class="op">-</span> df_semanal[<span class="st">'entrada_mg_kg'</span>]</span>
@@ -753,6 +755,7 @@ None</code></pre>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Porcentaje de pérdida respecto a la entrada</span></span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>df_semanal[<span class="st">'perdida_mg_pct'</span>] <span class="op">=</span> df_semanal[<span class="st">'balance_liquido_mg'</span>] <span class="op">/</span> df_semanal[<span class="st">'envio_fab_mg_kg'</span>] <span class="op">*</span> <span class="dv">100</span></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>df_semanal[<span class="st">'perdida_mp_pct'</span>] <span class="op">=</span> df_semanal[<span class="st">'balance_liquido_mp'</span>] <span class="op">/</span> df_semanal[<span class="st">'envio_fab_mp_kg'</span>] <span class="op">*</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Ahora que tenemos los cálculos completados, podemos exportar los datos semanales a una hoja de cñalculo, vía archivo intermedio CSV, para haver los gráficos y tablas que nos interesen, y visualizamos en <code>python</code>las diferencias de balance y de pérdidas.</p>
 <div id="cell-27" class="cell" data-execution_count="12">
@@ -768,7 +771,8 @@ None</code></pre>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="cell-28" class="cell" data-execution_count="13">
+<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/balance_materia_semanal.csv" target="_blank" rel="noopener noreferrer">Descargar los datos de balance de materia semanal para análisis en hoja de cálculo (archivo <code>balance_materia_semanal.csv</code>)</a></p>
+<div id="cell-29" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de las dos líneas</span></span>
@@ -797,7 +801,7 @@ None</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-29" class="cell" data-execution_count="14">
+<div id="cell-30" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de las dos líneas</span></span>
@@ -827,7 +831,7 @@ None</code></pre>
 </div>
 </div>
 <p>Hay que hacer notar que las cantidades negativas se representan en el eje de manera que las más negativas están más abajo, y la menos negativas, más arriba, más cerca del supuesto eje cero. En caso de ser necesario, se podrían representar como valores absolutos, y esto haría una representación más ajustada a lo que se suele visualizar. Por ejemplo, utilizando el método <code>.abs()</code> para representar el valor absoluto del porcentaje de pérdida:</p>
-<div id="cell-31" class="cell" data-execution_count="15">
+<div id="cell-32" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de las dos líneas</span></span>
@@ -857,7 +861,7 @@ None</code></pre>
 </div>
 </div>
 <p>Podemos completar el análisis haciendo un análisis gráfico más completo, que nos muestrela pérdida media para el período junto conuna media móvil de cuatro semanas que nos ayude a visualizar las posibles tendencias. A continuacióin, el código y la gráfica.</p>
-<div id="cell-33" class="cell" data-execution_count="16">
+<div id="cell-34" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Preparación de datos (Ejemplo para Grasa)</span></span>
