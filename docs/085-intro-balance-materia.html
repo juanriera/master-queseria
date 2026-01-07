@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; Conceptos generales – Análisis de datos industriales usando Excel y Python</title>
+<title>9&nbsp; Análisis cuantitativo de la producción quesera – Análisis de datos industriales usando Excel y Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Conceptos generales</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Análisis cuantitativo de la producción quesera</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -207,7 +207,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./085-intro-balance-materia.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Conceptos generales</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Análisis cuantitativo de la producción quesera</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -275,20 +275,21 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#etapas-en-el-proceso-de-fabricación-de-queso." id="toc-etapas-en-el-proceso-de-fabricación-de-queso." class="nav-link active" data-scroll-target="#etapas-en-el-proceso-de-fabricación-de-queso."><span class="header-section-number">9.1</span> Etapas en el proceso de fabricación de queso.</a></li>
-  <li><a href="#análisis-cuantitativo-del-proceso-quesero.-balance-de-materia-y-rendimientos." id="toc-análisis-cuantitativo-del-proceso-quesero.-balance-de-materia-y-rendimientos." class="nav-link" data-scroll-target="#análisis-cuantitativo-del-proceso-quesero.-balance-de-materia-y-rendimientos."><span class="header-section-number">9.2</span> Análisis cuantitativo del proceso quesero. Balance de materia y rendimientos.</a></li>
-  <li><a href="#las-pérdidas-de-materia-y-las-pérdidas-de-rendimiento-en-quesería" id="toc-las-pérdidas-de-materia-y-las-pérdidas-de-rendimiento-en-quesería" class="nav-link" data-scroll-target="#las-pérdidas-de-materia-y-las-pérdidas-de-rendimiento-en-quesería"><span class="header-section-number">9.3</span> Las pérdidas de materia y las pérdidas de rendimiento en quesería</a></li>
-  <li><a href="#algunos-ejemplos-de-las-posibles-causas-de-pérdidas-en-el-balance-de-materia" id="toc-algunos-ejemplos-de-las-posibles-causas-de-pérdidas-en-el-balance-de-materia" class="nav-link" data-scroll-target="#algunos-ejemplos-de-las-posibles-causas-de-pérdidas-en-el-balance-de-materia"><span class="header-section-number">9.4</span> Algunos ejemplos de las posibles causas de pérdidas en el balance de materia</a></li>
-  <li><a href="#análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable" id="toc-análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable" class="nav-link" data-scroll-target="#análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable"><span class="header-section-number">9.5</span> Análisis de datos en producción con Python: más allá del balance contable</a></li>
+  <li><a href="#un-ejemplo-de-balance-de-materia-y-cálculo-de-rendimientos." id="toc-un-ejemplo-de-balance-de-materia-y-cálculo-de-rendimientos." class="nav-link active" data-scroll-target="#un-ejemplo-de-balance-de-materia-y-cálculo-de-rendimientos."><span class="header-section-number">9.1</span> Un ejemplo de balance de materia y cálculo de rendimientos.</a></li>
+  <li><a href="#etapas-en-el-proceso-de-fabricación-de-queso." id="toc-etapas-en-el-proceso-de-fabricación-de-queso." class="nav-link" data-scroll-target="#etapas-en-el-proceso-de-fabricación-de-queso."><span class="header-section-number">9.2</span> Etapas en el proceso de fabricación de queso.</a></li>
+  <li><a href="#análisis-cuantitativo-del-proceso-quesero.-balance-de-materia-y-rendimientos." id="toc-análisis-cuantitativo-del-proceso-quesero.-balance-de-materia-y-rendimientos." class="nav-link" data-scroll-target="#análisis-cuantitativo-del-proceso-quesero.-balance-de-materia-y-rendimientos."><span class="header-section-number">9.3</span> Análisis cuantitativo del proceso quesero. Balance de materia y rendimientos.</a></li>
+  <li><a href="#las-pérdidas-de-materia-y-las-pérdidas-de-rendimiento-en-quesería" id="toc-las-pérdidas-de-materia-y-las-pérdidas-de-rendimiento-en-quesería" class="nav-link" data-scroll-target="#las-pérdidas-de-materia-y-las-pérdidas-de-rendimiento-en-quesería"><span class="header-section-number">9.4</span> Las pérdidas de materia y las pérdidas de rendimiento en quesería</a></li>
+  <li><a href="#algunos-ejemplos-de-las-posibles-causas-de-pérdidas-en-el-balance-de-materia" id="toc-algunos-ejemplos-de-las-posibles-causas-de-pérdidas-en-el-balance-de-materia" class="nav-link" data-scroll-target="#algunos-ejemplos-de-las-posibles-causas-de-pérdidas-en-el-balance-de-materia"><span class="header-section-number">9.5</span> Algunos ejemplos de las posibles causas de pérdidas en el balance de materia</a></li>
+  <li><a href="#análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable" id="toc-análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable" class="nav-link" data-scroll-target="#análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable"><span class="header-section-number">9.6</span> Análisis de datos en producción con Python: más allá del balance contable</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Conceptos generales</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Análisis cuantitativo de la producción quesera</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Conceptos generales</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Análisis cuantitativo de la producción quesera</span></h1>
 </div>
 
 
@@ -309,8 +310,20 @@ window.Quarto = {
 <p>El propósito de la tecnología quesera es <strong>optimizar esta transformación</strong>, guiando el proceso de forma que se obtenga el mejor producto posible, <strong>garantizando la calidad sanitaria, tecnológica y organoléptica</strong>, y todo ello de manera <strong>eficiente y rentable</strong>. Para lograrlo, los objetivos técnicos se centran en <strong>minimizar las pérdidas de materia</strong>, especialmente de <strong>grasa y proteína</strong>, que son los componentes clave en la formación del queso. Al mismo tiempo, se busca <strong>preservar los atributos sensoriales</strong> —como sabor, textura y aroma— y <strong>cumplir con los requisitos higiénico-sanitarios</strong> establecidos por la normativa vigente.</p>
 <p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/085-intro-balance-materia.ipynb" target="_blank" rel="noopener noreferrer">Abrir este cuaderno en Google Colab</a></p>
 <p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_bm.csv" target="_blank" rel="noopener noreferrer">Descargar los datos de ejemplo utilizados en este cuaderno (archivo <code>fab_queso_bm.csv</code>)</a></p>
-<section id="etapas-en-el-proceso-de-fabricación-de-queso." class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="etapas-en-el-proceso-de-fabricación-de-queso."><span class="header-section-number">9.1</span> Etapas en el proceso de fabricación de queso.</h2>
+<section id="un-ejemplo-de-balance-de-materia-y-cálculo-de-rendimientos." class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="un-ejemplo-de-balance-de-materia-y-cálculo-de-rendimientos."><span class="header-section-number">9.1</span> Un ejemplo de balance de materia y cálculo de rendimientos.</h2>
+<p>Supongamos que una empresa ha fabricado en un año la cantidad de 1.200.000 litros de leche de vaca, 100.000 L al mes sólo en días laborables, es decir aproximadamente unos 5.000 L diarios. Esta empresa ha elaborado un solo tipo de queso, y sus ventas han sido de unas 120 toneladas de queso. Esta empresa ¿ha fabricado bien o ha fabricado mal? ¿Cómo puede organizar su información y analizarla para saber qué mejoras puede poner en marcha y mejorar sus resultados? ¿Cómo puede compararse con otras empresas competidoras y saber si está trabajando mejor o peor que la competencia?</p>
+<p>Un consultor nos dice que el rendimiento quesero de esta fábrica es de 10 litros por kilo, para calcularlo ha dividido los litros comprados entre los kilos de queso vendido.</p>
+<p>No tenemos suficiente información para profundizar en el análisis, por lo que estudiamos sus documentos de fabricación. Revisamos sus registros de quesería y descubrimos que la leche fabricada ha sido realmente algo inferior, la suma de todas las cubas fabricadas nos dice que el quesero ha contabilizado en cuba sólo 1.164.000 litros. Es decir, entre la leche que la quesería ha comprado y la que ha enviado a fabricación, ha perdido un 3% del volumen. Profundizando en estos datos con el quesero y las personas de fábrica, descubrimos que en ocasiones hay válvulas que no cierran bien y la leche se derrama por el suelo, y que ha habido algún accidente de mangueras que no se habían conectado bien y han producido también algunos derrames.</p>
+<p>Esto nos permite alguna precisión sobre los datos iniciales: el rendimiento no puede ser de 10 litros/kilo porque hay una parte de la leche que se ha perdido <strong>antes</strong> de fabricarla. Al hablar de nuevo con el consultor, nos dice que el verdadero rendimiento ha sido de 1.164.000 litros para obtener 120.000 kilos de queso, es decir, 9,7 litros/kilo.</p>
+<p>El quesero nos da algo más de información: después de la elaboración, el queso tiene un período de maduración en cámara de 15 días, en donde el queso se seca y afina, y en consecuencia, pierde peso. Él considera que esa pérdida de peso no debería contabilizarse en el rendimiento quesero, porque el afinado del queso no está en su responsabilidad y es un proceso posterior a la fabricación. Como parece un comentario razonable, volvemos a recabar información, y obtenemos nuevos datos que nos dicen que en realidad se han introducido en las cámaras unos 145.000 kilos de queso, según las hojas de control.</p>
+<p>Es decir, se han fabricado 145.000 kilos de queso que se han puesto a madurar en cámaras y se ha envasado a los 15 días. En ese tiempo el queso ha perdido (145.000 - 120.000) = 25.000 kilos, debido a la pérdida de humedad. Esto corresponde a una merma de maduración de un 17%, aproximadamente.</p>
+<p>Con esta nueva información, concluimos que el verdadero rendimiento de la quesería ha sido de 1.164.000 litros de leche en cubas / 145.000 kilos de queso fresco = 8 litros/kilo, bastante mejor de lo que el consultor había estimado inicialmente.</p>
+<p>Resumiendo, hemos conseguido saber que esta quesería ha perdido un 3% de la leche comprada en los procesos de descarga, trasvases entre depositos y finalmente, la cuba, y, por otra parte, ha tenido un rendimiento de 8 L/kg y unas mermas de maduración en cámara de un 17% durante 15 días. Estos valores concretos son los que la quesería debe utilizar para su evaluación interna y su comparación con otras queserías.</p>
+<p>A continuación veremos cómo organizar nuestro proceso de información para ayudarnos en los cálculos de pérdidas, y en capítulos siguientes analizaremos el cálculo de rendimientos.</p>
+</section>
+<section id="etapas-en-el-proceso-de-fabricación-de-queso." class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="etapas-en-el-proceso-de-fabricación-de-queso."><span class="header-section-number">9.2</span> Etapas en el proceso de fabricación de queso.</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="01-imagenes/la-fabrica-lactalis.png" class="img-fluid figure-img"></p>
@@ -335,8 +348,8 @@ window.Quarto = {
 <p>En el proceso de obtención del queso se produce una eliminación del suero de quesería, que recogerá la mayor cantidad de la lactosa de la leche, proteínas solubles, y algo de grasa y proteína. En la mayor parte de las ocasiones, el suero es desnatado para recuperar esta materia grasa, en forma de <strong>nata de suero</strong>. Si está producida y conservada en las condiciones adecuadas, la nata de suero puede adicionarse a la leche de fabricación de la siguiente fabricación de queso en la estandarización. Este reciclado de la materia grasa ayuda a reducir las pérdidas de grasa, y es realizable siempre que el producto lo admita y no haya problemas de calidad.</p>
 <p>En resumen, todos los procesos que llevan a la elaboración de queso, constan a su vez de otros subprocesos, en los cuales se van a producir pérdidas de materia grasa y proteína en mayor o menor cantidad. Dado que en el pago por calidad de la leche, la grasa y la proteína son las materias que se valoran y son el objeto del pago, parece lógico que la optimización de la eficiencia de la elaboración de queso se enfoque en la reducción de las perdidas de materia en todas las partes del proceso.</p>
 </section>
-<section id="análisis-cuantitativo-del-proceso-quesero.-balance-de-materia-y-rendimientos." class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="análisis-cuantitativo-del-proceso-quesero.-balance-de-materia-y-rendimientos."><span class="header-section-number">9.2</span> Análisis cuantitativo del proceso quesero. Balance de materia y rendimientos.</h2>
+<section id="análisis-cuantitativo-del-proceso-quesero.-balance-de-materia-y-rendimientos." class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="análisis-cuantitativo-del-proceso-quesero.-balance-de-materia-y-rendimientos."><span class="header-section-number">9.3</span> Análisis cuantitativo del proceso quesero. Balance de materia y rendimientos.</h2>
 <p>Recapitulando lo dicho, vamos a dividir el análisis cuantitativo del proceso quesero en dos partes diferenciadas:</p>
 <ul>
 <li><strong>Balance de materia:</strong> comprende desde la recepción de la leche cruda hasta el final del proceso de elaboración, momento en que el queso está listo para entrar en la fase de maduración. Este balance permite evaluar el rendimiento general y detectar posibles pérdidas o desviaciones. Como hemos visto, lo dividimos en dos partes, el <strong>balance líquido</strong> y el <strong>balance de producción</strong>. La función del balance de materia es <strong>estimar las pérdidas de materia</strong> alo largo de las fases del proceso quesero.</li>
@@ -354,8 +367,8 @@ window.Quarto = {
 <li>La valoración del balance de materia, el rendimiento y las pérdidas a partir del precio de la leche.</li>
 </ul>
 </section>
-<section id="las-pérdidas-de-materia-y-las-pérdidas-de-rendimiento-en-quesería" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="las-pérdidas-de-materia-y-las-pérdidas-de-rendimiento-en-quesería"><span class="header-section-number">9.3</span> Las pérdidas de materia y las pérdidas de rendimiento en quesería</h2>
+<section id="las-pérdidas-de-materia-y-las-pérdidas-de-rendimiento-en-quesería" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="las-pérdidas-de-materia-y-las-pérdidas-de-rendimiento-en-quesería"><span class="header-section-number">9.4</span> Las pérdidas de materia y las pérdidas de rendimiento en quesería</h2>
 <p>Los procesos de preparación de leche y fabricación que tienen lugar en una fábrica de queso, pueden esquematizarse así:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -384,8 +397,8 @@ Existencia\ inicial + Entradas = Salidas + Existencia\ final \pm Pérdidas
 </figure>
 </div>
 </section>
-<section id="algunos-ejemplos-de-las-posibles-causas-de-pérdidas-en-el-balance-de-materia" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="algunos-ejemplos-de-las-posibles-causas-de-pérdidas-en-el-balance-de-materia"><span class="header-section-number">9.4</span> Algunos ejemplos de las posibles causas de pérdidas en el balance de materia</h2>
+<section id="algunos-ejemplos-de-las-posibles-causas-de-pérdidas-en-el-balance-de-materia" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="algunos-ejemplos-de-las-posibles-causas-de-pérdidas-en-el-balance-de-materia"><span class="header-section-number">9.5</span> Algunos ejemplos de las posibles causas de pérdidas en el balance de materia</h2>
 <p>Llamamos <strong>pérdidas de balance</strong> sólo aquellas que son diferencias entre entradas y salidas. Por ejemplo, pérdidas de finos bien medidas en el suero pueden no ser una pérdida de balance si están bien contabilizadas, es decir, la cantidad de materia en los finos está bien pesada y analizada, y no hay diferencias entre entradas y salidas. Sin embargo, son pérdidas de rendimiento porque esos finos no se recuperan en el queso.</p>
 <p>Entre las diversas causas de pérdidas en el balance líquido, podemos considerar:</p>
 <ul>
@@ -402,8 +415,8 @@ Existencia\ inicial + Entradas = Salidas + Existencia\ final \pm Pérdidas
 </ul>
 <p>El trabajo del tecnólogo quesero consistirá en identificar las causas específicas de las pérdidas en su caso concreto, y proponer y aplicar planes de acción para reducirlas.</p>
 </section>
-<section id="análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable"><span class="header-section-number">9.5</span> Análisis de datos en producción con Python: más allá del balance contable</h2>
+<section id="análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="análisis-de-datos-en-producción-con-python-más-allá-del-balance-contable"><span class="header-section-number">9.6</span> Análisis de datos en producción con Python: más allá del balance contable</h2>
 <p>Cuando realizamos un balance de materia en una fábrica o calculamos los rendimientos, no lo hacemos con un enfoque contable o notarial, cuyo objetivo principal es dejar constancia del resultado. Aunque registrar los datos es importante, lo que realmente necesita un técnico o ingeniero de producción es otra cosa: poder revisar esos resultados a lo largo del tiempo, analizar tendencias y cruzar la información con otras variables que ayuden a entender por qué se obtuvieron esos resultados.</p>
 <p>En un entorno de mejora continua, el análisis de resultados no es un fin en sí mismo, sino una herramienta clave para progresar. El objetivo es reducir las pérdidas de materia y comprender mejor los procesos tecnológicos que las generan, con la intención de modificarlos y corregirlos.</p>
 <p>Herramientas como Python permiten trabajar con los datos de forma progresiva y creativa. Podemos agruparlos por fechas, aplicar distintos criterios de análisis y explorar dinámica y gráficamente nuevas perspectivas que quizás no habíamos considerado al inicio. Muchas veces, es durante el análisis cuando surgen las preguntas más interesantes.</p>
