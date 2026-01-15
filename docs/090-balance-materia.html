@@ -284,7 +284,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#caso-de-una-fabricación-sencilla-de-un-tipo-de-leche" id="toc-caso-de-una-fabricación-sencilla-de-un-tipo-de-leche" class="nav-link active" data-scroll-target="#caso-de-una-fabricación-sencilla-de-un-tipo-de-leche"><span class="header-section-number">10.1</span> Caso de una fabricación sencilla de un tipo de leche</a></li>
+  <li><a href="#caso-de-una-fabricación-sencilla-de-un-tipo-de-leche" id="toc-caso-de-una-fabricación-sencilla-de-un-tipo-de-leche" class="nav-link active" data-scroll-target="#caso-de-una-fabricación-sencilla-de-un-tipo-de-leche"><span class="header-section-number">10.1</span> Caso de una fabricación sencilla de un tipo de leche</a>
+  <ul class="collapse">
+  <li><a href="#descripción-del-caso" id="toc-descripción-del-caso" class="nav-link" data-scroll-target="#descripción-del-caso">Descripción del caso</a></li>
+  </ul></li>
   <li><a href="#otros-casos-más-complejos-mezclas-de-leche-estandarizaciones-diferentes-ventas-de-materia-y-otras-situaciones" id="toc-otros-casos-más-complejos-mezclas-de-leche-estandarizaciones-diferentes-ventas-de-materia-y-otras-situaciones" class="nav-link" data-scroll-target="#otros-casos-más-complejos-mezclas-de-leche-estandarizaciones-diferentes-ventas-de-materia-y-otras-situaciones"><span class="header-section-number">10.2</span> Otros casos más complejos: mezclas de leche, estandarizaciones diferentes, ventas de materia y otras situaciones</a></li>
   </ul>
 </nav>
@@ -311,14 +314,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>En cualquier empresa quesera, con independencia de su tamaño, una de las primeras y más básicas cosas a realizar es un análisis del balance global de la elaboración quesera. Para un período determinado, que como primera aproximación, puede ser anual, se trata de conocer el balance entre la leche comprada y el queso producido, tanto en materia grasa como en proteína. Dado que toda la materia que no esté en el queso no puede ser vendida, no recuperaremos el coste de materia de las pérdidas (el suero de quesería ya no es un ingreso por venta; en la actualidad, en la mayor parte de los casos el suero es recogido a valor cero por las empresas que se encargan del secado de suero, con el valor del transporte como elemento de negociación).</p>
-<p>En nuestro ejemplo, los datos que vamos a utilizar están registrados en ficheros de datos en formato <code>CSV</code>, que incluyen las entradas de leche en fábrica y el envío a fabricación, con sus las analíticas correspondientes.</p>
-<p>Analizaremos el conjunto de datos con <code>python</code> y Excel, siguiendo nuestra línea de trabajo.</p>
 <p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/090-balance-materia.ipynb" target="_blank" rel="noopener noreferrer">Abrir este cuaderno en Google Colab</a></p>
 <p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_sim.csv" target="_blank" rel="noopener noreferrer">Descargar los datos de ejemplo utilizados en este cuaderno (archivo <code>fab_queso_sim.csv</code>)</a></p>
 <section id="caso-de-una-fabricación-sencilla-de-un-tipo-de-leche" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="caso-de-una-fabricación-sencilla-de-un-tipo-de-leche"><span class="header-section-number">10.1</span> Caso de una fabricación sencilla de un tipo de leche</h2>
-<p>Comenzaremos con el caso más simple, en el que se utiliza un solo tipo de leche, que no se estandariza en MG ni en MP, y se envía a fabricación después de pasteurización.</p>
+<p>Comenzaremos con el caso más simple, en el que se utiliza un solo tipo de leche, que no se estandariza en MG ni en MP, y se envía a fabricación después de pasteurización. En nuestro ejemplo, los datos que vamos a utilizar están registrados en ficheros de datos en formato <code>CSV</code>, que incluyen las entradas de leche en fábrica y el envío a fabricación, con sus las analíticas correspondientes. Analizaremos el conjunto de datos con <code>python</code> y Excel, siguiendo nuestra línea de trabajo.</p>
+<section id="descripción-del-caso" class="level3">
+<h3 class="anchored" data-anchor-id="descripción-del-caso">Descripción del caso</h3>
 <p>En esta quesería, se recibe leche de vaca de domingo a jueves, y se fabrica de lunes a viernes. De lunes a jueves se fabrican unos 5000 L de manera bastante regular, y los viernes se fabrica el resto de leche para que el stock quede a cero el fin de semana.</p>
 <p>Los movimientos diarios de compra de leche y de envío a fabricación se recogen en un fichero csv organizado según los principios de <em>tidy data</em>.</p>
 <p>La leche se recibe en una cisterna, se pesa en báscula, con lo que se dispone de los kilos de leche que se dan de entrada; se convierten a litros utilizando una densidad estándar de 1,030 g/ml Se hacen análisis a recepción de materia grasa y proteína en g/L.</p>
@@ -907,6 +909,7 @@ None</code></pre>
 </div>
 </div>
 <p>Con este análisis, ahora tenemos que interpretar los resultados y establecer los planes de trabajo necesarios para comprender dónde y cómo se producen nuestras pérdidas y cómo podemos evitarlas.</p>
+</section>
 </section>
 <section id="otros-casos-más-complejos-mezclas-de-leche-estandarizaciones-diferentes-ventas-de-materia-y-otras-situaciones" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="otros-casos-más-complejos-mezclas-de-leche-estandarizaciones-diferentes-ventas-de-materia-y-otras-situaciones"><span class="header-section-number">10.2</span> Otros casos más complejos: mezclas de leche, estandarizaciones diferentes, ventas de materia y otras situaciones</h2>
