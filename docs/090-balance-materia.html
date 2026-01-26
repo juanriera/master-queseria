@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; El balance de materia – Análisis de datos industriales usando Excel y Python</title>
+<title>10&nbsp; El balance de materia: análisis de un caso simple – Análisis de datos industriales usando Excel y Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./090-balance-materia.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El balance de materia</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./090-balance-materia.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El balance de materia: análisis de un caso simple</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -154,7 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Introducción</span></a>
+ <span class="menu-text">Herramientas y técnicas básicas</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -222,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./090-balance-materia.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El balance de materia</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El balance de materia: análisis de un caso simple</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -284,10 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#caso-de-una-fabricación-sencilla-de-un-tipo-de-leche" id="toc-caso-de-una-fabricación-sencilla-de-un-tipo-de-leche" class="nav-link active" data-scroll-target="#caso-de-una-fabricación-sencilla-de-un-tipo-de-leche"><span class="header-section-number">10.1</span> Caso de una fabricación sencilla de un tipo de leche</a>
-  <ul class="collapse">
-  <li><a href="#descripción-del-caso" id="toc-descripción-del-caso" class="nav-link" data-scroll-target="#descripción-del-caso">Descripción del caso</a></li>
-  </ul></li>
+  <li><a href="#descripción-del-caso" id="toc-descripción-del-caso" class="nav-link active" data-scroll-target="#descripción-del-caso"><span class="header-section-number">10.1</span> Descripción del caso</a></li>
   <li><a href="#otros-casos-más-complejos-mezclas-de-leche-estandarizaciones-diferentes-ventas-de-materia-y-otras-situaciones" id="toc-otros-casos-más-complejos-mezclas-de-leche-estandarizaciones-diferentes-ventas-de-materia-y-otras-situaciones" class="nav-link" data-scroll-target="#otros-casos-más-complejos-mezclas-de-leche-estandarizaciones-diferentes-ventas-de-materia-y-otras-situaciones"><span class="header-section-number">10.2</span> Otros casos más complejos: mezclas de leche, estandarizaciones diferentes, ventas de materia y otras situaciones</a></li>
   </ul>
 </nav>
@@ -295,9 +292,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./090-balance-materia.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El balance de materia</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./085-intro-balance-materia.html">Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./090-balance-materia.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El balance de materia: análisis de un caso simple</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El balance de materia</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El balance de materia: análisis de un caso simple</span></h1>
 </div>
 
 
@@ -314,22 +311,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>Comenzaremos con un caso simple, en el que se utiliza un solo tipo de leche, que no se estandariza en MG ni en MP, y se envía a fabricación después de pasteurización. En nuestro ejemplo, los datos que vamos a utilizar están registrados en ficheros de datos en formato <code>CSV</code>, que incluyen las entradas de leche en fábrica y el envío a fabricación, con sus las analíticas correspondientes. Analizaremos el conjunto de datos con <code>python</code> y Excel, siguiendo nuestra línea de trabajo.</p>
 <p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/090-balance-materia.ipynb" target="_blank" rel="noopener noreferrer">Abrir este cuaderno en Google Colab</a></p>
 <p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_sim.csv" target="_blank" rel="noopener noreferrer">Descargar los datos de ejemplo utilizados en este cuaderno (archivo <code>fab_queso_sim.csv</code>)</a></p>
-<section id="caso-de-una-fabricación-sencilla-de-un-tipo-de-leche" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="caso-de-una-fabricación-sencilla-de-un-tipo-de-leche"><span class="header-section-number">10.1</span> Caso de una fabricación sencilla de un tipo de leche</h2>
-<p>Comenzaremos con el caso más simple, en el que se utiliza un solo tipo de leche, que no se estandariza en MG ni en MP, y se envía a fabricación después de pasteurización. En nuestro ejemplo, los datos que vamos a utilizar están registrados en ficheros de datos en formato <code>CSV</code>, que incluyen las entradas de leche en fábrica y el envío a fabricación, con sus las analíticas correspondientes. Analizaremos el conjunto de datos con <code>python</code> y Excel, siguiendo nuestra línea de trabajo.</p>
-<section id="descripción-del-caso" class="level3">
-<h3 class="anchored" data-anchor-id="descripción-del-caso">Descripción del caso</h3>
+<section id="descripción-del-caso" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="descripción-del-caso"><span class="header-section-number">10.1</span> Descripción del caso</h2>
 <p>En esta quesería, se recibe leche de vaca de domingo a jueves, y se fabrica de lunes a viernes. De lunes a jueves se fabrican unos 5000 L de manera bastante regular, y los viernes se fabrica el resto de leche para que el stock quede a cero el fin de semana.</p>
 <p>Los movimientos diarios de compra de leche y de envío a fabricación se recogen en un fichero csv organizado según los principios de <em>tidy data</em>.</p>
 <p>La leche se recibe en una cisterna, se pesa en báscula, con lo que se dispone de los kilos de leche que se dan de entrada; se convierten a litros utilizando una densidad estándar de 1,030 g/ml Se hacen análisis a recepción de materia grasa y proteína en g/L.</p>
-<p>Diariamente, se envía una cantidad fija de leche a fabricación de lunes a viernes, medida en litros, y con análisis de grasa y proteína en g/L.</p>
+<p>Diariamente, se envía una cantidad más o menos fija de leche a fabricación, de lunes a viernes, medida en litros, y con análisis de grasa y proteína en g/L.</p>
 <p>No se hace control diario de existencias; la leche se recibe sobre un tanque de recepción en el que puede quedar algún resto de leche de un día para otro, no tiene por qué enviarse a fabricación cada día el 100% de la entrada. Pero la fabricación del viernes debe recoger el 100% de la leche existente, de forma que las existencias queden a cero y el lunes se empiece sin stock.</p>
 <p>Entre las entradas y el envío a fabricación hay pérdidas de materia y simultáneamente un incremento de volumen por arrastres de agua.</p>
 <p>Debido a que las entradas para la fabricación semanal tienen lugar el domingo, se considera una semana de domingo a sábado (la semana ISo es lunes a domingo)</p>
 <p>El fichero de datos que utilizaremos acumula las recepciones y fabricación de unas 25 semanas completas. Veamos el encabezado de los datos:</p>
-<div id="cell-7" class="cell" data-execution_count="2">
+<div id="cell-6" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -433,7 +428,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Verificamos la información del dataframe</p>
-<div id="cell-9" class="cell" data-execution_count="3">
+<div id="cell-8" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -461,34 +456,34 @@ None</code></pre>
 </div>
 </div>
 <p>Comno vemos en la información del <em>dataframe</em>, el fichero CSV incluye la fecha del movimiento (fecha, día de las semana y numero de semana), el peso de báscula de la cisterna de entrada, la conversión en litros, y el envío a fabricación, también en litros; además. las diversas analíticas. Por comodidad y para evitar errores de medida y de muestreo (desigual reparto de la MG), la fábrica utiliza la densidad estándar de 1,030 g/ml de leche para convertir los kilos de leche en litros, como hemos dicho. Tenemos una columna con el stock diario, que no controlamos analíticamente.</p>
-<p>Vamos a convertir la columna <code>fecha</code> a formato <em>datetime</em>, y añadimos al dataframe un campo índice con las fechas, que ordenamos por fecha. Nos interesa mantener la columna <code>fecha</code> en el <em>dataframe</em> en caso de que queramos hacer gráficos con <code>seaborn</code>.</p>
-<div id="cell-12" class="cell" data-execution_count="4">
+<p>Podríamos calcular directamente mediante funciones <code>python</code> o fórmulas Excel las columnas <code>dia_semana</code> y <code>semana</code>, pero nuestro sistema de información ya nos proporciona estos datos.</p>
+<p>Para el análisis en <code>python</code>, vamos a convertir la columna <code>fecha</code> a formato <em>datetime</em>, y añadimos al dataframe un campo índice con las fechas, que ordenamos por fecha. Nos interesa mantener la columna <code>fecha</code> en el <em>dataframe</em> en caso de que queramos hacer gráficos con <code>seaborn</code>.</p>
+<div id="cell-10" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># formato de fecha a la columna 'fecha'</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha'</span>] <span class="op">=</span> pd.to_datetime(</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dayfirst=True,      # las fechas empiezan con el dia </span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,  <span class="co"># Formato Día/Mes/Año confirmado</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span>     <span class="co"># Clave: convierte los valores que no puede leer a NaT (Not a Time)</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># crear index con fecha</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Limpiar NaT y establecer el índice</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>] <span class="op">=</span> df[<span class="st">'fecha'</span>]</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>df.dropna(subset<span class="op">=</span>[<span class="st">'fecha_index'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>],  </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,  <span class="co"># Formato Día/Mes/Año </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    errors<span class="op">=</span><span class="st">'coerce'</span>     <span class="co"># Clave: convierte los valores que no puede leer a NaT (Not a Time)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># crear index con fecha</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Limpiar NaT y establecer el índice</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>] <span class="op">=</span> df[<span class="st">'fecha'</span>]</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>df.dropna(subset<span class="op">=</span>[<span class="st">'fecha_index'</span>], inplace<span class="op">=</span><span class="va">True</span>) <span class="co"># eliminamos los casos en los que no hay una fecha correcta</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Ahora calculamos los totales de materia que han entrado en la quesería y los envíos a fabricación</p>
-<div id="cell-14" class="cell" data-execution_count="5">
+<p>Ahora calculamos los totales de materia que han entrado en la quesería y los envíos a fabricación, añadiendo nuevas columnas sobre la marcha.</p>
+<div id="cell-12" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'entrada_mg_kg'</span>] <span class="op">=</span>  df[<span class="st">'entrada_litros'</span>] <span class="op">*</span> df[<span class="st">'entrada_grasa_g_l'</span>]<span class="op">/</span><span class="dv">1000</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'entrada_mp_kg'</span>] <span class="op">=</span>  df[<span class="st">'entrada_litros'</span>] <span class="op">*</span> df[<span class="st">'entrada_prot_g_l'</span>]<span class="op">/</span><span class="dv">1000</span></span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'entrada_mg_kg'</span>] <span class="op">=</span>  df[<span class="st">'entrada_litros'</span>] <span class="op">*</span> df[<span class="st">'entrada_grasa_g_l'</span>]<span class="op">/</span><span class="dv">1000</span> <span class="co"># nueva columna de total</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'entrada_mp_kg'</span>] <span class="op">=</span>  df[<span class="st">'entrada_litros'</span>] <span class="op">*</span> df[<span class="st">'entrada_prot_g_l'</span>]<span class="op">/</span><span class="dv">1000</span>  <span class="co"># nueva columna de total</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'envio_fab_mg_kg'</span>] <span class="op">=</span>  df[<span class="st">'envio_fab_litros'</span>] <span class="op">*</span> df[<span class="st">'envio_fab_grasa_g_l'</span>]<span class="op">/</span><span class="dv">1000</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'envio_fab_mp_kg'</span>] <span class="op">=</span>  df[<span class="st">'envio_fab_litros'</span>] <span class="op">*</span> df[<span class="st">'envio_fab_prot_g_l'</span>]<span class="op">/</span><span class="dv">1000</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'envio_fab_mg_kg'</span>] <span class="op">=</span>  df[<span class="st">'envio_fab_litros'</span>] <span class="op">*</span> df[<span class="st">'envio_fab_grasa_g_l'</span>]<span class="op">/</span><span class="dv">1000</span> <span class="co"># nueva columna de total</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'envio_fab_mp_kg'</span>] <span class="op">=</span>  df[<span class="st">'envio_fab_litros'</span>] <span class="op">*</span> df[<span class="st">'envio_fab_prot_g_l'</span>]<span class="op">/</span><span class="dv">1000</span>  <span class="co"># nueva columna de total</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Llenamos posibles valores vacíos (NaN) con 0 por seguridad antes de agrupar</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>columnas_a_limpiar <span class="op">=</span> [<span class="st">'entrada_mg_kg'</span>, <span class="st">'entrada_mp_kg'</span>, <span class="st">'envio_fab_mg_kg'</span>, <span class="st">'envio_fab_mp_kg'</span>]</span>
@@ -496,13 +491,13 @@ None</code></pre>
 </details>
 </div>
 <p>Como las existencias de leche quedan siempre a cero en fin de semana (los viernes), podemos totalizar las entradas en fábrica por semanas, para comparar con los envíos a fabricación y hacer el balance de materia correspondiente. Creamos un nuevo dataframe para organizar esta información semanal.</p>
-<div id="cell-16" class="cell" data-execution_count="6">
+<div id="cell-14" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_semanal <span class="op">=</span> (</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    df.drop(columns<span class="op">=</span>[<span class="st">'dia_semana'</span>, <span class="st">'fecha'</span>, <span class="st">'semana'</span>]) <span class="co"># Eliminamos la columna con el día de la semana, la semana y la fecha diaria que no necesitamos</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    .resample(<span class="st">'W-SUN'</span>, closed<span class="op">=</span><span class="st">'left'</span>, label<span class="op">=</span><span class="st">'left'</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    df.drop(columns<span class="op">=</span>[<span class="st">'dia_semana'</span>, <span class="st">'fecha'</span>, <span class="st">'semana'</span>]) <span class="co"># Eliminamos las columnas con el día de la semana, la semana y la fecha diaria que no necesitamos</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    .resample(<span class="st">'W-SUN'</span>, closed<span class="op">=</span><span class="st">'left'</span>, label<span class="op">=</span><span class="st">'left'</span>) <span class="co"># definimos las semanas desde el domingo, ya que la entrada de leche empieza ese día</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>() <span class="co"># totalizamos la suma agrupando por la semana que acabamos de definir</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos de nuevo la columna 'semana' a partir del índice de tiempo</span></span>
@@ -643,7 +638,7 @@ None</code></pre>
 </div>
 </div>
 <p>Ahora podemos visualizar gráficamente nuestras entradas semanales de leche, tanto de litros como de grasa y proteína.</p>
-<div id="cell-18" class="cell" data-execution_count="7">
+<div id="cell-16" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización</span></span>
@@ -664,7 +659,7 @@ None</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-19" class="cell" data-execution_count="8">
+<div id="cell-17" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de las dos líneas</span></span>
@@ -694,7 +689,7 @@ None</code></pre>
 </div>
 </div>
 <p>También podemos visualizar los envíos a fabricación, en litros y por componentes de materia.</p>
-<div id="cell-21" class="cell" data-execution_count="9">
+<div id="cell-19" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización</span></span>
@@ -715,7 +710,7 @@ None</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-22" class="cell" data-execution_count="10">
+<div id="cell-20" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de las dos líneas</span></span>
@@ -746,7 +741,7 @@ None</code></pre>
 </div>
 <hr>
 <p>Ahora podemos hacer el balance de materia semanal, calculando la desviación semanal entre entradas y salidas, y lo que representa esta pÉrdida en porcentaje respecto a la entrada de materia.</p>
-<div id="cell-25" class="cell" data-execution_count="11">
+<div id="cell-23" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Balance de Materia (Salida - Entrada)</span></span>
@@ -760,7 +755,7 @@ None</code></pre>
 </details>
 </div>
 <p>Ahora que tenemos los cálculos completados, podemos exportar los datos semanales a una hoja de cñalculo, vía archivo intermedio CSV, para haver los gráficos y tablas que nos interesen, y visualizamos en <code>python</code>las diferencias de balance y de pérdidas.</p>
-<div id="cell-27" class="cell" data-execution_count="12">
+<div id="cell-25" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar optimizado para Excel en español</span></span>
@@ -774,7 +769,7 @@ None</code></pre>
 </details>
 </div>
 <p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/balance_materia_semanal.csv" target="_blank" rel="noopener noreferrer">Descargar los datos de balance de materia semanal para análisis en hoja de cálculo (archivo <code>balance_materia_semanal.csv</code>)</a></p>
-<div id="cell-29" class="cell" data-execution_count="13">
+<div id="cell-27" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de las dos líneas</span></span>
@@ -803,7 +798,7 @@ None</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-30" class="cell" data-execution_count="14">
+<div id="cell-28" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de las dos líneas</span></span>
@@ -833,7 +828,7 @@ None</code></pre>
 </div>
 </div>
 <p>Hay que hacer notar que las cantidades negativas se representan en el eje de manera que las más negativas están más abajo, y la menos negativas, más arriba, más cerca del supuesto eje cero. En caso de ser necesario, se podrían representar como valores absolutos, y esto haría una representación más ajustada a lo que se suele visualizar. Por ejemplo, utilizando el método <code>.abs()</code> para representar el valor absoluto del porcentaje de pérdida:</p>
-<div id="cell-32" class="cell" data-execution_count="15">
+<div id="cell-30" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de las dos líneas</span></span>
@@ -862,8 +857,8 @@ None</code></pre>
 </div>
 </div>
 </div>
-<p>Podemos completar el análisis haciendo un análisis gráfico más completo, que nos muestrela pérdida media para el período junto conuna media móvil de cuatro semanas que nos ayude a visualizar las posibles tendencias. A continuacióin, el código y la gráfica.</p>
-<div id="cell-34" class="cell" data-execution_count="16">
+<p>Podemos completar el análisis haciendo un análisis gráfico más completo, que nos muestre la pérdida media para el período junto con una media móvil de cuatro semanas que nos ayude a visualizar las posibles tendencias.</p>
+<div id="cell-32" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Mostrar código</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Preparación de datos (Ejemplo para Grasa)</span></span>
@@ -908,8 +903,7 @@ None</code></pre>
 </div>
 </div>
 </div>
-<p>Con este análisis, ahora tenemos que interpretar los resultados y establecer los planes de trabajo necesarios para comprender dónde y cómo se producen nuestras pérdidas y cómo podemos evitarlas.</p>
-</section>
+<p>Una vez hecho el análisis, ahora tenemos que interpretar y explicar los resultados, y establecer los planes de trabajo necesarios para comprender dónde y cómo se producen nuestras pérdidas y cómo podemos evitarlas, o, al menos, reducirlas.</p>
 </section>
 <section id="otros-casos-más-complejos-mezclas-de-leche-estandarizaciones-diferentes-ventas-de-materia-y-otras-situaciones" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="otros-casos-más-complejos-mezclas-de-leche-estandarizaciones-diferentes-ventas-de-materia-y-otras-situaciones"><span class="header-section-number">10.2</span> Otros casos más complejos: mezclas de leche, estandarizaciones diferentes, ventas de materia y otras situaciones</h2>

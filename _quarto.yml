@@ -16,7 +16,7 @@ book:
     collapse-level: 1
   chapters:
     - index.qmd
-    - part: "Introducción"
+    - part: "Herramientas y técnicas básicas"
       chapters: 
       - 020-estad-entorno.qmd
       - 030-herramientas.qmd
