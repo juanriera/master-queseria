@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.27">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Apéndice A — La media aritmética como centro de gravedad de un grupo de datos – Análisis de datos industriales usando Excel y Python</title>
+<title>9&nbsp; El pago de la leche por calidad en España – Análisis de datos industriales usando Excel y Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./810-bibliografia.html" rel="next">
-<link href="./100-precio-leche.html" rel="prev">
+<link href="./800-media-centro-gravedad.html" rel="next">
+<link href="./080-pract01-camembert.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -56,17 +56,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No se han encontrado resultados",
-    "search-matching-documents-text": "documentos encontrados",
-    "search-copy-link-title": "Copiar el enlace en la búsqueda",
-    "search-hide-matches-text": "Ocultar resultados adicionales",
-    "search-more-match-text": "resultado adicional en este documento",
-    "search-more-matches-text": "resultados adicionales en este documento",
-    "search-clear-button-title": "Borrar",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar",
-    "search-label": "Buscar"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -108,13 +108,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./800-media-centro-gravedad.html">Anexos</a></li><li class="breadcrumb-item"><a href="./800-media-centro-gravedad.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./100-precio-leche.html">Aplicaciones practicas: Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./100-precio-leche.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El pago de la leche por calidad en España</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -131,7 +131,7 @@ window.Quarto = {
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Buscar"></div>
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -146,7 +146,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Herramientas y técnicas básicas</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -197,16 +197,16 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Aplicaciones practicas: Análisis cuantitativo de la producción quesera</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./100-precio-leche.html" class="sidebar-item-text sidebar-link">
+  <a href="./100-precio-leche.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El pago de la leche por calidad en España</span></span></a>
   </div>
 </li>
@@ -214,16 +214,16 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Anexos</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./800-media-centro-gravedad.html" class="sidebar-item-text sidebar-link active">
+  <a href="./800-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
   </div>
 </li>
@@ -248,27 +248,23 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Tabla de contenidos</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link active" data-scroll-target="#ejemplo">Ejemplo</a></li>
-  <li><a href="#paso-a-paso" id="toc-paso-a-paso" class="nav-link" data-scroll-target="#paso-a-paso">Paso a Paso</a></li>
-  <li><a href="#ejemplo-práctico" id="toc-ejemplo-práctico" class="nav-link" data-scroll-target="#ejemplo-práctico">Ejemplo Práctico</a></li>
-  <li><a href="#media-ponderada" id="toc-media-ponderada" class="nav-link" data-scroll-target="#media-ponderada">Media Ponderada</a></li>
-  <li><a href="#centro-de-gravedad-como-media-ponderada" id="toc-centro-de-gravedad-como-media-ponderada" class="nav-link" data-scroll-target="#centro-de-gravedad-como-media-ponderada">Centro de Gravedad como Media Ponderada</a></li>
-  <li><a href="#ejemplo-numérico" id="toc-ejemplo-numérico" class="nav-link" data-scroll-target="#ejemplo-numérico">Ejemplo Numérico</a></li>
-  <li><a href="#media-aritmética-y-centro-de-gravedad-con-masas-idénticas" id="toc-media-aritmética-y-centro-de-gravedad-con-masas-idénticas" class="nav-link" data-scroll-target="#media-aritmética-y-centro-de-gravedad-con-masas-idénticas">Media Aritmética y Centro de Gravedad con Masas Idénticas</a></li>
-  <li><a href="#conclusión" id="toc-conclusión" class="nav-link" data-scroll-target="#conclusión">Conclusión</a></li>
-  <li><a href="#importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos" id="toc-importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos" class="nav-link" data-scroll-target="#importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos"><span class="header-section-number">A.1</span> Importancia del concepto de la media como centro de gravedad o punto de equilibrio de un conjunto de datos</a></li>
+  <li><a href="#conceptos-clave-del-pago-por-calidad" id="toc-conceptos-clave-del-pago-por-calidad" class="nav-link active" data-scroll-target="#conceptos-clave-del-pago-por-calidad">Conceptos clave del pago por calidad</a></li>
+  <li><a href="#aplicación-práctica-ejemplo-de-cálculo" id="toc-aplicación-práctica-ejemplo-de-cálculo" class="nav-link" data-scroll-target="#aplicación-práctica-ejemplo-de-cálculo">Aplicación práctica: ejemplo de cálculo</a></li>
+  <li><a href="#la-conversión-del-precio-por-litro-en-los-costes-totales-de-materia-prima-grasa-y-proteína." id="toc-la-conversión-del-precio-por-litro-en-los-costes-totales-de-materia-prima-grasa-y-proteína." class="nav-link" data-scroll-target="#la-conversión-del-precio-por-litro-en-los-costes-totales-de-materia-prima-grasa-y-proteína.">La conversión del precio por litro en los costes totales de materia prima, grasa y proteína.</a></li>
+  <li><a href="#cálculo-del-precio-de-la-leche-mediante-la-hoja-de-cálculo." id="toc-cálculo-del-precio-de-la-leche-mediante-la-hoja-de-cálculo." class="nav-link" data-scroll-target="#cálculo-del-precio-de-la-leche-mediante-la-hoja-de-cálculo."><span class="header-section-number">9.1</span> Cálculo del precio de la leche mediante la hoja de cálculo.</a></li>
+  <li><a href="#construcción-del-precio-de-la-materia-grasa-y-la-proteína-a-partir-del-precio-de-la-leche" id="toc-construcción-del-precio-de-la-materia-grasa-y-la-proteína-a-partir-del-precio-de-la-leche" class="nav-link" data-scroll-target="#construcción-del-precio-de-la-materia-grasa-y-la-proteína-a-partir-del-precio-de-la-leche"><span class="header-section-number">9.2</span> Construcción del precio de la materia grasa y la proteína a partir del precio de la leche</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./800-media-centro-gravedad.html">Anexos</a></li><li class="breadcrumb-item"><a href="./800-media-centro-gravedad.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./100-precio-leche.html">Aplicaciones practicas: Análisis cuantitativo de la producción quesera</a></li><li class="breadcrumb-item"><a href="./100-precio-leche.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El pago de la leche por calidad en España</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Apéndice A — La media aritmética como centro de gravedad de un grupo de datos</h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El pago de la leche por calidad en España</span></h1>
 </div>
 
 
@@ -285,184 +281,214 @@ window.Quarto = {
 </header>
 
 
-<p>Para ver cómo la media aritmética equivale al punto de equilibrio o centro de gravedad de un grupo de datos, imaginaremos que tenemos un conjunto de datos cuyos valores se distribuyen en un eje longitudinal X. Podemos hacer equivalentes estos valores a un conjunto de pesos que se distribuyen a lo largo de una barra, y vamos a suponer que existe un punto a una distancia <span class="math inline">\(d_i\)</span> del origen de la barra en el cual dicha barra está en equilibrio. Para encontrar ese valor, empezaremos considerando el principio o ley de la palanca.</p>
-<p>El <strong>Principio de la Palanca</strong> o la <strong>Ley de la Palanca</strong> fue formulada por el científico y matemático griego Arquímedes. Este principio dice que, en equilibrio, el producto de la fuerza aplicada (potencia) por su distancia al punto de apoyo (brazo de la potencia) es igual al producto de la resistencia por su distancia al punto de apoyo (brazo de la resistencia). Matemáticamente, se expresa como: <span class="math display">\[
-P \cdot d_p = R \cdot d_r
-\]</span></p>
-<p>Donde:</p>
+<p>El pago por calidad de la leche de vaca en España se basa en parámetros físico-químicos y sanitarios como la materia grasa (MG), materia proteica (MP), células somáticas y bacterias. Estos factores determinan el precio final que recibe el ganadero por litro entregado.</p>
+<section id="conceptos-clave-del-pago-por-calidad" class="level3">
+<h3 class="anchored" data-anchor-id="conceptos-clave-del-pago-por-calidad">Conceptos clave del pago por calidad</h3>
+<p>El sistema de pago por calidad busca incentivar la producción de leche con mejores características nutricionales e higiénicas. Los principales criterios son:</p>
+<section id="composición-química" class="level4">
+<h4 class="anchored" data-anchor-id="composición-química">1. <strong>Composición química</strong></h4>
 <ul>
-<li><span class="math inline">\(P\)</span> es la potencia o fuerza aplicada.</li>
-<li><span class="math inline">\(d_p\)</span> es la distancia desde el punto de apoyo hasta el punto donde se aplica la potencia.</li>
-<li><span class="math inline">\(R\)</span> es la resistencia o carga.</li>
-<li><span class="math inline">\(d_r\)</span> es la distancia desde el punto de apoyo hasta el punto donde se aplica la resistencia.</li>
+<li><strong>Materia Grasa (MG)</strong>: Aporta valor energético. Cuanto mayor el porcentaje, mayor el precio.</li>
+<li><strong>Materia Proteica (MP)</strong>: Indicador de calidad nutricional. Muy valorada por la industria quesera.</li>
+<li><strong>Urea</strong>: Indicador del equilibrio nutricional de la dieta del ganado.</li>
 </ul>
-<div id="fig-palanca" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01-imagenes/palanca.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;A.1: Palanca de primer grado con el fulcro como punto de equilibrio
-</figcaption>
+</section>
+<section id="calidad-higiénico-sanitaria" class="level4">
+<h4 class="anchored" data-anchor-id="calidad-higiénico-sanitaria">2. <strong>Calidad higiénico-sanitaria</strong></h4>
+<ul>
+<li><strong>Recuento de células somáticas (RCS)</strong>: Refleja la salud mamaria. Valores altos penalizan el precio.</li>
+<li><strong>Recuento de bacterias (RB)</strong>: Mide la higiene en el ordeño y conservación. Penaliza si supera ciertos umbrales.</li>
+<li><strong>Inhibidores</strong>: Presencia de antibióticos u otras sustancias. Si se detectan, la leche se rechaza.</li>
+</ul>
+</section>
+<section id="otros-factores" class="level4">
+<h4 class="anchored" data-anchor-id="otros-factores">3. <strong>Otros factores</strong></h4>
+<ul>
+<li><strong>Punto crioscópico</strong>: Detecta adulteraciones (agua añadida).</li>
+<li><strong>Letra Q</strong>: Etiquetado voluntario que certifica calidad superior. Está controlado por la autoridades veterinarias de cada región.</li>
+<li><strong>Marcas de calidad</strong>: DOP, IGP, ecológica, etc., pueden mejorar el precio.</li>
+</ul>
+</section>
+</section>
+<section id="aplicación-práctica-ejemplo-de-cálculo" class="level3">
+<h3 class="anchored" data-anchor-id="aplicación-práctica-ejemplo-de-cálculo">Aplicación práctica: ejemplo de cálculo</h3>
+<p>Supongamos que un ganadero entrega 10.000 litros de leche con la siguiente composición:</p>
+<ul>
+<li><strong>MG</strong>: 4,10%</li>
+<li><strong>MP</strong>: 3,45%</li>
+<li><strong>RCS</strong>: 180.000 células/ml</li>
+<li><strong>RB</strong>: 20.000 ufc/ml</li>
+</ul>
+<p>La industria tiene una tabla de precios base que puede variar regionalmente y por empresa, según los acuerdos firmados con cada ganadero o cooperativa. Hay un precio base al cual se van sumando bonificaciones en función de diversos criterios, negociados entre el ganadero (o la cooperativa) y la empresa. En el caso de Asturias, podemos suponer un precio base de 0,510 €/L, y estas bonificaciones:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 14%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 21%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parámetro para pago por calidad</th>
+<th>Resultado analítico</th>
+<th>Límite prima</th>
+<th>Prima</th>
+<th>Calidad real</th>
+<th>Bonificación (€/L)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Grasa (MG)</td>
+<td>4,10%</td>
+<td>MG &gt; 3,80%</td>
+<td>+0,0050 €/L</td>
+<td>3 décimas (4,10 vs 3,80)</td>
+<td>0,0150</td>
+</tr>
+<tr class="even">
+<td>Proteína (MP)</td>
+<td>3,45%</td>
+<td>MP &gt; 3,30%</td>
+<td>+0,0080 €/L</td>
+<td>1,5 décimas (3,45 vs 3,30)</td>
+<td>0,0120</td>
+</tr>
+<tr class="odd">
+<td>Recuento de células somáticas (RCS)</td>
+<td>180.000</td>
+<td>RCS &lt; 200.000</td>
+<td>+0,0070 €/L</td>
+<td></td>
+<td>0,0070</td>
+</tr>
+<tr class="even">
+<td>Recuento de bacterias totales (RB)</td>
+<td>20.000</td>
+<td>RB &lt; 50.000</td>
+<td>+0,0080 €/L</td>
+<td></td>
+<td>0,0080</td>
+</tr>
+<tr class="odd">
+<td>Bienestar animal</td>
+<td>Sí</td>
+<td></td>
+<td>+0,0100 €/L</td>
+<td>certificacion Welfair/AENOR</td>
+<td>0,0100</td>
+</tr>
+<tr class="even">
+<td>Letra Q</td>
+<td>Sí</td>
+<td></td>
+<td>+0,0050 €/L</td>
+<td></td>
+<td>0,0050</td>
+</tr>
+</tbody>
+</table>
+<p>Resumiendo las primas por conceptos, podemos agruparlas así: | Concepto | Precio pagado | | —————————– | ————- | | Precio base | 0,5100 | | Primas Calidad (MG + MP) | 0,0270 | | Higiene (RCS + RB) | 0,0150 | | Sostenibilidad (BA + Letra Q) | 0,0150 | | Precio neto final | 0,5670 |</p>
+<p>La liquidación mensual daría un <strong>total a percibir</strong> de:<br>
+<span class="math display">\[
+10.000\ l \cdot 0,522\ €/l = 5.220\ €
+\]</span></p>
+<p>De esta manera se establece un precio por litro, que se aplica mensualmente tras el análisis de las muestras representativas. En las diferentes regiones, este proceso es gestionado por los laboratorios interprofesionales lecheros mediante protocolos de muestreo y análisis estandarizados. El Ministerio de Agricultura también ofrece ayudas específicas por calidad bajo marcas reconocidas o la Letra Q.</p>
+<p>Es importante recordar que cada industria puede tener su propia tabla de bonificaciones y penalizaciones, pues son acordadas por negociación entre ganaderos (o centrales lecheras) y la industria, y en la mayoría de los casos, forman parte de los contratos lecheros de aprovisionamiento. HAce algunos años, la bonificación por materia grasa era siempre superior a la bonificación por proteína; este tipo de bonificación, que aplicaba la industria lechera, no es recomendable en la industria quesera, que valora sobre todo la riqueza en proteina coagulable (caseína). Por esta razón, no siempre las características de la leche recogida por la industria lechera es idónea para la fabricación de queso. Actualmente, las empresas queseras bonifican más las mejoras en proteína, y en algunos casos también las empresas lecheras, que están encontrando más usos de valor añadido para la proteína obtenida por técnicas de filtración tangencial que para la grasa comercializada como mantequilla.</p>
+</section>
+<section id="la-conversión-del-precio-por-litro-en-los-costes-totales-de-materia-prima-grasa-y-proteína." class="level3">
+<h3 class="anchored" data-anchor-id="la-conversión-del-precio-por-litro-en-los-costes-totales-de-materia-prima-grasa-y-proteína.">La conversión del precio por litro en los costes totales de materia prima, grasa y proteína.</h3>
+<p>Una vez establecido el precio de la leche, a la industria quesera (y lechera) le interesa descomponer este precio en los ingredientes que van a ser objeto de transformación, la materia grasa y la proteína, para poder establecer con precisión los costes de materia en producción.</p>
+<p>La transformación quesera está determinada por la eficiencia en la retención de estas materias primas en el queso, como veremos en el análisis de los rendimientos queseros. La materia prima más importante para el quesero es la proteína, que forma la matriz quesera; la materia grasa se necesita como elemento que confiere sabor y textura al queso.</p>
+<p>Hasta hace unos años, el precio de la leche se determinaba por su riqueza en <strong>materia seca útil (MSU)</strong>, también llamada <strong>extracto seco quesero (ESQ)</strong>, que se calcula sumando el contenido de materia grasa más la proteína:</p>
+<p><span class="math display">\[
+MSU = MG + MP
+\]</span></p>
+<p>Este parámetro, que sigue siendo aplicado en el caso de la leche de oveja y la leche de cabra, no es, sin embargo, de uso recomendable en la industria quesera, porque el productor puede incrementar la cantidad de materia grasa en la leche con determinados tipos de alimentación animal que permiten subir el contenido en MG de la leche, pero no el de la proteina, que está determinado fundamentalmente por la genética del animal.</p>
+<p>El efecto de un contenido en materia grasa demasiado elevado es una leche desequilibrada, con una cantidad de materia grasa que no puede ser utilizada en la producción de queso porque se rebasaría el contenido en grasa del queso. Esto obliga al quesero a desnatar parte de la leche y vender la nata como excedente a bajo precio, lo que impacta negativamente en sus resultados.</p>
+<p>La forma de controlar la cantidad de materia grasa necesaria en la leche de aprovisionamiento (compra) consiste en el control del factor MG/MP, que debe ser sólo ligeramente superior al del producto final (queso), para cubrir las necesidades del queso más las perdidas de producción.</p>
+<p>Por esta razón, es muy frecuente que la industria quesera no valore de la misma manera la materia grasa y la proteína en la leche de compra, y establezca un criterio de valoración que bonifique la riqueza en proteína, por ejemplo, 40/60.</p>
+<p>Si aplicamos este criterio a nuestro precio de leche calculado antes, suponiendo una composición media de la leche de 34 g MG/L y 31 g MP/L, calcularíamos el precio para el kg de MG y de MP como</p>
+<p><span class="math display">\[
+\text{Precio de la MG:}\ \frac{\text{0,504 euros}}{1\ \cancel{L\ leche}}\cdot \frac{1\ \cancel{L\ leche}}{\text{0,034 kg MG}} \cdot 0{,}40 =5,929 \frac{\text{euros}}{\text{kg MG}}
+\]</span></p>
+<p>De la misma manera, podemos establecer el precio de la proteína como sigue:</p>
+<p><span class="math display">\[
+\text{Precio de la MP:}\frac{\ 0{,}504\ \text{euros}}{\cancel{L\ leche}}\cdot \frac{1\ \cancel{L\ leche}}{0,031\ \text{kg MP}}\cdot 0,60 = 9,755\ \frac{\text{euros}}{\text{kg MP}}
+\]</span></p>
+</section>
+<section id="cálculo-del-precio-de-la-leche-mediante-la-hoja-de-cálculo." class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="cálculo-del-precio-de-la-leche-mediante-la-hoja-de-cálculo."><span class="header-section-number">9.1</span> Cálculo del precio de la leche mediante la hoja de cálculo.</h2>
+<p>Podemos construir una hoja de calculo para el precio de la leche, en el que recojamos los diferentes elementos del pago por calidad y el transporte; de esta manera podemos comparar nuestros objetivos con lo obtenido en el caso real. En primer lugar, establecemos las hipótesis de nuestro presupuesto, es decir, lo que esperamos para el promedio de las entradas del año</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="100-precio-leche_files/figure-html/0b43183f-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
 </figure>
 </div>
-<section id="ejemplo" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo">Ejemplo</h3>
-<p>Si tienes una palanca con una longitud de 5 metros y aplicas una fuerza de 10 Newtons a 1 metro del punto de apoyo, para mantener el equilibrio, la fuerza de resistencia en el otro extremo a 4 metros del punto de apoyo debería ser: <span class="math display">\[
-P \cdot d_p = R \cdot d_r
-\]</span></p>
-<p><span class="math display">\[
-10 \, \text{N} \cdot 1 \, \text{m} = R \cdot 4 \, \text{m}
-\]</span></p>
-<p><span class="math display">\[
-R = \frac{10 \cdot 1}{4} = 2,5 \text{N}
-\]</span></p>
-<p>Ahora vamos a considerar el punto de equilibrio de una barra de la que se cuelgan diferentes pesos a diferente distancias de su origen. Calcular el punto de equilibrio de una barra de la que se cuelgan diferentes pesos a diferentes distancias de su origen es un problema clásico de física que se puede resolver usando el principio de momentos.</p>
+<p>Podemos resumir los principales conceptos del pago por calidad, con el precio resultante de la aplicación de estas bonificaciones al precio base:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="100-precio-leche_files/figure-html/b1053819-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<p>Conociendo las hipótesis de modificación del precio, sólo tenemos que verificar cada concepto para estableer el precio de la leche en el periodo considerado, en este caso, un mes de abril, como ejemplo::</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="100-precio-leche_files/figure-html/46e606fc-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<p>Vemos que en este mes no se han cumplido los valores de grasay proteína presupuestados, aunque son superiores a los mínimos previstos para la aplicación de las primas de calidad, y recogen una bonificación ligeramente inferior a la presupuestada. Los recuentos de células somática han sido superiores a lo previsto, pero inferiores al límite que recoge la prima por calidad, por lo que se aplica la prima por este concepto. En cambio, se ha superado el recuento de bacterias totales (52.000 vs 50.000), por lo que no se obtiene la bonificación por este concepto. Se mantienen las primas de bienestar animal y letra Q.</p>
+<p>En total, el precio neto final del litro de leche pagado en el mes es inferior a lo previsto en el presupuesto:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="100-precio-leche_files/figure-html/f56e78ce-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
 </section>
-<section id="paso-a-paso" class="level3">
-<h3 class="anchored" data-anchor-id="paso-a-paso">Paso a Paso</h3>
-<ol type="1">
-<li><p><strong>Identificar las fuerzas</strong>: Supongamos que tienes varios pesos <span class="math inline">\(W_1, W_2, W_3, \ldots, W_n\)</span> colgados a distancias <span class="math inline">\(d_1, d_2, d_3, \ldots, d_n\)</span> del origen (punto de apoyo).</p></li>
-<li><p><strong>Calcular los momentos</strong>: El momento (<span class="math inline">\(M\)</span>) de un peso alrededor del punto de apoyo se calcula como el producto de la fuerza (peso) y la distancia al punto de apoyo:</p></li>
-</ol>
-<p><span class="math display">\[
-    M_i = W_i \times d_i
-\]</span></p>
-<ol start="3" type="1">
-<li><p><strong>Sumar los momentos</strong>: Calcula la suma de todos los momentos: <span class="math display">\[
-M_{\text{total}} = W_1 \times d_1 + W_2 \times d_2 + W_3 \times d_3 + \ldots + W_n \times d_n
-\]</span></p></li>
-<li><p><strong>Calcular el peso total</strong>: Suma todos los pesos: <span class="math display">\[
-W_{\text{total}} = W_1 + W_2 + W_3 + \ldots + W_n
-\]</span></p></li>
-<li><p><strong>Determinar el punto de equilibrio (</strong><span class="math inline">\(x\)</span>): El punto de equilibrio se encuentra dividiendo la suma de los momentos por el peso total: <span class="math display">\[
-x = \frac{\sum (W_i \times d_i)}{\sum W_i}
-\]</span></p></li>
-</ol>
-</section>
-<section id="ejemplo-práctico" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-práctico">Ejemplo Práctico</h3>
-<p>Supongamos que tenemos tres pesos de 4, 9 y 1 kg, situados, respectivamente, a 2, 1 y 3 m respectivamente del origen de la barra.</p>
+<section id="construcción-del-precio-de-la-materia-grasa-y-la-proteína-a-partir-del-precio-de-la-leche" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="construcción-del-precio-de-la-materia-grasa-y-la-proteína-a-partir-del-precio-de-la-leche"><span class="header-section-number">9.2</span> Construcción del precio de la materia grasa y la proteína a partir del precio de la leche</h2>
+<p>Una vez determinado el precio de leche pagado, y conocido el precio previsto en nuestro presupuesto, podemos comparar el coste de materia, y para ello utilizamos estos datos y los de la composición de la leche para establecer el coste real de la materia grasa y la proteína. Vamos a analizar la siguiente tabla paso a paso.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="100-precio-leche_files/figure-html/0630ee68-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>image.png</figcaption>
+</figure>
+</div>
+<p>En las líneas 1 a 4 tenemos los conceptos principales del pago por calidad, que, sumados, nos permiten obtener la cantidad neta pagada al ganadero, en la línea 5. Pero ants de obtener un coste de materia en fábrica, tenemos que sumar a esta cantidad los portes, gastos de transporte y otros gastos que se deriven de la recogida y transporte de la leche a la fábrica (que pueden incluir, por ejemplo, los gastos derivados de lavar las cisternas de leche, o de pesar la leche en una báscula externa). Agrupamos todos estos costes en una línea de gastos de transporte y recogida (línea 6), yla sumamos al precio pagado al ganadero para obtener el coste real de la leche puesta en fábrica.</p>
+<p>En las líneas 9 a 12 obtenemos al composición real de la leche comprada, mediante las analíticas de la leche; y a continuación vamos a establecer el precio al que hemos comprado el kg de grasa y de proteína, neesario para valorar nuestro producto y nuestras pérdidas.</p>
+<p>Vamos a repartir el precio del litro de leche comprada entre la materia grasa y la proteína. Supongamos que queremos que la materia grasa soporte la mitad del precio de la leche, y que la proteína soporte la otra mitad. Podemos calcular entonces el precio del kilo de materia grasa de la sigueinte forma:</p>
 <ul>
-<li><span class="math inline">\(W_1 = 4 \, \text{kg}\)</span> a <span class="math inline">\(d_1 = 2 \, \text{m}\)</span></li>
-<li><span class="math inline">\(W_2 = 9 \, \text{kg}\)</span> a <span class="math inline">\(d_2 = 1 \, \text{m}\)</span></li>
-<li><span class="math inline">\(W_3 = 1 \, \text{kg}\)</span> a <span class="math inline">\(d_3 = 3 \, \text{m}\)</span></li>
+<li>Dividimos el precio del litro de leche entre 2, destinando cada mitad a cada materia.</li>
+<li>Para hallar el precio de la materia grasa, dividimos una mitad por los gramos de grasa que tiene el litro de leche, lo que nos permite obtener el precio del gramo de grasa.</li>
+<li>Sólo tenemos que multiplicar por 1000 para obtener el precio del kilo</li>
 </ul>
-<ol type="1">
-<li><p><strong>Calcular los momentos</strong>: <span class="math display">\[
-M_1 = 4 \times 2 = 8 \, \text{kg·m}
-\]</span> <span class="math display">\[
-M_2 = 9 \times 1 = 9 \, \text{kg·m}
-\]</span> <span class="math display">\[
-M_3 = 1 \times 3 = 3 \, \text{kg·m}
-\]</span></p></li>
-<li><p><strong>Sumar los momentos</strong>: <span class="math display">\[
-M_{\text{total}} = 8 + 9 + 3 = 20 \, \text{kg·m}
-\]</span></p></li>
-<li><p><strong>Calcular el peso total</strong>: <span class="math display">\[
-W_{\text{total}} = 4 + 9 + 1 = 14 \, \text{kg}
-\]</span></p></li>
-<li><p><strong>Determinar el punto de equilibrio</strong>:</p></li>
-</ol>
 <p><span class="math display">\[
-    x = \frac{20}{14} \approx 1.43 \, \text{m}
+\text{Precio de la MG}\ \frac{euros}{kg}=\frac{\frac{\text{Precio de la leche}}{2}\ \frac{euros}{\cancel{L}}}{\text{Cantidad de MG}\ \frac{\cancel{g}}{\cancel{L}}}*1000\ \frac{\cancel{g}}{kg}
+= \frac{0{,}255}{42{,}403}*1000=6{,}014\ \frac{euros}{kg}
 \]</span></p>
-<p>El punto de equilibrio se encuentra a aproximadamente 1.43 metros del origen.</p>
-</section>
-<section id="media-ponderada" class="level3">
-<h3 class="anchored" data-anchor-id="media-ponderada">Media Ponderada</h3>
-<p>En muchas situaciones, el centro de gravedad de un sistema de masas puede interpretarse como una <strong>media ponderada</strong> de las posiciones de las masas.</p>
-<section id="media-aritmética" class="level4">
-<h4 class="anchored" data-anchor-id="media-aritmética">Media Aritmética</h4>
-<p>Para un conjunto de números <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>, la media aritmética es: <span class="math display">\[
-\text{Media} = \frac{x_1 + x_2 + \cdots + x_n}{n}
-\]</span></p>
-</section>
-<section id="media-ponderada-1" class="level4">
-<h4 class="anchored" data-anchor-id="media-ponderada-1">Media Ponderada</h4>
-<p>Para un conjunto de valores <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> con pesos asociados <span class="math inline">\(w_1, w_2, \ldots, w_n\)</span>, la media ponderada es: <span class="math display">\[
-\text{Media ponderada} = \frac{w_1 x_1 + w_2 x_2 + \cdots + w_n x_n}{w_1 + w_2 + \cdots + w_n}
-\]</span></p>
-</section>
-</section>
-<section id="centro-de-gravedad-como-media-ponderada" class="level3">
-<h3 class="anchored" data-anchor-id="centro-de-gravedad-como-media-ponderada">Centro de Gravedad como Media Ponderada</h3>
-<p>Cuando calculamos el centro de gravedad (<span class="math inline">\(x_{\text{cg}}\)</span>) de un sistema de masas, estamos esencialmente calculando una media ponderada de las posiciones (<span class="math inline">\(x_i\)</span>) de esas masas (<span class="math inline">\(m_i\)</span>):</p>
+<p>Podemos calcular el precio de la proteína de la misma manera, y de esta forma repartimos el precio de la leche entre las dos materias</p>
 <p><span class="math display">\[
-x_{\text{cg}} = \frac{\sum (m_i \cdot x_i)}{\sum m_i}
+\text{Precio de la MP}\ \frac{euros}{kg}=\frac{\frac{\text{Precio de la leche}}{2}\ \frac{euros}{\cancel{L}}}{\text{Cantidad de MP}\ \frac{\cancel{g}}{\cancel{L}}}*1000\ \frac{\cancel{g}}{kg}
+= \frac{0{,}255}{35{,}681}*1000=7{,}147\ \frac{euros}{kg}
 \]</span></p>
-<p>Aquí, las posiciones <span class="math inline">\(x_i\)</span> son ponderadas por las masas <span class="math inline">\(m_i\)</span>.</p>
-</section>
-<section id="ejemplo-numérico" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-numérico">Ejemplo Numérico</h3>
-<p>En nuestro ejemplo anterior,</p>
-<ul>
-<li>Masa 1: <span class="math inline">\(m_1 = 4 \, \text{kg}\)</span> en posición <span class="math inline">\(x_1 = 2 \, \text{m}\)</span></li>
-<li>Masa 2: <span class="math inline">\(m_2 = 9 \, \text{kg}\)</span> en posición <span class="math inline">\(x_2 = 1 \, \text{m}\)</span></li>
-<li>Masa 3: <span class="math inline">\(m_3 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_3 = 3 \, \text{m}\)</span></li>
-</ul>
-<p>La media aritmética de las posiciones sería: <span class="math display">\[
-\text{Media} = \frac{2 + 1 + 3}{3} = 2 \, \text{m}
-\]</span></p>
-<p>El punto de equlibrio de la barra, o centro de gravedad, calculado como media ponderada, sería:</p>
+<p>Lo primero que llama la atención es que, a pesar de que hemos dividido el precio de la leche al 50% entre la grasa y la proteína, los precios unitarios son diferentes: la razón es que al estar siempre la proteína en una concentración inferior a la grasa, repartimos el mismo coste (50%) entre una cantidad de materia menor, por lo que el coste unitario es más alto.</p>
+<p>Volvamos a nuestra hoja de cálculo. En realidad, las industrias queseras nunca reparten el precio de la leche al 50% entre la grasa y la proteína; como la materia más valiosa para la fabricación de queso es la proteína, siempre se pondera un poco más su valor respecto a la materia grasa. Esto es lo que hacemos en las líneas 17 y 18: asignamos a la materia grasa un valor del 40% del litro de leche, y a la proteína el 60%. Este porcentaje no se varía a lo largo del año, es una decisión estratégica de la empresa que sólo se cambia por razones muy excepcionales.</p>
+<p>Este cálculo nos da los valores definitivos:</p>
 <p><span class="math display">\[
-x_{\text{cg}} = \frac{(4 \cdot 2) + (9 \cdot 1) + (1 \cdot 3)}{4 + 9 + 1} = \frac{8 + 9 + 3}{14} = \frac{20}{14} \approx 1,43 \, \text{m}
-\]</span></p>
-<p>que es el mismo resultado que obteníamos formulando el cálculo de los momentos; la fórmula resulta ser idéntica.</p>
-</section>
-<section id="media-aritmética-y-centro-de-gravedad-con-masas-idénticas" class="level3">
-<h3 class="anchored" data-anchor-id="media-aritmética-y-centro-de-gravedad-con-masas-idénticas">Media Aritmética y Centro de Gravedad con Masas Idénticas</h3>
-<p>En los ejemplos anteriores, calculábamos el punto de equilibrio para diferentes pesos colocados a lo largo de una barra. Si en vez de eso suponemos que la distancia al origen de la barra equivale a nuestro eje <span class="math inline">\(X\)</span>, que recoge los valores de los que queremos calcular nuestra media aritmética, podemos eliminar el efecto de la masa suponiendo que todas las masas son iguales.</p>
-<p>Si las masas de los diferentes objetos son idénticas, podemos decir que la media aritmética de las posiciones coincide con el centro de gravedad. Esto se debe a que, en este caso, cada masa tiene el mismo peso o influencia en el cálculo del centro de gravedad. Esta es la explicación detallada:</p>
-<p><strong>Suposición:</strong> Cada objeto tiene la misma masa <span class="math inline">\(m\)</span>.</p>
-<section id="media-aritmética-1" class="level4">
-<h4 class="anchored" data-anchor-id="media-aritmética-1">Media Aritmética</h4>
-<p>Para un conjunto de posiciones <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>, la media aritmética es: <span class="math display">\[
-\text{Media} = \frac{x_1 + x_2 + \cdots + x_n}{n}
-\]</span></p>
-</section>
-<section id="centro-de-gravedad" class="level4">
-<h4 class="anchored" data-anchor-id="centro-de-gravedad">Centro de Gravedad</h4>
-<p>El centro de gravedad (<span class="math inline">\(x_{\text{cg}}\)</span>) para un conjunto de masas idénticas en posiciones <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> es: <span class="math display">\[
-x_{\text{cg}} = \frac{\sum (m \cdot x_i)}{\sum m}
-\]</span></p>
-<p>Dado que las masas <span class="math inline">\(m\)</span> son idénticas, el numerador se convierte en: <span class="math display">\[
-\sum (m \cdot x_i) = m \cdot (x_1 + x_2 + \cdots + x_n)
-\]</span></p>
-<p>Y el denominador se convierte en: <span class="math display">\[
-\sum m = n \cdot m
-\]</span></p>
-<p>Al sustituir estos en la fórmula del centro de gravedad, obtenemos: <span class="math display">\[
-x_{\text{cg}} = \frac{m \cdot (x_1 + x_2 + \cdots + x_n)}{n \cdot m}
-\]</span></p>
-<p>Al simplificar, los términos <span class="math inline">\(m\)</span> se cancelan, y nos queda: <span class="math display">\[
-x_{\text{cg}} = \frac{x_1 + x_2 + \cdots + x_n}{n}
-\]</span></p>
-<p>que es exactamente la fórmula de la media aritmética.</p>
-<p>Si repetimos nuestro ejemplo anterior, suponiendo en este caso masas idénticas</p>
-<ul>
-<li>Masa 1: <span class="math inline">\(m_1 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_1 = 2 \, \text{m}\)</span></li>
-<li>Masa 2: <span class="math inline">\(m_2 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_2 = 1 \, \text{m}\)</span></li>
-<li>Masa 3: <span class="math inline">\(m_3 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_3 = 3 \, \text{m}\)</span></li>
-</ul>
-<p>La media aritmética de las posiciones sería:</p>
+5{,547}\ \frac{euros}{kg}\ \text{para la MG}
+\]</span> y</p>
 <p><span class="math display">\[
-\text{Media} = \frac{2 + 1 + 3}{3} = 2 \, \text{m}
+9{,888}\ \frac{euros}{kg}\ \text{para la MP}
 \]</span></p>
-<p>El punto de equlibrio de la barra, o centro de gravedad, calculado como media ponderada, sería:</p>
-<p><span class="math display">\[
-x_{\text{cg}} = \frac{(1 \cdot 2) + (1 \cdot 1) + (1 \cdot 3)}{1 + 1 + 1} = \frac{2 + 1 + 3}{3} = \frac{6}{3} = 2 \, \text{m}
-\]</span></p>
-<p>que es el mismo resultado que obteníamos con la fórmula de la media aritmética de las distancias.</p>
-</section>
-</section>
-<section id="conclusión" class="level3">
-<h3 class="anchored" data-anchor-id="conclusión">Conclusión</h3>
-<p>Cuando las masas son idénticas, la media aritmética de las posiciones coincide con el centro de gravedad. Esto nos permite afirmar que en el caso de una dimensión (por ejemplo, el peso) la media aritmética de un conjunto de valores coincide con el centro de gravedad o punto de equilibrio de ese conjunto de valores. Este es un resultado interesante que muestra la conexión entre conceptos estadísticos y físicos.</p>
-</section>
-<section id="importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos"><span class="header-section-number">A.1</span> Importancia del concepto de la media como centro de gravedad o punto de equilibrio de un conjunto de datos</h2>
-<p>Efecto de los <em>outliers</em>: desequilibrio, desplazamiento de la media, incremento de la varianza (gan diferencia), mientras que la mediana y el rango intercuartil no se ven afectados</p>
+<p>Ahora llevaremos estos datos a los siguientes ejemplos para valorar económicamente las pérdidas de materia y los rendimientos queseros.</p>
+<p>En la hoja de cálculo adjunta se pueden verificar las tablas que se han presentado arriba, y sus fórmulas de cálculo. También se incluye una entrada en una columna adicional para ver el coste de materia resultante de los datos simulados de la recogida de leche que hemos situado en el mes de abril.</p>
+<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/2026-02-01-precio-leche.xlsx" target="_blank" rel="noopener noreferrer">Descargar hoja de cálculo de precios de leche (archivo <code>2026-02-01-precio-leche.xlsx</code>)</a></p>
 
 
 </section>
@@ -493,12 +519,12 @@ x_{\text{cg}} = \frac{(1 \cdot 2) + (1 \cdot 1) + (1 \cdot 3)}{1 + 1 + 1} = \fra
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copiado");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copiado");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -869,13 +895,13 @@ x_{\text{cg}} = \frac{(1 \cdot 2) + (1 \cdot 1) + (1 \cdot 3)}{1 + 1 + 1} = \fra
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./100-precio-leche.html" class="pagination-link" aria-label="El pago de la leche por calidad en España">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El pago de la leche por calidad en España</span></span>
+      <a href="./080-pract01-camembert.html" class="pagination-link" aria-label="Práctica 1. Análisis exploratorio de una fabricación de queso camembert usando `Python` y Google Colab.">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Práctica 1. Análisis exploratorio de una fabricación de queso camembert usando <code>Python</code> y Google Colab.</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./810-bibliografia.html" class="pagination-link" aria-label="Bibliografía">
-        <span class="nav-page-text">Bibliografía</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./800-media-centro-gravedad.html" class="pagination-link" aria-label="La media aritmética como centro de gravedad de un grupo de datos">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

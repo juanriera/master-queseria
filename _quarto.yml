@@ -25,14 +25,15 @@ book:
       - 060-exploracion.ipynb
       - 070-estad-simple.qmd    
       - 080-pract01-camembert.ipynb 
-    #- part: "Análisis cuantitativo de la producción quesera"
-    #  chapters: 
-    #  - 085-intro-balance-materia.ipynb
-    #  - 090-balance-materia.ipynb
-    #  - 100-rendimientos.ipynb
-    #  - 105-valoracion-bmat.ipynb
-    #  - 110-pract02-rendimientos.ipynb 
-    #  - 115-ficha-didáctica-cálculo-rend- con.python.ipynb 
+    - part: "Aplicaciones practicas: Análisis cuantitativo de la producción quesera"
+      chapters: 
+      - 100-precio-leche.ipynb
+    #  - 110-intro-balance-materia.ipynb
+    #  - 120-balance-materia.ipynb
+    #  - 130-rendimientos.ipynb
+    #  - 140-estandar-tecnico.ipynb
+    #  - 160-pract02-rendimientos.ipynb 
+    #  - 170-ficha-didáctica-cálculo-rend- con.python.ipynb 
     #- part: "Otras aplicaciones prácticas"
     #- chapters: 
     #  - 200-pract03-cueva.ypnb
