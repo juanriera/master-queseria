@@ -390,9 +390,39 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p>Resumiendo las primas por conceptos, podemos agruparlas así: | Concepto | Precio pagado | | —————————– | ————- | | Precio base | 0,5100 | | Primas Calidad (MG + MP) | 0,0270 | | Higiene (RCS + RB) | 0,0150 | | Sostenibilidad (BA + Letra Q) | 0,0150 | | Precio neto final | 0,5670 |</p>
-<p>La liquidación mensual daría un <strong>total a percibir</strong> de:<br>
-<span class="math display">\[
+<p>Resumiendo las primas por conceptos, podemos agruparlas así:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Concepto</th>
+<th>Precio pagado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Precio base</td>
+<td>0,5100</td>
+</tr>
+<tr class="even">
+<td>Primas Calidad (MG + MP)</td>
+<td>0,0270</td>
+</tr>
+<tr class="odd">
+<td>Higiene (RCS + RB)</td>
+<td>0,0150</td>
+</tr>
+<tr class="even">
+<td>Sostenibilidad (BA + Letra Q)</td>
+<td>0,0150</td>
+</tr>
+<tr class="odd">
+<td>Precio neto final</td>
+<td>0,5670</td>
+</tr>
+</tbody>
+</table>
+<p>La liquidación mensual daría un <strong>total a percibir</strong> de:</p>
+<p><span class="math display">\[
 10.000\ l \cdot 0,522\ €/l = 5.220\ €
 \]</span></p>
 <p>De esta manera se establece un precio por litro, que se aplica mensualmente tras el análisis de las muestras representativas. En las diferentes regiones, este proceso es gestionado por los laboratorios interprofesionales lecheros mediante protocolos de muestreo y análisis estandarizados. El Ministerio de Agricultura también ofrece ayudas específicas por calidad bajo marcas reconocidas o la Letra Q.</p>
@@ -473,21 +503,7 @@ MSU = MG + MP
 = \frac{0{,}255}{42{,}403}*1000=6{,}014\ \frac{euros}{kg}
 \]</span></p>
 <p>Podemos calcular el precio de la proteína de la misma manera, y de esta forma repartimos el precio de la leche entre las dos materias</p>
-<p><span class="math display">\[
-\text{Precio de la MP}\ \frac{euros}{kg}=\frac{\frac{\text{Precio de la leche}}{2}\ \frac{euros}{\cancel{L}}}{\text{Cantidad de MP}\ \frac{\cancel{g}}{\cancel{L}}}*1000\ \frac{\cancel{g}}{kg}
-= \frac{0{,}255}{35{,}681}*1000=7{,}147\ \frac{euros}{kg}
-\]</span></p>
-<p>Lo primero que llama la atención es que, a pesar de que hemos dividido el precio de la leche al 50% entre la grasa y la proteína, los precios unitarios son diferentes: la razón es que al estar siempre la proteína en una concentración inferior a la grasa, repartimos el mismo coste (50%) entre una cantidad de materia menor, por lo que el coste unitario es más alto.</p>
-<p>Volvamos a nuestra hoja de cálculo. En realidad, las industrias queseras nunca reparten el precio de la leche al 50% entre la grasa y la proteína; como la materia más valiosa para la fabricación de queso es la proteína, siempre se pondera un poco más su valor respecto a la materia grasa. Esto es lo que hacemos en las líneas 17 y 18: asignamos a la materia grasa un valor del 40% del litro de leche, y a la proteína el 60%. Este porcentaje no se varía a lo largo del año, es una decisión estratégica de la empresa que sólo se cambia por razones muy excepcionales.</p>
-<p>Este cálculo nos da los valores definitivos:</p>
-<p><span class="math display">\[
-5{,547}\ \frac{euros}{kg}\ \text{para la MG}
-\]</span> y</p>
-<p><span class="math display">\[
-9{,888}\ \frac{euros}{kg}\ \text{para la MP}
-\]</span></p>
 <p>Ahora llevaremos estos datos a los siguientes ejemplos para valorar económicamente las pérdidas de materia y los rendimientos queseros.</p>
-<p>En la hoja de cálculo adjunta se pueden verificar las tablas que se han presentado arriba, y sus fórmulas de cálculo. También se incluye una entrada en una columna adicional para ver el coste de materia resultante de los datos simulados de la recogida de leche que hemos situado en el mes de abril.</p>
 <p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/2026-02-01-precio-leche.xlsx" target="_blank" rel="noopener noreferrer">Descargar hoja de cálculo de precios de leche (archivo <code>2026-02-01-precio-leche.xlsx</code>)</a></p>
 
 
