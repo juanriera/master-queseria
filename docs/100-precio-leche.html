@@ -510,15 +510,31 @@ MSU = MG + MP
 <p>Lo primero que llama la atención es que, a pesar de que hemos dividido el precio de la leche al 50% entre la grasa y la proteína, los precios unitarios son diferentes: la razón es que al estar siempre la proteína en una concentración inferior a la grasa, repartimos el mismo coste (50%) entre una cantidad de materia menor, por lo que el coste unitario es más alto.</p>
 <p>Volvamos a nuestra hoja de cálculo. En realidad, las industrias queseras nunca reparten el precio de la leche al 50% entre la grasa y la proteína; como la proteína es la materia más valiosa para la fabricación de queso, siempre se pondera un poco más su valor respecto a la materia grasa. Esto es lo que hacemos en las líneas 17 y 18: asignamos a la materia grasa un valor del 40% del litro de leche, y a la proteína el 60%. Este porcentaje no se varía a lo largo del año, es una decisión estratégica de la empresa que sólo se cambia por razones muy excepcionales.</p>
 <p>Este cálculo (incluyendo el análisis dimensional) nos da los valores definitivos:</p>
-<p><span class="math display">\[
-\text{Precio de la MG}\ \left[\frac{euros}{kg}\right]=\frac{\text{Precio de la leche}\ \left[\frac{euros}{\cancel{L}}\right]}{\text{Cantidad de MG}\ \left[\frac{\cancel{g}}{\cancel{L}}\right]}*1000\ \left[\frac{\cancel{g}}{kg}\right]\cdot \ 0{,}40
-= \frac{0{,}588}{42{,}403} \cdot \ 1000 \cdot \ 0{,}40 \left[\frac{euros}{kg}\right]  = 5{,}547\ \left[\frac{euros}{kg}\right]
-\]</span></p>
+<p><span class="math display">\[\begin{equation}
+\begin{aligned}
+\text{Precio de la MG}\,\left[\frac{\mathrm{euros}}{\mathrm{kg}}\right]
+  &amp;= \frac{\text{Precio de la leche}\,\left[\frac{\mathrm{euros}}{\cancel{L}}\right]}
+          {\text{Cantidad de MG}\,\left[\frac{\cancel{g}}{\cancel{L}}\right]}
+     \cdot 1000\,\left[\frac{\cancel{g}}{\mathrm{kg}}\right]\cdot 0{,}40 \\[6pt]
+&amp;= \frac{0{,}588}{42{,}403}\cdot 1000 \cdot 0{,}40
+     \left[\frac{\mathrm{euros}}{\mathrm{kg}}\right] \\[6pt]
+&amp;\approx 5{,}547\ \left[\frac{\mathrm{euros}}{\mathrm{kg}}\right]
+\end{aligned}
+\tag{1}
+\end{equation}\]</span></p>
 <p>y</p>
-<p><span class="math display">\[
-\text{Precio de la MP}\ \left[\frac{euros}{kg}\right]=\frac{\text{Precio de la leche}\ \left[\frac{euros}{\cancel{L}}\right]}{\text{Cantidad de MP}\ \left[\frac{\cancel{g}}{\cancel{L}}\right]}*1000\ \left[\frac{\cancel{g}}{kg}\right]\cdot \ 0{,}60
-= \frac{0{,}588}{35{,}681} \cdot \ 1000 \cdot \ 0{,}60 \left[\frac{euros}{kg}\right]  = 9{,}888\ \left[\frac{euros}{kg}\right]
-\]</span></p>
+<p><span class="math display">\[\begin{equation}
+\begin{aligned}
+\text{Precio de la MP}\,\left[\frac{\mathrm{euros}}{\mathrm{kg}}\right]
+  &amp;= \frac{\text{Precio de la leche}\,\left[\frac{\mathrm{euros}}{\cancel{L}}\right]}
+          {\text{Cantidad de MP}\,\left[\frac{\cancel{g}}{\cancel{L}}\right]}
+     \cdot 1000\,\left[\frac{\cancel{g}}{\mathrm{kg}}\right]\cdot 0{,}60 \\[6pt]
+&amp;= \frac{0{,}588}{35{,}681}\cdot 1000 \cdot 0{,}60
+     \left[\frac{\mathrm{euros}}{\mathrm{kg}}\right] \\[6pt]
+&amp;\approx 9{,}888\ \left[\frac{\mathrm{euros}}{\mathrm{kg}}\right]
+\end{aligned}
+\tag{2}
+\end{equation}\]</span></p>
 <p>Ahora llevaremos estos datos a los siguientes ejemplos para valorar económicamente las pérdidas de materia y los rendimientos queseros.</p>
 <p>En la hoja de cálculo adjunta se pueden verificar las tablas que se han presentado arriba, y sus fórmulas de cálculo. También se incluye una entrada en una columna adicional para ver el coste de materia resultante de los datos simulados de la recogida de leche que hemos situado en el mes de abril. Esta diferencia en el precio de la leche nos servirá para calcular las diferencias de precio al analizar las desviaciones de rendimientos.</p>
 <p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/2026-02-01-precio-leche.xlsx" target="_blank" rel="noopener noreferrer">Descargar hoja de cálculo de precios de leche (archivo <code>2026-02-01-precio-leche.xlsx</code>)</a></p>
