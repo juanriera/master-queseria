@@ -19,6 +19,7 @@ La hoja de cálculo es una herramienta presente hoy día en todos los ámbitos d
 ![Microsoft Excel (2023)](01-imagenes/excel.png)
 :::
 
+
 ### Aplicaciones de la hoja de cálculo
 
 Las **hojas de cálculo** son muy útiles para recoger la información de un conjunto de observaciones.
