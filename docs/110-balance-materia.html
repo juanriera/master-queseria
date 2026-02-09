@@ -352,7 +352,7 @@ window.Quarto = {
 <p>Vamos a suponer que los precios de la materia grasa y la proteína puestos en fábrica son los que hemos calculado en el ejemplo del capítulo anterior, 5,55 euros/kg para la MG y 9,89 euros/kg para la MP. El coste total de la leche utilizada en el año ha sido de 739.100 euros, como se muestra en la tabla siguiente:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="110-balance-materia_files/figure-html/cell-7-1-image.png" class="img-fluid figure-img"></p>
+<p><img src="110-balance-materia_files/figure-html/cell-8-1-image.png" class="img-fluid figure-img"></p>
 <figcaption>Leche comprada</figcaption>
 </figure>
 </div>
@@ -367,14 +367,14 @@ window.Quarto = {
 <p>Podemos utiizar los análisis del queso vendido para obtener su composición en kilos, y calcular la cantidad de materia grasa y proteína vendida, que al precio de la materia, nos permite obtener el coste de materia prima que hemos recuperado en la venta.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="110-balance-materia_files/figure-html/cell-12-1-image.png" class="img-fluid figure-img"></p>
+<p><img src="110-balance-materia_files/figure-html/cell-13-1-image.png" class="img-fluid figure-img"></p>
 <figcaption>Datos del queso vendido.png</figcaption>
 </figure>
 </div>
 <p>Con estas dos tablas, ya podemos construir una tabla del balance general del proceso, en el que tenemos en cuenta la materia comprada y la vendida, y calculamos el porcentaje de la materia comprada que hemos recuperado. Este <strong>coeficiente de recuperación de materia</strong> es un índice de la eficiencia de nuestro proceso y de la transformación quesera.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="110-balance-materia_files/figure-html/cell-14-1-image.png" class="img-fluid figure-img"></p>
+<p><img src="110-balance-materia_files/figure-html/cell-15-1-image.png" class="img-fluid figure-img"></p>
 <figcaption>Tabla reumen del balance de materia.ng</figcaption>
 </figure>
 </div>
@@ -382,7 +382,7 @@ window.Quarto = {
 <p>El objetivo de la empresa es poner en marcha los planes de acción necesarios para recuperar la máxima cantidad posible de esas pérdidas. Comparándose con las mejores empresas, la recuperación de MG y MP debería ser superior al 90% en los dos casos. Si hacemos una simulación en una nueva tabla, los resultados con estos coeficientes de recuperación serían:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="110-balance-materia_files/figure-html/cell-16-1-image.png" class="img-fluid figure-img"></p>
+<p><img src="110-balance-materia_files/figure-html/cell-17-1-image.png" class="img-fluid figure-img"></p>
 <figcaption>Tabla con objetivos de mejora</figcaption>
 </figure>
 </div>
@@ -491,27 +491,27 @@ Existencia\ inicial + Entradas = Salidas + Existencia\ final \pm Pérdidas
 <p>Una vez leído el fichero CSV en Excel, lo primero que haremos será convertir el formato en una tabla, lo que nos permitirá definir las fórmulas en la primera fila con facilidad.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="110-balance-materia_files/figure-html/cell-34-1-image.png" class="img-fluid figure-img"></p>
+<p><img src="110-balance-materia_files/figure-html/cell-35-1-image.png" class="img-fluid figure-img"></p>
 <figcaption>Fichero de datos en formato CSV leído en Excel</figcaption>
 </figure>
 </div>
 <p>Para ello, con el cursor dentro del área de datos, utilizamos la opción <strong><code>Menú &gt; Insertar &gt; Tabla</code></strong>. Aceptamos la opción por defecto y convertimos el formato del rango completo.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="110-balance-materia_files/figure-html/cell-36-1-image.png" class="img-fluid figure-img"></p>
+<p><img src="110-balance-materia_files/figure-html/cell-37-1-image.png" class="img-fluid figure-img"></p>
 <figcaption>Hoja de datos en formato tabla</figcaption>
 </figure>
 </div>
 <p>La tabla de datos nos muestra las entradas de datos en domingo, sin fabricación en cuba, y las fabricaciones en viernes, a partir del stock del jueves, sin que haya entradas en el día. Como hemos dicho, simplificaremos el balance haciendo un análisis semanal, para lo cual totalizamos los kilos de materia grasa y de proteína en cada etapa, mediante los análisis de los que disponemos. Añadimos estos totales como columnas nuevas a la derecha de la tabla, columna a columna. El formato <strong><code>tabla</code></strong> tiene muchas ventajas para el análisis de datos, una de ellas es la definición de las fórmulas de cálculo que afectan a la tabla en la primera fila; una vez definidas las fórmulas, la tabla replica el cálculo en el resto de la tabla, de manera semejante a cómo se calculan las columnas en un dataframe de Python.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="110-balance-materia_files/figure-html/cell-38-1-image.png" class="img-fluid figure-img"></p>
+<p><img src="110-balance-materia_files/figure-html/cell-39-1-image.png" class="img-fluid figure-img"></p>
 <figcaption>Añadiendo las columnas de materia grasa y proteína</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="110-balance-materia_files/figure-html/cell-39-1-image.png" class="img-fluid figure-img"></p>
+<p><img src="110-balance-materia_files/figure-html/cell-40-1-image.png" class="img-fluid figure-img"></p>
 <figcaption>Añadiendo nuevas columnas a la tabla</figcaption>
 </figure>
 </div>
@@ -525,7 +525,7 @@ Existencia\ inicial + Entradas = Salidas + Existencia\ final \pm Pérdidas
 <p>No tenemos más que totalizar las cantidades de materia en la leche de entrada y en cuba para estimar el balance de pérdidas. Como el formato de la tabla no nos permite hacer los totales con fcilidad sin insertar líneas, y sabemos que no debemos modificar nuestra tabla de datos, copiamos y pegamos en una nueva pestaña para construir la tabla de balance.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="110-balance-materia_files/figure-html/cell-42-1-image.png" class="img-fluid figure-img"></p>
+<p><img src="110-balance-materia_files/figure-html/cell-43-1-image.png" class="img-fluid figure-img"></p>
 <figcaption>Balance de materia semanal sencillo</figcaption>
 </figure>
 </div>
@@ -546,7 +546,7 @@ Existencia\ inicial + Entradas = Salidas + Existencia\ final \pm Pérdidas
 <p>Una vez creados los campos, damos formato a los valores numéricos y formateamos el encabezado para obtener la tabla:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="110-balance-materia_files/figure-html/cell-46-1-image.png" class="img-fluid figure-img"></p>
+<p><img src="110-balance-materia_files/figure-html/cell-47-1-image.png" class="img-fluid figure-img"></p>
 <figcaption>Tabla dinámica con el balance de materia grasa</figcaption>
 </figure>
 </div>
@@ -561,8 +561,11 @@ Existencia\ inicial + Entradas = Salidas + Existencia\ final \pm Pérdidas
 <h2 data-number="10.8" class="anchored" data-anchor-id="análisis-con-python"><span class="header-section-number">10.8</span> Análisis con Python</h2>
 <p>En este capítulo vamos a utilizar Python para ver la evolución y tendencias de nuestras pérdidas a lo largo del año. Python puede también programarse para generar todas las tablas de desviaciones, aunque no entraremos en ese detalle para no complicar la programación, sólo recurriremos a esta herramienta para la visualización.</p>
 <p>Cargamos nuestro CSV en un dataframe y procedemos a realizar los gráficos que nos interesan.</p>
-<div id="cell-52" class="cell" data-execution_count="2">
+<div id="cell-53" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
@@ -668,8 +671,11 @@ Existencia\ inicial + Entradas = Salidas + Existencia\ final \pm Pérdidas
 </div>
 </div>
 <p>Verificamos la información del dataframe:</p>
-<div id="cell-54" class="cell" data-execution_count="3">
+<div id="cell-55" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.info())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 364 entries, 0 to 363
@@ -693,7 +699,9 @@ memory usage: 34.3+ KB
 None</code></pre>
 </div>
 </div>
-<div id="cell-55" class="cell" data-execution_count="4">
+<div id="cell-56" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># formato de fecha a la columna 'fecha'</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha'</span>] <span class="op">=</span> pd.to_datetime(</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>],  </span>
@@ -706,9 +714,12 @@ None</code></pre>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>df.dropna(subset<span class="op">=</span>[<span class="st">'fecha_index'</span>], inplace<span class="op">=</span><span class="va">True</span>) <span class="co"># eliminamos los casos en los que no hay una fecha correcta</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <p>Ahora calculamos los totales de materia que han entrado en la quesería y los envíos a fabricación, añadiendo nuevas columnas sobre la marcha.</p>
-<div id="cell-57" class="cell" data-execution_count="5">
+<div id="cell-58" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'entrada_mg_kg'</span>] <span class="op">=</span>  df[<span class="st">'entrada_litros'</span>] <span class="op">*</span> df[<span class="st">'entrada_grasa_g_l'</span>]<span class="op">/</span><span class="dv">1000</span> <span class="co"># nueva columna de total</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'entrada_mp_kg'</span>] <span class="op">=</span>  df[<span class="st">'entrada_litros'</span>] <span class="op">*</span> df[<span class="st">'entrada_prot_g_l'</span>]<span class="op">/</span><span class="dv">1000</span>  <span class="co"># nueva columna de total</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -718,9 +729,12 @@ None</code></pre>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Llenamos posibles valores vacíos (NaN) con 0 por seguridad antes de agrupar</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>columnas_a_limpiar <span class="op">=</span> [<span class="st">'entrada_mg_kg'</span>, <span class="st">'entrada_mp_kg'</span>, <span class="st">'cuba_fab_mg_kg'</span>, <span class="st">'cuba_fab_mp_kg'</span>]</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>df[columnas_a_limpiar] <span class="op">=</span> df[columnas_a_limpiar].fillna(<span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <p>Como las existencias de leche quedan siempre a cero en fin de semana (los viernes), podemos totalizar las entradas en fábrica por semanas, para comparar con los envíos a fabricación y hacer el balance de materia correspondiente. Creamos un nuevo dataframe para organizar esta información semanal.</p>
-<div id="cell-59" class="cell" data-execution_count="6">
+<div id="cell-60" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df_semanal <span class="op">=</span> (</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    df.drop(columns<span class="op">=</span>[<span class="st">'fecha'</span>]) <span class="co"># Eliminamos la columna de fecha diaria que no necesitamos</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    .resample(<span class="st">'W-SUN'</span>, closed<span class="op">=</span><span class="st">'left'</span>, label<span class="op">=</span><span class="st">'left'</span>) <span class="co"># definimos las semanas desde el domingo, ya que la entrada de leche empieza ese día</span></span>
@@ -737,6 +751,7 @@ None</code></pre>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>df_semanal <span class="op">=</span> df_semanal[columnas]</span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>df_semanal.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
@@ -885,7 +900,9 @@ None</code></pre>
 </div>
 </div>
 <p>Ahora podemos visualizar gráficamente nuestras entradas semanales de leche, tanto de litros como de grasa y proteína.</p>
-<div id="cell-61" class="cell" data-execution_count="7">
+<div id="cell-62" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -895,6 +912,7 @@ None</code></pre>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Total litros recibidos'</span>)</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -903,7 +921,9 @@ None</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-62" class="cell" data-execution_count="8">
+<div id="cell-63" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de las dos líneas</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -921,6 +941,7 @@ None</code></pre>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -930,7 +951,9 @@ None</code></pre>
 </div>
 </div>
 <p>También podemos visualizar los envíos a fabricación, en litros y por componentes de materia.</p>
-<div id="cell-64" class="cell" data-execution_count="9">
+<div id="cell-65" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -940,6 +963,7 @@ None</code></pre>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Total litros enviados'</span>)</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -948,7 +972,9 @@ None</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-65" class="cell" data-execution_count="10">
+<div id="cell-66" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de las dos líneas</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -966,6 +992,7 @@ None</code></pre>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -976,7 +1003,9 @@ None</code></pre>
 </div>
 <hr>
 <p>Ahora podemos hacer el balance de materia semanal, calculando la desviación semanal entre entradas y salidas, y lo que representa esta pÉrdida en porcentaje respecto a la entrada de materia.</p>
-<div id="cell-68" class="cell" data-execution_count="11">
+<div id="cell-69" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Balance de Materia (Salida - Entrada)</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># La falta de producto queda como negativo al hacer Salida - Entrada</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df_semanal[<span class="st">'balance_liquido_mg'</span>] <span class="op">=</span> df_semanal[<span class="st">'cuba_fab_mg_kg'</span>] <span class="op">-</span> df_semanal[<span class="st">'entrada_mg_kg'</span>]</span>
@@ -985,9 +1014,12 @@ None</code></pre>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Porcentaje de pérdida respecto a la entrada</span></span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>df_semanal[<span class="st">'perdida_mg_pct'</span>] <span class="op">=</span> df_semanal[<span class="st">'balance_liquido_mg'</span>] <span class="op">/</span> df_semanal[<span class="st">'cuba_fab_mg_kg'</span>] <span class="op">*</span> <span class="dv">100</span></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>df_semanal[<span class="st">'perdida_mp_pct'</span>] <span class="op">=</span> df_semanal[<span class="st">'balance_liquido_mp'</span>] <span class="op">/</span> df_semanal[<span class="st">'cuba_fab_mp_kg'</span>] <span class="op">*</span> <span class="dv">100</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <p>Una vez completados los cálculos, podemos exportar los datos semanales a una hoja de cálculo, vía archivo intermedio CSV, para hacer los gráficos y tablas que nos interesen, y visualizamos en <code>python</code>las diferencias de balance y de pérdidas.</p>
-<div id="cell-70" class="cell" data-execution_count="12">
+<div id="cell-71" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exportar optimizado para Excel en español</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>df_semanal.to_csv(</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'datos/balance_materia_semanal.csv'</span>, </span>
@@ -996,9 +1028,12 @@ None</code></pre>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    encoding<span class="op">=</span><span class="st">'utf-8-sig'</span>, <span class="co"># El '-sig' ayuda a que Excel reconozca tildes y símbolos</span></span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="va">True</span>     <span class="co"># Mantenemos el índice porque ahí está la fecha del domingo</span></span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/balance_materia_semanal.csv" target="_blank" rel="noopener noreferrer">Descargar los datos de balance de materia semanal para análisis en hoja de cálculo (archivo <code>balance_materia_semanal.csv</code>)</a></p>
-<div id="cell-72" class="cell" data-execution_count="13">
+<div id="cell-73" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de las dos líneas</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1016,6 +1051,7 @@ None</code></pre>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1024,7 +1060,9 @@ None</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-73" class="cell" data-execution_count="14">
+<div id="cell-74" class="cell" data-execution_count="14">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de las dos líneas</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1042,6 +1080,7 @@ None</code></pre>
 <span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1051,7 +1090,9 @@ None</code></pre>
 </div>
 </div>
 <p>Hay que hacer notar que las cantidades negativas se representan en el eje de manera que las más negativas están más abajo, y la menos negativas, más arriba, más cerca del supuesto eje cero. En caso de ser necesario, se podrían representar como valores absolutos, y esto haría una representación más ajustada a lo que se suele visualizar. Por ejemplo, utilizando el método <code>.abs()</code> para representar el valor absoluto del porcentaje de pérdida:</p>
-<div id="cell-75" class="cell" data-execution_count="15">
+<div id="cell-76" class="cell" data-execution_count="15">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualización de las dos líneas</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1069,6 +1110,7 @@ None</code></pre>
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1078,7 +1120,9 @@ None</code></pre>
 </div>
 </div>
 <p>Podemos completar el análisis haciendo un análisis gráfico más completo, que nos muestre la pérdida media para el período junto con una media móvil de cuatro semanas que nos ayude a visualizar las posibles tendencias.</p>
-<div id="cell-77" class="cell" data-execution_count="16">
+<div id="cell-78" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Preparación de datos (Ejemplo para Grasa)</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>mg_abs <span class="op">=</span> df_semanal[<span class="st">'perdida_mg_pct'</span>].<span class="bu">abs</span>()</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>mg_media_global <span class="op">=</span> mg_abs.mean()</span>
@@ -1112,6 +1156,7 @@ None</code></pre>
 <span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
 <span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
 <span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
