@@ -1,7 +1,12 @@
 ---
 lang: es
-date-modified: today# Bibliografía {.unnumbered}
+date-modified: today
+appendix: true
 ---
+
+# Referencias {.unnumbered}
 
 ::: {#refs}
 :::
+
+# Bibliografía recomendada {.unnumbered}
