@@ -1,5 +1,6 @@
 ---
 lang: es
+ultima-actualizacion: today
 ---
 
 # El análisis de datos de producción en el entorno industrial.

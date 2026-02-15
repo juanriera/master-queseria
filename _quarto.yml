@@ -49,6 +49,9 @@ book:
 language:
   section-title-appendices: "Anexos"
   section-title-bibliography: "Bibliografía"
+  label:
+    appendix: "Anexo"
+
 
 number-depth: 2
 
