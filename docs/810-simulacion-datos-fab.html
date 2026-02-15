@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.27">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix B — Simulación de procesos en quesería – Análisis de datos industriales usando Excel y Python</title>
+<title>Apéndice B — Simulación de procesos en quesería – Análisis de datos industriales usando Excel y Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./850-bibliografia.html" rel="next">
+<link href="./840-indice_dataframes.html" rel="next">
 <link href="./800-media-centro-gravedad.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -91,17 +91,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
 <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
@@ -146,13 +146,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./800-media-centro-gravedad.html">Anexos</a></li><li class="breadcrumb-item"><a href="./810-simulacion-datos-fab.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Simulación de procesos en quesería</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -169,7 +169,7 @@ window.Quarto = {
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Buscar"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -184,7 +184,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Herramientas y técnicas básicas</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -237,7 +237,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Aplicaciones practicas: Análisis cuantitativo de la producción quesera</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -260,7 +260,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Anexos</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -279,14 +279,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./850-bibliografia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bibliografía</span></a>
+  <a href="./840-indice_dataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./900-indice_dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+  <a href="./850-bibliografia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">850-bibliografia.html</span></span></a>
   </div>
 </li>
       </ul>
@@ -298,7 +298,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
   <li><a href="#introducción-y-objetivos" id="toc-introducción-y-objetivos" class="nav-link active" data-scroll-target="#introducción-y-objetivos"><span class="header-section-number">B.1</span> Introducción y objetivos</a></li>
@@ -328,7 +328,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./800-media-centro-gravedad.html">Anexos</a></li><li class="breadcrumb-item"><a href="./810-simulacion-datos-fab.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Simulación de procesos en quesería</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Appendix B — Simulación de procesos en quesería</h1>
+<h1 class="title">Apéndice B — Simulación de procesos en quesería</h1>
 </div>
 
 
@@ -337,6 +337,12 @@ window.Quarto = {
 
     
   
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de última modificación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">15 de febrero de 2026</p>
+    </div>
+  </div>
     
   </div>
   
@@ -606,7 +612,7 @@ window.Quarto = {
 <span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Simulación completa con rendimiento variable. Archivo: </span><span class="sc">{</span>nombre_fichero<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simulación completa con rendimiento variable. Archivo: datos/queseria_final_tidy.csv</code></pre>
@@ -641,14 +647,14 @@ window.Quarto = {
 <tr class="odd">
 <th data-quarto-table-cell-role="th">0</th>
 <td>31/12/2023</td>
-<td>4921</td>
-<td>4778</td>
-<td>43.59</td>
-<td>35.01</td>
+<td>6055</td>
+<td>5879</td>
+<td>42.30</td>
+<td>33.89</td>
 <td>0</td>
 <td>0.00</td>
 <td>0.00</td>
-<td>4778</td>
+<td>5879</td>
 <td>0.00</td>
 <td>0.00</td>
 <td>0.00</td>
@@ -660,78 +666,78 @@ window.Quarto = {
 <tr class="even">
 <th data-quarto-table-cell-role="th">1</th>
 <td>01/01/2024</td>
-<td>6028</td>
-<td>5852</td>
-<td>41.77</td>
-<td>37.05</td>
-<td>5022</td>
-<td>40.43</td>
-<td>34.78</td>
-<td>5630</td>
-<td>612.94</td>
-<td>51.72</td>
-<td>27.00</td>
-<td>4449.0</td>
-<td>8.32</td>
-<td>9.00</td>
-<td>69.29</td>
+<td>5561</td>
+<td>5399</td>
+<td>41.16</td>
+<td>35.95</td>
+<td>5027</td>
+<td>39.60</td>
+<td>33.24</td>
+<td>6278</td>
+<td>642.38</td>
+<td>50.57</td>
+<td>26.51</td>
+<td>4425.0</td>
+<td>6.46</td>
+<td>4.97</td>
+<td>62.74</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">2</th>
 <td>02/01/2024</td>
-<td>4957</td>
-<td>4813</td>
-<td>44.34</td>
-<td>35.45</td>
-<td>5030</td>
-<td>41.50</td>
-<td>34.15</td>
-<td>5443</td>
-<td>676.99</td>
-<td>50.96</td>
-<td>26.27</td>
-<td>4394.0</td>
-<td>6.85</td>
-<td>3.23</td>
-<td>61.66</td>
+<td>5292</td>
+<td>5138</td>
+<td>43.22</td>
+<td>35.62</td>
+<td>5026</td>
+<td>40.42</td>
+<td>33.61</td>
+<td>6416</td>
+<td>683.11</td>
+<td>52.45</td>
+<td>26.63</td>
+<td>4384.0</td>
+<td>4.78</td>
+<td>3.29</td>
+<td>58.58</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">3</th>
 <td>03/01/2024</td>
-<td>5457</td>
-<td>5298</td>
-<td>43.07</td>
-<td>34.76</td>
-<td>5029</td>
-<td>41.29</td>
-<td>33.72</td>
-<td>5741</td>
-<td>643.23</td>
-<td>52.90</td>
-<td>27.30</td>
-<td>4426.0</td>
-<td>7.05</td>
-<td>6.22</td>
-<td>65.50</td>
+<td>5431</td>
+<td>5273</td>
+<td>43.16</td>
+<td>36.45</td>
+<td>5033</td>
+<td>40.84</td>
+<td>34.16</td>
+<td>6689</td>
+<td>678.32</td>
+<td>50.92</td>
+<td>26.79</td>
+<td>4396.0</td>
+<td>5.34</td>
+<td>3.95</td>
+<td>60.89</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">4</th>
 <td>04/01/2024</td>
-<td>5003</td>
-<td>4857</td>
-<td>40.60</td>
-<td>36.81</td>
-<td>5031</td>
-<td>39.95</td>
-<td>34.20</td>
-<td>5598</td>
-<td>643.24</td>
-<td>51.68</td>
-<td>27.13</td>
-<td>4428.0</td>
-<td>5.84</td>
-<td>4.18</td>
-<td>60.34</td>
+<td>4494</td>
+<td>4363</td>
+<td>43.61</td>
+<td>36.47</td>
+<td>5016</td>
+<td>41.29</td>
+<td>34.51</td>
+<td>6052</td>
+<td>661.06</td>
+<td>51.51</td>
+<td>26.63</td>
+<td>4396.0</td>
+<td>6.92</td>
+<td>4.75</td>
+<td>63.46</td>
 </tr>
 </tbody>
 </table>
@@ -769,12 +775,12 @@ window.Quarto = {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copiado");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copiado");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -1150,8 +1156,8 @@ window.Quarto = {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./850-bibliografia.html" class="pagination-link" aria-label="Bibliografía">
-        <span class="nav-page-text">Bibliografía</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./840-indice_dataframes.html" class="pagination-link" aria-label="Indice de DataFrames utilizados">
+        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,4 +1,7 @@
-# Bibliografía {.unnumbered}
+---
+lang: es
+date-modified: today# Bibliografía {.unnumbered}
+---
 
 ::: {#refs}
 :::

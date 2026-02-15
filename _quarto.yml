@@ -43,8 +43,9 @@ book:
   appendices: 
     - 800-media-centro-gravedad.qmd
     - 810-simulacion-datos-fab.ipynb
+    - 840-indice_dataframes.ipynb    
     - 850-bibliografia.qmd
-    - 900-indice_dataframes.ipynb
+
     
 language:
   section-title-appendices: "Anexos"
