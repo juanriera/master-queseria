@@ -42,7 +42,8 @@ book:
     #  - 250-comunicacion.ipynb
   appendices: 
     - 800-media-centro-gravedad.qmd
-    - 810-bibliografia.qmd
+    - 810-simulacion-datos-fab.ipynb
+    - 850-bibliografia.qmd
     - 900-indice_dataframes.ipynb
     
 language:

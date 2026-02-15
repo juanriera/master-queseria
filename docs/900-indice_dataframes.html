@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix B — Indice de DataFrames utilizados – Análisis de datos industriales usando Excel y Python</title>
+<title>Appendix C — Indice de DataFrames utilizados – Análisis de datos industriales usando Excel y Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./810-bibliografia.html" rel="prev">
+<link href="./850-bibliografia.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./800-media-centro-gravedad.html">Anexos</a></li><li class="breadcrumb-item"><a href="./900-indice_dataframes.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./800-media-centro-gravedad.html">Anexos</a></li><li class="breadcrumb-item"><a href="./900-indice_dataframes.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -208,14 +208,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./810-bibliografia.html" class="sidebar-item-text sidebar-link">
+  <a href="./810-simulacion-datos-fab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./850-bibliografia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bibliografía</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./900-indice_dataframes.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
   </div>
 </li>
       </ul>
@@ -230,21 +236,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#análisis-de-producto-terminado-de-una-fabricación-diaria-de-camembert" id="toc-análisis-de-producto-terminado-de-una-fabricación-diaria-de-camembert" class="nav-link active" data-scroll-target="#análisis-de-producto-terminado-de-una-fabricación-diaria-de-camembert"><span class="header-section-number">B.1</span> Análisis de producto terminado de una fabricación diaria de camembert</a></li>
-  <li><a href="#datos-de-fabricación-de-diferentes-recetas-de-queso-ibérico-para-balance-de-materia" id="toc-datos-de-fabricación-de-diferentes-recetas-de-queso-ibérico-para-balance-de-materia" class="nav-link" data-scroll-target="#datos-de-fabricación-de-diferentes-recetas-de-queso-ibérico-para-balance-de-materia"><span class="header-section-number">B.2</span> Datos de fabricación de diferentes recetas de queso ibérico para balance de materia</a></li>
-  <li><a href="#lecturas-de-humedad-relativa-y-temperatura-en-una-cueva-para-maduración-de-queso" id="toc-lecturas-de-humedad-relativa-y-temperatura-en-una-cueva-para-maduración-de-queso" class="nav-link" data-scroll-target="#lecturas-de-humedad-relativa-y-temperatura-en-una-cueva-para-maduración-de-queso"><span class="header-section-number">B.3</span> Lecturas de humedad relativa y temperatura en una cueva para maduración de queso</a></li>
-  <li><a href="#datos-de-análisis-de-quesos-tipo-ibérico-a-la-salida-de-la-salmuera" id="toc-datos-de-análisis-de-quesos-tipo-ibérico-a-la-salida-de-la-salmuera" class="nav-link" data-scroll-target="#datos-de-análisis-de-quesos-tipo-ibérico-a-la-salida-de-la-salmuera"><span class="header-section-number">B.4</span> Datos de análisis de quesos tipo ibérico a la salida de la salmuera</a></li>
-  <li><a href="#datos-de-un-proceso-de-envasado-de-queso-en-unidades-de-250-g" id="toc-datos-de-un-proceso-de-envasado-de-queso-en-unidades-de-250-g" class="nav-link" data-scroll-target="#datos-de-un-proceso-de-envasado-de-queso-en-unidades-de-250-g"><span class="header-section-number">B.5</span> Datos de un proceso de envasado de queso en unidades de 250 g</a></li>
-  <li><a href="#datos-de-entrada-de-leche-en-una-fábrica-de-queso-ibérico-de-mezcla." id="toc-datos-de-entrada-de-leche-en-una-fábrica-de-queso-ibérico-de-mezcla." class="nav-link" data-scroll-target="#datos-de-entrada-de-leche-en-una-fábrica-de-queso-ibérico-de-mezcla."><span class="header-section-number">B.6</span> Datos de entrada de leche en una fábrica de queso ibérico de mezcla.</a></li>
+  <li><a href="#análisis-de-producto-terminado-de-una-fabricación-diaria-de-camembert" id="toc-análisis-de-producto-terminado-de-una-fabricación-diaria-de-camembert" class="nav-link active" data-scroll-target="#análisis-de-producto-terminado-de-una-fabricación-diaria-de-camembert"><span class="header-section-number">C.1</span> Análisis de producto terminado de una fabricación diaria de camembert</a></li>
+  <li><a href="#datos-de-fabricación-simulados-de-un-queso-de-vaca" id="toc-datos-de-fabricación-simulados-de-un-queso-de-vaca" class="nav-link" data-scroll-target="#datos-de-fabricación-simulados-de-un-queso-de-vaca"><span class="header-section-number">C.2</span> Datos de fabricación simulados de un queso de vaca</a></li>
+  <li><a href="#lecturas-de-humedad-relativa-y-temperatura-en-una-cueva-para-maduración-de-queso" id="toc-lecturas-de-humedad-relativa-y-temperatura-en-una-cueva-para-maduración-de-queso" class="nav-link" data-scroll-target="#lecturas-de-humedad-relativa-y-temperatura-en-una-cueva-para-maduración-de-queso"><span class="header-section-number">C.3</span> Lecturas de humedad relativa y temperatura en una cueva para maduración de queso</a></li>
+  <li><a href="#datos-de-un-proceso-de-envasado-de-queso-en-unidades-de-250-g" id="toc-datos-de-un-proceso-de-envasado-de-queso-en-unidades-de-250-g" class="nav-link" data-scroll-target="#datos-de-un-proceso-de-envasado-de-queso-en-unidades-de-250-g"><span class="header-section-number">C.4</span> Datos de un proceso de envasado de queso en unidades de 250 g</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./800-media-centro-gravedad.html">Anexos</a></li><li class="breadcrumb-item"><a href="./900-indice_dataframes.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./800-media-centro-gravedad.html">Anexos</a></li><li class="breadcrumb-item"><a href="./900-indice_dataframes.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Appendix B — Indice de DataFrames utilizados</h1>
+<h1 class="title">Appendix C — Indice de DataFrames utilizados</h1>
 </div>
 
 
@@ -261,8 +265,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="análisis-de-producto-terminado-de-una-fabricación-diaria-de-camembert" class="level2" data-number="B.1">
-<h2 data-number="B.1" class="anchored" data-anchor-id="análisis-de-producto-terminado-de-una-fabricación-diaria-de-camembert"><span class="header-section-number">B.1</span> Análisis de producto terminado de una fabricación diaria de camembert</h2>
+<section id="análisis-de-producto-terminado-de-una-fabricación-diaria-de-camembert" class="level2" data-number="C.1">
+<h2 data-number="C.1" class="anchored" data-anchor-id="análisis-de-producto-terminado-de-una-fabricación-diaria-de-camembert"><span class="header-section-number">C.1</span> Análisis de producto terminado de una fabricación diaria de camembert</h2>
 <p>En formato <code>CSV</code> y <code>Excel</code></p>
 <div id="cell-4" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -340,9 +344,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="datos-de-fabricación-de-diferentes-recetas-de-queso-ibérico-para-balance-de-materia" class="level2" data-number="B.2">
-<h2 data-number="B.2" class="anchored" data-anchor-id="datos-de-fabricación-de-diferentes-recetas-de-queso-ibérico-para-balance-de-materia"><span class="header-section-number">B.2</span> Datos de fabricación de diferentes recetas de queso ibérico para balance de materia</h2>
-<div id="cell-6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:634,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1760864468310,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="18e6f854-5c35-4ae4-b8e6-53ac8db063fa" data-execution_count="3">
+<section id="datos-de-fabricación-simulados-de-un-queso-de-vaca" class="level2" data-number="C.2">
+<h2 data-number="C.2" class="anchored" data-anchor-id="datos-de-fabricación-simulados-de-un-queso-de-vaca"><span class="header-section-number">C.2</span> Datos de fabricación simulados de un queso de vaca</h2>
+<p>En el apéndice B, los detalles de la simulación y el código <strong>Python</strong> utilizado.</p>
+<div id="cell-7" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:634,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1760864468310,&quot;user&quot;:{&quot;displayName&quot;:&quot;Juan Riera&quot;,&quot;userId&quot;:&quot;13936244033390161607&quot;},&quot;user_tz&quot;:-120}}" data-outputid="18e6f854-5c35-4ae4-b8e6-53ac8db063fa" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
@@ -448,9 +453,9 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="lecturas-de-humedad-relativa-y-temperatura-en-una-cueva-para-maduración-de-queso" class="level2" data-number="B.3">
-<h2 data-number="B.3" class="anchored" data-anchor-id="lecturas-de-humedad-relativa-y-temperatura-en-una-cueva-para-maduración-de-queso"><span class="header-section-number">B.3</span> Lecturas de humedad relativa y temperatura en una cueva para maduración de queso</h2>
-<div id="cell-8" class="cell" data-execution_count="4">
+<section id="lecturas-de-humedad-relativa-y-temperatura-en-una-cueva-para-maduración-de-queso" class="level2" data-number="C.3">
+<h2 data-number="C.3" class="anchored" data-anchor-id="lecturas-de-humedad-relativa-y-temperatura-en-una-cueva-para-maduración-de-queso"><span class="header-section-number">C.3</span> Lecturas de humedad relativa y temperatura en una cueva para maduración de queso</h2>
+<div id="cell-9" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
@@ -502,94 +507,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="datos-de-análisis-de-quesos-tipo-ibérico-a-la-salida-de-la-salmuera" class="level2" data-number="B.4">
-<h2 data-number="B.4" class="anchored" data-anchor-id="datos-de-análisis-de-quesos-tipo-ibérico-a-la-salida-de-la-salmuera"><span class="header-section-number">B.4</span> Datos de análisis de quesos tipo ibérico a la salida de la salmuera</h2>
-<div id="cell-10" class="cell" data-execution_count="5">
+<section id="datos-de-un-proceso-de-envasado-de-queso-en-unidades-de-250-g" class="level2" data-number="C.4">
+<h2 data-number="C.4" class="anchored" data-anchor-id="datos-de-un-proceso-de-envasado-de-queso-en-unidades-de-250-g"><span class="header-section-number">C.4</span> Datos de un proceso de envasado de queso en unidades de 250 g</h2>
+<div id="cell-11" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">fecha</th>
-<th data-quarto-table-cell-role="th">receta</th>
-<th data-quarto-table-cell-role="th">formato</th>
-<th data-quarto-table-cell-role="th">maduracion</th>
-<th data-quarto-table-cell-role="th">extractoseco</th>
-<th data-quarto-table-cell-role="th">materiagrasa</th>
-<th data-quarto-table-cell-role="th">sal</th>
-<th data-quarto-table-cell-role="th">ph</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>07/10/2012</td>
-<td>mezcla 5</td>
-<td>3 kg</td>
-<td>tierno</td>
-<td>57.330002</td>
-<td>32.139999</td>
-<td>1.04</td>
-<td>5.27</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>07/10/2012</td>
-<td>mezcla 5</td>
-<td>500 g</td>
-<td>tierno</td>
-<td>58.549999</td>
-<td>32.980000</td>
-<td>0.99</td>
-<td>5.45</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>07/10/2012</td>
-<td>mezcla 5</td>
-<td>3 kg</td>
-<td>tierno</td>
-<td>58.509998</td>
-<td>33.160000</td>
-<td>1.16</td>
-<td>5.26</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>07/10/2012</td>
-<td>mezcla 5</td>
-<td>500 g</td>
-<td>tierno</td>
-<td>59.009998</td>
-<td>33.070000</td>
-<td>1.27</td>
-<td>5.46</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>07/10/2012</td>
-<td>mezcla 5</td>
-<td>500 g</td>
-<td>tierno</td>
-<td>57.869999</td>
-<td>31.940001</td>
-<td>0.93</td>
-<td>5.47</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
-<section id="datos-de-un-proceso-de-envasado-de-queso-en-unidades-de-250-g" class="level2" data-number="B.5">
-<h2 data-number="B.5" class="anchored" data-anchor-id="datos-de-un-proceso-de-envasado-de-queso-en-unidades-de-250-g"><span class="header-section-number">B.5</span> Datos de un proceso de envasado de queso en unidades de 250 g</h2>
-<div id="cell-12" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
 
@@ -626,120 +547,6 @@ ul.task-list li input[type="checkbox"] {
 <th data-quarto-table-cell-role="th">4</th>
 <td>2020-05-16 09:00:40</td>
 <td>247.41</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</section>
-<section id="datos-de-entrada-de-leche-en-una-fábrica-de-queso-ibérico-de-mezcla." class="level2" data-number="B.6">
-<h2 data-number="B.6" class="anchored" data-anchor-id="datos-de-entrada-de-leche-en-una-fábrica-de-queso-ibérico-de-mezcla."><span class="header-section-number">B.6</span> Datos de entrada de leche en una fábrica de queso ibérico de mezcla.</h2>
-<div id="cell-14" class="cell" data-execution_count="7">
-<div class="cell-output cell-output-display" data-execution_count="7">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">fecha</th>
-<th data-quarto-table-cell-role="th">cod_ruta</th>
-<th data-quarto-table-cell-role="th">tipo_leche</th>
-<th data-quarto-table-cell-role="th">peso</th>
-<th data-quarto-table-cell-role="th">temp</th>
-<th data-quarto-table-cell-role="th">acidez</th>
-<th data-quarto-table-cell-role="th">ph</th>
-<th data-quarto-table-cell-role="th">densidad</th>
-<th data-quarto-table-cell-role="th">est</th>
-<th data-quarto-table-cell-role="th">mg</th>
-<th data-quarto-table-cell-role="th">prot</th>
-<th data-quarto-table-cell-role="th">lactosa</th>
-<th data-quarto-table-cell-role="th">caseina</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">0</th>
-<td>04/11/2015</td>
-<td>13</td>
-<td>VACA</td>
-<td>13380</td>
-<td>6.0</td>
-<td>15.0</td>
-<td>6.84</td>
-<td>1.030</td>
-<td>12.45</td>
-<td>3.71</td>
-<td>3.34</td>
-<td>4.71</td>
-<td>2.31</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">1</th>
-<td>04/11/2015</td>
-<td>13</td>
-<td>VACA</td>
-<td>8520</td>
-<td>6.0</td>
-<td>15.0</td>
-<td>6.81</td>
-<td>1.030</td>
-<td>12.83</td>
-<td>3.94</td>
-<td>3.40</td>
-<td>4.74</td>
-<td>2.41</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">2</th>
-<td>04/11/2015</td>
-<td>22</td>
-<td>VACA</td>
-<td>23900</td>
-<td>6.0</td>
-<td>15.0</td>
-<td>6.82</td>
-<td>1.030</td>
-<td>12.47</td>
-<td>3.66</td>
-<td>3.22</td>
-<td>4.85</td>
-<td>2.29</td>
-</tr>
-<tr class="even">
-<th data-quarto-table-cell-role="th">3</th>
-<td>04/11/2015</td>
-<td>41</td>
-<td>CABRA</td>
-<td>4180</td>
-<td>6.1</td>
-<td>14.0</td>
-<td>6.86</td>
-<td>1.032</td>
-<td>14.88</td>
-<td>5.50</td>
-<td>3.95</td>
-<td>4.70</td>
-<td>2.88</td>
-</tr>
-<tr class="odd">
-<th data-quarto-table-cell-role="th">4</th>
-<td>04/11/2015</td>
-<td>24</td>
-<td>VACA</td>
-<td>14640</td>
-<td>7.7</td>
-<td>15.0</td>
-<td>6.86</td>
-<td>1.030</td>
-<td>12.35</td>
-<td>3.68</td>
-<td>3.25</td>
-<td>4.69</td>
-<td>2.26</td>
 </tr>
 </tbody>
 </table>
@@ -1153,7 +960,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./810-bibliografia.html" class="pagination-link" aria-label="Bibliografía">
+      <a href="./850-bibliografia.html" class="pagination-link" aria-label="Bibliografía">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Bibliografía</span>
       </a>          
   </div>
