@@ -58,7 +58,7 @@ Una fuente de documentos de gran calidad y de acceso libre es [OpenStax](https:/
 
 - [Workplace Software and Skills](https://openstax.org/details/books/workplace-software-skills)
 - [Free Principles of Data Science Book](https://openstax.org/details/books/principles-data-science)
-- [Introduction to Python Programming](https://openstax.org/subjects/computer-science#Python%20Programming)
+- [Introduction to Python Programming](https://openstax.org/details/books/introduction-python-programming)
 - [Introducción a la estadística empresarial](https://openstax.org/details/books/introducci%C3%B3n-estad%C3%ADstica-empresarial)
 - [Introductory Business Statistics 2e](https://openstax.org/details/books/introductory-business-statistics-2e)
 
