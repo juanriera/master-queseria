@@ -9,4 +9,7 @@ appendix: true
 ::: {#refs}
 :::
 
+<br>
+
 # Bibliografía recomendada {.unnumbered}
+{{< include bibliografia_recomendada.md >}}

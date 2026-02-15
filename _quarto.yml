@@ -41,29 +41,29 @@ book:
     #  - 240-mejora-procesos.ipynb
     #  - 250-comunicacion.ipynb
   appendices: 
-    - 800-media-centro-gravedad.qmd
-    - 810-simulacion-datos-fab.ipynb
-    - 840-indice_dataframes.ipynb    
-    - 850-bibliografia.qmd
-
-    
+    - 200-media-centro-gravedad.qmd
+    - 210-simulacion-datos-fab.ipynb
+    - 240-indice_dataframes.ipynb    
+    - 300-referencias.qmd
 language:
   section-title-appendices: "Anexos"
   section-title-bibliography: "Bibliografía"
   label:
     appendix: "Anexo"
-
-
 number-depth: 2
-
-bibliography: bibliografia.bib
-
 format:
    html:
      theme: cosmo
      link-external-newtab: true
  # pdf:
  #  documentclass: book
+
+bibliography: referencias.bib  
+csl: estilos/ieee.csl
+citeproc: true
+metadata:
+  reference-section-title: "Referencias"
+  sort-citations: true
 
 author-title: AUTOR
 published-title: PUBLICADO
