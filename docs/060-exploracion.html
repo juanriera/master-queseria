@@ -1004,6 +1004,7 @@ Figure&nbsp;6.1: Gráfico de dispersión en Excel
 </div>
 </div>
 </div>
+<p>Los gráficos de dispersión multiserie no son nativos en Microsoft Excel, pero pueden hacerse con algo de trabajo manual, un poco más complejo que el procedimiento en <strong>Python</strong> (ver el procedimiento <a href="https://juanriera.github.io/blog/posts/excel-xy/">aqui</a> y <a href="https://juanriera.github.io/blog/posts/excel-xy-pinguinos/">aquí</a>, y un video con el procedimiento detallado <a href="https://www.youtube.com/watch?v=tD2P5wabb1k">aquí</a>)</p>
 <p>Como vemos, los gráficos de dispersión son una herramienta esencial en el análisis exploratorio de datos, ya que permiten visualizar relaciones y patrones en los datos, identificar correlaciones y detectar posibles anomalías. Esta información es crucial para realizar análisis estadísticos más profundos y tomar decisiones basadas en datos.</p>
 </section>
 <section id="gráficos-de-series-temporales" class="level2" data-number="6.12">
@@ -1050,7 +1051,7 @@ Figure&nbsp;6.1: Gráfico de dispersión en Excel
 <section id="construyendo-la-serie-temporal-con-pandas" class="level4">
 <h4 class="anchored" data-anchor-id="construyendo-la-serie-temporal-con-pandas">Construyendo la serie temporal con <code>pandas</code></h4>
 <p>Vamos a incluir de nuevo el código de lectura de los datos completo, para mayor claridad. Además, vamos a incluir una opción en la función de lectura del <code>csv</code> que formatea el campo <code>fecha</code> al formato que <code>pandas</code> puede reconocer.</p>
-<div id="cell-46" class="cell" data-execution_count="14">
+<div id="cell-47" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1088,7 +1089,7 @@ memory usage: 11.7+ KB</code></pre>
 </div>
 </div>
 <p>Como <code>fecha</code>se ha leído como object, la convertimos en fecha</p>
-<div id="cell-48" class="cell" data-execution_count="15">
+<div id="cell-49" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha'</span>] <span class="op">=</span> pd.to_datetime(</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'fecha'</span>], </span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>,  </span>
@@ -1097,7 +1098,7 @@ memory usage: 11.7+ KB</code></pre>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Verificamos que el contenido del dataframe es correcto</p>
-<div id="cell-50" class="cell" data-execution_count="16">
+<div id="cell-51" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -1117,7 +1118,7 @@ memory usage: 11.7 KB</code></pre>
 </div>
 </div>
 <p>Ahora <code>fecha</code>ya es <code>datetime64</code> y <code>pandas</code>lo reconoce como campo de fecha. Verificamos el dataframe:</p>
-<div id="cell-52" class="cell" data-execution_count="17">
+<div id="cell-53" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>
@@ -1194,13 +1195,13 @@ memory usage: 11.7 KB</code></pre>
 </div>
 </div>
 <p>Para utilizar las funciones de series de <code>pandas</code> es necesario crear una columna <code>index</code>o <strong>índice</strong> y asignarla como <code>index</code> del dataframe; <code>pandas</code> utilizará el index para toda la gestión de las fechas de manera rápida y flexible.</p>
-<div id="cell-54" class="cell" data-execution_count="18">
+<div id="cell-55" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'fecha_index'</span>]<span class="op">=</span> pd.DatetimeIndex(df.fecha).normalize()</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df.set_index(<span class="st">'fecha_index'</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>df.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>La función <code>.plot()</code> nos representa los valores de la columna en orden secuencial, y toma las fechas del <code>index</code> de forma utomática, sin necesidad de explicitarlo:</p>
-<div id="cell-56" class="cell" data-execution_count="19">
+<div id="cell-57" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].plot()</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -1212,7 +1213,7 @@ memory usage: 11.7 KB</code></pre>
 </div>
 </div>
 <p>Mediante las funciones de <code>pandas</code>, podemos reformatear las fechas remuestreando para hacer las medias semanales del extracto seco total. La función <code>resample('W-MON')</code> formatea las fechas para que las semanas empiecen en lunes, como es el caso en Europa (en USA la semana empieza el domingo). Aprovechamos para mostrar una de las potencias de <code>Python</code>: podemos hacer que varios cálculos se hagan a continuacion de los otros, simplemente enlazando las funciones, hasta el <code>.plot()</code></p>
-<div id="cell-58" class="cell" data-execution_count="20">
+<div id="cell-59" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">2.0</span>))</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).mean().plot(</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Media del extracto seco total semanal"</span>)</span>
@@ -1226,7 +1227,7 @@ memory usage: 11.7 KB</code></pre>
 </div>
 </div>
 <p>Veamos a continuación otras formas de formatear la serie sobre la marcha, pero esta vez representando la <code>desviación típica</code>en vez de la <code>media</code>.</p>
-<div id="cell-60" class="cell" data-execution_count="21">
+<div id="cell-61" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">2.0</span>))</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).std().plot(</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Desviación típica del extracto seco total semanal"</span>)</span>
@@ -1240,7 +1241,7 @@ memory usage: 11.7 KB</code></pre>
 </div>
 </div>
 <p>O podemos representar un período específico de la serie indicando a <code>pandas</code> los límites inferior y superior de las fechas que queremos.</p>
-<div id="cell-62" class="cell" data-execution_count="22">
+<div id="cell-63" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">2.0</span>))</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>][<span class="st">"2020-05"</span>:<span class="st">"2020-08"</span>].resample(<span class="st">'W-MON'</span>).mean().plot(</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Media del extracto seco total semanal"</span>)</span>
@@ -1254,7 +1255,7 @@ memory usage: 11.7 KB</code></pre>
 </div>
 </div>
 <p>Por último, combinamos el gráfico de media y el de la desviación típica semanal en un único gráfico. Queda para el trabajo en clase ir buscando la explicación y comprensión de cada linea (sugerencia: copiar y pegar en Gemini el código y solicitar explicación detallada)</p>
-<div id="cell-64" class="cell" data-execution_count="23">
+<div id="cell-65" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
