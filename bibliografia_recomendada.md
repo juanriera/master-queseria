@@ -1,3 +1,5 @@
+Alexander, Rohan. 2023. “Telling Stories with Data.” 2023. <https://tellingstorieswithdata.com/>.
+
 Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2022. *Rmarkdown: Dynamic Documents for r*. <https://CRAN.R-project.org/package=rmarkdown>.
 
 Broman, Karl W., and Kara H. Woo. 2018. “Data Organization in Spreadsheets.” *The American Statistician* 72 (1): 2–10. <https://doi.org/10.1080/00031305.2017.1375989>.
@@ -36,15 +38,25 @@ Hoerl, Roger, and Ron Snee. 2012. *Statistical Thinking: Improving Business Perf
 
 Holtz, Yan. n.d. “The r Graph Gallery.” <http://r-graph-gallery.com/index.html>.
 
+Kluyver, Thomas, Benjamin Ragan-Kelley, Fernando Pérez, Brian Granger, Matthias Bussonnier, Jonathan Frederic, Kyle Kelley, et al. 2016. “Jupyter Notebooks - a Publishing Format for Reproducible Computational Workflows.” In *Positioning and Power in Academic Publishing: Players, Agents and Agendas*, 87–90. IOS Press.
+
 Krugman, Paul. 2013. “La Depresión Del Excel.” 2013. <https://elpais.com/economia/2013/04/19/actualidad/1366398440_370422.html>.
 
 Mary G Leitnaker, Cheryl Hild, Richard D Sanders. 1996. *The Power of Statistical Thinking: IMproving Industrial Processes*. Addison-Wesley Publishing Company Inc.
+
+Project Jupyter. 2026. “Jupyter Project Website.” <https://jupyter.org/>.
+
+Python Software Foundation. 2026. “Python Programming Language.” <https://www.python.org/>.
 
 R Core Team. 2023. *R: A Language and Environment for Statistical Computing*. Vienna, Austria: R Foundation for Statistical Computing. <https://www.R-project.org/>.
 
 Ryssdal, Karl. 2013. “The Excel Mistake Heard Round the World.” 2013. <https://www.marketplace.org/2013/04/17/economy/excel-mistake-heard-round-world/>.
 
 Sadler, Jesse. 2017. “Excel Vs r: A Brief Introduction to r.” 2017. <https://www.jessesadler.com/post/excel-vs-r/>.
+
+Sweigart, Al. 2021a. “The Big Book of Small Python Projects.” 2021. <https://inventwithpython.com/bigbookpython/>.
+
+———. 2021b. *The Big Book of Small Python Projects*. No Starch Press, Inc. <https://inventwithpython.com/bigbookpython/>.
 
 Tufte, Edward R. 1986. *The Visual Display of Quantitative Information*. Cheshire, Connecticut 06410: Graphic Press.
 

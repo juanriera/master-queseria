@@ -56,7 +56,7 @@ format:
  # pdf:
  #  documentclass: book
 
-bibliography: referencias.bib  
+bibliography: bibliografia.bib  
 csl: estilos/ieee.csl
 citeproc: true
 
