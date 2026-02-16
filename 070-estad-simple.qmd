@@ -1,6 +1,6 @@
 ---
 lang: es
-date-modified: today
+date-modified: 2025-10-27
 ---
 
 # Medidas centrales y medidas de dispersión: la media y la varianza.

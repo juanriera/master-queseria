@@ -3,9 +3,7 @@ project:
   output-dir: docs
 execute:
   enabled: true
-
 jupyter: python3
-
 book:
   title: "Análisis de datos industriales usando Excel y Python"
   subtitle: "Notas para el master de FP en tecnología quesera"
@@ -46,10 +44,10 @@ book:
     - 240-indice_dataframes.ipynb    
     - 300-referencias.qmd
 language:
-  section-title-appendices: "Anexos"
+  section-title-appendices: "Apéndices"
   section-title-bibliography: "Bibliografía"
   label:
-    appendix: "Anexo"
+    appendix: "Apéndice"
 number-depth: 2
 format:
    html:
@@ -61,9 +59,6 @@ format:
 bibliography: referencias.bib  
 csl: estilos/ieee.csl
 citeproc: true
-metadata:
-  reference-section-title: "Referencias"
-  sort-citations: true
 
 author-title: AUTOR
 published-title: PUBLICADO

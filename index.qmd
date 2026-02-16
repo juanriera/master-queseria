@@ -1,6 +1,6 @@
 ---
 lang: es
-date-modified: today
+date-modified: 2026-02-15
 ---
 
 # Introducción
@@ -53,12 +53,12 @@ A estas habilidades se suman las dos que más crecen en estos dos últimos años
 
 ## Recursos adicionales
 
-En este libro se hace una introducción muy general a **Python** y a **Microsoft Excel**. Si no tiene ninguna formación sobre el lenguaje **Python**, hay numerosos recursos de calidad en internet que permiten formación complementaria, básica y avanzada. Entre estos sitios, [Datacamp](https://www.datacamp.com/), [edX](https://www.edx.org/), [Udemy](https://www.udemy.com) y [Coursera](https://es.coursera.org/), tienen muchos cursos gratuitos. El Gobierno de España, dentro de una de sus iniciativas de transformación digital, la [iniciativa de datos abiertos](https://datos.gob.es/es), incluye también una amplia referencia a [cursos de formación sobre R](https://datos.gob.es/es/noticia/cursos-para-aprender-mas-sobre-r); aunque en este documento no incluimos código [R](https://www.r-project.org/), es otra herramienta para el análisis de datos que es muy útil en el entorno industrial, y que en ocasiones está mejor adaptada que **Python** para el análisis estadístico y gráfico de los datos industriales.
+En este libro se hace una introducción muy general a **Python** y a **Microsoft Excel**. Si no tiene ninguna formación sobre el lenguaje **Python**, hay numerosos recursos de calidad en internet que permiten formación complementaria, básica y avanzada. [Datacamp](https://www.datacamp.com/), [edX](https://www.edx.org/), [Udemy](https://www.udemy.com) y [Coursera](https://es.coursera.org/), tienen muchos cursos gratuitos. El Gobierno de España, dentro de una de sus iniciativas de transformación digital, la [iniciativa de datos abiertos](https://datos.gob.es/es), incluye también una amplia referencia a [cursos de formación sobre R](https://datos.gob.es/es/noticia/cursos-para-aprender-mas-sobre-r); aunque en este documento no incluimos código [R](https://www.r-project.org/), es otra herramienta para el análisis de datos que es muy útil en el entorno industrial, y que en ocasiones está mejor adaptada que **Python** para el análisis estadístico y gráfico de los datos industriales.
 
 Una fuente de documentos de gran calidad y de acceso libre es [OpenStax](https://openstax.org/), que es una organización global sin fines de lucro en la [Universidad Rice](https://www.rice.edu/) de los Estados Unidos de América. Es la mayor editorial mundial de recursos educativos abiertos (REA) y proveedora de tecnologías de aprendizaje integradas e investigación educativa para escuelas secundarias y universidades. Tienen publicaciones que incluyen recursos para docentes y alumnos. Algunos de estos recursos pueden resultar de utilidad en la preparación y el estudio de los temas desarrollados en este documento, aunque están desarrollados con mucho más detalle del que se considera necesario aquí. Entre estos recursos, algunos en español, pueden resultar útiles los siguientes:
 
 - [Workplace Software and Skills](https://openstax.org/details/books/workplace-software-skills)
-- [Free Principles of Data Science Book](https://openstax.org/details/books/principles-data-science)
+- [Principles of Data Science](https://openstax.org/details/books/principles-data-science)
 - [Introduction to Python Programming](https://openstax.org/details/books/introduction-python-programming)
 - [Introducción a la estadística empresarial](https://openstax.org/details/books/introducci%C3%B3n-estad%C3%ADstica-empresarial)
 - [Introductory Business Statistics 2e](https://openstax.org/details/books/introductory-business-statistics-2e)

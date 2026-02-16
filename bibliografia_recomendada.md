@@ -24,19 +24,17 @@ Hadley Wickham, Garret Grolemund. 2023. “R Para Ciencia de Datos.” 2023. <ht
 
 Hadley Wickham, Garret Grolemund, Mine Çetinkaya-Rundel. 2023. *R for Data Science, 2nd Ed.* 1005 Gravenstein Highway North, Sebastopol, CA95472: O’Reilly Media Inc. <https://r4ds.hadley.nz/>.
 
-Harrell, Frank. n.d.a. “R Workflow.” Accessed June 25, 2022. <https://www.fharrell.com/post/rflow/>.
+Harrell, Frank E. 2022a. “Biostatistics for Biomedical Research.” 2022. <https://hbiostat.org/bbr/>.
 
-———. n.d.b. “R Workflow.” Accessed May 26, 2024. <https://www.fharrell.com/post/rflow/>.
+———. 2022c. “R Workflow.” 2022. <https://hbiostat.org/rflow/>.
+
+———. 2022b. “R Workflow.” 2022. <https://www.fharrell.com/post/rflow/>.
+
+———. 2022d. “Reproducible Research.” 2022. <https://hbiostat.org/rr/>.
 
 Hoerl, Roger, and Ron Snee. 2012. *Statistical Thinking: Improving Business Performance*. JOhn Wiley; Sons.
 
 Holtz, Yan. n.d. “The r Graph Gallery.” <http://r-graph-gallery.com/index.html>.
-
-Jr, Frank E Harrell. 2022a. “Biostatistics for Biomedical Research.” 2022. <https://hbiostat.org/bbr/>.
-
-———. 2022b. “R Workflow.” 2022. <https://www.fharrell.com/post/rflow/>.
-
-———. 2022c. “Reproducible Research.” 2022. <https://hbiostat.org/rr/>.
 
 Krugman, Paul. 2013. “La Depresión Del Excel.” 2013. <https://elpais.com/economia/2013/04/19/actualidad/1366398440_370422.html>.
 

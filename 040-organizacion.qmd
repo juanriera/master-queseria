@@ -1,5 +1,6 @@
 ---
 lang: es
+date-modified: 2025-10-27
 ---
 
 # La organización de los datos y el flujo de trabajo.Los datos ordenados o *arreglados* (*tidy data*)
