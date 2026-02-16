@@ -144,7 +144,7 @@ El químico irlandés **Robert Boyle**, en el siglo XVII, subrayó la importanci
 La **bomba de aire de Boyle**, un aparato científico complicado y costoso en ese momento, condujo a una de las primeras disputas documentadas sobre la reproducibilidad de un fenómeno científico.
 
 ### Importancia en la Ciencia
-La reproducibilidad es esencial para la investigación científica, ya que permite validar y verificar los resultados obtenidos. En las últimas décadas, ha habido una creciente preocupación por la falta de reproducibilidad en muchos resultados científicos publicados(@krugman2013, @garicano2013, @ferrero2018), lo que ha llevado a una crisis de reproducibilidad o replicación. La reproducibilidad garantiza que los resultados científicos sean confiables y puedan ser validados por otros investigadores. Es un pilar fundamental para el avance del conocimiento en todas las disciplinas.
+La reproducibilidad es esencial para la investigación científica, ya que permite validar y verificar los resultados obtenidos. En las últimas décadas, ha habido una creciente preocupación por la falta de reproducibilidad en muchos resultados científicos publicados(@ryssdal2013, @krugman2013, @garicano2013, @ferrero2018), lo que ha llevado a una crisis de reproducibilidad o replicación. La reproducibilidad garantiza que los resultados científicos sean confiables y puedan ser validados por otros investigadores. Es un pilar fundamental para el avance del conocimiento en todas las disciplinas.
 
 ### Reproducibilidad en metrología
 En metrología, la reproducibilidad es la capacidad de un instrumento de dar el mismo resultado en mediciones diferentes, realizadas en las mismas condiciones a lo largo de periodos dilatados de tiempo. Esta cualidad debe evaluarse a largo plazo. 
