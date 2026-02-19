@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./200-media-centro-gravedad.html" rel="next">
+<link href="./120-rendimientos.html" rel="next">
 <link href="./100-precio-leche.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -254,6 +254,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El balance de materia</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./120-rendimientos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -380,8 +386,22 @@ window.Quarto = {
 <p>Esta cifra de ventas proporciona un margen de <span class="math inline">\(1.560.109-739.100=821.009\ euros\)</span> respecto al coste de materia, que la empresa destina a pagar el resto de sus costes: salarios, energía, embalajes, alquileres, reparaciones, inversiones, etc.</p>
 <p>Vamos a realizar ahora el balance de materia y estimar el coste de las pérdidas.</p>
 <p>Según algunos análisis que ha hecho a lo largo del año, el queso vendido tiene un <strong>contenido en extracto seco del 63% (masa/masa)</strong> y una <strong>materia grasa del 33% (masa/masa)</strong>.</p>
-<p>Aunque no disponemos del análisis de proteína del queso, podemos hacer unos cálculos del balance global de este proceso utilizando el extracto seco magro obtenido, que en su mayor parte está formado por la caseína de la leche que se ha transformado mediante el proceso de elaboración. Esta aproximación es un equilibrio entre la complejidad analítica del análisis de proteína del queso y la información práctica que proporciona el balance con el ESM; la experiencia nos dice que proporciona suficiente información para las decisiones operativas.</p>
-<p>Podemos utiizar los análisis del queso vendido para obtener su composición en kilos, y calcular la cantidad de materia grasa y proteína vendida, que al precio de la materia, nos permite obtener el coste de materia prima que hemos recuperado en la venta.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>ATENCION: Uso del <em>extracto seco magro</em> para el cálculo de la recuperación de proteína
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Como no disponemos del análisis de proteína del queso, vamos a hacer los cálculos de la recuperación de la proteína utilizando en su lugar el extracto seco magro obtenido, que en su mayor parte está formado por la caseína de la leche que se ha transformado mediante el proceso de elaboración. Esta aproximación es un equilibrio entre la complejidad analítica del análisis de proteína del queso y la información práctica que proporciona el balance con el ESM, cuyo cálculo es mucho más sencillo ya que se basa en datos analíticos más fáciles de obtener y más habituales, como son el extracto seco total y la materia grasa.</p>
+<p>En el análisis de las desviaciones, más adelante, veremos que la pérdida de información debida a calcular el rendimiento de la proteína de esta manera no es superior al 10%; en la casi totalidad de los casos, la experiencia nos dice que el cálculo proporciona suficiente información para las decisiones operativas.</p>
+<p>Si se dispone del análisis de proteína del queso para todas las fabricaciones, la precisión del balance aumentará en el porcentaje referido.</p>
+</div>
+</div>
+<p>Podemos utiizar los análisis del queso vendido para obtener su composición en kilos, y calcular la cantidad de materia grasa y proteína (utilizaremos el extracto seco magro) vendido, que al precio de la materia, nos permite obtener el coste de materia prima que hemos recuperado en la venta.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="110-balance-materia_files/figure-html/cell-13-1-image.png" class="img-fluid figure-img"></p>
@@ -391,12 +411,12 @@ window.Quarto = {
 <p>Con estas dos tablas, ya podemos construir una tabla del balance general del proceso, en el que tenemos en cuenta la materia comprada y la vendida, y calculamos el porcentaje de la materia comprada que hemos recuperado. Este <strong>coeficiente de recuperación de materia</strong> es un índice de la eficiencia de nuestro proceso y de la transformación quesera.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="110-balance-materia_files/figure-html/cell-15-1-image.png" class="img-fluid figure-img"></p>
-<figcaption>Tabla reumen del balance de materia.ng</figcaption>
+<p><img src="110-balance-materia_files/figure-html/cell-15-1-image-2.png" class="img-fluid figure-img"></p>
+<figcaption>Tabla de resultados</figcaption>
 </figure>
 </div>
 <p>El proceso de elaboración de nuestra empresa ejemplo ha sido capaz de recuperar un 80% de la materia grasa comprada y un 88% de la proteína, o lo que es lo mismo, ha tenido unas pérdidas de proceso del 20% de la materia grasa y del 12% de la proteína. Estas pérdidas se traducen, al coste de materia utilizado, en un total de -113.404 euros, aproximadamente un 15% de la facturación total.</p>
-<p>El objetivo de la empresa es poner en marcha los planes de acción necesarios para recuperar la máxima cantidad posible de esas pérdidas. Comparándose con las mejores empresas, la recuperación de MG y MP debería ser superior al 90% en los dos casos. Si hacemos una simulación en una nueva tabla, los resultados con estos coeficientes de recuperación serían:</p>
+<p>El objetivo de la empresa es poner en marcha los planes de acción necesarios para recuperar la máxima cantidad posible de esas pérdidas. Comparándose con las mejores empresas (que recuperan hasta el 98% de la MG, y al menos un 95% en el caso de la proteína/ESM), la recuperación de MG y MP debería ser al menos del 90% en los dos casos. Si hacemos una simulación en una nueva tabla, los resultados con estos coeficientes de recuperación serían:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="110-balance-materia_files/figure-html/cell-17-1-image.png" class="img-fluid figure-img"></p>
@@ -569,7 +589,7 @@ Existencia\ inicial + Entradas = Salidas + Existencia\ final \pm Pérdidas
 <p>Mediante nuestro balance de materia, hemos detectado el nivel de pérdidas que tenemos en nuestro proceso. Este conocimiento no es algo que hagamos porque sí, sino con el objetivo de establecer acciones para reducirlas y mejorar los resultados de la empresa.</p>
 <section id="el-problema-de-los-finos-de-queso-en-el-suero-y-de-las-roturas-diversas-en-el-proceso" class="level3">
 <h3 class="anchored" data-anchor-id="el-problema-de-los-finos-de-queso-en-el-suero-y-de-las-roturas-diversas-en-el-proceso">El “problema” de los finos de queso en el suero y de las roturas diversas en el proceso</h3>
-<p>Hay que tener en cuenta que consideramos <strong>pérdidas de balance</strong> sólo aquellas que son diferencias entre entradas y salidas. Por ejemplo, pérdidas de finos (restos de queso en el proceso de moldeo, o en el suero) que han sido bien medidas en el suero pueden no ser una pérdida de balance si están bien contabilizadas como <strong><code>finos</code></strong> en las salidas de producción, es decir, la cantidad de materia en los finos está bien pesada y analizada, y no hay diferencias entre entradas y salidas. Sin embargo, son pérdidas de rendimiento porque esos finos no se recuperan en el queso, y tendremos que establecer acciones tecnológicas para reducirlos.</p>
+<p>Hay que tener en cuenta que consideramos <strong>pérdidas de balance</strong> sólo aquellas que son diferencias entre entradas y salidas. Por ejemplo, pérdidas de finos (restos de queso en el proceso de moldeo, o en el suero) que han sido bien medidas en el suero pueden no ser una pérdida de balance si están bien contabilizadas como <strong><em>finos</em></strong> en las salidas de producción, es decir, la cantidad de materia en los finos está bien pesada y analizada, y no hay diferencias entre entradas y salidas. Sin embargo, son pérdidas de rendimiento porque esos finos no se recuperan en el queso, y tendremos que establecer acciones tecnológicas para reducirlos.</p>
 <p>Para incorporarlos al balance de materia, tendríamos que incluir en nuestra hoja de datos una columna <strong><code>finos</code></strong> en la que fuésemos anotando las cantidades producidas diariamente en la fabricación y sus análisis, y entonces podríamos incluirlos en la hoja de balance. Este control es un tanto complicado de hacer en rutina en la mayoría de los casos, debido tanto a la imprecisión en la recogida y control analítico de los restos de queso que se generan en la quesería, como a la necesidad de obtener los finos del suero mediante filtración o centrifugado, que no siempre es posible, y su análisis de forma fiable.</p>
 <p>Por ello, a pesar de que el concepto de <strong>pérdida de balance</strong> es el que hemos explicado, casi siempre resulta más práctico considerar roturas, restos y finos como pérdidas, puesto que no hemos sido capaces de recuperar esa materia en el queso.</p>
 <p>Lo importante es que las acciones que tomemos para reducir estos restos redundarán en una mejora del resultado del balance, al mejorar la retención de materia en el queso.</p>
@@ -1764,8 +1784,8 @@ None</code></pre>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./200-media-centro-gravedad.html" class="pagination-link" aria-label="La media aritmética como centro de gravedad de un grupo de datos">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./120-rendimientos.html" class="pagination-link" aria-label="Los rendimientos queseros">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
