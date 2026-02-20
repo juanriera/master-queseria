@@ -278,7 +278,10 @@ window.Quarto = {
   </ul></li>
   <li><a href="#el-estándar-técnico-de-fabricación-en-la-hoja-de-cálculo" id="toc-el-estándar-técnico-de-fabricación-en-la-hoja-de-cálculo" class="nav-link" data-scroll-target="#el-estándar-técnico-de-fabricación-en-la-hoja-de-cálculo"><span class="header-section-number">11.4</span> El estándar técnico de fabricación en la hoja de cálculo</a></li>
   <li><a href="#la-importancia-de-la-estandarización-de-la-leche" id="toc-la-importancia-de-la-estandarización-de-la-leche" class="nav-link" data-scroll-target="#la-importancia-de-la-estandarización-de-la-leche"><span class="header-section-number">11.5</span> La importancia de la estandarización de la leche</a></li>
-  <li><a href="#el-análisis-de-las-desviaciones-de-rendimiento" id="toc-el-análisis-de-las-desviaciones-de-rendimiento" class="nav-link" data-scroll-target="#el-análisis-de-las-desviaciones-de-rendimiento"><span class="header-section-number">11.6</span> El análisis de las desviaciones de rendimiento</a></li>
+  <li><a href="#el-análisis-de-las-desviaciones-de-rendimiento" id="toc-el-análisis-de-las-desviaciones-de-rendimiento" class="nav-link" data-scroll-target="#el-análisis-de-las-desviaciones-de-rendimiento"><span class="header-section-number">11.6</span> El análisis de las desviaciones de rendimiento</a>
+  <ul class="collapse">
+  <li><a href="#análisis-de-las-desviaciones-de-una-fabricación" id="toc-análisis-de-las-desviaciones-de-una-fabricación" class="nav-link" data-scroll-target="#análisis-de-las-desviaciones-de-una-fabricación">Análisis de las desviaciones de una fabricación</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -317,7 +320,7 @@ window.Quarto = {
 <li>Evaluaremos las causas posibles de las desviaciones, y veremos cómo proponer planes de acción para la reducción o eliminación de estas desviaciones.</li>
 </ul>
 <p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/120-rendimientos.ipynb" target="_blank" rel="noopener noreferrer">Abrir este cuaderno en Google Colab</a></p>
-<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/fab_queso_sim.csv" target="_blank" rel="noopener noreferrer">Descargar los datos de ejemplo utilizados en este cuaderno (archivo <code>fab_queso_sim.csv</code>)</a></p>
+<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/02-fab_queso_sim.csv" target="_blank" rel="noopener noreferrer">Descargar los datos de ejemplo utilizados en este cuaderno (archivo <code>02-fab_queso_sim.csv</code>)</a></p>
 <section id="un-ejemplo-de-cálculo-de-rendimientos" class="level2" data-number="11.1">
 <h2 data-number="11.1" class="anchored" data-anchor-id="un-ejemplo-de-cálculo-de-rendimientos"><span class="header-section-number">11.1</span> Un ejemplo de cálculo de rendimientos</h2>
 <p>Vamos a utilizar los datos de producción de la empresa que hemos visto en el capítulo anterior. La empresa ha fabricado durante un año unos <strong>5.000 L diarios</strong>, sólo en días laborables. Esto supone la cantidad aproximada de <strong>1.300.000 litros de leche de vaca</strong>, algo más de 100.000 L al mes. Esta empresa ha elaborado un solo tipo de queso, y sus ventas han sido de unas <strong>130 toneladas de queso</strong>. El responsable de la empresa nos dice que el rendimiento quesero de esta fábrica que él está estimando es de <strong>10 litros por kilo de queso</strong>; para calcularlo, ha dividido los litros de leche comprados entre los kilos de queso vendido.</p>
@@ -404,7 +407,10 @@ window.Quarto = {
 <figcaption>Balance de materia de la MP y el ESM</figcaption>
 </figure>
 </div>
-<p>En la tabla podemos ver que las pérdidas de MP entre recepción y cubas son un 4%, mientras que las pérdidas de MP frente al ESM recuperado son un 8%. Esto nos permite calcular una recuperación en el queso de la MP en cubas de un 92%, lo que, sumando el 4% que tenemos en el balance líquido nos daría un 88% de recuperación, que habíamos calculado inicialmente sobre los volúmenes totales.</p>
+<p>En el capítulo anterior sobre el balance de materia se proporcionó un enlace para descargar la hoja Excel con las tablas dinámicas del balance de materia, que se incluye de nuevo aquí; la tabla con el balance de proteína está en la pestaña <strong><code>BM TD MP</code></strong></p>
+<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/03-fab_queso_sim.xlsx" target="_blank" rel="noopener noreferrer">Descargar hoja de cálculo Excel con el balance de materia y el coeficiente de recuperacion de proteína (archivo <code>03-fab_queso_sim.xlsx</code>)</a></p>
+<p>Es muy recomendable dedicar un rato a analizar la construcción de la tabla y de los campos calculados utilizados.</p>
+<p>En la tabla podemos ver que las pérdidas de MP entre recepción y cubas son un -4%, mientras que las pérdidas de MP frente al ESM recuperado son un -8% (usamos signos negativos para indicar <strong>pérdidas</strong>). Esto nos permite calcular una recuperación en el queso de la MP en cubas de un 92%, lo que, sumando el -4% que tenemos en el balance líquido nos daría un 88% de recuperación, que habíamos calculado inicialmente sobre los volúmenes totales.</p>
 <p>Utilizando el coeficiente de recuperación de la MP, calculamos el resto de los valores necesarios para nuestro estándar técnico.</p>
 <p>Como hemos fabricado <span class="math inline">\(1.308.012\ L\)</span> de leche (litros totales en cubas), la cantidad media de proteína en <span class="math inline">\(g/L\)</span> que tenemos en esa leche es de</p>
 <p><span class="math display">\[
@@ -465,9 +471,9 @@ window.Quarto = {
 <p>Es decir, con nuestra tecnología, recuperamos un 83,99% de la materia grasa puesta en la cuba. A esta MG la llamaremos <strong>materia grasa teórica en cuba</strong>, ya que proviene de un cálculo que utiliza la composición teórica de la leche en cubas basada en la composición estándar del queso.</p>
 <p>El mismo cálculo resulta utilizando la composición en g/L de la leche en cubas. La composición teórica en cubas debería ser la necesaria para permitirnos obtener la composición del 27% de MG con el litraje unitario que hemos calculado, es decir, los 7,967 L/kg:</p>
 <p><span class="math display">\[
-\frac{27\ g\ MG}{100\ g\ queso} \cdot \frac{1000\ g\ queso}{1\ kg\ queso} \cdot \frac{1\ kg\ queso}{7,967\ L\ leche} = \frac{27 \cdot 1000}{7,967} \frac{g \ MG}{L \ leche} = 33{,}89\frac{g \ MG}{L \ leche}
+\frac{27\ g\ MG}{100\ \cancel{g\ queso}} \cdot \frac{1000\ \cancel{g\ queso}}{1\ \cancel{kg\ queso}} \cdot \frac{1\ \cancel{kg\ queso}}{7,967\ L\ leche} = \frac{27 \cdot 1000}{7,967} \frac{g \ MG}{L \ leche} = 33{,}89\frac{g \ MG}{L \ leche}
 \]</span></p>
-<p>Recapitulando, nuestra leche en cubas debería tener 33,89 g/L de MG para obtener la MG que hemos analizado en el queso, pero nuestros datos dicen que tenemos 40,35 g/L.</p>
+<p>Recapitulando, nuestra leche en cubas debería tener teóricamente 33,89 g/L de MG para obtener la MG que hemos analizado en el queso, pero nuestros datos analíticos dicen que tenemos 40,35 g/L.</p>
 <p><span class="math display">\[
 \frac{33,89}{40,35}=83{,}99\%
 \]</span></p>
@@ -485,7 +491,7 @@ window.Quarto = {
 <h2 data-number="11.4" class="anchored" data-anchor-id="el-estándar-técnico-de-fabricación-en-la-hoja-de-cálculo"><span class="header-section-number">11.4</span> El estándar técnico de fabricación en la hoja de cálculo</h2>
 <p>El razonamiento y cálculos que hemos ido realizando, se suelen recoger en un documento o una hoja de cálculo, que recoge los valores estándar de nuestra tecnología dada una composición media de nuestro queso obtenido y una composición de leche de partida.</p>
 <p>A continuación se proporciona un enlace para descargar una hoja Excel con un estándar de fabricación con los datos utilizados en el ejemplo.</p>
-<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/ejemplo-std-tecnico.xlsx" target="_blank" rel="noopener noreferrer">Descargar hoja de cálculo Excel con el estándar de fabricación (archivo <code>ejemplo-std-tecnico.xlsx</code>)</a></p>
+<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/05-ejemplo-std-tecnico.xlsx" target="_blank" rel="noopener noreferrer">Descargar hoja de cálculo Excel con el estándar de fabricación (archivo <code>05-ejemplo-std-tecnico.xlsx</code>)</a></p>
 </section>
 <section id="la-importancia-de-la-estandarización-de-la-leche" class="level2" data-number="11.5">
 <h2 data-number="11.5" class="anchored" data-anchor-id="la-importancia-de-la-estandarización-de-la-leche"><span class="header-section-number">11.5</span> La importancia de la estandarización de la leche</h2>
@@ -518,8 +524,18 @@ window.Quarto = {
 </section>
 <section id="el-análisis-de-las-desviaciones-de-rendimiento" class="level2" data-number="11.6">
 <h2 data-number="11.6" class="anchored" data-anchor-id="el-análisis-de-las-desviaciones-de-rendimiento"><span class="header-section-number">11.6</span> El análisis de las desviaciones de rendimiento</h2>
+<p>Una vez construido nuestro estándar técnico de fabricación, vamos a usarlo de referencia para analizar las desviaciones producidas en una fabricación o en un conjunto de ellas. Haremos ambos casos.</p>
+<section id="análisis-de-las-desviaciones-de-una-fabricación" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-de-las-desviaciones-de-una-fabricación">Análisis de las desviaciones de una fabricación</h3>
+<p>En este análisis vamos a tener en cuenta varias informaciones:</p>
+<ul>
+<li>El precio de la materia prima (coste de la MG y MP puesta en fábrica), calculada como hemos visto en el capìtulo anterior, con los valores de presupuesto y un mes concreto.</li>
+<li>EL estándar técnico que hemos preparado</li>
+<li>Los datos reales de las fabricaciones, que están registradas en el CSV <strong><code>fab_queso_sim.csv</code></strong></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
