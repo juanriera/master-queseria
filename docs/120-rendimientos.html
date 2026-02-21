@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -253,7 +273,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./300-referencias.html" class="sidebar-item-text sidebar-link">
+  <a href="./300-bibliografia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referencias</span></a>
   </div>
 </li>
@@ -271,16 +291,21 @@ window.Quarto = {
   <ul>
   <li><a href="#un-ejemplo-de-cálculo-de-rendimientos" id="toc-un-ejemplo-de-cálculo-de-rendimientos" class="nav-link active" data-scroll-target="#un-ejemplo-de-cálculo-de-rendimientos"><span class="header-section-number">11.1</span> Un ejemplo de cálculo de rendimientos</a></li>
   <li><a href="#el-estándar-técnico-de-fabricación" id="toc-el-estándar-técnico-de-fabricación" class="nav-link" data-scroll-target="#el-estándar-técnico-de-fabricación"><span class="header-section-number">11.2</span> El estándar técnico de fabricación</a></li>
-  <li><a href="#construcción-de-un-estándar-técnico-de-fabricación-en-la-hoja-de-cálculo" id="toc-construcción-de-un-estándar-técnico-de-fabricación-en-la-hoja-de-cálculo" class="nav-link" data-scroll-target="#construcción-de-un-estándar-técnico-de-fabricación-en-la-hoja-de-cálculo"><span class="header-section-number">11.3</span> Construcción de un estándar técnico de fabricación en la hoja de cálculo</a>
+  <li><a href="#construcción-de-un-estándar-técnico-de-fabricación" id="toc-construcción-de-un-estándar-técnico-de-fabricación" class="nav-link" data-scroll-target="#construcción-de-un-estándar-técnico-de-fabricación"><span class="header-section-number">11.3</span> Construcción de un estándar técnico de fabricación</a>
   <ul class="collapse">
   <li><a href="#cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" id="toc-cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" class="nav-link" data-scroll-target="#cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso">Cálculo de la cantidad de leche necesaria para fabricar 1 kg de queso</a></li>
   <li><a href="#la-materia-grasa" id="toc-la-materia-grasa" class="nav-link" data-scroll-target="#la-materia-grasa">La materia grasa</a></li>
   </ul></li>
   <li><a href="#el-estándar-técnico-de-fabricación-en-la-hoja-de-cálculo" id="toc-el-estándar-técnico-de-fabricación-en-la-hoja-de-cálculo" class="nav-link" data-scroll-target="#el-estándar-técnico-de-fabricación-en-la-hoja-de-cálculo"><span class="header-section-number">11.4</span> El estándar técnico de fabricación en la hoja de cálculo</a></li>
   <li><a href="#la-importancia-de-la-estandarización-de-la-leche" id="toc-la-importancia-de-la-estandarización-de-la-leche" class="nav-link" data-scroll-target="#la-importancia-de-la-estandarización-de-la-leche"><span class="header-section-number">11.5</span> La importancia de la estandarización de la leche</a></li>
-  <li><a href="#el-análisis-de-las-desviaciones-de-rendimiento" id="toc-el-análisis-de-las-desviaciones-de-rendimiento" class="nav-link" data-scroll-target="#el-análisis-de-las-desviaciones-de-rendimiento"><span class="header-section-number">11.6</span> El análisis de las desviaciones de rendimiento</a>
+  <li><a href="#el-análisis-de-las-desviaciones-de-rendimiento" id="toc-el-análisis-de-las-desviaciones-de-rendimiento" class="nav-link" data-scroll-target="#el-análisis-de-las-desviaciones-de-rendimiento"><span class="header-section-number">11.6</span> El análisis de las desviaciones de rendimiento</a></li>
+  <li><a href="#análisis-de-una-fabricación" id="toc-análisis-de-una-fabricación" class="nav-link" data-scroll-target="#análisis-de-una-fabricación"><span class="header-section-number">11.7</span> Análisis de una fabricación</a>
   <ul class="collapse">
-  <li><a href="#análisis-de-las-desviaciones-de-una-fabricación" id="toc-análisis-de-las-desviaciones-de-una-fabricación" class="nav-link" data-scroll-target="#análisis-de-las-desviaciones-de-una-fabricación">Análisis de las desviaciones de una fabricación</a></li>
+  <li><a href="#precio-de-la-materia" id="toc-precio-de-la-materia" class="nav-link" data-scroll-target="#precio-de-la-materia">Precio de la materia</a></li>
+  <li><a href="#estándar-técnico-de-producto" id="toc-estándar-técnico-de-producto" class="nav-link" data-scroll-target="#estándar-técnico-de-producto">Estándar técnico de producto</a></li>
+  <li><a href="#datos-de-fabricación-real" id="toc-datos-de-fabricación-real" class="nav-link" data-scroll-target="#datos-de-fabricación-real">Datos de fabricación real</a></li>
+  <li><a href="#análisis-de-las-desviaciones" id="toc-análisis-de-las-desviaciones" class="nav-link" data-scroll-target="#análisis-de-las-desviaciones">Análisis de las desviaciones</a></li>
+  <li><a href="#análisis-del-coste-de-las-desviaciones" id="toc-análisis-del-coste-de-las-desviaciones" class="nav-link" data-scroll-target="#análisis-del-coste-de-las-desviaciones">Análisis del coste de las desviaciones</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -389,8 +414,8 @@ window.Quarto = {
 <p>Para determinar si nuestro rendimiento ha sido correcto o no, hemos hablado en el punto anterior de comparar nuestro resultado con <strong>el resultado previsto</strong>, que es el que esperamos obtener si todo va bien en la fabricación. Por lo tanto, necesitamos construir una referencia que nos permita comparar los valores reales con los que deberíamos haber tenido. A estos valores de referencia los conocemos como <strong>estándar técnico de fabricación</strong>, y deben reflejar exclusivamente <strong>lo que somos capaces de conseguir</strong> con nuestra tecnología, es decir, cuántos litros necesitamos para fabricar un kilo de queso, y cuántos gramos de materia grasa y de proteína necesitamos poner en juego en nuestra cuba de fabricación para obtener un queso con la composición deseada.</p>
 <p>Es importante insistir en que <strong>un estándar técnico de fabricación debe reflejar lo que realmente somos capaces de hacer, y no lo que nos gustaría conseguir, o lo que los libros o manuales dicen que deberíamos conseguir</strong>. No es buena práctica establecer objetivos inalcanzables o que no sabemos cómo conseguir. En cambio, el análisis de las desviaciones respecto a lo que somos capaces de hacer (y ya hemos hecho), nos ayudará a entender dónde están las causas de estas desviaciones, de manera que podmos plantear los planes de mejora y reducción de la dispersión.</p>
 </section>
-<section id="construcción-de-un-estándar-técnico-de-fabricación-en-la-hoja-de-cálculo" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="construcción-de-un-estándar-técnico-de-fabricación-en-la-hoja-de-cálculo"><span class="header-section-number">11.3</span> Construcción de un estándar técnico de fabricación en la hoja de cálculo</h2>
+<section id="construcción-de-un-estándar-técnico-de-fabricación" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="construcción-de-un-estándar-técnico-de-fabricación"><span class="header-section-number">11.3</span> Construcción de un estándar técnico de fabricación</h2>
 <section id="cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso" class="level3">
 <h3 class="anchored" data-anchor-id="cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso">Cálculo de la cantidad de leche necesaria para fabricar 1 kg de queso</h3>
 <p>Sabemos que nuestro proceso de fabricación quesera consiste en la coagulación de la caseína y expulsión de suero, y que la materia grasa queda retenida en la red de caseína.</p>
@@ -525,16 +550,151 @@ window.Quarto = {
 <section id="el-análisis-de-las-desviaciones-de-rendimiento" class="level2" data-number="11.6">
 <h2 data-number="11.6" class="anchored" data-anchor-id="el-análisis-de-las-desviaciones-de-rendimiento"><span class="header-section-number">11.6</span> El análisis de las desviaciones de rendimiento</h2>
 <p>Una vez construido nuestro estándar técnico de fabricación, vamos a usarlo de referencia para analizar las desviaciones producidas en una fabricación o en un conjunto de ellas. Haremos ambos casos.</p>
-<section id="análisis-de-las-desviaciones-de-una-fabricación" class="level3">
-<h3 class="anchored" data-anchor-id="análisis-de-las-desviaciones-de-una-fabricación">Análisis de las desviaciones de una fabricación</h3>
 <p>En este análisis vamos a tener en cuenta varias informaciones:</p>
 <ul>
-<li>El precio de la materia prima (coste de la MG y MP puesta en fábrica), calculada como hemos visto en el capìtulo anterior, con los valores de presupuesto y un mes concreto.</li>
+<li>El precio de la materia prima (coste de la MG y MP puesta en fábrica), calculada como hemos visto en el capìtulo anterior, con los valores de presupuesto y un período concreto para el que hacemos el análisis.</li>
 <li>EL estándar técnico que hemos preparado</li>
 <li>Los datos reales de las fabricaciones, que están registradas en el CSV <strong><code>fab_queso_sim.csv</code></strong></li>
 </ul>
+<p>El objetivo del análisis de las desviaciones de rendimiento es explicar esas desviaciones utilizando dos componentes principales: - La desviación del extracto seco total - La desviación de su composición (materia grasa y extracto seco magro)</p>
+<p>Además, veremos una explicación adicional del desajuste que se produce al utilizar la proteína de la leche en cubas y el extracto seco magro del queso para explicar la recuperación de la proteína.</p>
+<section id="la-desviación-del-extracto-seco" class="level4">
+<h4 class="anchored" data-anchor-id="la-desviación-del-extracto-seco">La desviación del extracto seco</h4>
+<p>El extracto seco de un queso se obtiene mediante la eliminación del suero, como sabemos. En esta eliminación intervienen diversos factores tecnológicos, como la acidificación, el corte del grano, la temperatura y el tiempo. La importancia relativa de estos factores varía según la tecnología utilizada y el producto que queramos obtener(<span class="citation" data-cites="Mietton2014"><a href="300-bibliografia.html#ref-Mietton2014" role="doc-biblioref">[1]</a></span>).</p>
+<p>Las pérdidas de finos en el suero, o la degradación de la calidad de las caseínas por causas diversas (por ejemplo, proteolisis temprana en la leche producida por bacterias psicrotrofas) pueden ser también causas de la pérdida de extracto seco en el producto final. El balance de materia nos indicará si nuestras pérdidas en el suero han sido mayores de lo esperado, y el análisis de los parámetros tecnológicos, sobre todo en la cuba de fabricación, nos permitirá explicar si ha habido modificaciones que justifiquen un aumento o disminución del extracto seco final.</p>
+<p>El efecto de aumentar el extracto seco es un mayor consumo de materia por kilo de queso, que afecta a todos los componentes del queso. La reducción del extracto seco, al contrario, implica un menor consumo de materia, ya que se sustituye por agua. En ambos casos, el producto obtenido se aparta del estándar objetivo, y este hecho suele tener un impacto negativo en el consumidor.</p>
+<p>La evaluación de la respuesta del consumidor a la reducción del extracto seco en el producto es de suma importancia, ya que nos permitirá detectar el límite aceptable en el que nos debemos situar para maximizar la rentabilidad del producto, atendiendo también a los cambios de vida útil que se pueden derivar de una mayor actividad del agua (a verificar también con los cambios en HQD)</p>
+<p>Tanto los aumentos como las reducciones del extracto seco respecto al estándar tienen un impacto directo en el coste del producto, que nuestro análisis debe poner en evidencia.</p>
+</section>
+<section id="las-variaciones-en-la-composición-del-extracto-seco" class="level4">
+<h4 class="anchored" data-anchor-id="las-variaciones-en-la-composición-del-extracto-seco">Las variaciones en la composición del extracto seco</h4>
+<p>Dado que, como hemos visto repetidas veces, el valor de la materia grasa y el de la proteína no son iguales, cualquier variación en la proporción de materia grasa respecto al extracto seco magro del queso implica una diferencia de coste del producto.</p>
+<p>Un aumento del extracto seco magro implica un aumento porcentual del coste por mayor consumo de proteína (suponiendo que no hay diferencias sustanciales en el porcentaje de sal), mientras que una reducción porcentual del extracto seco magro en el extracto seco total implica un aumento de la materia grasa, y por lo tanto una reducción del coste del producto.</p>
+<p>Sin embargo estas variaciones de composición no son neutras para el producto:</p>
+<ul>
+<li><p>Un aumento porcentual de la materia grasa respecto al extracto seco magro implica un aumento de la HQD (humedad del queso desnatado o magro), lo que a su vez indica una mayor actividad del agua, y por lo tanto, un aumento de la proteolisis y una reducción de la vida útil del queso.</p></li>
+<li><p>Una disminución porcentual de la materia grasa respecto al extracto seco magro implica una reducción de la HQD, que se traduce en una percepción del producto por el consumidor como más seco, con una textura más firme.</p></li>
+</ul>
+<p>En este caso, el interés del quesero será mantener la proporción de materia grasa más alta posible que permita tener</p>
+<ul>
+<li>una buena apreciación de la textura por el consumidor</li>
+<li>un comportamiento correcto del producto en el punto de venta y en el hogar del consumidor desde el punto de vista de su vida útil.</li>
+</ul>
+<p>En nuestro caso, suponemos que el estándar de producto está ajustado a la optimización tanto del extracto seco total como de su composición, y por lo tanto, explicaremos las desviaciones y su coste como objetivos de mejora, que es necesario corregir tanto para ajustar el coste del producto como su calidad.</p>
+</section>
+</section>
+<section id="análisis-de-una-fabricación" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="análisis-de-una-fabricación"><span class="header-section-number">11.7</span> Análisis de una fabricación</h2>
+<section id="precio-de-la-materia" class="level3">
+<h3 class="anchored" data-anchor-id="precio-de-la-materia">Precio de la materia</h3>
+<p>Utilizaremos la tabla de precios que hemos construido en el capítulo dedicado al precio de la leche:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="120-rendimientos_files/figure-html/8ca45855-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Tabla de precios de materia</figcaption>
+</figure>
+</div>
+</section>
+<section id="estándar-técnico-de-producto" class="level3">
+<h3 class="anchored" data-anchor-id="estándar-técnico-de-producto">Estándar técnico de producto</h3>
+<p>Vamos a utilizar el estándar técnico calculado en este capítulo, que tenemos disponible para descarga en el enlace que hemos proporcionado en el apartado anterior:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="120-rendimientos_files/figure-html/5136bab1-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Estándar técnico.png</figcaption>
+</figure>
+</div>
+</section>
+<section id="datos-de-fabricación-real" class="level3">
+<h3 class="anchored" data-anchor-id="datos-de-fabricación-real">Datos de fabricación real</h3>
+<p>Utilizaremos los datos correspondientes a la primera fabricación que tenemos en nuestro CSV, con fecha 01/01/2024. Por comodidad, reformateamos estos datos en una hoja de Excel, que después vincularemos con la hoja de cálculo de diferencias:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="120-rendimientos_files/figure-html/f4782955-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Datos de la fabricación real</figcaption>
+</figure>
+</div>
+<p>La tabla tiene un apartado para la posible inclusión de nata de suero recuperada. Dado que en nuestra fabricación no hemos reutilizado la nata de suero, ya que no desnatamos el suero, la cantidad está a cero.</p>
+</section>
+<section id="análisis-de-las-desviaciones" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-de-las-desviaciones">Análisis de las desviaciones</h3>
+<p>Nuestra hoja de análisis de desviaciones tiene dos columnas, una para los valores estándar y otra para los reales.</p>
+<section id="análisis-de-los-valores-estándar" class="level4">
+<h4 class="anchored" data-anchor-id="análisis-de-los-valores-estándar">Análisis de los valores estándar</h4>
+<p>En los valores estándar, utilizamos los coeficientes del estándar de fabricación para estimar las cantidades de materia que deberíamos haber consumido en l afabricación de 637,56 kilos de queso si su composición se hubiese ajustado al estándar.</p>
+<p>Las primeras líneas hacen los cálculos ordinarios de composición; a partir de los datos de extracto seco total y materia grasa, obtenemos el extracto seco magro (ESM), la humedad del queso desnatado o magro (HFD o HQD) y la grasa del extracto seco (G/ES), datos de importancia en la caracterización denuestro producto, que utilizremos para comparar conel producto real fabricado. A continuación, introducimos el valor del factor MG/MP del queso, que será de utilidad en el análisis (en el mundo anglosajón se suele utilizar la relación inversa, MP/MG).</p>
+<p>A partir de estos datos, tenemos un bloque en el que calculamos los datos teóricos de la cuba de fabricación si los parámetros fuesen los del estándar. Utilizamos la composición de la leche definida en el estándar, que es la composición media con la que hemos construido el coste de la materia prima que esperamos comprar, y que por lo tanto, el coste con el que hemos construido nuestro precio de venta. El cálculo nos proporciona el litraje unitario teórico, que hemos calculado en el capitulo anterior del estándar de fabricación. Calculamos también el factor MG/MP de la leche en cubas, que nos permite anticipar la pérdida prevista de materia grasa. Si el factor MG/MP en la leche era de 1,183 y en el queso resulta ser de 1,080, esto nos indica una pérdida relativa de grasa, que esperamos que sea la que estamos definiendo en este estándar.</p>
+<p>Mediante los cálculos anteriores, obtenemos los coeficientes de recuperación de MG y MP (recordemos que la recuperación de la MP está medida mediante el valor del ESM del queso), y finalmente, nuestras pérdidas brutas de MG. Como no recuperamos MG del suero, el valor está a cero.</p>
+</section>
+<section id="análisis-de-los-valores-reales" class="level4">
+<h4 class="anchored" data-anchor-id="análisis-de-los-valores-reales">Análisis de los valores reales</h4>
+<p>En el caso de los valores reales, las fórmulas de cálculo son distintas, ya que hay cantidades que no son calculadas sino resultado de nuestra medida, y que hemos visto más arriba en la hoja que recoge los datos de fabricación.</p>
+<p>Los datos que necesitamos para desglosar los detalles de la fabricación son los kilos de queso fabricados y su composicón en EST y MG, y los litros de leche utilizados (leche en cubas), con su composición en EST y MG. No utilizamos los datos de leche comprada, por razones que ya hemos visto en el balance de materia, y que puede ser oportuno recordar: Las pérdidas anteriores a la cuba de fabricación se deben a causas diferentes de la tecnología quesera, y nos interes separarlas para entender, buscar y explicar sus causas, aplicando planes de reducción de pérdidas adecuados. Introducir estas pérdidas en el análisis de rendimientos nos dificultaría entender estas pérdidas sólo por las modificaciones de la tecnología en cuba.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="120-rendimientos_files/figure-html/6266dcf5-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Análisis de desviaciones</figcaption>
+</figure>
+</div>
+<section id="primer-análisis-comparado-de-resultados" class="level5">
+<h5 class="anchored" data-anchor-id="primer-análisis-comparado-de-resultados">Primer análisis comparado de resultados</h5>
+<p>Si comparamos el factor MG/MP de la leche en cubas con el del queso, vemos que en cubas el factor MG/MP real es de 1,210 frente a 1,183 en nuestro estándar. Esto quiere decir que la leche utilizada ha sido más grasa de lo esperado. Sin embargo, el factor real en el queso es de 1,040 frente a 1,080 en el estándar, lo que nos indica ya una mayor pérdida de MG en el proceso.</p>
+<p>La composición del queso es diferente del estándar: tenemos menor extracto seco y menor grasa, pero la cantidad de grasa es proporcionalmente mayor como vemso en el indicador HQD (67,15% vs 65,75%). Los quesos serán más blandos y su nivel de proteolisis con el tiempo será mayor.</p>
+<p>Debido a la composición de la leche, hemos puesto en cuba más MG por litro (41,070 g/L vs 40,350 g/L std) y menos proteína (33,950 g/L vs 34,110 g/L). Los litros de leche utilizados han sido menores que en el estándar, lo que es lógico teniendo en cuenta que nuestro queso tiene algo más de dos puntos porcentuales menos de extracto seco: hemos obtenido los kilos conmenos litros porque hemos incorporado más agua al peso del queso. Por esta razón, el litraje unitario es más bajo (7,882 L vs 7,967 L)</p>
+<p>Con estos datos, obtenemos los coeficientes clave del rendimiento: el porcentaje de recuperación. En ambos casos, nuestra recuperación ha sido pero que el estándar (MG: 78,65% vs 83,99%; MP: 91,52% vs 92%). La menor recuperación de la MG se verifica en el porcentaje de pérdidas en el suero, que ha sido sensiblemente mayor (21,35% vs 16,01%)</p>
+</section>
+</section>
+<section id="resumen-del-análisis-inicial" class="level4">
+<h4 class="anchored" data-anchor-id="resumen-del-análisis-inicial">Resumen del análisis inicial</h4>
+<p>En la fabricación analizada, hemos obtenido un queso con menor extracto seco que el estándar y una HFD más elevada. Aunque nuestro rendimiento en L/kg ha sido mejor que el estándar (hemos utilizado menos litros para obtener 1 kg de queso), en realidad nuestra recuperación de materia ha sido peor: hemos perdido tanto MG como MP.</p>
+<p>A continuación vamos a analizar el coste que hemos tenido frente al coste estándar previsto en nuestro presupuesto.</p>
+</section>
+</section>
+<section id="análisis-del-coste-de-las-desviaciones" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-del-coste-de-las-desviaciones">Análisis del coste de las desviaciones</h3>
+<section id="desviaciones-por-consumo-y-precio" class="level4">
+<h4 class="anchored" data-anchor-id="desviaciones-por-consumo-y-precio">Desviaciones por consumo y precio</h4>
+<p>Tal como hemos hecho en el cálculo del estándar, calculamos los consumos de materia puesta en cubas frente a los kilos de queso obtenidos, y lo expresamos en gramos de materia po rkilo de queso. Al multimplicar este consumo por los kilos totales fabricados obtenemos las desviaciones de materia totales, que al coste de materia que hemos calculado, nos permite obtener el coste de las desviaciones.</p>
+<p>Hacemos los cálculos en dos partes: - Calculamos las diferencias de consumos a coste estándar, de manera que las diferencias de coste calculadas se deban sólo al consumo de materia - Calculamos el impacto del precio por separado, porque, de nuevo, estas diferencias están fuera de la responsabilidad de la tecnología quesera, y deben tratarse por otras vías.</p>
+<p>No obstante, es necesario hacer ver que cuando por razones diversas, como la evolución del mercado de la leche, la meteorología o cualquier otra razón, se produce una diferencia de precio, siempre será necesario poenr en marcha planes de contingencia con medidas tecnológicas que puedan compensar estas diferencias, ya que la empresa no siempre tiene la capacidad de modificr las condiciones de compra de materia prima. Aquí la tecnología puede ser de ayuda para equilibrar los resultados económicos de la empresa.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="120-rendimientos_files/figure-html/c1a001dd-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Desviaciones por consumo y precio</figcaption>
+</figure>
+</div>
+<p>En el análisis global de desviaciones, vemos el reflejo de lo analizado antes para el total de la fabricación: - un mayor consumo de MG frente al estándar, que se traduce en una desviación negativa de 7,948 euros - un menor consumo de MP, que se traduce en una ganancia de 26,216 euros - en total, una desviación positiva de 18,268 euros.</p>
+<p>Respecto al precio, - el incremento en la MG nos produce una desviación negativa de -37,616 euros, - en la MP, una desviación positiva de 75,870 euros, - en total, una desviación total positiva de 38,254 euros.</p>
+<p>Con todos estos análisis, podemos hacer una primera valoración: el resultado económico total ha sido positivo, debido a una desviación favorable en el precio de la proteína y a un menor consumo de MP de lo previsto. Sin embargo, la fabricación ha tenido resultados negativos, ya que el consumo de MG y MP por kg de queso ha sido peor que lo previsto en el estándar. Las causas del resultado positivo ha sido dos: - la evolución favorable del precio de la proteína, y - el extracto seco del producto que ha estado dos puntos por debajo del estándar</p>
+<p>Si descomponemos los costes de MG y MP en función de la cantidad demateria puesta en cuba, vemos estas diferencias: un mayor consumo de MG y un menor consumo de MP:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="120-rendimientos_files/figure-html/78ad1e4a-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Desviaciones de coste de materia según la materia puesta en cubas</figcaption>
+</figure>
+</div>
+<p>Finalmente, introducimos una tabla de desviaciones de coste por componente, para la MG y para el ESM. En esta tabla, calculamos los costes estándar a partir del estándar técnico, y los costes reales de cada elemento utilizando el valor real de cada elemento y el resto de los costes estándar.</p>
+<p>AL descomponer los costes elemento a elemento, la utilizción del ESM de queso frente a la MP de la leche nos introduce una desviación, ya que el ESM puede incluir sal y otros componentes distintos de la MP, y la tasa de pérdida dela MP en cuba no es la misma que la del ESM. La tabla proporciona una estimación de la ineficiencia del cálculo como efectos no explicados.</p>
+<p>De todas formas, aunque el porcentaje de efectos no explicados puede llegar al 20%, el procentaje de efectos explicados restante se demuestra suficiente para establecer planes deacción significativos, ya que toda recuperación del ESM en cubas va a implicar una mejora de la recuperación de la MP.</p>
+<p>Este porcentaje de ineficiencia se reduce prácticamente a cero si es posible el análisis de la proteína en el queso. Hay que estimar si la ganancia de ese 20% en las explicaciones permite recuperar el incremento de coste analítico (medios y personas).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="120-rendimientos_files/figure-html/9cc3bba0-1-image.png" class="img-fluid figure-img"></p>
+<figcaption>Descomposicion detallada de las desviaciones de rendimiento</figcaption>
+</figure>
+</div>
+<p>El análisis detallado nos permite verificar cómo los efectos del bajo extracto seco del producto fabricado producen un resultado positivo (+99,788 euros). mientras que los efectos tecnológicos (recuperaciónd emateria) han sido negativos (-86,105 euros).</p>
+<p>Como colofón, si las pérdidas debidas a la tecnología han sido de -86,105 euros en una fabricación, y hemos previsto unas 260 fabricaciones anuales, la falta de corrección de nuestra tecnología nos puede llevar a unas pérdidas de algo más de 22.000 euros. De ahí la importancia de este análisis.</p>
+<p>En el enlace a continuación se puede descargar una hoja Excel con el detalle de cada tabla presnetada en este documento, y repasar la construcción de la fórmulas utilizadas.</p>
+<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/06-analisis-desviaciones-rendimientos.xlsx" target="_blank" rel="noopener noreferrer">Descargar la hoja de cálculo Excel con el análisis de desviaciones de rendimientos de ejemplo (archivo <code>06-analisis-desviaciones -rendimientos.xlsx</code>)</a></p>
 
 
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Mietton2014" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">M. Almena-Aliste y B. Mietton, <span>«Cheese Classification, Characterization, and Categorization: A Global Perspective»</span>, <em>Microbiology Spectrum</em>, vol. 2, n.º 1, pp. 10.1128/microbiolspec.cm-0003-2012, 2014, doi: <a href="https://doi.org/10.1128/microbiolspec.cm-0003-2012">10.1128/microbiolspec.cm-0003-2012</a>.</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 

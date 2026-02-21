@@ -2,6 +2,8 @@ Alexander, Rohan. 2023. “Telling Stories with Data.” 2023. <https://tellings
 
 Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2022. *Rmarkdown: Dynamic Documents for r*. <https://CRAN.R-project.org/package=rmarkdown>.
 
+Almena-Aliste, Montserrat, and Bernard Mietton. 2014. “Cheese Classification, Characterization, and Categorization: A Global Perspective.” *Microbiology Spectrum* 2 (1): 10.1128/microbiolspec.cm-0003-2012. <https://doi.org/10.1128/microbiolspec.cm-0003-2012>.
+
 Broman, Karl W., and Kara H. Woo. 2018. “Data Organization in Spreadsheets.” *The American Statistician* 72 (1): 2–10. <https://doi.org/10.1080/00031305.2017.1375989>.
 
 Buck, Stuart. 2015. “Solving Reproducibility.” *Science* 348 (6242): 1403. <https://www.science.org/doi/full/10.1126/science.aac8041>.
@@ -32,7 +34,7 @@ Harrell, Frank E. 2022a. “Biostatistics for Biomedical Research.” 2022. <htt
 
 ———. 2022b. “R Workflow.” 2022. <https://www.fharrell.com/post/rflow/>.
 
-———. 2022d. “Reproducible Research.” 2022. <https://hbiostat.org/rr/>.
+———. 2024. “Reproducible Research.” 2024. <https://hbiostat.org/rr/>.
 
 Hoerl, Roger, and Ron Snee. 2012. *Statistical Thinking: Improving Business Performance*. JOhn Wiley; Sons.
 

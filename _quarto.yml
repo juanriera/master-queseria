@@ -42,7 +42,7 @@ book:
     - 200-media-centro-gravedad.qmd
     - 210-simulacion-datos-fab.ipynb
     - 240-indice_dataframes.ipynb    
-    - 300-referencias.qmd
+    - 300-bibliografia.qmd
 language:
   section-title-appendices: "Apéndices"
   section-title-bibliography: "Bibliografía"

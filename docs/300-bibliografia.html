@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Apéndice A — La media aritmética como centro de gravedad de un grupo de datos – Análisis de datos industriales usando Excel y Python</title>
+<title>Referencias – Análisis de datos industriales usando Excel y Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,8 +49,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./210-simulacion-datos-fab.html" rel="next">
-<link href="./120-rendimientos.html" rel="prev">
+<link href="./240-indice_dataframes.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -70,35 +88,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -111,7 +100,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./200-media-centro-gravedad.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./200-media-centro-gravedad.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./200-media-centro-gravedad.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./300-bibliografia.html">Referencias</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -235,7 +224,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./200-media-centro-gravedad.html" class="sidebar-item-text sidebar-link active">
+  <a href="./200-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
   </div>
 </li>
@@ -253,7 +242,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./300-bibliografia.html" class="sidebar-item-text sidebar-link">
+  <a href="./300-bibliografia.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Referencias</span></a>
   </div>
 </li>
@@ -269,24 +258,16 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link active" data-scroll-target="#ejemplo">Ejemplo</a></li>
-  <li><a href="#paso-a-paso" id="toc-paso-a-paso" class="nav-link" data-scroll-target="#paso-a-paso">Paso a Paso</a></li>
-  <li><a href="#ejemplo-práctico" id="toc-ejemplo-práctico" class="nav-link" data-scroll-target="#ejemplo-práctico">Ejemplo Práctico</a></li>
-  <li><a href="#media-ponderada" id="toc-media-ponderada" class="nav-link" data-scroll-target="#media-ponderada">Media Ponderada</a></li>
-  <li><a href="#centro-de-gravedad-como-media-ponderada" id="toc-centro-de-gravedad-como-media-ponderada" class="nav-link" data-scroll-target="#centro-de-gravedad-como-media-ponderada">Centro de Gravedad como Media Ponderada</a></li>
-  <li><a href="#ejemplo-numérico" id="toc-ejemplo-numérico" class="nav-link" data-scroll-target="#ejemplo-numérico">Ejemplo Numérico</a></li>
-  <li><a href="#media-aritmética-y-centro-de-gravedad-con-masas-idénticas" id="toc-media-aritmética-y-centro-de-gravedad-con-masas-idénticas" class="nav-link" data-scroll-target="#media-aritmética-y-centro-de-gravedad-con-masas-idénticas">Media Aritmética y Centro de Gravedad con Masas Idénticas</a></li>
-  <li><a href="#conclusión" id="toc-conclusión" class="nav-link" data-scroll-target="#conclusión">Conclusión</a></li>
-  <li><a href="#importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos" id="toc-importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos" class="nav-link" data-scroll-target="#importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos"><span class="header-section-number">A.1</span> Importancia del concepto de la media como centro de gravedad o punto de equilibrio de un conjunto de datos</a></li>
+  <li><a href="#bibliografía-recomendada" id="toc-bibliografía-recomendada" class="nav-link active" data-scroll-target="#bibliografía-recomendada">Bibliografía recomendada</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./200-media-centro-gravedad.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./200-media-centro-gravedad.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./200-media-centro-gravedad.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./300-bibliografia.html">Referencias</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Apéndice A — La media aritmética como centro de gravedad de un grupo de datos</h1>
+<h1 class="title">Referencias</h1>
 </div>
 
 
@@ -298,7 +279,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Fecha de última modificación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">27 de octubre de 2025</p>
+      <p class="date-modified">21 de febrero de 2026</p>
     </div>
   </div>
     
@@ -309,184 +290,101 @@ window.Quarto = {
 </header>
 
 
-<p>Para ver cómo la media aritmética equivale al punto de equilibrio o centro de gravedad de un grupo de datos, imaginaremos que tenemos un conjunto de datos cuyos valores se distribuyen en un eje longitudinal X. Podemos hacer equivalentes estos valores a un conjunto de pesos que se distribuyen a lo largo de una barra, y vamos a suponer que existe un punto a una distancia <span class="math inline">\(d_i\)</span> del origen de la barra en el cual dicha barra está en equilibrio. Para encontrar ese valor, empezaremos considerando el principio o ley de la palanca.</p>
-<p>El <strong>Principio de la Palanca</strong> o la <strong>Ley de la Palanca</strong> fue formulada por el científico y matemático griego Arquímedes. Este principio dice que, en equilibrio, el producto de la fuerza aplicada (potencia) por su distancia al punto de apoyo (brazo de la potencia) es igual al producto de la resistencia por su distancia al punto de apoyo (brazo de la resistencia). Matemáticamente, se expresa como: <span class="math display">\[
-P \cdot d_p = R \cdot d_r
-\]</span></p>
-<p>Donde:</p>
-<ul>
-<li><span class="math inline">\(P\)</span> es la potencia o fuerza aplicada.</li>
-<li><span class="math inline">\(d_p\)</span> es la distancia desde el punto de apoyo hasta el punto donde se aplica la potencia.</li>
-<li><span class="math inline">\(R\)</span> es la resistencia o carga.</li>
-<li><span class="math inline">\(d_r\)</span> es la distancia desde el punto de apoyo hasta el punto donde se aplica la resistencia.</li>
-</ul>
-<div id="fig-palanca" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="01-imagenes/palanca.png" class="img-fluid figure-img">
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-ferrero2018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">R.
+Ferrero, <span>“Los errores de reinhart &amp; rogoff: R y la
+reproducibilidad.”</span> Accessed: Feb. 01, 2018. [Online]. Available:
+<a href="https://www.maximaformacion.es/blog-dat/los-errores-de-reinhart-rogo/">https://www.maximaformacion.es/blog-dat/los-errores-de-reinhart-rogo/</a></div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-palanca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;A.1: Palanca de primer grado con el fulcro como punto de equilibrio
-</figcaption>
-</figure>
+<div id="ref-ryssdal2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">K.
+Ryssdal, <span>“The excel mistake heard round the world.”</span>
+Accessed: Apr. 17, 2013. [Online]. Available: <a href="https://www.marketplace.org/2013/04/17/economy/excel-mistake-heard-round-world/">https://www.marketplace.org/2013/04/17/economy/excel-mistake-heard-round-world/</a></div>
 </div>
-<section id="ejemplo" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo">Ejemplo</h3>
-<p>Si tienes una palanca con una longitud de 5 metros y aplicas una fuerza de 10 Newtons a 1 metro del punto de apoyo, para mantener el equilibrio, la fuerza de resistencia en el otro extremo a 4 metros del punto de apoyo debería ser: <span class="math display">\[
-P \cdot d_p = R \cdot d_r
-\]</span></p>
-<p><span class="math display">\[
-10 \, \text{N} \cdot 1 \, \text{m} = R \cdot 4 \, \text{m}
-\]</span></p>
-<p><span class="math display">\[
-R = \frac{10 \cdot 1}{4} = 2,5 \text{N}
-\]</span></p>
-<p>Ahora vamos a considerar el punto de equilibrio de una barra de la que se cuelgan diferentes pesos a diferente distancias de su origen. Calcular el punto de equilibrio de una barra de la que se cuelgan diferentes pesos a diferentes distancias de su origen es un problema clásico de física que se puede resolver usando el principio de momentos.</p>
-</section>
-<section id="paso-a-paso" class="level3">
-<h3 class="anchored" data-anchor-id="paso-a-paso">Paso a Paso</h3>
-<ol type="1">
-<li><p><strong>Identificar las fuerzas</strong>: Supongamos que tienes varios pesos <span class="math inline">\(W_1, W_2, W_3, \ldots, W_n\)</span> colgados a distancias <span class="math inline">\(d_1, d_2, d_3, \ldots, d_n\)</span> del origen (punto de apoyo).</p></li>
-<li><p><strong>Calcular los momentos</strong>: El momento (<span class="math inline">\(M\)</span>) de un peso alrededor del punto de apoyo se calcula como el producto de la fuerza (peso) y la distancia al punto de apoyo:</p></li>
-</ol>
-<p><span class="math display">\[
-    M_i = W_i \times d_i
-\]</span></p>
-<ol start="3" type="1">
-<li><p><strong>Sumar los momentos</strong>: Calcula la suma de todos los momentos: <span class="math display">\[
-M_{\text{total}} = W_1 \times d_1 + W_2 \times d_2 + W_3 \times d_3 + \ldots + W_n \times d_n
-\]</span></p></li>
-<li><p><strong>Calcular el peso total</strong>: Suma todos los pesos: <span class="math display">\[
-W_{\text{total}} = W_1 + W_2 + W_3 + \ldots + W_n
-\]</span></p></li>
-<li><p><strong>Determinar el punto de equilibrio (</strong><span class="math inline">\(x\)</span>): El punto de equilibrio se encuentra dividiendo la suma de los momentos por el peso total: <span class="math display">\[
-x = \frac{\sum (W_i \times d_i)}{\sum W_i}
-\]</span></p></li>
-</ol>
-</section>
-<section id="ejemplo-práctico" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-práctico">Ejemplo Práctico</h3>
-<p>Supongamos que tenemos tres pesos de 4, 9 y 1 kg, situados, respectivamente, a 2, 1 y 3 m respectivamente del origen de la barra.</p>
-<ul>
-<li><span class="math inline">\(W_1 = 4 \, \text{kg}\)</span> a <span class="math inline">\(d_1 = 2 \, \text{m}\)</span></li>
-<li><span class="math inline">\(W_2 = 9 \, \text{kg}\)</span> a <span class="math inline">\(d_2 = 1 \, \text{m}\)</span></li>
-<li><span class="math inline">\(W_3 = 1 \, \text{kg}\)</span> a <span class="math inline">\(d_3 = 3 \, \text{m}\)</span></li>
-</ul>
-<ol type="1">
-<li><p><strong>Calcular los momentos</strong>: <span class="math display">\[
-M_1 = 4 \times 2 = 8 \, \text{kg·m}
-\]</span> <span class="math display">\[
-M_2 = 9 \times 1 = 9 \, \text{kg·m}
-\]</span> <span class="math display">\[
-M_3 = 1 \times 3 = 3 \, \text{kg·m}
-\]</span></p></li>
-<li><p><strong>Sumar los momentos</strong>: <span class="math display">\[
-M_{\text{total}} = 8 + 9 + 3 = 20 \, \text{kg·m}
-\]</span></p></li>
-<li><p><strong>Calcular el peso total</strong>: <span class="math display">\[
-W_{\text{total}} = 4 + 9 + 1 = 14 \, \text{kg}
-\]</span></p></li>
-<li><p><strong>Determinar el punto de equilibrio</strong>:</p></li>
-</ol>
-<p><span class="math display">\[
-    x = \frac{20}{14} \approx 1.43 \, \text{m}
-\]</span></p>
-<p>El punto de equilibrio se encuentra a aproximadamente 1.43 metros del origen.</p>
-</section>
-<section id="media-ponderada" class="level3">
-<h3 class="anchored" data-anchor-id="media-ponderada">Media Ponderada</h3>
-<p>En muchas situaciones, el centro de gravedad de un sistema de masas puede interpretarse como una <strong>media ponderada</strong> de las posiciones de las masas.</p>
-<section id="media-aritmética" class="level4">
-<h4 class="anchored" data-anchor-id="media-aritmética">Media Aritmética</h4>
-<p>Para un conjunto de números <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>, la media aritmética es: <span class="math display">\[
-\text{Media} = \frac{x_1 + x_2 + \cdots + x_n}{n}
-\]</span></p>
-</section>
-<section id="media-ponderada-1" class="level4">
-<h4 class="anchored" data-anchor-id="media-ponderada-1">Media Ponderada</h4>
-<p>Para un conjunto de valores <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> con pesos asociados <span class="math inline">\(w_1, w_2, \ldots, w_n\)</span>, la media ponderada es: <span class="math display">\[
-\text{Media ponderada} = \frac{w_1 x_1 + w_2 x_2 + \cdots + w_n x_n}{w_1 + w_2 + \cdots + w_n}
-\]</span></p>
-</section>
-</section>
-<section id="centro-de-gravedad-como-media-ponderada" class="level3">
-<h3 class="anchored" data-anchor-id="centro-de-gravedad-como-media-ponderada">Centro de Gravedad como Media Ponderada</h3>
-<p>Cuando calculamos el centro de gravedad (<span class="math inline">\(x_{\text{cg}}\)</span>) de un sistema de masas, estamos esencialmente calculando una media ponderada de las posiciones (<span class="math inline">\(x_i\)</span>) de esas masas (<span class="math inline">\(m_i\)</span>):</p>
-<p><span class="math display">\[
-x_{\text{cg}} = \frac{\sum (m_i \cdot x_i)}{\sum m_i}
-\]</span></p>
-<p>Aquí, las posiciones <span class="math inline">\(x_i\)</span> son ponderadas por las masas <span class="math inline">\(m_i\)</span>.</p>
-</section>
-<section id="ejemplo-numérico" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-numérico">Ejemplo Numérico</h3>
-<p>En nuestro ejemplo anterior,</p>
-<ul>
-<li>Masa 1: <span class="math inline">\(m_1 = 4 \, \text{kg}\)</span> en posición <span class="math inline">\(x_1 = 2 \, \text{m}\)</span></li>
-<li>Masa 2: <span class="math inline">\(m_2 = 9 \, \text{kg}\)</span> en posición <span class="math inline">\(x_2 = 1 \, \text{m}\)</span></li>
-<li>Masa 3: <span class="math inline">\(m_3 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_3 = 3 \, \text{m}\)</span></li>
-</ul>
-<p>La media aritmética de las posiciones sería: <span class="math display">\[
-\text{Media} = \frac{2 + 1 + 3}{3} = 2 \, \text{m}
-\]</span></p>
-<p>El punto de equlibrio de la barra, o centro de gravedad, calculado como media ponderada, sería:</p>
-<p><span class="math display">\[
-x_{\text{cg}} = \frac{(4 \cdot 2) + (9 \cdot 1) + (1 \cdot 3)}{4 + 9 + 1} = \frac{8 + 9 + 3}{14} = \frac{20}{14} \approx 1,43 \, \text{m}
-\]</span></p>
-<p>que es el mismo resultado que obteníamos formulando el cálculo de los momentos; la fórmula resulta ser idéntica.</p>
-</section>
-<section id="media-aritmética-y-centro-de-gravedad-con-masas-idénticas" class="level3">
-<h3 class="anchored" data-anchor-id="media-aritmética-y-centro-de-gravedad-con-masas-idénticas">Media Aritmética y Centro de Gravedad con Masas Idénticas</h3>
-<p>En los ejemplos anteriores, calculábamos el punto de equilibrio para diferentes pesos colocados a lo largo de una barra. Si en vez de eso suponemos que la distancia al origen de la barra equivale a nuestro eje <span class="math inline">\(X\)</span>, que recoge los valores de los que queremos calcular nuestra media aritmética, podemos eliminar el efecto de la masa suponiendo que todas las masas son iguales.</p>
-<p>Si las masas de los diferentes objetos son idénticas, podemos decir que la media aritmética de las posiciones coincide con el centro de gravedad. Esto se debe a que, en este caso, cada masa tiene el mismo peso o influencia en el cálculo del centro de gravedad. Esta es la explicación detallada:</p>
-<p><strong>Suposición:</strong> Cada objeto tiene la misma masa <span class="math inline">\(m\)</span>.</p>
-<section id="media-aritmética-1" class="level4">
-<h4 class="anchored" data-anchor-id="media-aritmética-1">Media Aritmética</h4>
-<p>Para un conjunto de posiciones <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>, la media aritmética es: <span class="math display">\[
-\text{Media} = \frac{x_1 + x_2 + \cdots + x_n}{n}
-\]</span></p>
-</section>
-<section id="centro-de-gravedad" class="level4">
-<h4 class="anchored" data-anchor-id="centro-de-gravedad">Centro de Gravedad</h4>
-<p>El centro de gravedad (<span class="math inline">\(x_{\text{cg}}\)</span>) para un conjunto de masas idénticas en posiciones <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> es: <span class="math display">\[
-x_{\text{cg}} = \frac{\sum (m \cdot x_i)}{\sum m}
-\]</span></p>
-<p>Dado que las masas <span class="math inline">\(m\)</span> son idénticas, el numerador se convierte en: <span class="math display">\[
-\sum (m \cdot x_i) = m \cdot (x_1 + x_2 + \cdots + x_n)
-\]</span></p>
-<p>Y el denominador se convierte en: <span class="math display">\[
-\sum m = n \cdot m
-\]</span></p>
-<p>Al sustituir estos en la fórmula del centro de gravedad, obtenemos: <span class="math display">\[
-x_{\text{cg}} = \frac{m \cdot (x_1 + x_2 + \cdots + x_n)}{n \cdot m}
-\]</span></p>
-<p>Al simplificar, los términos <span class="math inline">\(m\)</span> se cancelan, y nos queda: <span class="math display">\[
-x_{\text{cg}} = \frac{x_1 + x_2 + \cdots + x_n}{n}
-\]</span></p>
-<p>que es exactamente la fórmula de la media aritmética.</p>
-<p>Si repetimos nuestro ejemplo anterior, suponiendo en este caso masas idénticas</p>
-<ul>
-<li>Masa 1: <span class="math inline">\(m_1 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_1 = 2 \, \text{m}\)</span></li>
-<li>Masa 2: <span class="math inline">\(m_2 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_2 = 1 \, \text{m}\)</span></li>
-<li>Masa 3: <span class="math inline">\(m_3 = 1 \, \text{kg}\)</span> en posición <span class="math inline">\(x_3 = 3 \, \text{m}\)</span></li>
-</ul>
-<p>La media aritmética de las posiciones sería:</p>
-<p><span class="math display">\[
-\text{Media} = \frac{2 + 1 + 3}{3} = 2 \, \text{m}
-\]</span></p>
-<p>El punto de equlibrio de la barra, o centro de gravedad, calculado como media ponderada, sería:</p>
-<p><span class="math display">\[
-x_{\text{cg}} = \frac{(1 \cdot 2) + (1 \cdot 1) + (1 \cdot 3)}{1 + 1 + 1} = \frac{2 + 1 + 3}{3} = \frac{6}{3} = 2 \, \text{m}
-\]</span></p>
-<p>que es el mismo resultado que obteníamos con la fórmula de la media aritmética de las distancias.</p>
-</section>
-</section>
-<section id="conclusión" class="level3">
-<h3 class="anchored" data-anchor-id="conclusión">Conclusión</h3>
-<p>Cuando las masas son idénticas, la media aritmética de las posiciones coincide con el centro de gravedad. Esto nos permite afirmar que en el caso de una dimensión (por ejemplo, el peso) la media aritmética de un conjunto de valores coincide con el centro de gravedad o punto de equilibrio de ese conjunto de valores. Este es un resultado interesante que muestra la conexión entre conceptos estadísticos y físicos.</p>
-</section>
-<section id="importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="importancia-del-concepto-de-la-media-como-centro-de-gravedad-o-punto-de-equilibrio-de-un-conjunto-de-datos"><span class="header-section-number">A.1</span> Importancia del concepto de la media como centro de gravedad o punto de equilibrio de un conjunto de datos</h2>
-<p>Efecto de los <em>outliers</em>: desequilibrio, desplazamiento de la media, incremento de la varianza (gan diferencia), mientras que la mediana y el rango intercuartil no se ven afectados</p>
+<div id="ref-wickham2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">G.
+G. Hadley Wickham Mine Çetinkaya-Rundel, <em>R for data science, 2nd
+ed.</em> 1005 Gravenstein Highway North, Sebastopol, CA95472: O’Reilly
+Media Inc., 2023. Available: <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a></div>
+</div>
+<div id="ref-wickham2023es" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">G.
+G. Hadley Wickham, <span>“R para ciencia de datos.”</span> [Online].
+Available: <a href="https://es.r4ds.hadley.nz/">https://es.r4ds.hadley.nz/</a></div>
+</div>
+<div id="ref-krugman2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">P.
+Krugman, <span>“La depresión del excel.”</span> Accessed: Apr. 19, 2013.
+[Online]. Available: <a href="https://elpais.com/economia/2013/04/19/actualidad/1366398440_370422.html">https://elpais.com/economia/2013/04/19/actualidad/1366398440_370422.html</a></div>
+</div>
+<div id="ref-garicano2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">L.
+Garicano, <span>“El error de reinhart y rogoff.”</span> Accessed: Apr.
+14, 2013. [Online]. Available: <a href="https://nadaesgratis.es/garicano/el-error-de-reinhardt-y-rogoff">https://nadaesgratis.es/garicano/el-error-de-reinhardt-y-rogoff</a></div>
+</div>
+<div id="ref-wef2025" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">World Economic Forum, <span>“Future of jobs
+report, 2025,”</span> World Economic Forum, 91-93 route de la
+Capite,CH-1223 Cologny/Geneva, Switzerland, 2025. Available: <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/">https://www.weforum.org/publications/the-future-of-jobs-report-2025/</a></div>
+</div>
+<div id="ref-python_website" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">Python Software Foundation, <span>“Python
+programming language.”</span> 2026. Available: <a href="https://www.python.org/">https://www.python.org/</a></div>
+</div>
+<div id="ref-jupyter_web" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">Project Jupyter, <span>“Jupyter project
+website.”</span> 2026. Available: <a href="https://jupyter.org/">https://jupyter.org/</a></div>
+</div>
+<div id="ref-Mietton2014" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">M.
+Almena-Aliste and B. Mietton, <span>“Cheese classification,
+characterization, and categorization: A global perspective,”</span>
+<em>Microbiology Spectrum</em>, vol. 2, no. 1, pp.
+10.1128/microbiolspec.cm-0003-2012, 2014, doi: <a href="https://doi.org/10.1128/microbiolspec.cm-0003-2012">10.1128/microbiolspec.cm-0003-2012</a>.</div>
+</div>
+</div>
+<p><br></p>
+<section id="bibliografía-recomendada" class="level1 unnumbered">
+<h1 class="unnumbered">Bibliografía recomendada</h1>
+<p>Alexander, Rohan. 2023. “Telling Stories with Data.” 2023. <a href="https://tellingstorieswithdata.com/" class="uri">https://tellingstorieswithdata.com/</a>.</p>
+<p>Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2022. <em>Rmarkdown: Dynamic Documents for r</em>. <a href="https://CRAN.R-project.org/package=rmarkdown" class="uri">https://CRAN.R-project.org/package=rmarkdown</a>.</p>
+<p>Almena-Aliste, Montserrat, and Bernard Mietton. 2014. “Cheese Classification, Characterization, and Categorization: A Global Perspective.” <em>Microbiology Spectrum</em> 2 (1): 10.1128/microbiolspec.cm-0003-2012. <a href="https://doi.org/10.1128/microbiolspec.cm-0003-2012" class="uri">https://doi.org/10.1128/microbiolspec.cm-0003-2012</a>.</p>
+<p>Broman, Karl W., and Kara H. Woo. 2018. “Data Organization in Spreadsheets.” <em>The American Statistician</em> 72 (1): 2–10. <a href="https://doi.org/10.1080/00031305.2017.1375989" class="uri">https://doi.org/10.1080/00031305.2017.1375989</a>.</p>
+<p>Buck, Stuart. 2015. “Solving Reproducibility.” <em>Science</em> 348 (6242): 1403. <a href="https://www.science.org/doi/full/10.1126/science.aac8041" class="uri">https://www.science.org/doi/full/10.1126/science.aac8041</a>.</p>
+<p>Douglas C Montgomery, Norma Faris Hubele, George C Runger. 2011. <em>Engineering Statistics</em>. 111 River Street, Hoboken, NJ 07030-5774: John Wiley &amp; Sons, Inc.</p>
+<p>Dwyer, Christopher P. 2017. <em>Critical Thinking</em>. Cambridge University Press. <a href="https://doi.org/10.1017/9781316537411.016" class="uri">https://doi.org/10.1017/9781316537411.016</a>.</p>
+<p>Emilio L Cano, Andrés Redchuk, Javier M Moguerza. 2012. <em>Six Sigma with r: Statistical Engineering for Process Improvement</em>. Springer.</p>
+<p>Ethan P. White, Zachary T. Brym, Elita Baldridge, and Sarah R. Supp. 2013. “Nine Simple Ways to Make It Easier to (Re)use Your Data.” <em>Ideas in Ecology and Evolution</em> 6 (2): 1–10. <a href="https://doi.org/10.4033/iee.2013.6b.6.f" class="uri">https://doi.org/10.4033/iee.2013.6b.6.f</a>.</p>
+<p>Fernández, Javier A. 2021. “Cómo Aplicar El Pensamiento Crítico En Tu Trabajo.” 2021. <a href="https://elpais.com/economia/estar-donde-estes/2021-03-24/como-aplicar-el-pensamiento-critico-en-tu-trabajo.html" class="uri">https://elpais.com/economia/estar-donde-estes/2021-03-24/como-aplicar-el-pensamiento-critico-en-tu-trabajo.html</a>.</p>
+<p>Ferrero, Rosana. 2018. “Los Errores de Reinhart &amp; Rogoff: R y La Reproducibilidad.” 2018. <a href="https://www.maximaformacion.es/blog-dat/los-errores-de-reinhart-rogo/" class="uri">https://www.maximaformacion.es/blog-dat/los-errores-de-reinhart-rogo/</a>.</p>
+<p>Few, Stephen. 2012. <em>Show Me the Numbers: Designing Tables and Graphs to Enlighten</em>. Burlingame, CA 94011: Analytic Press.</p>
+<p>Garicano, Luis. 2013. “El Error de Reinhart y Rogoff.” 2013. <a href="https://nadaesgratis.es/garicano/el-error-de-reinhardt-y-rogoff" class="uri">https://nadaesgratis.es/garicano/el-error-de-reinhardt-y-rogoff</a>.</p>
+<p>Hadley Wickham, Garret Grolemund. 2023. “R Para Ciencia de Datos.” 2023. <a href="https://es.r4ds.hadley.nz/" class="uri">https://es.r4ds.hadley.nz/</a>.</p>
+<p>Hadley Wickham, Garret Grolemund, Mine Çetinkaya-Rundel. 2023. <em>R for Data Science, 2nd Ed.</em> 1005 Gravenstein Highway North, Sebastopol, CA95472: O’Reilly Media Inc.&nbsp;<a href="https://r4ds.hadley.nz/" class="uri">https://r4ds.hadley.nz/</a>.</p>
+<p>Harrell, Frank E. 2022a. “Biostatistics for Biomedical Research.” 2022. <a href="https://hbiostat.org/bbr/" class="uri">https://hbiostat.org/bbr/</a>.</p>
+<p>———. 2022c. “R Workflow.” 2022. <a href="https://hbiostat.org/rflow/" class="uri">https://hbiostat.org/rflow/</a>.</p>
+<p>———. 2022b. “R Workflow.” 2022. <a href="https://www.fharrell.com/post/rflow/" class="uri">https://www.fharrell.com/post/rflow/</a>.</p>
+<p>———. 2024. “Reproducible Research.” 2024. <a href="https://hbiostat.org/rr/" class="uri">https://hbiostat.org/rr/</a>.</p>
+<p>Hoerl, Roger, and Ron Snee. 2012. <em>Statistical Thinking: Improving Business Performance</em>. JOhn Wiley; Sons.</p>
+<p>Holtz, Yan. n.d. “The r Graph Gallery.” <a href="http://r-graph-gallery.com/index.html" class="uri">http://r-graph-gallery.com/index.html</a>.</p>
+<p>Kluyver, Thomas, Benjamin Ragan-Kelley, Fernando Pérez, Brian Granger, Matthias Bussonnier, Jonathan Frederic, Kyle Kelley, et al.&nbsp;2016. “Jupyter Notebooks - a Publishing Format for Reproducible Computational Workflows.” In <em>Positioning and Power in Academic Publishing: Players, Agents and Agendas</em>, 87–90. IOS Press.</p>
+<p>Krugman, Paul. 2013. “La Depresión Del Excel.” 2013. <a href="https://elpais.com/economia/2013/04/19/actualidad/1366398440_370422.html" class="uri">https://elpais.com/economia/2013/04/19/actualidad/1366398440_370422.html</a>.</p>
+<p>Mary G Leitnaker, Cheryl Hild, Richard D Sanders. 1996. <em>The Power of Statistical Thinking: IMproving Industrial Processes</em>. Addison-Wesley Publishing Company Inc.</p>
+<p>Project Jupyter. 2026. “Jupyter Project Website.” <a href="https://jupyter.org/" class="uri">https://jupyter.org/</a>.</p>
+<p>Python Software Foundation. 2026. “Python Programming Language.” <a href="https://www.python.org/" class="uri">https://www.python.org/</a>.</p>
+<p>R Core Team. 2023. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+<p>Ryssdal, Karl. 2013. “The Excel Mistake Heard Round the World.” 2013. <a href="https://www.marketplace.org/2013/04/17/economy/excel-mistake-heard-round-world/" class="uri">https://www.marketplace.org/2013/04/17/economy/excel-mistake-heard-round-world/</a>.</p>
+<p>Sadler, Jesse. 2017. “Excel Vs r: A Brief Introduction to r.” 2017. <a href="https://www.jessesadler.com/post/excel-vs-r/" class="uri">https://www.jessesadler.com/post/excel-vs-r/</a>.</p>
+<p>Sweigart, Al. 2021a. “The Big Book of Small Python Projects.” 2021. <a href="https://inventwithpython.com/bigbookpython/" class="uri">https://inventwithpython.com/bigbookpython/</a>.</p>
+<p>———. 2021b. <em>The Big Book of Small Python Projects</em>. No Starch Press, Inc.&nbsp;<a href="https://inventwithpython.com/bigbookpython/" class="uri">https://inventwithpython.com/bigbookpython/</a>.</p>
+<p>Tufte, Edward R. 1986. <em>The Visual Display of Quantitative Information</em>. Cheshire, Connecticut 06410: Graphic Press.</p>
+<p>———. 1990. <em>Envisioning Information</em>. Cheshire, Connecticut 06410: Graphic Press.</p>
+<p>Wheeler, Donald J. 2000. <em>Understanding Variation: The Key to Managing Chaos</em>. Knoxville, Tennessee 37919: SPC Press.</p>
+<p>Wickham, Hadley. 2014. “Tidy Data.” <em>Journal Od Statistical Software</em> 59 (10): 1–23. <a href="https://doi.org/10.18637/jss.v059.i10" class="uri">https://doi.org/10.18637/jss.v059.i10</a>.</p>
+<p>World Economic Forum. 2025. “Future of Jobs Report, 2025.” 91-93 route de la Capite,CH-1223 Cologny/Geneva, Switzerland: World Economic Forum. <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" class="uri">https://www.weforum.org/publications/the-future-of-jobs-report-2025/</a>.</p>
+<p>Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. <em>R Markdown: The Definitive Guide</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown" class="uri">https://bookdown.org/yihui/rmarkdown</a>.</p>
+<p>Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. <em>R Markdown Cookbook</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown-cookbook" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook</a>.</p>
 
 
 </section>
@@ -893,14 +791,11 @@ x_{\text{cg}} = \frac{(1 \cdot 2) + (1 \cdot 1) + (1 \cdot 3)}{1 + 1 + 1} = \fra
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./120-rendimientos.html" class="pagination-link" aria-label="Los rendimientos queseros">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></span>
+      <a href="./240-indice_dataframes.html" class="pagination-link" aria-label="Indice de DataFrames utilizados">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./210-simulacion-datos-fab.html" class="pagination-link" aria-label="Simulación de procesos en quesería">
-        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Simulación de procesos en quesería</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
