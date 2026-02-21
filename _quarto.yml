@@ -27,7 +27,7 @@ book:
       chapters: 
       - 100-precio-leche.ipynb
       - 110-balance-materia.ipynb
-      - 120-rendimientos.ipynb
+    #  - 120-rendimientos.ipynb
     #  - 160-pract02-rendimientos.ipynb 
     #  - 170-ficha-didáctica-cálculo-rend- con.python.ipynb 
     #- part: "Otras aplicaciones prácticas"
