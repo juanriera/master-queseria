@@ -141,14 +141,14 @@ Para crear una tabla de frecuencias de la variable `altura_cm` mediante tablas d
 
 ### Construcción de una tabla de frecuencias mediante Python o R
 
-::: {.callout-important .content-visible when-format="html"}
+::: {#clr-instrucciones .callout-tip .content-visible when-format="html"}
 ## Importante: Explicación del código
 
 A continuación, veremos varios ejemplos de código R y Python.
 
 Para un explicación detallada del código, copia el código R o Python y pégalo en Gemini o en ChatGPT (o Copilot). A continuación. da esta instrucción a la IA (puedes copiar y pegar):
 
->"Actúa como un tutor de programación. Explica este código instrucción a instrucción de forma detallada y sencilla, indicando qué hace cada línea y por qué es necesaria. Usa analogías con Excel o tareas manuales para que sea más fácil de entender."
+>Actúa como un tutor de programación. Explica este código instrucción a instrucción de forma detallada y sencilla, indicando qué hace cada línea y por qué es necesaria. Usa analogías con Excel o tareas manuales para que sea más fácil de entender.
 
 :::
 
@@ -694,7 +694,7 @@ Estos diagramas pueden superponerse al *boxplot*, lo que nos permite completar l
 ## Python (beeswarm)
 
 ```{python}
-sns.boxplot(data=df, y='est', color='lightgray')
+sns.boxplot(data=df, y='est', width = 0.2, color='lightgray')
 sns.swarmplot(data=df, y='est', size=4)
 plt.title('Boxplot + Beeswarm: extracto seco total')
 plt.ylabel("Extracto seco total")
@@ -723,8 +723,8 @@ library(ggplot2)
 library(ggbeeswarm)
 
 ggplot(df, aes(x = "", y = est)) +
-  geom_boxplot(fill = "lightgray", outlier.shape = NA) +
-  geom_beeswarm(color = "darkblue", size = 2, cex = 1.5, alpha = 0.7) +
+  geom_boxplot(width = 0.3, fill = "lightgray", outlier.shape = NA) +
+  geom_beeswarm(color = "darkblue", size = 2, cex = 1.5, alpha = 0.4) +
   labs(
     title = "Boxplot + Beeswarm: extracto seco total",
     x = "",
@@ -738,8 +738,8 @@ ggplot(df, aes(x = "", y = est)) +
 library(ggplot2)
 
 ggplot(df, aes(x = "", y = est)) +
-  geom_boxplot(fill = "lightgray", outlier.shape = NA) +
-  geom_jitter(width = 0.1, size = 2, color = "darkblue", alpha = 0.6) +
+  geom_boxplot(width = 0.3, fill = "lightgray", outlier.shape = NA) +
+  geom_jitter(width = 0.1, size = 2, color = "darkblue", alpha = 0.4) +
   labs(
     title = "Extracto seco total",
     subtitle = "Dotplot con jitter",
@@ -1093,7 +1093,7 @@ Veamos a continuación otras formas de formatear la serie sobre la marcha, pero 
 
 ```{python}
 plt.figure(figsize=(10.0, 2.0))
-df["est"].resample('W-MON').std().plot(
+df["est"].resample('W-MON', label='left', closed='left').std().plot(
     title="Desviación típica del extracto seco total semanal")
 plt.show()
 ```
@@ -1102,12 +1102,17 @@ O podemos representar un período específico de la serie indicando a `pandas` l
 
 ```{python}
 plt.figure(figsize=(10.0, 2.0))
-df["est"]["2020-05":"2020-08"].resample('W-MON').mean().plot(
+df["est"]["2020-05":"2020-08"].resample('W-MON', label='left', closed='left').mean().plot(
     title="Media del extracto seco total semanal")
 plt.show()
 ```
 
-Por último, combinamos el gráfico de media y el de la desviación típica semanal en un único gráfico. Queda para el trabajo en clase ir buscando la explicación y comprensión de cada linea (sugerencia: copiar y pegar en Gemini el código y solicitar explicación detallada)
+Por último, combinamos el gráfico de media y el de la desviación típica semanal en un único gráfico. Queda para el trabajo en clase ir buscando la explicación y comprensión de cada linea.
+
+::: {.callout-tip title="Sugerencia"}
+Se recomienda copiar el código y pegarlo en ChatGP3 o Gemini para explicarlo en detalle. 
+Utiliza el [texto de la nota de aviso](#clr-instrucciones) que dimos al principio del capítulo para pedir que explique el código.
+:::
 
 ```{python}
 #| message: false
@@ -1158,7 +1163,13 @@ fig.tight_layout()
 plt.show()
 ```
 
-A continuación, el gráfico realizado con R. Se recomienda copiar el código y pegarlo en un programa de IA para explicarlo en detalle.
+A continuación, el gráfico realizado con R. Se recomienda copiar el código y pegarlo en un programa de IA (ChatGP3, Gemini) para explicarlo en detalle.Utiliza el [texto de la nota de aviso](#clr-instrucciones) que dimos al principio del capítulo para explicar el código.
+
+::: {.callout-tip title="Sugerencia"}
+Se recomienda copiar el código y pegarlo en ChatGP3 o Gemini para explicarlo en detalle. 
+Utiliza el [texto de la nota de aviso](#clr-instrucciones) que dimos al principio del capítulo para pedir que explique el código.
+:::
+
 
 ```{r}
 #| message: false

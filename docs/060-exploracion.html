@@ -497,20 +497,20 @@ window.Quarto = {
 <p><img src="01-imagenes/aula1-td-frec.png" class="img-fluid"></p>
 <section id="construcción-de-una-tabla-de-frecuencias-mediante-python-o-r" class="level3">
 <h3 class="anchored" data-anchor-id="construcción-de-una-tabla-de-frecuencias-mediante-python-o-r">Construcción de una tabla de frecuencias mediante Python o R</h3>
-<div class="content-visible callout callout-style-default callout-important callout-titled" data-when-format="html">
+<div id="clr-instrucciones" class="content-visible callout callout-style-default callout-tip callout-titled" data-when-format="html">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Importante: Explicación del código
+<span class="screen-reader-only">Tip</span>Importante: Explicación del código
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>A continuación, veremos varios ejemplos de código R y Python.</p>
 <p>Para un explicación detallada del código, copia el código R o Python y pégalo en Gemini o en ChatGPT (o Copilot). A continuación. da esta instrucción a la IA (puedes copiar y pegar):</p>
 <blockquote class="blockquote">
-<p>“Actúa como un tutor de programación. Explica este código instrucción a instrucción de forma detallada y sencilla, indicando qué hace cada línea y por qué es necesaria. Usa analogías con Excel o tareas manuales para que sea más fácil de entender.”</p>
+<p>Actúa como un tutor de programación. Explica este código instrucción a instrucción de forma detallada y sencilla, indicando qué hace cada línea y por qué es necesaria. Usa analogías con Excel o tareas manuales para que sea más fácil de entender.</p>
 </blockquote>
 </div>
 </div>
@@ -1176,7 +1176,7 @@ Name: count, dtype: int64</code></pre>
 <div class="tab-content">
 <div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'est'</span>, color<span class="op">=</span><span class="st">'lightgray'</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'est'</span>, width <span class="op">=</span> <span class="fl">0.2</span>, color<span class="op">=</span><span class="st">'lightgray'</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sns.swarmplot(data<span class="op">=</span>df, y<span class="op">=</span><span class="st">'est'</span>, size<span class="op">=</span><span class="dv">4</span>)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Boxplot + Beeswarm: extracto seco total'</span>)</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Extracto seco total"</span>)</span>
@@ -1217,8 +1217,8 @@ Name: count, dtype: int64</code></pre>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggbeeswarm)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> est)) <span class="sc">+</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"lightgray"</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_beeswarm</span>(<span class="at">color =</span> <span class="st">"darkblue"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">cex =</span> <span class="fl">1.5</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.3</span>, <span class="at">fill =</span> <span class="st">"lightgray"</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_beeswarm</span>(<span class="at">color =</span> <span class="st">"darkblue"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">cex =</span> <span class="fl">1.5</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
 <span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Boxplot + Beeswarm: extracto seco total"</span>,</span>
 <span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">""</span>,</span>
@@ -1239,8 +1239,8 @@ Name: count, dtype: int64</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> est)) <span class="sc">+</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"lightgray"</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.3</span>, <span class="at">fill =</span> <span class="st">"lightgray"</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"darkblue"</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Extracto seco total"</span>,</span>
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Dotplot con jitter"</span>,</span>
@@ -1701,7 +1701,7 @@ memory usage: 11.7 KB</code></pre>
 <p>Veamos a continuación otras formas de formatear la serie sobre la marcha, pero esta vez representando la <code>desviación típica</code>en vez de la <code>media</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">2.0</span>))</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>).std().plot(</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>].resample(<span class="st">'W-MON'</span>, label<span class="op">=</span><span class="st">'left'</span>, closed<span class="op">=</span><span class="st">'left'</span>).std().plot(</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Desviación típica del extracto seco total semanal"</span>)</span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -1715,7 +1715,7 @@ memory usage: 11.7 KB</code></pre>
 <p>O podemos representar un período específico de la serie indicando a <code>pandas</code> los límites inferior y superior de las fechas que queremos.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">2.0</span>))</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>][<span class="st">"2020-05"</span>:<span class="st">"2020-08"</span>].resample(<span class="st">'W-MON'</span>).mean().plot(</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"est"</span>][<span class="st">"2020-05"</span>:<span class="st">"2020-08"</span>].resample(<span class="st">'W-MON'</span>, label<span class="op">=</span><span class="st">'left'</span>, closed<span class="op">=</span><span class="st">'left'</span>).mean().plot(</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Media del extracto seco total semanal"</span>)</span>
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -1726,7 +1726,20 @@ memory usage: 11.7 KB</code></pre>
 </div>
 </div>
 </div>
-<p>Por último, combinamos el gráfico de media y el de la desviación típica semanal en un único gráfico. Queda para el trabajo en clase ir buscando la explicación y comprensión de cada linea (sugerencia: copiar y pegar en Gemini el código y solicitar explicación detallada)</p>
+<p>Por último, combinamos el gráfico de media y el de la desviación típica semanal en un único gráfico. Queda para el trabajo en clase ir buscando la explicación y comprensión de cada linea.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Sugerencia">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Sugerencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se recomienda copiar el código y pegarlo en ChatGP3 o Gemini para explicarlo en detalle. Utiliza el <a href="#clr-instrucciones">texto de la nota de aviso</a> que dimos al principio del capítulo para pedir que explique el código.</p>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
@@ -1780,7 +1793,20 @@ memory usage: 11.7 KB</code></pre>
 </div>
 </div>
 </div>
-<p>A continuación, el gráfico realizado con R. Se recomienda copiar el código y pegarlo en un programa de IA para explicarlo en detalle.</p>
+<p>A continuación, el gráfico realizado con R. Se recomienda copiar el código y pegarlo en un programa de IA (ChatGP3, Gemini) para explicarlo en detalle.Utiliza el <a href="#clr-instrucciones">texto de la nota de aviso</a> que dimos al principio del capítulo para explicar el código.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Sugerencia">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Sugerencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se recomienda copiar el código y pegarlo en ChatGP3 o Gemini para explicarlo en detalle. Utiliza el <a href="#clr-instrucciones">texto de la nota de aviso</a> que dimos al principio del capítulo para pedir que explique el código.</p>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
