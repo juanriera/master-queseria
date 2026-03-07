@@ -1240,9 +1240,18 @@ Los gráficos de series temporales proporcionan una visión clara y concisa de c
 
 ### Algunas sugerencias para la creación de gráficos
 
-El enlace https://tidyplots.org/ tiene muchos gráficos útile que puede resultar interesante y formativo ver con atención.
+Algunos sitios tienen ejemplos de gráficos que pueden resultar útil revisar:
 
-También esta guía proporciona información sobre el destino adecuado de cada tipo de gráfico, facilitando la elección según el objetivo.
+- [Galería de `matplotlib`](https://matplotlib.org/stable/gallery/index.html), gran cantidad de ejemplos en Python
+- [Galería de `seaborn`](https://seaborn.pydata.org/examples/index.html), una extensa galería de gráficos hecgos con esta librería Python
+- [Python Graph Gallery](https://python-graph-gallery.com/), otra extensa galería de gráficos en Python
+- [The R Graph Gallery](https://r-graph-gallery.com/), una galería de gráficos hechos con R
+- [R-charts](https://r-charts.com/) es una galería de gráficos R creada por un español, José Carlos Soage.
+- [Tidyplots](https://tidyplots.org/) utiliza la libreria `tidyplots` en R para realizar de forma sencilla gran cantidad de gráficos.
+
+Una de las guías más conocidas y seguidas para la creación de gráficos es el [vocabulario visual del Financial Times](https://raw.githubusercontent.com/ft-interactive/chart-doctor/master/visual-vocabulary/poster.png)
+
+También esta guía proporciona información sobre el uso adecuado de cada tipo de gráfico, facilitando la elección según el objetivo perseguido
 
 ![](01-imagenes/1740294003188.jpg) ![](01-imagenes/1740121283445.jpg)
 
