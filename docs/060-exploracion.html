@@ -339,14 +339,14 @@ window.Quarto = {
   <li><a href="#otra-alternativa-al-boxplot-el-violin-plot" id="toc-otra-alternativa-al-boxplot-el-violin-plot" class="nav-link" data-scroll-target="#otra-alternativa-al-boxplot-el-violin-plot">Otra alternativa al <em>boxplot</em>: el <em>violin plot</em></a></li>
   </ul></li>
   <li><a href="#gráficos-de-dispersión" id="toc-gráficos-de-dispersión" class="nav-link" data-scroll-target="#gráficos-de-dispersión"><span class="header-section-number">6.11</span> Gráficos de dispersión</a></li>
-  <li><a href="#gráficos-de-series-temporales" id="toc-gráficos-de-series-temporales" class="nav-link" data-scroll-target="#gráficos-de-series-temporales"><span class="header-section-number">6.12</span> Gráficos de series temporales</a></li>
-  <li><a href="#algunos-ejemplos" id="toc-algunos-ejemplos" class="nav-link" data-scroll-target="#algunos-ejemplos"><span class="header-section-number">6.13</span> Algunos ejemplos</a>
+  <li><a href="#gráficos-de-series-temporales" id="toc-gráficos-de-series-temporales" class="nav-link" data-scroll-target="#gráficos-de-series-temporales"><span class="header-section-number">6.12</span> Gráficos de series temporales</a>
   <ul class="collapse">
   <li><a href="#cómo-hacer-los-gráficos-de-series-temporales-en-excel" id="toc-cómo-hacer-los-gráficos-de-series-temporales-en-excel" class="nav-link" data-scroll-target="#cómo-hacer-los-gráficos-de-series-temporales-en-excel">Cómo hacer los gráficos de series temporales en Excel</a></li>
   <li><a href="#gráficos-de-series-temporales-en-python-utilizando-pandas" id="toc-gráficos-de-series-temporales-en-python-utilizando-pandas" class="nav-link" data-scroll-target="#gráficos-de-series-temporales-en-python-utilizando-pandas">Gráficos de series temporales en <code>Python</code> utilizando <code>pandas</code></a></li>
+  <li><a href="#construyendo-la-serie-temporal-con-pandas" id="toc-construyendo-la-serie-temporal-con-pandas" class="nav-link" data-scroll-target="#construyendo-la-serie-temporal-con-pandas">Construyendo la serie temporal con <code>pandas</code></a></li>
   <li><a href="#resumen-1" id="toc-resumen-1" class="nav-link" data-scroll-target="#resumen-1">Resumen</a></li>
-  <li><a href="#algunas-sugerencias-para-la-creación-de-gráficos" id="toc-algunas-sugerencias-para-la-creación-de-gráficos" class="nav-link" data-scroll-target="#algunas-sugerencias-para-la-creación-de-gráficos">Algunas sugerencias para la creación de gráficos</a></li>
   </ul></li>
+  <li><a href="#algunas-sugerencias-para-la-creación-de-gráficos" id="toc-algunas-sugerencias-para-la-creación-de-gráficos" class="nav-link" data-scroll-target="#algunas-sugerencias-para-la-creación-de-gráficos"><span class="header-section-number">6.13</span> Algunas sugerencias para la creación de gráficos</a></li>
   </ul>
 </nav>
     </div>
@@ -1547,9 +1547,7 @@ Figura&nbsp;6.1: Gráfico de dispersión en Excel
 <section id="gráficos-de-series-temporales" class="level2" data-number="6.12">
 <h2 data-number="6.12" class="anchored" data-anchor-id="gráficos-de-series-temporales"><span class="header-section-number">6.12</span> Gráficos de series temporales</h2>
 <p>Hasta ahora hemos utilizado gráficos y tablas que describen la estructura y forma de una variable, o las relaciones entre dos variables. Hay otros gráficos que tienen en cuenta la forma en la que esos datos cambian con el tiempo. En este caso, será necesario que hayamos recogido en una variable de nuestra tabla los intervalos de tiempo en los que se han producido nuestros valores.</p>
-</section>
-<section id="algunos-ejemplos" class="level2" data-number="6.13">
-<h2 data-number="6.13" class="anchored" data-anchor-id="algunos-ejemplos"><span class="header-section-number">6.13</span> Algunos ejemplos</h2>
+<p>Algunos ejemplos:</p>
 <ul>
 <li><p>proceso de llenado de envases de queso crema: se llena una tarrina cada 15 segundos. Nuestros datos deben recoger el tiempo y el peso.</p></li>
 <li><p>nuestro fichero de fabricación de queso camembert recoge los valores analíticos medios diarios del producto fabricado.</p></li>
@@ -1585,8 +1583,9 @@ Figura&nbsp;6.1: Gráfico de dispersión en Excel
 <li><strong>Ventanas Móviles (<code>rolling</code>):</strong> Es la función estrella para la industria. Permite calcular <strong>promedios móviles</strong> o desviaciones estándar sobre un periodo de tiempo definido (ej. el promedio de temperatura de los últimos 15 minutos, o cada 15 minutos). Esto es crucial para el <strong>control de calidad</strong> y la identificación de anomalías o desviaciones en tiempo real.</li>
 </ol>
 <p>En resumen, Pandas elimina las tareas de manipulación de datos tediosas, permitiendo a los profesionales de la alimentación centrarse en lo realmente importante: la <strong>interpretación de los datos</strong> para optimizar procesos, garantizar la <strong>seguridad alimentaria</strong> y mejorar la eficiencia.</p>
-<section id="construyendo-la-serie-temporal-con-pandas" class="level4">
-<h4 class="anchored" data-anchor-id="construyendo-la-serie-temporal-con-pandas">Construyendo la serie temporal con <code>pandas</code></h4>
+</section>
+<section id="construyendo-la-serie-temporal-con-pandas" class="level3">
+<h3 class="anchored" data-anchor-id="construyendo-la-serie-temporal-con-pandas">Construyendo la serie temporal con <code>pandas</code></h3>
 <p>Vamos a incluir de nuevo el código de lectura de los datos completo, para mayor claridad. Además, vamos a incluir una opción en la función de lectura del <code>csv</code> que formatea el campo <code>fecha</code> al formato que <code>pandas</code> puede reconocer.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -1852,7 +1851,6 @@ memory usage: 11.7 KB</code></pre>
 </div>
 </div>
 </section>
-</section>
 <section id="resumen-1" class="level3">
 <h3 class="anchored" data-anchor-id="resumen-1">Resumen</h3>
 <p>Los gráficos de series temporales son útiles para:</p>
@@ -1891,8 +1889,9 @@ memory usage: 11.7 KB</code></pre>
 </ol>
 <p>Los gráficos de series temporales proporcionan una visión clara y concisa de cómo cambian los datos a lo largo del tiempo. Esta visualización es fundamental para el análisis predictivo, la toma de decisiones y la identificación de patrones y anomalías en los datos.</p>
 </section>
-<section id="algunas-sugerencias-para-la-creación-de-gráficos" class="level3">
-<h3 class="anchored" data-anchor-id="algunas-sugerencias-para-la-creación-de-gráficos">Algunas sugerencias para la creación de gráficos</h3>
+</section>
+<section id="algunas-sugerencias-para-la-creación-de-gráficos" class="level2" data-number="6.13">
+<h2 data-number="6.13" class="anchored" data-anchor-id="algunas-sugerencias-para-la-creación-de-gráficos"><span class="header-section-number">6.13</span> Algunas sugerencias para la creación de gráficos</h2>
 <p>Algunos sitios tienen ejemplos de gráficos que puede resultar útil revisar:</p>
 <ul>
 <li><a href="https://matplotlib.org/stable/gallery/index.html">Galería de <code>matplotlib</code></a>, gran cantidad de ejemplos en Python</li>
@@ -1907,7 +1906,6 @@ memory usage: 11.7 KB</code></pre>
 <p><img src="01-imagenes/1740294003188.jpg" class="img-fluid"> <img src="01-imagenes/1740121283445.jpg" class="img-fluid"></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

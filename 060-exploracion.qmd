@@ -978,7 +978,7 @@ Como vemos, los gráficos de dispersión son una herramienta esencial en el aná
 
 Hasta ahora hemos utilizado gráficos y tablas que describen la estructura y forma de una variable, o las relaciones entre dos variables. Hay otros gráficos que tienen en cuenta la forma en la que esos datos cambian con el tiempo. En este caso, será necesario que hayamos recogido en una variable de nuestra tabla los intervalos de tiempo en los que se han producido nuestros valores.
 
-## Algunos ejemplos
+Algunos ejemplos:
 
 -   proceso de llenado de envases de queso crema: se llena una tarrina cada 15 segundos. Nuestros datos deben recoger el tiempo y el peso.
 
@@ -1016,7 +1016,7 @@ Para abordar este análisis de manera **eficiente y sencilla**, la biblioteca `p
 
 En resumen, Pandas elimina las tareas de manipulación de datos tediosas, permitiendo a los profesionales de la alimentación centrarse en lo realmente importante: la **interpretación de los datos** para optimizar procesos, garantizar la **seguridad alimentaria** y mejorar la eficiencia.
 
-#### Construyendo la serie temporal con `pandas`
+### Construyendo la serie temporal con `pandas`
 
 Vamos a incluir de nuevo el código de lectura de los datos completo, para mayor claridad. Además, vamos a incluir una opción en la función de lectura del `csv` que formatea el campo `fecha` al formato que `pandas` puede reconocer.
 
@@ -1238,7 +1238,7 @@ Los gráficos de series temporales son cruciales en diversas áreas:
 
 Los gráficos de series temporales proporcionan una visión clara y concisa de cómo cambian los datos a lo largo del tiempo. Esta visualización es fundamental para el análisis predictivo, la toma de decisiones y la identificación de patrones y anomalías en los datos.
 
-### Algunas sugerencias para la creación de gráficos
+## Algunas sugerencias para la creación de gráficos
 
 Algunos sitios tienen ejemplos de gráficos que puede resultar útil revisar:
 
