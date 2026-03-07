@@ -425,7 +425,7 @@ En la figura siguiente vemos el histograma correspondiente a la tabla anterior, 
 
 La decisión de cambiar la amplitud del intervalo en un histograma influye en el aspecto del gráfico y es una opción personal; lo mejor es utilizar la que en nuestra opinión refleje mejor el aspecto de la distribución de datos, ni demasiado grande ni demasiado pequeña. En todo caso, debemos ser capaces de interpretar que la distribución de los valores es la misma en los tres casos: hay una mayoría de casos con valores entre 46 y 48, y muy pocos casos con valores muy bajos o muy altos. En este caso, la distribución de los valores es aproximadamente simétrica, y se reparten alrededor de una mayoría de valores centrales.
 
-## Visualización de Datos en Python y R
+### Histograma en Python y R
 
 En Python, las librerías `matplotlib` y `seaborn` son las herramientas estándar para crear gráficos.
 
