@@ -20,7 +20,7 @@ book:
       - 030-herramientas.qmd
       - 040-organizacion.qmd
       - 050-intro-python.ipynb  
-      - 060-exploracion.ipynb
+      - 060-exploracion.qmd
       - 070-estad-simple.qmd    
       - 080-pract01-camembert.ipynb 
     - part: "Aplicaciones practicas: Análisis cuantitativo de la producción quesera"
