@@ -1243,7 +1243,7 @@ Los gráficos de series temporales proporcionan una visión clara y concisa de c
 Algunos sitios tienen ejemplos de gráficos que puede resultar útil revisar:
 
 - [Galería de `matplotlib`](https://matplotlib.org/stable/gallery/index.html), gran cantidad de ejemplos en Python
-- [Galería de `seaborn`](https://seaborn.pydata.org/examples/index.html), una extensa galería de gráficos hecgos con esta librería Python
+- [Galería de `seaborn`](https://seaborn.pydata.org/examples/index.html), una extensa galería de gráficos hechos con esta librería Python
 - [Python Graph Gallery](https://python-graph-gallery.com/), otra extensa galería de gráficos en Python
 - [The R Graph Gallery](https://r-graph-gallery.com/), una galería de gráficos hechos con R
 - [R-charts](https://r-charts.com/) es una galería de gráficos R creada por un español, José Carlos Soage.
