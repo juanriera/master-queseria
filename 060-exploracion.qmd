@@ -304,7 +304,7 @@ Es el caso, por ejemplo, de que enviásemos la tabla a otra persona y ésta tuvi
 
 Esta es una de las principales razones de la conveniencia del aprendizaje de `Python` incluso para las actividades más sencillas.
 
-## Ejercicio propuesto
+### Ejercicio propuesto
 
 En la tabla de frecuencias anterior, calcular **frecuencia absoluta acumulada** y **frecuencia relativa acumulada** en Excel, e incluirlas en la tabla como dos columnas adicionales. La **frecuencia relativa acumulada** nos permitirá crear **diagramas de Pareto**, muy útiles en los procesos de mejora de calidad.
 
