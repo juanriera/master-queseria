@@ -1240,7 +1240,7 @@ Los gráficos de series temporales proporcionan una visión clara y concisa de c
 
 ### Algunas sugerencias para la creación de gráficos
 
-Algunos sitios tienen ejemplos de gráficos que pueden resultar útil revisar:
+Algunos sitios tienen ejemplos de gráficos que puede resultar útil revisar:
 
 - [Galería de `matplotlib`](https://matplotlib.org/stable/gallery/index.html), gran cantidad de ejemplos en Python
 - [Galería de `seaborn`](https://seaborn.pydata.org/examples/index.html), una extensa galería de gráficos hecgos con esta librería Python
