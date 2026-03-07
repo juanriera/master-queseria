@@ -87,13 +87,9 @@ Para construir una distribución de frecuencias, agrupamos nuestros valores por 
 -   la **frecuencia acumulada** nos dice cuántas observaciones están por debajo de un cierto valor.
 -   la **frecuencia relativa acumulada** es la proporción de valores que están por debajo de un cierto valor
 
-### Construcción en Excel
+### Construcción de una tabla de frecuencias paso a paso en Excel
 
-La tabla a continuación muestra una distribución de frecuencias de las alturas de nuestro grupo de alumnos, calculada mediante una tabla dinámica de Excel.
-
-## Instrucciones paso a paso en Excel
-
-Para crear una tabla de frecuencias de la variable `altura_cm` mediante tablas dinámicas en Excel, sigue estos pasos:
+Para crear una tabla de frecuencias de la variable `altura_cm` mediante una tabla dinámica en Excel, sigue estos pasos:
 
 **1. Selecciona los Datos**
 
