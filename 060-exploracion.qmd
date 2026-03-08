@@ -58,6 +58,7 @@ A continuación añadimos las "hojas" en la celda a la derecha, que consisten en
 #### Construcción del diagrama en Python y R
 
 R permite realizar el _stemplot_ mediante la función $stem()$ de forma automática. Python no incluye entre sus métodos básicos una función para hacer un *stemplot*, aunque sí la tiene en la librería `stemgraphic`; importamos de esta librería sólo la función `stem_text()`
+
 ::: {#clr-instrucciones .callout-tip .content-visible when-format="html"}
 ## Importante: Explicación del código
 
@@ -66,8 +67,8 @@ En este capítulo veremos varios ejemplos de código R y Python.
 Para un explicación detallada del código, copia el código R o Python y pégalo en Gemini o en ChatGPT (o Copilot). A continuación. da esta instrucción a la IA (puedes copiar y pegar el párrafo):
 
 >Actúa como un tutor de programación. Explica este código instrucción a instrucción de forma detallada y sencilla, indicando qué hace cada línea y por qué es necesaria. Usa analogías con Excel o tareas manuales para que sea más fácil de entender.
-
 :::
+
 ::: {.panel-tabset group="idiomas"}
 
 ## Python
