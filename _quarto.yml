@@ -5,7 +5,7 @@ execute:
   enabled: true
 jupyter: python3
 book:
-  title: "Análisis de datos industriales usando Excel y Python"
+  title: "Introducción al análisis de datos industriales usando Excel, Python y R"
   subtitle: "Notas para el master de FP en tecnología quesera"
   author: "Juan Riera"
   date: 2025-10-27

@@ -103,21 +103,6 @@ En el contexto de la estadística industrial, R se utiliza para:
 
 - **Análisis de fiabilidad**: R se utiliza para evaluar la confiabilidad de sistemas y componentes en la industria.
 
-#### Utilización práctica de R en el entorno industrial
-[..a desarrollar..]
-
--   Importación de datos y exportación de datos
-
--   Manipulación de datos: depuración, corrección, filtrado de datos.
-
--   Exploración gráfica de los datos
-
--   Análisis estadísticos específicos.
-
--   Gráficos de control
-
--   Informes automatizados
-
 ### El lenguaje Julia
 
 **Julia** es un lenguaje de programación más reciente, diseñado específicamente para el cálculo numérico y la ciencia de datos. Ofrece un rendimiento cercano al de lenguajes de bajo nivel como C, pero con la sintaxis y facilidad de uso de lenguajes de alto nivel como Python y R. Julia es especialmente útil en aplicaciones donde el rendimiento es crítico, como en simulaciones industriales y análisis de grandes volúmenes de datos.

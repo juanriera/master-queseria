@@ -25,12 +25,9 @@ En este capítulo estudiaremos cómo describir conjuntos de datos de forma visua
 -   Gráfico de dispersión
 -   Gráfico de series temporales
 
-Veremos la relación visual entre un histograma y un diagrama de caja, y aprenderemos también a construir tablas de frecuencias en Excel y en `Python`. Finalmente, veremos algunos otros tipos de gráficos que son útiles para aplicaciones concretas, como los gráficos de densidad.
+Veremos la relación visual entre un histograma y un diagrama de caja, y aprenderemos también a construir tablas de frecuencias en Excel, en Python y en R. Finalmente, veremos algunos otros tipos de gráficos que son útiles para aplicaciones concretas, como los gráficos de densidad.
 
-
-## Explorando los datos
-
-### El diagrama de tallo y hojas (*stem and leaf plot* o *stemplot*)
+## El diagrama de tallo y hojas (*stem and leaf plot* o *stemplot*)
 
 El diagrama de tallo y hojas, también conocido como *stemplot*, es una herramienta gráfica utilizada en estadística para representar la distribución de un conjunto de datos. Es especialmente útil para conjuntos de datos pequeños y proporciona una forma rápida y efectiva de visualizar la forma de los datos y su dispersión. El *stemplot* recibe este nombre porque el dibujo que resulta se asemeja a un tallo el que le salen las hojas que son los datos individuales.
 
@@ -57,6 +54,30 @@ Vamos a utilizar los datos de medidas de altura de nuestro grupo de alumnos. Qui
 A continuación añadimos las "hojas" en la celda a la derecha, que consisten en los valores que hemos "cortado" de nuestro árbol, uno al lado de otro, incluyendo esta vez los valores repetidos, en orden de menor a mayor. Por ejemplo, para el valor 135, descartamos 13 y utlizamos 5; para el valor 138, descartamos 13 y utilizamos 8, y así sucesivamente para todos los valores.
 
 ![](01-imagenes/aula1-stemplot-paso2.png)
+
+#### Construcción del diagrama en Python y R
+
+R permite realizar el _stemplot_ mediante la función $stem()$ de forma automática. Python no incluye entre sus métodos básicos una función para hacer un *stemplot*, aunque sí la tiene en la librería `stemgraphic`; importamos de esta librería sólo la función `stem_text()`
+
+::: {.panel-tabset group="idiomas"}
+
+## Python
+
+```{python}
+from stemgraphic.text import stem_text
+
+altura_cm = [153,135,140,140,175,138,145,154,152,159,154]
+stem_text(altura_cm)
+```
+
+## R
+
+```{r message=FALSE, warning=FALSE}
+altura_cm <- c(153,135,140,140,175,138,145,154,152,159,154)
+stem(altura_cm)
+```
+
+:::
 
 ### Interpretación del diagrama de tallo y hojas
 
@@ -296,11 +317,11 @@ Ejemplos:
 Si comparamos los dos métodos que hemos utilizado para construir la tabla de frecuencias, vemos que:
 
 -   en Excel los pasos que hemos dado no están registrados y a la vista, y, por lo tanto, no son fácilmente revisables
--   en `Python`, todos los pasos y opciones que hemos utilizado están a la vista en el código del script
+-   en Python y R, todos los pasos y opciones que hemos utilizado están a la vista en el código del script
 
 Si otra persona quisiera modificar la tabla, le sería fácil editar el código y relanzar el script, mientras que en Excel no sería fácil asegurarse de todos y cada uno de los pasos y clicks de ratón que hemos dado para construir y formatear la tabla.
 
-Es el caso, por ejemplo, de que enviásemos la tabla a otra persona y ésta tuviese que editarla en nuestra ausencia. En Excel, tendríamos que enviar a esa persona una explicación con las instrucciones oportunas; en cambio, en `Python`, una vez que se comprende el código, no hacen falta más explicaciones adicionales. Incluso sin una comprensión total del código, se podría duplicar exactamente la tabla copiando y ejecutando el código.
+Es el caso, por ejemplo, de que enviásemos la tabla a otra persona y ésta tuviese que editarla en nuestra ausencia. En Excel, tendríamos que enviar a esa persona una explicación con las instrucciones oportunas; en cambio, en Python y en R, una vez que se comprende el código, no hacen falta más explicaciones adicionales. Incluso sin una comprensión total del código, se podría duplicar exactamente la tabla copiando y ejecutando el código.
 
 Esta es una de las principales razones de la conveniencia del aprendizaje de `Python` incluso para las actividades más sencillas.
 
@@ -751,7 +772,7 @@ ggplot(df, aes(x = "", y = est)) +
 
 Un gráfico de densidad es una representación visual suavizada de la distribución de un conjunto de datos. A diferencia de los histogramas, que dividen los datos en intervalos y cuentan las frecuencias, los gráficos de densidad utilizan técnicas estadísticas no paramétricas para estimar la función de densidad de probabilidad.
 
-Excel no permite la representación de los gráficos de densidad; en `Python`lo hemos hecho arriba hacerlo con `seaborn`, añadiendo la funcion de densidad a un histograma añadiendo la opción `kde = True`.
+Excel no permite la representación de los gráficos de densidad; en `Python` utilizamos `seaborn`, añadiendo la funcion de densidad a un histograma añadiendo la opción `kde = True`. 
 
 Los gráficos de densidad son especialmente útiles cuando estamos comparando diferentes grupos de datos entre sí, por ejemplo en este caso comparamos el extracto seco total de nuestra fabricación de camembert trimestre a trimestre:
 
@@ -796,7 +817,7 @@ plt.grid(axis='y', linestyle='--', alpha=0.6)
 plt.show()
 ```
 
-En R, el resultado es semejante, aunque hay algunas diferencias debido a que la forma de calcular la función de densidad es diferente; puede parametrizarse para obtener un resultado idéntico mediante el parámetro `adjust` de `geom_density()`.
+R calcula la función de densidad de forma ligeramente distinta, por lo que las curvas obtenidas no son idénticas; puede parametrizarse para obtener un resultado muy aproximado mediante el parámetro `adjust` de `geom_density()`.
 
 ```{r}
 #| message: false
