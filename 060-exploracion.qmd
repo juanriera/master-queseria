@@ -58,7 +58,16 @@ A continuación añadimos las "hojas" en la celda a la derecha, que consisten en
 #### Construcción del diagrama en Python y R
 
 R permite realizar el _stemplot_ mediante la función $stem()$ de forma automática. Python no incluye entre sus métodos básicos una función para hacer un *stemplot*, aunque sí la tiene en la librería `stemgraphic`; importamos de esta librería sólo la función `stem_text()`
+::: {#clr-instrucciones .callout-tip .content-visible when-format="html"}
+## Importante: Explicación del código
 
+En este capítulo veremos varios ejemplos de código R y Python.
+
+Para un explicación detallada del código, copia el código R o Python y pégalo en Gemini o en ChatGPT (o Copilot). A continuación. da esta instrucción a la IA (puedes copiar y pegar el párrafo):
+
+>Actúa como un tutor de programación. Explica este código instrucción a instrucción de forma detallada y sencilla, indicando qué hace cada línea y por qué es necesaria. Usa analogías con Excel o tareas manuales para que sea más fácil de entender.
+
+:::
 ::: {.panel-tabset group="idiomas"}
 
 ## Python
@@ -157,17 +166,6 @@ Para crear una tabla de frecuencias de la variable `altura_cm` mediante una tabl
 ![](01-imagenes/aula1-td-frec.png)
 
 ### Construcción de una tabla de frecuencias mediante Python o R
-
-::: {#clr-instrucciones .callout-tip .content-visible when-format="html"}
-## Importante: Explicación del código
-
-A continuación, veremos varios ejemplos de código R y Python.
-
-Para un explicación detallada del código, copia el código R o Python y pégalo en Gemini o en ChatGPT (o Copilot). A continuación. da esta instrucción a la IA (puedes copiar y pegar):
-
->Actúa como un tutor de programación. Explica este código instrucción a instrucción de forma detallada y sencilla, indicando qué hace cada línea y por qué es necesaria. Usa analogías con Excel o tareas manuales para que sea más fácil de entender.
-
-:::
 
 ::: {.panel-tabset group="idiomas"}
 
@@ -1180,7 +1178,7 @@ fig.tight_layout()
 plt.show()
 ```
 
-A continuación, el gráfico realizado con R. Se recomienda copiar el código y pegarlo en un programa de IA (ChatGP3, Gemini) para explicarlo en detalle.Utiliza el [texto de la nota de aviso](#clr-instrucciones) que dimos al principio del capítulo para explicar el código.
+A continuación, el gráfico realizado con R. 
 
 ::: {.callout-tip title="Sugerencia"}
 Se recomienda copiar el código y pegarlo en ChatGP3 o Gemini para explicarlo en detalle. 
