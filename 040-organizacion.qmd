@@ -328,4 +328,4 @@ y prueba a filtrar y seleccionar los datos según diferentes criterios
 
 ## Para resolver
 
-Poner aquí distintos ejemplos de nombres de variables para ver si son válidos o no. Describir medidas y preguntar cómo llamaríamos a esa variable (por ejemplo, temperatura de la leche que acabamos de descargar de una cisterna) :::
+Escribe distintos ejemplos de nombres de variables y verifica si son válidos o no según los criterios que hemos definido. Describe medidas analíticas y explica cómo llamaríamos a esa variable (por ejemplo, la temperatura de la leche que acabamos de descargar de una cisterna) 

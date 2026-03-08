@@ -243,14 +243,14 @@ Esta diferencia entre estadísticos sensibles y robustos es clave para elegir bi
 ### Ventajas e inconvenientes de las medidas paramétricas
 
 #### Ventajas
-1. Precisión y Sensibilidad: La media y la varianza son muy precisas y sensibles a todos los valores del conjunto de datos. 
-2. Propiedades Matemáticas: La media y la varianza tienen propiedades matemáticas deseables, como la facilidad para realizar operaciones algebraicas. 
-3. Distribución Normal: Son especialmente útiles si los datos siguen una distribución normal, ya que permiten aprovechar las propiedades de esta distribución.
+1. Precisión y sensibilidad: La media y la varianza son muy precisas y sensibles a todos los valores del conjunto de datos. 
+2. Propiedades matemáticas: La media y la varianza tienen propiedades matemáticas deseables, como la facilidad para realizar operaciones algebraicas. 
+3. Distribución normal: Son especialmente útiles si los datos siguen una distribución normal, ya que permiten aprovechar las propiedades de esta distribución.
 
 #### Inconvenientes 
 
-1. Sensibilidad a Valores Atípicos: La media y la varianza pueden ser distorsionadas significativamente por valores atípicos. 
-2. Requieren Suposiciones: Su uso eficaz a menudo requiere que los datos sigan ciertas suposiciones, como la normalidad y la homogeneidad de la varianza.
+1. Sensibilidad a valores atípicos: La media y la varianza pueden ser distorsionadas significativamente por valores atípicos. 
+2. Requieren suposiciones: Su uso eficaz a menudo requiere que los datos sigan ciertas suposiciones, como la normalidad y la homogeneidad de la varianza.
 
 ### Ventajas e inconvenientes de las medidas no paramétricas
 
@@ -258,12 +258,12 @@ Esta diferencia entre estadísticos sensibles y robustos es clave para elegir bi
 
 1. Robustez: La mediana y el rango intercuartil son menos sensibles a valores atípicos y distribuciones asimétricas. 
 2. Flexibilidad: No requieren suposiciones fuertes sobre la distribución de los datos, lo que las hace útiles para una amplia variedad de distribuciones. 
-3. Resumir Datos: Son excelentes para resumir datos en situaciones en las que los valores extremos podrían distorsionar la interpretación.
+3. Resumir datos: Son excelentes para resumir datos en situaciones en las que los valores extremos podrían distorsionar la interpretación.
 
 #### Inconvenientes
 
-1. Menor Sensibilidad: La mediana y el rango intercuartil no utilizan toda la información de los datos y pueden ser menos sensibles a cambios en los datos.
-2. Menor Precisión en Ciertos Contextos: En situaciones donde los datos siguen una distribución normal, las medidas no paramétricas pueden ser menos precisas.
+1. Menor sensibilidad: La mediana y el rango intercuartil no utilizan toda la información de los datos y pueden ser menos sensibles a cambios en los datos.
+2. Menor precisión en ciertos contextos: En situaciones donde los datos siguen una distribución normal, las medidas no paramétricas pueden ser menos precisas.
 
 Las medidas paramétricas son útiles para datos que siguen suposiciones específicas, como la normalidad, y son precisas y sensibles, pero pueden ser distorsionadas por valores atípicos. Las medidas no paramétricas son robustas y flexibles, ideales para distribuciones no normales y resistentes a valores atípicos, aunque pueden perder sensibilidad y precisión en ciertos contextos.
 
