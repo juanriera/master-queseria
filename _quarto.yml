@@ -3,18 +3,11 @@ project:
   output-dir: docs
 execute:
   enabled: true
-<<<<<<< HEAD
   freeze: auto
 jupyter: python3
 book:
   title: "La mejora continua en la producción quesera"
   subtitle: "Análisis de datos industriales usando Excel, Python y R"
-=======
-jupyter: python3
-book:
-  title: "Introducción al análisis de datos industriales usando Excel, Python y R"
-  subtitle: "Notas para el master de FP en tecnología quesera"
->>>>>>> 508126e9fb31336481e7210747cee01fbc3147da
   author: "Juan Riera"
   date: 2025-10-27
   date-format: short
@@ -27,7 +20,6 @@ book:
       - 020-estad-entorno.qmd
       - 030-herramientas.qmd
       - 040-organizacion.qmd
-<<<<<<< HEAD
       - 060-exploracion.qmd
       - 070-estad-basica.qmd    
       - 075-distribuciones.qmd      
@@ -58,32 +50,6 @@ book:
     - 360-media-centro-gravedad.qmd
     - 380-indice_dataframes.qmd    
     - 400-bibliografia.qmd
-=======
-      - 050-intro-python.ipynb  
-      - 060-exploracion.qmd
-      - 070-estad-simple.qmd    
-      - 080-pract01-camembert.ipynb 
-    - part: "Aplicaciones practicas: Análisis cuantitativo de la producción quesera"
-      chapters: 
-      - 100-precio-leche.ipynb
-      - 110-balance-materia.ipynb
-      - 120-rendimientos.ipynb
-    #  - 160-pract02-rendimientos.ipynb 
-    #  - 170-ficha-didáctica-cálculo-rend- con.python.ipynb 
-    #- part: "Otras aplicaciones prácticas"
-    #- chapters: 
-    #  - 200-pract03-cueva.ypnb
-    #  - 210-pract04-control-peso.ipynb
-    #  - 220-control-proc.ipynb
-    #  - 230-sistema-medicion.ipynb
-    #  - 240-mejora-procesos.ipynb
-    #  - 250-comunicacion.ipynb
-  appendices: 
-    - 200-media-centro-gravedad.qmd
-    - 210-simulacion-datos-fab.ipynb
-    - 240-indice_dataframes.ipynb    
-    - 300-bibliografia.qmd
->>>>>>> 508126e9fb31336481e7210747cee01fbc3147da
 language:
   section-title-appendices: "Apéndices"
   section-title-bibliography: "Bibliografía"
@@ -94,11 +60,6 @@ format:
    html:
      theme: cosmo
      link-external-newtab: true
-<<<<<<< HEAD
-=======
- # pdf:
- #  documentclass: book
->>>>>>> 508126e9fb31336481e7210747cee01fbc3147da
 
 bibliography: bibliografia.bib  
 csl: estilos/ieee.csl
