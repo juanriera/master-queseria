@@ -319,32 +319,38 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./300-apendice-entorno.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Configuración del entorno de trabajo</span></span></a>
+  <a href="./300-glosario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glosario de términos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./310-apendice-entorno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Configuración del entorno de trabajo</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./320-simulacion-datos-fab.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Simulación de procesos en quesería</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Simulación de procesos en quesería</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./340-sistema-medicion-grr-simulador.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Simulación del dataset de repetibilidad (Gerber)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Simulación del dataset de repetibilidad (Gerber)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./360-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./380-indice_dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -384,6 +390,7 @@ window.Quarto = {
   <li><a href="#análisis-del-coste-de-las-desviaciones" id="toc-análisis-del-coste-de-las-desviaciones" class="nav-link" data-scroll-target="#análisis-del-coste-de-las-desviaciones">Análisis del coste de las desviaciones</a></li>
   </ul></li>
   <li><a href="#práctica-en-google-colab" id="toc-práctica-en-google-colab" class="nav-link" data-scroll-target="#práctica-en-google-colab"><span class="header-section-number">15.8</span> Práctica en Google Colab</a></li>
+  <li><a href="#resumen-del-capítulo" id="toc-resumen-del-capítulo" class="nav-link" data-scroll-target="#resumen-del-capítulo"><span class="header-section-number">15.9</span> Resumen del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -415,6 +422,28 @@ window.Quarto = {
 </header>
 
 
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Objetivos de aprendizaje
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Al finalizar este capítulo, el alumno será capaz de:</p>
+<ul>
+<li>Explicar el concepto de rendimiento quesero y distinguirlo del balance de materia.</li>
+<li>Calcular el rendimiento real de una fabricación a partir de los datos analíticos de leche y queso.</li>
+<li>Construir un estándar técnico de fabricación y usarlo como referencia para el análisis de desviaciones.</li>
+<li>Identificar y cuantificar las causas de las desviaciones de rendimiento: efecto del extracto seco, efecto de la recuperación de materia y efecto del precio de la leche.</li>
+<li>Calcular el coste económico de las desviaciones tecnológicas en una fabricación y extrapolar el impacto anual.</li>
+<li>Explicar por qué la estandarización de la leche es una herramienta clave para reducir la variabilidad del rendimiento.</li>
+</ul>
+<p>Conceptos clave: <strong>rendimiento quesero, estándar técnico de fabricación, desviación de rendimiento, recuperación de materia, extracto seco, estandarización de la leche, coste de las desviaciones, efecto precio, efecto consumo</strong>.</p>
+</div>
+</div>
 <p>En el capítulo anterior hemos visto el balance de materia y cómo nos ayuda a conocer las pérdidas en las diferentes etapas del proceso de elaboración. En el balance de materia grasa que hemos hecho como ejemplo, hemos visto que las pérdidas más importantes se producen en la fase de elaboración; esto es debido sobre todo a la pérdida de materia grasa en el suero, pero también a las pérdidas extraordinarias de materia por desviaciones en la tecnología. También hemos encontrado una dificultad para hacer un balance correcto de la materia proteica cuando no se hace un análisis de proteína del queso.</p>
 <p>En este capítulo abordaremos el análisis de la eficiencia de la transformación quesera, mediante los indicadores del rendimiento quesero, que calcularemos a partir de los valores analíticos de la leche de fabricación y del queso recién elaborado, utilizando para la proteína el coeficiente de recuperación calculado con el extracto seco magro (ESM) del queso. Extraeremos diversas conclusiones:</p>
 <ul>
@@ -801,6 +830,14 @@ window.Quarto = {
 <h2 data-number="15.8" class="anchored" data-anchor-id="práctica-en-google-colab"><span class="header-section-number">15.8</span> Práctica en Google Colab</h2>
 <p>En este enlace se proporciona acceso a los datos de este capítulo en un cuaderno de Google Colab, para practicar de forma interactiva el código Python desde ese entorno.</p>
 <p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/130-rendimientos-colab.ipynb" target="_blank" rel="noopener noreferrer">Abrir versión sólo Python de este cuaderno en Google Colab</a></p>
+</section>
+<section id="resumen-del-capítulo" class="level2" data-number="15.9">
+<h2 data-number="15.9" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">15.9</span> Resumen del capítulo</h2>
+<p>El análisis de rendimientos queseros es la herramienta más potente para identificar y cuantificar las ineficiencias del proceso de transformación. A diferencia del balance de materia, que nos dice cuánta materia se pierde en global, el análisis de rendimientos nos permite desglosar las causas de las desviaciones y asignarles un coste económico concreto.</p>
+<p>El <strong>estándar técnico de fabricación</strong> es el punto de referencia fundamental: define qué rendimiento debería obtener el proceso con la leche disponible, calculado a partir de la composición analítica real de cada fabricación. La diferencia entre el rendimiento estándar y el rendimiento real se descompone en tres efectos independientes: el efecto del extracto seco del queso (¿hemos obtenido el grado de concentración previsto?), el efecto de la recuperación de materia prima (¿hemos retenido en el queso la proporción de grasa y proteína esperada?) y el efecto del precio de la leche (¿hemos pagado la leche según su composición real?).</p>
+<p>Esta descomposición es esencial para priorizar las acciones de mejora: un problema de recuperación de materia apunta a causas tecnológicas (temperatura de cuajado, tiempo de desuerado, manejo de la cuajada), mientras que un problema de extracto seco apunta a causas de proceso diferentes (tiempo de prensado, salado, condiciones de maduración).</p>
+<p>La estandarización de la leche antes de la fabricación reduce la variabilidad del rendimiento al eliminar el efecto de las fluctuaciones estacionales de la composición. Es una inversión con retorno directo y cuantificable: a mayor variabilidad del rendimiento, mayor dificultad para detectar problemas tecnológicos reales entre el ruido de las variaciones de materia prima.</p>
+<p>Como hemos visto en el ejemplo de análisis, incluso una sola fabricación con desviaciones tecnológicas moderadas puede representar un coste de decenas de euros; extrapolado a cientos de fabricaciones anuales, el impacto económico justifica ampliamente el esfuerzo de análisis sistemático.</p>
 
 
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">

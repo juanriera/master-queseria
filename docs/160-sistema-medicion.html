@@ -55,27 +55,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -354,32 +334,38 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./300-apendice-entorno.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Configuración del entorno de trabajo</span></span></a>
+  <a href="./300-glosario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glosario de términos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./310-apendice-entorno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Configuración del entorno de trabajo</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./320-simulacion-datos-fab.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Simulación de procesos en quesería</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Simulación de procesos en quesería</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./340-sistema-medicion-grr-simulador.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Simulación del dataset de repetibilidad (Gerber)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Simulación del dataset de repetibilidad (Gerber)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./360-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./380-indice_dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -411,7 +397,11 @@ window.Quarto = {
   <li><a href="#resumen-por-analista" id="toc-resumen-por-analista" class="nav-link" data-scroll-target="#resumen-por-analista">Resumen por analista</a></li>
   <li><a href="#interpretación" id="toc-interpretación" class="nav-link" data-scroll-target="#interpretación">Interpretación</a></li>
   </ul></li>
-  <li><a href="#la-mano-del-quesero-y-el-método-cuantificado" id="toc-la-mano-del-quesero-y-el-método-cuantificado" class="nav-link" data-scroll-target="#la-mano-del-quesero-y-el-método-cuantificado"><span class="header-section-number">16.6</span> La “mano del quesero” y el método cuantificado</a></li>
+  <li><a href="#seguimiento-temporal-del-sistema-de-medición" id="toc-seguimiento-temporal-del-sistema-de-medición" class="nav-link" data-scroll-target="#seguimiento-temporal-del-sistema-de-medición"><span class="header-section-number">16.6</span> Seguimiento temporal del sistema de medición</a>
+  <ul class="collapse">
+  <li><a href="#evolución-del-sesgo-por-analista" id="toc-evolución-del-sesgo-por-analista" class="nav-link" data-scroll-target="#evolución-del-sesgo-por-analista">Evolución del sesgo por analista</a></li>
+  <li><a href="#evolución-de-la-desviación-típica-de-repetibilidad" id="toc-evolución-de-la-desviación-típica-de-repetibilidad" class="nav-link" data-scroll-target="#evolución-de-la-desviación-típica-de-repetibilidad">Evolución de la desviación típica de repetibilidad</a></li>
+  </ul></li>
   <li><a href="#resumen-del-capítulo" id="toc-resumen-del-capítulo" class="nav-link" data-scroll-target="#resumen-del-capítulo"><span class="header-section-number">16.7</span> Resumen del capítulo</a></li>
   </ul>
 </nav>
@@ -490,39 +480,7 @@ window.Quarto = {
 </section>
 <section id="veracidad-y-precisión-la-norma-iso-5725-12023" class="level2" data-number="16.3">
 <h2 data-number="16.3" class="anchored" data-anchor-id="veracidad-y-precisión-la-norma-iso-5725-12023"><span class="header-section-number">16.3</span> Veracidad y precisión: la norma ISO 5725-1:2023</h2>
-<p>La norma internacional <strong>ISO 5725-1:2023</strong> (<em>Accuracy of measurement methods and results — Part 1: General principles and definitions</em>) <span class="citation" data-cites="iso5725_2023"><a href="400-bibliografia.html#ref-iso5725_2023" role="doc-biblioref">[1]</a></span> establece la terminología y los conceptos para evaluar la calidad de un método analítico. La tabla siguiente fija los tres términos clave con su equivalente en inglés, para evitar ambigüedades en el uso cotidiano:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 31%">
-<col style="width: 29%">
-<col style="width: 38%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Término español</th>
-<th>Término inglés</th>
-<th>Definición resumida</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Exactitud</td>
-<td><em>accuracy</em></td>
-<td>Proximidad entre un resultado y el valor verdadero. Engloba veracidad y precisión</td>
-</tr>
-<tr class="even">
-<td>Veracidad</td>
-<td><em>trueness</em></td>
-<td>Proximidad entre la media de muchos resultados y el valor verdadero. Ausencia de sesgo sistemático</td>
-</tr>
-<tr class="odd">
-<td>Precisión</td>
-<td><em>precision</em></td>
-<td>Proximidad entre resultados repetidos obtenidos en condiciones definidas</td>
-</tr>
-</tbody>
-</table>
-<p>Distingue tres conceptos que en el uso cotidiano se confunden con frecuencia:</p>
+<p>La norma internacional <strong>ISO 5725-1:2023</strong> (<em>Accuracy of measurement methods and results</em>) establece la terminología y los conceptos para evaluar la calidad de un método analítico. Distingue tres conceptos que en el uso cotidiano se confunden con frecuencia:</p>
 <p><strong>Exactitud</strong> (<em>accuracy</em>): término general que describe la proximidad entre un resultado de medida y el valor verdadero. Engloba dos componentes independientes.</p>
 <p><strong>Veracidad</strong> (<em>trueness</em>): proximidad entre la media de un gran número de resultados y el valor verdadero o de referencia. Cuando un método no es verídico, produce un <strong>sesgo</strong> sistemático: los resultados están desplazados de forma consistente hacia arriba o hacia abajo.</p>
 <p><strong>Precisión</strong> (<em>precision</em>): proximidad entre resultados independientes obtenidos en condiciones definidas. Un método preciso produce resultados muy parecidos entre sí, aunque no necesariamente cercanos al valor verdadero.</p>
@@ -576,9 +534,14 @@ window.Quarto = {
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"datos/grr_gerber.csv"</span>, sep<span class="op">=</span><span class="st">';'</span>, decimal<span class="op">=</span><span class="st">','</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dimensiones: </span><span class="sc">{</span>df<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> (</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://raw.githubusercontent.com/"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"juanriera/master-queseria/master/"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"datos/grr_gerber.csv"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url, sep<span class="op">=</span><span class="st">';'</span>, decimal<span class="op">=</span><span class="st">','</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dimensiones: </span><span class="sc">{</span>df<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Dimensiones: (45, 5)</code></pre>
 </div>
@@ -608,9 +571,8 @@ window.Quarto = {
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"datos/grr_gerber.csv"</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/grr_gerber.csv"</span>, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>))</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Dimensiones:"</span>, <span class="fu">nrow</span>(df), <span class="st">"x"</span>, <span class="fu">ncol</span>(df), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(url, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>))</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Dimensiones:"</span>, <span class="fu">nrow</span>(df), <span class="st">"x"</span>, <span class="fu">ncol</span>(df), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Dimensiones: 45 x 5 </code></pre>
 </div>
@@ -673,7 +635,7 @@ window.Quarto = {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="160-sistema-medicion_files/figure-html/bloque-3-Py-1.png" class="img-fluid figure-img" width="1152"></p>
+<p><img src="160-sistema-medicion_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="1152"></p>
 </figure>
 </div>
 </div>
@@ -685,7 +647,7 @@ window.Quarto = {
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>referencias <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">muestra =</span> <span class="fu">c</span>(<span class="st">'A_baja'</span>, <span class="st">'B_media'</span>, <span class="st">'C_alta'</span>),</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">valor_real =</span> <span class="fu">c</span>(<span class="fl">3.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">valor_referencia =</span> <span class="fu">c</span>(<span class="fl">3.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>)</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> analista, <span class="at">y =</span> resultado, <span class="at">color =</span> muestra)) <span class="sc">+</span></span>
@@ -693,7 +655,7 @@ window.Quarto = {
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.15</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">data =</span> referencias,</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">yintercept =</span> valor_real, <span class="at">color =</span> muestra),</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">yintercept =</span> valor_referencia, <span class="at">color =</span> muestra),</span>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="fl">0.7</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span></span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span></span>
@@ -706,7 +668,7 @@ window.Quarto = {
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="160-sistema-medicion_files/figure-html/bloque-4-r-3.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="160-sistema-medicion_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -865,12 +827,133 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="la-mano-del-quesero-y-el-método-cuantificado" class="level2" data-number="16.6">
-<h2 data-number="16.6" class="anchored" data-anchor-id="la-mano-del-quesero-y-el-método-cuantificado"><span class="header-section-number">16.6</span> La “mano del quesero” y el método cuantificado</h2>
+<section id="seguimiento-temporal-del-sistema-de-medición" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="seguimiento-temporal-del-sistema-de-medición"><span class="header-section-number">16.6</span> Seguimiento temporal del sistema de medición</h2>
+<p>El estudio GRR que hemos realizado es una fotografía del sistema de medición en un momento concreto. Pero los sistemas de medición no son estáticos: los electrodos de los pHmetros se colmatan progresivamente, los analistas desarrollan hábitos que pueden derivar con el tiempo, los instrumentos pierden calibración. Un laboratorio que solo evalúa su sistema de medición una vez al año puede estar trabajando meses con un sistema degradado sin saberlo.</p>
+<p>La solución es el <strong>seguimiento temporal</strong>: repetir el estudio GRR de forma periódica — mensualmente en el caso del método Gerber — y representar la evolución de los indicadores clave a lo largo del tiempo. Esto convierte el análisis puntual en un sistema de vigilancia continua.</p>
+<p>Usamos el dataset <code>grr_gerber_temporal.csv</code> que contiene los resultados de 12 meses de control, con 5 analistas, 3 muestras de referencia y 3 repeticiones por combinación (540 observaciones en total). El dataset incluye dos intervenciones: en el mes 4 se corrigió el hábito de lectura del menisco del analista A4, y en el mes 6 se formó al analista A5 en la técnica de agitación.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>df_t <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/grr_gerber_temporal.csv"</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">fecha =</span> <span class="fu">dmy</span>(fecha))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Dimensiones:"</span>, <span class="fu">nrow</span>(df_t), <span class="st">"x"</span>, <span class="fu">ncol</span>(df_t), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dimensiones: 540 x 7 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Período:"</span>, <span class="fu">format</span>(<span class="fu">min</span>(df_t<span class="sc">$</span>fecha), <span class="st">"%b %Y"</span>), <span class="st">"→"</span>,</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">format</span>(<span class="fu">max</span>(df_t<span class="sc">$</span>fecha), <span class="st">"%b %Y"</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Período: ene. 2024 → dic. 2024 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Analistas:"</span>, <span class="fu">paste</span>(<span class="fu">unique</span>(df_t<span class="sc">$</span>analista), <span class="at">collapse =</span> <span class="st">", "</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analistas: Analista_1, Analista_2, Analista_3, Analista_4, Analista_5 </code></pre>
+</div>
+</div>
+<p>Calculamos el sesgo y la desviación típica mensual por analista:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>resumen_t <span class="ot">&lt;-</span> df_t <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">error =</span> resultado <span class="sc">-</span> valor_referencia) <span class="sc">|&gt;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(mes, fecha, analista) <span class="sc">|&gt;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">sesgo =</span> <span class="fu">mean</span>(error),</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">sigma =</span> <span class="fu">sd</span>(error),</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="evolución-del-sesgo-por-analista" class="level3">
+<h3 class="anchored" data-anchor-id="evolución-del-sesgo-por-analista">Evolución del sesgo por analista</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>tol_sesgo <span class="ot">&lt;-</span> <span class="fl">0.10</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Fecha de intervención A4: abril 2024</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>fecha_int_A4 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2024-04-15"</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_t, <span class="fu">aes</span>(<span class="at">x =</span> fecha, <span class="at">y =</span> sesgo, <span class="at">color =</span> analista)) <span class="sc">+</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="sc">-</span>tol_sesgo, tol_sesgo),</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"gray50"</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> fecha_int_A4,</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> fecha_int_A4 <span class="sc">+</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="sc">-</span><span class="fl">0.42</span>,</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"Intervención</span><span class="sc">\n</span><span class="st">Analista_4"</span>,</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"1 month"</span>, <span class="at">date_labels =</span> <span class="st">"%b"</span>) <span class="sc">+</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title    =</span> <span class="st">"Evolución del sesgo mensual por analista — Método Gerber"</span>,</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"Líneas rojas: tolerancia de sesgo ±0,10% (ISO 2446)"</span>,</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Sesgo (% MG)"</span>, <span class="at">color =</span> <span class="st">"Analista"</span>) <span class="sc">+</span></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="160-sistema-medicion_files/figure-html/temporal-sesgo-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>El gráfico muestra claramente el sesgo persistente de Analista_4 durante los tres primeros meses (alrededor de −0,35%), bien fuera de la tolerancia ISO. Tras la intervención en abril, el sesgo se corrige y se mantiene dentro de los límites durante el resto del año.</p>
+</section>
+<section id="evolución-de-la-desviación-típica-de-repetibilidad" class="level3">
+<h3 class="anchored" data-anchor-id="evolución-de-la-desviación-típica-de-repetibilidad">Evolución de la desviación típica de repetibilidad</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>tol_sigma <span class="ot">&lt;-</span> <span class="fl">0.10</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>fecha_int_A5 <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2024-06-15"</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(resumen_t, <span class="fu">aes</span>(<span class="at">x =</span> fecha, <span class="at">y =</span> sigma, <span class="at">color =</span> analista)) <span class="sc">+</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> tol_sigma,</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> fecha_int_A5,</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"tomato"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> fecha_int_A5 <span class="sc">+</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="fl">0.28</span>,</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"Intervención</span><span class="sc">\n</span><span class="st">Analista_5"</span>,</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"tomato"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">"1 month"</span>, <span class="at">date_labels =</span> <span class="st">"%b"</span>) <span class="sc">+</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title    =</span> <span class="st">"Evolución de la desviación típica de repetibilidad — Método Gerber"</span>,</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"Línea roja: tolerancia orientativa σ = 0,10%"</span>,</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Desviación típica (% MG)"</span>, <span class="at">color =</span> <span class="st">"Analista"</span>) <span class="sc">+</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="160-sistema-medicion_files/figure-html/temporal-sigma-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>La sigma elevada de A5 durante los cinco primeros meses (entre 0,20% y 0,28%) indica una técnica de análisis irregular. Tras la formación específica en el mes 6, su repetibilidad mejora notablemente y se mantiene por debajo de la tolerancia.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Seguimiento temporal e intervenciones documentadas
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El valor del seguimiento temporal no es solo detectar problemas, sino también <strong>verificar que las intervenciones han sido eficaces</strong> y que la mejora se mantiene en el tiempo. Un laboratorio que solo detecta el problema pero no verifica la corrección puede estar repitiendo el mismo ciclo de degradación y corrección indefinidamente sin saberlo. Los dos gráficos anteriores son exactamente el tipo de evidencia que se presenta en una auditoría de laboratorio para demostrar que el sistema de gestión de la calidad analítica funciona.</p>
+</div>
+</div>
 <p>En muchas queserías tradicionales, la evaluación de la calidad se basa en la experiencia acumulada del quesero: el tacto para reconocer el punto de la cuajada, la vista para evaluar el color del suero, el olfato para detectar una contaminación incipiente. Este conocimiento tácito tiene un valor real e indudable.</p>
 <p>Sin embargo, tiene una limitación importante: <strong>no se puede transferir, no se puede auditar, y se pierde cuando el experto deja la empresa.</strong></p>
 <p>El análisis del sistema de medición no pretende sustituir ese conocimiento, sino complementarlo. Cuando cuantificamos el error analítico, convertimos una percepción subjetiva (“este analista es menos fiable”) en un dato objetivable (“este analista tiene un sesgo de −0,35% en el método Gerber”). Eso permite actuar con precisión: formarle en la lectura correcta del butirómetro, no en todo el método.</p>
 <p>La combinación del conocimiento experto con la cuantificación sistemática del error es lo que caracteriza a un laboratorio de producción maduro.</p>
+</section>
 </section>
 <section id="resumen-del-capítulo" class="level2" data-number="16.7">
 <h2 data-number="16.7" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">16.7</span> Resumen del capítulo</h2>
@@ -878,11 +961,6 @@ window.Quarto = {
 <p>El caso práctico con el método Gerber ha mostrado cómo un estudio sencillo de repetibilidad —cinco analistas, tres muestras, tres repeticiones— permite identificar con claridad dos tipos de problema: el analista con sesgo sistemático pero alta repetibilidad, y el analista sin sesgo pero con alta variabilidad. La visualización con boxplot y puntos individuales superpuestos, combinada con el cálculo del sesgo y la desviación típica de repetibilidad, proporciona las herramientas suficientes para este diagnóstico en un laboratorio de producción.</p>
 
 
-<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-iso5725_2023" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">ISO, <span>«Accuracy (trueness and precision) of measurement methods and results — <span>Part</span> 1: <span>General</span> principles and definitions»</span>, International Organization for Standardization, Geneva, ISO 5725-1:2023, 2023.</div>
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->

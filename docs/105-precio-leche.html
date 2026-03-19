@@ -299,32 +299,38 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./300-apendice-entorno.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Configuración del entorno de trabajo</span></span></a>
+  <a href="./300-glosario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glosario de términos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./310-apendice-entorno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Configuración del entorno de trabajo</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./320-simulacion-datos-fab.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Simulación de procesos en quesería</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Simulación de procesos en quesería</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./340-sistema-medicion-grr-simulador.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Simulación del dataset de repetibilidad (Gerber)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Simulación del dataset de repetibilidad (Gerber)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./360-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./380-indice_dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -358,6 +364,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#cálculo-del-precio-de-la-leche-mediante-la-hoja-de-cálculo." id="toc-cálculo-del-precio-de-la-leche-mediante-la-hoja-de-cálculo." class="nav-link" data-scroll-target="#cálculo-del-precio-de-la-leche-mediante-la-hoja-de-cálculo."><span class="header-section-number">13.4</span> Cálculo del precio de la leche mediante la hoja de cálculo.</a></li>
   <li><a href="#construcción-del-precio-de-la-materia-grasa-y-la-proteína-a-partir-del-precio-de-la-leche" id="toc-construcción-del-precio-de-la-materia-grasa-y-la-proteína-a-partir-del-precio-de-la-leche" class="nav-link" data-scroll-target="#construcción-del-precio-de-la-materia-grasa-y-la-proteína-a-partir-del-precio-de-la-leche"><span class="header-section-number">13.5</span> Construcción del precio de la materia grasa y la proteína a partir del precio de la leche</a></li>
+  <li><a href="#resumen-del-capítulo" id="toc-resumen-del-capítulo" class="nav-link" data-scroll-target="#resumen-del-capítulo"><span class="header-section-number">13.6</span> Resumen del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -389,6 +396,26 @@ window.Quarto = {
 </header>
 
 
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Objetivos de aprendizaje
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Al finalizar este capítulo, el alumno será capaz de:</p>
+<ul>
+<li>Explicar cómo funciona el sistema de pago de la leche por calidad en España y qué componentes lo determinan.</li>
+<li>Calcular el precio de la leche a partir de los valores analíticos de materia grasa y proteína.</li>
+<li>Obtener el coste unitario de la materia grasa y la proteína de la leche en €/kg.</li>
+<li>Utilizar el precio de la materia prima para valorar económicamente las pérdidas de proceso y las desviaciones de rendimiento.</li>
+</ul>
+<p>Conceptos clave: <strong>pago por calidad, precio de la leche, materia grasa, proteína, coste de materia prima, precio unitario de componentes</strong>.</p>
+</div>
+</div>
 <p>Antes de estudiar el balance de materia y los rendimientos queseros, vamos a ver cómo se construye el precio de la leche. Esto nos permitirá determinar no sólo el precio que pagamos al ganadero por la materia prima, sino también conocer el coste de materia a la entrada en fábrica, descompuesto en sus componentes principales, materia grasa y proteína. Conocer este coste nos permite conocer con precisión cuál es el coste real de nuestras perdidas de materia en fábrica, y también de las desviaciones de rendimientos, lo que, a su vez, nos permitirá priorizar las acciones de mejora hacia aquellos puntos con mayor repercusión en nuestros resultados económicos.</p>
 <section id="el-pago-de-la-leche-por-calidad-en-españa" class="level2" data-number="13.1">
 <h2 data-number="13.1" class="anchored" data-anchor-id="el-pago-de-la-leche-por-calidad-en-españa"><span class="header-section-number">13.1</span> El pago de la leche por calidad en España</h2>
@@ -664,6 +691,12 @@ MSU = MG + MP
 <p>Llevaremos estos datos a los siguientes ejemplos para valorar económicamente las pérdidas de materia y los rendimientos queseros.</p>
 <p>En la hoja de cálculo adjunta se pueden verificar las tablas que se han presentado arriba, y sus fórmulas de cálculo. También se incluye una entrada en una columna adicional para ver el coste de materia resultante de los datos simulados de la recogida de leche que hemos situado en el mes de abril. Esta diferencia en el precio de la leche nos servirá para calcular las diferencias de precio al analizar las desviaciones de rendimientos.</p>
 <p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/01-precio-leche.xlsx" target="_blank" rel="noopener noreferrer">Descargar hoja de cálculo de precios de leche (archivo <code>01-precio-leche.xlsx</code>)</a></p>
+</section>
+<section id="resumen-del-capítulo" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">13.6</span> Resumen del capítulo</h2>
+<p>El precio de la leche en España se determina por un sistema de pago por calidad que pondera la composición química — fundamentalmente materia grasa y proteína — junto con la calidad higiénico-sanitaria. Conocer con precisión cómo se construye ese precio es el punto de partida para cualquier análisis económico del proceso quesero.</p>
+<p>El paso más relevante para el análisis de rendimientos es la conversión del precio por litro en un coste unitario de la materia grasa y la proteína expresado en €/kg. Este coste unitario de los componentes es la herramienta que permite valorar económicamente las pérdidas de proceso: cada kilogramo de grasa o proteína que se pierde en el suero o en las roturas tiene un coste real que puede calcularse con precisión.</p>
+<p>Los valores obtenidos en este capítulo — coste de la materia grasa y de la proteína en €/kg — se utilizarán directamente en los capítulos siguientes para cuantificar el impacto económico de las desviaciones de rendimiento y priorizar las acciones de mejora hacia los puntos del proceso con mayor repercusión en los resultados económicos de la empresa.</p>
 
 
 </section>
