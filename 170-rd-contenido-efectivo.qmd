@@ -1,0 +1,670 @@
+---
+lang: es
+date-modified: '2026-03-14'
+title: "Proceso de dosificación y control de peso en el envasado."
+subtitle: "Aplicación práctica del RD 1801/2008 de contenido efectivo"
+engine: knitr
+---
+
+```{r setup-170}
+#| include: false
+Sys.setenv(RETICULATE_PYTHON = "C:/ProgramData/miniconda3/python.exe")
+library(reticulate)
+use_python("C:/ProgramData/miniconda3/python.exe", required = TRUE)
+```
+
+::: callout-note
+## Objetivos de aprendizaje
+
+Al finalizar este capítulo, el alumno será capaz de:
+
+- Identificar los conceptos clave del RD 1801/2008: peso nominal, error máximo tolerado, límites T1 y T2.
+- Explicar la relación entre la dispersión del proceso de llenado y la necesidad de sobredosificación para cumplir la legislación.
+- Calcular la proporción de envases defectuosos a partir de los parámetros de la distribución normal.
+- Determinar el peso medio óptimo de llenado en función de la dispersión del proceso.
+- Cuantificar el coste económico de la sobredosificación y el beneficio de reducir la variabilidad.
+
+Conceptos clave: **contenido efectivo, peso nominal, error máximo por defecto tolerado (EMDT), límite T1, límite T2, sobredosificación, capacidad de proceso**.
+:::
+
+::: {.callout-tip}
+## Sobre el código de este capítulo
+Los bloques de código que generan gráficos complejos aparecen **ocultos por defecto**. Puedes mostrarlos haciendo clic en "Mostrar código". Si quieres entender qué hace un bloque, cópialo y pégalo en un asistente de IA como Gemini, ChatGPT o Claude y pregúntale: *"Explícame este código línea a línea, en lenguaje sencillo"*.
+:::
+
+## El RD 1801/2008: qué regula y a quién afecta
+
+El **Real Decreto 1801/2008**, de 3 de noviembre, es la norma española que regula cuánto producto debe contener realmente un envase cuando el fabricante declara un peso o volumen en la etiqueta. Transpone la Directiva europea 2007/45/CE y es de aplicación obligatoria para cualquier empresa que envase productos de consumo con un peso o volumen nominal indicado: yogures, quesos frescos, leche, nata, mermeladas, conservas, y en general todo lo que se compra en el lineal de libre servicio.
+
+La idea central es sencilla: el consumidor tiene derecho a recibir lo que pone en la etiqueta. Pero la norma reconoce que ningún proceso de llenado industrial es perfecto — siempre hay dispersión — y por eso no exige que todos los envases pesen exactamente el valor nominal. Lo que sí exige es que esa dispersión esté dentro de unos límites razonables y que la media del lote no sea inferior al peso declarado.
+
+La responsabilidad del cumplimiento recae sobre el fabricante o el importador. El Ministerio competente puede realizar inspecciones en fábrica o en el punto de venta, y el rechazo de un lote implica la prohibición de comercializarlo hasta que se subsane el problema.
+
+### Peso variable y peso fijo
+
+Cuando compramos un producto envasado podemos hacerlo de dos formas:
+
+- **A peso variable:** adquirimos una cantidad que el comerciante pesa en el momento de la venta (el corte de queso en el mostrador, el jamón en lonchas). El precio depende del peso real entregado, que se indica en una etiqueta impresa en el momento de la venta.
+
+- **A peso fijo:** el envase está cerrado y etiquetado por el fabricante con un peso nominal declarado (el yogur de 125 g, el queso fresco de 500 g en el lineal de libre servicio). Es este segundo caso el que regula el RD 1801/2008.
+
+### El signo de estimación **℮**
+
+El fabricante tiene dos opciones para declarar el peso de sus productos de peso fijo:
+
+- **Con control estadístico:** el fabricante realiza controles estadísticos de peso de cada lote envasado para demostrar que cumple la norma. A cambio, la ley le permite imprimir en la etiqueta el símbolo **℮** (signo de estimación), que certifica bajo su responsabilidad que el envase cumple el RD. Algunos envases pueden pesar ligeramente menos del nominal, pero la media del lote es igual o superior al peso nominal y el número de envases defectuosos está dentro de los límites legales.
+
+- **Sin control estadístico:** el fabricante no puede imprimir el **℮**. En este caso, todos y cada uno de sus envases deben tener un peso igual o superior al peso nominal, sin excepción.
+
+La opción del control estadístico es la habitual en la industria porque es prácticamente imposible garantizar que todos los envases de un lote superen el peso nominal sin una sobredosificación muy elevada.
+
+## Los conceptos clave
+
+### Peso nominal ($Q_n$)
+
+Es el peso o volumen declarado en el envase. En nuestro caso, $Q_n = 150$ g.
+
+### Error máximo por defecto tolerado (EMDT)
+
+Es la diferencia máxima admisible entre el contenido real de un envase y el peso nominal. Su valor depende del peso nominal y está fijado en el cuadro 1 del RD:
+
+| Cantidad nominal (g o ml) | EMDT (%) | EMDT fijo (g o ml) |
+|--------------------------|---------|-------------------|
+| 5 a 50 | 9,0% | — |
+| 51 a 100 | — | 4,5 |
+| 101 a 200 | 4,5% | — |
+| 201 a 300 | — | 9,0 |
+| 301 a 500 | 3,0% | — |
+| 501 a 1.000 | — | 15,0 |
+| 1.001 a 10.000 | 1,5% | — |
+
+Para nuestro yogur de 150 g (en el intervalo 101-200 g), el EMDT es el 4,5% del nominal:
+
+$$\text{EMDT} = 4{,}5\% \times 150 = 6{,}75 \text{ g}$$
+
+Pero la norma indica que los valores calculados en porcentaje se redondean por exceso a la décima de gramo, por lo que en la práctica se aplica **EMDT = 6,8 g**.
+
+::: {.callout-note}
+## EMDT: ¿porcentaje o valor fijo?
+El cuadro del RD usa alternativamente porcentajes y valores fijos según el rango de peso. Para el rango 101-200 g usa porcentaje (4,5%), para el rango 51-100 g usa valor fijo (4,5 g). El motivo es que el porcentaje da valores razonables en rangos amplios, pero puede resultar demasiado pequeño para envases muy ligeros o demasiado grande para envases muy pesados.
+:::
+
+### Límite T1: envase defectuoso
+
+Un envase se considera **defectuoso** cuando su contenido es inferior a $Q_n - \text{EMDT}$:
+
+$$T_1 = 150 - 6{,}8 = 143{,}2 \text{ g}$$
+
+La norma permite un máximo del **2,5%** de envases defectuosos (por debajo de T1) en un lote.
+
+### Límite T2: envase no conforme
+
+Un envase se considera **no conforme** (prohibido comercializar) cuando su contenido es inferior a $Q_n - 2 \times \text{EMDT}$:
+
+$$T_2 = 150 - 2 \times 6{,}8 = 136{,}4 \text{ g}$$
+
+La norma **no permite ningún envase** por debajo de T2. Un solo envase no conforme en una inspección puede dar lugar a sanción y a la retirada del lote.
+
+::: {.callout-note}
+## Resumen de límites para yogur de 150 g
+
+| Concepto | Valor |
+|----------|-------|
+| Peso nominal ($Q_n$) | 150,0 g |
+| Error máximo por defecto tolerado (EMDT) | 6,8 g |
+| Límite T1 (defectuoso) | 143,2 g |
+| Límite T2 (no conforme, prohibido) | 136,4 g |
+| Máximo de envases bajo T1 | 2,5% del lote |
+| Envases bajo T2 | 0 (ninguno permitido) |
+:::
+
+### El procedimiento de muestreo del RD
+
+La norma evalúa el cumplimiento mediante **muestreo estadístico** del lote, no envase a envase. El procedimiento tiene dos controles independientes que deben cumplirse ambos para aceptar el lote:
+
+**Control 1 — Número de envases defectuosos (artículo 11):**
+
+El tamaño de la muestra y los criterios dependen del tamaño del lote:
+
+| Tamaño del lote | 1ª muestra | Aceptar si | Rechazar si | 2ª muestra | Aceptar (acum.) | Rechazar (acum.) |
+|----------------|-----------|-----------|------------|-----------|----------------|-----------------|
+| 100 a 500 | 30 | ≤ 1 defect. | ≥ 3 defect. | 30 (total 60) | ≤ 4 | ≥ 5 |
+| 501 a 3.200 | 50 | ≤ 2 defect. | ≥ 5 defect. | 50 (total 100) | ≤ 6 | ≥ 7 |
+| ≥ 3.201 | 80 | ≤ 3 defect. | ≥ 7 defect. | 80 (total 160) | ≤ 8 | ≥ 9 |
+
+Si el resultado de la primera muestra está entre el criterio de aceptación y el de rechazo, se toma una segunda muestra y se acumulan los defectuosos de ambas.
+
+**Control 2 — Media del lote (artículo 12):**
+
+Además del conteo de defectuosos, la norma exige verificar que la media del lote no sea inferior al peso nominal. Para un lote de más de 500 unidades con muestra de 50 envases, el criterio es:
+
+$$\bar{X} \geq Q_n - 0{,}379 \times s$$
+
+donde $s$ es la desviación típica de la muestra. Este criterio usa la distribución t de Student con nivel de confianza 99,5%, lo que garantiza que la probabilidad de aceptar un lote con media real inferior al nominal sea menor del 0,5%.
+
+::: {.callout-note}
+## Rechazo: cualquiera de las dos condiciones; aceptación: las dos a la vez
+Para **aceptar** el lote deben cumplirse **los dos controles** simultáneamente: el de defectuosos y el de la media. Para **rechazarlo** basta con que falle cualquiera de los dos. Un lote puede tener pocos defectuosos pero una media baja, o una media correcta pero demasiados defectuosos: en ambos casos se rechaza.
+:::
+
+
+## El problema estadístico: dispersión y sobredosificación
+
+Aquí es donde entra la distribución normal que estudiamos en el capítulo anterior. Si el proceso de llenado sigue una distribución normal con media $\mu$ y desviación típica $\sigma$, la proporción de envases por debajo de T1 es el área bajo la curva a la izquierda de T1:
+
+$$P(\text{peso} < T_1) = P\left(Z < \frac{T_1 - \mu}{\sigma}\right)$$
+
+Para cumplir la norma, esa proporción debe ser inferior al 2,5%. En una distribución normal, el 2,5% en la cola izquierda corresponde a $Z = -1{,}96$. Esto significa que T1 debe estar al menos 1,96 desviaciones típicas por debajo de la media:
+
+$$\mu \geq T_1 + 1{,}96 \times \sigma = 145{,}5 + 1{,}96 \times \sigma$$
+
+Si $\sigma = 1{,}5$ g (proceso preciso): $\mu \geq 145{,}5 + 2{,}94 = 148{,}44$ g
+
+Si $\sigma = 3{,}0$ g (proceso impreciso): $\mu \geq 145{,}5 + 5{,}88 = 151{,}38$ g
+
+La diferencia es enorme: con un proceso impreciso hay que dosificar casi 3 gramos más por envase solo para cumplir la norma. Esto es la **sobredosificación**: producto que se entrega al consumidor por encima del peso nominal sin cobrar por ello.
+
+En el capítulo dedicado al control estadístico de procesos vimos cómo medir y seguir la variabilidad de un proceso de llenado mediante gráficos de control, y cómo los índices de capacidad $C_p$ y $C_{pk}$ cuantifican la relación entre la variabilidad natural del proceso y los límites de especificación. En este capítulo aplicamos esos conceptos al caso concreto del RD 1801/2008: el límite T1 es el límite de especificación inferior, y la capacidad del proceso determina directamente cuánta sobredosificación es necesaria para cumplirlo.
+
+## El dataset: un turno de producción de yogures
+
+Cargamos el dataset de llenado de yogures que generamos en el anexo de simulación. Contiene 9.600 envases producidos a lo largo de un turno de 8 horas, con varios eventos de proceso simulados:
+
+::: panel-tabset
+## Python
+
+```{python carga-yogures-python}
+#| code-fold: true
+#| code-summary: "Mostrar código"
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+import scipy.stats as st
+
+df = pd.read_csv("datos/llenado_yogures.csv",
+                 sep=';', decimal=',', encoding='ISO-8859-1')
+df['timestamp'] = pd.to_datetime(df['timestamp'])
+
+pd.DataFrame({
+    'Concepto': ['Filas', 'Columnas', 'Inicio', 'Fin'],
+    'Valor': [df.shape[0], df.shape[1],
+              str(df['timestamp'].min()),
+              str(df['timestamp'].max())]
+})
+```
+
+```{python carga-yogures-stats}
+df['peso_g'].describe().round(2).to_frame()
+```
+
+## R
+
+```{r carga-yogures-r}
+#| message: false
+#| warning: false
+library(tidyverse)
+library(lubridate)
+
+df <- read_csv2("datos/llenado_yogures.csv",
+                locale = locale(decimal_mark = ",")) |>
+    mutate(timestamp = ymd_hms(timestamp))
+
+cat("Dimensiones:", nrow(df), "x", ncol(df), "\n")
+cat("Período:", format(min(df$timestamp)), "→",
+    format(max(df$timestamp)), "\n\n")
+cat("Estadísticos del peso:\n")
+print(summary(df$peso_g))
+```
+:::
+
+### Distribución del peso a lo largo del turno
+
+Visualizamos la distribución del peso de todos los envases del turno:
+
+::: panel-tabset
+## Python
+
+```{python hist-peso-python}
+#| code-fold: true
+#| code-summary: "Mostrar código"
+fig, ax = plt.subplots(figsize=(10, 5))
+
+sns.histplot(df['peso_g'], bins=60, ax=ax, color='steelblue',
+             alpha=0.7, stat='density')
+
+# Curva normal ajustada
+mu_obs, sigma_obs = df['peso_g'].mean(), df['peso_g'].std()
+x = np.linspace(df['peso_g'].min(), df['peso_g'].max(), 300)
+ax.plot(x, st.norm.pdf(x, mu_obs, sigma_obs),
+        color='navy', linewidth=2, label='Distribución normal ajustada')
+
+# Límites
+ax.axvline(150.0, color='black', linestyle='-',
+           linewidth=1.5, label='Peso nominal (150 g)')
+ax.axvline(143.2, color='orange', linestyle='--',
+           linewidth=1.5, label='T1 — defectuoso (143,2 g)')
+ax.axvline(136.4, color='red', linestyle='--',
+           linewidth=1.5, label='T2 — no conforme (136,4 g)')
+
+ax.set_title(f"Distribución del peso — turno completo\n"
+             f"μ = {mu_obs:.2f} g, σ = {sigma_obs:.2f} g")
+ax.set_xlabel("Peso (g)")
+ax.set_ylabel("Densidad")
+ax.legend(fontsize=8)
+plt.tight_layout()
+plt.show()
+```
+
+## R
+
+```{r hist-peso-r}
+#| code-fold: true
+#| code-summary: "Mostrar código"
+#| message: false
+mu_obs <- mean(df$peso_g)
+sigma_obs <- sd(df$peso_g)
+
+ggplot(df, aes(x = peso_g)) +
+    geom_histogram(aes(y = after_stat(density)), bins = 60,
+                   fill = "steelblue", alpha = 0.7) +
+    stat_function(fun = dnorm,
+                  args = list(mean = mu_obs, sd = sigma_obs),
+                  color = "navy", linewidth = 1.2) +
+    geom_vline(xintercept = 150.0, color = "black",
+               linewidth = 1.2, linetype = "solid") +
+    geom_vline(xintercept = 143.2, color = "orange",
+               linewidth = 1.2, linetype = "dashed") +
+    geom_vline(xintercept = 136.4, color = "red",
+               linewidth = 1.2, linetype = "dashed") +
+    annotate("text", x = 150.3, y = 0.28,
+             label = "Nominal", angle = 90, size = 3) +
+    annotate("text", x = 145.8, y = 0.28,
+             label = "T1", angle = 90, size = 3, color = "orange") +
+    annotate("text", x = 141.3, y = 0.28,
+             label = "T2", angle = 90, size = 3, color = "red") +
+    labs(title = paste0("Distribución del peso — turno completo\n",
+                        "μ = ", round(mu_obs, 2), " g, σ = ",
+                        round(sigma_obs, 2), " g"),
+         x = "Peso (g)", y = "Densidad") +
+    theme_bw()
+```
+:::
+
+## Análisis de conformidad con el RD 1801/2008
+
+Calculamos la proporción de envases bajo T1 y T2 en el turno completo:
+
+::: panel-tabset
+## Python
+
+```{python conformidad-python}
+#| code-fold: true
+#| code-summary: "Mostrar código"
+T1, T2 = 143.2, 136.4
+n = len(df)
+bajo_T1 = (df['peso_g'] < T1).sum()
+bajo_T2 = (df['peso_g'] < T2).sum()
+pd.DataFrame({
+    'Concepto': ['Total envases', f'Bajo T1 (<{T1} g)', f'Bajo T2 (<{T2} g)',
+                 'Límite legal bajo T1', '¿Cumple el turno?'],
+    'Valor': [f'{n:,}', f'{bajo_T1:,} ({bajo_T1/n*100:.2f}%)',
+              f'{bajo_T2:,} ({bajo_T2/n*100:.2f}%)', '2,50%',
+              'SÍ' if bajo_T1/n*100 < 2.5 else 'NO']
+})
+```
+
+## R
+
+```{r conformidad-r}
+T1 <- 143.2; T2 <- 136.4
+n <- nrow(df)
+
+bajo_T1 <- sum(df$peso_g < T1)
+bajo_T2 <- sum(df$peso_g < T2)
+
+cat(sprintf("Total de envases:              %6d\n", n))
+cat(sprintf("Bajo T1 (<%.1f g):        %6d  (%.2f%%)\n",
+            T1, bajo_T1, bajo_T1/n*100))
+cat(sprintf("Bajo T2 (<%.1f g):        %6d  (%.2f%%)\n",
+            T2, bajo_T2, bajo_T2/n*100))
+cat("\nLímite legal bajo T1:           2,50%\n")
+cat(sprintf("¿Cumple el turno completo?      %s\n",
+            ifelse(bajo_T1/n*100 < 2.5, "SÍ", "NO")))
+```
+:::
+
+El turno completo cumple técnicamente el RD, pero el análisis global oculta lo que ocurre dentro del turno. Analicemos por períodos:
+
+::: panel-tabset
+## Python
+
+```{python conformidad-periodos-python}
+#| code-fold: true
+#| code-summary: "Mostrar código"
+limites_sg = [(1,200,'P1 estable inicio'),
+              (201,500,'P2 deriva ascendente'),
+              (501,600,'P3 salto brusco'),
+              (601,900,'P4 dispersión creciente'),
+              (901,1100,'P5 reajuste mantenimiento'),
+              (1101,1920,'P6 estable fin')]
+filas = []
+for sg_ini, sg_fin, nombre in limites_sg:
+    sub = df[(df['subgrupo'] >= sg_ini) & (df['subgrupo'] <= sg_fin)]['peso_g']
+    pct_T1 = (sub < T1).mean() * 100
+    pct_T2 = (sub < T2).mean() * 100
+    cumple = "SÍ" if pct_T1 < 2.5 and (sub < T2).sum() == 0 else "NO"
+    filas.append([nombre, round(sub.mean(),2), round(sub.std(),2),
+                  f"{pct_T1:.2f}%", f"{pct_T2:.2f}%", cumple])
+pd.DataFrame(filas, columns=['Período','Media (g)','σ (g)','<T1','<T2','Cumple'])
+```
+
+## R
+
+```{r conformidad-periodos-r}
+periodos <- tibble(
+    sg_ini = c(1, 201, 501, 601, 901, 1101),
+    sg_fin = c(200, 500, 600, 900, 1100, 1920),
+    nombre = c("P1 estable inicio", "P2 deriva ascendente",
+               "P3 salto brusco", "P4 dispersión creciente",
+               "P5 reajuste mantenimiento", "P6 estable fin")
+)
+
+periodos |>
+    rowwise() |>
+    mutate(
+        datos = list(df$peso_g[df$subgrupo >= sg_ini &
+                                df$subgrupo <= sg_fin]),
+        media = round(mean(datos), 2),
+        sigma = round(sd(datos), 2),
+        pct_T1 = round(mean(datos < 143.2) * 100, 2),
+        pct_T2 = round(mean(datos < 136.4) * 100, 2),
+        cumple = ifelse(pct_T1 < 2.5 & sum(datos < 136.4) == 0,
+                        "SÍ", "NO")
+    ) |>
+    select(nombre, media, sigma, pct_T1, pct_T2, cumple)
+```
+:::
+
+El análisis por períodos revela algo que el análisis global ocultaba: el período 4 (dispersión creciente) **incumple** el RD con más del 2,5% de envases bajo T1. Una inspección en ese momento del turno habría dado lugar a una no conformidad.
+
+## El efecto de reducir la dispersión
+
+La clave del problema es que la dispersión del proceso determina directamente el peso medio mínimo necesario para cumplir la norma. Calculamos ese peso medio óptimo para diferentes valores de σ:
+
+::: panel-tabset
+## Python
+
+```{python efecto-sigma-python}
+#| code-fold: true
+#| code-summary: "Mostrar código"
+sigmas = np.arange(0.5, 4.1, 0.5)
+T1 = 143.2
+z_limite = st.norm.ppf(0.025)  # Z para 2,5% en cola izquierda = -1,96
+mu_mins = T1 - z_limite * sigmas
+sobredos = mu_mins - 150.0
+pd.DataFrame({
+    'σ (g)': sigmas,
+    'μ mínima (g)': mu_mins.round(2),
+    'Sobredos. (g)': sobredos.round(2),
+    'Sobredos. (%)': (sobredos / 150.0 * 100).round(2)
+})
+
+# Gráfico
+fig, ax = plt.subplots(figsize=(9, 5))
+mu_mins = T1 - z_limite * sigmas
+sobredos = mu_mins - 150.0
+
+ax.plot(sigmas, sobredos, marker='o', color='steelblue', linewidth=2)
+ax.axhline(0, color='black', linewidth=0.8, linestyle='--')
+ax.fill_between(sigmas, 0, sobredos, alpha=0.15, color='steelblue')
+ax.set_title("Sobredosificación necesaria para cumplir el RD 1801/2008\n"
+             "en función de la dispersión del proceso")
+ax.set_xlabel("Desviación típica del proceso σ (g)")
+ax.set_ylabel("Sobredosificación media (g por envase)")
+ax.grid(axis='y', linestyle='--', alpha=0.5)
+plt.tight_layout()
+plt.show()
+```
+
+## R
+
+```{r efecto-sigma-r}
+#| message: false
+T1 <- 143.2
+z_limite <- qnorm(0.025)  # = -1,96
+
+tibble(sigma = seq(0.5, 4.0, 0.5)) |>
+    mutate(
+        mu_min = T1 - z_limite * sigma,
+        sobredos_g = mu_min - 150.0,
+        sobredos_pct = sobredos_g / 150.0 * 100
+    ) |>
+    print() -> df_sigma
+
+ggplot(df_sigma, aes(x = sigma, y = sobredos_g)) +
+    geom_area(fill = "steelblue", alpha = 0.15) +
+    geom_line(color = "steelblue", linewidth = 1.5) +
+    geom_point(color = "steelblue", size = 3) +
+    geom_hline(yintercept = 0, linetype = "dashed") +
+    labs(title = "Sobredosificación necesaria para cumplir el RD 1801/2008\nen función de la dispersión del proceso",
+         x = "Desviación típica del proceso σ (g)",
+         y = "Sobredosificación media (g por envase)") +
+    theme_bw()
+```
+:::
+
+La tabla y el gráfico muestran la relación directa: cada décima de gramo que se reduce σ permite bajar el peso medio de llenado, reduciendo la sobredosificación. Con σ = 1,5 g basta con dosificar 148,44 g de media para cumplir la norma; con σ = 3,0 g hay que dosificar 151,38 g.
+
+## Simulación de la mejora: reducir σ con `rnorm()`
+
+Además del enfoque analítico que acabamos de ver, podemos simular directamente cómo quedaría la distribución de pesos si lográramos reducir la dispersión del proceso. Esto es útil para visualizar el efecto y para calcular el número esperado de envases defectuosos con la nueva dispersión.
+
+La función `rnorm()` en R y `numpy.random.normal()` en Python permiten generar un vector de valores que sigue una distribución normal con los parámetros que especifiquemos. Simulamos tres escenarios:
+
+- **Escenario actual:** μ = 151,5 g, σ = 2,6 g (período de dispersión creciente del turno)
+- **Escenario corregido:** subimos la media a 153,0 g manteniendo σ = 2,6 g para cumplir T1
+- **Escenario mejorado:** reducimos σ a 1,5 g y bajamos la media a 151,5 g
+
+::: panel-tabset
+## Python
+
+```{python simulacion-mejora-python}
+#| code-fold: true
+#| code-summary: "Mostrar código"
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.stats as st
+
+np.random.seed(42)
+n = 5000
+T1, T2 = 143.2, 136.4
+
+escenarios = {
+    'Actual (mu=151.5 s=2.6)':    (151.5, 2.6),
+    'Corregido (mu=153.0 s=2.6)': (153.0, 2.6),
+    'Mejorado (mu=151.5 s=1.5)':  (151.5, 1.5),
+}
+
+fig, axes = plt.subplots(1, 3, figsize=(13, 5), sharey=False)
+colores = ['tomato', 'orange', 'steelblue']
+
+for ax, (nombre, (mu, sigma)), color in zip(axes, escenarios.items(), colores):
+    datos = np.random.normal(mu, sigma, n)
+    x = np.linspace(mu - 4*sigma, mu + 4*sigma, 300)
+    ax.plot(x, st.norm.pdf(x, mu, sigma), color=color, linewidth=2)
+    ax.fill_between(x, st.norm.pdf(x, mu, sigma), alpha=0.2, color=color)
+    ax.axvline(T1, color='orange', linestyle='--', linewidth=1.2)
+    ax.axvline(T2, color='red', linestyle='--', linewidth=1.2)
+    ax.axvline(150, color='black', linestyle='-', linewidth=0.8)
+    pct_T1 = (datos < T1).mean() * 100
+    pct_T2 = (datos < T2).mean() * 100
+    ax.set_title(f"{nombre} | <T1: {pct_T1:.2f}%  <T2: {pct_T2:.2f}%", fontsize=8)
+    ax.set_xlabel("Peso (g)")
+
+axes[0].set_ylabel("Densidad")
+axes[1].legend(["Distribución", "T1 (143,2g)", "T2 (136,4g)", "Nominal (150g)"],
+               fontsize=7, loc='upper left')
+plt.tight_layout()
+plt.show()
+```
+
+## R
+
+```{r simulacion-mejora-r}
+#| code-fold: true
+#| code-summary: "Mostrar código"
+#| message: false
+library(tidyverse)
+library(patchwork)
+set.seed(42)
+n <- 5000
+T1 <- 143.2; T2 <- 136.4
+
+escenarios <- tibble(
+    nombre = c("Actual
+(μ=151,5  σ=2,6)",
+               "Corregido
+(μ=153,0  σ=2,6)",
+               "Mejorado
+(μ=151,5  σ=1,5)"),
+    mu     = c(151.5, 153.0, 151.5),
+    sigma  = c(2.6,   2.6,   1.5)
+)
+
+plots <- pmap(escenarios, function(nombre, mu, sigma) {
+    datos <- rnorm(n, mu, sigma)
+    pct_T1 <- mean(datos < T1) * 100
+    pct_T2 <- mean(datos < T2) * 100
+    x <- seq(mu - 4*sigma, mu + 4*sigma, length.out = 300)
+    df_curva <- tibble(x = x, y = dnorm(x, mu, sigma))
+    ggplot(df_curva, aes(x, y)) +
+        geom_area(fill = "steelblue", alpha = 0.2) +
+        geom_line(color = "steelblue", linewidth = 1.2) +
+        geom_vline(xintercept = T1, color = "orange",
+                   linetype = "dashed", linewidth = 1) +
+        geom_vline(xintercept = T2, color = "red",
+                   linetype = "dashed", linewidth = 1) +
+        geom_vline(xintercept = 150, color = "black",
+                   linewidth = 0.7) +
+        labs(title = nombre,
+             subtitle = sprintf("<T1: %.2f%%  <T2: %.2f%%", pct_T1, pct_T2),
+             x = "Peso (g)", y = "Densidad") +
+        theme_bw() +
+        theme(plot.title = element_text(size = 9),
+              plot.subtitle = element_text(size = 8))
+})
+
+wrap_plots(plots, nrow = 1)
+```
+:::
+
+El panel de tres distribuciones ilustra visualmente el efecto de cada decisión. En el escenario actual, una parte de la distribución cae por debajo de T1. Al subir la media (escenario corregido) la distribución se aleja de T1, pero a costa de sobredosificar. Al reducir σ (escenario mejorado) la distribución se estrecha y podemos mantener la media en el objetivo sin incumplir T1, con una sobredosificación mucho menor.
+
+## Capacidad del proceso y cumplimiento del RD
+
+Los gráficos de distribución normal que hemos visto son útiles para entender el problema, pero en la práctica industrial se usa el **gráfico de capacidad de proceso** para visualizar simultáneamente la distribución del proceso y los límites de especificación. Como vimos en el capítulo de control estadístico de procesos, los índices $C_p$ y $C_{pk}$ cuantifican esa relación.
+
+Construimos los gráficos de capacidad con `qcc`, usando el dataset de muestreo `llenado_yogures_muestra.csv` que ya conocemos del capítulo anterior. Comparamos la capacidad del turno completo (con todas las derivas) con la capacidad del proceso estable (solo Fase I):
+
+```{r capacidad-turno-completo}
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 6
+library(qcc)
+library(tidyverse)
+
+df_m <- read_csv2("datos/llenado_yogures_muestra.csv",
+                  locale = locale(decimal_mark = ","))
+
+# Turno completo
+datos_completo <- qcc.groups(df_m$peso_g, df_m$muestra)
+q_completo <- qcc(datos_completo, type = "xbar",
+                  title = "Turno completo", plot = FALSE)
+
+# LSL = T1 = 143,2 g (envase defectuoso según RD 1801/2008)
+# USL = 157,5 g (referencia simétrica respecto al peso nominal)
+process.capability(q_completo,
+                   spec.limits = c(143.2, 156.8),
+                   target = 150)
+```
+
+```{r capacidad-fase1-rd}
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 6
+
+# Solo Fase I: proceso estable
+df_fase1 <- df_m |> filter(muestra <= 17)
+datos_fase1 <- qcc.groups(df_fase1$peso_g, df_fase1$muestra)
+q_fase1 <- qcc(datos_fase1, type = "xbar",
+               title = "Fase I — proceso estable", plot = FALSE)
+
+process.capability(q_fase1,
+                   spec.limits = c(143.2, 156.8),
+                   target = 150)
+```
+
+La comparación entre los dos gráficos es directamente el argumento económico: en el turno completo, la distribución más ancha y descentrada produce un porcentaje mayor de envases bajo T1, lo que obliga a subir la media y sobredosificar. En la Fase I, la distribución estrecha y bien centrada permite ajustar la media mucho más cerca del peso nominal. La columna `Obs<LSL` del gráfico muestra el porcentaje de envases observado por debajo de T1 — en el proceso estable debe ser inferior al 2,5% que marca el RD.
+
+::: {.callout-note}
+## El límite T2 y los gráficos de capacidad
+Los gráficos anteriores usan T1 como límite inferior de especificación. El límite T2 (136,4 g), por debajo del cual el RD no permite ningún envase, no aparece en el gráfico pero sigue siendo el límite absoluto. Un proceso con buena capacidad respecto a T1 tendrá inevitablemente también buena capacidad respecto a T2, ya que T2 está 4,5 g más alejado de la media. El porcentaje de envases bajo T2 se puede calcular directamente con `pnorm()` como vimos en la sección anterior.
+:::
+
+## Análisis económico: el coste de la sobredosificación
+
+La sobredosificación tiene un coste económico real. Estimamos su impacto anual para una línea de producción típica:
+
+::: panel-tabset
+## Python
+
+```{python economia-python}
+#| code-fold: true
+#| code-summary: "Mostrar código"
+envases_dia = 50_000; dias_año = 250; precio_kg = 1.20
+sigmas_cal = [1.0, 1.5, 2.0, 2.5, 3.0]; T1_cal = 143.2
+filas = []
+for sigma in sigmas_cal:
+    mu_min = T1_cal - z_limite * sigma
+    sobredos_g = mu_min - 150.0
+    kg_extra = sobredos_g / 1000 * envases_dia * dias_año
+    filas.append([sigma, round(sobredos_g,2), round(kg_extra), round(kg_extra*precio_kg)])
+pd.DataFrame(filas, columns=['σ (g)','Sobredos. (g)','kg extra/año','Coste anual (€)'])
+```
+
+## R
+
+```{r economia-r}
+envases_dia <- 50000
+dias_año    <- 250
+precio_kg   <- 1.20
+
+tibble(sigma = c(1.0, 1.5, 2.0, 2.5, 3.0)) |>
+    mutate(
+        sobredos_g  = (T1 - qnorm(0.025) * sigma) - 150,
+        kg_extra    = sobredos_g / 1000 * envases_dia * dias_año,
+        coste_anual = round(kg_extra * precio_kg, 0)
+    ) |>
+    select(sigma, sobredos_g, kg_extra, coste_anual)
+```
+:::
+
+Con una línea de 50.000 envases diarios, la diferencia entre un proceso con σ = 1,0 g y uno con σ = 3,0 g supone decenas de miles de euros anuales en producto entregado gratuitamente. Mejorar la precisión de la dosificadora no es solo una cuestión de calidad: es una decisión con retorno económico directo y cuantificable.
+
+::: {.callout-note}
+## La lógica económica del control de procesos
+Este análisis ilustra un principio general de la mejora de procesos: **reducir la variabilidad es rentable**. No porque mejore la calidad en abstracto, sino porque permite ajustar el proceso más cerca del objetivo sin incumplir los límites legales o de especificación. La inversión en mejorar la precisión de una dosificadora se amortiza directamente en producto que deja de regalarse al consumidor.
+
+Este mismo razonamiento se aplica al análisis del sistema de medición del capítulo anterior: un laboratorio con alta variabilidad analítica necesita márgenes de seguridad más grandes para no dar resultados fuera de especificación, lo que puede llevar a rechazar producto conforme o a liberar producto no conforme.
+:::
+
+## Resumen del capítulo
+
+El RD 1801/2008 establece que la proporción de envases con contenido inferior al límite T1 ($Q_n - \text{EMDT}$) no puede superar el 2,5% del lote, y que ningún envase puede estar por debajo del límite T2 ($Q_n - 2 \times \text{EMDT}$). El cumplimiento de estos límites no depende solo del peso medio de llenado sino fundamentalmente de la dispersión del proceso.
+
+La distribución normal permite calcular con precisión el peso medio mínimo necesario para cumplir la norma en función de σ: a mayor dispersión, mayor sobredosificación necesaria y mayor coste económico. En el dataset del turno de producción hemos visto que el cumplimiento global puede ocultar incumplimientos en períodos concretos, lo que subraya la importancia del seguimiento continuo del proceso en lugar del análisis puntual.
+
+La conclusión práctica es que invertir en reducir la variabilidad del proceso de llenado tiene un retorno económico directo y cuantificable, independientemente de cualquier otra consideración de calidad.

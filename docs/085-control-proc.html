@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9&nbsp; El control estadístico de procesos – La mejora continua en la producción quesera</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./090-disexp.html" rel="next">
+<link href="./080-correlacion-regresion.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-4bebd1e71b752e044c5e27ddfc517df8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-estad-entorno.html">Herramientas y técnicas básicas</a></li><li class="breadcrumb-item"><a href="./085-control-proc.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El control estadístico de procesos</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">La mejora continua en la producción quesera</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Herramientas y técnicas básicas</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./020-estad-entorno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El análisis de datos de producción en el entorno industrial.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./030-herramientas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./040-organizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conceptos fundamentales, organización de datos y flujo de trabajo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./060-exploracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./070-estad-basica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./075-distribuciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Distribuciones de probabilidad y la distribución normal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./080-correlacion-regresion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./085-control-proc.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El control estadístico de procesos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./090-disexp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción al diseño de experimentos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./095-comunicacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Comunicación de resultados</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Aplicaciones en producción quesera</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./100-camembert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Análisis exploratorio de una fabricación de queso camembert.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./105-precio-leche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Los costes de materia: el precio de la leche</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./110-balance-materia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">El balance de materia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./120-rendimientos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Otras aplicaciones</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./160-sistema-medicion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">El análisis del sistema de medición</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">La metodología para la mejora continua</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./250-variabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">La variabilidad industrial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./260-mejora-continua.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">La mejora continua y el análisis de datos</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Apéndices</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./300-apendice-entorno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Configuración del entorno de trabajo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./320-simulacion-datos-fab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Simulación de procesos en quesería</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./340-sistema-medicion-grr-simulador.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Simulación del dataset de repetibilidad (Gerber)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./360-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./380-indice_dataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./400-bibliografia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#el-origen-del-control-estadístico-de-procesos" id="toc-el-origen-del-control-estadístico-de-procesos" class="nav-link active" data-scroll-target="#el-origen-del-control-estadístico-de-procesos"><span class="header-section-number">9.1</span> El origen del control estadístico de procesos</a></li>
+  <li><a href="#causas-comunes-y-causas-especiales" id="toc-causas-comunes-y-causas-especiales" class="nav-link" data-scroll-target="#causas-comunes-y-causas-especiales"><span class="header-section-number">9.2</span> Causas comunes y causas especiales</a>
+  <ul class="collapse">
+  <li><a href="#la-variabilidad-por-causas-comunes" id="toc-la-variabilidad-por-causas-comunes" class="nav-link" data-scroll-target="#la-variabilidad-por-causas-comunes">La variabilidad por causas comunes</a></li>
+  <li><a href="#la-variabilidad-por-causas-especiales" id="toc-la-variabilidad-por-causas-especiales" class="nav-link" data-scroll-target="#la-variabilidad-por-causas-especiales">La variabilidad por causas especiales</a></li>
+  <li><a href="#ejemplos-en-la-industria-quesera-y-alimentaria" id="toc-ejemplos-en-la-industria-quesera-y-alimentaria" class="nav-link" data-scroll-target="#ejemplos-en-la-industria-quesera-y-alimentaria">Ejemplos en la industria quesera y alimentaria</a></li>
+  <li><a href="#la-conexión-con-la-distribución-normal" id="toc-la-conexión-con-la-distribución-normal" class="nav-link" data-scroll-target="#la-conexión-con-la-distribución-normal">La conexión con la distribución normal</a></li>
+  </ul></li>
+  <li><a href="#variabilidad-a-corto-plazo-y-variabilidad-a-largo-plazo" id="toc-variabilidad-a-corto-plazo-y-variabilidad-a-largo-plazo" class="nav-link" data-scroll-target="#variabilidad-a-corto-plazo-y-variabilidad-a-largo-plazo"><span class="header-section-number">9.3</span> Variabilidad a corto plazo y variabilidad a largo plazo</a>
+  <ul class="collapse">
+  <li><a href="#variabilidad-a-corto-plazo" id="toc-variabilidad-a-corto-plazo" class="nav-link" data-scroll-target="#variabilidad-a-corto-plazo">Variabilidad a corto plazo</a></li>
+  <li><a href="#variabilidad-a-largo-plazo" id="toc-variabilidad-a-largo-plazo" class="nav-link" data-scroll-target="#variabilidad-a-largo-plazo">Variabilidad a largo plazo</a></li>
+  </ul></li>
+  <li><a href="#el-gráfico-de-control-la-herramienta-de-shewhart" id="toc-el-gráfico-de-control-la-herramienta-de-shewhart" class="nav-link" data-scroll-target="#el-gráfico-de-control-la-herramienta-de-shewhart"><span class="header-section-number">9.4</span> El gráfico de control: la herramienta de Shewhart</a>
+  <ul class="collapse">
+  <li><a href="#el-gráfico-x-barras-y-el-muestreo" id="toc-el-gráfico-x-barras-y-el-muestreo" class="nav-link" data-scroll-target="#el-gráfico-x-barras-y-el-muestreo">El gráfico X-barra/S y el muestreo</a></li>
+  <li><a href="#las-reglas-de-detección" id="toc-las-reglas-de-detección" class="nav-link" data-scroll-target="#las-reglas-de-detección">Las reglas de detección</a></li>
+  </ul></li>
+  <li><a href="#caso-práctico-control-del-proceso-de-llenado-de-yogures" id="toc-caso-práctico-control-del-proceso-de-llenado-de-yogures" class="nav-link" data-scroll-target="#caso-práctico-control-del-proceso-de-llenado-de-yogures"><span class="header-section-number">9.5</span> Caso práctico: control del proceso de llenado de yogures</a>
+  <ul class="collapse">
+  <li><a href="#fase-i-establecer-los-límites-de-control" id="toc-fase-i-establecer-los-límites-de-control" class="nav-link" data-scroll-target="#fase-i-establecer-los-límites-de-control">Fase I: establecer los límites de control</a></li>
+  <li><a href="#interpretación-de-los-gráficos" id="toc-interpretación-de-los-gráficos" class="nav-link" data-scroll-target="#interpretación-de-los-gráficos">Interpretación de los gráficos</a></li>
+  </ul></li>
+  <li><a href="#la-capacidad-del-proceso" id="toc-la-capacidad-del-proceso" class="nav-link" data-scroll-target="#la-capacidad-del-proceso"><span class="header-section-number">9.6</span> La capacidad del proceso</a>
+  <ul class="collapse">
+  <li><a href="#el-índice-c_p" id="toc-el-índice-c_p" class="nav-link" data-scroll-target="#el-índice-c_p">El índice <span class="math inline">\(C_p\)</span></a></li>
+  <li><a href="#el-índice-c_pk" id="toc-el-índice-c_pk" class="nav-link" data-scroll-target="#el-índice-c_pk">El índice <span class="math inline">\(C_{pk}\)</span></a></li>
+  <li><a href="#aplicación-al-proceso-de-llenado-de-yogures" id="toc-aplicación-al-proceso-de-llenado-de-yogures" class="nav-link" data-scroll-target="#aplicación-al-proceso-de-llenado-de-yogures">Aplicación al proceso de llenado de yogures</a></li>
+  <li><a href="#el-gráfico-de-capacidad" id="toc-el-gráfico-de-capacidad" class="nav-link" data-scroll-target="#el-gráfico-de-capacidad">El gráfico de capacidad</a></li>
+  </ul></li>
+  <li><a href="#actuar-correctamente-la-regla-de-oro-del-spc" id="toc-actuar-correctamente-la-regla-de-oro-del-spc" class="nav-link" data-scroll-target="#actuar-correctamente-la-regla-de-oro-del-spc"><span class="header-section-number">9.7</span> Actuar correctamente: la regla de oro del SPC</a></li>
+  <li><a href="#resumen-del-capítulo" id="toc-resumen-del-capítulo" class="nav-link" data-scroll-target="#resumen-del-capítulo"><span class="header-section-number">9.8</span> Resumen del capítulo</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-estad-entorno.html">Herramientas y técnicas básicas</a></li><li class="breadcrumb-item"><a href="./085-control-proc.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El control estadístico de procesos</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El control estadístico de procesos</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de última modificación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">15 de marzo de 2026</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Objetivos de aprendizaje
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Al finalizar este capítulo, el alumno será capaz de:</p>
+<ul>
+<li>Distinguir entre variabilidad por causas comunes y variabilidad por causas especiales, e identificar ejemplos de cada tipo en un proceso industrial.</li>
+<li>Diferenciar la variabilidad a corto plazo de la variabilidad a largo plazo y reconocer sus causas típicas.</li>
+<li>Explicar qué significa que un proceso está “bajo control estadístico” y qué consecuencias tiene para la toma de decisiones.</li>
+<li>Interpretar un gráfico de control X-barra/S: límites de control, línea central, señales de alarma.</li>
+<li>Aplicar las reglas básicas de detección de causas especiales en un gráfico de control.</li>
+<li>Entender el concepto de capacidad de proceso y los índices <span class="math inline">\(C_p\)</span> y <span class="math inline">\(C_{pk}\)</span>.</li>
+<li>Usar <code>qicharts2</code> en R para construir gráficos de control a partir de datos reales de proceso.</li>
+</ul>
+<p>Conceptos clave: <strong>control estadístico de procesos, causas comunes, causas especiales, variabilidad a corto y largo plazo, gráfico de control, límites de control, X-barra, rango, reglas de Western Electric, capacidad de proceso, <span class="math inline">\(C_p\)</span>, <span class="math inline">\(C_{pk}\)</span></strong>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Sobre el código de este capítulo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los gráficos de control de este capítulo se generan exclusivamente con R, usando la librería <code>qicharts2</code>. Es uno de los casos en que R dispone de herramientas específicas mucho más adecuadas que Python para esta tarea.</p>
+</div>
+</div>
+<section id="el-origen-del-control-estadístico-de-procesos" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="el-origen-del-control-estadístico-de-procesos"><span class="header-section-number">9.1</span> El origen del control estadístico de procesos</h2>
+<p>A finales de los años 1920, el ingeniero Walter Shewhart, trabajando en los laboratorios Bell de AT&amp;T, se enfrentaba a un problema práctico: los teléfonos que fabricaban tenían una variabilidad de calidad que nadie sabía cómo interpretar. ¿Cuándo era necesario intervenir en el proceso y cuándo era mejor dejarlo en marcha? Intervenir innecesariamente introducía más variabilidad, no menos.</p>
+<p>Shewhart formuló una distinción que cambió la forma de entender la calidad industrial: no toda la variabilidad es igual. Hay una variabilidad que es inherente al proceso — inevitable, predecible, consecuencia de la suma de muchas causas pequeñas — y hay otra variabilidad que es señal de que algo ha cambiado y que requiere investigación.</p>
+<p>Esta distinción, y la herramienta que Shewhart desarrolló para detectarla — el gráfico de control —, siguen siendo hoy el fundamento del control estadístico de procesos (SPC, del inglés <em>Statistical Process Control</em>).</p>
+</section>
+<section id="causas-comunes-y-causas-especiales" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="causas-comunes-y-causas-especiales"><span class="header-section-number">9.2</span> Causas comunes y causas especiales</h2>
+<section id="la-variabilidad-por-causas-comunes" class="level3">
+<h3 class="anchored" data-anchor-id="la-variabilidad-por-causas-comunes">La variabilidad por causas comunes</h3>
+<p>Las <strong>causas comunes</strong> son todas aquellas fuentes de variación que están siempre presentes en el proceso, que afectan a todos los resultados de forma continua y que son inherentes al sistema tal como está diseñado. Su efecto individual es pequeño, pero su suma produce la variabilidad de fondo del proceso.</p>
+<p>En un proceso de llenado de yogures, las causas comunes incluyen: pequeñas fluctuaciones de presión en la línea de llenado, variaciones mínimas en la viscosidad del producto, pequeñas diferencias en la temperatura del producto, vibraciones del equipo. Ninguna de estas causas produce por sí sola una desviación importante, pero juntas explican por qué dos envases consecutivos no pesan exactamente lo mismo.</p>
+<p>En un laboratorio de análisis de leche, las causas comunes incluyen: la variabilidad natural de la técnica analítica, pequeñas diferencias entre repeticiones del mismo analista, fluctuaciones del instrumento dentro de su rango normal de operación.</p>
+<p><strong>La variabilidad por causas comunes produce una distribución aproximadamente normal y predecible.</strong> Un proceso que solo tiene causas comunes se dice que está <em>bajo control estadístico</em>: sus resultados son aleatorios dentro de un rango definido y calculable.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Causas comunes y el sistema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Las causas comunes son responsabilidad del <strong>sistema</strong>, no del operario. Eliminarlas requiere cambiar el diseño del proceso, los equipos, los materiales o el método. Un operario que trabaja correctamente dentro de un sistema con mucha variabilidad no puede reducir esa variabilidad por sí solo.</p>
+<p>Esto tiene implicaciones importantes para la gestión: culpar al operario de la variabilidad causada por el sistema es un error que Deming identificó como uno de los principales obstáculos para la mejora de la calidad. La ausencia de procedimientos escritos, la falta de formación o la inexistencia de instrucciones de trabajo en el puesto son causas comunes del sistema — no del operario — y solo la dirección puede corregirlas. Este es uno de los principios fundamentales de Lean Manufacturing: estandarizar antes de mejorar.</p>
+</div>
+</div>
+</section>
+<section id="la-variabilidad-por-causas-especiales" class="level3">
+<h3 class="anchored" data-anchor-id="la-variabilidad-por-causas-especiales">La variabilidad por causas especiales</h3>
+<p>Las <strong>causas especiales</strong> son eventos discretos, identificables y no siempre presentes que producen una variación adicional sobre la variabilidad de fondo. Su aparición es una señal de que algo ha cambiado en el proceso.</p>
+<p>En el proceso de llenado de yogures, las causas especiales incluyen: un cambio brusco de presión en la línea, el desgaste progresivo de una válvula dosificadora, un ajuste incorrecto del operario, un cambio de lote de materia prima con propiedades diferentes.</p>
+<p>En el laboratorio, las causas especiales incluyen: un analista que ha desarrollado un hábito incorrecto de lectura, un instrumento que necesita calibración, una muestra contaminada o mal conservada. Como veremos en el capítulo dedicado al análisis del sistema de medición, el sesgo sistemático de un analista es un ejemplo clásico de causa especial identificable y corregible.</p>
+<p><strong>La variabilidad por causas especiales produce patrones no aleatorios en los datos</strong>: tendencias, saltos bruscos, ciclos, puntos fuera de los límites esperados. Estos patrones son detectables y su detección es el objetivo del gráfico de control.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Causas especiales y el operario
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Las causas especiales son responsabilidad del <strong>operario o del equipo de proceso</strong>. Cuando aparece una causa especial, la acción correcta es investigarla, identificarla y eliminarla. No requiere rediseñar el sistema — requiere encontrar qué cambió y corregirlo.</p>
+<p>La distinción entre causas comunes (sistema) y causas especiales (proceso) es fundamental para actuar correctamente: intervenir en el sistema cuando hay una causa especial, o tratar de corregir el proceso cuando el problema es del sistema, son errores que empeoran la situación.</p>
+</div>
+</div>
+</section>
+<section id="ejemplos-en-la-industria-quesera-y-alimentaria" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplos-en-la-industria-quesera-y-alimentaria">Ejemplos en la industria quesera y alimentaria</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 33%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Situación</th>
+<th>Tipo de causa</th>
+<th>Acción correcta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>El extracto seco varía ±0,5% de forma aleatoria entre fabricaciones</td>
+<td>Común</td>
+<td>Revisar el proceso de estandarización y los equipos</td>
+</tr>
+<tr class="even">
+<td>El extracto seco sube de forma sostenida durante tres semanas de verano</td>
+<td>Especial</td>
+<td>Investigar cambio estacional, ajuste del operario</td>
+</tr>
+<tr class="odd">
+<td>El pH varía ±0,05 unidades de forma aleatoria</td>
+<td>Común</td>
+<td>Revisar la precisión del método analítico</td>
+</tr>
+<tr class="even">
+<td>Un análisis de pH da 4,35 cuando el rango habitual es 4,5-4,9</td>
+<td>Especial</td>
+<td>Verificar la muestra, repetir el análisis</td>
+</tr>
+<tr class="odd">
+<td>Los recuentos de coliformes fluctúan con mediana 10 ufc/g</td>
+<td>Común</td>
+<td>Revisar las condiciones generales de higiene</td>
+</tr>
+<tr class="even">
+<td>Los coliformes alcanzan 20.200 ufc/g en agosto</td>
+<td>Especial</td>
+<td>Investigar la fabricación concreta y las condiciones de ese día</td>
+</tr>
+<tr class="odd">
+<td>El peso de envases varía ±2 g de forma aleatoria</td>
+<td>Común</td>
+<td>Revisar la precisión de la dosificadora</td>
+</tr>
+<tr class="even">
+<td>El peso medio cae 5 g en una hora</td>
+<td>Especial</td>
+<td>Verificar presión, temperatura y ajustes del operario</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="la-conexión-con-la-distribución-normal" class="level3">
+<h3 class="anchored" data-anchor-id="la-conexión-con-la-distribución-normal">La conexión con la distribución normal</h3>
+<p>Cuando un proceso opera solo con causas comunes, sus resultados se distribuyen de forma aproximadamente normal alrededor de la media del proceso. Cuando aparece una causa especial, la distribución ya no es normal ni predecible: puede aparecer un sesgo, una cola asimétrica, o incluso una distribución bimodal. Estos patrones son exactamente lo que los gráficos de control están diseñados para detectar.</p>
+</section>
+</section>
+<section id="variabilidad-a-corto-plazo-y-variabilidad-a-largo-plazo" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="variabilidad-a-corto-plazo-y-variabilidad-a-largo-plazo"><span class="header-section-number">9.3</span> Variabilidad a corto plazo y variabilidad a largo plazo</h2>
+<p>Además de la distinción entre causas comunes y especiales, es útil distinguir entre la variabilidad que se manifiesta en períodos cortos de tiempo y la que solo se hace visible a lo largo de semanas, meses o años.</p>
+<section id="variabilidad-a-corto-plazo" class="level3">
+<h3 class="anchored" data-anchor-id="variabilidad-a-corto-plazo">Variabilidad a corto plazo</h3>
+<p>Es la variabilidad que se observa dentro de un turno o entre turnos consecutivos. Es la que captura el gráfico de control diario. Sus causas son generalmente visibles y trazables: un ajuste incorrecto, un cambio de turno, una variación de temperatura ambiental durante el día.</p>
+</section>
+<section id="variabilidad-a-largo-plazo" class="level3">
+<h3 class="anchored" data-anchor-id="variabilidad-a-largo-plazo">Variabilidad a largo plazo</h3>
+<p>Es la variabilidad que solo se hace visible cuando se analizan datos de semanas o meses. Sus causas son más difíciles de identificar precisamente porque su efecto es gradual e imperceptible en el día a día:</p>
+<p><strong>En la industria quesera:</strong> - Deriva gradual de la composición de la leche a lo largo de la lactación (más grasa en otoño-invierno, más proteína en primavera) - Cambio imperceptible en el tiempo de acidificación por acostumbramiento o mutación del cultivo iniciador - Desgaste progresivo de equipos de corte de cuajada que produce granos cada vez más grandes - Deriva en los procedimientos de estandarización que el operario ha ido ajustando informalmente sin documentar - Colmatación progresiva del electrodo de los pHmetros por mantenimiento y limpieza insuficientes: las medidas de pH van perdiendo fiabilidad de forma tan gradual que el error pasa desapercibido durante semanas o meses, hasta que la desviación es ya demasiado grande para ignorarla. Es una de las causas de variabilidad analítica más frecuentes en quesería y una de las menos vigiladas</p>
+<p><strong>En la industria alimentaria en general:</strong> - Cambio gradual en las características de un proveedor de envases que afecta al sellado - Deriva estacional en la humedad ambiental que afecta al secado de productos - Acumulación de depósitos en intercambiadores de calor que reduce progresivamente la eficiencia</p>
+<p><strong>En la industria en general:</strong> - Desgaste de herramientas de corte en mecanizado que produce dimensiones progresivamente fuera de tolerancia - Degradación de catalizadores en procesos químicos - Deriva de calibración de instrumentos de medida</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>La variabilidad a largo plazo y los procedimientos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una de las causas más frecuentes e insidiosas de la variabilidad a largo plazo es la <strong>deriva en los procedimientos</strong>: los operarios van introduciendo pequeños ajustes informales que no quedan documentados y que con el tiempo se convierten en la forma habitual de trabajar, desviándose del procedimiento original sin que nadie lo haya decidido explícitamente.</p>
+<p>Lean Manufacturing pone especial énfasis en la <strong>estandarización y auditoría de procedimientos</strong> precisamente para combatir esta deriva. Un procedimiento que no se audita regularmente tiende a evolucionar espontáneamente, no siempre en la dirección correcta. Los gráficos de control a largo plazo son una herramienta de auditoría del proceso: si la media del proceso o su dispersión cambian gradualmente a lo largo de meses, es señal de que algo en el sistema ha derivado.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="el-gráfico-de-control-la-herramienta-de-shewhart" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="el-gráfico-de-control-la-herramienta-de-shewhart"><span class="header-section-number">9.4</span> El gráfico de control: la herramienta de Shewhart</h2>
+<p>Un <strong>gráfico de control</strong> es una representación temporal de los resultados del proceso con tres líneas horizontales:</p>
+<ul>
+<li><strong>La línea central (CL):</strong> la media del proceso en condiciones de referencia</li>
+<li><strong>El límite de control superior (UCL):</strong> la media más 3 desviaciones típicas</li>
+<li><strong>El límite de control inferior (LCL):</strong> la media menos 3 desviaciones típicas</li>
+</ul>
+<p>Shewhart eligió ±3σ como límites por razones prácticas: con una distribución normal, el 99,7% de los valores caen dentro de ese rango. Un punto fuera de los límites es tan improbable por azar (probabilidad &lt; 0,3%) que su aparición es casi siempre señal de una causa especial.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Límites de control vs.&nbsp;especificaciones
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los límites de control <strong>no son</strong> las especificaciones del producto ni los límites legales. Son límites estadísticos calculados a partir del comportamiento real del proceso. Un proceso puede estar bajo control estadístico y aun así producir producto fuera de especificación, si su variabilidad natural es demasiado grande. Esta es la conexión con el concepto de capacidad de proceso, que veremos más adelante en este capítulo y en detalle en el capítulo dedicado al RD 1801/2008.</p>
+</div>
+</div>
+<section id="el-gráfico-x-barras-y-el-muestreo" class="level3">
+<h3 class="anchored" data-anchor-id="el-gráfico-x-barras-y-el-muestreo">El gráfico X-barra/S y el muestreo</h3>
+<p>En la práctica industrial, los datos no se toman de forma continua sino mediante <strong>muestreo</strong>: a intervalos regulares de tiempo se toma un pequeño grupo de unidades consecutivas, se miden y se registran. Para cada subgrupo se calculan:</p>
+<ul>
+<li><strong>La media del subgrupo (<span class="math inline">\(\bar{X}\)</span>):</strong> representa el nivel del proceso en ese momento</li>
+<li><strong>La desviación típica del subgrupo (<span class="math inline">\(S\)</span>):</strong> mide la dispersión de los valores dentro del subgrupo y es más robusta que el rango cuando el tamaño del subgrupo es pequeño</li>
+</ul>
+<p>El intervalo de muestreo es una decisión de diseño importante. Un intervalo corto (cada 5 minutos) permite detectar problemas rápidamente pero genera mucho trabajo de toma de datos. Un intervalo largo (cada hora) es más manejable pero puede perder señales importantes. En la práctica industrial se busca un equilibrio entre la frecuencia necesaria para tomar decisiones a tiempo y el coste del muestreo.</p>
+<p>En nuestro caso práctico, simularemos un muestreo de <strong>5 envases cada 3 minutos</strong>, lo que da 160 subgrupos a lo largo del turno de 8 horas — suficiente para ver las derivas con claridad sin emborronar el gráfico.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Muestreo automático vs.&nbsp;muestreo manual
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un muestreo cada 3 minutos solo es realista con un <strong>sistema de control de peso automático en línea</strong>, integrado en la propia línea de llenado. Estos sistemas pesan cada envase o toman muestras automáticas a intervalos programados y registran los datos sin intervención del operario.</p>
+<p>En un sistema de <strong>muestreo manual</strong>, donde el operario tiene que detener la línea, pesar los envases, anotar los resultados y calcular la media del subgrupo, un intervalo inferior a 5-10 minutos no es realista: no hay tiempo material para hacerlo correctamente. Un operario presionado por un intervalo demasiado corto acabará tomando atajos — pesando menos envases, anotando de memoria, saltando muestras — lo que invalida el gráfico de control.</p>
+<p>El diseño del sistema de muestreo debe ser compatible con la carga de trabajo real del operario. Un gráfico de control basado en datos mal tomados es peor que no tener gráfico: da una falsa sensación de control.</p>
+</div>
+</div>
+</section>
+<section id="las-reglas-de-detección" class="level3">
+<h3 class="anchored" data-anchor-id="las-reglas-de-detección">Las reglas de detección</h3>
+<p>Además de los puntos fuera de los límites de control, hay patrones en la secuencia de puntos que también indican la presencia de causas especiales. Las <strong>reglas de Western Electric</strong> son el conjunto más utilizado:</p>
+<ul>
+<li><strong>Regla 1:</strong> un punto fuera de los límites ±3σ</li>
+<li><strong>Regla 2:</strong> dos de tres puntos consecutivos más allá de ±2σ en el mismo lado</li>
+<li><strong>Regla 3:</strong> cuatro de cinco puntos consecutivos más allá de ±1σ en el mismo lado</li>
+<li><strong>Regla 4:</strong> ocho puntos consecutivos en el mismo lado de la línea central</li>
+</ul>
+<p>Cada regla detecta un tipo diferente de señal: la regla 1 detecta cambios bruscos, las reglas 2 y 3 detectan tendencias moderadas, la regla 4 detecta desplazamientos sostenidos de la media.</p>
+</section>
+</section>
+<section id="caso-práctico-control-del-proceso-de-llenado-de-yogures" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="caso-práctico-control-del-proceso-de-llenado-de-yogures"><span class="header-section-number">9.5</span> Caso práctico: control del proceso de llenado de yogures</h2>
+<p>Usamos el dataset <code>llenado_yogures_muestra.csv</code> que contiene los resultados de un muestreo de 5 envases cada 3 minutos durante un turno de 8 horas (160 subgrupos, 800 envases en total). El turno incluye varias derivas simuladas que el gráfico de control debería detectar.</p>
+<section id="fase-i-establecer-los-límites-de-control" class="level3">
+<h3 class="anchored" data-anchor-id="fase-i-establecer-los-límites-de-control">Fase I: establecer los límites de control</h3>
+<p>Usamos los primeros 17 subgrupos (proceso estable al inicio del turno, hasta las 08:51) como período de referencia para calcular los límites:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qicharts2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/llenado_yogures_muestra.csv"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Subgrupos:"</span>, <span class="fu">n_distinct</span>(df<span class="sc">$</span>muestra), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Subgrupos: 160 </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Envases por subgrupo:"</span>, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    df <span class="sc">|&gt;</span> <span class="fu">count</span>(muestra) <span class="sc">|&gt;</span> <span class="fu">pull</span>(n) <span class="sc">|&gt;</span> <span class="fu">unique</span>(), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Envases por subgrupo: 5 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qic</span>(<span class="at">x      =</span> muestra,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y      =</span> peso_g,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data   =</span> df,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">chart  =</span> <span class="st">"xbar"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">freeze =</span> <span class="dv">17</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title  =</span> <span class="st">"Gráfico X-barra — Peso de envases de yogur (150 g nominal)"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab   =</span> <span class="st">"Peso medio del subgrupo (g)"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab   =</span> <span class="st">"Subgrupo (muestreo cada 3 min)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="085-control-proc_files/figure-html/spc-xbar-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qic</span>(<span class="at">x      =</span> muestra,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y      =</span> peso_g,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data   =</span> df,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">chart  =</span> <span class="st">"s"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">freeze =</span> <span class="dv">17</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title  =</span> <span class="st">"Gráfico S — Desviación típica del subgrupo"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab   =</span> <span class="st">"Desviación típica (g)"</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab   =</span> <span class="st">"Subgrupo (muestreo cada 3 min)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="085-control-proc_files/figure-html/spc-s-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="interpretación-de-los-gráficos" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-de-los-gráficos">Interpretación de los gráficos</h3>
+<p>El gráfico X-barra muestra con claridad las tres derivas simuladas:</p>
+<p><strong>Deriva ascendente (subgrupos ~17-42):</strong> la media del proceso sube progresivamente desde aproximadamente 151,5 g hasta 153 g. Los puntos empiezan a aparecer sistemáticamente por encima de la línea central, activando primero las reglas 3 y 4 y luego la regla 1. En un proceso real, esta señal indicaría que la dosificadora está entregando más producto de lo previsto — posiblemente por desgaste de la válvula o por un aumento de temperatura que reduce la viscosidad del yogur.</p>
+<p><strong>Salto brusco a la baja (subgrupos ~42-50):</strong> la media cae bruscamente por debajo del límite de control inferior. Esta señal corresponde al ajuste incorrecto del operario: al detectar la deriva ascendente, corrigió en exceso. Los saltos bruscos de este tipo son consecuencia habitual de ajustes manuales no documentados.</p>
+<p><strong>Aumento de dispersión (subgrupos ~50-75):</strong> el gráfico S muestra un aumento progresivo de la desviación típica mientras que el X-barra muestra la media ligeramente baja pero sin tendencia clara. Este patrón — dispersión creciente sin cambio de media — es característico del desgaste de equipos: la dosificadora empieza a ser inconsistente, llenando algunos envases de más y otros de menos.</p>
+<p><strong>Restauración tras mantenimiento (subgrupos ~75 en adelante):</strong> tanto la media como el rango vuelven al rango de referencia.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span><code>qcc</code>: una alternativa más potente
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La librería <code>qicharts2</code> es moderna, integrada con ggplot2 y muy fácil de usar para casos estándar. Para análisis más avanzados — descomposición detallada de la varianza, índices de capacidad de proceso, gráficos CUSUM para detectar derivas lentas — la librería <code>qcc</code> ofrece más funcionalidades.</p>
+<p><code>qcc</code> es la librería de referencia académica para SPC en R, utilizada en el libro <em>Quality Control with R</em> de Emilio L. Cano, Javier M. Moguerza y Mariano Prieto Corcoba (Springer, 2015), con código disponible en <a href="https://www.qualitycontrolwithr.com">qualitycontrolwithr.com</a>.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="la-capacidad-del-proceso" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="la-capacidad-del-proceso"><span class="header-section-number">9.6</span> La capacidad del proceso</h2>
+<p>Saber que un proceso está bajo control estadístico no es suficiente: también necesitamos saber si ese proceso es capaz de cumplir las especificaciones. Un proceso puede ser perfectamente estable y predecible, y aun así producir demasiado producto fuera de los límites aceptables si su variabilidad natural es demasiado grande.</p>
+<p>La <strong>capacidad del proceso</strong> mide la relación entre la variabilidad natural del proceso y los límites de especificación. Se cuantifica mediante dos índices:</p>
+<section id="el-índice-c_p" class="level3">
+<h3 class="anchored" data-anchor-id="el-índice-c_p">El índice <span class="math inline">\(C_p\)</span></h3>
+<p><span class="math display">\[C_p = \frac{LSE - LIE}{6\sigma}\]</span></p>
+<p>donde <span class="math inline">\(LSE\)</span> es el límite superior de especificación, <span class="math inline">\(LIE\)</span> es el límite inferior de especificación y <span class="math inline">\(\sigma\)</span> es la desviación típica del proceso. El denominador <span class="math inline">\(6\sigma\)</span> representa la amplitud total de la variabilidad natural (±3σ a cada lado de la media).</p>
+<p>Un <span class="math inline">\(C_p = 1\)</span> significa que la variabilidad natural del proceso ocupa exactamente el espacio entre los dos límites de especificación. Un <span class="math inline">\(C_p &gt; 1\)</span> indica que el proceso tiene más “holgura” que la mínima necesaria. En la práctica industrial se exige habitualmente <span class="math inline">\(C_p \geq 1{,}33\)</span> o incluso <span class="math inline">\(C_p \geq 1{,}67\)</span> para procesos críticos.</p>
+<p><strong>El problema de <span class="math inline">\(C_p\)</span></strong> es que no tiene en cuenta si la media del proceso está centrada entre los límites. Un proceso puede tener <span class="math inline">\(C_p &gt; 1\)</span> y estar produciendo muchos defectos si su media está desplazada hacia uno de los límites.</p>
+</section>
+<section id="el-índice-c_pk" class="level3">
+<h3 class="anchored" data-anchor-id="el-índice-c_pk">El índice <span class="math inline">\(C_{pk}\)</span></h3>
+<p><span class="math display">\[C_{pk} = \min\left(\frac{LSE - \mu}{3\sigma},\ \frac{\mu - LIE}{3\sigma}\right)\]</span></p>
+<p><span class="math inline">\(C_{pk}\)</span> toma el mínimo de las dos distancias — de la media al límite superior y de la media al límite inferior — y la expresa en unidades de 3σ. A diferencia de <span class="math inline">\(C_p\)</span>, sí tiene en cuenta el centrado de la media.</p>
+<p>Si el proceso está perfectamente centrado, <span class="math inline">\(C_{pk} = C_p\)</span>. Si la media está desplazada, <span class="math inline">\(C_{pk} &lt; C_p\)</span>. Un <span class="math inline">\(C_{pk}\)</span> bajo con un <span class="math inline">\(C_p\)</span> alto indica que el problema no es la variabilidad sino el centrado del proceso.</p>
+</section>
+<section id="aplicación-al-proceso-de-llenado-de-yogures" class="level3">
+<h3 class="anchored" data-anchor-id="aplicación-al-proceso-de-llenado-de-yogures">Aplicación al proceso de llenado de yogures</h3>
+<p>Para el proceso de llenado de yogures en el período estable (Fase I), con <span class="math inline">\(\mu \approx 151{,}5\)</span> g y <span class="math inline">\(\sigma \approx 1{,}3\)</span> g, y usando como límites de especificación los del RD 1801/2008 (T2 = 141 g como límite inferior; no hay límite superior legal):</p>
+<p><span class="math display">\[C_{pk} = \frac{\mu - LIE}{3\sigma} = \frac{151{,}5 - 141}{3 \times 1{,}3} = \frac{10{,}5}{3{,}9} \approx 2{,}7\]</span></p>
+<p>Un <span class="math inline">\(C_{pk} = 2{,}7\)</span> indica un proceso muy capaz respecto al límite T2. Pero si la variabilidad aumenta a <span class="math inline">\(\sigma = 3\)</span> g (como en el período de dispersión creciente):</p>
+<p><span class="math display">\[C_{pk} = \frac{151{,}5 - 141}{3 \times 3} = \frac{10{,}5}{9} \approx 1{,}2\]</span></p>
+<p>El proceso sigue siendo capaz (<span class="math inline">\(C_{pk} &gt; 1\)</span>) pero con mucho menos margen. Y si la media baja a 149 g (período tras el ajuste incorrecto):</p>
+<p><span class="math display">\[C_{pk} = \frac{149 - 141}{3 \times 3} = \frac{8}{9} \approx 0{,}9\]</span></p>
+<p>Un <span class="math inline">\(C_{pk} &lt; 1\)</span> indica que el proceso está produciendo producto por debajo de T2, lo que el RD 1801/2008 prohíbe. El análisis de capacidad conecta directamente con el análisis económico de la sobredosificación que veremos en el capítulo dedicado al RD 1801/2008.</p>
+</section>
+<section id="el-gráfico-de-capacidad" class="level3">
+<h3 class="anchored" data-anchor-id="el-gráfico-de-capacidad">El gráfico de capacidad</h3>
+<p>Los índices de capacidad son más fáciles de interpretar cuando se visualizan en un gráfico que muestra simultáneamente la distribución del proceso y los límites de especificación. Usamos la librería <code>qcc</code> para generarlo.</p>
+<p>Como límite inferior de especificación (LSL) usamos <strong>T1 = 145,5 g</strong>, el límite por debajo del cual un envase se considera defectuoso según el RD 1801/2008. Como límite superior usamos 157,5 g, valor simétrico respecto al peso nominal de 150 g, que aunque no existe como límite legal nos permite visualizar el centrado del proceso. El análisis detallado de los límites T1 y T2, el porcentaje máximo permitido de envases defectuosos y el análisis económico de la sobredosificación se desarrollan en el capítulo dedicado al RD 1801/2008.</p>
+<p><strong>Gráfico 1: capacidad del turno completo (incluyendo derivas)</strong></p>
+<p>En la situación real, los 800 envases muestreados durante el turno han salido al mercado — no había sistema de detección en tiempo real que los eliminara. El gráfico muestra la capacidad del proceso tal como ocurrió, con todas las derivas incluidas:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qcc)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Todos los datos del turno</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>datos_completo <span class="ot">&lt;-</span> <span class="fu">qcc.groups</span>(df<span class="sc">$</span>peso_g, df<span class="sc">$</span>muestra)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>q_completo <span class="ot">&lt;-</span> <span class="fu">qcc</span>(datos_completo, <span class="at">type =</span> <span class="st">"xbar"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">title =</span> <span class="st">"Turno completo"</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">process.capability</span>(q_completo,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">spec.limits =</span> <span class="fu">c</span>(<span class="fl">145.5</span>, <span class="fl">157.5</span>),</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">target =</span> <span class="dv">150</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="085-control-proc_files/figure-html/capacidad-completo-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Process Capability Analysis
+
+Call:
+process.capability(object = q_completo, spec.limits = c(145.5,     157.5), target = 150)
+
+Number of obs = 800          Target = 150
+       Center = 151.4           LSL = 145.5
+       StdDev = 1.663           USL = 157.5
+
+Capability indices:
+
+       Value    2.5%   97.5%
+Cp    1.2026  1.1437  1.2616
+Cp_l  1.1796  1.1274  1.2319
+Cp_u  1.2256  1.1716  1.2797
+Cp_k  1.1796  1.1174  1.2419
+Cpm   0.9241  0.8703  0.9778
+
+Exp&lt;LSL 0.02%    Obs&lt;LSL 1%
+Exp&gt;USL 0.012%   Obs&gt;USL 0%</code></pre>
+</div>
+</div>
+<p><strong>Gráfico 2: capacidad del proceso en Fase I (solo proceso estable)</strong></p>
+<p>Ahora repetimos el análisis usando únicamente los primeros 17 subgrupos, cuando el proceso estaba bajo control estadístico sin causas especiales activas. Esta es la capacidad potencial del proceso si se eliminan las derivas:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solo Fase I: primeros 17 subgrupos</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_fase1 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">filter</span>(muestra <span class="sc">&lt;=</span> <span class="dv">17</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>datos_fase1 <span class="ot">&lt;-</span> <span class="fu">qcc.groups</span>(df_fase1<span class="sc">$</span>peso_g, df_fase1<span class="sc">$</span>muestra)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>q_fase1 <span class="ot">&lt;-</span> <span class="fu">qcc</span>(datos_fase1, <span class="at">type =</span> <span class="st">"xbar"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">title =</span> <span class="st">"Fase I — proceso estable"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">process.capability</span>(q_fase1,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">spec.limits =</span> <span class="fu">c</span>(<span class="fl">145.5</span>, <span class="fl">157.5</span>),</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">target =</span> <span class="dv">150</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="085-control-proc_files/figure-html/capacidad-fase1-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Process Capability Analysis
+
+Call:
+process.capability(object = q_fase1, spec.limits = c(145.5, 157.5),     target = 150)
+
+Number of obs = 85           Target = 150
+       Center = 151.7           LSL = 145.5
+       StdDev = 1.194           USL = 157.5
+
+Capability indices:
+
+       Value    2.5%  97.5%
+Cp    1.6755  1.4224  1.928
+Cp_l  1.7241  1.4973  1.951
+Cp_u  1.6270  1.4121  1.842
+Cp_k  1.6270  1.3709  1.883
+Cpm   0.9728  0.7847  1.161
+
+Exp&lt;LSL 0%   Obs&lt;LSL 0%
+Exp&gt;USL 0%   Obs&gt;USL 0%</code></pre>
+</div>
+</div>
+<p>La comparación entre los dos gráficos muestra con claridad el efecto de las derivas sobre la capacidad del proceso. En el turno completo, la distribución es más ancha y menos centrada, lo que se traduce en índices <span class="math inline">\(C_p\)</span> y <span class="math inline">\(C_{pk}\)</span> más bajos y en un mayor porcentaje de envases fuera de especificación. En la Fase I, la distribución es más estrecha y mejor centrada, con índices notablemente mejores.</p>
+<p>La diferencia entre los dos escenarios es precisamente el argumento económico de la mejora: eliminar las causas especiales que producen las derivas no solo mejora la calidad del producto sino que reduce la sobredosificación necesaria para cumplir la legislación. Este análisis se desarrolla en detalle en el capítulo dedicado al RD 1801/2008.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Establecer límites técnicos a partir de la capacidad
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un error frecuente en la industria es fijar límites técnicos de proceso (“no más de X defectos por turno”) sin haber evaluado previamente la capacidad del proceso. Si el proceso tiene una variabilidad natural que produce inevitablemente un 5% de defectos, fijar el límite en 1% es irrealista — no importa cuánto se esfuercen los operarios.</p>
+<p>El enfoque correcto es:</p>
+<ol type="1">
+<li>Medir la capacidad real del proceso (<span class="math inline">\(C_{pk}\)</span>)</li>
+<li>Calcular el porcentaje de defectos que esa capacidad produce inevitablemente</li>
+<li>Fijar los límites técnicos en función de esa capacidad real</li>
+<li>Trabajar en la reducción de la variabilidad para mejorar la capacidad y reducir progresivamente los límites</li>
+</ol>
+<p>Este es el vínculo entre el control estadístico de procesos y la mejora continua: el gráfico de control detecta las causas especiales, los índices de capacidad cuantifican la variabilidad de fondo, y la mejora continua trabaja en reducir esa variabilidad estructural. Lo veremos en profundidad en el capítulo dedicado a la mejora continua y el análisis de datos.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="actuar-correctamente-la-regla-de-oro-del-spc" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="actuar-correctamente-la-regla-de-oro-del-spc"><span class="header-section-number">9.7</span> Actuar correctamente: la regla de oro del SPC</h2>
+<p>El gráfico de control no es solo una herramienta de detección — es también una guía de actuación:</p>
+<ul>
+<li><strong>Si el proceso está bajo control:</strong> no intervenir. Los ajustes innecesarios introducen variabilidad adicional. Esta es una de las lecciones contraintuitivas del SPC: a veces la mejor acción es no hacer nada.</li>
+<li><strong>Si el gráfico muestra una señal:</strong> investigar la causa especial, identificarla y eliminarla. No ajustar el proceso a ciegas — primero entender qué ocurrió.</li>
+</ul>
+<p>El turno de yogures ilustra el coste de no seguir esta regla: el operario que ajustó la dosificadora al detectar la deriva ascendente introdujo un salto brusco que fue peor que la propia deriva. Si hubiera esperado a confirmar la señal con las reglas de Western Electric, el ajuste habría sido más preciso.</p>
+</section>
+<section id="resumen-del-capítulo" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">9.8</span> Resumen del capítulo</h2>
+<p>El control estadístico de procesos parte de una distinción fundamental: no toda la variabilidad es igual. La variabilidad por causas comunes es inherente al sistema y solo puede reducirse cambiando el sistema. La variabilidad por causas especiales es señal de que algo ha cambiado y debe investigarse. A esta distinción se añade la diferencia entre variabilidad a corto plazo — visible en el gráfico de control diario — y variabilidad a largo plazo, causada por derivas graduales en la composición de materias primas, el desgaste de equipos o la deriva imperceptible de los procedimientos.</p>
+<p>El gráfico de control X-barra/S detecta ambos tipos de señal. Los índices de capacidad <span class="math inline">\(C_p\)</span> y <span class="math inline">\(C_{pk}\)</span> cuantifican si la variabilidad natural del proceso es compatible con las especificaciones. Estos dos conceptos — control y capacidad — son los pilares del SPC y la base sobre la que se construye la mejora continua.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./080-correlacion-regresion.html" class="pagination-link" aria-label="La relación entre dos variables: correlación y regresion">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresion</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./090-disexp.html" class="pagination-link" aria-label="Introducción al diseño de experimentos">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción al diseño de experimentos</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

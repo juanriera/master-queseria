@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Herramientas para el análisis. La reproducibilidad. – La mejora continua en la producción quesera</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./040-organizacion.html" rel="next">
+<link href="./020-estad-entorno.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-4bebd1e71b752e044c5e27ddfc517df8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-estad-entorno.html">Herramientas y técnicas básicas</a></li><li class="breadcrumb-item"><a href="./030-herramientas.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">La mejora continua en la producción quesera</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Herramientas y técnicas básicas</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./020-estad-entorno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El análisis de datos de producción en el entorno industrial.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./030-herramientas.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./040-organizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conceptos fundamentales, organización de datos y flujo de trabajo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./060-exploracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./070-estad-basica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./075-distribuciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Distribuciones de probabilidad y la distribución normal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./080-correlacion-regresion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./085-control-proc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El control estadístico de procesos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./090-disexp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción al diseño de experimentos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./095-comunicacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Comunicación de resultados</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Aplicaciones en producción quesera</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./100-camembert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Análisis exploratorio de una fabricación de queso camembert.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./105-precio-leche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Los costes de materia: el precio de la leche</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./110-balance-materia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">El balance de materia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./120-rendimientos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Otras aplicaciones</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./160-sistema-medicion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">El análisis del sistema de medición</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">La metodología para la mejora continua</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./250-variabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">La variabilidad industrial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./260-mejora-continua.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">La mejora continua y el análisis de datos</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Apéndices</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./300-apendice-entorno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Configuración del entorno de trabajo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./320-simulacion-datos-fab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Simulación de procesos en quesería</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./340-sistema-medicion-grr-simulador.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Simulación del dataset de repetibilidad (Gerber)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./360-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./380-indice_dataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./400-bibliografia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">3.1</span> Introducción</a></li>
+  <li><a href="#la-hoja-de-cálculo" id="toc-la-hoja-de-cálculo" class="nav-link" data-scroll-target="#la-hoja-de-cálculo"><span class="header-section-number">3.2</span> La hoja de cálculo</a>
+  <ul class="collapse">
+  <li><a href="#usos-de-la-hoja-de-cálculo-en-el-análisis-industrial" id="toc-usos-de-la-hoja-de-cálculo-en-el-análisis-industrial" class="nav-link" data-scroll-target="#usos-de-la-hoja-de-cálculo-en-el-análisis-industrial">Usos de la hoja de cálculo en el análisis industrial</a></li>
+  <li><a href="#limitaciones-de-la-hoja-de-cálculo" id="toc-limitaciones-de-la-hoja-de-cálculo" class="nav-link" data-scroll-target="#limitaciones-de-la-hoja-de-cálculo">Limitaciones de la hoja de cálculo</a></li>
+  </ul></li>
+  <li><a href="#python-y-r-las-herramientas-principales" id="toc-python-y-r-las-herramientas-principales" class="nav-link" data-scroll-target="#python-y-r-las-herramientas-principales"><span class="header-section-number">3.3</span> Python y R: las herramientas principales</a></li>
+  <li><a href="#otras-herramientas-del-ecosistema" id="toc-otras-herramientas-del-ecosistema" class="nav-link" data-scroll-target="#otras-herramientas-del-ecosistema"><span class="header-section-number">3.4</span> Otras herramientas del ecosistema</a></li>
+  <li><a href="#el-concepto-de-reproducibilidad" id="toc-el-concepto-de-reproducibilidad" class="nav-link" data-scroll-target="#el-concepto-de-reproducibilidad"><span class="header-section-number">3.5</span> El concepto de reproducibilidad</a>
+  <ul class="collapse">
+  <li><a href="#la-crisis-de-reproducibilidad" id="toc-la-crisis-de-reproducibilidad" class="nav-link" data-scroll-target="#la-crisis-de-reproducibilidad">La crisis de reproducibilidad</a></li>
+  <li><a href="#reproducibilidad-en-metrología" id="toc-reproducibilidad-en-metrología" class="nav-link" data-scroll-target="#reproducibilidad-en-metrología">Reproducibilidad en metrología</a></li>
+  </ul></li>
+  <li><a href="#scripts-frente-a-hoja-de-cálculo-ventajas-para-la-reproducibilidad" id="toc-scripts-frente-a-hoja-de-cálculo-ventajas-para-la-reproducibilidad" class="nav-link" data-scroll-target="#scripts-frente-a-hoja-de-cálculo-ventajas-para-la-reproducibilidad"><span class="header-section-number">3.6</span> Scripts frente a hoja de cálculo: ventajas para la reproducibilidad</a></li>
+  <li><a href="#resumen-del-capítulo" id="toc-resumen-del-capítulo" class="nav-link" data-scroll-target="#resumen-del-capítulo"><span class="header-section-number">3.7</span> Resumen del capítulo</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-estad-entorno.html">Herramientas y técnicas básicas</a></li><li class="breadcrumb-item"><a href="./030-herramientas.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de última modificación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">11 de marzo de 2025</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Objetivos de aprendizaje
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Al terminar este capítulo, el alumno debe ser capaz de:</p>
+<ul>
+<li>Identificar las principales herramientas disponibles para el análisis de datos industriales y explicar las razones por las que se eligen Python y R como herramientas principales en este libro.</li>
+<li>Describir los usos habituales de la hoja de cálculo en el entorno industrial y reconocer sus limitaciones para el análisis reproducible.</li>
+<li>Explicar el concepto de reproducibilidad y distinguirlo del de repetibilidad, y argumentar por qué es relevante en el análisis de datos industriales.</li>
+<li>Comparar el uso de scripts frente al uso de hojas de cálculo desde el punto de vista de la transparencia, la trazabilidad y la reproducibilidad del análisis.</li>
+</ul>
+<p>Los conceptos clave introducidos en este capítulo son: <strong>hoja de cálculo</strong>, <strong>lenguaje de programación</strong>, <strong>script</strong>, <strong>reproducibilidad</strong>, <strong>repetibilidad</strong>, <strong>flujo de trabajo reproducible</strong>, <strong>datos rectangulares</strong>.</p>
+</div>
+</div>
+<section id="introducción" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">3.1</span> Introducción</h2>
+<p>En el capítulo anterior vimos que el análisis de datos industriales requiere rigor metodológico y datos de calidad. En este capítulo abordamos las herramientas con las que vamos a trabajar a lo largo del libro: la hoja de cálculo Microsoft Excel y los lenguajes de programación <strong>Python</strong> y <strong>R</strong>. Veremos también por qué la elección de la herramienta no es indiferente cuando se trata de garantizar que un análisis sea verificable y reproducible, un requisito cada vez más exigido tanto en el ámbito industrial como en el académico.</p>
+</section>
+<section id="la-hoja-de-cálculo" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="la-hoja-de-cálculo"><span class="header-section-number">3.2</span> La hoja de cálculo</h2>
+<p>La hoja de cálculo es una herramienta presente hoy en todos los ámbitos de trabajo y educativos. Desde la aparición de <a href="https://es.wikipedia.org/wiki/VisiCalc">VisiCalc</a> en 1978, ha contribuido a la gestión de miles de empresas y se ha utilizado de manera general en el análisis de datos. En la década de los años 80, <a href="https://es.wikipedia.org/wiki/Lotus_1-2-3">Lotus 1-2-3</a> fue la aplicación más utilizada en los ordenadores IBM-PC y compatibles; con la llegada de Microsoft Windows a finales de esa década, Microsoft Excel se convirtió en la hoja de cálculo dominante, posición que mantiene hasta hoy.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/030/280px-Visicalc.webp" class="img-fluid figure-img"></p>
+<figcaption>VisiCalc, primera hoja de cálculo para el ordenador <em>Apple II</em> (1979)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/030/Lotus-123-3.0-MSDOS.webp" class="img-fluid figure-img"></p>
+<figcaption>Hoja de cálculo Lotus 1-2-3 para MS-DOS (1983)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/030/excel.webp" class="img-fluid figure-img"></p>
+<figcaption>Microsoft Excel (2023)</figcaption>
+</figure>
+</div>
+<section id="usos-de-la-hoja-de-cálculo-en-el-análisis-industrial" class="level3">
+<h3 class="anchored" data-anchor-id="usos-de-la-hoja-de-cálculo-en-el-análisis-industrial">Usos de la hoja de cálculo en el análisis industrial</h3>
+<p>La hoja de cálculo es especialmente útil para:</p>
+<ul>
+<li>La introducción, edición y almacenamiento de datos.</li>
+<li>El filtrado y la corrección de errores básicos.</li>
+<li>La manipulación de datos mediante tablas dinámicas.</li>
+<li>La preparación de gráficos para la presentación de resultados.</li>
+</ul>
+<p>En este libro trabajaremos exclusivamente con lo que llamaremos <strong>datos rectangulares</strong>: grupos de valores asociados a una o más variables y a varias observaciones, organizados en tablas. Es la forma más habitual de almacenar datos industriales, y la base del principio de los <strong>datos arreglados</strong> (<em>tidy data</em>) que se desarrolla en el capítulo siguiente.</p>
+<p>La tendencia actual en la industria es recoger los datos de forma automática o mediante sistemas informatizados, lo que elimina el papel y reduce los errores de transcripción. En todos los casos, es imprescindible que los sistemas de información puedan exportar sus datos a ficheros de texto plano o CSV, de modo que puedan importarse tanto en Excel como en Python o R.</p>
+</section>
+<section id="limitaciones-de-la-hoja-de-cálculo" class="level3">
+<h3 class="anchored" data-anchor-id="limitaciones-de-la-hoja-de-cálculo">Limitaciones de la hoja de cálculo</h3>
+<p>A pesar de su utilidad y su enorme difusión, la hoja de cálculo presenta limitaciones importantes cuando se usa como herramienta principal de análisis:</p>
+<ul>
+<li>Los cálculos se realizan mediante fórmulas embebidas en las celdas, que son difíciles de rastrear y verificar por terceros, lo que compromete la transparencia del análisis.</li>
+<li>Los gráficos disponibles son relativamente limitados en comparación con los que ofrecen los lenguajes de programación.</li>
+<li>No está diseñada específicamente para el análisis estadístico, y puede mostrar inexactitudes en algunos métodos, como la regresión lineal.</li>
+<li>La falta de transparencia dificulta la auditoría de los análisis, un requisito cada vez más frecuente en entornos de calidad certificada.</li>
+</ul>
+<p>Por estas razones, en este libro usaremos Excel principalmente para el almacenamiento de datos y el análisis básico, y Python o R para el análisis gráfico y estadístico más detallado.</p>
+</section>
+</section>
+<section id="python-y-r-las-herramientas-principales" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="python-y-r-las-herramientas-principales"><span class="header-section-number">3.3</span> Python y R: las herramientas principales</h2>
+<p><strong>Python</strong> es actualmente el lenguaje de programación más utilizado en el mundo y el de referencia en inteligencia artificial y ciencia de datos. Para el análisis de datos industriales ofrece una combinación de simplicidad, potencia y un ecosistema de bibliotecas muy completo:</p>
+<ul>
+<li><code>pandas</code> para la manipulación de datos tabulares: registros de producción, análisis de lotes, control de calidad.</li>
+<li><code>matplotlib</code> y <code>seaborn</code> para la generación de gráficos de alta calidad: tendencias, distribuciones, correlaciones.</li>
+<li><code>numpy</code> para cálculos numéricos precisos sobre arrays de datos.</li>
+</ul>
+<p><strong>R</strong> es el lenguaje de referencia en estadística y análisis de datos. Dispone de algunas de las bibliotecas gráficas más potentes disponibles —en particular <code>ggplot2</code>— y cubre toda la gama de métodos estadísticos, desde la estadística descriptiva básica hasta los modelos más avanzados. Es el lenguaje más utilizado en investigación estadística y en análisis de datos en ciencias de la salud, biología y, en general, en cualquier disciplina con fuerte componente cuantitativo.</p>
+<p>Ambos lenguajes son <strong>gratuitos y de código abierto</strong>, cuentan con comunidades de usuarios enormes y están respaldados por una documentación extensa. A lo largo del libro, los ejemplos de código se presentan en pestañas alternativas Python/R, de modo que el lector puede seguir el lenguaje de su elección.</p>
+</section>
+<section id="otras-herramientas-del-ecosistema" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="otras-herramientas-del-ecosistema"><span class="header-section-number">3.4</span> Otras herramientas del ecosistema</h2>
+<p>Más allá de Python, R y Excel, existen otras herramientas relevantes en el análisis de datos y la estadística industrial que conviene conocer, aunque no se desarrollen en este libro.</p>
+<p><strong>Matlab</strong> es un entorno de cálculo numérico muy potente, ampliamente utilizado en ingeniería y en aplicaciones científicas que requieren alto rendimiento computacional. Su sintaxis está orientada al álgebra matricial y es especialmente adecuado para simulación, procesamiento de señales y control de sistemas. Su principal limitación para nuestros objetivos es su coste elevado: se trata de software propietario con licencias de precio significativo.</p>
+<p><strong>Minitab</strong> es un software estadístico diseñado específicamente para la calidad industrial y la mejora de procesos. Es muy utilizado en entornos <em>Six Sigma</em> y en certificaciones de calidad por su facilidad de uso y sus herramientas específicas para el control estadístico de procesos. Como Matlab, es software propietario y su coste puede ser un obstáculo para su uso en formación.</p>
+<p><strong>Julia</strong> es un lenguaje de programación más reciente, diseñado para el cálculo numérico de alto rendimiento. Ofrece velocidades comparables a lenguajes compilados como C, con una sintaxis cercana a Python y R. Está ganando popularidad en la comunidad científica, especialmente en aplicaciones donde el rendimiento computacional es crítico. Sin embargo, su ecosistema para el análisis de datos es todavía menos maduro que el de Python y R, y su uso en formación es aún limitado.</p>
+<p><strong>Google Sheets</strong> y <strong>LibreOffice Calc</strong> son alternativas gratuitas a Microsoft Excel, casi totalmente compatibles, que pueden usarse cuando no se dispone de licencia de Office.</p>
+<p>La elección de Python y R como herramientas principales de este libro responde, por tanto, a tres criterios combinados: son gratuitas y de código abierto, tienen el ecosistema más rico y maduro para el análisis de datos y la estadística, y son las que mejor responden al requisito de reproducibilidad que se desarrolla en la sección siguiente.</p>
+</section>
+<section id="el-concepto-de-reproducibilidad" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="el-concepto-de-reproducibilidad"><span class="header-section-number">3.5</span> El concepto de reproducibilidad</h2>
+<p>La <strong>reproducibilidad</strong> de un análisis o experimento es la capacidad de obtener los mismos resultados al replicarlo utilizando los mismos datos, la misma metodología y, en su caso, el mismo código informático. En otras palabras, un análisis es reproducible cuando otra persona —o el propio autor en un momento posterior— puede verificar los resultados y llegar a las mismas conclusiones partiendo de los datos originales.</p>
+<p>Conviene distinguir la reproducibilidad de un concepto relacionado pero diferente: la <strong>repetibilidad</strong> o <strong>replicabilidad</strong>, que se refiere a la capacidad de obtener resultados consistentes al replicar un estudio con un conjunto <em>distinto</em> de datos, pero obtenidos siguiendo el mismo diseño. La repetibilidad responde a la pregunta “¿se confirman estos resultados con nuevos datos?”; la reproducibilidad responde a “¿puede otra persona verificar este análisis con los mismos datos?”.</p>
+<p>El químico irlandés <strong>Robert Boyle</strong>, en el siglo XVII, fue uno de los primeros en subrayar la importancia de la reproducibilidad en la ciencia. Sostenía que el conocimiento científico debía basarse en hechos experimentales que pudieran volverse creíbles para la comunidad científica precisamente por su reproducibilidad. La bomba de aire de Boyle dio lugar a una de las primeras disputas documentadas sobre la reproducibilidad de un fenómeno científico.</p>
+<section id="la-crisis-de-reproducibilidad" class="level3">
+<h3 class="anchored" data-anchor-id="la-crisis-de-reproducibilidad">La crisis de reproducibilidad</h3>
+<p>En las últimas décadas ha crecido la preocupación por la falta de reproducibilidad en resultados científicos publicados <span class="citation" data-cites="ryssdal2013 krugman2013 garicano2013 ferrero2018"><a href="400-bibliografia.html#ref-ryssdal2013" role="doc-biblioref">[1]</a>, <a href="400-bibliografia.html#ref-krugman2013" role="doc-biblioref">[2]</a>, <a href="400-bibliografia.html#ref-garicano2013" role="doc-biblioref">[3]</a>, <a href="400-bibliografia.html#ref-ferrero2018" role="doc-biblioref">[4]</a></span>. Muchos estudios no pueden reproducirse porque los datos originales no están disponibles, el código de análisis no se ha conservado o documentado, o los procedimientos no se describen con suficiente detalle. Esta situación, conocida como <strong>crisis de reproducibilidad</strong>, afecta a disciplinas tan diversas como la psicología, la biomedicina o la economía, y ha llevado a un cambio en las exigencias de publicación y auditoría en muchos campos.</p>
+<p>En el entorno industrial, las consecuencias de un análisis no reproducible pueden ser igualmente serias: una decisión tomada sobre la base de un análisis que no puede verificarse ni auditarse es una decisión con un riesgo oculto.</p>
+</section>
+<section id="reproducibilidad-en-metrología" class="level3">
+<h3 class="anchored" data-anchor-id="reproducibilidad-en-metrología">Reproducibilidad en metrología</h3>
+<p>En metrología, el término tiene un significado más específico: la reproducibilidad es la capacidad de un instrumento de dar el mismo resultado en mediciones diferentes realizadas en las mismas condiciones a lo largo de períodos prolongados de tiempo. Esta acepción, que se desarrollará con más detalle en el capítulo dedicado al análisis del sistema de medición, es distinta de la reproducibilidad del análisis de datos, aunque comparten el mismo principio de fondo: la confianza en los resultados depende de su consistencia y verificabilidad.</p>
+</section>
+</section>
+<section id="scripts-frente-a-hoja-de-cálculo-ventajas-para-la-reproducibilidad" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="scripts-frente-a-hoja-de-cálculo-ventajas-para-la-reproducibilidad"><span class="header-section-number">3.6</span> Scripts frente a hoja de cálculo: ventajas para la reproducibilidad</h2>
+<p>La diferencia fundamental entre trabajar con scripts y trabajar con hojas de cálculo, desde el punto de vista de la reproducibilidad, es la <strong>transparencia</strong>. En un script, cada operación realizada sobre los datos está escrita de forma explícita y secuencial: cualquier persona que lea el código puede seguir exactamente qué se ha hecho, en qué orden y con qué parámetros. En una hoja de cálculo, las operaciones están embebidas en fórmulas dispersas por las celdas, a menudo sin documentación, y el flujo del análisis no es visible de forma directa.</p>
+<p>Las ventajas concretas de los scripts para la reproducibilidad son:</p>
+<ul>
+<li><strong>Trazabilidad completa</strong>: el código documenta cada paso del análisis, desde la carga de los datos hasta la generación de los gráficos y los resultados finales.</li>
+<li><strong>Verificabilidad</strong>: cualquier persona con acceso al código y a los datos originales puede reproducir el análisis y comprobar los resultados.</li>
+<li><strong>Reutilización</strong>: un script bien documentado puede adaptarse fácilmente a nuevos conjuntos de datos o a variaciones del análisis.</li>
+<li><strong>Control de versiones</strong>: el código puede gestionarse con herramientas como Git, que registran el historial completo de cambios realizados sobre los archivos, permiten recuperar versiones anteriores y facilitan la colaboración entre varios analistas sin riesgo de sobrescribir el trabajo ajeno. Git es una herramienta cada vez más presente en entornos industriales y técnicos, y su conocimiento es un valor añadido en cualquier perfil profesional orientado a los datos.</li>
+</ul>
+<p>Conviene distinguir dos formas de trabajar con scripts. El <strong>análisis interactivo</strong> —en entornos como Google Colab o RStudio— es exploratorio y provisional: el analista prueba, ajusta y descarta opciones hasta encontrar el enfoque adecuado. El <strong>informe automatizado</strong> es el resultado final documentado: combina en un único documento el código, los comentarios del autor y los resultados del análisis, generado de forma reproducible cada vez que se ejecuta. Herramientas como <a href="https://quarto.org/">Quarto</a> o Google Colab permiten producir este tipo de documentos en Python o R, lo que facilita tanto la auditoría del análisis como su presentación y comunicación. La combinación de scripts bien documentados y datos correctamente organizados constituye la base de un <strong>flujo de trabajo reproducible</strong>, concepto que se desarrolla en detalle en el capítulo siguiente.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Utilizar código en lugar de clics de ratón no es solo una cuestión de eficiencia: es la forma más fiable de garantizar que un análisis sea transparente, verificable y reproducible.</p>
+</div>
+</div>
+</section>
+<section id="resumen-del-capítulo" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">3.7</span> Resumen del capítulo</h2>
+<p>Este capítulo ha presentado las herramientas de análisis que se utilizarán a lo largo del libro y ha introducido el concepto de reproducibilidad como criterio fundamental para elegir entre ellas.</p>
+<p>La <strong>hoja de cálculo</strong> —Microsoft Excel principalmente— es la herramienta dominante en la empresa y resulta muy útil para el almacenamiento, la edición y el análisis básico de datos. Sin embargo, sus limitaciones en transparencia y trazabilidad la hacen insuficiente como herramienta única de análisis cuando se requiere rigor y verificabilidad.</p>
+<p><strong>Python</strong> y <strong>R</strong> son los lenguajes de programación elegidos como herramientas principales: gratuitos, de código abierto, con ecosistemas maduros para el análisis de datos y la estadística, y con una comunidad de usuarios amplia y activa. Otras herramientas —Matlab, Minitab, Julia— tienen sus nichos de aplicación, pero su coste o su menor madurez las hacen menos adecuadas para los objetivos de este libro.</p>
+<p>La <strong>reproducibilidad</strong> es la capacidad de verificar y replicar un análisis utilizando los mismos datos y el mismo código. Es un requisito cada vez más exigido en la industria y en la investigación, y ha cobrado relevancia ante la llamada crisis de reproducibilidad que afecta a múltiples disciplinas. La <strong>repetibilidad</strong>, concepto relacionado, se refiere en cambio a la consistencia de los resultados al usar nuevos datos con el mismo diseño.</p>
+<p>Los <strong>scripts</strong> ofrecen ventajas decisivas frente a la hoja de cálculo en reproducibilidad: documentan cada paso del análisis, son verificables por terceros y pueden reutilizarse y gestionarse con herramientas de control de versiones. Los <strong>informes automatizados</strong> con Quarto o Colab llevan este principio un paso más allá, integrando código, comentarios y resultados en un único documento auditable. La combinación de ambos, sobre datos bien organizados, constituye la base de un flujo de trabajo reproducible, concepto que se desarrolla en el capítulo siguiente.</p>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-ryssdal2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">K. Ryssdal, <span>«The Excel mistake heard round the world»</span>. Accedido: 17 de abril de 2013. [En línea]. Disponible en: <a href="https://www.marketplace.org/2013/04/17/economy/excel-mistake-heard-round-world/">https://www.marketplace.org/2013/04/17/economy/excel-mistake-heard-round-world/</a></div>
+</div>
+<div id="ref-krugman2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">P. Krugman, <span>«La depresión del Excel»</span>. Accedido: 19 de abril de 2013. [En línea]. Disponible en: <a href="https://elpais.com/economia/2013/04/19/actualidad/1366398440_370422.html">https://elpais.com/economia/2013/04/19/actualidad/1366398440_370422.html</a></div>
+</div>
+<div id="ref-garicano2013" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">L. Garicano, <span>«El error de Reinhart y Rogoff»</span>. Accedido: 14 de abril de 2013. [En línea]. Disponible en: <a href="https://nadaesgratis.es/garicano/el-error-de-reinhardt-y-rogoff">https://nadaesgratis.es/garicano/el-error-de-reinhardt-y-rogoff</a></div>
+</div>
+<div id="ref-ferrero2018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">R. Ferrero, <span>«Los errores de Reinhart &amp; Rogoff: R y la reproducibilidad»</span>. Accedido: 1 de febrero de 2018. [En línea]. Disponible en: <a href="https://www.maximaformacion.es/blog-dat/los-errores-de-reinhart-rogo/">https://www.maximaformacion.es/blog-dat/los-errores-de-reinhart-rogo/</a></div>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./020-estad-entorno.html" class="pagination-link" aria-label="El análisis de datos de producción en el entorno industrial.">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El análisis de datos de producción en el entorno industrial.</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./040-organizacion.html" class="pagination-link" aria-label="Conceptos fundamentales, organización de datos y flujo de trabajo">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conceptos fundamentales, organización de datos y flujo de trabajo</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

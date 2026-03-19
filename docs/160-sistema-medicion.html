@@ -1,0 +1,2143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>16&nbsp; El análisis del sistema de medición – La mejora continua en la producción quesera</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./250-variabilidad.html" rel="next">
+<link href="./120-rendimientos.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-4bebd1e71b752e044c5e27ddfc517df8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./160-sistema-medicion.html">Otras aplicaciones</a></li><li class="breadcrumb-item"><a href="./160-sistema-medicion.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">El análisis del sistema de medición</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">La mejora continua en la producción quesera</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Herramientas y técnicas básicas</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./020-estad-entorno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El análisis de datos de producción en el entorno industrial.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./030-herramientas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./040-organizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conceptos fundamentales, organización de datos y flujo de trabajo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./060-exploracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./070-estad-basica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./075-distribuciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Distribuciones de probabilidad y la distribución normal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./080-correlacion-regresion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./085-control-proc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El control estadístico de procesos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./090-disexp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción al diseño de experimentos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./095-comunicacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Comunicación de resultados</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Aplicaciones en producción quesera</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./100-camembert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Análisis exploratorio de una fabricación de queso camembert.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./105-precio-leche.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Los costes de materia: el precio de la leche</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./110-balance-materia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">El balance de materia</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./120-rendimientos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Otras aplicaciones</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./160-sistema-medicion.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">El análisis del sistema de medición</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">La metodología para la mejora continua</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./250-variabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">La variabilidad industrial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./260-mejora-continua.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">La mejora continua y el análisis de datos</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Apéndices</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./300-apendice-entorno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Configuración del entorno de trabajo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./320-simulacion-datos-fab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Simulación de procesos en quesería</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./340-sistema-medicion-grr-simulador.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Simulación del dataset de repetibilidad (Gerber)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./360-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./380-indice_dataframes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./400-bibliografia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#qué-es-una-medida" id="toc-qué-es-una-medida" class="nav-link active" data-scroll-target="#qué-es-una-medida"><span class="header-section-number">16.1</span> ¿Qué es una medida?</a></li>
+  <li><a href="#las-fuentes-de-variación-en-el-laboratorio" id="toc-las-fuentes-de-variación-en-el-laboratorio" class="nav-link" data-scroll-target="#las-fuentes-de-variación-en-el-laboratorio"><span class="header-section-number">16.2</span> Las fuentes de variación en el laboratorio</a></li>
+  <li><a href="#veracidad-y-precisión-la-norma-iso-5725-12023" id="toc-veracidad-y-precisión-la-norma-iso-5725-12023" class="nav-link" data-scroll-target="#veracidad-y-precisión-la-norma-iso-5725-12023"><span class="header-section-number">16.3</span> Veracidad y precisión: la norma ISO 5725-1:2023</a></li>
+  <li><a href="#repetibilidad-y-reproducibilidad" id="toc-repetibilidad-y-reproducibilidad" class="nav-link" data-scroll-target="#repetibilidad-y-reproducibilidad"><span class="header-section-number">16.4</span> Repetibilidad y reproducibilidad</a>
+  <ul class="collapse">
+  <li><a href="#cómo-se-calculan-s_r-y-s_r" id="toc-cómo-se-calculan-s_r-y-s_r" class="nav-link" data-scroll-target="#cómo-se-calculan-s_r-y-s_r">Cómo se calculan <span class="math inline">\(s_r\)</span> y <span class="math inline">\(s_R\)</span></a></li>
+  <li><a href="#diseño-del-estudio-por-qué-son-necesarias-las-repeticiones-y-los-analistas" id="toc-diseño-del-estudio-por-qué-son-necesarias-las-repeticiones-y-los-analistas" class="nav-link" data-scroll-target="#diseño-del-estudio-por-qué-son-necesarias-las-repeticiones-y-los-analistas">Diseño del estudio: por qué son necesarias las repeticiones y los analistas</a></li>
+  <li><a href="#el-formato-de-los-datos-de-la-hoja-de-recogida-al-formato-tidy" id="toc-el-formato-de-los-datos-de-la-hoja-de-recogida-al-formato-tidy" class="nav-link" data-scroll-target="#el-formato-de-los-datos-de-la-hoja-de-recogida-al-formato-tidy">El formato de los datos: de la hoja de recogida al formato tidy</a></li>
+  <li><a href="#ejemplo-de-cálculo-manual-con-los-datos-de-la-muestra-b-media" id="toc-ejemplo-de-cálculo-manual-con-los-datos-de-la-muestra-b-media" class="nav-link" data-scroll-target="#ejemplo-de-cálculo-manual-con-los-datos-de-la-muestra-b-media">Ejemplo de cálculo manual con los datos de la muestra B (media)</a></li>
+  <li><a href="#cálculo-en-excel" id="toc-cálculo-en-excel" class="nav-link" data-scroll-target="#cálculo-en-excel">Cálculo en Excel</a></li>
+  </ul></li>
+  <li><a href="#caso-práctico-evaluación-de-analistas-en-el-método-gerber" id="toc-caso-práctico-evaluación-de-analistas-en-el-método-gerber" class="nav-link" data-scroll-target="#caso-práctico-evaluación-de-analistas-en-el-método-gerber"><span class="header-section-number">16.5</span> Caso práctico: evaluación de analistas en el método Gerber</a>
+  <ul class="collapse">
+  <li><a href="#visualización-de-los-resultados-por-analista" id="toc-visualización-de-los-resultados-por-analista" class="nav-link" data-scroll-target="#visualización-de-los-resultados-por-analista">Visualización de los resultados por analista</a></li>
+  <li><a href="#cálculo-del-sesgo-y-la-desviación-típica-de-repetibilidad" id="toc-cálculo-del-sesgo-y-la-desviación-típica-de-repetibilidad" class="nav-link" data-scroll-target="#cálculo-del-sesgo-y-la-desviación-típica-de-repetibilidad">Cálculo del sesgo y la desviación típica de repetibilidad</a></li>
+  <li><a href="#resumen-por-analista" id="toc-resumen-por-analista" class="nav-link" data-scroll-target="#resumen-por-analista">Resumen por analista</a></li>
+  <li><a href="#interpretación" id="toc-interpretación" class="nav-link" data-scroll-target="#interpretación">Interpretación</a></li>
+  </ul></li>
+  <li><a href="#seguimiento-temporal-del-sistema-de-medición" id="toc-seguimiento-temporal-del-sistema-de-medición" class="nav-link" data-scroll-target="#seguimiento-temporal-del-sistema-de-medición"><span class="header-section-number">16.6</span> Seguimiento temporal del sistema de medición</a>
+  <ul class="collapse">
+  <li><a href="#cómo-organizar-los-datos-en-el-tiempo" id="toc-cómo-organizar-los-datos-en-el-tiempo" class="nav-link" data-scroll-target="#cómo-organizar-los-datos-en-el-tiempo">Cómo organizar los datos en el tiempo</a></li>
+  <li><a href="#gráfico-1-evolución-temporal-del-sesgo-del-laboratorio" id="toc-gráfico-1-evolución-temporal-del-sesgo-del-laboratorio" class="nav-link" data-scroll-target="#gráfico-1-evolución-temporal-del-sesgo-del-laboratorio">Gráfico 1: evolución temporal del sesgo del laboratorio</a></li>
+  <li><a href="#gráfico-2-evolución-temporal-del-sesgo-por-analista" id="toc-gráfico-2-evolución-temporal-del-sesgo-por-analista" class="nav-link" data-scroll-target="#gráfico-2-evolución-temporal-del-sesgo-por-analista">Gráfico 2: evolución temporal del sesgo por analista</a></li>
+  <li><a href="#la-comparación-entre-laboratorios" id="toc-la-comparación-entre-laboratorios" class="nav-link" data-scroll-target="#la-comparación-entre-laboratorios">La comparación entre laboratorios</a></li>
+  </ul></li>
+  <li><a href="#la-mano-del-quesero-y-el-método-cuantificado" id="toc-la-mano-del-quesero-y-el-método-cuantificado" class="nav-link" data-scroll-target="#la-mano-del-quesero-y-el-método-cuantificado"><span class="header-section-number">16.7</span> La “mano del quesero” y el método cuantificado</a></li>
+  <li><a href="#resumen-del-capítulo" id="toc-resumen-del-capítulo" class="nav-link" data-scroll-target="#resumen-del-capítulo"><span class="header-section-number">16.8</span> Resumen del capítulo</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./160-sistema-medicion.html">Otras aplicaciones</a></li><li class="breadcrumb-item"><a href="./160-sistema-medicion.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">El análisis del sistema de medición</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">El análisis del sistema de medición</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de última modificación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">13 de marzo de 2026</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Objetivos de aprendizaje
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Al finalizar este capítulo, el alumno será capaz de:</p>
+<ul>
+<li>Identificar las principales fuentes de error en un análisis de laboratorio y clasificarlas según su origen.</li>
+<li>Distinguir entre veracidad y precisión según la norma ISO 5725-1:2023, y reconocer cada tipo de error en datos reales.</li>
+<li>Visualizar y comparar el comportamiento analítico de diferentes analistas mediante boxplot y dotplot.</li>
+<li>Calcular el sesgo y la desviación típica de repetibilidad para cada analista a partir de un dataset de resultados.</li>
+<li>Interpretar los resultados de un estudio de repetibilidad y proponer acciones correctoras adecuadas al tipo de error detectado.</li>
+</ul>
+<p>Conceptos clave: <strong>medida, fuente de variación, veracidad, precisión, exactitud, sesgo, repetibilidad, reproducibilidad, ISO 5725-1:2023</strong>.</p>
+</div>
+</div>
+<section id="qué-es-una-medida" class="level2 page-columns page-full" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="qué-es-una-medida"><span class="header-section-number">16.1</span> ¿Qué es una medida?</h2>
+<p>Una medida es el resultado de la acción de <em>medir</em>: comparar lo que queremos cuantificar con un patrón de referencia, siguiendo un procedimiento definido, con un instrumento adecuado, y por parte de uno o varios analistas.</p>
+<p>En apariencia, el proceso parece sencillo. Sin embargo, si lo analizamos con atención, veremos que hay múltiples elementos que pueden hacer que el resultado no sea tan fiable como esperamos. Pensemos en algo tan cotidiano como medir la altura de una persona con una cinta métrica:</p>
+
+<div class="no-row-height column-margin column-container"><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/160/medida-altura.jpg" class="img-fluid figure-img"></p>
+<figcaption>Medición de la altura de un niño</figcaption>
+</figure>
+</div></div><p>¿Está el niño descalzo? ¿Tiene las rodillas rectas? ¿Está apoyado en un plano vertical? ¿La posición de los ojos del analista es perpendicular a la escala? ¿La cinta métrica está homologada? Cada uno de estos elementos puede introducir un error diferente en el resultado.</p>
+<p>La <strong>descripción detallada del procedimiento</strong>, junto con la especificación del instrumento y sus requisitos de calibración, constituye lo que se conoce como <em>método analítico</em>. Un buen método analítico reduce al mínimo la influencia del analista y del instrumento en el resultado, garantizando que diferentes personas obtengan resultados comparables en diferentes momentos y lugares.</p>
+<p>La Organización Mundial de la Salud, por ejemplo, define procedimientos muy precisos para la medición de peso y talla en niños, porque pequeños errores sistemáticos en esas medidas tienen consecuencias directas en el diagnóstico nutricional a escala global.</p>
+
+<div class="no-row-height column-margin column-container"><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/160/malnutrition-4.gif" class="img-fluid figure-img"></p>
+<figcaption>Medición de la altura de un niño según la OMS</figcaption>
+</figure>
+</div></div></section>
+<section id="las-fuentes-de-variación-en-el-laboratorio" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="las-fuentes-de-variación-en-el-laboratorio"><span class="header-section-number">16.2</span> Las fuentes de variación en el laboratorio</h2>
+<p>En un laboratorio de quesería, las fuentes de variación más habituales son:</p>
+<p><strong>El analista.</strong> La técnica personal, la experiencia, la fatiga o simplemente un hábito incorrecto en la lectura del instrumento pueden introducir diferencias entre personas. Dos analistas que siguen el mismo método pueden obtener resultados distintos de forma sistemática.</p>
+<p><strong>El instrumento.</strong> Un butirómero descalibrado, una centrífuga con velocidad irregular, un baño maría con temperatura inestable: todos ellos introducen variación en el resultado con independencia de la habilidad del analista.</p>
+<p><strong>El método.</strong> La temperatura de la muestra en el momento del análisis, el tiempo de reposo antes de la lectura, la forma de homogeneizar la muestra: son condiciones que el procedimiento debe especificar con precisión para que no sean una fuente de variación adicional.</p>
+<p><strong>La muestra.</strong> Una muestra heterogénea o que ha sufrido degradación desde su recogida hasta el análisis introduce una variación que no es del sistema de medición sino del objeto medido.</p>
+<p>En la práctica, lo que observamos en los resultados analíticos es la suma de todas estas fuentes. El objetivo del análisis del sistema de medición es separar y cuantificar cada una de ellas.</p>
+</section>
+<section id="veracidad-y-precisión-la-norma-iso-5725-12023" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="veracidad-y-precisión-la-norma-iso-5725-12023"><span class="header-section-number">16.3</span> Veracidad y precisión: la norma ISO 5725-1:2023</h2>
+<p>La norma internacional <strong>ISO 5725-1:2023</strong> (<em>Accuracy of measurement methods and results — Part 1: General principles and definitions</em>) <span class="citation" data-cites="iso5725_2023"><a href="400-bibliografia.html#ref-iso5725_2023" role="doc-biblioref">[1]</a></span> establece la terminología y los conceptos para evaluar la calidad de un método analítico. La tabla siguiente fija los tres términos clave con su equivalente en inglés, para evitar ambigüedades en el uso cotidiano:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 29%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Término español</th>
+<th>Término inglés</th>
+<th>Definición resumida</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Exactitud</td>
+<td><em>accuracy</em></td>
+<td>Proximidad entre un resultado y el valor verdadero. Engloba veracidad y precisión</td>
+</tr>
+<tr class="even">
+<td>Veracidad</td>
+<td><em>trueness</em></td>
+<td>Proximidad entre la media de muchos resultados y el valor verdadero. Ausencia de sesgo sistemático</td>
+</tr>
+<tr class="odd">
+<td>Precisión</td>
+<td><em>precision</em></td>
+<td>Proximidad entre resultados repetidos obtenidos en condiciones definidas</td>
+</tr>
+</tbody>
+</table>
+<p>Distingue tres conceptos que en el uso cotidiano se confunden con frecuencia:</p>
+<p><strong>Exactitud</strong> (<em>accuracy</em>): término general que describe la proximidad entre un resultado de medida y el valor verdadero. Engloba dos componentes independientes.</p>
+<p><strong>Veracidad</strong> (<em>trueness</em>): proximidad entre la media de un gran número de resultados y el valor verdadero o de referencia. Cuando un método no es verídico, produce un <strong>sesgo</strong> sistemático: los resultados están desplazados de forma consistente hacia arriba o hacia abajo.</p>
+<p><strong>Precisión</strong> (<em>precision</em>): proximidad entre resultados independientes obtenidos en condiciones definidas. Un método preciso produce resultados muy parecidos entre sí, aunque no necesariamente cercanos al valor verdadero.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Una aclaración terminológica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En el uso coloquial, “exacto” y “preciso” se usan como sinónimos. En metrología, son conceptos distintos: un método puede ser muy preciso (resultados muy reproducibles) pero poco verídico (con sesgo), o verídico en promedio pero poco preciso (con mucha dispersión). La norma ISO 5725-1:2023 reserva el término <em>exactitud</em> para cuando ambas condiciones se cumplen simultáneamente.</p>
+</div>
+</div>
+<p>La imagen de las dianas ilustra las cuatro combinaciones posibles:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/160/veracidad_y_precision.svg" class="img-fluid figure-img"></p>
+<figcaption>Veracidad y precisión: las cuatro combinaciones posibles</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Alta veracidad, alta precisión:</strong> los impactos están agrupados y centrados. Es el objetivo.</li>
+<li><strong>Alta veracidad, baja precisión:</strong> los impactos están dispersos pero centrados en promedio. Hay variabilidad pero no sesgo.</li>
+<li><strong>Baja veracidad, alta precisión:</strong> los impactos están agrupados pero desplazados del centro. Hay sesgo sistemático pero buena repetibilidad.</li>
+<li><strong>Baja veracidad, baja precisión:</strong> los impactos están dispersos y desplazados. El peor caso.</li>
+</ul>
+<p>En el laboratorio de quesería, cada uno de estos cuadros tiene una causa distinta y una solución distinta. Un analista con baja veracidad (sesgo) necesita revisar su técnica o recalibrar su instrumento. Un analista con baja precisión necesita trabajar la consistencia de su procedimiento.</p>
+<p>Antes de hablar de cómo corregir los problemas, conviene precisar los términos. El <strong>sesgo</strong> es una desviación sistemática y constante entre los resultados y el valor de referencia: todos los resultados se desplazan en la misma dirección y en una magnitud similar. Es una forma de variabilidad, pero predecible y direccional. La <strong>dispersión</strong> (o variabilidad aleatoria) es la fluctuación irregular de los resultados alrededor de su propia media: cada medida difiere de las anteriores de forma impredecible, sin una dirección consistente.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/160/sesgo-dispersion.webp" class="img-fluid figure-img"></p>
+<figcaption>Representación del sesgo y la dispersión</figcaption>
+</figure>
+</div>
+<p>En términos estadísticos, el sesgo se mide con la diferencia entre la media de los resultados y el valor de referencia; la dispersión se mide con la desviación típica de repetibilidad <span class="math inline">\(s_r\)</span>. Ambos son componentes de la variabilidad total del sistema de medición, pero tienen causas distintas y requieren soluciones distintas.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>¿Qué es más fácil de corregir: un sesgo o una dispersión alta?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En la práctica de mejora de procesos, un método con <strong>baja veracidad pero alta precisión</strong> es generalmente más fácil de corregir que uno con <strong>alta veracidad pero baja precisión</strong>. Si los resultados son consistentes entre sí aunque estén desplazados del valor de referencia, la causa suele ser única e identificable: un hábito incorrecto de lectura, un instrumento descalibrado, un reactivo en mal estado. Corregir esa causa desplaza todos los resultados hacia el valor correcto de forma inmediata.</p>
+<p>En cambio, una dispersión alta indica que hay múltiples fuentes de variación actuando de forma aleatoria: temperatura del baño maría inestable, tiempo de centrifugación variable, homogeneización incorrecta. Reducir la dispersión requiere identificar y controlar cada una de esas fuentes, lo que suele ser un trabajo más largo y sistemático.</p>
+<p>Una excepción importante: si un analista tiene dispersión alta pero los demás no, el problema no es el método sino ese analista concreto. Si todos los analistas tienen dispersión alta con el mismo método, hay que revisar el método o las condiciones del análisis, no la formación individual.</p>
+</div>
+</div>
+</section>
+<section id="repetibilidad-y-reproducibilidad" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="repetibilidad-y-reproducibilidad"><span class="header-section-number">16.4</span> Repetibilidad y reproducibilidad</h2>
+<p>Dentro del concepto de precisión, la norma ISO 5725 distingue dos niveles:</p>
+<p><strong>Repetibilidad:</strong> variación obtenida cuando el mismo analista analiza la misma muestra varias veces en las mismas condiciones (mismo día, mismo instrumento, mismo procedimiento). Mide la consistencia interna de un analista.</p>
+<p><strong>Reproducibilidad:</strong> variación obtenida cuando diferentes analistas, en diferentes momentos o laboratorios, analizan la misma muestra. Mide la comparabilidad entre analistas o entre laboratorios.</p>
+<p>La desviación típica de repetibilidad (<span class="math inline">\(s_r\)</span>) y la desviación típica de reproducibilidad (<span class="math inline">\(s_R\)</span>) son las medidas numéricas de cada uno de estos conceptos. Por definición, <span class="math inline">\(s_R \geq s_r\)</span>: la variación entre analistas siempre es mayor o igual que la variación dentro de un mismo analista.</p>
+<section id="cómo-se-calculan-s_r-y-s_r" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-se-calculan-s_r-y-s_r">Cómo se calculan <span class="math inline">\(s_r\)</span> y <span class="math inline">\(s_R\)</span></h3>
+<p><strong>Desviación típica de repetibilidad (<span class="math inline">\(s_r\)</span>):</strong></p>
+<p>Para cada combinación de analista y muestra, calculamos la desviación típica de las repeticiones. Si un analista ha realizado <span class="math inline">\(n\)</span> repeticiones sobre la misma muestra, obteniendo resultados <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span>:</p>
+<p><span class="math display">\[s_r = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}}\]</span></p>
+<p>donde <span class="math inline">\(\bar{x}\)</span> es la media de las repeticiones de ese analista sobre esa muestra. Esta fórmula es idéntica a la desviación típica que vimos en el capítulo 7, aplicada ahora a las repeticiones de cada analista.</p>
+<p>Si el estudio tiene varios analistas y varias muestras, <span class="math inline">\(s_r\)</span> se obtiene como la media de las desviaciones típicas individuales de cada combinación analista-muestra.</p>
+<p><strong>Desviación típica de reproducibilidad (<span class="math inline">\(s_R\)</span>):</strong></p>
+<p>La reproducibilidad mide la variación total cuando cambian tanto el analista como las condiciones. Para calcularla, tomamos todas las medidas de todos los analistas sobre la misma muestra y calculamos su desviación típica global:</p>
+<p><span class="math display">\[s_R = \sqrt{\frac{\sum_{j=1}^{k}\sum_{i=1}^{n}(x_{ij} - \bar{\bar{x}})^2}{kn-1}}\]</span></p>
+<p>donde <span class="math inline">\(k\)</span> es el número de analistas, <span class="math inline">\(n\)</span> el número de repeticiones por analista, y <span class="math inline">\(\bar{\bar{x}}\)</span> la media global de todas las medidas sobre esa muestra. En la práctica, <span class="math inline">\(s_R\)</span> siempre es mayor que <span class="math inline">\(s_r\)</span> porque incorpora tanto la variación dentro de cada analista como la variación entre analistas.</p>
+</section>
+<section id="diseño-del-estudio-por-qué-son-necesarias-las-repeticiones-y-los-analistas" class="level3">
+<h3 class="anchored" data-anchor-id="diseño-del-estudio-por-qué-son-necesarias-las-repeticiones-y-los-analistas">Diseño del estudio: por qué son necesarias las repeticiones y los analistas</h3>
+<p>Para poder separar y cuantificar las dos fuentes de variación —la variación dentro de un analista y la variación entre analistas— el estudio debe estar diseñado de forma que ambas sean observables en los datos. Esto tiene consecuencias directas sobre qué datos hay que recoger y cómo organizarlos.</p>
+<p><strong>Por qué necesitamos repeticiones.</strong> Si cada analista analiza cada muestra una sola vez, no podemos estimar <span class="math inline">\(s_r\)</span>: no tenemos información sobre cuánto varía ese analista cuando repite el análisis. Con una sola observación por analista y muestra no podemos distinguir si una diferencia entre dos analistas es variabilidad aleatoria o un sesgo real. Las repeticiones nos dan acceso a la variación interna de cada analista.</p>
+<p><strong>Por qué necesitamos varios analistas.</strong> Si solo hay un analista, no podemos estimar <span class="math inline">\(s_R\)</span>: toda la variación observada es variación interna de ese analista. Necesitamos al menos dos analistas para poder estimar la variación entre personas, y cuantos más analistas haya, más fiable será la estimación de <span class="math inline">\(s_R\)</span>.</p>
+<p><strong>Por qué necesitamos varias muestras.</strong> Un analista puede tener un comportamiento distinto según el rango de valores. Por ejemplo, un error de lectura en el butirómetro puede ser más pronunciado con valores de grasa altos que con valores bajos. Analizar muestras de diferente nivel nos permite comprobar que el comportamiento del analista es consistente en todo el rango operativo del método.</p>
+<p>El diseño mínimo práctico para un estudio de repetibilidad es, por tanto: <strong>varios analistas × varias muestras × varias repeticiones</strong>. En nuestro caso: 5 analistas × 3 muestras × 3 repeticiones = 45 análisis.</p>
+</section>
+<section id="el-formato-de-los-datos-de-la-hoja-de-recogida-al-formato-tidy" class="level3">
+<h3 class="anchored" data-anchor-id="el-formato-de-los-datos-de-la-hoja-de-recogida-al-formato-tidy">El formato de los datos: de la hoja de recogida al formato tidy</h3>
+<p>En la práctica, cuando se recogen datos de un estudio de repetibilidad en el laboratorio, es natural organizarlos en una tabla con los analistas en columnas y las repeticiones en filas. Esta disposición, llamada <strong>formato ancho</strong>, es cómoda para la recogida manual y fácil de leer de un vistazo:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 8%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Muestra</th>
+<th>Rep.</th>
+<th>Analista 1</th>
+<th>Analista 2</th>
+<th>Analista 3</th>
+<th>Analista 4</th>
+<th>Analista 5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B_media</td>
+<td>1</td>
+<td>3,86</td>
+<td>3,82</td>
+<td>3,87</td>
+<td>3,41</td>
+<td>3,85</td>
+</tr>
+<tr class="even">
+<td>B_media</td>
+<td>2</td>
+<td>3,79</td>
+<td>3,65</td>
+<td>3,91</td>
+<td>3,56</td>
+<td>3,98</td>
+</tr>
+<tr class="odd">
+<td>B_media</td>
+<td>3</td>
+<td>3,79</td>
+<td>3,66</td>
+<td>3,73</td>
+<td>3,45</td>
+<td>3,84</td>
+</tr>
+</tbody>
+</table>
+<p>Sin embargo, Python y R trabajan con un formato diferente llamado <strong>formato tidy</strong> (o formato largo), en el que cada fila es una observación individual y cada columna es una variable. El mismo dato en formato tidy tiene este aspecto:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>analista</th>
+<th>muestra</th>
+<th>valor_referencia</th>
+<th>repeticion</th>
+<th>resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Analista_1</td>
+<td>B_media</td>
+<td>3,8</td>
+<td>1</td>
+<td>3,86</td>
+</tr>
+<tr class="even">
+<td>Analista_1</td>
+<td>B_media</td>
+<td>3,8</td>
+<td>2</td>
+<td>3,79</td>
+</tr>
+<tr class="odd">
+<td>Analista_1</td>
+<td>B_media</td>
+<td>3,8</td>
+<td>3</td>
+<td>3,79</td>
+</tr>
+<tr class="even">
+<td>Analista_2</td>
+<td>B_media</td>
+<td>3,8</td>
+<td>1</td>
+<td>3,82</td>
+</tr>
+<tr class="odd">
+<td>Analista_2</td>
+<td>B_media</td>
+<td>3,8</td>
+<td>2</td>
+<td>3,65</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>En el formato tidy, cada variable ocupa exactamente una columna: el analista, la muestra, el número de repetición y el resultado son cuatro variables distintas, no cuatro columnas de resultados mezcladas. Este formato puede parecer menos legible a primera vista, pero tiene una ventaja fundamental: permite a Python y R agrupar, filtrar y calcular estadísticos por cualquier combinación de variables con una sola instrucción.</p>
+<p>Si los datos se han recogido en formato ancho, hay que convertirlos a formato tidy antes de analizarlos. En Excel esto se puede hacer con Power Query; en Python con <code>pd.melt()</code>; en R con <code>pivot_longer()</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>La columna <code>valor_referencia</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En metrología, el <strong>valor de referencia</strong> (o valor de referencia convencionalmente verdadero, según ISO 5725-1:2023) es el valor asignado a una muestra que se usa como base para evaluar el sesgo de un método o de un analista. No es necesariamente el valor “verdadero” en sentido absoluto —que en la práctica nunca se conoce con exactitud perfecta— sino el mejor valor disponible para el propósito del estudio.</p>
+<p>En la práctica de laboratorio, el valor de referencia puede obtenerse de varias formas:</p>
+<ul>
+<li>Un <strong>material de referencia certificado</strong> (MRC), cuyo valor ha sido establecido por un organismo de metrología reconocido.</li>
+<li>El resultado de un <strong>método de referencia</strong> independiente y más preciso que el método en estudio.</li>
+<li>El <strong>valor consensuado</strong> entre un grupo amplio de laboratorios participantes en un ensayo interlaboratorio.</li>
+</ul>
+<p>En nuestro dataset simulado, el valor de referencia es el valor utilizado en la simulación para generar los resultados de cada analista. En un estudio real, esta columna se rellenaría con el valor certificado o de referencia de cada muestra.</p>
+</div>
+</div>
+</section>
+<section id="ejemplo-de-cálculo-manual-con-los-datos-de-la-muestra-b-media" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-de-cálculo-manual-con-los-datos-de-la-muestra-b-media">Ejemplo de cálculo manual con los datos de la muestra B (media)</h3>
+<p>Tomamos los resultados de la muestra B (valor de referencia = 3,8%) para los cinco analistas y calculamos paso a paso <span class="math inline">\(s_r\)</span> y <span class="math inline">\(s_R\)</span>.</p>
+<p><strong>Paso 1 — Media y desviación típica de repetibilidad por analista:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Analista</th>
+<th>Rep.&nbsp;1</th>
+<th>Rep.&nbsp;2</th>
+<th>Rep.&nbsp;3</th>
+<th>Media</th>
+<th><span class="math inline">\(s_r\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>3,86</td>
+<td>3,79</td>
+<td>3,79</td>
+<td>3,813</td>
+<td>0,040</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>3,82</td>
+<td>3,65</td>
+<td>3,66</td>
+<td>3,710</td>
+<td>0,096</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>3,87</td>
+<td>3,91</td>
+<td>3,73</td>
+<td>3,837</td>
+<td>0,092</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>3,41</td>
+<td>3,56</td>
+<td>3,45</td>
+<td>3,473</td>
+<td>0,076</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>3,85</td>
+<td>3,98</td>
+<td>3,84</td>
+<td>3,890</td>
+<td>0,077</td>
+</tr>
+</tbody>
+</table>
+<p>La desviación típica de repetibilidad media para esta muestra es:</p>
+<p><span class="math display">\[s_r = \frac{0{,}040 + 0{,}096 + 0{,}092 + 0{,}076 + 0{,}077}{5} = 0{,}076\%\]</span></p>
+<p><strong>Paso 2 — Sesgo por analista:</strong></p>
+<p><span class="math display">\[\text{Sesgo}_i = \bar{x}_i - \text{valor de referencia} = \bar{x}_i - 3{,}8\]</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Analista</th>
+<th>Media</th>
+<th>Sesgo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>3,813</td>
+<td>+0,013</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>3,710</td>
+<td>−0,090</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>3,837</td>
+<td>+0,037</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>3,473</td>
+<td>−0,327</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>3,890</td>
+<td>+0,090</td>
+</tr>
+</tbody>
+</table>
+<p>El analista 4 muestra un sesgo negativo de −0,327%, claramente mayor que el resto. Los demás analistas tienen sesgos pequeños y sin signo consistente.</p>
+<p><strong>Paso 3 — Desviación típica de reproducibilidad:</strong></p>
+<p>Tomamos las 15 medidas (5 analistas × 3 repeticiones) y calculamos su desviación típica global:</p>
+<p><span class="math display">\[s_R = \text{dt}(3{,}86;\ 3{,}79;\ 3{,}79;\ 3{,}82;\ 3{,}65;\ 3{,}66;\ \ldots) = 0{,}178\%\]</span></p>
+<p>La reproducibilidad (<span class="math inline">\(s_R = 0{,}178\%\)</span>) es más del doble que la repetibilidad media (<span class="math inline">\(s_r = 0{,}076\%\)</span>), lo que indica que la variación entre analistas es la fuente de variación dominante en este estudio. Esto es coherente con la presencia del analista 4, cuyo sesgo sistemático contribuye de forma importante a la dispersión global.</p>
+</section>
+<section id="cálculo-en-excel" class="level3">
+<h3 class="anchored" data-anchor-id="cálculo-en-excel">Cálculo en Excel</h3>
+<p>Para calcular <span class="math inline">\(s_r\)</span> y el sesgo en Excel, la forma más práctica es organizar los datos en formato ancho con una tabla auxiliar de estadísticos. Para cada analista y muestra:</p>
+<ul>
+<li>La <strong>media</strong> de las repeticiones se calcula con <code>=PROMEDIO(rango_repeticiones)</code></li>
+<li>La <strong>desviación típica de repetibilidad</strong> se calcula con <code>=DESVEST.M(rango_repeticiones)</code> (que usa <span class="math inline">\(n-1\)</span> en el denominador, igual que la fórmula de la sección anterior)</li>
+<li>El <strong>sesgo</strong> se calcula como <code>=media - valor_referencia</code></li>
+</ul>
+<p>La desviación típica de reproducibilidad para una muestra se obtiene calculando <code>=DESVEST.M(rango_todos_los_resultados)</code> sobre todas las medidas de todos los analistas para esa muestra.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Convertir formato ancho a tidy en Excel
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si los datos están en formato ancho y quieres analizarlos en Python o R, puedes convertirlos a formato tidy en Excel usando <strong>Power Query</strong>: selecciona la tabla, ve a <code>Datos &gt; Obtener y transformar &gt; Desde tabla</code>, selecciona las columnas de analistas y usa <code>Anular dinamización de columnas</code>. El resultado es una tabla en formato tidy lista para exportar como CSV.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="caso-práctico-evaluación-de-analistas-en-el-método-gerber" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="caso-práctico-evaluación-de-analistas-en-el-método-gerber"><span class="header-section-number">16.5</span> Caso práctico: evaluación de analistas en el método Gerber</h2>
+<p>El método Gerber es uno de los métodos de referencia para la determinación de grasa en leche. Es un método volumétrico que los alumnos de tecnología láctea aprenden y practican en el laboratorio. Su resultado depende de varios factores de técnica personal: la temperatura del baño maría, el tiempo y la velocidad de centrifugación, y sobre todo la lectura correcta del menisco en el butirómetro.</p>
+<p>Vamos a analizar los resultados de un estudio de repetibilidad en el que cinco analistas han determinado el contenido en grasa de tres muestras de leche con diferente contenido graso, realizando tres repeticiones cada uno.</p>
+<p>Cargamos el dataset:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"datos/grr_gerber.csv"</span>, sep<span class="op">=</span><span class="st">';'</span>, decimal<span class="op">=</span><span class="st">','</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dimensiones: </span><span class="sc">{</span>df<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dimensiones: (45, 5)</code></pre>
+</div>
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">10</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     analista  muestra  valor_referencia  repeticion  resultado
+0  Analista_1   A_baja               3.4           1       3.42
+1  Analista_1   A_baja               3.4           2       3.39
+2  Analista_1   A_baja               3.4           3       3.43
+3  Analista_1  B_media               3.8           1       3.86
+4  Analista_1  B_media               3.8           2       3.79
+5  Analista_1  B_media               3.8           3       3.79
+6  Analista_1   C_alta               4.5           1       4.56
+7  Analista_1   C_alta               4.5           2       4.53
+8  Analista_1   C_alta               4.5           3       4.48
+9  Analista_2   A_baja               3.4           1       3.44</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/grr_gerber.csv"</span>, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>))</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Dimensiones:"</span>, <span class="fu">nrow</span>(df), <span class="st">"x"</span>, <span class="fu">ncol</span>(df), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dimensiones: 45 x 5 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df, <span class="dv">10</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 5
+   analista   muestra valor_referencia repeticion resultado
+   &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Analista_1 A_baja               3.4          1      3.42
+ 2 Analista_1 A_baja               3.4          2      3.39
+ 3 Analista_1 A_baja               3.4          3      3.43
+ 4 Analista_1 B_media              3.8          1      3.86
+ 5 Analista_1 B_media              3.8          2      3.79
+ 6 Analista_1 B_media              3.8          3      3.79
+ 7 Analista_1 C_alta               4.5          1      4.56
+ 8 Analista_1 C_alta               4.5          2      4.53
+ 9 Analista_1 C_alta               4.5          3      4.48
+10 Analista_2 A_baja               3.4          1      3.44</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="visualización-de-los-resultados-por-analista" class="level3">
+<h3 class="anchored" data-anchor-id="visualización-de-los-resultados-por-analista">Visualización de los resultados por analista</h3>
+<p>El primer paso es visualizar todos los resultados. Usamos un boxplot por analista con los puntos individuales superpuestos, separando las tres muestras por color:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> calendar</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df_plot <span class="op">=</span> df.copy()</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>df_plot, x<span class="op">=</span><span class="st">'analista'</span>, y<span class="op">=</span><span class="st">'resultado'</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>            hue<span class="op">=</span><span class="st">'muestra'</span>, fliersize<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            palette<span class="op">=</span><span class="st">'Set2'</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>sns.stripplot(data<span class="op">=</span>df_plot, x<span class="op">=</span><span class="st">'analista'</span>, y<span class="op">=</span><span class="st">'resultado'</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>              hue<span class="op">=</span><span class="st">'muestra'</span>, dodge<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>              jitter<span class="op">=</span><span class="va">True</span>, size<span class="op">=</span><span class="dv">5</span>, alpha<span class="op">=</span><span class="fl">0.7</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>              palette<span class="op">=</span><span class="st">'Set2'</span>, legend<span class="op">=</span><span class="va">False</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Añadir líneas de referencia para cada muestra</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> muestra, valor, color <span class="kw">in</span> <span class="bu">zip</span>(</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        [<span class="st">'A_baja'</span>, <span class="st">'B_media'</span>, <span class="st">'C_alta'</span>],</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>        [<span class="fl">3.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>],</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        [<span class="st">'#66c2a5'</span>, <span class="st">'#fc8d62'</span>, <span class="st">'#8da0cb'</span>]):</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    ax.axhline(valor, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.8</span>,</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>               color<span class="op">=</span>color, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Resultados Gerber por analista y muestra</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>             <span class="st">"(líneas discontinuas = valor de referencia)"</span>)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Analista"</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Grasa (%)"</span>)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>ax.legend(title<span class="op">=</span><span class="st">'Muestra'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.02</span>, <span class="dv">1</span>))</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="160-sistema-medicion_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>referencias <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">muestra =</span> <span class="fu">c</span>(<span class="st">'A_baja'</span>, <span class="st">'B_media'</span>, <span class="st">'C_alta'</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">valor_referencia =</span> <span class="fu">c</span>(<span class="fl">3.4</span>, <span class="fl">3.8</span>, <span class="fl">4.5</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> analista, <span class="at">y =</span> resultado, <span class="at">color =</span> muestra)) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> muestra), <span class="at">alpha =</span> <span class="fl">0.3</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.15</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">data =</span> referencias,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">yintercept =</span> valor_referencia, <span class="at">color =</span> muestra),</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="fl">0.7</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set2"</span>) <span class="sc">+</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Resultados Gerber por analista y muestra"</span>,</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"Líneas discontinuas = valor de referencia"</span>,</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Analista"</span>, <span class="at">y =</span> <span class="st">"Grasa (%)"</span>,</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">color =</span> <span class="st">"Muestra"</span>, <span class="at">fill =</span> <span class="st">"Muestra"</span>) <span class="sc">+</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">15</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="160-sistema-medicion_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>El gráfico permite identificar visualmente los dos problemas distintos. ¿Puedes detectarlos antes de continuar con el análisis numérico?</p>
+</section>
+<section id="cálculo-del-sesgo-y-la-desviación-típica-de-repetibilidad" class="level3">
+<h3 class="anchored" data-anchor-id="cálculo-del-sesgo-y-la-desviación-típica-de-repetibilidad">Cálculo del sesgo y la desviación típica de repetibilidad</h3>
+<p>Calculamos para cada analista y muestra la media, la desviación típica de repetibilidad y el sesgo respecto al valor de referencia:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>resumen <span class="op">=</span> (</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    df.groupby([<span class="st">'analista'</span>, <span class="st">'muestra'</span>, <span class="st">'valor_referencia'</span>])[<span class="st">'resultado'</span>]</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    .agg(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        media<span class="op">=</span><span class="st">'mean'</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        dt_repetibilidad<span class="op">=</span><span class="st">'std'</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>resumen[<span class="st">'sesgo'</span>] <span class="op">=</span> (resumen[<span class="st">'media'</span>] <span class="op">-</span> resumen[<span class="st">'valor_referencia'</span>]).<span class="bu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>resumen[<span class="st">'media'</span>] <span class="op">=</span> resumen[<span class="st">'media'</span>].<span class="bu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>resumen[<span class="st">'dt_repetibilidad'</span>] <span class="op">=</span> resumen[<span class="st">'dt_repetibilidad'</span>].<span class="bu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>resumen</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>      analista  muestra  valor_referencia  media  dt_repetibilidad  sesgo
+0   Analista_1   A_baja               3.4  3.413             0.021  0.013
+1   Analista_1  B_media               3.8  3.813             0.040  0.013
+2   Analista_1   C_alta               4.5  4.523             0.040  0.023
+3   Analista_2   A_baja               3.4  3.387             0.046 -0.013
+4   Analista_2  B_media               3.8  3.710             0.095 -0.090
+5   Analista_2   C_alta               4.5  4.470             0.056 -0.030
+6   Analista_3   A_baja               3.4  3.467             0.187  0.067
+7   Analista_3  B_media               3.8  3.837             0.095  0.037
+8   Analista_3   C_alta               4.5  4.533             0.075  0.033
+9   Analista_4   A_baja               3.4  3.037             0.031 -0.363
+10  Analista_4  B_media               3.8  3.473             0.078 -0.327
+11  Analista_4   C_alta               4.5  4.123             0.067 -0.377
+12  Analista_5   A_baja               3.4  3.143             0.277 -0.257
+13  Analista_5  B_media               3.8  3.890             0.078  0.090
+14  Analista_5   C_alta               4.5  4.340             0.184 -0.160</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(analista, muestra, valor_referencia) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">media =</span> <span class="fu">round</span>(<span class="fu">mean</span>(resultado), <span class="dv">3</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">dt_repetibilidad =</span> <span class="fu">round</span>(<span class="fu">sd</span>(resultado), <span class="dv">3</span>),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">.groups =</span> <span class="st">'drop'</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">sesgo =</span> <span class="fu">round</span>(media <span class="sc">-</span> valor_referencia, <span class="dv">3</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 6
+   analista   muestra valor_referencia media dt_repetibilidad  sesgo
+   &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt;            &lt;dbl&gt;  &lt;dbl&gt;
+ 1 Analista_1 A_baja               3.4  3.41            0.021  0.013
+ 2 Analista_1 B_media              3.8  3.81            0.04   0.013
+ 3 Analista_1 C_alta               4.5  4.52            0.04   0.023
+ 4 Analista_2 A_baja               3.4  3.39            0.046 -0.013
+ 5 Analista_2 B_media              3.8  3.71            0.095 -0.09 
+ 6 Analista_2 C_alta               4.5  4.47            0.056 -0.03 
+ 7 Analista_3 A_baja               3.4  3.47            0.187  0.067
+ 8 Analista_3 B_media              3.8  3.84            0.095  0.037
+ 9 Analista_3 C_alta               4.5  4.53            0.075  0.033
+10 Analista_4 A_baja               3.4  3.04            0.031 -0.363
+11 Analista_4 B_media              3.8  3.47            0.078 -0.327
+12 Analista_4 C_alta               4.5  4.12            0.067 -0.377
+13 Analista_5 A_baja               3.4  3.14            0.277 -0.257
+14 Analista_5 B_media              3.8  3.89            0.078  0.09 
+15 Analista_5 C_alta               4.5  4.34            0.184 -0.16 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="resumen-por-analista" class="level3">
+<h3 class="anchored" data-anchor-id="resumen-por-analista">Resumen por analista</h3>
+<p>Agregamos los resultados por analista para tener una visión global del comportamiento de cada uno:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>resumen_analista <span class="op">=</span> (</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    resumen.groupby(<span class="st">'analista'</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    .agg(</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        sesgo_medio<span class="op">=</span>(<span class="st">'sesgo'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        dt_repetibilidad_media<span class="op">=</span>(<span class="st">'dt_repetibilidad'</span>, <span class="st">'mean'</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>resumen_analista</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>     analista  sesgo_medio  dt_repetibilidad_media
+0  Analista_1        0.016                   0.034
+1  Analista_2       -0.044                   0.066
+2  Analista_3        0.046                   0.119
+3  Analista_4       -0.356                   0.059
+4  Analista_5       -0.109                   0.180</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(analista, muestra, valor_referencia) <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">media =</span> <span class="fu">mean</span>(resultado),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">dt_repetibilidad =</span> <span class="fu">sd</span>(resultado),</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">.groups =</span> <span class="st">'drop'</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">sesgo =</span> media <span class="sc">-</span> valor_referencia) <span class="sc">|&gt;</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(analista) <span class="sc">|&gt;</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">sesgo_medio =</span> <span class="fu">round</span>(<span class="fu">mean</span>(sesgo), <span class="dv">3</span>),</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">dt_repetibilidad_media =</span> <span class="fu">round</span>(<span class="fu">mean</span>(dt_repetibilidad), <span class="dv">3</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  analista   sesgo_medio dt_repetibilidad_media
+  &lt;chr&gt;            &lt;dbl&gt;                  &lt;dbl&gt;
+1 Analista_1       0.017                  0.034
+2 Analista_2      -0.044                  0.066
+3 Analista_3       0.046                  0.119
+4 Analista_4      -0.356                  0.058
+5 Analista_5      -0.109                  0.18 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="interpretación" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación">Interpretación</h3>
+<p>La tabla y el gráfico permiten clasificar claramente a los cinco analistas:</p>
+<p><strong>Analistas 1 y 2</strong> muestran un sesgo prácticamente nulo y una desviación típica de repetibilidad baja. Son analistas con buena veracidad y buena precisión.</p>
+<p><strong>Analista 3</strong> presenta un sesgo leve pero consistente hacia valores altos, con una dispersión algo mayor que los anteriores. Probablemente redondea sistemáticamente al alza en la lectura de la columna de grasa del butirómetro. La solución pasa por revisar la técnica de lectura.</p>
+<p><strong>Analista 4</strong> destaca por tener una dispersión muy baja (alta repetibilidad) pero un sesgo negativo importante: sus resultados son sistemáticamente bajos en las tres muestras. Es el caso típico de un error de posición del ojo al leer el menisco del butirómetro: alta precisión, baja veracidad. Este analista necesita corrección en la técnica de lectura, no en la consistencia de su procedimiento.</p>
+<p><strong>Analista 5</strong> presenta la situación opuesta: sesgo nulo en promedio, pero una dispersión muy alta. Sus resultados son impredecibles: a veces acertados, a veces muy alejados del valor de referencia. El origen más probable es una técnica irregular: temperatura del baño maría inestable, tiempo de centrifugación variable, o dificultad para homogeneizar la muestra antes del análisis.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Dos tipos de error, dos soluciones distintas
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El analista 4 y el analista 5 tienen errores de magnitud comparable, pero de naturaleza completamente diferente. El analista 4 necesita corregir un hábito concreto y repetible; el analista 5 necesita trabajar la consistencia de todo su procedimiento. Confundir los dos tipos de error llevaría a acciones incorrectas: no sirve de nada dar más formación teórica al analista 4 si el problema es una postura incorrecta; ni tampoco sirve corregir la postura del analista 5 si su problema es la variabilidad de las condiciones del análisis.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="seguimiento-temporal-del-sistema-de-medición" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="seguimiento-temporal-del-sistema-de-medición"><span class="header-section-number">16.6</span> Seguimiento temporal del sistema de medición</h2>
+<p>Un estudio de repetibilidad puntual proporciona una fotografía del estado del laboratorio en un momento dado, pero no es suficiente para gestionar la calidad analítica a lo largo del tiempo. Las condiciones cambian: los analistas se sustituyen, los instrumentos se desgastan, los procedimientos se relajan. Para detectar estas derivas y evaluar si las acciones correctoras han sido eficaces, es necesario repetir el estudio periódicamente y representar la evolución temporal de los indicadores.</p>
+<section id="cómo-organizar-los-datos-en-el-tiempo" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-organizar-los-datos-en-el-tiempo">Cómo organizar los datos en el tiempo</h3>
+<p>Cuando el estudio de repetibilidad se repite cada mes, la forma más natural de acumular los datos es añadir una columna <code>fecha</code> al dataset tidy existente. Cada mes se añaden nuevas filas con la fecha del estudio, manteniendo exactamente el mismo formato de columnas. Esto permite que el código de análisis funcione sin modificaciones sobre cualquier versión del dataset, independientemente de cuántos meses de datos contenga.</p>
+<p>El dataset <code>grr_gerber_temporal.csv</code> contiene 12 meses de seguimiento (enero a diciembre de 2024) con el mismo diseño que el estudio inicial: 5 analistas × 3 muestras × 3 repeticiones, más la columna <code>fecha</code> y <code>mes</code>.</p>
+<p>Durante este año se realizaron dos intervenciones de mejora:</p>
+<ul>
+<li><strong>Analista 4</strong> recibió formación específica en lectura del butirómetro en el <strong>mes 4 (abril)</strong>. Su sesgo negativo se redujo progresivamente desde −0,35% hasta aproximadamente −0,05% entre abril y agosto.</li>
+<li><strong>Analista 5</strong> recibió formación en técnica de análisis en el <strong>mes 6 (junio)</strong>. Su desviación típica de repetibilidad se redujo progresivamente desde 0,25% hasta aproximadamente 0,08% entre junio y octubre.</li>
+</ul>
+</section>
+<section id="gráfico-1-evolución-temporal-del-sesgo-del-laboratorio" class="level3">
+<h3 class="anchored" data-anchor-id="gráfico-1-evolución-temporal-del-sesgo-del-laboratorio">Gráfico 1: evolución temporal del sesgo del laboratorio</h3>
+<p>El primer gráfico muestra la evolución mensual del sesgo medio del conjunto del laboratorio (media de todos los analistas) respecto al valor de referencia, con los límites de control calculados a partir de los tres primeros meses y, si está disponible, la tolerancia del método como referencia externa.</p>
+<p>Para el método Gerber, la norma ISO 2446 establece una repetibilidad de ±0,05 g/100g. Usaremos ±0,10% como límite de tolerancia del método para el sesgo del laboratorio, que es un criterio práctico habitual.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> mpatches</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>df_t <span class="op">=</span> pd.read_csv(<span class="st">"datos/grr_gerber_temporal.csv"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>                   sep<span class="op">=</span><span class="st">';'</span>, decimal<span class="op">=</span><span class="st">','</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>df_t[<span class="st">'fecha'</span>] <span class="op">=</span> pd.to_datetime(df_t[<span class="st">'fecha'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">'</span><span class="sc">%d</span><span class="st">/%m/%Y'</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dimensiones: </span><span class="sc">{</span>df_t<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dimensiones: (540, 7)</code></pre>
+</div>
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_t.head(<span class="dv">6</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       fecha  mes    analista  muestra  valor_referencia  repeticion  resultado
+0 2024-01-15    1  Analista_1   A_baja               3.4           1       3.42
+1 2024-01-15    1  Analista_1   A_baja               3.4           2       3.39
+2 2024-01-15    1  Analista_1   A_baja               3.4           3       3.43
+3 2024-01-15    1  Analista_1  B_media               3.8           1       3.86
+4 2024-01-15    1  Analista_1  B_media               3.8           2       3.79
+5 2024-01-15    1  Analista_1  B_media               3.8           3       3.79</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular sesgo mensual medio del laboratorio (todos los analistas, muestra B)</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>sesgo_lab <span class="op">=</span> (</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    df_t[df_t[<span class="st">'muestra'</span>] <span class="op">==</span> <span class="st">'B_media'</span>]</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">'mes'</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">apply</span>(<span class="kw">lambda</span> g: (g[<span class="st">'resultado'</span>] <span class="op">-</span> g[<span class="st">'valor_referencia'</span>]).mean(), include_groups<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    .reset_index(name<span class="op">=</span><span class="st">'sesgo_medio'</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Límites de control: media ± 2s calculados sobre los 3 primeros meses</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>referencia <span class="op">=</span> sesgo_lab[sesgo_lab[<span class="st">'mes'</span>] <span class="op">&lt;=</span> <span class="dv">3</span>][<span class="st">'sesgo_medio'</span>]</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>lc_centro <span class="op">=</span> referencia.mean()</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>lc_s <span class="op">=</span> referencia.std()</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>lc_sup <span class="op">=</span> lc_centro <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> lc_s</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>lc_inf <span class="op">=</span> lc_centro <span class="op">-</span> <span class="dv">2</span> <span class="op">*</span> lc_s</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Tolerancia del método (ISO 2446): ±0,10%</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>tol <span class="op">=</span> <span class="fl">0.10</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="dv">5</span>))</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Banda de tolerancia del método</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>ax.axhspan(<span class="op">-</span>tol, tol, color<span class="op">=</span><span class="st">'lightgreen'</span>, alpha<span class="op">=</span><span class="fl">0.25</span>,</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>           label<span class="op">=</span><span class="st">'Tolerancia método (±0,10%)'</span>)</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Límites de control estadísticos</span></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>ax.axhline(lc_sup, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>           label<span class="op">=</span><span class="ss">f'LC superior (media+2s = </span><span class="sc">{</span>lc_sup<span class="sc">:+.3f}</span><span class="ss">%)'</span>)</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>ax.axhline(lc_inf, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>           label<span class="op">=</span><span class="ss">f'LC inferior (media−2s = </span><span class="sc">{</span>lc_inf<span class="sc">:+.3f}</span><span class="ss">%)'</span>)</span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>ax.axhline(lc_centro, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, linewidth<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a>           label<span class="op">=</span><span class="ss">f'Centro referencia (</span><span class="sc">{</span>lc_centro<span class="sc">:+.3f}</span><span class="ss">%)'</span>)</span>
+<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Señalar intervención sobre analista 4</span></span>
+<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="dv">4</span>, color<span class="op">=</span><span class="st">'steelblue'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, linewidth<span class="op">=</span><span class="fl">1.2</span>,</span>
+<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a>           label<span class="op">=</span><span class="st">'Intervención A4 (mes 4)'</span>)</span>
+<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="dv">6</span>, color<span class="op">=</span><span class="st">'orange'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, linewidth<span class="op">=</span><span class="fl">1.2</span>,</span>
+<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>           label<span class="op">=</span><span class="st">'Intervención A5 (mes 6)'</span>)</span>
+<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Serie temporal</span></span>
+<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a>ax.plot(sesgo_lab[<span class="st">'mes'</span>], sesgo_lab[<span class="st">'sesgo_medio'</span>],</span>
+<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a>        marker<span class="op">=</span><span class="st">'o'</span>, color<span class="op">=</span><span class="st">'navy'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Seguimiento del sesgo del laboratorio — Método Gerber (muestra B, 3,8%)"</span>)</span>
+<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Mes"</span>)</span>
+<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Sesgo medio (resultado − referencia, %)"</span>)</span>
+<span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">13</span>))</span>
+<span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="st">'Ene'</span>,<span class="st">'Feb'</span>,<span class="st">'Mar'</span>,<span class="st">'Abr'</span>,<span class="st">'May'</span>,<span class="st">'Jun'</span>,</span>
+<span id="cb23-49"><a href="#cb23-49" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Jul'</span>,<span class="st">'Ago'</span>,<span class="st">'Sep'</span>,<span class="st">'Oct'</span>,<span class="st">'Nov'</span>,<span class="st">'Dic'</span>])</span>
+<span id="cb23-50"><a href="#cb23-50" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'lower right'</span>, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb23-51"><a href="#cb23-51" aria-hidden="true" tabindex="-1"></a>ax.grid(axis<span class="op">=</span><span class="st">'y'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb23-52"><a href="#cb23-52" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb23-53"><a href="#cb23-53" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="160-sistema-medicion_files/figure-html/grr-temporal-g1-python-1.png" class="img-fluid figure-img" width="1056"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>df_t <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/grr_gerber_temporal.csv"</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">fecha =</span> <span class="fu">dmy</span>(fecha))</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Dimensiones:"</span>, <span class="fu">nrow</span>(df_t), <span class="st">"x"</span>, <span class="fu">ncol</span>(df_t), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dimensiones: 540 x 7 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_t, <span class="dv">6</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 7
+  fecha        mes analista   muestra valor_referencia repeticion resultado
+  &lt;date&gt;     &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
+1 2024-01-15     1 Analista_1 A_baja               3.4          1      3.42
+2 2024-01-15     1 Analista_1 A_baja               3.4          2      3.39
+3 2024-01-15     1 Analista_1 A_baja               3.4          3      3.43
+4 2024-01-15     1 Analista_1 B_media              3.8          1      3.86
+5 2024-01-15     1 Analista_1 B_media              3.8          2      3.79
+6 2024-01-15     1 Analista_1 B_media              3.8          3      3.79</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sesgo mensual medio del laboratorio (muestra B)</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>sesgo_lab <span class="ot">&lt;-</span> df_t <span class="sc">|&gt;</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(muestra <span class="sc">==</span> <span class="st">"B_media"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(mes) <span class="sc">|&gt;</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">sesgo_medio =</span> <span class="fu">mean</span>(resultado <span class="sc">-</span> valor_referencia))</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Límites de control: primeros 3 meses</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>ref <span class="ot">&lt;-</span> sesgo_lab <span class="sc">|&gt;</span> <span class="fu">filter</span>(mes <span class="sc">&lt;=</span> <span class="dv">3</span>)</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>lc_centro <span class="ot">&lt;-</span> <span class="fu">mean</span>(ref<span class="sc">$</span>sesgo_medio)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>lc_s <span class="ot">&lt;-</span> <span class="fu">sd</span>(ref<span class="sc">$</span>sesgo_medio)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>lc_sup <span class="ot">&lt;-</span> lc_centro <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> lc_s</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>lc_inf <span class="ot">&lt;-</span> lc_centro <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> lc_s</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>tol <span class="ot">&lt;-</span> <span class="fl">0.10</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>meses_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Ene'</span>,<span class="st">'Feb'</span>,<span class="st">'Mar'</span>,<span class="st">'Abr'</span>,<span class="st">'May'</span>,<span class="st">'Jun'</span>,</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>                  <span class="st">'Jul'</span>,<span class="st">'Ago'</span>,<span class="st">'Sep'</span>,<span class="st">'Oct'</span>,<span class="st">'Nov'</span>,<span class="st">'Dic'</span>)</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sesgo_lab, <span class="fu">aes</span>(<span class="at">x =</span> mes, <span class="at">y =</span> sesgo_medio)) <span class="sc">+</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Banda tolerancia método</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="fl">0.5</span>, <span class="at">xmax =</span> <span class="fl">12.5</span>,</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>             <span class="at">ymin =</span> <span class="sc">-</span>tol, <span class="at">ymax =</span> tol,</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"lightgreen"</span>, <span class="at">alpha =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Límites de control</span></span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> lc_sup, <span class="at">color =</span> <span class="st">"red"</span>,</span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> lc_inf, <span class="at">color =</span> <span class="st">"red"</span>,</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> lc_centro, <span class="at">color =</span> <span class="st">"gray50"</span>,</span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Intervenciones</span></span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"steelblue"</span>,</span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">6</span>, <span class="at">color =</span> <span class="st">"orange"</span>,</span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Serie</span></span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"navy"</span>, <span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"navy"</span>, <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">labels =</span> meses_labels) <span class="sc">+</span></span>
+<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"Seguimiento del sesgo del laboratorio — Método Gerber (muestra B, 3,8%)"</span>,</span>
+<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Mes"</span>, <span class="at">y =</span> <span class="st">"Sesgo medio (resultado − referencia, %)"</span></span>
+<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="160-sistema-medicion_files/figure-html/grr-temporal-g1-r-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="gráfico-2-evolución-temporal-del-sesgo-por-analista" class="level3">
+<h3 class="anchored" data-anchor-id="gráfico-2-evolución-temporal-del-sesgo-por-analista">Gráfico 2: evolución temporal del sesgo por analista</h3>
+<p>El segundo gráfico permite ver la evolución individual de cada analista y comparar su comportamiento a lo largo del año. Es la herramienta más útil para evaluar si las acciones formativas han tenido efecto y para identificar nuevos problemas que puedan surgir.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href="">R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sesgo mensual por analista (muestra B)</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>sesgo_analista <span class="op">=</span> (</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    df_t[df_t[<span class="st">'muestra'</span>] <span class="op">==</span> <span class="st">'B_media'</span>]</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    .groupby([<span class="st">'mes'</span>, <span class="st">'analista'</span>])</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">apply</span>(<span class="kw">lambda</span> g: (g[<span class="st">'resultado'</span>] <span class="op">-</span> g[<span class="st">'valor_referencia'</span>]).mean(), include_groups<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    .reset_index(name<span class="op">=</span><span class="st">'sesgo'</span>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="dv">5</span>))</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>colores <span class="op">=</span> {</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Analista_1'</span>: <span class="st">'steelblue'</span>,</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Analista_2'</span>: <span class="st">'green'</span>,</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Analista_3'</span>: <span class="st">'purple'</span>,</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Analista_4'</span>: <span class="st">'red'</span>,</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Analista_5'</span>: <span class="st">'orange'</span>,</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> analista, grupo <span class="kw">in</span> sesgo_analista.groupby(<span class="st">'analista'</span>):</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>    ax.plot(grupo[<span class="st">'mes'</span>], grupo[<span class="st">'sesgo'</span>],</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>            marker<span class="op">=</span><span class="st">'o'</span>, label<span class="op">=</span>analista,</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>colores[analista], linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>ax.axhspan(<span class="op">-</span>tol, tol, color<span class="op">=</span><span class="st">'lightgreen'</span>, alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="dv">4</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, linewidth<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>           label<span class="op">=</span><span class="st">'Intervención A4'</span>)</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>ax.axvline(<span class="dv">6</span>, color<span class="op">=</span><span class="st">'orange'</span>, linestyle<span class="op">=</span><span class="st">':'</span>, linewidth<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>           label<span class="op">=</span><span class="st">'Intervención A5'</span>)</span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Evolución del sesgo por analista — Método Gerber (muestra B, 3,8%)"</span>)</span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Mes"</span>)</span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Sesgo (resultado − referencia, %)"</span>)</span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">13</span>))</span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="st">'Ene'</span>,<span class="st">'Feb'</span>,<span class="st">'Mar'</span>,<span class="st">'Abr'</span>,<span class="st">'May'</span>,<span class="st">'Jun'</span>,</span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'Jul'</span>,<span class="st">'Ago'</span>,<span class="st">'Sep'</span>,<span class="st">'Oct'</span>,<span class="st">'Nov'</span>,<span class="st">'Dic'</span>])</span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'lower right'</span>, fontsize<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>ax.grid(axis<span class="op">=</span><span class="st">'y'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="160-sistema-medicion_files/figure-html/grr-temporal-g2-python-1.png" class="img-fluid figure-img" width="1056"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sesgo_analista <span class="ot">&lt;-</span> df_t <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(muestra <span class="sc">==</span> <span class="st">"B_media"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(mes, analista) <span class="sc">|&gt;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">sesgo =</span> <span class="fu">mean</span>(resultado <span class="sc">-</span> valor_referencia),</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sesgo_analista, <span class="fu">aes</span>(<span class="at">x =</span> mes, <span class="at">y =</span> sesgo,</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>                            <span class="at">color =</span> analista)) <span class="sc">+</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="fl">0.5</span>, <span class="at">xmax =</span> <span class="fl">12.5</span>,</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">ymin =</span> <span class="sc">-</span>tol, <span class="at">ymax =</span> tol,</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"lightgreen"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"red"</span>,</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">6</span>, <span class="at">color =</span> <span class="st">"orange"</span>,</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">labels =</span> meses_labels) <span class="sc">+</span></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Analista_1"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"Analista_2"</span> <span class="ot">=</span> <span class="st">"green4"</span>,</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Analista_3"</span> <span class="ot">=</span> <span class="st">"purple"</span>,    <span class="st">"Analista_4"</span> <span class="ot">=</span> <span class="st">"red"</span>,</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Analista_5"</span> <span class="ot">=</span> <span class="st">"orange"</span></span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>    )) <span class="sc">+</span></span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"Evolución del sesgo por analista — Método Gerber (muestra B, 3,8%)"</span>,</span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="st">"Mes"</span>, <span class="at">y =</span> <span class="st">"Sesgo (resultado − referencia, %)"</span>,</span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="st">"Analista"</span></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="160-sistema-medicion_files/figure-html/grr-temporal-g2-r-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>En el gráfico 2 se puede observar con claridad el efecto de las intervenciones. El analista 4 parte de un sesgo negativo de aproximadamente −0,33% en los primeros meses y lo reduce progresivamente tras la formación de abril, estabilizándose cerca de cero en el segundo semestre. El analista 5 no tiene un sesgo sistemático visible en este gráfico (su problema es la dispersión, no el sesgo), pero su línea es más irregular que la de los demás analistas antes de la intervención de junio.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Límites de control vs.&nbsp;tolerancia del método
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los <strong>límites de control estadísticos</strong> (LC) se calculan a partir del comportamiento real del laboratorio en un período de referencia estable. Describen lo que el laboratorio es capaz de hacer. La <strong>tolerancia del método</strong> es un criterio externo fijado por la norma o el método de referencia. Describe lo que el laboratorio debería ser capaz de hacer.</p>
+<p>Si los límites de control estadísticos están dentro de la banda de tolerancia del método, el laboratorio cumple los requisitos del método. Si los superan, hay un problema estructural que no se puede resolver solo con formación: puede ser necesario revisar los instrumentos, los reactivos o el propio procedimiento.</p>
+<p>La tabla siguiente recoge los valores de repetibilidad (<span class="math inline">\(s_r\)</span>) y reproducibilidad (<span class="math inline">\(s_R\)</span>) establecidos por las normas ISO para los métodos de referencia más habituales en el laboratorio de leche y queso:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 27%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Método</th>
+<th>Parámetro</th>
+<th>Norma</th>
+<th><span class="math inline">\(s_r\)</span></th>
+<th><span class="math inline">\(s_R\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gerber</td>
+<td>Grasa en leche de vaca</td>
+<td>ISO 2446</td>
+<td>±0,05 g/100g</td>
+<td>±0,10 g/100g</td>
+</tr>
+<tr class="even">
+<td>Humedad en queso (estufa)</td>
+<td>Extracto seco</td>
+<td>ISO 5534</td>
+<td>±0,15 g/100g</td>
+<td>±0,30 g/100g</td>
+</tr>
+<tr class="odd">
+<td>Extracto seco en leche</td>
+<td>Materia seca total</td>
+<td>ISO 6731</td>
+<td>±0,05 g/100g</td>
+<td>±0,10 g/100g</td>
+</tr>
+<tr class="even">
+<td>pH en queso</td>
+<td>pH</td>
+<td>ISO 11648</td>
+<td>±0,02 unidades</td>
+<td>±0,05 unidades</td>
+</tr>
+<tr class="odd">
+<td>Cloruros en queso (Volhard)</td>
+<td>NaCl</td>
+<td>ISO 5943</td>
+<td>±0,05 g/100g</td>
+<td>±0,10 g/100g</td>
+</tr>
+</tbody>
+</table>
+<p>Estos valores permiten evaluar si la precisión del laboratorio es aceptable para cada método: si la desviación típica de repetibilidad obtenida en el estudio GR&amp;R es inferior a los valores de la tabla, el laboratorio cumple los requisitos de la norma de referencia.</p>
+</div>
+</div>
+</section>
+<section id="la-comparación-entre-laboratorios" class="level3">
+<h3 class="anchored" data-anchor-id="la-comparación-entre-laboratorios">La comparación entre laboratorios</h3>
+<p>La misma metodología se puede aplicar para comparar el comportamiento de varios laboratorios entre sí. En lugar de tener analistas como factor de comparación, el factor es el laboratorio. Cada laboratorio analiza las mismas muestras de referencia con el mismo método y reporta sus resultados. Este tipo de estudio se conoce como <strong>ensayo interlaboratorio</strong> o <strong>ensayo de aptitud</strong> (<em>proficiency testing</em>), y está regulado por la norma <strong>ISO 17043:2023</strong> (<em>Conformity assessment — General requirements for the competence of proficiency testing providers</em>).</p>
+<p>El dataset de un ensayo interlaboratorio tiene exactamente el mismo formato tidy que hemos usado en este capítulo, sustituyendo la columna <code>analista</code> por <code>laboratorio</code>:</p>
+<p><strong>Formato ancho</strong> (cómo suele recogerse):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Muestra</th>
+<th>Rep.</th>
+<th>Lab. A</th>
+<th>Lab. B</th>
+<th>Lab. C</th>
+<th>Lab. D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B_media</td>
+<td>1</td>
+<td>3,84</td>
+<td>3,79</td>
+<td>3,91</td>
+<td>3,52</td>
+</tr>
+<tr class="even">
+<td>B_media</td>
+<td>2</td>
+<td>3,81</td>
+<td>3,83</td>
+<td>3,88</td>
+<td>3,49</td>
+</tr>
+<tr class="odd">
+<td>B_media</td>
+<td>3</td>
+<td>3,86</td>
+<td>3,77</td>
+<td>3,94</td>
+<td>3,55</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Formato tidy</strong> (lo que necesitan Python y R):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>laboratorio</th>
+<th>muestra</th>
+<th>valor_referencia</th>
+<th>repeticion</th>
+<th>resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lab_A</td>
+<td>B_media</td>
+<td>3,8</td>
+<td>1</td>
+<td>3,84</td>
+</tr>
+<tr class="even">
+<td>Lab_A</td>
+<td>B_media</td>
+<td>3,8</td>
+<td>2</td>
+<td>3,81</td>
+</tr>
+<tr class="odd">
+<td>Lab_A</td>
+<td>B_media</td>
+<td>3,8</td>
+<td>3</td>
+<td>3,86</td>
+</tr>
+<tr class="even">
+<td>Lab_B</td>
+<td>B_media</td>
+<td>3,8</td>
+<td>1</td>
+<td>3,79</td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>Una vez en formato tidy, todo el código de este capítulo funciona directamente sustituyendo <code>analista</code> por <code>laboratorio</code> en los agrupamientos. El sesgo y la desviación típica de repetibilidad se calculan e interpretan de la misma forma, y los gráficos de seguimiento temporal permiten ver si un laboratorio mejora o empeora respecto a los demás a lo largo del tiempo.</p>
+</section>
+</section>
+<section id="la-mano-del-quesero-y-el-método-cuantificado" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="la-mano-del-quesero-y-el-método-cuantificado"><span class="header-section-number">16.7</span> La “mano del quesero” y el método cuantificado</h2>
+<p>En muchas queserías tradicionales, la evaluación de la calidad se basa en la experiencia acumulada del quesero: el tacto para reconocer el punto de la cuajada, la vista para evaluar el color del suero, el olfato para detectar una contaminación incipiente. Este conocimiento tácito tiene un valor real e indudable.</p>
+<p>Sin embargo, tiene una limitación importante: <strong>no se puede transferir, no se puede auditar, y se pierde cuando el experto deja la empresa.</strong></p>
+<p>El análisis del sistema de medición no pretende sustituir ese conocimiento, sino complementarlo. Cuando cuantificamos el error analítico, convertimos una percepción subjetiva (“este analista es menos fiable”) en un dato objetivable (“este analista tiene un sesgo de −0,35% en el método Gerber”). Eso permite actuar con precisión: formarlo en la lectura correcta del butirómetro, no en todo el método.</p>
+<p>La combinación del conocimiento experto con la cuantificación sistemática del error es lo que caracteriza a un laboratorio de producción maduro.</p>
+</section>
+<section id="resumen-del-capítulo" class="level2" data-number="16.8">
+<h2 data-number="16.8" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">16.8</span> Resumen del capítulo</h2>
+<p>Este capítulo ha introducido los conceptos fundamentales del análisis del sistema de medición aplicados al laboratorio de quesería. La norma ISO 5725-1:2023 distingue entre veracidad (ausencia de sesgo) y precisión (consistencia de los resultados), dos componentes independientes de la exactitud que requieren diagnóstico y solución distintos.</p>
+<p>El caso práctico con el método Gerber ha mostrado cómo un estudio sencillo de repetibilidad —cinco analistas, tres muestras, tres repeticiones— permite identificar con claridad dos tipos de problema: el analista con sesgo sistemático pero alta repetibilidad, y el analista sin sesgo pero con alta variabilidad. La visualización con boxplot y puntos individuales superpuestos, combinada con el cálculo del sesgo y la desviación típica de repetibilidad, proporciona las herramientas suficientes para este diagnóstico en un laboratorio de producción.</p>
+<p>El seguimiento temporal transforma el estudio puntual en un sistema de vigilancia continua. La representación mensual del sesgo del laboratorio y de cada analista, con límites de control estadísticos y la tolerancia del método como referencia externa, permite detectar derivas, evaluar la eficacia de las intervenciones y mantener el sistema de medición bajo control a lo largo del tiempo. La norma ISO 5725-1:2023 distingue entre veracidad (ausencia de sesgo) y precisión (consistencia de los resultados), dos componentes independientes de la exactitud que requieren diagnóstico y solución distintos.</p>
+<p>El caso práctico con el método Gerber ha mostrado cómo un estudio sencillo de repetibilidad —cinco analistas, tres muestras, tres repeticiones— permite identificar con claridad dos tipos de problema: el analista con sesgo sistemático pero alta repetibilidad, y el analista sin sesgo pero con alta variabilidad. La visualización con boxplot y puntos individuales superpuestos, combinada con el cálculo del sesgo y la desviación típica de repetibilidad, proporciona las herramientas suficientes para este diagnóstico en un laboratorio de producción.</p>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-iso5725_2023" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">ISO, <span>«Accuracy (trueness and precision) of measurement methods and results — <span>Part</span> 1: <span>General</span> principles and definitions»</span>, International Organization for Standardization, Geneva, ISO 5725-1:2023, 2023.</div>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./120-rendimientos.html" class="pagination-link" aria-label="Los rendimientos queseros">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./250-variabilidad.html" class="pagination-link" aria-label="La variabilidad industrial">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">La variabilidad industrial</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

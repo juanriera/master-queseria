@@ -1,0 +1,21 @@
+{
+  "hash": "a774256d97ed77b11304583d820ce830",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nlang: es\ndate-modified: '2026-03-13'\ntitle: \"Simulación del dataset de repetibilidad (Gerber)\"\nengine: knitr\nformat:\n  html:\n    code-fold: true\n    code-summary: Mostrar código\n---\n\n\n\nEste documento genera el dataset utilizado en el capítulo de análisis del sistema de medición. El código está documentado para que el profesorado pueda ajustar los parámetros de simulación si lo considera necesario.\n\n## Diseño del estudio\n\nEl estudio simula un análisis de repetibilidad del método Gerber para la determinación de grasa en leche, con el siguiente diseño:\n\n- **5 analistas** con perfiles de error distintos\n- **3 muestras** que cubren el rango habitual de grasa en leche de vaca: baja, media y alta\n- **3 repeticiones** por analista y muestra\n- **Total:** 45 análisis\n\n### Valores de referencia de las muestras\n\n| Muestra | Valor de referencia (%) | Contexto tecnológico |\n|---------|---------------|----------------------|\n| A (baja)  | 3,4 | Leche de verano, alimentación en pasto |\n| B (media) | 3,8 | Valor típico anual |\n| C (alta)  | 4,5 | Leche de invierno, estabulación |\n\n### Perfiles de los analistas\n\n| Analista | Sesgo | Desv. típica | Descripción |\n|----------|-------|--------------|-------------|\n| 1 (referencia) | 0,00% | 0,04% | Técnica depurada, lectura correcta del butirómetro, baño maría estable |\n| 2 (correcto) | 0,00% | 0,08% | Buen nivel general, pequeña variación natural de técnica |\n| 3 (correcto, sesgo leve) | +0,10% | 0,12% | Tiende a redondear ligeramente al alza en la lectura de la columna de grasa |\n| 4 (sesgo sistemático) | −0,35% | 0,06% | Lee sistemáticamente bajo: error de posición del ojo al leer el menisco del butirómetro. Alta repetibilidad pero resultado alejado del valor de referencia |\n| 5 (alta variabilidad) | 0,00% | 0,25% | Técnica irregular: temperatura del baño maría inestable, tiempo de centrifugación variable, dificultad para homogeneizar la muestra |\n\n## Código de simulación\n\n\n::: {.cell}\n\n:::\n\n\n::: {.callout-note}\n## Nota sobre la semilla aleatoria\nEl código usa `np.random.seed(42)` para que el dataset generado sea siempre idéntico. Si se desea generar un dataset diferente para una nueva edición o para otro grupo de alumnos, basta con cambiar el valor de la semilla por cualquier otro número entero.\n:::\n",
+    "supporting": [
+      "217-sistema-medicion-grr-simulador_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

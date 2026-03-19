@@ -1,0 +1,113 @@
+---
+lang: es
+date-modified: '2026-03-12'
+title: "Configuración del entorno de trabajo"
+engine: knitr
+---
+
+Este apéndice describe cómo preparar el entorno de trabajo para ejecutar el código Python y R que aparece a lo largo del libro. Se presentan dos escenarios: uno sin instalación, recomendado para centros con restricciones de administrador, y otro con instalación local, para quien disponga de libertad para instalar software en su equipo.
+
+## Escenario 1: Sin instalación (recomendado)
+
+Esta es la opción más sencilla y funciona en cualquier ordenador con conexión a internet, incluso sin permisos de administrador. Solo se necesita una cuenta de Google.
+
+### Python: Google Colaboratory
+
+[Google Colaboratory](https://colab.research.google.com/) (Colab) es un entorno de cuadernos Jupyter alojado en la nube de Google. Permite escribir y ejecutar código Python directamente en el navegador, sin instalar nada.
+
+Para empezar:
+
+1. Accede a [colab.research.google.com](https://colab.research.google.com/) con tu cuenta de Google.
+2. Crea un cuaderno nuevo con `Archivo > Nuevo cuaderno`.
+3. Los cuadernos se guardan automáticamente en tu Google Drive.
+
+Todos los cuadernos de práctica de este libro tienen un enlace directo para abrirlos en Colab. Al abrirlos por primera vez, guarda una copia en tu Drive con `Archivo > Guardar una copia en Drive` para poder modificarlos y conservar tu trabajo.
+
+::: {.callout-note}
+## Librerías en Colab
+Colab incluye preinstaladas las librerías más habituales (`pandas`, `matplotlib`, `seaborn`, `numpy`). Si algún cuaderno requiere una librería adicional, lo indicará con una celda de instalación al principio del tipo `!pip install nombre_libreria`.
+:::
+
+### R: Posit Cloud
+
+[Posit Cloud](https://posit.cloud/) es el equivalente de Colab para R. Ofrece un entorno RStudio completo en el navegador, sin instalación.
+
+Para empezar:
+
+1. Crea una cuenta gratuita en [posit.cloud](https://posit.cloud/).
+2. Crea un nuevo proyecto con `New Project > New RStudio Project`.
+3. El plan gratuito incluye 25 horas de cómputo al mes, suficiente para seguir el libro.
+
+Para instalar las librerías necesarias, ejecuta en la consola de R:
+
+```r
+install.packages(c("tidyverse", "palmerpenguins", 
+                   "ggbeeswarm", "patchwork", "lubridate"))
+```
+
+## Escenario 2: Instalación en local
+
+Si tienes permisos para instalar software en tu equipo, esta opción ofrece más velocidad y comodidad para un uso continuo.
+
+### Python: Miniconda
+
+[Miniconda](https://docs.conda.io/en/latest/miniconda.html) es una distribución mínima de Python que incluye el gestor de paquetes `conda`. A diferencia de la instalación estándar de Python, Miniconda puede instalarse **sin permisos de administrador** seleccionando la opción "Install just for me" durante el proceso de instalación en Windows.
+
+Pasos:
+
+1. Descarga el instalador desde [docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html). Selecciona la versión para Windows de 64 bits.
+2. Ejecuta el instalador y selecciona **"Just Me"** cuando pregunte para quién se instala.
+3. Una vez instalado, abre el terminal **Anaconda Prompt** (aparecerá en el menú de inicio) e instala las librerías necesarias:
+
+```bash
+pip install pandas matplotlib seaborn palmerpenguins
+```
+
+### R: instalación base
+
+La instalación de R en Windows **requiere permisos de administrador** en la mayoría de configuraciones de centro. Si no dispones de ellos, utiliza Posit Cloud (Escenario 1).
+
+Si puedes instalar:
+
+1. Descarga R desde [cran.r-project.org](https://cran.r-project.org/) y ejecuta el instalador.
+2. Descarga **Positron** desde [positron.posit.co](https://positron.posit.co/) como IDE. Es el entorno recomendado para este libro por su soporte simultáneo de Python y R. Alternativamente, puedes usar **RStudio** desde [posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop/).
+3. Abre Positron o RStudio e instala las librerías necesarias desde la consola de R:
+
+```r
+install.packages(c("tidyverse", "palmerpenguins",
+                   "ggbeeswarm", "patchwork", "lubridate"))
+```
+
+## Recursos para aprender Python y R
+
+Si necesitas una base más sólida antes de abordar el código del libro, estos recursos gratuitos están entre los mejor valorados:
+
+**Python**
+
+- [Python for Everybody](https://www.py4e.com/) — Curso introductorio completo del Dr. Chuck Severance. Sin conocimientos previos. Disponible en español.
+- [Kaggle Learn — Python](https://www.kaggle.com/learn/python) — Lecciones breves e interactivas directamente en el navegador. Enfocado en análisis de datos.
+- [Kaggle Learn — Pandas](https://www.kaggle.com/learn/pandas) — Introducción práctica a pandas, la librería central del libro.
+
+**R**
+
+- [R for Data Science (2ª ed.)](https://r4ds.hadley.nz/) — El manual de referencia para análisis de datos con tidyverse. Gratuito en línea.
+- [Posit Primers](https://posit.cloud/learn/primers) — Ejercicios interactivos de R en el navegador, sin instalación. Cubre desde los fundamentos hasta visualización y transformación de datos.
+- [Maxima Formación](https://www.maximaformacion.es/blog-dat/top-37-recursos-online-sobre-data-science-r/) ha agrupado varios buenos enlaces de sitios para aprendizaje de R y *data science* con R. Esta web está dirigida por [Rosana Ferrero](https://www.linkedin.com/in/rosanaferrero), que publica regularmente en LinkedIn contenido formativo en ciencia de datos y es una de las *top voices* en esta plataforma.
+
+## Cómo usar la inteligencia artificial para entender el código
+
+A lo largo del libro encontrarás bloques de código Python y R que pueden resultar densos a primera vista. No es necesario entender cada línea antes de ejecutarlos: el objetivo es comprender qué hace el código y cómo interpretar su resultado.
+
+Una forma eficaz de avanzar es copiar cualquier bloque de código en un asistente de IA como [Gemini](https://gemini.google.com/), [ChatGPT](https://chatgpt.com/) o [Claude](https://claude.ai/) y preguntar directamente:
+
+> *"Explícame este código línea a línea, en un lenguaje sencillo, como si no supiera programar"*
+
+o bien:
+
+> *"¿Qué hace este código? ¿Qué representa el gráfico que genera?"*
+
+o también, para un detalle mayor, 
+
+> *"Actúa como un tutor de programación. Explica este código instrucción a instrucción de forma detallada y sencilla, indicando qué hace cada línea y por qué es necesaria. Usa analogías con Excel o tareas manuales para que sea más fácil de entender"*
+
+Este enfoque es especialmente útil con las partes de formato y presentación gráfica (títulos, ejes, colores), que son secundarias para el análisis pero pueden distraer cuando se está aprendiendo.

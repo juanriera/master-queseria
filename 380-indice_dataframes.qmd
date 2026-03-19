@@ -1,0 +1,146 @@
+---
+lang: es
+date-modified: '2026-03-12'
+format:
+  html:
+    code-fold: true
+    code-summary: Mostrar código
+title: Indice de DataFrames utilizados
+engine: knitr
+---
+
+## Análisis de producto terminado de una fabricación diaria de camembert
+
+En formato `CSV` y `Excel`
+
+```{r}
+#| message: false
+#| warning: false
+
+library(gt)
+library(dplyr)
+
+df <- read.csv2("datos/camembert.csv", dec = ",")
+
+df |> 
+  slice_head(n = 6) |> 
+  gt() |>
+  fmt_number(
+    columns = where(is.numeric),
+    decimals = 2
+  ) |>
+  tab_style(
+    style = cell_fill(color = "#f7f7f7"),
+    locations = cells_body(rows = seq(1, 6, 2))
+  ) |>
+  tab_options(
+    table.font.size = px(14),
+    data_row.padding = px(6)
+  )
+```
+
+## Datos de fabricación simulados de un queso de vaca
+
+En el apéndice B, los detalles de la simulación y el código **Python** utilizado.
+
+```{r}
+#| message: false
+#| warning: false
+df <- read.csv2("datos/02-fab_queso_sim.csv", dec = ",")
+
+df |> 
+  slice_head(n = 6) |> 
+  gt() |>
+  fmt_number(
+    columns = where(is.numeric),
+    decimals = 2
+  ) |>
+  tab_style(
+    style = cell_fill(color = "#f7f7f7"),
+    locations = cells_body(rows = seq(1, 6, 2))
+  ) |>
+  tab_options(
+    table.font.size = px(14),
+    data_row.padding = px(6)
+  )
+
+```
+
+## Resultados de los partidos de La Liga, temporada 24-25
+
+```{r}
+#| message: false
+#| warning: false
+df <- read.csv2("datos/laliga_resultados2425.csv", dec = ",")
+
+df |> 
+  slice_head(n = 6) |> 
+  gt() |>
+  fmt_number(
+    columns = where(is.numeric),
+    decimals = 0
+  ) |>
+  tab_style(
+    style = cell_fill(color = "#f7f7f7"),
+    locations = cells_body(rows = seq(1, 6, 2))
+  ) |>
+  tab_options(
+    table.font.size = px(14),
+    data_row.padding = px(6)
+  )
+```
+
+## Datos de temperaturas medias mensuales de la ciudad de Oviedo, años 2020 a 2024
+
+Proporcionados por [AEMET (Agencia Estatal de Meteorología)](https://www.aemet.es)
+
+```{r}
+#| message: false
+#| warning: false
+df <- read.csv2("datos/oviedo_temperatura.csv", dec = ",")
+df |> 
+  slice_head(n = 6) |> 
+  gt() |>
+  fmt_number(
+    columns = where(is.numeric),
+    decimals = 2
+  ) |>
+  tab_style(
+    style = cell_fill(color = "#f7f7f7"),
+    locations = cells_body(rows = seq(1, 6, 2))
+  ) |>
+  tab_options(
+    table.font.size = px(14),
+    data_row.padding = px(6)
+  )
+```
+
+## Datos de los pingüinos Palmer
+
+Este dataset vieneincluido en las distribuciones de R y en la biblioteca `seaborn`
+
+Ver [https://allisonhorst.github.io/palmerpenguins/](https://allisonhorst.github.io/palmerpenguins/)
+
+```{r}
+#| message: false
+#| warning: false
+
+library(palmerpenguins)
+
+df <- penguins
+df |> 
+  slice_head(n = 6) |> 
+  gt() |>
+  fmt_number(
+    columns = where(is.numeric),
+    decimals = 2
+  ) |>
+  tab_style(
+    style = cell_fill(color = "#f7f7f7"),
+    locations = cells_body(rows = seq(1, 6, 2))
+  ) |>
+  tab_options(
+    table.font.size = px(14),
+    data_row.padding = px(6)
+  )
+```

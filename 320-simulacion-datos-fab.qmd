@@ -1,0 +1,254 @@
+---
+lang: es
+date-modified: '2026-02-16'
+title: Simulación de procesos en quesería
+execute:
+  eval: false
+---
+## Introducción y objetivos
+
+Este anexo describe el código Python utilizado para generar el dataset de fabricación de queso que se usa en los ejercicios de análisis de rendimientos y balances de materia. Se incluye aquí para que el profesorado pueda entender cómo están construidos los datos, adaptar los parámetros si lo considera necesario, y diseñar actividades de evaluación coherentes con lo que el dataset puede y no puede mostrar.
+
+Los datos no son completamente aleatorios: cada variable se calcula a partir de relaciones tecnológicas reales entre la composición de la leche, el extracto seco del queso y el suero obtenido. Esto hace que el dataset se comporte de forma realista: si el alumno calcula los balances correctamente, los números cierran; si comete un error conceptual (por ejemplo, mezclar kilos con litros), el resultado es incoherente.
+
+## Cómo funciona el simulador
+
+### Recepción de leche y stock
+
+La planta recibe leche de domingo a jueves y fabrica de lunes a viernes. Cada día de recepción llega aproximadamente 5.150 kg de leche con una composición en grasa y proteína que varía ligeramente de un día a otro, siguiendo una distribución normal alrededor de los valores medios. Este stock acumulado se va consumiendo durante la semana de fabricación.
+
+El viernes se agota el stock: toda la leche disponible entra en cuba, independientemente del volumen.
+
+### Preparación de la cuba
+
+Antes de fabricar, el simulador aplica dos efectos que ocurren en cualquier planta real:
+
+- Una pequeña dilución del $0,5\%$ en volumen, debida al agua de enjuague de líneas y a la preparación del cuajo.
+- Una pérdida del $4\%$ en grasa y proteína por el bombeo y la agitación de la leche antes de la coagulación.
+
+Estos valores son medias con pequeña variación aleatoria día a día.
+
+### Cálculo del rendimiento
+
+El rendimiento no es fijo. Se calcula a partir del extracto seco del queso de ese día según la fórmula:
+
+$$\text{Ratio}_{L/kg} = 8{,}0 + (\text{EST}_{queso} - 52{,}0) \times 0{,}12 + \epsilon$$
+
+Un queso más seco consume más leche por kilo producido. El término $\epsilon$ representa la variabilidad inevitable del proceso (diferencias en el corte de cuajada, en el prensado, en la temperatura), con una desviación típica de $0{,}3$ L/kg.
+
+Esto tiene una consecuencia didáctica importante: el rendimiento no es un dato independiente sino un resultado del control del proceso. El alumno que analice los datos debería llegar a esta conclusión por sí mismo.
+
+### Coherencia entre extracto seco y materia grasa
+
+La grasa del queso no se genera de forma independiente al extracto seco. En el queso real, al concentrar los sólidos aumenta también el porcentaje de grasa en la masa final. El simulador reproduce esta relación:
+
+$$\text{MG}_{queso} = 27{,}0 + (\text{EST}_{queso} - 52{,}0) \times 0{,}4 + \text{ruido}$$
+
+Esto significa que si el alumno hace un gráfico de dispersión de MG frente a EST, verá una correlación positiva moderada, igual que ocurre en datos reales.
+
+### Balance de masa y suero
+
+Todos los cálculos de fluidos se hacen en kilogramos, no en litros, para respetar el principio de conservación de la masa:
+
+$$\text{Masa}_{leche} = \text{Masa}_{queso} + \text{Masa}_{suero} + \text{Merma}$$
+
+El volumen de suero se obtiene al final dividiendo su masa por su densidad ($1{,}025$ kg/L). Este detalle es importante para el alumno: operar con litros y kilos indistintamente es uno de los errores más frecuentes en los balances de quesería.
+
+## La merma invisible: un ejercicio de auditoría
+
+El dataset incorpora un elemento de diseño intencionado: una pequeña parte de la materia —aproximadamente el $2\%$— no aparece registrada ni en el queso ni en el suero. Representa las pérdidas reales de proceso: finos de cuajada, retenciones en líneas, evaporación.
+
+Si el alumno calcula la recuperación de grasa o de sólidos totales, obtendrá un valor cercano al $98\%$, no al $100\%$. Un balance que cierra al $100\%$ exacto en datos industriales reales debería levantar sospechas, no satisfacción.
+
+## Qué contiene el fichero de datos y qué no
+
+El fichero CSV exportado sigue el formato *tidy data* y contiene únicamente los datos que un laboratorio o un sistema de control mediría directamente: entradas de leche, analítica de la cuba, kilos de queso producidos y analítica del suero. No incluye cálculos derivados como recuperaciones, consumos específicos o balances de grasa.
+
+Esto es deliberado: el objetivo es que el alumno construya esos cálculos a partir de los datos brutos, igual que lo haría en una auditoría real.
+
+El fichero usa separador de columnas `;` y decimal `,` para que pueda abrirse directamente en Excel en entorno europeo sin configuración adicional.
+
+------
+
+
+
+## Código de la simulación en Python
+
+```{python}
+|# eval: False
+
+import pandas as pd
+import numpy as np
+from datetime import datetime, timedelta
+import matplotlib.pyplot as plt
+import seaborn as sns
+from IPython.display import display, HTML
+
+# Configuración
+semanas = 52
+dias_simulacion = semanas * 7
+fecha_inicio = datetime(2023, 12, 31) 
+densidad_std = 1.030
+nombre_fichero = 'datos/queseria_final_tidy.csv'
+
+dias_es = {
+    'Monday': 'Lunes', 'Tuesday': 'Martes', 'Wednesday': 'Miércoles',
+    'Thursday': 'Jueves', 'Friday': 'Viernes', 'Saturday': 'Sábado', 'Sunday': 'Domingo'
+}
+
+data = []
+stock_leche_litros = 0.0
+stock_grasa_kg_total = 0.0
+stock_proteina_kg_total = 0.0
+
+for i in range(dias_simulacion):
+    fecha = fecha_inicio + timedelta(days=i)
+    num_dia = fecha.weekday() 
+    
+    entrada_kg, entrada_litros, grasa_g_l, prot_g_l = 0, 0, 0.0, 0.0
+    
+    # 1. ENTRADAS
+    if num_dia in [6, 0, 1, 2, 3]:
+        entrada_kg = int(round(np.random.normal(5150, 300))) 
+        entrada_litros = int(round(entrada_kg / densidad_std))
+        grasa_g_l = np.random.normal(42.40, 1.5)
+        prot_g_l = np.random.normal(35.68, 1.0)
+        
+        stock_leche_litros += entrada_litros
+        stock_grasa_kg_total += (entrada_litros * grasa_g_l) / 1000
+        stock_proteina_kg_total += (entrada_litros * prot_g_l) / 1000
+
+    # 2. FABRICACIÓN
+    cuba_litros_final, cuba_grasa_g_l, cuba_prot_g_l = 0, 0.0, 0.0
+    queso_est_pct, queso_mg_pct, queso_esm_pct, queso_hqd_pct = 0.0, 0.0, 0.0, 0.0
+    queso_kg, queso_est_kg, queso_mg_kg, queso_esm_kg,  = 0.0, 0.0, 0.0, 0.0
+    suero_litros, suero_grasa_g_l, suero_prot_g_l, suero_es_g_l = 0.0, 0.0, 0.0, 0.0
+    cuba_grasa_kg, cuba_prot_kg, cuba_fab_grasa_kg, cuba_fab_prot_kg = 0.0, 0.0, 0.0, 0.0
+    recup_mg, recup_mp, consumo_mg, consumo_mp = 0.0, 0.0, 0.0, 0.0
+    
+    if num_dia in [0, 1, 2, 3, 4]: # lunes a viernes
+        if num_dia == 4:
+            cuba_litros_teoricos = stock_leche_litros
+        else:
+            cuba_litros_teoricos = 5000.0 if stock_leche_litros >= 5000 else stock_leche_litros
+
+        if stock_leche_litros > 0 and cuba_litros_teoricos > 0:
+            factor = (cuba_litros_teoricos / stock_leche_litros)
+            kg_grasa_t = stock_grasa_kg_total * factor
+            kg_prot_t = stock_proteina_kg_total * factor
+            
+            perdida_mg_dia = np.random.normal(0.04, 0.005)
+            perdida_mp_dia = np.random.normal(0.04, 0.005)
+            inc_agua_dia = np.random.normal(0.005, 0.001)
+            
+            cuba_litros_final = int(round(cuba_litros_teoricos * (1 + inc_agua_dia)))
+            cuba_grasa_g_l = (kg_grasa_t * (1 - perdida_mg_dia) * 1000) / cuba_litros_final
+            cuba_prot_g_l = (kg_prot_t * (1 - perdida_mp_dia) * 1000) / cuba_litros_final
+            cuba_grasa_kg = cuba_litros_final * cuba_grasa_g_l /1000
+            cuba_prot_kg = cuba_litros_final * cuba_prot_g_l /1000
+            
+            # --- NUEVA LÓGICA DE RATIO ALEATORIA ---
+            # 1. EST: Base fija de 52.0 (Media anual garantizada)
+            desviacion_est = np.random.normal(0, 1.2)
+            queso_est_pct = 52.0 + desviacion_est
+            
+            # 2. Ratio L/kg: Base fija de 8.0 (Media anual garantizada)
+            # Sube si el EST es alto (más concentración), baja si el EST es bajo.
+            sensibilidad_ratio = 0.12 
+            error_aleatorio_proceso = np.random.normal(0, 0.3)           
+            ratio_dia = 8.0 + (queso_est_pct - 52.0) * sensibilidad_ratio + error_aleatorio_proceso
+            
+            # --- 3. KILOS DE QUESO ---
+            queso_kg = cuba_litros_final / ratio_dia
+            
+            # --- 4. MG (MATERIA GRASA DEL QUESO) ---
+            factor_correlacion_grasa = 0.4  
+            ruido_grasa = np.random.normal(0, 0.5)
+            queso_mg_pct = 27.0 + (queso_est_pct - 52.0) * factor_correlacion_grasa + ruido_grasa
+
+            # --- 5. OTROS PARÁMETROS DEL QUESO (Derivados) ---
+            queso_esm_pct = queso_est_pct - queso_mg_pct
+            queso_hqd_pct = ((100-queso_est_pct)/(100-queso_mg_pct))*100
+
+            queso_est_kg = queso_kg * queso_est_pct / 100
+            queso_mg_kg = queso_kg * queso_mg_pct / 100
+            queso_esm_kg = queso_kg * queso_esm_pct / 100
+          
+            # --- 6. BALANCES TÉCNICOS DE QUESO (Recuperaciones y Consumos) ---
+            recup_mg = queso_mg_kg / cuba_grasa_kg * 100
+            recup_mp = queso_esm_kg / cuba_prot_kg * 100
+            consumo_mg = cuba_grasa_kg / queso_kg * 1000
+            consumo_mp = cuba_prot_kg / queso_kg * 1000
+
+        # --- 7. BALANCE DE SUERO (UNIDADES EN G/L) ---
+            factor_perdida_invisible = np.random.normal(0.02, 0.005)
+            cuba_masa_kg = cuba_litros_final * 1.030
+            suero_masa_kg = cuba_masa_kg - queso_kg
+            suero_litros = suero_masa_kg / 1.025
+            
+            # A. Grasa en suero (g/L)
+            grasa_entrada_total_kg = (cuba_litros_final * cuba_grasa_g_l) / 1000
+            grasa_en_suero_total = (grasa_entrada_total_kg - queso_mg_kg) * (1 - factor_perdida_invisible)
+            suero_grasa_g_l = max(0, (grasa_en_suero_total * 1000) / suero_litros)
+
+            # B. Proteína en suero (g/L)
+            prot_en_queso_pct = 23.0 + np.random.normal(0, 0.5) 
+            prot_en_queso_kg = queso_kg * (prot_en_queso_pct / 100)
+            prot_entrada_total_kg = (cuba_litros_final * cuba_prot_g_l) / 1000
+            prot_en_suero_total = (prot_entrada_total_kg - prot_en_queso_kg) * (1 - factor_perdida_invisible)
+            suero_prot_g_l = max(0, (prot_en_suero_total * 1000) / suero_litros)
+
+            # C. Extracto Seco del Suero (g/L)
+            # Lactosa y sales: residuo constante en el suero (aprox 50-52 g/L)
+            suero_esm_residuo_g_l = np.random.normal(51.0, 0.8)
+            
+            # El EST es la suma directa de todos los sólidos disueltos
+            suero_es_g_l = suero_grasa_g_l + suero_prot_g_l + suero_esm_residuo_g_l
+
+            # --- 8. ACTUALIZACIÓN DE STOCKS ---
+            stock_leche_litros -= cuba_litros_teoricos
+            stock_grasa_kg_total -= kg_grasa_t
+            stock_proteina_kg_total -= kg_prot_t
+            
+    # 4. GUARDAR DATOS
+    data.append({
+        'fecha': fecha.strftime('%d/%m/%Y'),
+        'entrada_kg': int(entrada_kg),
+        'entrada_litros': int(entrada_litros),
+        'entrada_grasa_g_l': round(grasa_g_l, 2),
+        'entrada_prot_g_l': round(prot_g_l, 2),
+        'cuba_fab_litros': int(cuba_litros_final),
+        'cuba_fab_grasa_g_l': round(cuba_grasa_g_l, 2),
+        'cuba_fab_prot_g_l': round(cuba_prot_g_l, 2),
+        'stock_cierre_litros': int(round(max(0, stock_leche_litros))),
+        'queso_kg': round(queso_kg, 2),
+        'queso_est_pct': round(queso_est_pct, 2),
+        'queso_mg_pct': round(queso_mg_pct, 2),
+        'suero_litros': round(suero_litros, 0),
+        'suero_grasa_g_l': round(suero_grasa_g_l, 2),
+        'suero_prot_g_l': round(suero_prot_g_l, 2),
+        'suero_es_g_l': round(suero_es_g_l, 2)
+
+        # comentado para incluir en caso de necesitar debug
+        # 'cuba_fab_grasa_kg': round(cuba_grasa_kg, 2),
+        # 'cuba_fab_prot_kg': round(cuba_prot_kg, 2),        
+        # 'queso_esm_pct': round(queso_esm_pct, 2),
+        # 'queso_hqd_pct': round(queso_hqd_pct, 2),
+        # 'queso_est_kg': round(queso_est_kg, 2),
+        # 'queso_mg_kg': round(queso_mg_kg, 2),
+        # 'queso_esm_kg': round(queso_esm_kg, 2),
+        # 'recup_mg': round(recup_mg, 2),
+        # 'recup_mp': round(recup_mp, 2),
+        # 'consumo_mg': round(consumo_mg, 2),        
+        # 'consumo_mp': round(consumo_mp, 2)
+    })
+
+df = pd.DataFrame(data)
+
+df.to_csv(nombre_fichero, index=False, sep=';', decimal=',', encoding='ISO-8859-1')
+
+print(f"Simulación completa con rendimiento variable. Archivo: {nombre_fichero}")
+
+df.head()
+```
+

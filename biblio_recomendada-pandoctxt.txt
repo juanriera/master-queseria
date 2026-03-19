@@ -1,0 +1,1 @@
+pandoc bibliografia.bib --citeproc -t markdown_strict -o bibliografia_recomendada.md --wrap=none
