@@ -367,14 +367,15 @@ div.csl-indent {
   <li><a href="#el-problema-datos-mal-estructurados" id="toc-el-problema-datos-mal-estructurados" class="nav-link" data-scroll-target="#el-problema-datos-mal-estructurados">El problema: datos mal estructurados</a></li>
   <li><a href="#la-solución-tres-reglas-simples" id="toc-la-solución-tres-reglas-simples" class="nav-link" data-scroll-target="#la-solución-tres-reglas-simples">La solución: tres reglas simples</a></li>
   </ul></li>
-  <li><a href="#ficheros-planos-y-ficheros-csv" id="toc-ficheros-planos-y-ficheros-csv" class="nav-link" data-scroll-target="#ficheros-planos-y-ficheros-csv"><span class="header-section-number">4.6</span> Ficheros planos y ficheros CSV</a>
+  <li><a href="#recomendaciones-para-organizar-datos-en-hojas-de-cálculo" id="toc-recomendaciones-para-organizar-datos-en-hojas-de-cálculo" class="nav-link" data-scroll-target="#recomendaciones-para-organizar-datos-en-hojas-de-cálculo"><span class="header-section-number">4.6</span> Recomendaciones para organizar datos en hojas de cálculo</a></li>
+  <li><a href="#ficheros-planos-y-ficheros-csv" id="toc-ficheros-planos-y-ficheros-csv" class="nav-link" data-scroll-target="#ficheros-planos-y-ficheros-csv"><span class="header-section-number">4.7</span> Ficheros planos y ficheros CSV</a>
   <ul class="collapse">
   <li><a href="#qué-son" id="toc-qué-son" class="nav-link" data-scroll-target="#qué-son">Qué son</a></li>
   <li><a href="#exportar-un-fichero-csv-desde-excel" id="toc-exportar-un-fichero-csv-desde-excel" class="nav-link" data-scroll-target="#exportar-un-fichero-csv-desde-excel">Exportar un fichero CSV desde Excel</a></li>
   </ul></li>
-  <li><a href="#práctica" id="toc-práctica" class="nav-link" data-scroll-target="#práctica"><span class="header-section-number">4.7</span> Práctica</a></li>
-  <li><a href="#para-resolver" id="toc-para-resolver" class="nav-link" data-scroll-target="#para-resolver"><span class="header-section-number">4.8</span> Para resolver</a></li>
-  <li><a href="#resumen-del-capítulo" id="toc-resumen-del-capítulo" class="nav-link" data-scroll-target="#resumen-del-capítulo"><span class="header-section-number">4.9</span> Resumen del capítulo</a></li>
+  <li><a href="#práctica" id="toc-práctica" class="nav-link" data-scroll-target="#práctica"><span class="header-section-number">4.8</span> Práctica</a></li>
+  <li><a href="#para-resolver" id="toc-para-resolver" class="nav-link" data-scroll-target="#para-resolver"><span class="header-section-number">4.9</span> Para resolver</a></li>
+  <li><a href="#resumen-del-capítulo" id="toc-resumen-del-capítulo" class="nav-link" data-scroll-target="#resumen-del-capítulo"><span class="header-section-number">4.10</span> Resumen del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -663,8 +664,21 @@ Importante
 </div>
 </section>
 </section>
-<section id="ficheros-planos-y-ficheros-csv" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="ficheros-planos-y-ficheros-csv"><span class="header-section-number">4.6</span> Ficheros planos y ficheros CSV</h2>
+<section id="recomendaciones-para-organizar-datos-en-hojas-de-cálculo" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="recomendaciones-para-organizar-datos-en-hojas-de-cálculo"><span class="header-section-number">4.6</span> Recomendaciones para organizar datos en hojas de cálculo</h2>
+<p>Los principios de <em>tidy data</em> definen cómo deben estructurarse los datos para el análisis. Broman y Woo <span class="citation" data-cites="Broman02012018"><a href="400-bibliografia.html#ref-Broman02012018" role="doc-biblioref">[3]</a></span> los complementan con un conjunto de recomendaciones prácticas específicamente orientadas a quien trabaja con hojas de cálculo en un entorno profesional. Aunque están dirigidas al ámbito científico, son completamente aplicables a la industria alimentaria y quesera.</p>
+<p>Las recomendaciones más importantes son:</p>
+<p><strong>Sé consistente.</strong> Usa siempre los mismos nombres, los mismos códigos y el mismo formato para los mismos conceptos. Si un turno se llama “mañana” en unas filas y “Mañana” o “M” en otras, el software los tratará como tres valores distintos.</p>
+<p><strong>Escribe las fechas en formato ISO: AAAA-MM-DD.</strong> Excel tiene el hábito de interpretar y reformatear las fechas automáticamente, lo que puede generar errores silenciosos al exportar a CSV. El formato <code>2024-03-15</code> es reconocido sin ambigüedad por todos los programas.</p>
+<p><strong>No dejes celdas vacías.</strong> Una celda vacía puede significar “no se midió”, “el valor es cero” o “es igual al valor anterior” — y ningún programa puede saber cuál de las tres es. Usa un código explícito para los datos ausentes, como <code>NA</code> o <code>nd</code>.</p>
+<p><strong>Una sola cosa en cada celda.</strong> No combines en una celda el valor y la unidad (<code>"3,4%"</code>), ni dos variables distintas (<code>"turno mañana / operario A"</code>). Cada dato tiene su columna.</p>
+<p><strong>No incluyas cálculos en los datos.</strong> Las filas y columnas de totales, medias o porcentajes mezcladas con los datos originales rompen la estructura rectangular y dificultan el análisis. Los cálculos se hacen en el script, no en la tabla de datos.</p>
+<p><strong>No uses el color o el formato como datos.</strong> Si marcas en rojo las celdas con valores fuera de especificación, esa información se pierde al exportar a CSV. Cualquier información relevante debe estar en una columna de texto.</p>
+<p><strong>Elige buenos nombres para las variables.</strong> Sin espacios, sin caracteres especiales, sin acentos. Preferiblemente en minúsculas y con guión bajo como separador: <code>peso_g</code>, <code>fecha_fabricacion</code>, <code>turno</code>. Son más fáciles de usar en Python y R.</p>
+<p>Estas recomendaciones pueden parecer obvias, pero su incumplimiento es la causa más frecuente de errores en el análisis de datos industriales y de tiempo perdido en la limpieza de datos antes de poder analizarlos.</p>
+</section>
+<section id="ficheros-planos-y-ficheros-csv" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="ficheros-planos-y-ficheros-csv"><span class="header-section-number">4.7</span> Ficheros planos y ficheros CSV</h2>
 <section id="qué-son" class="level3">
 <h3 class="anchored" data-anchor-id="qué-son">Qué son</h3>
 <p>Un <strong>fichero plano</strong> es un archivo de texto sin formato donde los datos están separados por espacios o tabulaciones. Muchos equipos de laboratorio y básculas de proceso generan este tipo de archivos, que pueden importarse directamente en Excel, Python o R.</p>
@@ -707,19 +721,19 @@ Importante
 <p>Cuando los datos se importan en Python o R, se almacenan en una estructura denominada <strong>DataFrame</strong> o <strong>cuadro de datos</strong>, equivalente a la tabla rectangular de Excel, y sobre la que se realizarán todas las operaciones de análisis.</p>
 </section>
 </section>
-<section id="práctica" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="práctica"><span class="header-section-number">4.7</span> Práctica</h2>
+<section id="práctica" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="práctica"><span class="header-section-number">4.8</span> Práctica</h2>
 <ul>
 <li>En Excel, crea una tabla de datos con al menos tres variables y cinco observaciones, siguiendo las reglas de datos ordenados y la convención de nombres de variables. Guárdala en formato CSV y vuelve a abrirla para verificar que el formato se ha conservado correctamente.</li>
 <li>Practica el uso de <strong>Datos</strong> &gt; <strong>Filtro</strong> en Excel para seleccionar observaciones según distintos criterios.</li>
 </ul>
 </section>
-<section id="para-resolver" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="para-resolver"><span class="header-section-number">4.8</span> Para resolver</h2>
+<section id="para-resolver" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="para-resolver"><span class="header-section-number">4.9</span> Para resolver</h2>
 <p>Escribe cinco ejemplos de nombres de variables relacionados con medidas analíticas o de proceso en quesería —como la temperatura de la leche en recepción o el pH al finalizar la cuajada— y verifica si son válidos según las reglas establecidas. Para los que no sean válidos, propón una alternativa correcta.</p>
 </section>
-<section id="resumen-del-capítulo" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">4.9</span> Resumen del capítulo</h2>
+<section id="resumen-del-capítulo" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">4.10</span> Resumen del capítulo</h2>
 <p>Este capítulo ha establecido los fundamentos conceptuales y prácticos para organizar los datos antes de analizarlos.</p>
 <p>Los conceptos básicos del análisis de datos son: la <strong>variable</strong> —característica medible de un caso—, el <strong>caso</strong> —unidad de observación—, y la distinción entre variables <strong>cualitativas</strong> —que clasifican en categorías— y <strong>cuantitativas</strong> —que toman valores numéricos con los que se puede operar—. La <strong>población</strong> es el conjunto completo de casos de interés; la <strong>muestra</strong> es el subconjunto que analizamos. Un <strong>parámetro</strong> describe a la población; un <strong>estadístico</strong> lo estima a partir de la muestra.</p>
 <p>El <strong>flujo de trabajo</strong> es la secuencia ordenada de pasos desde la recolección de los datos hasta la comunicación de los resultados: recolección, inspección, limpieza, transformación, análisis exploratorio, modelado y comunicación. Seguir este flujo de forma sistemática garantiza la reproducibilidad, reduce los errores y facilita la colaboración.</p>
@@ -733,6 +747,9 @@ Importante
 </div>
 <div id="ref-wickham2023es" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[2] </div><div class="csl-right-inline">G. G. Hadley Wickham, <span>«R Para Ciencia de Datos»</span>. [En línea]. Disponible en: <a href="https://es.r4ds.hadley.nz/">https://es.r4ds.hadley.nz/</a></div>
+</div>
+<div id="ref-Broman02012018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">K. W. Broman y K. H. Woo, <span>«Data Organization in Spreadsheets»</span>, <em>The American Statistician</em>, vol. 72, n.º 1, pp. 2-10, 2018, doi: <a href="https://doi.org/10.1080/00031305.2017.1375989">10.1080/00031305.2017.1375989</a>.</div>
 </div>
 </div>
 </section>
