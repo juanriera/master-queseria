@@ -364,8 +364,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./380-indice_dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+  <a href="./380-indice-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Índice de datasets utilizados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -514,14 +514,24 @@ n = 3
 </ol>
 <p>Entonces, la media aritmética de los valores <span class="math inline">\(5, 7, 9\)</span> es <span class="math inline">\(7\)</span>.</p>
 <p>La media de una muestra se representa habitualmente mediante el símbolo</p>
-<p><span class="math display">\[\bar{x}\]</span> y, de una manera más formal, su valor se obtiene mediante la fórmula siguiente:</p>
-<p><span class="math display">\[{\bar{x}={\frac {1}{n}}\sum _{i=1}^{n}x_{i}}\]</span> El signo <span class="math inline">\(\sum\)</span> se conoce como <em>sumatorio</em>, e indica que ese término consiste en la suma de los <span class="math inline">\(x\)</span> valores desde el primero hasta el valor <span class="math inline">\(n\)</span>. Expresado mediante una formulación matemática,</p>
-<p><span class="math display">\[{\bar{x}={\frac {1}{n}}\sum _{i=1}^{n}x_{i}={\frac {x_{1}+x_{2}+\cdots +x_{n}}{n}}}\]</span> lo quiere quiere decir: <em>“la suma de todos los valores observados dividido entre el número de estos valores”</em>.</p>
+<p><span class="math display">\[
+\bar{x}
+\]</span></p>
+<p>y, de una manera más formal, su valor se obtiene mediante la fórmula siguiente:</p>
+<p><span class="math display">\[
+{\bar{x}={\frac {1}{n}}\sum _{i=1}^{n}x_{i}}
+\]</span></p>
+<p>El signo <span class="math inline">\(\sum\)</span> se conoce como <em>sumatorio</em>, e indica que ese término consiste en la suma de los <span class="math inline">\(x\)</span> valores desde el primero hasta el valor <span class="math inline">\(n\)</span>. Expresado mediante una formulación matemática,</p>
+<p><span class="math display">\[
+{\bar{x}={\frac {1}{n}}\sum _{i=1}^{n}x_{i}={\frac {x_{1}+x_{2}+\cdots +x_{n}}{n}}}
+\]</span></p>
+<p>lo quiere quiere decir: <em>“la suma de todos los valores observados dividido entre el número de estos valores”</em>.</p>
 <p>La <strong>media</strong> es lo que conocemos como un <em>valor central</em>, ya que representa el centro de nuestro conjunto de números. Como es el centro de nuestro conjunto de datos, la suma de las distancias de todos los valores a este valor central es <span class="math inline">\(cero\)</span>. Más adelante veremos la importancia de este hecho, al hablar de la dispersión y las formas de cálculo de la misma. Como hemos visto, la media de una <strong>muestra</strong> se representa como <span class="math inline">\(\bar{x}\)</span>, mientras que la media de una <strong>población</strong> se representa con la letra griega <em>mu</em>: <span class="math inline">\(\mu\)</span>. En ambos casos, el cálculo se realiza de forma idéntica.</p>
 <p>Volvamos a nuestro ejemplo de la altura de un grupo de alumnos, para realizar los cálculos según el modelo que hemos descrito. En nuestro caso, la <em>altura media</em> de nuestros alumnos (la <em>media</em> de nuestro conjunto de números) se calcula como:</p>
 <p><span class="math display">\[
 \bar{x} = \frac{153+135+140+140+175+138+145+154+152+159+154}{11} = 149,54
-\]</span> Utilicemos una hoja de cálculo para guardar nuestros valores.</p>
+\]</span></p>
+<p>Utilicemos una hoja de cálculo para guardar nuestros valores.</p>
 <p><img src="imagenes/aula1.webp" class="img-fluid"></p>
 <p>La fórmula para obtener la media en la hoja de cálculo, por ejemplo en la versión en español de <em>Microsoft Excel</em>, es <code>=PROMEDIO(...)</code>, donde los puntos suspensivos deben sustituirse por el rango a calcular. En nuestro ejemplo, introduciríamos la fórmula en la celda <code>B13</code>como <code>=PROMEDIO(B2..B12)</code> (Para más detalles, verificar la hoja Excel adjunta).</p>
 <p>Para representar más cómodamente nuestros valores, dibujamos un punto a la altura de cada alumno,</p>
@@ -577,7 +587,8 @@ n = 3
 </figure>
 </div>
 <p>Algo parece que no está funcionando aquí: el promedio de las diferencias es cero en los tres casos; no podemos usar este cálculo para calcular la dispersión. Pero esto es esperable: ya que la media es un valor central, como hemos visto antes, la suma de las diferencias de todos los valores respecto de su media debe ser forzosamente cero, y esto es lo que estamos obteniendo.</p>
-<p>Para encontrar una solución, vamos a recurrir al viejo teorema de Pitágoras, que si recuerdas, nos dice que, en un triángulo rectángulo, el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos (una explicación gráfica muy divertida en el anexo …): <span class="math display">\[
+<p>Para encontrar una solución, vamos a recurrir al viejo teorema de Pitágoras, que si recuerdas, nos dice que, en un triángulo rectángulo, el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los catetos:</p>
+<p><span class="math display">\[
 h^2= a^2+b^2
 \]</span></p>
 <p>Esta fórmula es la base del cálculo de la distancia entre dos puntos:</p>
@@ -766,46 +777,88 @@ Nota
 <section id="cálculo-de-estadísticos-básicos-en-python-y-r" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="cálculo-de-estadísticos-básicos-en-python-y-r"><span class="header-section-number">6.7</span> Cálculo de estadísticos básicos en Python y R</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">R</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>altura_cm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">153</span>, <span class="dv">135</span>, <span class="dv">140</span>, <span class="dv">140</span>, <span class="dv">175</span>, <span class="dv">138</span>, <span class="dv">145</span>, <span class="dv">154</span>, <span class="dv">152</span>, <span class="dv">159</span>, <span class="dv">154</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>altura_cm <span class="op">=</span> [<span class="dv">153</span>, <span class="dv">135</span>, <span class="dv">140</span>, <span class="dv">140</span>, <span class="dv">175</span>, <span class="dv">138</span>, <span class="dv">145</span>, <span class="dv">154</span>, <span class="dv">152</span>, <span class="dv">159</span>, <span class="dv">154</span>]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>serie <span class="op">=</span> pd.Series(altura_cm)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(serie.mean())     <span class="co"># media: 149.55</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(altura_cm)     <span class="co"># media: 149.55</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 149.5455</code></pre>
+</div>
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(altura_cm)   <span class="co"># mediana</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 152</code></pre>
+</div>
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(altura_cm)       <span class="co"># desviación típica muestral (n-1): 11.59</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 11.58761</code></pre>
+</div>
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(altura_cm)      <span class="co"># varianza muestral (n-1)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 134.2727</code></pre>
+</div>
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(altura_cm)  <span class="co"># resumen completo</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  135.0   140.0   152.0   149.5   154.0   175.0 </code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<details class="code-fold">
+<summary>Mostrar código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>altura_cm <span class="op">=</span> [<span class="dv">153</span>, <span class="dv">135</span>, <span class="dv">140</span>, <span class="dv">140</span>, <span class="dv">175</span>, <span class="dv">138</span>, <span class="dv">145</span>, <span class="dv">154</span>, <span class="dv">152</span>, <span class="dv">159</span>, <span class="dv">154</span>]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>serie <span class="op">=</span> pd.Series(altura_cm)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(serie.mean())     <span class="co"># media: 149.55</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>149.54545454545453</code></pre>
 </div>
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(serie.median())   <span class="co"># mediana</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(serie.median())   <span class="co"># mediana</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>152.0</code></pre>
 </div>
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(serie.std())      <span class="co"># desviación típica muestral (n-1): 11.59</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(serie.std())      <span class="co"># desviación típica muestral (n-1): 11.59</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>11.587610938960943</code></pre>
 </div>
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(serie.var())      <span class="co"># varianza muestral (n-1)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(serie.var())      <span class="co"># varianza muestral (n-1)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>134.2727272727273</code></pre>
 </div>
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(serie.describe()) <span class="co"># resumen completo</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(serie.describe()) <span class="co"># resumen completo</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>count     11.000000
@@ -817,48 +870,6 @@ min      135.000000
 75%      154.000000
 max      175.000000
 dtype: float64</code></pre>
-</div>
-</div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="cell">
-<details class="code-fold">
-<summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>altura_cm <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">153</span>, <span class="dv">135</span>, <span class="dv">140</span>, <span class="dv">140</span>, <span class="dv">175</span>, <span class="dv">138</span>, <span class="dv">145</span>, <span class="dv">154</span>, <span class="dv">152</span>, <span class="dv">159</span>, <span class="dv">154</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(altura_cm)     <span class="co"># media: 149.55</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 149.5455</code></pre>
-</div>
-<details class="code-fold">
-<summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(altura_cm)   <span class="co"># mediana</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 152</code></pre>
-</div>
-<details class="code-fold">
-<summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(altura_cm)       <span class="co"># desviación típica muestral (n-1): 11.59</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 11.58761</code></pre>
-</div>
-<details class="code-fold">
-<summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(altura_cm)      <span class="co"># varianza muestral (n-1)</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 134.2727</code></pre>
-</div>
-<details class="code-fold">
-<summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(altura_cm)  <span class="co"># resumen completo</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  135.0   140.0   152.0   149.5   154.0   175.0 </code></pre>
 </div>
 </div>
 </div>

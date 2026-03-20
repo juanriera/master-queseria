@@ -364,8 +364,8 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./380-indice_dataframes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Indice de DataFrames utilizados</span></span></a>
+  <a href="./380-indice-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Índice de datasets utilizados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -538,69 +538,65 @@ window.Quarto = {
 <p>Los datos que encontramos en la industria alimentaria no siempre tienen la misma forma. Reconocer la forma de una distribución es el primer paso para interpretarla correctamente y elegir las herramientas estadísticas adecuadas.</p>
 <p>Veamos las cuatro formas más frecuentes usando datos que ya conocemos del libro:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">R</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> palmerpenguins <span class="im">import</span> load_penguins</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar datasets</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>url_lla <span class="op">=</span> <span class="st">"datos/laliga_resultados2425.csv"</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df_lla <span class="op">=</span> pd.read_csv(url_lla, sep<span class="op">=</span><span class="st">';'</span>, decimal<span class="op">=</span><span class="st">','</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>df_lla[<span class="st">'goles_totales'</span>] <span class="op">=</span> df_lla[<span class="st">'goles_local'</span>] <span class="op">+</span> df_lla[<span class="st">'goles_visitante'</span>]</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> load_penguins().dropna(subset<span class="op">=</span>[<span class="st">'flipper_length_mm'</span>, <span class="st">'species'</span>, <span class="st">'body_mass_g'</span>])</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="dv">8</span>))</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">"Cuatro formas de distribución en datos reales"</span>, fontsize<span class="op">=</span><span class="dv">13</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Normal: flipper_length Gentoo</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>gentoo <span class="op">=</span> penguins[penguins[<span class="st">'species'</span>] <span class="op">==</span> <span class="st">'Gentoo'</span>][<span class="st">'flipper_length_mm'</span>].dropna()</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">0</span>].hist(gentoo, bins<span class="op">=</span><span class="dv">15</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>               color<span class="op">=</span><span class="st">'steelblue'</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="st">"Simétrica (normal)</span><span class="ch">\n</span><span class="st">Longitud aleta — pingüinos Gentoo"</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">0</span>].set_xlabel(<span class="st">"Longitud aleta (mm)"</span>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">0</span>].set_ylabel(<span class="st">"Frecuencia"</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Asimétrica positiva moderada: goles La Liga</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">1</span>].hist(df_lla[<span class="st">'goles_totales'</span>], bins<span class="op">=</span><span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">12</span>),</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>               color<span class="op">=</span><span class="st">'darkorange'</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">1</span>].set_title(<span class="st">"Asimétrica positiva</span><span class="ch">\n</span><span class="st">Goles por partido — La Liga 2024-25"</span>)</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">1</span>].set_xlabel(<span class="st">"Goles totales"</span>)</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">1</span>].set_ylabel(<span class="st">"Frecuencia"</span>)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Asimétrica positiva extrema: masa corporal pingüinos (cola derecha)</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Usamos todos los pingüinos sin filtrar por especie</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>body <span class="op">=</span> penguins[<span class="st">'body_mass_g'</span>].dropna()</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">0</span>].hist(body, bins<span class="op">=</span><span class="dv">20</span>,</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>               color<span class="op">=</span><span class="st">'tomato'</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">0</span>].set_title(<span class="st">"Asimétrica positiva</span><span class="ch">\n</span><span class="st">Masa corporal — todos los pingüinos"</span>)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">0</span>].set_xlabel(<span class="st">"Masa corporal (g)"</span>)</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">0</span>].set_ylabel(<span class="st">"Frecuencia"</span>)</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Bimodal: flipper length penguins por especie</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sp, color <span class="kw">in</span> <span class="bu">zip</span>([<span class="st">'Adelie'</span>, <span class="st">'Chinstrap'</span>, <span class="st">'Gentoo'</span>],</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>                     [<span class="st">'#1f77b4'</span>, <span class="st">'#ff7f0e'</span>, <span class="st">'#2ca02c'</span>]):</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    datos <span class="op">=</span> penguins[penguins[<span class="st">'species'</span>] <span class="op">==</span> sp][<span class="st">'flipper_length_mm'</span>]</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>,<span class="dv">1</span>].hist(datos, bins<span class="op">=</span><span class="dv">15</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span>sp, color<span class="op">=</span>color)</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">1</span>].set_title(<span class="st">"Bimodal (mezcla de grupos)</span><span class="ch">\n</span><span class="st">Longitud aleta — pingüinos"</span>)</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">1</span>].set_xlabel(<span class="st">"Longitud aleta (mm)"</span>)</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">1</span>].set_ylabel(<span class="st">"Frecuencia"</span>)</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">1</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>)</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df_lla <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/laliga_resultados2425.csv"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">goles_totales =</span> goles_local <span class="sc">+</span> goles_visitante)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(gentoo, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm)) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Simétrica (normal)"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"Longitud aleta — pingüinos Gentoo"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Longitud aleta (mm)"</span>, <span class="at">y =</span> <span class="st">"Frecuencia"</span>) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_lla, <span class="fu">aes</span>(<span class="at">x =</span> goles_totales)) <span class="sc">+</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">11</span>, <span class="at">fill =</span> <span class="st">"darkorange"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Asimétrica positiva"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"Goles por partido — La Liga 2024-25"</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Goles totales"</span>, <span class="at">y =</span> <span class="st">"Frecuencia"</span>) <span class="sc">+</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">drop_na</span>(body_mass_g) <span class="sc">|&gt;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"tomato"</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Asimétrica positiva"</span>,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"Masa corporal — todos los pingüinos"</span>,</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Masa corporal (g)"</span>, <span class="at">y =</span> <span class="st">"Frecuencia"</span>) <span class="sc">+</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">drop_na</span>(flipper_length_mm) <span class="sc">|&gt;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">position =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Bimodal (mezcla de grupos)"</span>,</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"Longitud aleta — pingüinos"</span>,</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Longitud aleta (mm)"</span>, <span class="at">y =</span> <span class="st">"Frecuencia"</span>,</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Especie"</span>) <span class="sc">+</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>))</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">/</span> (p3 <span class="sc">+</span> p4)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="075-distribuciones_files/figure-html/panel-distribuciones-python-1.png" class="img-fluid figure-img" width="1056"></p>
+<p><img src="075-distribuciones_files/figure-html/panel-distribuciones-r-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -610,59 +606,63 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df_lla <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/laliga_resultados2425.csv"</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                    <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">goles_totales =</span> goles_local <span class="sc">+</span> goles_visitante)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(gentoo, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm)) <span class="sc">+</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>,</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Simétrica (normal)"</span>,</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"Longitud aleta — pingüinos Gentoo"</span>,</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Longitud aleta (mm)"</span>, <span class="at">y =</span> <span class="st">"Frecuencia"</span>) <span class="sc">+</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_lla, <span class="fu">aes</span>(<span class="at">x =</span> goles_totales)) <span class="sc">+</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">11</span>, <span class="at">fill =</span> <span class="st">"darkorange"</span>,</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Asimétrica positiva"</span>,</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"Goles por partido — La Liga 2024-25"</span>,</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Goles totales"</span>, <span class="at">y =</span> <span class="st">"Frecuencia"</span>) <span class="sc">+</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">drop_na</span>(body_mass_g) <span class="sc">|&gt;</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> body_mass_g)) <span class="sc">+</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"tomato"</span>,</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Asimétrica positiva"</span>,</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"Masa corporal — todos los pingüinos"</span>,</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Masa corporal (g)"</span>, <span class="at">y =</span> <span class="st">"Frecuencia"</span>) <span class="sc">+</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">drop_na</span>(flipper_length_mm) <span class="sc">|&gt;</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">position =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Bimodal (mezcla de grupos)"</span>,</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"Longitud aleta — pingüinos"</span>,</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Longitud aleta (mm)"</span>, <span class="at">y =</span> <span class="st">"Frecuencia"</span>,</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>         <span class="at">fill =</span> <span class="st">"Especie"</span>) <span class="sc">+</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>))</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">/</span> (p3 <span class="sc">+</span> p4)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> palmerpenguins <span class="im">import</span> load_penguins</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar datasets</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>url_lla <span class="op">=</span> <span class="st">"datos/laliga_resultados2425.csv"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>df_lla <span class="op">=</span> pd.read_csv(url_lla, sep<span class="op">=</span><span class="st">';'</span>, decimal<span class="op">=</span><span class="st">','</span>, encoding<span class="op">=</span><span class="st">'ISO-8859-1'</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>df_lla[<span class="st">'goles_totales'</span>] <span class="op">=</span> df_lla[<span class="st">'goles_local'</span>] <span class="op">+</span> df_lla[<span class="st">'goles_visitante'</span>]</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> load_penguins().dropna(subset<span class="op">=</span>[<span class="st">'flipper_length_mm'</span>, <span class="st">'species'</span>, <span class="st">'body_mass_g'</span>])</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="dv">8</span>))</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">"Cuatro formas de distribución en datos reales"</span>, fontsize<span class="op">=</span><span class="dv">13</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Normal: flipper_length Gentoo</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>gentoo <span class="op">=</span> penguins[penguins[<span class="st">'species'</span>] <span class="op">==</span> <span class="st">'Gentoo'</span>][<span class="st">'flipper_length_mm'</span>].dropna()</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">0</span>].hist(gentoo, bins<span class="op">=</span><span class="dv">15</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>               color<span class="op">=</span><span class="st">'steelblue'</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="st">"Simétrica (normal)</span><span class="ch">\n</span><span class="st">Longitud aleta — pingüinos Gentoo"</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">0</span>].set_xlabel(<span class="st">"Longitud aleta (mm)"</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">0</span>].set_ylabel(<span class="st">"Frecuencia"</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Asimétrica positiva moderada: goles La Liga</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">1</span>].hist(df_lla[<span class="st">'goles_totales'</span>], bins<span class="op">=</span><span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">12</span>),</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>               color<span class="op">=</span><span class="st">'darkorange'</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">1</span>].set_title(<span class="st">"Asimétrica positiva</span><span class="ch">\n</span><span class="st">Goles por partido — La Liga 2024-25"</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">1</span>].set_xlabel(<span class="st">"Goles totales"</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>,<span class="dv">1</span>].set_ylabel(<span class="st">"Frecuencia"</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Asimétrica positiva extrema: masa corporal pingüinos (cola derecha)</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Usamos todos los pingüinos sin filtrar por especie</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>body <span class="op">=</span> penguins[<span class="st">'body_mass_g'</span>].dropna()</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">0</span>].hist(body, bins<span class="op">=</span><span class="dv">20</span>,</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>               color<span class="op">=</span><span class="st">'tomato'</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">0</span>].set_title(<span class="st">"Asimétrica positiva</span><span class="ch">\n</span><span class="st">Masa corporal — todos los pingüinos"</span>)</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">0</span>].set_xlabel(<span class="st">"Masa corporal (g)"</span>)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">0</span>].set_ylabel(<span class="st">"Frecuencia"</span>)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Bimodal: flipper length penguins por especie</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sp, color <span class="kw">in</span> <span class="bu">zip</span>([<span class="st">'Adelie'</span>, <span class="st">'Chinstrap'</span>, <span class="st">'Gentoo'</span>],</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>                     [<span class="st">'#1f77b4'</span>, <span class="st">'#ff7f0e'</span>, <span class="st">'#2ca02c'</span>]):</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    datos <span class="op">=</span> penguins[penguins[<span class="st">'species'</span>] <span class="op">==</span> sp][<span class="st">'flipper_length_mm'</span>]</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>,<span class="dv">1</span>].hist(datos, bins<span class="op">=</span><span class="dv">15</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span>sp, color<span class="op">=</span>color)</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">1</span>].set_title(<span class="st">"Bimodal (mezcla de grupos)</span><span class="ch">\n</span><span class="st">Longitud aleta — pingüinos"</span>)</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">1</span>].set_xlabel(<span class="st">"Longitud aleta (mm)"</span>)</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">1</span>].set_ylabel(<span class="st">"Frecuencia"</span>)</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>,<span class="dv">1</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="075-distribuciones_files/figure-html/panel-distribuciones-r-3.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="075-distribuciones_files/figure-html/panel-distribuciones-python-1.png" class="img-fluid figure-img" width="1056"></p>
 </figure>
 </div>
 </div>
@@ -697,44 +697,43 @@ window.Quarto = {
 <p>Esta regla tiene consecuencias prácticas inmediatas: si sabemos que un proceso sigue una distribución normal con media <span class="math inline">\(\mu\)</span> y desviación típica <span class="math inline">\(\sigma\)</span>, podemos calcular qué proporción de unidades estará fuera de cualquier límite especificado.</p>
 <p>Visualicemos la regla con datos simulados:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">R</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> st</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mu, sigma <span class="op">=</span> <span class="fl">217.2</span>, <span class="fl">6.6</span>   <span class="co"># parámetros flipper_length Gentoo</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(mu <span class="op">-</span> <span class="dv">4</span><span class="op">*</span>sigma, mu <span class="op">+</span> <span class="dv">4</span><span class="op">*</span>sigma, <span class="dv">300</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> st.norm.pdf(x, mu, sigma)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, color<span class="op">=</span><span class="st">'navy'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Dibujar de mayor a menor para que las zonas internas queden encima</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>colores <span class="op">=</span> [<span class="st">'#5dade2'</span>, <span class="st">'#a9cce3'</span>, <span class="st">'#d4e6f1'</span>]</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>rangos  <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>]</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>labels  <span class="op">=</span> [<span class="st">'±3σ  (99,7%)'</span>, <span class="st">'±2σ  (95%)'</span>, <span class="st">'±1σ  (68%)'</span>]</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> r, color, label <span class="kw">in</span> <span class="bu">zip</span>(rangos, colores, labels):</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    ax.fill_between(x, y,</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                    where<span class="op">=</span>(x <span class="op">&gt;=</span> mu <span class="op">-</span> r<span class="op">*</span>sigma) <span class="op">&amp;</span> (x <span class="op">&lt;=</span> mu <span class="op">+</span> r<span class="op">*</span>sigma),</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span>color, label<span class="op">=</span>label)</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>ax.axvline(mu, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="ss">f"Distribución normal: longitud aleta Gentoo (μ=</span><span class="sc">{</span>mu<span class="sc">}</span><span class="ss">, σ=</span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Longitud aleta (mm)"</span>)</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Densidad de probabilidad"</span>)</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">217.2</span>; sigma <span class="ot">&lt;-</span> <span class="fl">6.6</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(mu <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>sigma, mu <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>sigma, <span class="at">length.out =</span> <span class="dv">300</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, mu, sigma)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_n <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_n, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_area</span>(<span class="at">data =</span> df_n <span class="sc">|&gt;</span> <span class="fu">filter</span>(x <span class="sc">&gt;=</span> mu <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>sigma, x <span class="sc">&lt;=</span> mu <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>sigma),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="st">"#5dade2"</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_area</span>(<span class="at">data =</span> df_n <span class="sc">|&gt;</span> <span class="fu">filter</span>(x <span class="sc">&gt;=</span> mu <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span>sigma, x <span class="sc">&lt;=</span> mu <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>sigma),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="st">"#a9cce3"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_area</span>(<span class="at">data =</span> df_n <span class="sc">|&gt;</span> <span class="fu">filter</span>(x <span class="sc">&gt;=</span> mu <span class="sc">-</span> sigma,   x <span class="sc">&lt;=</span> mu <span class="sc">+</span> sigma),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="st">"#d4e6f1"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"navy"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> mu, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> mu <span class="sc">+</span> <span class="fl">0.2</span><span class="sc">*</span>sigma, <span class="at">y =</span> <span class="fu">max</span>(y)<span class="sc">*</span><span class="fl">0.95</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"μ"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> mu, <span class="at">y =</span> <span class="fu">max</span>(y)<span class="sc">*</span><span class="fl">0.5</span>,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"68%"</span>, <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> mu <span class="sc">+</span> <span class="fl">1.5</span><span class="sc">*</span>sigma, <span class="at">y =</span> <span class="fu">max</span>(y)<span class="sc">*</span><span class="fl">0.2</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"95%"</span>, <span class="at">size =</span> <span class="fl">3.5</span>) <span class="sc">+</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> mu <span class="sc">+</span> <span class="fl">2.5</span><span class="sc">*</span>sigma, <span class="at">y =</span> <span class="fu">max</span>(y)<span class="sc">*</span><span class="fl">0.05</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"99,7%"</span>, <span class="at">size =</span> <span class="fl">3.5</span>) <span class="sc">+</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">"Distribución normal: longitud aleta Gentoo (μ="</span>, mu,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>                        <span class="st">", σ="</span>, sigma, <span class="st">")"</span>),</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Longitud aleta (mm)"</span>, <span class="at">y =</span> <span class="st">"Densidad de probabilidad"</span>) <span class="sc">+</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="075-distribuciones_files/figure-html/regla-normal-python-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="075-distribuciones_files/figure-html/regla-normal-r-3.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -744,37 +743,38 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">217.2</span>; sigma <span class="ot">&lt;-</span> <span class="fl">6.6</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(mu <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span>sigma, mu <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span>sigma, <span class="at">length.out =</span> <span class="dv">300</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, mu, sigma)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>df_n <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_n, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_area</span>(<span class="at">data =</span> df_n <span class="sc">|&gt;</span> <span class="fu">filter</span>(x <span class="sc">&gt;=</span> mu <span class="sc">-</span> <span class="dv">3</span><span class="sc">*</span>sigma, x <span class="sc">&lt;=</span> mu <span class="sc">+</span> <span class="dv">3</span><span class="sc">*</span>sigma),</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="st">"#5dade2"</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_area</span>(<span class="at">data =</span> df_n <span class="sc">|&gt;</span> <span class="fu">filter</span>(x <span class="sc">&gt;=</span> mu <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span>sigma, x <span class="sc">&lt;=</span> mu <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>sigma),</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="st">"#a9cce3"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_area</span>(<span class="at">data =</span> df_n <span class="sc">|&gt;</span> <span class="fu">filter</span>(x <span class="sc">&gt;=</span> mu <span class="sc">-</span> sigma,   x <span class="sc">&lt;=</span> mu <span class="sc">+</span> sigma),</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="st">"#d4e6f1"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"navy"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> mu, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> mu <span class="sc">+</span> <span class="fl">0.2</span><span class="sc">*</span>sigma, <span class="at">y =</span> <span class="fu">max</span>(y)<span class="sc">*</span><span class="fl">0.95</span>,</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"μ"</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> mu, <span class="at">y =</span> <span class="fu">max</span>(y)<span class="sc">*</span><span class="fl">0.5</span>,</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"68%"</span>, <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.3</span>) <span class="sc">+</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> mu <span class="sc">+</span> <span class="fl">1.5</span><span class="sc">*</span>sigma, <span class="at">y =</span> <span class="fu">max</span>(y)<span class="sc">*</span><span class="fl">0.2</span>,</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"95%"</span>, <span class="at">size =</span> <span class="fl">3.5</span>) <span class="sc">+</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> mu <span class="sc">+</span> <span class="fl">2.5</span><span class="sc">*</span>sigma, <span class="at">y =</span> <span class="fu">max</span>(y)<span class="sc">*</span><span class="fl">0.05</span>,</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"99,7%"</span>, <span class="at">size =</span> <span class="fl">3.5</span>) <span class="sc">+</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste0</span>(<span class="st">"Distribución normal: longitud aleta Gentoo (μ="</span>, mu,</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>                        <span class="st">", σ="</span>, sigma, <span class="st">")"</span>),</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Longitud aleta (mm)"</span>, <span class="at">y =</span> <span class="st">"Densidad de probabilidad"</span>) <span class="sc">+</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> st</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mu, sigma <span class="op">=</span> <span class="fl">217.2</span>, <span class="fl">6.6</span>   <span class="co"># parámetros flipper_length Gentoo</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(mu <span class="op">-</span> <span class="dv">4</span><span class="op">*</span>sigma, mu <span class="op">+</span> <span class="dv">4</span><span class="op">*</span>sigma, <span class="dv">300</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> st.norm.pdf(x, mu, sigma)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, color<span class="op">=</span><span class="st">'navy'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Dibujar de mayor a menor para que las zonas internas queden encima</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>colores <span class="op">=</span> [<span class="st">'#5dade2'</span>, <span class="st">'#a9cce3'</span>, <span class="st">'#d4e6f1'</span>]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>rangos  <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>]</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>labels  <span class="op">=</span> [<span class="st">'±3σ  (99,7%)'</span>, <span class="st">'±2σ  (95%)'</span>, <span class="st">'±1σ  (68%)'</span>]</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> r, color, label <span class="kw">in</span> <span class="bu">zip</span>(rangos, colores, labels):</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    ax.fill_between(x, y,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                    where<span class="op">=</span>(x <span class="op">&gt;=</span> mu <span class="op">-</span> r<span class="op">*</span>sigma) <span class="op">&amp;</span> (x <span class="op">&lt;=</span> mu <span class="op">+</span> r<span class="op">*</span>sigma),</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span>color, label<span class="op">=</span>label)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>ax.axvline(mu, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="ss">f"Distribución normal: longitud aleta Gentoo (μ=</span><span class="sc">{</span>mu<span class="sc">}</span><span class="ss">, σ=</span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Longitud aleta (mm)"</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Densidad de probabilidad"</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="075-distribuciones_files/figure-html/regla-normal-r-3.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="075-distribuciones_files/figure-html/regla-normal-python-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -816,57 +816,57 @@ window.Quarto = {
 <p>La función que necesitamos es la <strong>función de distribución acumulada</strong> (<em>cumulative distribution function</em>, CDF): dado un valor <span class="math inline">\(x\)</span>, nos devuelve la probabilidad de que una observación sea menor o igual que <span class="math inline">\(x\)</span>, es decir, el área bajo la curva a la izquierda de ese punto.</p>
 <p>Como ejemplo, calculamos algunas probabilidades para la longitud de aleta de los pingüinos Gentoo (aproximadamente normal con media 217,2 mm y desviación típica 6,6 mm):</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">R</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> st</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">217.2</span>; sigma <span class="ot">&lt;-</span> <span class="fl">6.6</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>mu, sigma <span class="op">=</span> <span class="fl">217.2</span>, <span class="fl">6.6</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># P(flipper &lt; 210 mm)</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>prob <span class="op">=</span> st.norm.cdf(<span class="dv">210</span>, loc<span class="op">=</span>mu, scale<span class="op">=</span>sigma)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(longitud aleta &lt; 210 mm) = </span><span class="sc">{</span>prob<span class="sc">:.4f}</span><span class="ss"> = </span><span class="sc">{</span>prob<span class="op">*</span><span class="dv">100</span><span class="sc">:.2f}</span><span class="ss">%"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># P(MG &lt; 22%)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>prob <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">22</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"P(MG &lt; 22%%) = %.4f = %.2f%%</span><span class="sc">\n</span><span class="st">"</span>, prob, prob<span class="sc">*</span><span class="dv">100</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>P(longitud aleta &lt; 210 mm) = 0.1377 = 13.77%</code></pre>
+<pre><code>P(MG &lt; 22%) = 0.0000 = 0.00%</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># P(flipper &gt; 225 mm)</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>prob_sup <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> st.norm.cdf(<span class="dv">225</span>, loc<span class="op">=</span>mu, scale<span class="op">=</span>sigma)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(longitud aleta &gt; 225 mm) = </span><span class="sc">{</span>prob_sup<span class="sc">:.4f}</span><span class="ss"> = </span><span class="sc">{</span>prob_sup<span class="op">*</span><span class="dv">100</span><span class="sc">:.2f}</span><span class="ss">%"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># P(MG &gt; 25%)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>prob_sup <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">25</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"P(MG &gt; 25%%) = %.4f = %.2f%%</span><span class="sc">\n</span><span class="st">"</span>, prob_sup, prob_sup<span class="sc">*</span><span class="dv">100</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>P(longitud aleta &gt; 225 mm) = 0.1186 = 11.86%</code></pre>
+<pre><code>P(MG &gt; 25%) = 1.0000 = 100.00%</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># P(210 &lt; flipper &lt; 225 mm)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>prob_rango <span class="op">=</span> st.norm.cdf(<span class="dv">225</span>, loc<span class="op">=</span>mu, scale<span class="op">=</span>sigma) <span class="op">-</span> st.norm.cdf(<span class="dv">210</span>, loc<span class="op">=</span>mu, scale<span class="op">=</span>sigma)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(210 mm &lt; longitud aleta &lt; 225 mm) = </span><span class="sc">{</span>prob_rango<span class="sc">:.4f}</span><span class="ss"> = </span><span class="sc">{</span>prob_rango<span class="op">*</span><span class="dv">100</span><span class="sc">:.2f}</span><span class="ss">%"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># P(22% &lt; MG &lt; 25%)</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>prob_rango <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">25</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma) <span class="sc">-</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>              <span class="fu">pnorm</span>(<span class="dv">22</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"P(22%%%% &lt; MG &lt; 25%%%%) = %.4f = %.2f%%</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>            prob_rango, prob_rango<span class="sc">*</span><span class="dv">100</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>P(210 mm &lt; longitud aleta &lt; 225 mm) = 0.7437 = 74.37%</code></pre>
+<pre><code>P(22%% &lt; MG &lt; 25%%) = 0.0000 = 0.00%</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fl">217.2</span>; sigma <span class="ot">&lt;-</span> <span class="fl">6.6</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> st</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># P(MG &lt; 22%)</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>prob <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">22</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"P(MG &lt; 22%%) = %.4f = %.2f%%</span><span class="sc">\n</span><span class="st">"</span>, prob, prob<span class="sc">*</span><span class="dv">100</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>mu, sigma <span class="op">=</span> <span class="fl">217.2</span>, <span class="fl">6.6</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># P(flipper &lt; 210 mm)</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>prob <span class="op">=</span> st.norm.cdf(<span class="dv">210</span>, loc<span class="op">=</span>mu, scale<span class="op">=</span>sigma)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(longitud aleta &lt; 210 mm) = </span><span class="sc">{</span>prob<span class="sc">:.4f}</span><span class="ss"> = </span><span class="sc">{</span>prob<span class="op">*</span><span class="dv">100</span><span class="sc">:.2f}</span><span class="ss">%"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>P(MG &lt; 22%) = 0.0000 = 0.00%</code></pre>
+<pre><code>P(longitud aleta &lt; 210 mm) = 0.1377 = 13.77%</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># P(MG &gt; 25%)</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>prob_sup <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">25</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"P(MG &gt; 25%%) = %.4f = %.2f%%</span><span class="sc">\n</span><span class="st">"</span>, prob_sup, prob_sup<span class="sc">*</span><span class="dv">100</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># P(flipper &gt; 225 mm)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>prob_sup <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> st.norm.cdf(<span class="dv">225</span>, loc<span class="op">=</span>mu, scale<span class="op">=</span>sigma)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(longitud aleta &gt; 225 mm) = </span><span class="sc">{</span>prob_sup<span class="sc">:.4f}</span><span class="ss"> = </span><span class="sc">{</span>prob_sup<span class="op">*</span><span class="dv">100</span><span class="sc">:.2f}</span><span class="ss">%"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>P(MG &gt; 25%) = 1.0000 = 100.00%</code></pre>
+<pre><code>P(longitud aleta &gt; 225 mm) = 0.1186 = 11.86%</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># P(22% &lt; MG &lt; 25%)</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>prob_rango <span class="ot">&lt;-</span> <span class="fu">pnorm</span>(<span class="dv">25</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma) <span class="sc">-</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>              <span class="fu">pnorm</span>(<span class="dv">22</span>, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"P(22%%%% &lt; MG &lt; 25%%%%) = %.4f = %.2f%%</span><span class="sc">\n</span><span class="st">"</span>,</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>            prob_rango, prob_rango<span class="sc">*</span><span class="dv">100</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># P(210 &lt; flipper &lt; 225 mm)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>prob_rango <span class="op">=</span> st.norm.cdf(<span class="dv">225</span>, loc<span class="op">=</span>mu, scale<span class="op">=</span>sigma) <span class="op">-</span> st.norm.cdf(<span class="dv">210</span>, loc<span class="op">=</span>mu, scale<span class="op">=</span>sigma)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(210 mm &lt; longitud aleta &lt; 225 mm) = </span><span class="sc">{</span>prob_rango<span class="sc">:.4f}</span><span class="ss"> = </span><span class="sc">{</span>prob_rango<span class="op">*</span><span class="dv">100</span><span class="sc">:.2f}</span><span class="ss">%"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>P(22%% &lt; MG &lt; 25%%) = 0.0000 = 0.00%</code></pre>
+<pre><code>P(210 mm &lt; longitud aleta &lt; 225 mm) = 0.7437 = 74.37%</code></pre>
 </div>
 </div>
 </div>
@@ -880,28 +880,26 @@ window.Quarto = {
 <p>La idea es simple: si los datos siguen una distribución normal, sus cuantiles empíricos (los valores observados ordenados de menor a mayor) deberían coincidir con los cuantiles teóricos de una distribución normal. El QQ-plot representa estos dos conjuntos de cuantiles uno frente al otro: si los puntos siguen una línea recta, los datos son aproximadamente normales; si se desvían de la línea, hay indicios de no normalidad.</p>
 <p>Aplicamos el QQ-plot a la longitud de aleta de los pingüinos Gentoo, que acabamos de ver que sigue una distribución aproximadamente normal:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">R</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <div class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> st</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>) <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(flipper_length_mm)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>gentoo_flip <span class="op">=</span> penguins[penguins[<span class="st">'species'</span>] <span class="op">==</span> <span class="st">'Gentoo'</span>][<span class="st">'flipper_length_mm'</span>].dropna()</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> st.probplot(gentoo_flip, dist<span class="op">=</span><span class="st">"norm"</span>, plot<span class="op">=</span>ax)  <span class="co"># _ evita que se imprima la salida numérica</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> ax.set_title(<span class="st">"QQ-plot: Longitud aleta — pingüinos Gentoo"</span>)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> ax.get_lines()[<span class="dv">0</span>].<span class="bu">set</span>(color<span class="op">=</span><span class="st">'steelblue'</span>, markersize<span class="op">=</span><span class="dv">4</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> ax.get_lines()[<span class="dv">1</span>].<span class="bu">set</span>(color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gentoo, <span class="fu">aes</span>(<span class="at">sample =</span> flipper_length_mm)) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="fl">1.5</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_line</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"QQ-plot: Longitud aleta — pingüinos Gentoo"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Cuantiles teóricos (distribución normal)"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Cuantiles observados (longitud aleta, mm)"</span>) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="075-distribuciones_files/figure-html/qqplot-python-1.png" class="img-fluid figure-img" width="576"></p>
+<p><img src="075-distribuciones_files/figure-html/qqplot-r-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -911,20 +909,22 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>) <span class="sc">|&gt;</span> <span class="fu">drop_na</span>(flipper_length_mm)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> st</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gentoo, <span class="fu">aes</span>(<span class="at">sample =</span> flipper_length_mm)) <span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="fl">1.5</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_qq_line</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"QQ-plot: Longitud aleta — pingüinos Gentoo"</span>,</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Cuantiles teóricos (distribución normal)"</span>,</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Cuantiles observados (longitud aleta, mm)"</span>) <span class="sc">+</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>gentoo_flip <span class="op">=</span> penguins[penguins[<span class="st">'species'</span>] <span class="op">==</span> <span class="st">'Gentoo'</span>][<span class="st">'flipper_length_mm'</span>].dropna()</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> st.probplot(gentoo_flip, dist<span class="op">=</span><span class="st">"norm"</span>, plot<span class="op">=</span>ax)  <span class="co"># _ evita que se imprima la salida numérica</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> ax.set_title(<span class="st">"QQ-plot: Longitud aleta — pingüinos Gentoo"</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> ax.get_lines()[<span class="dv">0</span>].<span class="bu">set</span>(color<span class="op">=</span><span class="st">'steelblue'</span>, markersize<span class="op">=</span><span class="dv">4</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> ax.get_lines()[<span class="dv">1</span>].<span class="bu">set</span>(color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="075-distribuciones_files/figure-html/qqplot-r-3.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="075-distribuciones_files/figure-html/qqplot-python-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
