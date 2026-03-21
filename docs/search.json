@@ -44,7 +44,17 @@
     "href": "index.html#sobre-este-libro",
     "title": "La mejora continua en la producción quesera",
     "section": "1.4 Sobre este libro",
-    "text": "1.4 Sobre este libro\nEste libro se ha realizado utilizando RStudio Desktop[3] y Positron[4], y compilado con Quarto[5], un conjunto de herramientas gratuitas y libres de Posit. En la redacción y corrección de algunas partes del contenido se ha utilizado Claude Sonnet 4.6[6], de Anthropic\n\n\n\n\n[1] R. Panko, «What We Know About Spreadsheet Errors», Journal of End User Computing, vol. 10, feb. 2005, doi: 10.4018/joeuc.1998040102.\n\n\n[2] S. G. Powell, K. R. Baker, y B. Lawson, «Impact of errors in operational spreadsheets», Decision Support Systems, vol. 47, n.º 2, pp. 126-132, 2009, doi: https://doi.org/10.1016/j.dss.2009.02.002.\n\n\n[3] P. Posit Software, RStudio. (2024). Disponible en: https://posit.co\n\n\n[4] P. Posit Software, Positron. (2024). Disponible en: https://posit.co/positron\n\n\n[5] Quarto Development Team, Quarto. Posit Software, PBC, 2024. Disponible en: https://quarto.org\n\n\n[6] Anthropic, Claude Sonnet 4.6. (2025). Anthropic. Disponible en: https://www.anthropic.com",
+    "text": "1.4 Sobre este libro\nEste libro se ha realizado utilizando RStudio Desktop[3] y Positron[4], y compilado con Quarto[5], un conjunto de herramientas gratuitas y libres de Posit. En la redacción y corrección de algunas partes del contenido se ha utilizado Claude Sonnet 4.6[6], de Anthropic",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#versiones",
+    "href": "index.html#versiones",
+    "title": "La mejora continua en la producción quesera",
+    "section": "1.5 Versiones",
+    "text": "1.5 Versiones\nMarzo 2026 — Primera versión pública. Incorpora los capítulos de comunicación de resultados, variabilidad industrial y mejora continua, el glosario completo y revisiones en los capítulos de correlación, SPC, DoE, sistema de medición y RD 1801/2008.\nVer historial completo →\n\n\n\n\n[1] R. Panko, «What We Know About Spreadsheet Errors», Journal of End User Computing, vol. 10, feb. 2005, doi: 10.4018/joeuc.1998040102.\n\n\n[2] S. G. Powell, K. R. Baker, y B. Lawson, «Impact of errors in operational spreadsheets», Decision Support Systems, vol. 47, n.º 2, pp. 126-132, 2009, doi: https://doi.org/10.1016/j.dss.2009.02.002.\n\n\n[3] P. Posit Software, RStudio. (2024). Disponible en: https://posit.co\n\n\n[4] P. Posit Software, Positron. (2024). Disponible en: https://posit.co/positron\n\n\n[5] Quarto Development Team, Quarto. Posit Software, PBC, 2024. Disponible en: https://quarto.org\n\n\n[6] Anthropic, Claude Sonnet 4.6. (2025). Anthropic. Disponible en: https://www.anthropic.com",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introducción</span>"
     ]
@@ -2057,6 +2067,17 @@
     "title": "Apéndice F — Índice de datasets utilizados",
     "section": "F.10 Seguimiento temporal del sistema de medición — método Gerber",
     "text": "F.10 Seguimiento temporal del sistema de medición — método Gerber\nDescargar grr_gerber_temporal.csv\nDataset de 12 meses de control del sistema de medición, con 5 analistas, 3 muestras de referencia y 3 repeticiones por combinación (540 observaciones). Incluye dos intervenciones: corrección del sesgo de Analista_4 en abril y formación de Analista_5 en junio. Utilizado en el capítulo de análisis del sistema de medición.\n\n\nMostrar código\ndf &lt;- read.csv2(\"datos/grr_gerber_temporal.csv\", dec = \",\")\n\ndf |&gt; \n  slice_head(n = 6) |&gt; \n  gt() |&gt;\n  fmt_number(\n    columns = where(is.numeric),\n    decimals = 2\n  ) |&gt;\n  tab_style(\n    style = cell_fill(color = \"#f7f7f7\"),\n    locations = cells_body(rows = seq(1, 6, 2))\n  ) |&gt;\n  tab_options(\n    table.font.size = px(14),\n    data_row.padding = px(6)\n  )\n\n\n\n\n\n\n\n\nfecha\nmes\nanalista\nmuestra\nvalor_referencia\nrepeticion\nresultado\n\n\n\n\n15/01/2024\n1.00\nAnalista_1\nA_baja\n3.40\n1.00\n3.42\n\n\n15/01/2024\n1.00\nAnalista_1\nA_baja\n3.40\n2.00\n3.40\n\n\n15/01/2024\n1.00\nAnalista_1\nA_baja\n3.40\n3.00\n3.42\n\n\n15/01/2024\n1.00\nAnalista_1\nA_media\n4.20\n1.00\n4.25\n\n\n15/01/2024\n1.00\nAnalista_1\nA_media\n4.20\n2.00\n4.19\n\n\n15/01/2024\n1.00\nAnalista_1\nA_media\n4.20\n3.00\n4.19",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>F</span>  <span class='chapter-title'>Índice de datasets utilizados</span>"
+    ]
+  },
+  {
+    "objectID": "380-indice-datasets.html#otros-datasets-no-utilizados-en-este-libro",
+    "href": "380-indice-datasets.html#otros-datasets-no-utilizados-en-este-libro",
+    "title": "Apéndice F — Índice de datasets utilizados",
+    "section": "F.11 Otros datasets no utilizados en este libro",
+    "text": "F.11 Otros datasets no utilizados en este libro\nLa mejor manera de aprender R y Pyhton es… ¡practicar! Hacer graficos de otros datasets es una de las mejores formas; hay muchas fuentes que puedes explorar y concursos en los que puedes participar.\n\nBuscador de datasets de Google\nGitHub del 30DayChartChallenge/Edition2026\n30DayChartChallenge/Edition2026 en Bluesky",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>F</span>  <span class='chapter-title'>Índice de datasets utilizados</span>"
