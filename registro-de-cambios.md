@@ -1,6 +1,6 @@
 # Registro de cambios
 
-Historial de versiones del libro *Análisis de datos en la producción quesera*.  
+Historial de versiones del libro *La mejora continua en la producción quesera*.  
 Los cambios menores (correcciones ortográficas, ajustes de formato, pequeñas aclaraciones) no se registran aquí; pueden consultarse en el [historial de commits del repositorio](https://github.com/juanriera/master-queseria/commits/main).
 
 ---
