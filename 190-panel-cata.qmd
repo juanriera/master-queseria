@@ -1,7 +1,0 @@
----
-lang: es
----
-
-# Análisis de un panel de cata
-
-*** EN PREPARACION ***
