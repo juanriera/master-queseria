@@ -214,7 +214,6 @@
      stroke-width="1.33333"
      stroke-miterlimit="8"
      id="rect9"
-     clip-path="url(#clipPath981)"
      transform="translate(-221,-255.5)" />
   <path
      d="m 461.5,462.5 29.5,-46 29.5,46 z"
@@ -224,7 +223,6 @@
      fill="#4472c4"
      fill-rule="evenodd"
      id="path11"
-     clip-path="url(#clipPath975)"
      transform="translate(-221,-255.5)" />
   <path
      d="m 249.5,380 c 0,-16.845 13.208,-30.5 29.5,-30.5 16.292,0 29.5,13.655 29.5,30.5 0,16.845 -13.208,30.5 -29.5,30.5 -16.292,0 -29.5,-13.655 -29.5,-30.5 z"
@@ -234,12 +232,10 @@
      fill="#4472c4"
      fill-rule="evenodd"
      id="path13"
-     clip-path="url(#clipPath969)"
      transform="translate(-221,-255.5)" />
   <path
      d="m 492.485,317 h 473.072 v 1 H 492.485 Z m 7.753,5.599 -8.74,-5.099 8.74,-5.098 c 0.239,-0.14 0.545,-0.059 0.684,0.179 0.139,0.239 0.059,0.545 -0.18,0.684 l -8,4.667 v -0.864 l 8,4.667 c 0.239,0.139 0.319,0.445 0.18,0.684 -0.139,0.238 -0.445,0.319 -0.684,0.18 z m 457.566,-10.197 8.741,5.098 -8.741,5.099 c -0.238,0.139 -0.544,0.058 -0.683,-0.18 -0.14,-0.239 -0.059,-0.545 0.18,-0.684 l 8,-4.667 v 0.864 l -8,-4.667 c -0.239,-0.139 -0.32,-0.445 -0.18,-0.683 0.139,-0.239 0.445,-0.32 0.683,-0.18 z"
      id="path15"
-     clip-path="url(#clipPath963)"
      transform="translate(-221,-255.5)" />
   <rect
      x="603"
@@ -248,7 +244,6 @@
      height="30"
      fill="#ffffff"
      id="rect17"
-     clip-path="url(#clipPath957)"
      transform="translate(-221,-255.5)" />
   <text
      font-family="Calibri, Calibri_MSFontService, sans-serif"
@@ -260,7 +255,6 @@
   <path
      d="m 279.49,316 h 206.953 v 1 H 279.49 Z m 7.748,5.599 -8.74,-5.099 8.74,-5.098 c 0.239,-0.14 0.545,-0.059 0.684,0.179 0.139,0.239 0.059,0.545 -0.18,0.684 l -8,4.667 v -0.864 l 8,4.667 c 0.239,0.139 0.319,0.445 0.18,0.684 -0.139,0.238 -0.445,0.319 -0.684,0.18 z m 191.456,-10.197 8.741,5.098 -8.741,5.099 c -0.238,0.139 -0.544,0.058 -0.684,-0.18 -0.139,-0.239 -0.058,-0.545 0.18,-0.684 l 8,-4.667 v 0.864 l -8,-4.667 c -0.238,-0.139 -0.319,-0.445 -0.18,-0.683 0.14,-0.239 0.446,-0.32 0.684,-0.18 z"
      id="path21"
-     clip-path="url(#clipPath951)"
      transform="translate(-221,-255.5)" />
   <rect
      x="261"
@@ -269,7 +263,6 @@
      height="29"
      fill="#ffffff"
      id="rect23"
-     clip-path="url(#clipPath945)"
      transform="translate(-221,-255.5)" />
   <text
      font-family="Calibri, Calibri_MSFontService, sans-serif"
@@ -294,7 +287,6 @@
      fill="none"
      fill-rule="evenodd"
      id="path29"
-     clip-path="url(#clipPath939)"
      transform="translate(-221,-255.5)" />
   <path
      d="m 490.5,255.5 -10e-5,155.508"
@@ -305,7 +297,6 @@
      fill="none"
      fill-rule="evenodd"
      id="path31"
-     clip-path="url(#clipPath933)"
      transform="translate(-221,-255.5)" />
   <path
      d="m 966.5,255.5 -10e-5,155.508"
@@ -316,7 +307,6 @@
      fill="none"
      fill-rule="evenodd"
      id="path33"
-     clip-path="url(#clipPath927)"
      transform="translate(-221,-255.5)" />
   <rect
      x="893"
@@ -325,7 +315,6 @@
      height="33"
      fill="#ffffff"
      id="rect35"
-     clip-path="url(#clipPath921)"
      transform="translate(-221,-255.5)" />
   <text
      font-family="Calibri, Calibri_MSFontService, sans-serif"
@@ -341,7 +330,6 @@
      height="34"
      fill="#ffffff"
      id="rect39"
-     clip-path="url(#clipPath915)"
      transform="translate(-221,-255.5)" />
   <text
      font-family="Calibri, Calibri_MSFontService, sans-serif"
@@ -358,6 +346,5 @@
      fill="#4472c4"
      fill-rule="evenodd"
      id="path43"
-     clip-path="url(#clipPath909)"
      transform="translate(-221,-255.5)" />
 </svg>
