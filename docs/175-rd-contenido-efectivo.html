@@ -594,13 +594,13 @@ window.Quarto = {
 <figcaption>Los límites T1 y T2 sobre la curva normal del proceso</figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Las tres reglas del envasador
+<span class="screen-reader-only">Advertencia</span>Las tres reglas del envasador
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -648,13 +648,13 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Rechazo: basta una condición. Aceptación: deben cumplirse las dos
+<span class="screen-reader-only">Advertencia</span>Rechazo: basta una condición. Aceptación: deben cumplirse las dos
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -858,7 +858,7 @@ Desviación típica : 4.56 g</code></pre>
 <span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>            flierprops<span class="op">=</span><span class="bu">dict</span>(marker<span class="op">=</span><span class="st">"o"</span>, color<span class="op">=</span><span class="st">"red"</span>, markersize<span class="op">=</span><span class="dv">2</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x00000246E6C3EAD0&gt;, &lt;matplotlib.lines.Line2D object at 0x00000246E6C3EC10&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x00000246E6C3ED50&gt;, &lt;matplotlib.lines.Line2D object at 0x00000246E6C3EE90&gt;], 'boxes': [&lt;matplotlib.patches.PathPatch object at 0x00000246E6B9E7B0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x00000246E6C3EFD0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x00000246E6C3F110&gt;], 'means': []}</code></pre>
+<pre><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x00000250AE83EAD0&gt;, &lt;matplotlib.lines.Line2D object at 0x00000250AE83EC10&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x00000250AE83ED50&gt;, &lt;matplotlib.lines.Line2D object at 0x00000250AE83EE90&gt;], 'boxes': [&lt;matplotlib.patches.PathPatch object at 0x00000250AE79A7B0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x00000250AE83EFD0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x00000250AE83F110&gt;], 'means': []}</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -1062,7 +1062,6 @@ Desviación típica : 4.56 g</code></pre>
 <p>Un proceso que produce envases de 130 g también produce envases de 170 g. Para evitar los primeros, el fabricante sube la media de dosificación — y con ello regala más producto en cada envase del extremo alto. Reducir la variabilidad es la única forma de escapar de ese dilema: permite bajar la media sin arriesgar el incumplimiento, y ese ahorro es cuantificable turno a turno.</p>
 </div>
 </div>
-<hr>
 </section>
 </section>
 <section id="el-discriminador-de-peso-solución-inmediata-coste-real" class="level2" data-number="17.5">
@@ -1321,10 +1320,9 @@ Desviación típica : 4.56 g</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>El discriminador es en la práctica una solución casi inevitable: mientras se trabaja en reducir la variabilidad del proceso — un trabajo que puede llevar semanas o meses — la línea tiene que seguir produciendo dentro de la norma. El coste de rechazo se trata como un coste fijo asumido, que se incorpora al precio de venta del producto. Lo que rara vez se calcula es cuánto de ese coste es evitable. Cuando se hace ese cálculo — como haremos en las secciones siguientes — el ahorro potencial se convierte en el argumento más sólido para justificar ante la dirección la inversión en las acciones de mejora.</p>
+<p>El discriminador es en la práctica una solución casi inevitable: mientras se trabaja en reducir la variabilidad del proceso — un trabajo que puede llevar semanas o meses — la línea tiene que seguir produciendo dentro de la norma. El coste de rechazo se trata como un coste fijo asumido, que se incorpora al coste del producto, y, por lo tanto, al precio de venta, reduciendo su competitividad. Lo que rara vez se calcula es cuánto de ese coste es evitable. Cuando se hace ese cálculo — como haremos en las secciones siguientes — el ahorro potencial se convierte en el argumento más sólido para justificar ante la dirección la inversión en las acciones de mejora.</p>
 </div>
 </div>
-<hr>
 </section>
 </section>
 <section id="el-proceso-de-mejora-continua-para-reducir-la-variabilidad" class="level2" data-number="17.6">
@@ -1497,7 +1495,6 @@ Desviación típica : 4.56 g</code></pre>
 </div>
 </div>
 <p>Los índices Cp y Cpk lo confirman: el proceso no es capaz de mantenerse dentro de los límites especificados con la variabilidad actual. La cola izquierda de la distribución se extiende claramente por debajo de T1 y, en los peores momentos del turno, por debajo de T2.</p>
-<hr>
 </section>
 </section>
 <section id="análisis-intermedio-el-proceso-estabilizado" class="level3">
@@ -1867,7 +1864,6 @@ Desviación típica : 4.56 g</code></pre>
 </div>
 </div>
 <p>Con σ = 2,3 g ya hay NA g más de margen que en el proceso original. Es una mejora real, pero todavía limitada: para bajar la media de dosificación de forma significativa hay que abordar la etapa 2.</p>
-<hr>
 </section>
 </section>
 <section id="etapa-2-reducir-la-variabilidad-común" class="level3">
@@ -2317,7 +2313,6 @@ Desviación típica : 4.56 g</code></pre>
 </div>
 </div>
 </div>
-<hr>
 </section>
 </section>
 </section>
