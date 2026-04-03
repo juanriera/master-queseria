@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Referencias – La mejora continua en la producción quesera</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -56,10 +59,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4bebd1e71b752e044c5e27ddfc517df8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -452,6 +455,17 @@ W. Broman and K. H. Woo, <span>“Data organization in
 spreadsheets,”</span> <em>The American Statistician</em>, vol. 72, no.
 1, pp. 2–10, 2018, doi: <a href="https://doi.org/10.1080/00031305.2017.1375989">10.1080/00031305.2017.1375989</a>.</div>
 </div>
+<div id="ref-broman2018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[16] </div><div class="csl-right-inline">K.
+W. Broman and K. H. Woo, <span>“Data organization in
+spreadsheets,”</span> <em>The American Statistician</em>, vol. 72, no.
+1, pp. 2–10, 2018, doi: <a href="https://doi.org/10.1080/00031305.2017.1375989">10.1080/00031305.2017.1375989</a>.</div>
+</div>
+<div id="ref-nature2026editorial" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[17] </div><div class="csl-right-inline">Nature Editorial, <span>“More self-reflection
+in research can lead to better science,”</span> <em>Nature</em>, 2026,
+doi: <a href="https://doi.org/10.1038/d41586-026-00965-3">10.1038/d41586-026-00965-3</a>.</div>
+</div>
 </div>
 <p><br></p>
 <section id="bibliografía-recomendada" class="level1 unnumbered">
@@ -550,13 +564,14 @@ spreadsheets,”</span> <em>The American Statistician</em>, vol. 72, no.
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

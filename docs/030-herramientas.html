@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>3&nbsp; Herramientas para el análisis. La reproducibilidad. – La mejora continua en la producción quesera</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -58,10 +61,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4bebd1e71b752e044c5e27ddfc517df8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -454,6 +457,7 @@ div.csl-indent {
 <li>No está diseñada específicamente para el análisis estadístico, y puede mostrar inexactitudes en algunos métodos, como la regresión lineal.</li>
 <li>La falta de transparencia dificulta la auditoría de los análisis, un requisito cada vez más frecuente en entornos de calidad certificada.</li>
 </ul>
+<p>Estas limitaciones no son exclusivamente de orden práctico. Broman y Woo <span class="citation" data-cites="broman2018"><a href="400-bibliografia.html#ref-broman2018" role="doc-biblioref">[1]</a></span> documentaron que las hojas de cálculo, pese a ser herramientas imprescindibles para la entrada y el almacenamiento de datos, resultan inadecuadas para el análisis cuando se exige reproducibilidad: las operaciones realizadas mediante clics y fórmulas embebidas no dejan un registro verificable de los pasos seguidos, y el propio software puede introducir errores silenciosos —como la conversión automática de identificadores numéricos a fechas— que el analista no detecta. Su recomendación es clara: el análisis y la visualización deben realizarse en herramientas de scripting separadas, reservando la hoja de cálculo para lo que hace bien, que es la entrada estructurada de datos.</p>
 <p>Por estas razones, en este libro usaremos Excel principalmente para el almacenamiento de datos y el análisis básico, y Python o R para el análisis gráfico y estadístico más detallado.</p>
 </section>
 </section>
@@ -484,8 +488,8 @@ div.csl-indent {
 <p>El químico irlandés <strong>Robert Boyle</strong>, en el siglo XVII, fue uno de los primeros en subrayar la importancia de la reproducibilidad en la ciencia. Sostenía que el conocimiento científico debía basarse en hechos experimentales que pudieran volverse creíbles para la comunidad científica precisamente por su reproducibilidad. La bomba de aire de Boyle dio lugar a una de las primeras disputas documentadas sobre la reproducibilidad de un fenómeno científico.</p>
 <section id="la-crisis-de-reproducibilidad" class="level3">
 <h3 class="anchored" data-anchor-id="la-crisis-de-reproducibilidad">La crisis de reproducibilidad</h3>
-<p>En las últimas décadas ha crecido la preocupación por la falta de reproducibilidad en resultados científicos publicados <span class="citation" data-cites="ryssdal2013 krugman2013 garicano2013 ferrero2018"><a href="400-bibliografia.html#ref-ryssdal2013" role="doc-biblioref">[1]</a>, <a href="400-bibliografia.html#ref-krugman2013" role="doc-biblioref">[2]</a>, <a href="400-bibliografia.html#ref-garicano2013" role="doc-biblioref">[3]</a>, <a href="400-bibliografia.html#ref-ferrero2018" role="doc-biblioref">[4]</a></span>. Muchos estudios no pueden reproducirse porque los datos originales no están disponibles, el código de análisis no se ha conservado o documentado, o los procedimientos no se describen con suficiente detalle. Esta situación, conocida como <strong>crisis de reproducibilidad</strong>, afecta a disciplinas tan diversas como la psicología, la biomedicina o la economía, y ha llevado a un cambio en las exigencias de publicación y auditoría en muchos campos.</p>
-<p>En el entorno industrial, las consecuencias de un análisis no reproducible pueden ser igualmente serias: una decisión tomada sobre la base de un análisis que no puede verificarse ni auditarse es una decisión con un riesgo oculto.</p>
+<p>En las últimas décadas ha crecido la preocupación por la falta de reproducibilidad en resultados científicos publicados <span class="citation" data-cites="ryssdal2013 krugman2013 garicano2013 ferrero2018"><a href="400-bibliografia.html#ref-ryssdal2013" role="doc-biblioref">[2]</a>, <a href="400-bibliografia.html#ref-krugman2013" role="doc-biblioref">[3]</a>, <a href="400-bibliografia.html#ref-garicano2013" role="doc-biblioref">[4]</a>, <a href="400-bibliografia.html#ref-ferrero2018" role="doc-biblioref">[5]</a></span>. Muchos estudios no pueden reproducirse porque los datos originales no están disponibles, el código de análisis no se ha conservado o documentado, o los procedimientos no se describen con suficiente detalle. Esta situación, conocida como <strong>crisis de reproducibilidad</strong>, afecta a disciplinas tan diversas como la psicología, la biomedicina o la economía, y ha llevado a un cambio en las exigencias de publicación y auditoría en muchos campos.</p>
+<p>La magnitud del problema ha quedado cuantificada recientemente de forma sistemática. Un número especial de Nature publicado en 2026 <span class="citation" data-cites="nature2026editorial"><a href="400-bibliografia.html#ref-nature2026editorial" role="doc-biblioref">[6]</a></span> presenta los resultados de varias iniciativas de gran escala sobre reproducibilidad en ciencias sociales y del comportamiento: aproximadamente la mitad de los resultados reexaminados no pudieron reproducirse con exactitud, y los que sí lo fueron mostraron efectos considerablemente más débiles que los originales. Aunque estos estudios se centran en la investigación académica, el principio que ilustran es directamente transferible al entorno industrial: un análisis que no puede verificarse ni auditarse introduce un riesgo oculto en cualquier decisión que se base en él.</p>
 </section>
 <section id="reproducibilidad-en-metrología" class="level3">
 <h3 class="anchored" data-anchor-id="reproducibilidad-en-metrología">Reproducibilidad en metrología</h3>
@@ -527,17 +531,23 @@ Importante
 
 
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-broman2018" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">K. W. Broman y K. H. Woo, <span>«Data Organization in Spreadsheets»</span>, <em>The American Statistician</em>, vol. 72, n.º 1, pp. 2-10, 2018, doi: <a href="https://doi.org/10.1080/00031305.2017.1375989">10.1080/00031305.2017.1375989</a>.</div>
+</div>
 <div id="ref-ryssdal2013" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">K. Ryssdal, <span>«The Excel mistake heard round the world»</span>. Accedido: 17 de abril de 2013. [En línea]. Disponible en: <a href="https://www.marketplace.org/2013/04/17/economy/excel-mistake-heard-round-world/">https://www.marketplace.org/2013/04/17/economy/excel-mistake-heard-round-world/</a></div>
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">K. Ryssdal, <span>«The Excel mistake heard round the world»</span>. Accedido: 17 de abril de 2013. [En línea]. Disponible en: <a href="https://www.marketplace.org/2013/04/17/economy/excel-mistake-heard-round-world/">https://www.marketplace.org/2013/04/17/economy/excel-mistake-heard-round-world/</a></div>
 </div>
 <div id="ref-krugman2013" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">P. Krugman, <span>«La depresión del Excel»</span>. Accedido: 19 de abril de 2013. [En línea]. Disponible en: <a href="https://elpais.com/economia/2013/04/19/actualidad/1366398440_370422.html">https://elpais.com/economia/2013/04/19/actualidad/1366398440_370422.html</a></div>
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">P. Krugman, <span>«La depresión del Excel»</span>. Accedido: 19 de abril de 2013. [En línea]. Disponible en: <a href="https://elpais.com/economia/2013/04/19/actualidad/1366398440_370422.html">https://elpais.com/economia/2013/04/19/actualidad/1366398440_370422.html</a></div>
 </div>
 <div id="ref-garicano2013" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">L. Garicano, <span>«El error de Reinhart y Rogoff»</span>. Accedido: 14 de abril de 2013. [En línea]. Disponible en: <a href="https://nadaesgratis.es/garicano/el-error-de-reinhardt-y-rogoff">https://nadaesgratis.es/garicano/el-error-de-reinhardt-y-rogoff</a></div>
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">L. Garicano, <span>«El error de Reinhart y Rogoff»</span>. Accedido: 14 de abril de 2013. [En línea]. Disponible en: <a href="https://nadaesgratis.es/garicano/el-error-de-reinhardt-y-rogoff">https://nadaesgratis.es/garicano/el-error-de-reinhardt-y-rogoff</a></div>
 </div>
 <div id="ref-ferrero2018" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[4] </div><div class="csl-right-inline">R. Ferrero, <span>«Los errores de Reinhart &amp; Rogoff: R y la reproducibilidad»</span>. Accedido: 1 de febrero de 2018. [En línea]. Disponible en: <a href="https://www.maximaformacion.es/blog-dat/los-errores-de-reinhart-rogo/">https://www.maximaformacion.es/blog-dat/los-errores-de-reinhart-rogo/</a></div>
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">R. Ferrero, <span>«Los errores de Reinhart &amp; Rogoff: R y la reproducibilidad»</span>. Accedido: 1 de febrero de 2018. [En línea]. Disponible en: <a href="https://www.maximaformacion.es/blog-dat/los-errores-de-reinhart-rogo/">https://www.maximaformacion.es/blog-dat/los-errores-de-reinhart-rogo/</a></div>
+</div>
+<div id="ref-nature2026editorial" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">Nature Editorial, <span>«More self-reflection in research can lead to better science»</span>, <em>Nature</em>, 2026, doi: <a href="https://doi.org/10.1038/d41586-026-00965-3">10.1038/d41586-026-00965-3</a>.</div>
 </div>
 </div>
 </section>
@@ -594,13 +604,14 @@ Importante
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
