@@ -27,7 +27,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -584,7 +583,7 @@ Nota
 <section id="el-flujo-de-trabajo" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="el-flujo-de-trabajo"><span class="header-section-number">4.3</span> El flujo de trabajo</h2>
 <p>Un <strong>flujo de trabajo</strong> en análisis de datos es un proceso sistemático y estructurado que guía la manipulación, exploración y análisis de los datos desde su recolección hasta la comunicación de los resultados. Es la hoja de ruta que asegura que cada paso se realice de forma ordenada, eficiente y reproducible.</p>
-<p>Hadley Wickham <span class="citation" data-cites="wickham2023"><a href="400-bibliografia.html#ref-wickham2023" role="doc-biblioref">[1]</a></span> —uno de los autores más influyentes en la ciencia de datos moderna— ha propuesto un modelo de flujo de trabajo que se ha convertido en referencia en la disciplina (disponible en español en <span class="citation" data-cites="wickham2023es"><a href="400-bibliografia.html#ref-wickham2023es" role="doc-biblioref">[2]</a></span>):</p>
+<p>Hadley Wickham <span class="citation" data-cites="wickham2023">(<a href="400-bibliografia.html#ref-wickham2023" role="doc-biblioref">Garret Grolemund Hadley Wickham Mine Çetinkaya-Rundel 2023</a>)</span> —uno de los autores más influyentes en la ciencia de datos moderna— ha propuesto un modelo de flujo de trabajo que se ha convertido en referencia en la disciplina (disponible en español en <span class="citation" data-cites="wickham2023es">Garret Grolemund Hadley Wickham (<a href="400-bibliografia.html#ref-wickham2023es" role="doc-biblioref">2023</a>)</span>):</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="imagenes/040/data-science-explore.svg" class="img-fluid figure-img"></p>
@@ -647,7 +646,7 @@ Nota
 </section>
 <section id="la-solución-tres-reglas-simples" class="level3">
 <h3 class="anchored" data-anchor-id="la-solución-tres-reglas-simples">La solución: tres reglas simples</h3>
-<p>De la misma manera que la gramática estructura un escrito según reglas comunes, los <strong>datos ordenados</strong> (<em>tidy data</em>) siguen tres reglas que garantizan una estructura homogénea y analizable <span class="citation" data-cites="wickham2023"><a href="400-bibliografia.html#ref-wickham2023" role="doc-biblioref">[1]</a></span>:</p>
+<p>De la misma manera que la gramática estructura un escrito según reglas comunes, los <strong>datos ordenados</strong> (<em>tidy data</em>) siguen tres reglas que garantizan una estructura homogénea y analizable <span class="citation" data-cites="wickham2023">(<a href="400-bibliografia.html#ref-wickham2023" role="doc-biblioref">Garret Grolemund Hadley Wickham Mine Çetinkaya-Rundel 2023</a>)</span>:</p>
 <ul>
 <li><strong>Cada variable ocupa una columna.</strong></li>
 <li><strong>Cada observación ocupa una fila.</strong></li>
@@ -656,7 +655,7 @@ Nota
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="imagenes/040/tidy-1.webp" class="img-fluid figure-img"></p>
-<figcaption>Las tres reglas de los datos ordenados. Fuente: <span class="citation" data-cites="wickham2023"><a href="400-bibliografia.html#ref-wickham2023" role="doc-biblioref">[1]</a></span></figcaption>
+<figcaption>Las tres reglas de los datos ordenados. Fuente: <span class="citation" data-cites="wickham2023">Garret Grolemund Hadley Wickham Mine Çetinkaya-Rundel (<a href="400-bibliografia.html#ref-wickham2023" role="doc-biblioref">2023</a>)</span></figcaption>
 </figure>
 </div>
 <p>Estas tres reglas son interdependientes: no es posible cumplir solo dos de las tres. Cuando se respetan, la tabla resultante tiene una estructura rectangular homogénea que puede importarse directamente en Python, R o Excel y analizarse sin necesidad de transformaciones previas.</p>
@@ -670,7 +669,7 @@ Nota
 </section>
 <section id="recomendaciones-para-organizar-datos-en-hojas-de-cálculo" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="recomendaciones-para-organizar-datos-en-hojas-de-cálculo"><span class="header-section-number">4.6</span> Recomendaciones para organizar datos en hojas de cálculo</h2>
-<p>Los principios de <em>tidy data</em> definen cómo deben estructurarse los datos para el análisis. Broman y Woo <span class="citation" data-cites="Broman02012018"><a href="400-bibliografia.html#ref-Broman02012018" role="doc-biblioref">[3]</a></span> los complementan con un conjunto de recomendaciones prácticas específicamente orientadas a quien trabaja con hojas de cálculo en un entorno profesional. Aunque están dirigidas al ámbito científico, son completamente aplicables a la industria alimentaria y quesera.</p>
+<p>Los principios de <em>tidy data</em> definen cómo deben estructurarse los datos para el análisis. Broman y Woo <span class="citation" data-cites="Broman02012018">(<a href="400-bibliografia.html#ref-Broman02012018" role="doc-biblioref">2018</a>)</span> los complementan con un conjunto de recomendaciones prácticas específicamente orientadas a quien trabaja con hojas de cálculo en un entorno profesional. Aunque están dirigidas al ámbito científico, son completamente aplicables a la industria alimentaria y quesera.</p>
 <p>Las recomendaciones más importantes son:</p>
 <p><strong>Sé consistente.</strong> Usa siempre los mismos nombres, los mismos códigos y el mismo formato para los mismos conceptos. Si un turno se llama “mañana” en unas filas y “Mañana” o “M” en otras, el software los tratará como tres valores distintos.</p>
 <p><strong>Escribe las fechas en formato ISO: AAAA-MM-DD.</strong> Excel tiene el hábito de interpretar y reformatear las fechas automáticamente, lo que puede generar errores silenciosos al exportar a CSV. El formato <code>2024-03-15</code> es reconocido sin ambigüedad por todos los programas.</p>
@@ -745,15 +744,15 @@ Nota
 <p>Los <strong>ficheros CSV</strong> son el formato de intercambio de datos más universal, legible por Excel, Python y R. Al importarlos en Python o R, los datos se almacenan en un <strong>DataFrame</strong>, estructura equivalente a la tabla de Excel sobre la que se realizarán los análisis.</p>
 
 
-<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-wickham2023" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">G. G. Hadley Wickham Mine Çetinkaya-Rundel, <em>R for Data Science, 2nd ed.</em> 1005 Gravenstein Highway North, Sebastopol, CA95472: O’Reilly Media Inc., 2023. Disponible en: <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a></div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Broman02012018" class="csl-entry" role="listitem">
+Broman, Karl W., y Kara H. Woo. 2018. <span>«Data Organization in Spreadsheets»</span>. <em>The American Statistician</em> 72 (1): 2-10. <a href="https://doi.org/10.1080/00031305.2017.1375989">https://doi.org/10.1080/00031305.2017.1375989</a>.
 </div>
 <div id="ref-wickham2023es" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[2] </div><div class="csl-right-inline">G. G. Hadley Wickham, <span>«R Para Ciencia de Datos»</span>. [En línea]. Disponible en: <a href="https://es.r4ds.hadley.nz/">https://es.r4ds.hadley.nz/</a></div>
+Hadley Wickham, Garret Grolemund. 2023. <span>«R Para Ciencia de Datos»</span>. <a href="https://es.r4ds.hadley.nz/">https://es.r4ds.hadley.nz/</a>.
 </div>
-<div id="ref-Broman02012018" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[3] </div><div class="csl-right-inline">K. W. Broman y K. H. Woo, <span>«Data Organization in Spreadsheets»</span>, <em>The American Statistician</em>, vol. 72, n.º 1, pp. 2-10, 2018, doi: <a href="https://doi.org/10.1080/00031305.2017.1375989">10.1080/00031305.2017.1375989</a>.</div>
+<div id="ref-wickham2023" class="csl-entry" role="listitem">
+Hadley Wickham, Garret Grolemund, Mine Çetinkaya-Rundel. 2023. <em>R for Data Science, 2nd ed.</em> O’Reilly Media Inc. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>.
 </div>
 </div>
 </section>

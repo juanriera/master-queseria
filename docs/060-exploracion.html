@@ -62,7 +62,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -1546,7 +1545,7 @@ Nota
 </section>
 <section id="el-boxplot-con-más-datos-penguins" class="level3">
 <h3 class="anchored" data-anchor-id="el-boxplot-con-más-datos-penguins">El boxplot con más datos: penguins</h3>
-<p>Con un dataset más grande el boxplot muestra toda su utilidad. Usaremos la longitud de aleta del dataset <code>penguins</code>. Este <em>dataset</em> fue recopilado por la bióloga Kristen Gorman junto al equipo de la estación de investigación Palmer, en la Antártida, entre 2007 y 2009, y publicado en un estudio sobre dimorfismo sexual en pingüinos del género Pygoscelis <span class="citation" data-cites="gorman2014"><a href="400-bibliografia.html#ref-gorman2014" role="doc-biblioref">[1]</a></span>. Posteriormente, Allison Horst, Alison Hill y Kristen Gorman lo empaquetaron como dataset de referencia para la enseñanza de estadística y visualización de datos, como alternativa al histórico dataset iris de Ronald Fisher. Contiene medidas morfológicas (longitud y profundidad del pico, longitud de aleta y peso corporal) de 344 pingüinos de tres especies (Adelie, Chinstrap y Gentoo) recogidas en tres islas del archipiélago Palmer. Su tamaño moderado, la presencia de valores ausentes reales, la existencia de grupos naturales con solapamiento parcial y la riqueza de relaciones entre variables lo han convertido en uno de los datasets estándar tanto en Python como en R.</p>
+<p>Con un dataset más grande el boxplot muestra toda su utilidad. Usaremos la longitud de aleta del dataset <code>penguins</code>. Este <em>dataset</em> fue recopilado por la bióloga Kristen Gorman junto al equipo de la estación de investigación Palmer, en la Antártida, entre 2007 y 2009, y publicado en un estudio sobre dimorfismo sexual en pingüinos del género Pygoscelis <span class="citation" data-cites="gorman2014">(<a href="400-bibliografia.html#ref-gorman2014" role="doc-biblioref">Gorman et&nbsp;al. 2014</a>)</span>. Posteriormente, Allison Horst, Alison Hill y Kristen Gorman lo empaquetaron como dataset de referencia para la enseñanza de estadística y visualización de datos, como alternativa al histórico dataset iris de Ronald Fisher. Contiene medidas morfológicas (longitud y profundidad del pico, longitud de aleta y peso corporal) de 344 pingüinos de tres especies (Adelie, Chinstrap y Gentoo) recogidas en tres islas del archipiélago Palmer. Su tamaño moderado, la presencia de valores ausentes reales, la existencia de grupos naturales con solapamiento parcial y la riqueza de relaciones entre variables lo han convertido en uno de los datasets estándar tanto en Python como en R.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true" href="">R (base)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false" href="">Python (seaborn)</a></li></ul>
 <div class="tab-content">
@@ -2602,9 +2601,9 @@ memory usage: 1.1 KB</code></pre>
 <p>Los gráficos de densidad, disponibles en Python mediante seaborn y en R mediante ggplot2, ofrecen una representación suavizada de la distribución y resultan especialmente útiles para comparar grupos. Los gráficos de dispersión permiten visualizar la relación entre dos variables numéricas e identificar correlaciones, relaciones no lineales y valores atípicos; Python y R facilitan la segmentación por una tercera variable, lo que en Excel requiere un trabajo manual adicional. Los gráficos de series temporales representan la evolución de una variable en el tiempo y permiten identificar simultáneamente la estacionalidad y la tendencia a largo plazo; pandas en Python proporciona funciones de remuestreo que simplifican este análisis, con equivalentes en R mediante dplyr y lubridate. El capítulo concluye con referencias a galerías de ejemplos en Python y R y a guías de selección del tipo de gráfico según el objetivo del análisis.</p>
 
 
-<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-gorman2014" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[1] </div><div class="csl-right-inline">K. B. Gorman, T. D. Williams, y W. R. Fraser, <span>«Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus <em>Pygoscelis</em>)»</span>, <em>PLOS ONE</em>, vol. 9, n.º 3, p. e90081, 2014, doi: <a href="https://doi.org/10.1371/journal.pone.0090081">10.1371/journal.pone.0090081</a>.</div>
+Gorman, Kristen B., Tony D. Williams, y William R. Fraser. 2014. <span>«Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus <em>Pygoscelis</em>)»</span>. <em>PLOS ONE</em> 9 (3): e90081. <a href="https://doi.org/10.1371/journal.pone.0090081">https://doi.org/10.1371/journal.pone.0090081</a>.
 </div>
 </div>
 </section>
