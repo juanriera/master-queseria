@@ -821,30 +821,31 @@ window.Quarto = {
 <li><p>Nuestra recuperación de materia en el queso ha sido diferente de la prevista en el estándar (<strong>efecto rendimiento</strong>)</p></li>
 <li><p>El producto obtenido tiene una composición diferente del estándar en extracto seco total (<strong>efecto EST o composición</strong>). La composición de este EST importa, porque, dado que la MG y la MP tienen un valor diferente, un mismo EST con diferentes valores de MG y MP no tendrán el mismo impacto en el coste final.</p></li>
 </ul>
-<p>El análisis de desviaciones siempre se aborda con la pregunta clásica “que pasaría sí…”. Las fórmulas utilizadas a continuación son equivalentes a las utilizadas en contabilidad de costes para calcular los efectos tasa, precio y mix.</p>
+<p>El análisis de desviaciones siempre se aborda con la pregunta clásica “qué pasaría sí…”. Las fórmulas utilizadas a continuación son equivalentes a las utilizadas en contabilidad de costes para calcular los efectos tasa, precio y mix.</p>
 <p>Disponemos de dos datos básicos, nuestro estándar y nuestra situación real. En ambos casos, tenemos un valor de rendimiento (ESM/MP) y de EST. Para descomponer las causas de la variación, calcularemos dos datos adicionales:</p>
 <ul>
 <li><p>qué valor de rendimiento hubiésemos tenido si la composición hubiese sido la del estándar</p></li>
 <li><p>qué valor de composición hubiésemos tenido si el rendimiento hubiese sido el del estándar</p></li>
 </ul>
-<p>Para calcular el rendimiento (o recuperación ESM/MP) a composición estándar, aplicamos la fórmula</p>
+<p>Para calcular el rendimiento (o recuperación ESM/MP) a composición estándar, aplicamos la fórmula para obtener las cantidades de materia puestas en cuba:</p>
 <p><span class="math display">\[
-Rs = recup\_real * compo\_std * kg\_queso
+mat =  compo\_std / recup\_real * kg\_queso
 \]</span></p>
 <p>En el caso de la MG, <span class="math display">\[
-R_{MG} = recup\_real_{MG} * compo\_std_{MG} * kg\_queso = 78,65\% * 27,00\% * 637,560 = 218,860\ kg\ MG
+MG_{cuba} =  compo\_std_{MG} / recup\_real_{MG} * kg\_queso = 78,65\% * 27,00\% * 637,560 = 218,860\ \text{kg MG en cuba a composicion std}
 \]</span></p>
 <p>Para calcular la composición a rendimiento estándar, aplicamos la fórmula</p>
-<p><span class="math display">\[ C_{MG} = recup\_std_{MG} * compo\_real_{MG} * kg\_queso = 83,99\% * 25,46\% * 637,560 = 193,55\ kg\ MG \]</span></p>
-<p>COn estos cálculos, podemos construir una tabla de dos entradas,</p>
+<p><span class="math display">\[
+C_{MG} = compo\_real_{MG}  / recup\_std_{MG} * kg\_queso = 83,99\% * 25,46\% * 637,560 = 193,55\text{kg MG en cuba a recup std}
+\]</span></p>
+<p>Con estos cálculos, podemos construir una tabla de dos entradas,</p>
 <p><img src="imagenes/120/clipboard-1022220315.png" class="img-fluid"></p>
 <p>Esta tabla nos permite calcular el efecto de cada factor por separado:</p>
 <ul>
-<li><p>el efecto de la recuperación (rendimiento) ha sido de 218,860 - 204,944 = -13,916 kg</p></li>
+<li><p>el efecto de la recuperación (rendimiento) ha sido de 204,944 - 218,860 = -13,916 kg</p></li>
 <li><p>el efecto de la composición ha sido de 204,944 - 193,255 = 11,689 kg</p></li>
-<li><p>el efecto total ha sido de -13,916 + 11,689 = -1,433 kg</p></li>
 </ul>
-<p>Hemos tenido un mal resultado de -1,433 kg de MG que hemos perdido. Este resultado está escondiendo que nuestro rendimiento ha sido bastante peor, ya que hemos perdido -13,916 kg de MG, e Esta pérdida se ha visto compensada por un queso más blando, ya que hemos ganado 11,689 kg al haber tenido menor EST.</p>
+<p>La desviación total en MG, como hemos visto arriba, es de -1,433 kg (pérdida). Ahora sabemos que este resultado está escondiendo que nuestro rendimiento ha sido bastante peor, ya que hemos perdido -13,916 kg de MG. Esta pérdida se ha visto compensada al hacer el queso más blando, ya que hemos ganado 11,689 kg por haber tenido menor EST.</p>
 <p>Nos queda por calcular una última cantidad, que es la que se conoce como <em>interacción</em> entre la composición y el rendimiento. Para entender este concepto, tenemos que darnos cuenta de que en el análisis del rendimiento, hemos calculado la diferencia de rendimiento a composición estándar. Sin embargo esta no ha sido la realidad, ya que hemos tenido un extracto seco algo más bajo del estándar. En consecuencia, hay una pequeña parte de la pérdida de rendimiento calculada que no ha tenido lugar. Para obtener esta cantidad real, calculamos la diferencia de rendimiento a composición real, y obtenemos la interacción por diferencia:</p>
 <ul>
 <li>efecto rendimiento real a composición real: 193,255 - 206,377 = -13,122 kg</li>
@@ -860,7 +861,7 @@ R_{MG} = recup\_real_{MG} * compo\_std_{MG} * kg\_queso = 78,65\% * 27,00\% * 63
 <p><img src="imagenes/120/clipboard-2825710163.png" class="img-fluid"></p>
 <p>La suma de las desviaciones (MG+MP) nos permite calcular la desviación total:</p>
 <p><img src="imagenes/120/clipboard-3496249106.png" class="img-fluid"></p>
-<p>El análisis detallado nos ha permite verificar cómo los efectos del bajo extracto seco del producto fabricado producen un resultado positivo (+99,70 euros). mientras que los efectos tecnológicos (recuperación de materia) han sido negativos (-81,52 euros). El resultado total, de 18,27 euros positivos podría hacernos pensar que hemos tenido un buen resultado, mejor que lo presupuestado, pero el análisis detallado de las desviaciones nos permite mayor detalle en la interpretación:</p>
+<p>El análisis detallado nos ha permitido verificar cómo los efectos del bajo extracto seco del producto fabricado producen un resultado positivo (+99,79 euros). mientras que los efectos tecnológicos (recuperación de materia) han sido negativos (-81,52 euros). El resultado total, de 18,27 euros positivos podría hacernos pensar que hemos tenido un buen resultado, mejor que lo presupuestado, pero el análisis detallado de las desviaciones nos permite mayor detalle en la interpretación:</p>
 <ul>
 <li><p>Hemos tenido una fuerte desviación negativa en el rendimiento, que deberemos corregir. Si las pérdidas debidas a la tecnología han sido de -81,52 euros en una fabricación, y hemos previsto unas 260 fabricaciones anuales, la falta de corrección de nuestra tecnología nos puede llevar a unas pérdidas anuales de algo más de 20.000 euros.</p></li>
 <li><p>Hemos compensado este error en la conducción de la tecnología bajando el extracto seco. Esto no es una buena decisión, ya que la modificación de la composición puede tener un impacto desfavorable en el consumidor, y en consecuencia, un efecto negativo a largo plazo sobre la aceptación de nuestro producto.</p></li>
