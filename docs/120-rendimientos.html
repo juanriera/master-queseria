@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -60,10 +63,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-631496449bf32ff9b0bb69a6bfd9195d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -93,7 +96,7 @@ div.csl-indent {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -397,8 +400,7 @@ window.Quarto = {
   <li><a href="#análisis-de-las-desviaciones" id="toc-análisis-de-las-desviaciones" class="nav-link" data-scroll-target="#análisis-de-las-desviaciones">Análisis de las desviaciones</a></li>
   <li><a href="#análisis-del-coste-de-las-desviaciones" id="toc-análisis-del-coste-de-las-desviaciones" class="nav-link" data-scroll-target="#análisis-del-coste-de-las-desviaciones">Análisis del coste de las desviaciones</a></li>
   </ul></li>
-  <li><a href="#práctica-en-google-colab" id="toc-práctica-en-google-colab" class="nav-link" data-scroll-target="#práctica-en-google-colab"><span class="header-section-number">15.8</span> Práctica en Google Colab</a></li>
-  <li><a href="#resumen-del-capítulo" id="toc-resumen-del-capítulo" class="nav-link" data-scroll-target="#resumen-del-capítulo"><span class="header-section-number">15.9</span> Resumen del capítulo</a></li>
+  <li><a href="#resumen-del-capítulo" id="toc-resumen-del-capítulo" class="nav-link" data-scroll-target="#resumen-del-capítulo"><span class="header-section-number">15.8</span> Resumen del capítulo</a></li>
   </ul>
 </nav>
     </div>
@@ -531,7 +533,7 @@ window.Quarto = {
 <p>En el análisis inicial de nuestro ejemplo, habíamos estimado que nuestra recuperación de materia grasa era del 80%, y la de la proteína, de un 88%, utlizando las grandes cifras de fabricación y ventas. Para tener la mayor precisión posible, vamos a utilizar ahora los datos reales de nuestras fabricaciones a lo largo de un año, recogidas en el archivo CSV <code>fab_queso_sim.CSV</code> que hemos estado utilizando en el análisis del balance de materia.</p>
 <p>Para calcular nuestro <strong>estándar técnico de fabricación</strong> inicial, vamos a utilizar los datos de la fabricación real de un año, recogidos en nuestro CSV, que es lo que realmente hemos sido capaces de hacer en el año.</p>
 <p>En primer lugar, calculamos el <strong>coeficiente de recuperación de MP</strong>, que establece la relación entre la proteína puesta en cuba y el ESM del queso.</p>
-<p>Si la recuperación de materia fuese perfecta, los coeficientes de recuperación serían el 100%. El valor real de los coeficientes refleja que hay pérdidas de MG y MP, bien en el suero, bien en los finos de moldeo o en cuajada que se ha caído, etc, en resumen, que no ha ido a parar al queso moldeado. Podemos argumentar, correctamente, que la parte de los finos recoge también la eficiencia de la coagulación, pero al final lo que nos interesa es recoger la conversión real en queso de nuestra materia prima, excluyendo todo lo que constituyen las <strong>pérdidas de proceso</strong>. Si nuestro proceso es estable, estos coeficientes deben ser siempre más o menos constantes: en un proceso estable, en el que las condiciones del proceso se han mantenido, las pérdidas deben ser muy semejantes de un día a otro. Por lo tanto, lo que nos interesa es este valor medio del coeficiente en nuestra fabricación.</p>
+<p>Como el ESM real del queso puede ser superior al valor de la MP en cuba, el coeficiente puede ser mayor de 100%. El valor real de los coeficientes refleja que hay pérdidas de MG y MP, bien en el suero, bien en los finos de moldeo o en cuajada que se ha caído, etc, en resumen, que no ha ido a parar al queso moldeado. Podemos argumentar, correctamente, que la parte de los finos recoge también la eficiencia de la coagulación, pero al final lo que nos interesa es recoger la conversión real en queso de nuestra materia prima, excluyendo todo lo que constituyen las <strong>pérdidas de proceso</strong>. Si nuestro proceso es estable, estos coeficientes deben ser siempre más o menos constantes: en un proceso estable, en el que las condiciones del proceso se han mantenido, las pérdidas deben ser muy semejantes de un día a otro. Por lo tanto, lo que nos interesa es este valor medio del coeficiente en nuestra fabricación.</p>
 <p>Podemos hacer el cálculo mediante la tabla dinámica de balance de materia que habíamos dejado como ejercicio en el capitulo anterior, y que calculamos de manera semejante a la de la materia grasa.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -811,32 +813,67 @@ window.Quarto = {
 <figcaption>Desviaciones de coste de materia según la materia puesta en cubas</figcaption>
 </figure>
 </div>
-<p>Finalmente, introducimos una tabla de desviaciones de coste por componente, para la MG y para el ESM. En esta tabla, calculamos los costes estándar a partir del estándar técnico, y los costes reales de cada elemento utilizando el valor real de cada elemento y el resto de los costes estándar.</p>
-<p>AL descomponer los costes elemento a elemento, la utilizción del ESM de queso frente a la MP de la leche nos introduce una desviación, ya que el ESM puede incluir sal y otros componentes distintos de la MP, y la tasa de pérdida dela MP en cuba no es la misma que la del ESM. La tabla proporciona una estimación de la ineficiencia del cálculo como efectos no explicados.</p>
-<p>De todas formas, aunque el porcentaje de efectos no explicados puede llegar al 20%, el porcentaje de efectos explicados restante se demuestra suficiente para establecer planes de acción significativos, ya que toda recuperación del ESM en cubas va a implicar una mejora de la recuperación de la MP.</p>
-<p>Este porcentaje de ineficiencia se reduce prácticamente a cero si es posible el análisis de la proteína en el queso. Hay que estimar si la ganancia de ese 20% en las explicaciones permite recuperar el incremento de coste analítico (medios y personas).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="imagenes/120/bm-desv-detalle.png" class="img-fluid figure-img"></p>
-<figcaption>Descomposicion detallada de las desviaciones de rendimiento</figcaption>
-</figure>
-</div>
-<p>El análisis detallado nos permite verificar cómo los efectos del bajo extracto seco del producto fabricado producen un resultado positivo (+99,788 euros). mientras que los efectos tecnológicos (recuperación de materia) han sido negativos (-86,105 euros).</p>
-<p>Como colofón, si las pérdidas debidas a la tecnología han sido de -86,105 euros en una fabricación, y hemos previsto unas 260 fabricaciones anuales, la falta de corrección de nuestra tecnología nos puede llevar a unas pérdidas anuales de algo más de 22.000 euros. De ahí la importancia de este análisis.</p>
+</section>
+<section id="detalle-de-las-desviaciones-por-composición-y-rendimiento-y-cálculo-de-la-interacción" class="level4">
+<h4 class="anchored" data-anchor-id="detalle-de-las-desviaciones-por-composición-y-rendimiento-y-cálculo-de-la-interacción">Detalle de las desviaciones por composición y rendimiento y cálculo de la interacción</h4>
+<p>Como hemos visto, en la fabricación de queso, las desviaciones de coste de producto debidas a la tecnología quesera (precio de materia aparte) ocurren fundamentalmente por dos causas:</p>
+<ul>
+<li><p>Nuestra recuperación de materia en el queso ha sido diferente de la prevista en el estándar (<strong>efecto rendimiento</strong>)</p></li>
+<li><p>El producto obtenido tiene una composición diferente del estándar en extracto seco total (<strong>efecto EST o composición</strong>). La composición de este EST importa, porque, dado que la MG y la MP tienen un valor diferente, un mismo EST con diferentes valores de MG y MP no tendrán el mismo impacto en el coste final.</p></li>
+</ul>
+<p>El análisis de desviaciones siempre se aborda con la pregunta clásica “que pasaría sí…”. Las fórmulas utilizadas a continuación son equivalentes a las utilizadas en contabilidad de costes para calcular los efectos tasa, precio y mix.</p>
+<p>Disponemos de dos datos básicos, nuestro estándar y nuestra situación real. En ambos casos, tenemos un valor de rendimiento (ESM/MP) y de EST. Para descomponer las causas de la variación, calcularemos dos datos adicionales:</p>
+<ul>
+<li><p>qué valor de rendimiento hubiésemos tenido si la composición hubiese sido la del estándar</p></li>
+<li><p>qué valor de composición hubiésemos tenido si el rendimiento hubiese sido el del estándar</p></li>
+</ul>
+<p>Para calcular el rendimiento (o recuperación ESM/MP) a composición estándar, aplicamos la fórmula</p>
+<p><span class="math display">\[
+Rs = recup\_real * compo\_std * kg\_queso
+\]</span></p>
+<p>En el caso de la MG, <span class="math display">\[
+R_{MG} = recup\_real_{MG} * compo\_std_{MG} * kg\_queso = 78,65\% * 27,00\% * 637,560 = 218,860\ kg\ MG
+\]</span></p>
+<p>Para calcular la composición a rendimiento estándar, aplicamos la fórmula</p>
+<p><span class="math display">\[ C_{MG} = recup\_std_{MG} * compo\_real_{MG} * kg\_queso = 83,99\% * 25,46\% * 637,560 = 193,55\ kg\ MG \]</span></p>
+<p>COn estos cálculos, podemos construir una tabla de dos entradas,</p>
+<p><img src="imagenes/120/clipboard-1022220315.png" class="img-fluid"></p>
+<p>Esta tabla nos permite calcular el efecto de cada factor por separado:</p>
+<ul>
+<li><p>el efecto de la recuperación (rendimiento) ha sido de 218,860 - 204,944 = -13,916 kg</p></li>
+<li><p>el efecto de la composición ha sido de 204,944 - 193,255 = 11,689 kg</p></li>
+<li><p>el efecto total ha sido de -13,916 + 11,689 = -1,433 kg</p></li>
+</ul>
+<p>Hemos tenido un mal resultado de -1,433 kg de MG que hemos perdido. Este resultado está escondiendo que nuestro rendimiento ha sido bastante peor, ya que hemos perdido -13,916 kg de MG, e Esta pérdida se ha visto compensada por un queso más blando, ya que hemos ganado 11,689 kg al haber tenido menor EST.</p>
+<p>Nos queda por calcular una última cantidad, que es la que se conoce como <em>interacción</em> entre la composición y el rendimiento. Para entender este concepto, tenemos que darnos cuenta de que en el análisis del rendimiento, hemos calculado la diferencia de rendimiento a composición estándar. Sin embargo esta no ha sido la realidad, ya que hemos tenido un extracto seco algo más bajo del estándar. En consecuencia, hay una pequeña parte de la pérdida de rendimiento calculada que no ha tenido lugar. Para obtener esta cantidad real, calculamos la diferencia de rendimiento a composición real, y obtenemos la interacción por diferencia:</p>
+<ul>
+<li>efecto rendimiento real a composición real: 193,255 - 206,377 = -13,122 kg</li>
+</ul>
+<p>La diferencia entre esta cantidad y el efecto rendimiento a composición estándar nos da la interacción buscada:</p>
+<p>-13,122 - (-13,916) = +0,794</p>
+<p>Esta cantidad se corresponde, como decíamos más arriba, con la pequeña parte de pérdida de rendimiento que realmente no ha tenido lugar, ya que el extracto seco que hemos obtenido ha sido menor que el estándar. Por esta razón es una desviación positiva.</p>
+<p>Si colocamos todos estos valores en una sola tabla, tenemos a la vista todos los factores de desviación en el componente analizado, con su valor a precio estándar.</p>
+<p><br>
+<img src="imagenes/120/clipboard-1506749136.png" class="img-fluid"></p>
+<p>En la última línea incluimos un término de comprobación: la desviación total menos la suma de los componentes calculados debe ser cero.</p>
+<p>Procedemos de la misma forma para el cálculo de las desviaciones e interacción de la MP:</p>
+<p><img src="imagenes/120/clipboard-2825710163.png" class="img-fluid"></p>
+<p>La suma de las desviaciones (MG+MP) nos permite calcular la desviación total:</p>
+<p><img src="imagenes/120/clipboard-3496249106.png" class="img-fluid"></p>
+<p>El análisis detallado nos ha permite verificar cómo los efectos del bajo extracto seco del producto fabricado producen un resultado positivo (+99,70 euros). mientras que los efectos tecnológicos (recuperación de materia) han sido negativos (-81,52 euros). El resultado total, de 18,27 euros positivos podría hacernos pensar que hemos tenido un buen resultado, mejor que lo presupuestado, pero el análisis detallado de las desviaciones nos permite mayor detalle en la interpretación:</p>
+<ul>
+<li><p>Hemos tenido una fuerte desviación negativa en el rendimiento, que deberemos corregir. Si las pérdidas debidas a la tecnología han sido de -81,52 euros en una fabricación, y hemos previsto unas 260 fabricaciones anuales, la falta de corrección de nuestra tecnología nos puede llevar a unas pérdidas anuales de algo más de 20.000 euros.</p></li>
+<li><p>Hemos compensado este error en la conducción de la tecnología bajando el extracto seco. Esto no es una buena decisión, ya que la modificación de la composición puede tener un impacto desfavorable en el consumidor, y en consecuencia, un efecto negativo a largo plazo sobre la aceptación de nuestro producto.</p></li>
+</ul>
 <p>En el enlace a continuación se puede descargar una hoja Excel con el detalle de cada tabla presentada en este documento, y repasar la construcción de la fórmulas utilizadas.</p>
-<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/06-analisis-desviaciones-rendimientos.xlsx" target="_blank" rel="noopener noreferrer">Descargar la hoja de cálculo Excel con el análisis de desviaciones de rendimientos de ejemplo (archivo <code>06-analisis-desviaciones-rendimientos.xlsx</code>)</a></p>
+<p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/06-analisis-desviaciones-rendimientos_2x2.xlsx" target="_blank" rel="noopener noreferrer">Descargar la hoja de cálculo Excel con el análisis de desviaciones de rendimientos de ejemplo (archivo <code>06-analisis-desviaciones-rendimientos_2x2.xlsx</code>)</a></p>
 </section>
 </section>
 </section>
-<section id="práctica-en-google-colab" class="level2" data-number="15.8">
-<h2 data-number="15.8" class="anchored" data-anchor-id="práctica-en-google-colab"><span class="header-section-number">15.8</span> Práctica en Google Colab</h2>
-<p>En este enlace se proporciona acceso a los datos de este capítulo en un cuaderno de Google Colab, para practicar de forma interactiva el código Python desde ese entorno.</p>
-<p><a href="https://colab.research.google.com/github/juanriera/master-queseria/blob/master/130-rendimientos-colab.ipynb" target="_blank" rel="noopener noreferrer">Abrir versión sólo Python de este cuaderno en Google Colab</a></p>
-</section>
-<section id="resumen-del-capítulo" class="level2" data-number="15.9">
-<h2 data-number="15.9" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">15.9</span> Resumen del capítulo</h2>
+<section id="resumen-del-capítulo" class="level2" data-number="15.8">
+<h2 data-number="15.8" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">15.8</span> Resumen del capítulo</h2>
 <p>El análisis de rendimientos queseros es la herramienta más potente para identificar y cuantificar las ineficiencias del proceso de transformación. A diferencia del balance de materia, que nos dice cuánta materia se pierde en global, el análisis de rendimientos nos permite desglosar las causas de las desviaciones y asignarles un coste económico concreto.</p>
-<p>El <strong>estándar técnico de fabricación</strong> es el punto de referencia fundamental: define qué rendimiento debería obtener el proceso con la leche disponible, calculado a partir de la composición analítica real de cada fabricación. La diferencia entre el rendimiento estándar y el rendimiento real se descompone en tres efectos independientes: el efecto del extracto seco del queso (¿hemos obtenido el grado de concentración previsto?), el efecto de la recuperación de materia prima (¿hemos retenido en el queso la proporción de grasa y proteína esperada?) y el efecto del precio de la leche (¿hemos pagado la leche según su composición real?).</p>
+<p>El <strong>estándar técnico de fabricación</strong> es el punto de referencia fundamental: define qué rendimiento debería obtener el proceso con la leche disponible, calculado a partir de los valores medios anuales, o mensuales, en caso de disponer de un estándar mensual. La diferencia entre el rendimiento estándar y el rendimiento real se descompone en tres efectos independientes: el efecto del extracto seco del queso (¿hemos obtenido el grado de concentración previsto?), el efecto de la recuperación de materia prima (¿hemos retenido en el queso la proporción de grasa y proteína esperada?) y el efecto del precio de la leche (¿hemos pagado por la materia prima lo que teníamos previsto en el presupuesto, y su composición real se ajusta a lo presupuestado?).</p>
 <p>Esta descomposición es esencial para priorizar las acciones de mejora: un problema de recuperación de materia apunta a causas tecnológicas (temperatura de cuajado, tiempo de desuerado, manejo de la cuajada, curva de acidificación), mientras que un problema de extracto seco pede apuntar además a causas de proceso adicionales (tiempo de prensado, salado, condiciones de maduración).</p>
 <p>La estandarización de la leche antes de la fabricación reduce la variabilidad del rendimiento al eliminar el efecto de las fluctuaciones estacionales de la composición. Es una inversión con retorno directo y cuantificable: a mayor variabilidad del rendimiento, mayor dificultad para detectar problemas tecnológicos reales entre el ruido de las variaciones de materia prima.</p>
 <p>Como hemos visto en el ejemplo de análisis, incluso una sola fabricación con desviaciones tecnológicas moderadas puede representar un coste de decenas de euros; extrapolado a cientos de fabricaciones anuales, el impacto económico justifica ampliamente el esfuerzo de análisis sistemático.</p>
