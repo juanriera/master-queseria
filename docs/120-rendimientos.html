@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>15&nbsp; Los rendimientos queseros – La mejora continua en la producción quesera</title>
+<title>15&nbsp; El rendimiento quesero – La mejora continua en la producción quesera</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -136,7 +136,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./100-camembert.html">Aplicaciones en producción quesera</a></li><li class="breadcrumb-item"><a href="./120-rendimientos.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./100-camembert.html">Aplicaciones en producción quesera</a></li><li class="breadcrumb-item"><a href="./120-rendimientos.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">El rendimiento quesero</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -268,7 +268,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./120-rendimientos.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">El rendimiento quesero</span></span></a>
   </div>
 </li>
       </ul>
@@ -407,9 +407,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./100-camembert.html">Aplicaciones en producción quesera</a></li><li class="breadcrumb-item"><a href="./120-rendimientos.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./100-camembert.html">Aplicaciones en producción quesera</a></li><li class="breadcrumb-item"><a href="./120-rendimientos.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">El rendimiento quesero</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los rendimientos queseros</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">El rendimiento quesero</span></h1>
 </div>
 
 
@@ -827,16 +827,17 @@ window.Quarto = {
 <li><p>qué valor de rendimiento hubiésemos tenido si la composición hubiese sido la del estándar</p></li>
 <li><p>qué valor de composición hubiésemos tenido si el rendimiento hubiese sido el del estándar</p></li>
 </ul>
-<p>Para calcular el rendimiento (o recuperación ESM/MP) a composición estándar, aplicamos la fórmula para obtener las cantidades de materia puestas en cuba:</p>
+<p>Para calcular estos rendimientos, necesitamos calcular las cantidades de materia teóricas puestas en cuba en estos supuestos.</p>
+<p>Para la MG, las fórmulas que utilizamos son: <span class="math display">\[
+MGcuba_{compo\_std} = \frac{compo\_std_{MG}}{recup\_real_{MG}} * kg\_queso
+\]</span> para la MG a composición estándar, y <span class="math display">\[
+MGcuba_{recup\_std} =  \frac{compo\_real_{MG}}{recup\_std_{MG}} * kg\_queso
+\]</span> para la MG a recuperación (rendimiento) estándar.</p>
+<p>Aplicando las fórmulas,</p>
 <p><span class="math display">\[
-mat =  compo\_std / recup\_real * kg\_queso
-\]</span></p>
-<p>En el caso de la MG, <span class="math display">\[
-MG_{cuba} =  compo\_std_{MG} / recup\_real_{MG} * kg\_queso = 78,65\% * 27,00\% * 637,560 = 218,860\ \text{kg MG en cuba a composicion std}
-\]</span></p>
-<p>Para calcular la composición a rendimiento estándar, aplicamos la fórmula</p>
-<p><span class="math display">\[
-C_{MG} = compo\_real_{MG}  / recup\_std_{MG} * kg\_queso = 83,99\% * 25,46\% * 637,560 = 193,55\text{kg MG en cuba a recup std}
+MGcuba_{compo\_std} =  \frac{27,00\%}{78,65\%} * 637,560 = 218,860\ \text{kg MG en cuba a composicion std}
+\]</span> y <span class="math display">\[
+MGcuba_{recup\_std} = \frac{25,46\%}{83,99\%} * 637,560 = 193,255\text{kg MG en cuba a recup std}
 \]</span></p>
 <p>Con estos cálculos, podemos construir una tabla de dos entradas,</p>
 <p><img src="imagenes/120/clipboard-1022220315.png" class="img-fluid"></p>
