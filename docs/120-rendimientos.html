@@ -457,7 +457,7 @@ window.Quarto = {
 <p><a href="https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/02-fab_queso_sim.csv" target="_blank" rel="noopener noreferrer">Descargar los datos de ejemplo utilizados en este cuaderno (archivo <code>02-fab_queso_sim.csv</code>)</a></p>
 <section id="un-ejemplo-de-cálculo-de-rendimientos" class="level2" data-number="15.1">
 <h2 data-number="15.1" class="anchored" data-anchor-id="un-ejemplo-de-cálculo-de-rendimientos"><span class="header-section-number">15.1</span> Un ejemplo de cálculo de rendimientos</h2>
-<p>Vamos a utilizar los datos de producción de la empresa que hemos visto en el capítulo anterior. La empresa ha fabricado durante un año unos <strong>5.000 L diarios</strong>, sólo en días laborables. Esto supone la cantidad aproximada de <strong>1.300.000 litros de leche de vaca</strong>, algo más de 100.000 L al mes. Esta empresa ha elaborado un solo tipo de queso, y sus ventas han sido de unas <strong>130 toneladas de queso</strong>. El responsable de la empresa nos dice que el rendimiento quesero de esta fábrica que él está estimando es de <strong>10 litros por kilo de queso</strong>; para calcularlo, ha dividido los litros de leche comprados entre los kilos de queso vendido.</p>
+<p>Imaginemos una empresa que ha fabricado durante un año unos <strong>5.000 L diarios</strong>, sólo en días laborables. Esto supone la cantidad aproximada de <strong>1.300.000 litros de leche de vaca</strong>, algo más de 100.000 L al mes. Esta empresa ha elaborado un solo tipo de queso, y sus ventas han sido de unas <strong>130 toneladas de queso</strong>. El responsable de la empresa nos dice que el rendimiento quesero de esta fábrica que él está estimando es de <strong>10 litros por kilo de queso</strong>; para calcularlo, ha dividido los litros de leche comprados entre los kilos de queso vendido.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -529,10 +529,9 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="cálculo-de-la-cantidad-de-leche-necesaria-para-fabricar-1-kg-de-queso">Cálculo de la cantidad de leche necesaria para fabricar 1 kg de queso</h3>
 <p>Sabemos que nuestro proceso de fabricación quesera consiste en la coagulación de la caseína y expulsión de suero, y que la materia grasa queda retenida en la red de caseína.</p>
 <p>Este concepto es la base fundamental de la comprensión de la tecnología quesera: el rendimiento en la recuperación de la proteína es el que nos va a definir todo el proceso; la materia grasa “acompañará” de forma estática (aunque tendrá influencia en el desuerado)</p>
-<p>Por esta razón, <strong>el principal elemento del rendimiento es el porcentaje de recuperación de proteína en el extracto seco magro</strong>.</p>
-<p>En el análisis inicial de nuestro ejemplo, habíamos estimado que nuestra recuperación de materia grasa era del 80%, y la de la proteína, de un 88%, utlizando las grandes cifras de fabricación y ventas. Para tener la mayor precisión posible, vamos a utilizar ahora los datos reales de nuestras fabricaciones a lo largo de un año, recogidas en el archivo CSV <code>fab_queso_sim.CSV</code> que hemos estado utilizando en el análisis del balance de materia.</p>
+<p>Por esta razón, <strong>el principal elemento del rendimiento es el porcentaje de recuperación de proteína en el extracto seco magro</strong>. Vamos a utilizar los datos reales de nuestras fabricaciones a lo largo de un año, recogidas en el archivo CSV <code>fab_queso_sim.CSV</code> que hemos estado utilizando en el análisis del balance de materia.</p>
 <p>Para calcular nuestro <strong>estándar técnico de fabricación</strong> inicial, vamos a utilizar los datos de la fabricación real de un año, recogidos en nuestro CSV, que es lo que realmente hemos sido capaces de hacer en el año.</p>
-<p>En primer lugar, calculamos el <strong>coeficiente de recuperación de MP</strong>, que establece la relación entre la proteína puesta en cuba y el ESM del queso.</p>
+<p>En primer lugar, calculamos el <strong>coeficiente de recuperación ESM/MP</strong>, que establece la relación entre la proteína puesta en cuba y el ESM del queso.</p>
 <p>Como el ESM real del queso puede ser superior al valor de la MP en cuba, el coeficiente puede ser mayor de 100%. El valor real de los coeficientes refleja que hay pérdidas de MG y MP, bien en el suero, bien en los finos de moldeo o en cuajada que se ha caído, etc, en resumen, que no ha ido a parar al queso moldeado. Podemos argumentar, correctamente, que la parte de los finos recoge también la eficiencia de la coagulación, pero al final lo que nos interesa es recoger la conversión real en queso de nuestra materia prima, excluyendo todo lo que constituyen las <strong>pérdidas de proceso</strong>. Si nuestro proceso es estable, estos coeficientes deben ser siempre más o menos constantes: en un proceso estable, en el que las condiciones del proceso se han mantenido, las pérdidas deben ser muy semejantes de un día a otro. Por lo tanto, lo que nos interesa es este valor medio del coeficiente en nuestra fabricación.</p>
 <p>Podemos hacer el cálculo mediante la tabla dinámica de balance de materia que habíamos dejado como ejercicio en el capitulo anterior, y que calculamos de manera semejante a la de la materia grasa.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -556,13 +555,13 @@ window.Quarto = {
 <p>Es muy recomendable dedicar un rato a analizar la construcción de la tabla y de los campos calculados utilizados.</p>
 </div>
 </div>
-<p>En la tabla podemos ver que las pérdidas de MP entre recepción y cubas son un -4%, mientras que las pérdidas de MP frente al ESM recuperado son un -8% (usamos signos negativos para indicar <strong>pérdidas</strong>). Esto nos permite calcular una recuperación en el queso de la MP en cubas de un 92%, lo que, sumando el -4% que tenemos en el balance líquido nos daría un 88% de recuperación, que habíamos calculado inicialmente sobre los volúmenes totales.</p>
-<p>Utilizando el coeficiente de recuperación de la MP, calculamos el resto de los valores necesarios para nuestro estándar técnico.</p>
+<p>En la tabla podemos ver que las pérdidas de MP entre recepción y cubas son un -4%, mientras que las pérdidas de MP frente al ESM recuperado son un -8% (usamos signos negativos para indicar <strong>pérdidas</strong>). Esto nos permite calcular una recuperación en el queso de la MP en cubas de un 92%; sumando el -4% que tenemos en el balance líquido obtenemos un 88% de recuperación.</p>
+<p>Utilizando el coeficiente de recuperación de la MP (ESM/MP), calculamos el resto de los valores necesarios para nuestro estándar técnico.</p>
 <p>Como hemos fabricado <span class="math inline">\(1.308.012\ L\)</span> de leche (litros totales en cubas), la cantidad media de proteína en <span class="math inline">\(g/L\)</span> que tenemos en esa leche es de</p>
 <p><span class="math display">\[
 \frac{44.617\ \cancel{kg_{MP}\ en\ cubas}}{1.308.012\ L\ leche}\cdot 1000\frac{g}{\cancel{kg}} \approx 34,11\ g/L\ leche
 \]</span></p>
-<p>Teniendo en cuenta el coeficiente de recuperación de proteína, podemos calcular la cantidad de ESM que obtendremos en el queso por cada litro de leche en cubas:</p>
+<p>Teniendo en cuenta el coeficiente de recuperación de la MP (ESM/MP), podemos calcular la cantidad de ESM que obtendremos en el queso por cada litro de leche en cubas:</p>
 <p><span class="math display">\[
 \frac{34{,}11\ \cancel{g\ proteína}}{1\ L\ leche} \cdot \ \frac{0{,}92\ g\ ESM}{1\ \cancel{g\ proteína}} = 31{,}38\ g\ ESM\ en\ el\ queso\ por\ litro\ de\ leche
 \]</span></p>
@@ -602,7 +601,7 @@ window.Quarto = {
 <section id="la-materia-grasa" class="level3">
 <h3 class="anchored" data-anchor-id="la-materia-grasa">La materia grasa</h3>
 <p>En nuestro análisis de rendimiento hemos calculado también un % de recuperación de MG. Sin embargo, no utilizaremos este % para calcular el litraje, lo haremos tal como hemos visto, con la transformación de la proteína en ESM. La razón es que <em>la tecnología quesera nos permite actuar sobre el ESM del queso, pero la MG depende principalmente de la estandarización</em>, como veremos a continuación.</p>
-<p>Como el cálculo que hemos realizado con el coeficiente de recuperación de la MP nos da los litros de leche que necesitamos para hacer 1 kg de queso, y tenemos una composición de nuestra leche, podemos saber la cantidad de MG que vamos a tener en esos litros. Sabemos la MG que hemos obtenido realmente en nuestro queso, mediante los diferentes análisis de nuestro producto.</p>
+<p>Como el cálculo que hemos realizado con el coeficiente de recuperación de la MP (ESM/MP) nos da los litros de leche que necesitamos para hacer 1 kg de queso, y tenemos una composición de nuestra leche, podemos saber la cantidad de MG que vamos a tener en esos litros. Sabemos la MG que hemos obtenido realmente en nuestro queso, mediante los diferentes análisis de nuestro producto.</p>
 <p>Hemos calculado nuestro litraje unitario: necesitamos 7,967 L leche para hacer 1 kg de queso.</p>
 <p>Según nuestros datos, nuestra leche en cubas tiene <span class="math inline">\(52.772,13 / 1.308.012 = 40,35\ g/L\)</span> de MG, luego los <span class="math inline">\(7,967\ L\)</span> de leche teóricos tendrán</p>
 <p><span class="math display">\[
@@ -642,7 +641,7 @@ window.Quarto = {
 </section>
 <section id="la-importancia-de-la-estandarización-de-la-leche" class="level2" data-number="15.5">
 <h2 data-number="15.5" class="anchored" data-anchor-id="la-importancia-de-la-estandarización-de-la-leche"><span class="header-section-number">15.5</span> La importancia de la estandarización de la leche</h2>
-<p>La tecnología quesera se diseña para optimizar el coeficiente de recuperación de proteína. Aunque la retención de materia grasa (MG) también depende de factores tecnológicos como el corte, el calentamiento y el pH, no está directamente controlada por la tecnología, aunque sí influenciada por ella.</p>
+<p>La tecnología quesera se diseña para optimizar el <strong>coeficiente de recuperación de ESM/MP</strong>, que llamaremos <strong>rendimiento quesero</strong>. Aunque la retención de materia grasa (MG) también depende de factores tecnológicos como el corte, el calentamiento y el pH, no está directamente controlada por la tecnología, aunque sí influenciada por ella.</p>
 <p>En una tecnología concreta, con parámetros de trabajo fijados, cuando la cantidad de MG en la leche es superior a la definida en el proceso, se producen dos efectos:</p>
 <ul>
 <li><p>Una parte del exceso de MG queda retenida en la matriz proteica, lo que incrementa la cantidad de grasa en el queso y, por tanto, modifica su composición.</p></li>
@@ -821,7 +820,7 @@ window.Quarto = {
 <li><p>Nuestra recuperación de materia en el queso ha sido diferente de la prevista en el estándar (<strong>efecto rendimiento</strong>)</p></li>
 <li><p>El producto obtenido tiene una composición diferente del estándar en extracto seco total (<strong>efecto EST o composición</strong>). La composición de este EST importa, porque, dado que la MG y la MP tienen un valor diferente, un mismo EST con diferentes valores de MG y MP no tendrán el mismo impacto en el coste final.</p></li>
 </ul>
-<p>El análisis de desviaciones siempre se aborda con la pregunta clásica “qué pasaría sí…”. Las fórmulas utilizadas a continuación son equivalentes a las utilizadas en contabilidad de costes para calcular los efectos tasa, precio y mix.</p>
+<p>El análisis de desviaciones se puede abordar con la pregunta clásica “qué pasaría si…”. Las fórmulas utilizadas a continuación son equivalentes a las utilizadas en contabilidad de costes para calcular los efectos tasa, precio y mix.</p>
 <p>Disponemos de dos datos básicos, nuestro estándar y nuestra situación real. En ambos casos, tenemos un valor de rendimiento (ESM/MP) y de EST. Para descomponer las causas de la variación, calcularemos dos datos adicionales:</p>
 <ul>
 <li><p>qué valor de rendimiento hubiésemos tenido si la composición hubiese sido la del estándar</p></li>
@@ -862,7 +861,7 @@ MGcuba_{recup\_std} = \frac{25,46\%}{83,99\%} * 637,560 = 193,255\text{kg MG en 
 <p><img src="imagenes/120/clipboard-2825710163.png" class="img-fluid"></p>
 <p>La suma de las desviaciones (MG+MP) nos permite calcular la desviación total:</p>
 <p><img src="imagenes/120/clipboard-3496249106.png" class="img-fluid"></p>
-<p>El análisis detallado nos ha permitido verificar cómo los efectos del bajo extracto seco del producto fabricado producen un resultado positivo (+99,79 euros). mientras que los efectos tecnológicos (recuperación de materia) han sido negativos (-81,52 euros). El resultado total, de 18,27 euros positivos podría hacernos pensar que hemos tenido un buen resultado, mejor que lo presupuestado, pero el análisis detallado de las desviaciones nos permite mayor detalle en la interpretación:</p>
+<p>El análisis detallado nos ha permitido verificar cómo los efectos del bajo extracto seco del producto fabricado producen un resultado positivo (+99,79 euros). mientras que los efectos tecnológicos (recuperación de materia), incluyendo la interacción composición-rendimiento, han sido negativos (-81,52 euros). El resultado total, de 18,27 euros positivos podría hacernos pensar que hemos tenido un buen resultado, mejor que lo presupuestado, pero el análisis detallado de las desviaciones nos permite mayor detalle en la interpretación:</p>
 <ul>
 <li><p>Hemos tenido una fuerte desviación negativa en el rendimiento, que deberemos corregir. Si las pérdidas debidas a la tecnología han sido de -81,52 euros en una fabricación, y hemos previsto unas 260 fabricaciones anuales, la falta de corrección de nuestra tecnología nos puede llevar a unas pérdidas anuales de algo más de 20.000 euros.</p></li>
 <li><p>Hemos compensado este error en la conducción de la tecnología bajando el extracto seco. Esto no es una buena decisión, ya que la modificación de la composición puede tener un impacto desfavorable en el consumidor, y en consecuencia, un efecto negativo a largo plazo sobre la aceptación de nuestro producto.</p></li>
