@@ -34,3 +34,16 @@ Los cambios menores (correcciones ortográficas, ajustes de formato, pequeñas a
 - Objetivos de aprendizaje y resumen añadidos a los capítulos 12, 13 y 14.
 - Recomendaciones Broman & Woo incorporadas al cap. 4 (organización de datos) y al cap. 3 (limitaciones de la hoja de cálculo).
 - Introducción ampliada para reflejar los nuevos capítulos de SPC, DoE y síntesis final.
+
+## Noviembre 2026 — revisión del análisis de rendimientos
+
+### Capítulos ampliados o corregidos
+
+- **Cap. 14 — El balance de materia:** eliminado el ejemplo del balance anual global (compra frente a venta); corregidas erratas de cálculo (44.850 kg de MP; pérdida anual de MG de 10.783 kg y 59.815 €; porcentajes referidos a lo comprado y a la MG en cuba); resumen ajustado al contenido del capítulo.
+- **Cap. 15 — El rendimiento quesero** *(antes: Los rendimientos queseros)*: el cociente ESM/MP se presenta como coeficiente que puede superar el 100 %; nueva sección sobre la descomposición de la desviación por consumo en tabla de doble entrada (efecto EST, efecto rendimiento e interacción EST × rendimiento, con término de comprobación), que sustituye a los «efectos no explicados»; corregido el cálculo del efecto precio, que ahora se valora sobre los kilos de materia consumidos (−12,18 € MG, +20,30 € MP); planteamiento del ejemplo inicial reescrito; eliminada la sección de práctica en Google Colab.
+
+### Recursos actualizados
+
+- **`06-analisis-desviaciones-rendimientos_2x2.xlsx`** sustituye a `06-analisis-desviaciones-rendimientos.xlsx`: fórmulas corregidas del efecto precio y de la interacción, nueva hoja «Interacción 2x2» y eliminación de nombres definidos y vínculos externos obsoletos.
+
+---
