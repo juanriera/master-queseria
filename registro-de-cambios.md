@@ -3,12 +3,9 @@
 Historial de versiones del libro *La mejora continua en la producción quesera*.  
 Los cambios menores (correcciones ortográficas, ajustes de formato, pequeñas aclaraciones) no se registran aquí; pueden consultarse en el [historial de commits del repositorio](https://github.com/juanriera/master-queseria/commits/main).
 
----
-## Noviembre 2026 — revisión del análisis de rendimientos
-
+## Noviembre 2026
 Revisión de errores en todos los capítulos.
 Los capítulos de precio de la leche, balance de materia y rendimientos, y el apéndice de simulación de datos de fabricación, se trasladan a un libro específico de tecnología quesera. Se reorganiza la parte de aplicaciones.
----
 
 ## Marzo 2026 — primera versión pública
 ### Capítulos nuevos
