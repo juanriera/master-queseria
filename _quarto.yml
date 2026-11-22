@@ -1,0 +1,63 @@
+project:
+  type: book
+  output-dir: docs
+execute:
+  enabled: true
+  freeze: auto
+jupyter: python3
+date-modified: 2026-11-22
+book:
+  title: "La mejora continua en la producción quesera"
+  subtitle: "Análisis de datos industriales usando Excel, Python y R"
+  author: "Juan Riera"
+  date: 2026-03-21
+  date-format: short
+  sidebar:
+    collapse-level: 1
+  chapters:
+    - index.qmd
+    - part: "Herramientas y técnicas básicas"
+      chapters: 
+      - 020-estad-entorno.qmd
+      - 030-herramientas.qmd
+      - 040-organizacion.qmd
+      - 050-exploracion.qmd
+      - 060-estad-basica.qmd    
+      - 070-distribuciones.qmd      
+      - 080-correlacion-regresion.qmd
+      - 090-control-proc.qmd
+      - 100-disexp.qmd
+      - 110-comunicacion.qmd
+    - part: "Aplicaciones en producción"
+      chapters: 
+      - 120-camembert.qmd 
+      - 130-sistema-medicion.qmd
+      - 140-rd-contenido-efectivo.qmd
+    - part: "La metodología para la mejora continua"
+      chapters: 
+      - 150-variabilidad.qmd
+      - 160-mejora-continua.qmd
+  appendices: 
+    - 300-glosario.qmd
+    - 310-apendice-entorno.qmd
+    - 340-sistema-medicion-grr-simulador.qmd
+    - 360-media-centro-gravedad.qmd
+    - 380-indice-datasets.qmd    
+    - 400-bibliografia.qmd
+language:
+  section-title-appendices: "Apéndices"
+  section-title-bibliography: "Bibliografía"
+  label:
+    appendix: "Apéndice"
+number-depth: 2
+format:
+   html:
+     theme: cosmo
+     link-external-newtab: true
+
+bibliography: bibliografia.bib  
+csl: estilos/chicago-author-date.csl
+citeproc: true
+
+author-title: AUTOR
+published-title: FECHA DE EDICIÓN

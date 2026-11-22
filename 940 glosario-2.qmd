@@ -1,0 +1,23 @@
+---
+title: "Untitled"
+format: html
+---
+
+
+**Balance de materia**
+Análisis que compara la cantidad de materia grasa y proteína que entra en el proceso con la leche con la que sale en el queso producido, para cuantificar las pérdidas en cada etapa del proceso de transformación.
+
+**Coste de materia prima**
+En tecnología quesera, el coste unitario de la materia grasa y la proteína de la leche expresado en €/kg de componente. Se obtiene a partir del precio pagado por litro de leche y su composición analítica.
+
+**Desviación de rendimiento**
+Diferencia entre el rendimiento real obtenido en una fabricación y el rendimiento estándar calculado a partir de la composición de la leche. Se descompone en efecto del extracto seco, efecto de la recuperación de materia y efecto del precio.
+
+**Estándar técnico de fabricación**
+Documento que define los parámetros de referencia del proceso quesero: qué rendimiento debería obtener el proceso con una leche de composición dada. Sirve de base para el análisis de desviaciones.
+
+**Pago por calidad**
+Sistema de retribución de la leche en el que el precio pagado al ganadero depende de la composición química (grasa, proteína) y la calidad higiénico-sanitaria de la leche entregada.
+
+**Precio unitario de componentes**
+Coste de la materia grasa o la proteína de la leche expresado en €/kg de componente. Se obtiene dividiendo el coste total de la leche entre la cantidad de grasa o proteína que contiene.
