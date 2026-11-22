@@ -5,6 +5,7 @@ Los cambios menores (correcciones ortográficas, ajustes de formato, pequeñas a
 
 ---
 ## Noviembre 2026 — revisión del análisis de rendimientos
+
 Revisión de errores en todos los capítulos.
 Los capítulos de precio de la leche, balance de materia y rendimientos, y el apéndice de simulación de datos de fabricación, se trasladan a un libro específico de tecnología quesera. Se reorganiza la parte de aplicaciones.
 ---
