@@ -28,7 +28,7 @@ Al finalizar este capítulo, el alumno será capaz de:
 - Utilizar alternativas al boxplot (beeswarm, stripplot, violin plot) para visualizar distribuciones con mayor detalle.
 - Construir gráficos de densidad con Python y R y utilizarlos para comparar distribuciones entre grupos.
 - Crear e interpretar gráficos de dispersión para analizar relaciones entre dos variables numéricas, tanto en Excel como en Python y R.
-- Construir gráficos de series temporales e identificar tendencias, estacionalidad y anomalías, utilizando las funciones de remuestreo de `pandas` en Python y `ggplot2` en R.
+- Construir gráficos de series temporales e identificar tendencias, estacionalidad y anomalías, utilizando las funciones de remuestreo de `pandas` en Python y sus equivalentes con `dplyr` y `ggplot2` en R.
 - Elegir el tipo de gráfico más adecuado según el objetivo del análisis y el tipo de variable.
 
 Los conceptos clave introducidos en este capítulo son: **stemplot, distribución de frecuencias, frecuencia absoluta, frecuencia relativa, frecuencia acumulada, diagrama de barras, histograma, intervalo (bin), forma de los datos, distribución simétrica, distribución asimétrica, distribución bimodal, diagrama de caja (boxplot), cuartil, mediana, rango intercuartil (IQR), valor atípico (outlier), beeswarm, violin plot, gráfico de densidad, gráfico de dispersión, correlación, serie temporal, estacionalidad, tendencia, remuestreo, media móvil, matplotlib, seaborn, ggplot2, pandas**.
@@ -188,7 +188,7 @@ Para crear una tabla de frecuencias de la variable `altura_cm` mediante una tabl
 
 1.  Puedes ordenar las alturas en orden ascendente o descendente haciendo clic en la flecha junto a `altura_cm` en la tabla dinámica.
 2.  También puedes cambiar el formato de la tabla dinámica para que sea más fácil de leer.
-3.  Puedes renombrar los encabezados de la tabla para que sea más fácil de leer, rotulando las columnas, por ejemplo, como `frec_abs`y `frec_rel`, o cualquier otro encabezado que te resulte claro y útil.
+3.  Puedes renombrar los encabezados de la tabla para que sea más fácil de leer, rotulando las columnas, por ejemplo, como `frec_abs` y `frec_rel`, o cualquier otro encabezado que te resulte claro y útil.
 
 ![](imagenes/aula1-td-frec.webp)
 

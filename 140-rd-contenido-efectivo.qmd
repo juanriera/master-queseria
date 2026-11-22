@@ -102,7 +102,7 @@ Un solo envase por debajo de T2 en la muestra de inspección da lugar al rechazo
 | Envases bajo T2 | 0 (ninguno permitido) |
 :::
 
-![Los límites T1 y T2 sobre la curva normal del proceso](imagenes/rd-1801.svg)
+![Los límites T1 y T2 sobre la curva normal del proceso](imagenes/rd-1801.png)
 
 ::: {.callout-warning}
 ## Las tres reglas del envasador

@@ -13,7 +13,7 @@ library(reticulate)
 use_python("C:/ProgramData/miniconda3/python.exe", required = TRUE)
 ```
 
-# Medidas centrales y medidas de dispersión: la media y la varianza.
+# Medidas centrales y medidas de dispersión: la media y la varianza
 
 ::: callout-note
 ## Objetivos de aprendizaje
@@ -41,7 +41,7 @@ Al estudiar el diagrama de caja (*boxplot*) hemos visto que este gráfico se des
 
 De estos valores, el segundo cuartil, que se corresponde con la mitad de los valores, representa una estimación del centro de la distribución, y por eso lo llamamos **mediana**. La distancia entre el primer y tercer cuartil es lo que se conoce como **rango intercuartil** (se suele representar por sus siglas en inglés, **IQR**), y nos da una indicación de la **dispersión**: cuanto mayor es la dispersión de nuestros valores, más alejados estarán del centro, y por lo tanto habrá mayor distancia entre el primer y el tercer cuartil.
 
-Una de las mayores ventajas de la mediana y del rango intercuartil es que son estadísticos robustos, es decir, tienen una alta robustez a los valores atípicos. Como en el cálculo del rango intercuartil no se tienen en cuenta los valores extremos, su valor variará muy poco si aparecen nuevas observaciones atípicas (outliers). Como no presuponen ninguna forma conreta de distribución de los datos, a estos estadísticos se los conoce como **no paramétricos**.
+Una de las mayores ventajas de la mediana y del rango intercuartil es que son estadísticos robustos, es decir, tienen una alta robustez a los valores atípicos. Como en el cálculo del rango intercuartil no se tienen en cuenta los valores extremos, su valor variará muy poco si aparecen nuevas observaciones atípicas (outliers). Como no presuponen ninguna forma concreta de distribución de los datos, a estos estadísticos se los conoce como **no paramétricos**.
 
 Existen otros estadísticos, llamados **paramétricos**, que, en determinadas condiciones, tienen ventajas frente a los no paramétricos. Los principales son la **media aritmética**, o simplemente, **media**, y la **varianza**.
 
@@ -85,19 +85,19 @@ Supongamos que tenemos un conjunto de $n$ valores numéricos: $x_1, x_2, x_3, \l
 
 Supongamos que tenemos los siguientes valores: $5, 7, 9$.
 
-1.  **Suma de los Valores**: 
+1.  **Suma de los valores**: 
 $$
     S = 5 + 7 + 9 = 21
 $$
 
-2.  **Cantidad de Valores**: 
+2.  **Cantidad de valores**: 
 $$
     n = 3
 $$
 
-3.  **Cálculo de la Media Aritmética**: 
+3.  **Cálculo de la media aritmética**: 
 $$
-    \text{Media Aritmética} = \frac{21}{3} = 7
+    \text{Media aritmética} = \frac{21}{3} = 7
 $$
 
 Entonces, la media aritmética de los valores $5, 7, 9$ es $7$.
@@ -122,7 +122,7 @@ $$
 
 lo que quiere decir: *"la suma de todos los valores observados dividido entre el número de estos valores"*.
 
-La **media** es lo que conocemos como un *valor central*, ya que representa el centro de nuestro conjunto de números. Como es el centro de nuestro conjunto de datos, la suma de las diferencias de todos los valores respecto este valor central (que podemos considerar "distancias con signo") es $cero$. Más adelante veremos la importancia de este hecho, al hablar de la dispersión y las formas de cálculo de la misma. Como hemos visto, la media de una **muestra** se representa como $\bar{x}$, mientras que la media de una **población** se representa con la letra griega *mu*: $\mu$. En ambos casos, el cálculo se realiza de forma idéntica.
+La **media** es lo que conocemos como un *valor central*, ya que representa el centro de nuestro conjunto de números. Como es el centro de nuestro conjunto de datos, la suma de las diferencias de todos los valores respecto a este valor central (que podemos considerar "distancias con signo") es $cero$. Más adelante veremos la importancia de este hecho, al hablar de la dispersión y las formas de cálculo de la misma. Como hemos visto, la media de una **muestra** se representa como $\bar{x}$, mientras que la media de una **población** se representa con la letra griega *mu*: $\mu$. En ambos casos, el cálculo se realiza de forma idéntica.
 
 Volvamos a nuestro ejemplo de la altura de un grupo de alumnos, para realizar los cálculos según el modelo que hemos descrito. En nuestro caso, la *altura media* de nuestros alumnos (la *media* de nuestro conjunto de números) se calcula como:
 
@@ -134,7 +134,7 @@ $$
 
 ![](imagenes/aula1.webp)
 
-La fórmula para obtener la media en la hoja de cálculo, por ejemplo en la versión en español de *Microsoft Excel*, es `=PROMEDIO(...)`, donde los puntos suspensivos deben sustituirse por el rango a calcular. En nuestro ejemplo, introduciríamos la fórmula en la celda `B13`como `=PROMEDIO(B2:B12)` (Para más detalles, verificar la hoja Excel adjunta).
+La fórmula para obtener la media en la hoja de cálculo, por ejemplo en la versión en español de *Microsoft Excel*, es `=PROMEDIO(...)`, donde los puntos suspensivos deben sustituirse por el rango a calcular. En nuestro ejemplo, introduciríamos la fórmula en la celda `B13` como `=PROMEDIO(B2:B12)` (Para más detalles, verificar la hoja Excel adjunta).
 
 Para representar más cómodamente nuestros valores, dibujamos un punto a la altura de cada alumno,
 
@@ -144,13 +144,13 @@ y eliminamos del gráfico los dibujos de nuestros alumnos; así hemos convertido
 
 ![](imagenes/aula1_puntos.webp)
 
-Para representar la media, aunque la media es un valor único, necesitamos añadir una columna a la derecha de nuestros datos, que rotulamos en la fila 1, celda C como `altura media`, e introducimos en cada una de las celdas desde `C2`hasta `C12`la fórmula del promedio, con el valor de nuestro rango de datos (Verificar hoja de cálculo). A continuación, designamos nuestro rango de datos para hacer un gráfico de puntos, y hacemos un *zoom* en los valores de manera que el eje Y se escale mejor entre los valores mínimo y máximo. Por último, hacemos unos ajustes en el formato para dibujar las líneas verticales que nos representan la distancia de cada valor a la media.
+Para representar la media, aunque la media es un valor único, necesitamos añadir una columna a la derecha de nuestros datos, que rotulamos en la fila 1, celda C como `altura media`, e introducimos en cada una de las celdas desde `C2` hasta `C12` la fórmula del promedio, con el valor de nuestro rango de datos (Verificar hoja de cálculo). A continuación, designamos nuestro rango de datos para hacer un gráfico de puntos, y hacemos un *zoom* en los valores de manera que el eje Y se escale mejor entre los valores mínimo y máximo. Por último, hacemos unos ajustes en el formato para dibujar las líneas verticales que nos representan la distancia de cada valor a la media.
 
 ![](imagenes/image-20221115203450170.webp)
 
 Si verificamos el eje $Y$ , veremos que en este gráfico hemos ajustado la escala respecto al gráfico anterior, situando el mínimo en $130$. Esto permite visualizar las diferencias con mucha más claridad. Hemos representado la media $\bar{x}$ como una línea, y hemos dibujado unas líneas que unen cada valor individual con la media, que se sitúa en el valor $149,55$, tal como calculamos más arriba.
 
-Hemos representado la media como una serie de puntos unidos por una línea amarilla. Representamos en azul nuestros valores, uniendo cada valor con la línea media mediante una línea de puntos vertical. A partir de ahora, por conveniencia, eliminaremos los puntos en la linea media, dejando solo la línea.
+Hemos representado la media como una serie de puntos unidos por una línea amarilla. Representamos en azul nuestros valores, uniendo cada valor con la línea media mediante una línea de puntos vertical. A partir de ahora, por conveniencia, eliminaremos los puntos en la línea media, dejando solo la línea.
 
 ![Hoja de cálculo con los valores y el gráfico de puntos](imagenes/image-20221115202048866.webp)
 
@@ -206,7 +206,7 @@ $$
 (d{\ }del{\ }valor{\ }1{\ }a{\ }la{\ }media)^2=(x_1-\bar{x})^2
 $$
 
-¡El hecho de elevar al cuadrado las diferencias nos da la solución! Las diferencias negativas ya no son un problema porque sabemos que al elevar un numero negativo al cuadrado, el resultado es positivo; de esta manera conseguimos que las diferencias no se anulen.
+¡El hecho de elevar al cuadrado las diferencias nos da la solución! Las diferencias negativas ya no son un problema porque sabemos que al elevar un número negativo al cuadrado, el resultado es positivo; de esta manera conseguimos que las diferencias no se anulen.
 
 ::: callout-note
 Esta analogía con la distancia geométrica nos ayuda a entender por qué se eleva al cuadrado, aunque la justificación formal de la varianza tiene un desarrollo matemático más preciso que va más allá del alcance de este libro.
@@ -223,7 +223,7 @@ $$
 (\bar{d}{\ }de{\ }los{\ }n{\ }valores{\ }a{\ }la{\ }media)^2={\frac {1}{n}}\sum _{i=1}^{n}(x_{i}-\bar{x})^2
 $$
 
-Al igual que en el cálculo de la distancia entre dos puntos, para volver alas uniddaes originales solo tenemos que extraer la raíz cuadrada de este valor para obtener la distancia cuadrática media, que es el parámetro que estábamos buscando.
+Al igual que en el cálculo de la distancia entre dos puntos, para volver a las unidades originales solo tenemos que extraer la raíz cuadrada de este valor para obtener la distancia cuadrática media, que es el parámetro que estábamos buscando.
 
 Este promedio de las distancias al cuadrado $$(\bar{d}{\ }de{\ }los{\ }n{\ }valores{\ }a{\ }la{\ }media)^2$$ se conoce en estadística como **varianza**, y su raíz cuadrada es lo que se conoce como **desviación típica**. La varianza de una población se representa en estadística con el signo de la letra griega *sigma* minúscula elevada al cuadrado, $\sigma^2$, y la desviación típica, mediante la letra $\sigma$. En el caso de una muestra, la varianza se representa como $s_x^2$, y la desviación típica, como $s_x$.
 
@@ -239,9 +239,9 @@ En la columna `J` tenemos nuestra población original de 11 alumnos, con las alt
 
 A la derecha de cada columna de medias, tenemos la columna de diferencias (columnas `D`, `H` y `L`), y en la fila `13`, nuestro primer intento de calcular una dispersión media; intento fallido, puesto que obteníamos el valor $0$ para los tres grupos.
 
-En la siguiente columna a la derecha, para los tres grupos (columnas `E`, `I`y `M`), hemos elevado al cuadrado la distancia de cada valor a la media, siguiendo los hallazgos que nos ha proporcionado el teorema de Pitágoras y la fórmula de la distancia entre dos puntos. En la fila `13` de estas columnas, calculamos el promedio de la distancia a la media al cuadrado: esta vez el resultado ya no es cero, sino que obtenemos el valor de la **varianza**, de acuerdo con la fórmula que hemos deducido más arriba. En la fila `14` (columnas B, `F` y `J`)utilizamos la fórmula de la hoja de cálculo para la **varianza poblacional** (más detalles posteriormente), y vemos que coincide exactamente con el promedio de las diferencias al cuadrado, tal como debe ser, ya que en eso consiste la fórmula que hemos deducido.
+En la siguiente columna a la derecha, para los tres grupos (columnas `E`, `I` y `M`), hemos elevado al cuadrado la distancia de cada valor a la media, siguiendo los hallazgos que nos ha proporcionado el teorema de Pitágoras y la fórmula de la distancia entre dos puntos. En la fila `13` de estas columnas, calculamos el promedio de la distancia a la media al cuadrado:  esta vez el resultado ya no es cero, sino que obtenemos el valor de la **varianza**, de acuerdo con la fórmula que hemos deducido más arriba. En la fila `14` (columnas B, `F` y `J`)utilizamos la fórmula de la hoja de cálculo para la **varianza poblacional** (más detalles posteriormente), y vemos que coincide exactamente con el promedio de las diferencias al cuadrado, tal como debe ser, ya que en eso consiste la fórmula que hemos deducido.
 
-Por último, en la fila `15`calculamos la desviación típica de ambas formas, con la fórmula de la hoja de cálculo para la **desviación típica poblacional** (columnas `B`, `F`y `J`), que Excel llama **desviación estándar**, y como la raíz cuadrada del promedio calculado antes (columnas `E`, `I`y `M`). De nuevo, ambos valores coinciden exactamente, como esperamos.
+Por último, en la fila `15` calculamos la desviación típica de ambas formas, con la fórmula de la hoja de cálculo para la **desviación típica poblacional** (columnas `B`, `F` y `J`), que Excel llama **desviación estándar**, y como la raíz cuadrada del promedio calculado antes (columnas `E`, `I`y `M`). De nuevo, ambos valores coinciden exactamente, como esperamos.
 
 ![Gráfico con tres conjuntos de datos con la misma media y diferente desviación típica](imagenes/image-20221116135458643.webp)
 
@@ -278,9 +278,9 @@ Una forma intuitiva de entender por qué ocurre esto es imaginar una **barra rí
 Comparación gráfica del significado de la media en un diagrama de puntos (*dotplot*) con una palanca de primer grado, con el fulcro como punto de equilibrio.
 :::
 
-Un valor muy alejado del centro actúa como un **peso situado lejos del fulcro**: su efecto sobre el equilibrio es proporcional a la distancia de la media: un único valor extremo puede desplazar el punto de equilibrio (la media) tanto como varios valores moderados juntos. En la varianza el efecto es aún mayor, porque las diferencias se elevan al cuadrado:un valor situado al doble de distancia aporta cuatro veces más.
+Un valor muy alejado del centro actúa como un **peso situado lejos del fulcro**: su efecto sobre el equilibrio es proporcional a su distancia a la media: un único valor extremo puede desplazar el punto de equilibrio (la media) tanto como varios valores moderados juntos. En la varianza el efecto es aún mayor, porque las diferencias se elevan al cuadrado: un valor situado al doble de distancia aporta cuatro veces más.
 
-Por eso, **deberíamos usar la media y la desviación típica preferiblemente cuando estamos razonablemente seguros de que los datos tienen una forma aproximadamente simétrica y equilibrada**, como la famosa **campana de Gauss** (distribución normal), que podemos relacionar con el boxplot, tal como vemos en el gráfico a continuación,
+Por eso, **deberíamos usar la media y la desviación típica preferiblemente cuando estamos razonablemente seguros de que los datos tienen una forma aproximadamente simétrica y equilibrada**, como la famosa **campana de Gauss** (distribución normal), que podemos relacionar con el boxplot, tal como vemos en el gráfico a continuación:
 
 ![Campana de Gauss y boxplot mostrando las relaciones entre los elementos no paramétricos del boxplot y los elementos paramétricos de la distribución normal](imagenes/070/campana-de-gauss-boxplot.webp)
 
@@ -332,7 +332,7 @@ $$s = \sqrt{\frac{SC}{n-1}} = \sqrt{\frac{1342{,}73}{10}} = \sqrt{134{,}27} = 11
 
 ::: callout-note
 ## Corrección de Bessel
-Cuando trabajamos con una **muestra** en lugar de con la población completa, dividir entre $n$ tiende a subestimar la dispersión real de la población. Para corregir este sesgo, se divide entre $n-1$ en lugar de $n$. Esta corrección se conoce como **corrección de Bessel**, que corrige el sesgo de la varianza, y permite calcular la **desviación típica muestral**. En la práctica industrial, donde casi siempre trabajamos con muestras, es el valor que se usa por defecto, y es también el que calculan Excel (`DESVEST.M()`), `std()`de `pandas` en Python y `sd()` en R. En cambio, la función `numpy.std()`de Python divide por `n`por defecto.
+Cuando trabajamos con una **muestra** en lugar de con la población completa, dividir entre $n$ tiende a subestimar la dispersión real de la población. Para corregir este sesgo, se divide entre $n-1$ en lugar de $n$. Esta corrección se conoce como **corrección de Bessel**, que corrige el sesgo de la varianza, y permite calcular la **desviación típica muestral**. En la práctica industrial, donde casi siempre trabajamos con muestras, es el valor que se usa por defecto, y es también el que calculan Excel (`DESVEST.M()`), `std()` de `pandas` en Python y `sd()` en R. En cambio, la función `numpy.std()` de Python divide por `n` por defecto.
 :::
 
 ## Cálculo de estadísticos básicos en Python y R
