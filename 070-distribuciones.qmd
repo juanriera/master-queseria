@@ -57,7 +57,7 @@ Para precisar la distinción entre los dos conceptos, la tabla siguiente resume 
 
 En el análisis de datos industriales trabajamos casi siempre con frecuencias relativas: no conocemos la probabilidad teórica de que un queso salga fuera de especificación, pero podemos estimarla a partir de los datos históricos del proceso.
 
-Esta conexión tiene una consecuencia práctica importante. En un histograma de frecuencias relativas, la proporción de valores comprendidos entre dos límites es la **suma de las frecuencias relativas** de los intervalos que abarcan, o la diferencia entre las frecuencias relativas acumuladas en esos dos límites, que vimos en el capítulo 5. En una distribución teórica, esa probabilidad es el **área bajo la curva** entre los dos valores..
+Esta conexión tiene una consecuencia práctica importante. En un histograma de frecuencias relativas, la proporción de valores comprendidos entre dos límites es la **suma de las frecuencias relativas** de los intervalos que abarcan, o la diferencia entre las frecuencias relativas acumuladas en esos dos límites, que vimos en el capítulo 5. En una distribución teórica, esa probabilidad es el **área bajo la curva** entre los dos valores.
 
 ## Distribuciones discretas y continuas
 
@@ -112,16 +112,6 @@ p2 <- ggplot(df_lla, aes(x = goles_totales)) +
          x = "Goles totales", y = "Frecuencia") +
     theme_bw()
 
-# p3 <- penguins |>
-#     drop_na(body_mass_g) |>
-#     ggplot(aes(x = body_mass_g)) +
-#     geom_histogram(bins = 20, fill = "tomato",
-#                    color = "white", alpha = 0.8) +
-#     labs(title = "Asimétrica positiva",
-#          subtitle = "Masa corporal — todos los pingüinos",
-#          x = "Masa corporal (g)", y = "Frecuencia") +
-#     theme_bw()
-
 p3 <- df_cam |>
     drop_na(coliformes) |>
     ggplot(aes(x = coliformes)) +
@@ -168,7 +158,7 @@ penguins = load_penguins().dropna(subset=['flipper_length_mm', 'species', 'body_
 df_cam = pd.read_csv("datos/camembert.csv", sep=';', decimal=',', encoding='ISO-8859-1')
 
 fig, axes = plt.subplots(2, 2, figsize=(11, 8))
-_ = fig.suptitle("Cuatro formas de distribución en datos reales(prueba)", fontsize=13)
+_ = fig.suptitle("Cuatro formas de distribución en datos reales", fontsize=13)
 
 # 1. Normal: flipper_length Gentoo
 gentoo = penguins[penguins['species'] == 'Gentoo']['flipper_length_mm'].dropna()
@@ -185,28 +175,14 @@ _ = axes[0,1].set_title("Asimétrica positiva\nGoles por partido — La Liga 202
 _ = axes[0,1].set_xlabel("Goles totales")
 _ = axes[0,1].set_ylabel("Frecuencia")
 
-# 3. Asimétrica positiva extrema: masa corporal pingüinos (cola derecha)
-# Usamos todos los pingüinos sin filtrar por especie
-# body = penguins['body_mass_g'].dropna()
-# axes[1,0].hist(body, bins=20,
-#                color='tomato', edgecolor='white', alpha=0.8)
-# axes[1,0].set_title("Asimétrica positiva\nMasa corporal — todos los pingüinos")
-# axes[1,0].set_xlabel("Masa corporal (g)")
-# axes[1,0].set_ylabel("Frecuencia")
 # 3. Asimétrica positiva extrema: coliformes del camembert
-
 _ = axes[1,0].hist(df_cam['coliformes'].dropna(), bins=20,
                color='tomato', edgecolor='white', alpha=0.8)
 _ = axes[1,0].set_title("Asimétrica positiva extrema\nColiformes — queso camembert")
 _ = axes[1,0].set_xlabel("Coliformes (ufc/g)")
 _ = axes[1,0].set_ylabel("Frecuencia")
 
-
 # 4. Bimodal: flipper length penguins por especie
-# for sp, color in zip(['Adelie', 'Chinstrap', 'Gentoo'],
-#                      ['#1f77b4', '#ff7f0e', '#2ca02c']):
-#     datos = penguins[penguins['species'] == sp]['flipper_length_mm']
-#     axes[1,1].hist(datos, bins=15, alpha=0.5, label=sp, color=color)
 especies = ['Adelie', 'Chinstrap', 'Gentoo']
 datos = [penguins[penguins['species'] == sp]['flipper_length_mm'] for sp in especies]
 _ = axes[1,1].hist(datos, bins=20, stacked=True, label=especies,
@@ -218,6 +194,8 @@ _ = axes[1,1].legend(fontsize=8)
 
 plt.tight_layout()
 plt.show()
+del _  # reticulate usa _ internamente; sin esto, los print() posteriores no se muestran
+
 ```
 
 
@@ -340,7 +318,7 @@ $$Z = \frac{x - \mu}{\sigma}$$
 
 La puntuación Z indica cuántas desviaciones típicas separan un valor concreto de la media. Un valor con $Z = 2$ está 2 desviaciones típicas por encima de la media; un valor con $Z = -1,5$ está 1,5 desviaciones típicas por debajo.
 
-La utilidad práctica de la tipificación es que permite calcular probabilidades para cualquier distribución normal usando una única tabla o función, sin importar las unidades ni los valores concretos de $\mu$ y $\sigma$.  Las funciones de Python y R que veremos a continuación hacen este cálculo directamente, sin necesidad de tipificar; en el capítulo 14 las usaremos para calcular la proporción de envases que incumple el contenido efectivo reglamentario.
+La utilidad práctica de la tipificación es que permite calcular probabilidades para cualquier distribución normal usando una única tabla o función, sin importar las unidades ni los valores concretos de $\mu$ y $\sigma$. Las funciones de Python y R que veremos a continuación hacen este cálculo directamente, sin necesidad de tipificar; en el capítulo 14 las usaremos para calcular la proporción de envases que incumple el contenido efectivo reglamentario.
 
 ## Cálculo de probabilidades con Python y R
 
@@ -348,7 +326,7 @@ Python y R calculan directamente la probabilidad de que un valor sea menor que u
 
 La función que necesitamos es la **función de distribución acumulada** (*cumulative distribution function*, CDF): dado un valor $x$, nos devuelve la probabilidad de que una observación sea menor o igual que $x$, es decir, el área bajo la curva a la izquierda de ese punto.
 
-Como ejemplo, calculamos algunas probabilidades para la longitud de aleta de los pingüinos Gentoo (aproximadamente normal con media 217,2 mm y desviación típica 6,6 mm):
+Como ejemplo, calculamos algunas probabilidades para la longitud de aleta de los pingüinos Gentoo (aproximadamente normal con media 217,2 mm y desviación típica 6,5 mm):
 
 ::: panel-tabset
 
@@ -437,6 +415,7 @@ _ = ax.get_lines()[0].set(color='steelblue', markersize=4, alpha=0.7)
 _ = ax.get_lines()[1].set(color='red', linewidth=1.5)
 plt.tight_layout()
 plt.show()
+del _
 ```
 
 :::
@@ -448,7 +427,7 @@ La mayoría de los puntos siguen la línea roja, lo que indica que la longitud d
 - **Puntos sobre la línea recta:** los datos se ajustan bien a la distribución normal.
 - **Cola superior por encima de la línea:** hay valores altos más extremos de lo esperado (cola derecha más pesada, asimetría positiva).
 - **Cola inferior por debajo de la línea:** hay valores bajos más extremos de lo esperado (cola izquierda más pesada, asimetría negativa).
-- **Puntos en forma de S**: las colas no se ajustan a la normal. Si los extremos se separan de la línea hacia fuera (el inferior por debajo y el superior por encima), las colas son más pesadas que las de la normal; si se separan hacia dentro (el inferior por encima y el superior por debajo), son más ligeras y la distribución está más concentrada en el centro..
+- **Puntos en forma de S:** las colas no se ajustan a la normal. Si los extremos se separan de la línea hacia fuera (el inferior por debajo y el superior por encima), las colas son más pesadas que las de la normal; si se separan hacia dentro (el inferior por encima y el superior por debajo), son más ligeras y la distribución está más concentrada en el centro.
 - **Punto aislado en un extremo:** un valor atípico.
 :::
 
@@ -456,6 +435,6 @@ La mayoría de los puntos siguen la línea roja, lo que indica que la longitud d
 
 Este capítulo ha establecido el puente entre las frecuencias relativas del histograma y el concepto de probabilidad: la proporción de valores en un intervalo es la probabilidad de que una observación caiga en ese intervalo. A partir de esta idea, la distribución normal aparece como el modelo teórico que describe el comportamiento de muchas variables industriales bajo control.
 
-Los cuatro tipos de distribución ilustrados con datos del libro —simétrica, asimétrica positiva, asimétrica positiva extrema y bimodal— permiten al alumno reconocer en sus propios datos la forma que subyace al proceso que los genera. La distribución normal se ha descrito en profundidad mediante sus parámetros $\mu$ y $\sigma$, la regla 68-95-99,7 y el cálculo de probabilidades con Python y R. El QQ-plot proporciona una herramienta visual sencilla para verificar si la hipótesis de normalidad es razonable antes de aplicar estos cálculos. En capítulos posteriores aplicaremos estas mismas herramientas a variables de proceso real como la materia grasa del queso o el peso de envases de yogur.
+Los cuatro tipos de distribución ilustrados con datos del libro (simétrica, asimétrica positiva, asimétrica positiva extrema y bimodal) permiten al alumno reconocer en sus propios datos la forma que subyace al proceso que los genera. La distribución normal se ha descrito en profundidad mediante sus parámetros $\mu$ y $\sigma$, la regla 68-95-99,7 y el cálculo de probabilidades con Python y R. El QQ-plot proporciona una herramienta visual sencilla para verificar si la hipótesis de normalidad es razonable antes de aplicar estos cálculos. En capítulos posteriores aplicaremos estas mismas herramientas a variables de proceso real como la materia grasa del queso o el peso de envases de yogur.
 
 En el capítulo dedicado al contenido efectivo de envases aplicaremos estos conceptos a un problema real de control de calidad: el análisis del llenado de yogures según el RD 1801/2008.
