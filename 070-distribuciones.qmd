@@ -34,11 +34,11 @@ No es necesario entender cada línea para seguir el razonamiento del capítulo. 
 
 ## De la frecuencia relativa a la probabilidad
 
-En los capítulos anteriores hemos usado el histograma para describir la distribución de los valores de una variable. Cada barra del histograma representa cuántos valores caen en un intervalo determinado. Si en lugar de contar valores contamos su proporción respecto al total, obtenemos las **frecuencias relativas**, que ya conocemos del capítulo 6.
+En los capítulos anteriores hemos usado el histograma para describir la distribución de los valores de una variable. Cada barra del histograma representa cuántos valores caen en un intervalo determinado. Si en lugar de contar valores contamos su proporción respecto al total, obtenemos las **frecuencias relativas**, que ya conocemos del capítulo 5.
 
 Hay un paso conceptual sencillo desde las frecuencias relativas hasta la probabilidad: la frecuencia relativa de un intervalo es la **probabilidad** de que un valor tomado al azar de ese conjunto caiga en ese intervalo.
 
-Por ejemplo, si en los datos de La Liga el 28% de los partidos terminan con 2 goles en total, podemos decir que la probabilidad de que un partido elegido al azar acabe con 2 goles es del 28%, o 0,28.
+Por ejemplo, si en los datos de La Liga el 23,7% de los partidos terminan con 2 goles en total, podemos decir que la probabilidad de que un partido elegido al azar acabe con 2 goles es del 23,7%, o 0,237.
 
 ::: {.callout-note}
 ## Probabilidad y frecuencia relativa
@@ -50,20 +50,20 @@ Para precisar la distinción entre los dos conceptos, la tabla siguiente resume 
 | | Frecuencia relativa | Probabilidad |
 |---|---|---|
 | **Qué es** | Proporción observada en un conjunto de datos reales | Medida teórica basada en un modelo o supuesto |
-| **Cómo se obtiene** | Contando: $\frac{\text{veces que ocurre el evento}}{\text{total de observaciones}}$ | Razonando: $\frac{\text{casos favorables}}{\text{casos posibles}}$ |
-| **Ejemplo** | En 380 partidos de La Liga, 106 acabaron con 2 goles: frecuencia relativa = 0,279 | En una moneda perfectamente equilibrada, P(cara) = 0,5 |
+| **Cómo se obtiene** | Contando: $\frac{\text{veces que ocurre el evento}}{\text{total de observaciones}}$ | Razonando, si todos los casos son igualmente probables: $\frac{\text{casos favorables}}{\text{casos posibles}}$ |
+| **Ejemplo** | En 380 partidos de La Liga, 90 acabaron con 2 goles: frecuencia relativa = 0,237 | En una moneda perfectamente equilibrada, P(cara) = 0,5 |
 | **Carácter** | Empírico: depende de los datos disponibles | Teórico: no requiere datos observados |
 | **Relación** | Con muchos datos, la frecuencia relativa se acerca a la probabilidad teórica |  |
 
 En el análisis de datos industriales trabajamos casi siempre con frecuencias relativas: no conocemos la probabilidad teórica de que un queso salga fuera de especificación, pero podemos estimarla a partir de los datos históricos del proceso.
 
-Esta conexión tiene una consecuencia práctica importante: el **área bajo la curva** de un histograma (o de una distribución teórica) entre dos valores es la probabilidad de que una observación caiga entre esos dos valores. Es la misma idea que la suma de frecuencias relativas acumuladas que vimos en el capítulo 6, pero expresada como área.
+Esta conexión tiene una consecuencia práctica importante. En un histograma de frecuencias relativas, la proporción de valores comprendidos entre dos límites es la **suma de las frecuencias relativas** de los intervalos que abarcan, o la diferencia entre las frecuencias relativas acumuladas en esos dos límites, que vimos en el capítulo 5. En una distribución teórica, esa probabilidad es el **área bajo la curva** entre los dos valores..
 
 ## Distribuciones discretas y continuas
 
 Antes de describir las formas más habituales, conviene distinguir dos tipos de variables:
 
-Las **variables discretas** solo pueden tomar valores enteros: número de goles en un partido, número de colonias bacterianas en una placa, número de envases defectuosos en un lote. No tiene sentido hablar de 2,7 goles. Las distribuciones de variables discretas tienen barras separadas porque los valores posibles están separados.
+Las **variables discretas** solo pueden tomar valores aislados, separados entre sí, sin posibilidad de valores intermedios: número de goles en un partido, número de colonias bacterianas en una placa, número de envases defectuosos en un lote. No tiene sentido hablar de 2,7 goles. Las distribuciones de variables discretas tienen barras separadas porque los valores posibles están separados.
 
 Las **variables continuas** pueden tomar cualquier valor dentro de un rango: la materia grasa de un queso, el pH, el peso de un envase. Entre 23,5% y 23,6% de grasa hay infinitos valores posibles. Las distribuciones de variables continuas se representan con una curva continua.
 
@@ -73,7 +73,7 @@ En la práctica industrial, la mayoría de las variables de proceso y calidad so
 
 Los datos que encontramos en la industria alimentaria no siempre tienen la misma forma. Reconocer la forma de una distribución es el primer paso para interpretarla correctamente y elegir las herramientas estadísticas adecuadas.
 
-Veamos las cuatro formas más frecuentes usando datos que ya conocemos del libro:
+Veamos las cuatro formas más frecuentes usando datos que ya conocemos del libro y uno que estudiaremos en el capítulo 12:
 
 ::: panel-tabset
 
@@ -92,6 +92,9 @@ df_lla <- read_csv2("datos/laliga_resultados2425.csv",
                     locale = locale(decimal_mark = ",")) |>
     mutate(goles_totales = goles_local + goles_visitante)
 
+df_cam <- read_csv2("datos/camembert.csv",
+                    locale = locale(encoding = "ISO-8859-1"))
+
 gentoo <- penguins |> filter(species == "Gentoo")
 p1 <- ggplot(gentoo, aes(x = flipper_length_mm)) +
     geom_histogram(bins = 15, fill = "steelblue",
@@ -102,27 +105,37 @@ p1 <- ggplot(gentoo, aes(x = flipper_length_mm)) +
     theme_bw()
 
 p2 <- ggplot(df_lla, aes(x = goles_totales)) +
-    geom_histogram(bins = 11, fill = "darkorange",
+    geom_histogram(binwidth = 1, fill = "darkorange",
                    color = "white", alpha = 0.8) +
     labs(title = "Asimétrica positiva",
          subtitle = "Goles por partido — La Liga 2024-25",
          x = "Goles totales", y = "Frecuencia") +
     theme_bw()
 
-p3 <- penguins |>
-    drop_na(body_mass_g) |>
-    ggplot(aes(x = body_mass_g)) +
+# p3 <- penguins |>
+#     drop_na(body_mass_g) |>
+#     ggplot(aes(x = body_mass_g)) +
+#     geom_histogram(bins = 20, fill = "tomato",
+#                    color = "white", alpha = 0.8) +
+#     labs(title = "Asimétrica positiva",
+#          subtitle = "Masa corporal — todos los pingüinos",
+#          x = "Masa corporal (g)", y = "Frecuencia") +
+#     theme_bw()
+
+p3 <- df_cam |>
+    drop_na(coliformes) |>
+    ggplot(aes(x = coliformes)) +
     geom_histogram(bins = 20, fill = "tomato",
                    color = "white", alpha = 0.8) +
-    labs(title = "Asimétrica positiva",
-         subtitle = "Masa corporal — todos los pingüinos",
-         x = "Masa corporal (g)", y = "Frecuencia") +
+    labs(title = "Asimétrica positiva extrema",
+         subtitle = "Coliformes — queso camembert",
+         x = "Coliformes (ufc/g)", y = "Frecuencia") +
     theme_bw()
 
 p4 <- penguins |>
     drop_na(flipper_length_mm) |>
     ggplot(aes(x = flipper_length_mm, fill = species)) +
-    geom_histogram(bins = 20, alpha = 0.5, position = "identity") +
+    geom_histogram(bins = 20, alpha = 0.8, position = "stack") +
     labs(title = "Bimodal (mezcla de grupos)",
          subtitle = "Longitud aleta — pingüinos",
          x = "Longitud aleta (mm)", y = "Frecuencia",
@@ -139,6 +152,7 @@ p4 <- penguins |>
 ```{python panel-distribuciones-python}
 #| code-fold: true
 #| code-summary: "Mostrar código"
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -151,43 +165,56 @@ df_lla = pd.read_csv(url_lla, sep=';', decimal=',', encoding='ISO-8859-1')
 df_lla['goles_totales'] = df_lla['goles_local'] + df_lla['goles_visitante']
 
 penguins = load_penguins().dropna(subset=['flipper_length_mm', 'species', 'body_mass_g'])
+df_cam = pd.read_csv("datos/camembert.csv", sep=';', decimal=',', encoding='ISO-8859-1')
 
 fig, axes = plt.subplots(2, 2, figsize=(11, 8))
-fig.suptitle("Cuatro formas de distribución en datos reales", fontsize=13)
+_ = fig.suptitle("Cuatro formas de distribución en datos reales(prueba)", fontsize=13)
 
 # 1. Normal: flipper_length Gentoo
 gentoo = penguins[penguins['species'] == 'Gentoo']['flipper_length_mm'].dropna()
-axes[0,0].hist(gentoo, bins=15,
+_ = axes[0,0].hist(gentoo, bins=15,
                color='steelblue', edgecolor='white', alpha=0.8)
-axes[0,0].set_title("Simétrica (normal)\nLongitud aleta — pingüinos Gentoo")
-axes[0,0].set_xlabel("Longitud aleta (mm)")
-axes[0,0].set_ylabel("Frecuencia")
+_ = axes[0,0].set_title("Simétrica (normal)\nLongitud aleta — pingüinos Gentoo")
+_ = axes[0,0].set_xlabel("Longitud aleta (mm)")
+_ = axes[0,0].set_ylabel("Frecuencia")
 
 # 2. Asimétrica positiva moderada: goles La Liga
-axes[0,1].hist(df_lla['goles_totales'], bins=range(0, 12),
+_ = axes[0,1].hist(df_lla['goles_totales'], bins=range(0, 12),
                color='darkorange', edgecolor='white', alpha=0.8)
-axes[0,1].set_title("Asimétrica positiva\nGoles por partido — La Liga 2024-25")
-axes[0,1].set_xlabel("Goles totales")
-axes[0,1].set_ylabel("Frecuencia")
+_ = axes[0,1].set_title("Asimétrica positiva\nGoles por partido — La Liga 2024-25")
+_ = axes[0,1].set_xlabel("Goles totales")
+_ = axes[0,1].set_ylabel("Frecuencia")
 
 # 3. Asimétrica positiva extrema: masa corporal pingüinos (cola derecha)
 # Usamos todos los pingüinos sin filtrar por especie
-body = penguins['body_mass_g'].dropna()
-axes[1,0].hist(body, bins=20,
+# body = penguins['body_mass_g'].dropna()
+# axes[1,0].hist(body, bins=20,
+#                color='tomato', edgecolor='white', alpha=0.8)
+# axes[1,0].set_title("Asimétrica positiva\nMasa corporal — todos los pingüinos")
+# axes[1,0].set_xlabel("Masa corporal (g)")
+# axes[1,0].set_ylabel("Frecuencia")
+# 3. Asimétrica positiva extrema: coliformes del camembert
+
+_ = axes[1,0].hist(df_cam['coliformes'].dropna(), bins=20,
                color='tomato', edgecolor='white', alpha=0.8)
-axes[1,0].set_title("Asimétrica positiva\nMasa corporal — todos los pingüinos")
-axes[1,0].set_xlabel("Masa corporal (g)")
-axes[1,0].set_ylabel("Frecuencia")
+_ = axes[1,0].set_title("Asimétrica positiva extrema\nColiformes — queso camembert")
+_ = axes[1,0].set_xlabel("Coliformes (ufc/g)")
+_ = axes[1,0].set_ylabel("Frecuencia")
+
 
 # 4. Bimodal: flipper length penguins por especie
-for sp, color in zip(['Adelie', 'Chinstrap', 'Gentoo'],
-                     ['#1f77b4', '#ff7f0e', '#2ca02c']):
-    datos = penguins[penguins['species'] == sp]['flipper_length_mm']
-    axes[1,1].hist(datos, bins=15, alpha=0.5, label=sp, color=color)
-axes[1,1].set_title("Bimodal (mezcla de grupos)\nLongitud aleta — pingüinos")
-axes[1,1].set_xlabel("Longitud aleta (mm)")
-axes[1,1].set_ylabel("Frecuencia")
-axes[1,1].legend(fontsize=8)
+# for sp, color in zip(['Adelie', 'Chinstrap', 'Gentoo'],
+#                      ['#1f77b4', '#ff7f0e', '#2ca02c']):
+#     datos = penguins[penguins['species'] == sp]['flipper_length_mm']
+#     axes[1,1].hist(datos, bins=15, alpha=0.5, label=sp, color=color)
+especies = ['Adelie', 'Chinstrap', 'Gentoo']
+datos = [penguins[penguins['species'] == sp]['flipper_length_mm'] for sp in especies]
+_ = axes[1,1].hist(datos, bins=20, stacked=True, label=especies,
+               color=['#1f77b4', '#ff7f0e', '#2ca02c'], alpha=0.8)
+_ = axes[1,1].set_title("Bimodal (mezcla de grupos)\nLongitud aleta — pingüinos")
+_ = axes[1,1].set_xlabel("Longitud aleta (mm)")
+_ = axes[1,1].set_ylabel("Frecuencia")
+_ = axes[1,1].legend(fontsize=8)
 
 plt.tight_layout()
 plt.show()
@@ -198,11 +225,11 @@ plt.show()
 
 Cada una de estas formas tiene una explicación en el proceso que genera los datos:
 
-- **Simétrica:** los valores se distribuyen de forma equilibrada alrededor de un valor central. Es la forma que se asocia con procesos bajo control estadístico, donde las pequeñas variaciones aleatorias se compensan entre sí. La longitud de aleta de los pingüinos Gentoo es un buen ejemplo de esta forma.
+- **Simétrica:** los valores se distribuyen de forma equilibrada alrededor de un valor central. Es la forma habitual cuando la variación se debe a muchas pequeñas variaciones aleatorias que se compensan entre sí. La longitud de aleta de los pingüinos Gentoo es un buen ejemplo de esta forma.
 
 - **Asimétrica positiva:** la mayoría de los valores son bajos pero hay una cola hacia valores altos. Es típica de recuentos de eventos poco frecuentes, como los goles por partido: la mayoría de los partidos tienen pocos goles, pero alguno tiene muchos.
 
-- **Asimétrica positiva extrema:** versión extrema de la anterior. Los coliformes son el ejemplo perfecto: la mayoría de las muestras tienen recuentos bajos o nulos, pero episodios de contaminación producen valores muy altos. La transformación logarítmica hace visible la distribución real.
+- **Asimétrica positiva extrema:** versión extrema de la anterior. Los coliformes son el ejemplo perfecto: la mayoría de las muestras tienen recuentos bajos o nulos, pero episodios de contaminación producen valores muy altos. En el capítulo 12 veremos que la escala logarítmica permite examinar esta distribución con más detalle.
 
 - **Bimodal:** dos grupos superpuestos con características distintas. En los pingüinos, la mezcla de especies con diferente tamaño produce dos modas. En datos de proceso, una distribución bimodal suele indicar que hay dos máquinas, dos operarios o dos materias primas mezcladas en el mismo dataset.
 
@@ -219,13 +246,13 @@ Su forma es característica: simétrica, con un único máximo en el centro, y c
 
 Una propiedad fundamental de la distribución normal es que la proporción de valores dentro de cada rango alrededor de la media es siempre la misma, independientemente de los valores concretos de $\mu$ y $\sigma$:
 
-- El **68%** de los valores cae dentro de $\mu \pm 1\sigma$
-- El **95%** de los valores cae dentro de $\mu \pm 2\sigma$
-- El **99,7%** de los valores cae dentro de $\mu \pm 3\sigma$
+- Aproximadamente, el **68%** de los valores cae dentro de $\mu \pm 1\sigma$
+- Aproximadamente, el **95%** de los valores cae dentro de $\mu \pm 2\sigma$
+- Aproximadamente, el **99,7%** de los valores cae dentro de $\mu \pm 3\sigma$
 
 Esta regla tiene consecuencias prácticas inmediatas: si sabemos que un proceso sigue una distribución normal con media $\mu$ y desviación típica $\sigma$, podemos calcular qué proporción de unidades estará fuera de cualquier límite especificado.
 
-Visualicemos la regla con datos simulados:
+Visualicemos la regla sobre la curva teórica, con los parámetros de la longitud de aleta de los pingüinos Gentoo:
 
 ::: panel-tabset
 
@@ -234,7 +261,7 @@ Visualicemos la regla con datos simulados:
 ```{r regla-normal-r}
 #| code-fold: true
 #| code-summary: "Mostrar código"
-mu <- 217.2; sigma <- 6.6
+mu <- 217.2; sigma <- 6.5
 x <- seq(mu - 4*sigma, mu + 4*sigma, length.out = 300)
 y <- dnorm(x, mu, sigma)
 df_n <- tibble(x = x, y = y)
@@ -269,7 +296,7 @@ ggplot(df_n, aes(x, y)) +
 #| code-summary: "Mostrar código"
 import scipy.stats as st
 
-mu, sigma = 217.2, 6.6   # parámetros flipper_length Gentoo
+mu, sigma = 217.2, 6.5   # parámetros flipper_length Gentoo
 
 x = np.linspace(mu - 4*sigma, mu + 4*sigma, 300)
 y = st.norm.pdf(x, mu, sigma)
@@ -300,7 +327,7 @@ plt.show()
 
 ::: {.callout-note}
 ## La regla 68-95-99,7 y el boxplot
-¿Recuerdas el boxplot del capítulo 6? En una distribución normal, los bigotes del boxplot (que se extienden hasta 1,5 veces el rango intercuartílico) capturan aproximadamente el 99,3% de los valores. Los puntos fuera de los bigotes corresponden aproximadamente al 0,7% de las observaciones, que es la región de las colas más allá de ±2,7$\sigma$.
+¿Recuerdas el boxplot del capítulo 5? En una distribución normal, los bigotes del boxplot (que alcanzan, como máximo, 1,5 veces el rango intercuartil más allá de los bordes de la caja) capturan aproximadamente el 99,3% de los valores. Los puntos fuera de los bigotes corresponden aproximadamente al 0,7% de las observaciones, que es la región de las colas más allá de ±2,7$\sigma$.
 
 ![Relación entre la campana de Gauss y el boxplot](imagenes/070/campana-de-gauss-boxplot.webp)
 :::
@@ -313,7 +340,7 @@ $$Z = \frac{x - \mu}{\sigma}$$
 
 La puntuación Z indica cuántas desviaciones típicas separan un valor concreto de la media. Un valor con $Z = 2$ está 2 desviaciones típicas por encima de la media; un valor con $Z = -1,5$ está 1,5 desviaciones típicas por debajo.
 
-La utilidad práctica de la tipificación es que permite calcular probabilidades para cualquier distribución normal usando una única tabla o función, sin importar las unidades ni los valores concretos de $\mu$ y $\sigma$. Veremos su aplicación práctica en el capítulo 14, cuando calculemos la proporción de envases que incumple el contenido efectivo reglamentario.
+La utilidad práctica de la tipificación es que permite calcular probabilidades para cualquier distribución normal usando una única tabla o función, sin importar las unidades ni los valores concretos de $\mu$ y $\sigma$.  Las funciones de Python y R que veremos a continuación hacen este cálculo directamente, sin necesidad de tipificar; en el capítulo 14 las usaremos para calcular la proporción de envases que incumple el contenido efectivo reglamentario.
 
 ## Cálculo de probabilidades con Python y R
 
@@ -328,20 +355,19 @@ Como ejemplo, calculamos algunas probabilidades para la longitud de aleta de los
 ## R
 
 ```{r prob-normal-r}
-mu <- 217.2; sigma <- 6.6
+mu <- 217.2; sigma <- 6.5
 
-# P(MG < 22%)
-prob <- pnorm(22, mean = mu, sd = sigma)
-cat(sprintf("P(MG < 22%%) = %.4f = %.2f%%\n", prob, prob*100))
+# P(longitud aleta < 210 mm)
+prob <- pnorm(210, mean = mu, sd = sigma)
+cat(sprintf("P(longitud aleta < 210 mm) = %.4f = %.2f%%\n", prob, prob*100))
 
-# P(MG > 25%)
-prob_sup <- 1 - pnorm(25, mean = mu, sd = sigma)
-cat(sprintf("P(MG > 25%%) = %.4f = %.2f%%\n", prob_sup, prob_sup*100))
+# P(longitud aleta > 225 mm)
+prob_sup <- 1 - pnorm(225, mean = mu, sd = sigma)
+cat(sprintf("P(longitud aleta > 225 mm) = %.4f = %.2f%%\n", prob_sup, prob_sup*100))
 
-# P(22% < MG < 25%)
-prob_rango <- pnorm(25, mean = mu, sd = sigma) -
-              pnorm(22, mean = mu, sd = sigma)
-cat(sprintf("P(22%%%% < MG < 25%%%%) = %.4f = %.2f%%\n",
+# P(210 mm < longitud aleta < 225 mm)
+prob_rango <- pnorm(225, mean = mu, sd = sigma) - pnorm(210, mean = mu, sd = sigma)
+cat(sprintf("P(210 mm < longitud aleta < 225 mm) = %.4f = %.2f%%\n",
             prob_rango, prob_rango*100))
 ```
 
@@ -350,7 +376,7 @@ cat(sprintf("P(22%%%% < MG < 25%%%%) = %.4f = %.2f%%\n",
 ```{python prob-normal-python}
 import scipy.stats as st
 
-mu, sigma = 217.2, 6.6
+mu, sigma = 217.2, 6.5
 
 # P(flipper < 210 mm)
 prob = st.norm.cdf(210, loc=mu, scale=sigma)
@@ -415,15 +441,15 @@ plt.show()
 
 :::
 
-La mayoría de los puntos siguen la línea roja con bastante fidelidad, lo que confirma que la longitud de aleta de los pingüinos Gentoo sigue una distribución aproximadamente normal. Los puntos en los extremos se ajustan bien a la línea, sin separaciones llamativas, lo que indica que no hay valores atípicos importantes ni asimetría pronunciada.
+La mayoría de los puntos siguen la línea roja, lo que indica que la longitud de aleta de los pingüinos Gentoo se aproxima a una distribución normal. El escalonado de los puntos se debe a que las longitudes están registradas en milímetros enteros. En los extremos hay desviaciones moderadas: los valores más bajos quedan por encima de la línea y hay una acumulación de valores en 230 mm. La aproximación es razonable para los cálculos de este capítulo, pero no es perfecta.
 
 ::: {.callout-note}
 ## Cómo interpretar un QQ-plot
 - **Puntos sobre la línea recta:** los datos se ajustan bien a la distribución normal.
 - **Cola superior por encima de la línea:** hay valores altos más extremos de lo esperado (cola derecha más pesada, asimetría positiva).
 - **Cola inferior por debajo de la línea:** hay valores bajos más extremos de lo esperado (cola izquierda más pesada, asimetría negativa).
-- **Forma en S:** la distribución tiene colas más ligeras que la normal (más concentrada en el centro).
-- **Punto aislado en un extremo:** un outlier.
+- **Puntos en forma de S**: las colas no se ajustan a la normal. Si los extremos se separan de la línea hacia fuera (el inferior por debajo y el superior por encima), las colas son más pesadas que las de la normal; si se separan hacia dentro (el inferior por encima y el superior por debajo), son más ligeras y la distribución está más concentrada en el centro..
+- **Punto aislado en un extremo:** un valor atípico.
 :::
 
 ## Resumen del capítulo

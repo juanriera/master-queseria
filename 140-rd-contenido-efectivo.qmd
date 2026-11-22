@@ -102,7 +102,7 @@ Un solo envase por debajo de T2 en la muestra de inspección da lugar al rechazo
 | Envases bajo T2 | 0 (ninguno permitido) |
 :::
 
-![Los límites T1 y T2 sobre la curva normal del proceso](imagenes/rd-1801.png)
+![Los límites T1 y T2 sobre la curva normal del proceso](imagenes/rd-1801-limite.png)
 
 ::: {.callout-warning}
 ## Las tres reglas del envasador
@@ -387,6 +387,8 @@ Es un razonamiento que existe en la práctica, y merece una respuesta en dos niv
 
 Un proceso que produce envases de 130 g también produce envases de 170 g. Para evitar los primeros, el fabricante sube la media de dosificación — y con ello regala más producto en cada envase del extremo alto. Reducir la variabilidad es la única forma de escapar de ese dilema: permite bajar la media sin arriesgar el incumplimiento, y ese ahorro es cuantificable turno a turno.
 :::
+
+![Proceso centrado por encima de Qn: con media 152,5 g y σ = 4 g, solo el 1 % de los envases queda bajo T1, pero la diferencia entre la media y Qn es producto regalado en cada envase](imagenes/rd-1801-proceso.png)
 
 ## El discriminador de peso: solución inmediata, coste real
 
