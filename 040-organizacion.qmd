@@ -179,7 +179,7 @@ Las recomendaciones más importantes son:
 
 **Escribe las fechas en formato ISO: AAAA-MM-DD.** Excel tiene el hábito de interpretar y reformatear las fechas automáticamente, lo que puede generar errores silenciosos al exportar a CSV. El formato `2024-03-15` es reconocido sin ambigüedad por todos los programas.
 
-**No dejes celdas vacías.** Una celda vacía puede significar "no se midió", "el valor es cero" o "es igual al valor anterior"; ningún programa puede saber cuál de las tres opciones es la correcta . Usa un código explícito para los datos ausentes, preferiblemente `NA`, que tanto Python como R reconocen automáticamente. Dicho esto, es frecuente dejar en blanco los valores faltantes en Excel; al exportar a R o Python directamente o mediante un CSV, tanto R como `pandas`interpretan correctamente el espacio vacío como valor faltante (*missing value*).
+**No dejes celdas vacías.** Una celda vacía puede significar "no se midió", "el valor es cero" o "es igual al valor anterior"; ningún programa puede saber cuál de las tres opciones es la correcta. Usa un código explícito para los datos ausentes, preferiblemente `NA`, que tanto Python como R reconocen automáticamente. Dicho esto, es frecuente dejar en blanco los valores faltantes en Excel; al exportar a R o Python directamente o mediante un CSV, tanto R como `pandas` interpretan correctamente el espacio vacío como valor faltante (*missing value*).
 
 **Una sola cosa en cada celda.** No combines en una celda el valor y la unidad (`"3,4%"`), ni dos variables distintas (`"turno mañana / operario A"`). Cada dato tiene su columna.
 
@@ -206,7 +206,7 @@ Un **fichero CSV** (*Comma-Separated Values*) es un tipo de fichero plano en el 
 
 ![Fichero plano separado por espacios](imagenes/040/fichero_txt.webp)
 
-![Fichero CSV separado por comas (EE.UU., Reino Unido)](imagenes/040/fichero-csv-comas.webp)
+![Fichero CSV separado por comas (EE. UU., Reino Unido)](imagenes/040/fichero-csv-comas.webp)
 
 ![Fichero CSV separado por punto y coma (Europa, España)](imagenes/040/fichero-csv-europeo.webp)
 
@@ -246,7 +246,7 @@ Este capítulo ha establecido los fundamentos conceptuales y prácticos para org
 
 Los conceptos básicos del análisis de datos son: la **variable** (característica medible de un caso), el **caso** (unidad de observación) y la distinción entre variables **cualitativas**, que clasifican en categorías, y **cuantitativas**, que toman valores numéricos con los que se puede operar. La **población** es el conjunto completo de casos de interés; la **muestra** es el subconjunto que analizamos. Un **parámetro** describe a la población; un **estadístico** lo estima a partir de la muestra.
 
-El **flujo de trabajo** es la secuencia ordenada de pasos desde la recolección de los datos hasta la comunicación de los resultados: recolección, inspección, limpieza, transformación, análisis exploratorio, modelado y comunicación. Seguir este flujo de forma sistemática garantiza la reproducibilidad, reduce los errores y facilita la colaboración.
+El **flujo de trabajo** es la secuencia ordenada de pasos desde la recolección de los datos hasta la comunicación de los resultados: recolección, inspección, limpieza, transformación, análisis exploratorio, modelado y comunicación. Seguir este flujo de forma sistemática favorece la reproducibilidad, reduce los errores y facilita la colaboración.
 
 Los **datos ordenados** (*tidy data*) siguen tres reglas: cada variable en una columna, cada observación en una fila, cada valor en una celda. Esta estructura rectangular es la que permite analizar los datos directamente con Excel, Python o R.
 

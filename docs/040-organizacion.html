@@ -156,7 +156,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./030-herramientas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -168,7 +168,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./050-exploracion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -647,7 +647,7 @@ Nota
 <p>Las recomendaciones más importantes son:</p>
 <p><strong>Sé consistente.</strong> Usa siempre los mismos nombres, los mismos códigos y el mismo formato para los mismos conceptos. Si un turno se llama “mañana” en unas filas y “Mañana” o “M” en otras, el software los tratará como tres valores distintos.</p>
 <p><strong>Escribe las fechas en formato ISO: AAAA-MM-DD.</strong> Excel tiene el hábito de interpretar y reformatear las fechas automáticamente, lo que puede generar errores silenciosos al exportar a CSV. El formato <code>2024-03-15</code> es reconocido sin ambigüedad por todos los programas.</p>
-<p><strong>No dejes celdas vacías.</strong> Una celda vacía puede significar “no se midió”, “el valor es cero” o “es igual al valor anterior”; ningún programa puede saber cuál de las tres opciones es la correcta . Usa un código explícito para los datos ausentes, preferiblemente <code>NA</code>, que tanto Python como R reconocen automáticamente. Dicho esto, es frecuente dejar en blanco los valores faltantes en Excel; al exportar a R o Python directamente o mediante un CSV, tanto R como <code>pandas</code>interpretan correctamente el espacio vacío como valor faltante (<em>missing value</em>).</p>
+<p><strong>No dejes celdas vacías.</strong> Una celda vacía puede significar “no se midió”, “el valor es cero” o “es igual al valor anterior”; ningún programa puede saber cuál de las tres opciones es la correcta. Usa un código explícito para los datos ausentes, preferiblemente <code>NA</code>, que tanto Python como R reconocen automáticamente. Dicho esto, es frecuente dejar en blanco los valores faltantes en Excel; al exportar a R o Python directamente o mediante un CSV, tanto R como <code>pandas</code> interpretan correctamente el espacio vacío como valor faltante (<em>missing value</em>).</p>
 <p><strong>Una sola cosa en cada celda.</strong> No combines en una celda el valor y la unidad (<code>"3,4%"</code>), ni dos variables distintas (<code>"turno mañana / operario A"</code>). Cada dato tiene su columna.</p>
 <p><strong>No incluyas cálculos en los datos.</strong> Las filas y columnas de totales, medias o porcentajes mezcladas con los datos originales rompen la estructura rectangular y dificultan el análisis. Los cálculos se hacen en el script, no en la tabla de datos.</p>
 <p><strong>No uses el color o el formato como datos.</strong> Si marcas en rojo las celdas con valores fuera de especificación, esa información se pierde al exportar a CSV. Cualquier información relevante debe estar en una columna de texto.</p>
@@ -674,7 +674,7 @@ Nota
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="imagenes/040/fichero-csv-comas.webp" class="img-fluid figure-img"></p>
-<figcaption>Fichero CSV separado por comas (EE.UU., Reino Unido)</figcaption>
+<figcaption>Fichero CSV separado por comas (EE. UU., Reino Unido)</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
@@ -716,7 +716,7 @@ Nota
 <h2 data-number="4.10" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">4.10</span> Resumen del capítulo</h2>
 <p>Este capítulo ha establecido los fundamentos conceptuales y prácticos para organizar los datos antes de analizarlos.</p>
 <p>Los conceptos básicos del análisis de datos son: la <strong>variable</strong> (característica medible de un caso), el <strong>caso</strong> (unidad de observación) y la distinción entre variables <strong>cualitativas</strong>, que clasifican en categorías, y <strong>cuantitativas</strong>, que toman valores numéricos con los que se puede operar. La <strong>población</strong> es el conjunto completo de casos de interés; la <strong>muestra</strong> es el subconjunto que analizamos. Un <strong>parámetro</strong> describe a la población; un <strong>estadístico</strong> lo estima a partir de la muestra.</p>
-<p>El <strong>flujo de trabajo</strong> es la secuencia ordenada de pasos desde la recolección de los datos hasta la comunicación de los resultados: recolección, inspección, limpieza, transformación, análisis exploratorio, modelado y comunicación. Seguir este flujo de forma sistemática garantiza la reproducibilidad, reduce los errores y facilita la colaboración.</p>
+<p>El <strong>flujo de trabajo</strong> es la secuencia ordenada de pasos desde la recolección de los datos hasta la comunicación de los resultados: recolección, inspección, limpieza, transformación, análisis exploratorio, modelado y comunicación. Seguir este flujo de forma sistemática favorece la reproducibilidad, reduce los errores y facilita la colaboración.</p>
 <p>Los <strong>datos ordenados</strong> (<em>tidy data</em>) siguen tres reglas: cada variable en una columna, cada observación en una fila, cada valor en una celda. Esta estructura rectangular es la que permite analizar los datos directamente con Excel, Python o R.</p>
 <p>Los <strong>ficheros CSV</strong> son el formato de intercambio de datos más universal, legible por Excel, Python y R. Al importarlos en Python o R, los datos se almacenan en un <strong>DataFrame</strong>, estructura equivalente a la tabla de Excel sobre la que se realizarán los análisis.</p>
 
@@ -1137,13 +1137,13 @@ Wickham, Hadley, y Garrett Grolemund. 2023. <span>«R Para Ciencia de Datos»</s
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./030-herramientas.html" class="pagination-link" aria-label="Herramientas para el análisis. La reproducibilidad.">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span>
+      <a href="./030-herramientas.html" class="pagination-link" aria-label="Herramientas para el análisis. La reproducibilidad">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./050-exploracion.html" class="pagination-link" aria-label="La exploración de los datos mediante gráficos.">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./050-exploracion.html" class="pagination-link" aria-label="La exploración de los datos mediante gráficos">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

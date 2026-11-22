@@ -201,7 +201,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./030-herramientas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -213,7 +213,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./050-exploracion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -450,7 +450,7 @@ window.Quarto = {
 </div>
 <section id="el-problema-del-ensayo-y-error-por-qué-un-factor-a-la-vez-no-es-suficiente" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="el-problema-del-ensayo-y-error-por-qué-un-factor-a-la-vez-no-es-suficiente"><span class="header-section-number">10.1</span> El problema del ensayo y error: por qué “un factor a la vez” no es suficiente</h2>
-<p>En la industria es habitual enfrentarse a preguntas del tipo: ¿a qué temperatura debo cuajar para obtener mejor recuperación de proteína? ¿Qué dosis de cuajo es la óptima? ¿Cambia el resultado si modifico los dos a la vez?</p>
+<p>En la industria es habitual enfrentarse a preguntas del tipo: ¿a qué temperatura debo cuajar para obtener mejor rendimiento, medido como coeficiente de recuperación ESM/MP? ¿Qué dosis de cuajo es la óptima? ¿Cambia el resultado si modifico los dos a la vez?</p>
 <p>La respuesta intuitiva es probar una cosa cada vez: primero cambio la temperatura y veo qué pasa, luego cambio la dosis y veo qué pasa. Este enfoque se conoce como <strong>OFAT</strong> (<em>One Factor At a Time</em>, un factor a la vez) y es, con diferencia, el más extendido en la práctica industrial. Su aparente sencillez lo hace atractivo: parece lógico, ordenado y fácil de interpretar.</p>
 <p><strong>El problema es que el enfoque OFAT es incorrecto en la mayoría de los casos industriales reales.</strong> Tiene dos defectos fundamentales:</p>
 <p><strong>Primero, no detecta las interacciones entre factores.</strong> Una interacción ocurre cuando el efecto de un factor depende del nivel al que se encuentra el otro. Por ejemplo: puede que subir la temperatura mejore la recuperación de proteína cuando la dosis de cuajo es baja, pero no cuando es alta. Si solo cambiamos un factor a la vez, fijaremos el otro en un nivel arbitrario y nunca sabremos si la conclusión que obtenemos es válida para otros niveles del factor fijo. Podemos llegar a recomendar “usa temperatura alta” cuando la respuesta correcta es “usa temperatura alta solo si usas dosis baja de cuajo”.</p>
@@ -560,7 +560,7 @@ window.Quarto = {
 4          34          30     3  95.3     0.17</code></pre>
 </div>
 </div>
-<p>La tabla de medias ya revela algo importante: a 30°C, subir la dosis de cuajo de 20 a 30 ml/100L mejora la recuperación (ESM(MP)) en más de 1 punto (de 93,75% a 94,96%). Pero a 34°C, esa misma subida de dosis apenas produce mejora (de 95,34% a 95,31%). Esto es exactamente una interacción, y es precisamente la información que el enfoque OFAT nunca habría podido revelar.</p>
+<p>La tabla de medias ya revela algo importante: a 30°C, subir la dosis de cuajo de 20 a 30 ml/100L mejora el coeficiente de recuperación (ESM/MP) en más de 1 punto (de 93,75% a 94,96%). Pero a 34°C, esa misma subida de dosis apenas produce mejora (de 95,34% a 95,31%). Esto es exactamente una interacción, y es precisamente la información que el enfoque OFAT nunca habría podido revelar.</p>
 </section>
 <section id="los-gráficos-de-efectos-principales" class="level2" data-number="10.5">
 <h2 data-number="10.5" class="anchored" data-anchor-id="los-gráficos-de-efectos-principales"><span class="header-section-number">10.5</span> Los gráficos de efectos principales</h2>

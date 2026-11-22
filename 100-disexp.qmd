@@ -31,7 +31,7 @@ Los gráficos de control de este capítulo se generan exclusivamente con R, porq
 
 ## El problema del ensayo y error: por qué "un factor a la vez" no es suficiente
 
-En la industria es habitual enfrentarse a preguntas del tipo: ¿a qué temperatura debo cuajar para obtener mejor recuperación de proteína? ¿Qué dosis de cuajo es la óptima? ¿Cambia el resultado si modifico los dos a la vez?
+En la industria es habitual enfrentarse a preguntas del tipo: ¿a qué temperatura debo cuajar para obtener mejor rendimiento, medido como coeficiente de recuperación ESM/MP? ¿Qué dosis de cuajo es la óptima? ¿Cambia el resultado si modifico los dos a la vez?
 
 La respuesta intuitiva es probar una cosa cada vez: primero cambio la temperatura y veo qué pasa, luego cambio la dosis y veo qué pasa. Este enfoque se conoce como **OFAT** (*One Factor At a Time*, un factor a la vez) y es, con diferencia, el más extendido en la práctica industrial. Su aparente sencillez lo hace atractivo: parece lógico, ordenado y fácil de interpretar.
 
@@ -105,7 +105,7 @@ df |>
     )
 ```
 
-La tabla de medias ya revela algo importante: a 30°C, subir la dosis de cuajo de 20 a 30 ml/100L mejora la recuperación (ESM(MP)) en más de 1 punto (de 93,75% a 94,96%). Pero a 34°C, esa misma subida de dosis apenas produce mejora (de 95,34% a 95,31%). Esto es exactamente una interacción, y es precisamente la información que el enfoque OFAT nunca habría podido revelar.
+La tabla de medias ya revela algo importante: a 30°C, subir la dosis de cuajo de 20 a 30 ml/100L mejora el coeficiente de recuperación (ESM/MP) en más de 1 punto (de 93,75% a 94,96%). Pero a 34°C, esa misma subida de dosis apenas produce mejora (de 95,34% a 95,31%). Esto es exactamente una interacción, y es precisamente la información que el enfoque OFAT nunca habría podido revelar.
 
 ## Los gráficos de efectos principales
 

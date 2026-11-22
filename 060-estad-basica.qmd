@@ -150,7 +150,7 @@ Para representar la media, aunque la media es un valor único, necesitamos añad
 
 Si verificamos el eje $Y$ , veremos que en este gráfico hemos ajustado la escala respecto al gráfico anterior, situando el mínimo en $130$. Esto permite visualizar las diferencias con mucha más claridad. Hemos representado la media $\bar{x}$ como una línea, y hemos dibujado unas líneas que unen cada valor individual con la media, que se sitúa en el valor $149,55$, tal como calculamos más arriba.
 
-Hemos representado la media como una serie de puntos unidos por una línea amarilla. Representamos en azul nuestros valores, uniendo cada valor con la línea media mediante una línea de puntos vertical. A partir de ahora, por conveniencia, eliminaremos los puntos en la linea media, dejando sólo la línea.
+Hemos representado la media como una serie de puntos unidos por una línea amarilla. Representamos en azul nuestros valores, uniendo cada valor con la línea media mediante una línea de puntos vertical. A partir de ahora, por conveniencia, eliminaremos los puntos en la linea media, dejando solo la línea.
 
 ![Hoja de cálculo con los valores y el gráfico de puntos](imagenes/image-20221115202048866.webp)
 
@@ -164,7 +164,7 @@ Veamos un caso extremo. Comparemos dos grupos, uno formado por individuos iguale
 
 ![Dos grupos de valores con la misma media](imagenes/image-20221116105300331.webp){.column-margin}
 
-¿Podemos describir adecuadamente los valores de la altura de cada uno de los grupos utilizando el valor medio? Parece evidente que no, ya que a partir de diferentes valores de altura estamos obteniendo el mismo valor medio. Sin embargo, uno de los grupos *es más alto* que el otro, si no fuera por un sólo individuo que aparentemente distorsiona el cálculo. Podríamos incluir nuestro grupo original, y veremos que los tres grupos son diferentes, aunque su valor medio es idéntico.
+¿Podemos describir adecuadamente los valores de la altura de cada uno de los grupos utilizando el valor medio? Parece evidente que no, ya que a partir de diferentes valores de altura estamos obteniendo el mismo valor medio. Sin embargo, uno de los grupos *es más alto* que el otro, si no fuera por un solo individuo que aparentemente distorsiona el cálculo. Podríamos incluir nuestro grupo original, y veremos que los tres grupos son diferentes, aunque su valor medio es idéntico.
 
 ![Tres grupos de valores con la misma media](imagenes/image-20221116110426263.webp){.column-margin}
 
@@ -200,7 +200,7 @@ $$
 d(A,B)=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
 $$
 
-Podemos adaptar esta fórmula al cálculo de nuestra distancia media. Como estamos calculando la distancia en una dimensión, sólo necesitamos la coordenada $X$. Si tenemos en cuenta un solo punto, esta distancia $d$ sería:
+Podemos adaptar esta fórmula al cálculo de nuestra distancia media. Como estamos calculando la distancia en una dimensión, solo necesitamos la coordenada $X$. Si tenemos en cuenta un solo punto, esta distancia $d$ sería:
 
 $$
 (d{\ }del{\ }valor{\ }1{\ }a{\ }la{\ }media)^2=(x_1-\bar{x})^2
@@ -223,11 +223,11 @@ $$
 (\bar{d}{\ }de{\ }los{\ }n{\ }valores{\ }a{\ }la{\ }media)^2={\frac {1}{n}}\sum _{i=1}^{n}(x_{i}-\bar{x})^2
 $$
 
-Al igual que en el cálculo de la distancia entre dos puntos, para volver alas uniddaes originales sólo tenemos que extraer la raíz cuadrada de este valor para obtener la distancia cuadrática media, que es el parámetro que estábamos buscando.
+Al igual que en el cálculo de la distancia entre dos puntos, para volver alas uniddaes originales solo tenemos que extraer la raíz cuadrada de este valor para obtener la distancia cuadrática media, que es el parámetro que estábamos buscando.
 
 Este promedio de las distancias al cuadrado $$(\bar{d}{\ }de{\ }los{\ }n{\ }valores{\ }a{\ }la{\ }media)^2$$ se conoce en estadística como **varianza**, y su raíz cuadrada es lo que se conoce como **desviación típica**. La varianza de una población se representa en estadística con el signo de la letra griega *sigma* minúscula elevada al cuadrado, $\sigma^2$, y la desviación típica, mediante la letra $\sigma$. En el caso de una muestra, la varianza se representa como $s_x^2$, y la desviación típica, como $s_x$.
 
-Es importante resaltar que la desviación típica *es una medida de la distancia de los valores de una población a su media*. No es exactamente una distancia media, ya que al elevar al cuadrado damos más peso a las distancias grandes; podemos llamarla *distancia típica*. Tiene dimensión, con las mismas unidades que las medidas originales. La varianza, al estar elevada al cuadrado, no tiene dimensión, o, mejor dicho, tiene la de la medida al cuadrado.
+Es importante resaltar que la desviación típica *es una medida de la distancia de los valores de una población a su media*. No es exactamente una distancia media, ya que al elevar al cuadrado damos más peso a las distancias grandes; podemos llamarla *distancia típica*. Tiene dimensión, con las mismas unidades que las medidas originales. La varianza, al estar elevada al cuadrado, tiene como unidades el cuadrado de las unidades originales (en el ejemplo, $cm^2$).
 
 Con estos nuevos hallazgos, recalculamos nuestra hoja de cálculo:
 
@@ -325,7 +325,7 @@ La **suma de cuadrados** (SC) es una cantidad que aparecerá de forma recurrente
 
 **Paso 5 — Varianza y desviación típica poblacional:**
 
-$$s^2 = \frac{SC}{n} = \frac{1342{,}73}{11} = 122{,}07 \qquad s = \sqrt{122{,}07} = 11{,}05$$
+$$\sigma^2 = \frac{SC}{n} = \frac{1342{,}73}{11} = 122{,}07 \qquad \sigma = \sqrt{122{,}07} = 11{,}05$$
 
 **Paso 6 — Desviación típica muestral:**
 $$s = \sqrt{\frac{SC}{n-1}} = \sqrt{\frac{1342{,}73}{10}} = \sqrt{134{,}27} = 11{,}59$$
@@ -368,7 +368,7 @@ print(serie.describe()) # resumen completo
 
 :::
 
-Una nota importante: tanto Python como R calculan por defecto la desviación típica muestral, dividiendo entre n−1 en lugar de n. La diferencia es pequeña cuando el número de datos es grande, pero conviene tenerlo en cuenta (Atención: la función std() de NumPy divide por n salvo que se indique ddof=1.). 
+Una nota importante: tanto `pandas` como R calculan por defecto la desviación típica muestral, dividiendo entre n−1 en lugar de n. La diferencia es pequeña cuando el número de datos es grande, pero conviene tenerlo en cuenta (Atención: la función std() de NumPy divide por n salvo que se indique ddof=1). 
 
 ## Resumen del capítulo
 

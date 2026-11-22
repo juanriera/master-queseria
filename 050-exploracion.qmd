@@ -1,6 +1,6 @@
 ---
 lang: es
-title: La exploración de los datos mediante gráficos.
+title: La exploración de los datos mediante gráficos
 format:
   html:
     code-fold: true
@@ -87,7 +87,7 @@ A continuación añadimos las "hojas" en la celda a la derecha, que consisten en
 
 #### Construcción del diagrama en Python y R
 
-R permite realizar el *stemplot* mediante la función $stem()$ de forma automática. Python no incluye entre sus métodos básicos una función para hacer un *stemplot*, aunque sí la tiene en la librería `stemgraphic`; importamos de esta librería sólo la función `stem_text()`
+R permite realizar el *stemplot* mediante la función $stem()$ de forma automática. Python no incluye entre sus métodos básicos una función para hacer un *stemplot*, aunque sí la tiene en la librería `stemgraphic`; importamos de esta librería solo la función `stem_text()`
 
 ::: {#clr-instrucciones .callout-tip .content-visible when-format="html"}
 ## Sugerencia: Explicación del código
@@ -594,9 +594,9 @@ Lo mismo ocurre en la industria: si mezclamos en una tabla de datos la producci�
 
 ### Distribución simétrica
 
-Cuando la mayoría de los valores se concentran en el centro y las frecuencias disminuyen de forma equilibrada hacia ambos lados, decimos que la distribución es **simétrica**. Es el caso más frecuente en medidas de procesos industriales controlados: pesos, temperaturas, extractos secos. A primera vista, el histograma de la longitud de aleta de los pingüinos que acabamos de ver podría parecer aproximadamente simétrico, aunque enseguida veremos que no es así..
+Cuando la mayoría de los valores se concentran en el centro y las frecuencias disminuyen de forma equilibrada hacia ambos lados, decimos que la distribución es **simétrica**. Es el caso más frecuente en medidas de procesos industriales controlados: pesos, temperaturas, extractos secos. A primera vista, el histograma de la longitud de aleta de los pingüinos que acabamos de ver podría parecer aproximadamente simétrico, aunque enseguida veremos que no es así.
 
-Esta forma recuerda a una campana, y es la que en estadística se conoce como **distribución normal** o **campana de Gauss**. Volveremos sobre este concepto en el capítulo 7, dedicado a la distrobución normal.
+Esta forma recuerda a una campana, y es la que en estadística se conoce como **distribución normal** o **campana de Gauss**. Volveremos sobre este concepto en el capítulo 7, dedicado a la distribución normal.
 
 ### Distribución asimétrica
 
@@ -701,7 +701,7 @@ Cuando en un proceso industrial aparece una distribución bimodal, es casi siemp
 Ya hemos visto en la sección del stemplot que algunos valores se separan claramente del resto. Estos valores, que llamamos **valores atípicos** o ***outliers***, afectan a la forma del histograma añadiendo barras aisladas en los extremos. Son importantes porque pueden indicar errores en la toma de datos, condiciones excepcionales del proceso, o simplemente la variabilidad natural de algunos fenómenos.
 
 ::: {.callout-note}
-La presencia de valores extremos es uno de los motivos por los que la exploración gráfica siempre debe preceder al cálculo de estadísticos. Como veremos en el capítulo 6, los valores extremos tienen una influencia desproporcionada sobre la media y la desviación típica, y pueden llevar a conclusiones erróneas si no se han detectado previamente.
+La presencia de valores extremos es uno de los motivos por los que la exploración gráfica siempre debe preceder al cálculo de estadísticos. Como veremos en el capítulo 6, los valores extremos tienen una gran influencia sobre la media y aún mayor sobre la varianza y la desviación típica, y pueden llevar a conclusiones erróneas si no se han detectado previamente.
 :::
 
 A continuación veremos cómo la forma de los datos se refleja también en el diagrama de caja, y cómo la elección del estadístico más adecuado depende precisamente de esta forma.
@@ -848,7 +848,7 @@ laliga$goles_totales <- laliga$goles_local + laliga$goles_visitante
 par(mfrow = c(1, 2))
 
 boxplot(penguins$flipper_length_mm,
-        main = "Longitud de aleta (simétrica)",
+        main = "Longitud de aleta",
         ylab = "mm")
 
 boxplot(laliga$goles_totales,
@@ -873,7 +873,7 @@ laliga['goles_totales'] = laliga['goles_local'] + laliga['goles_visitante']
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 5))
 
 sns.boxplot(data=penguins, y='flipper_length_mm', ax=ax1)
-ax1.set_title("Longitud de aleta (simétrica)")
+ax1.set_title("Longitud de aleta")
 ax1.set_ylabel("mm")
 
 sns.boxplot(data=laliga, y='goles_totales', ax=ax2)
@@ -886,7 +886,7 @@ plt.show()
 
 :::
 
-En el boxplot de los goles la caja es simétrica porque los goles toman pocos valores enteros, pero la asimetría positiva se aprecia en los bigotes: el superior (de 3 a 6 goles) es mucho más largo que el inferior (de 1 a 0), y hay varios valores atípicos en la parte alta. En el capítulo 8 veremos cómo esta misma lectura del boxplot nos ayudará a interpretar la variabilidad estacional del extracto seco en la fabricación de queso camembert.
+En el boxplot de los goles la caja es simétrica porque los goles toman pocos valores enteros, pero la asimetría positiva se aprecia en los bigotes: el superior (de 3 a 6 goles) es mucho más largo que el inferior (de 1 a 0), y hay varios valores atípicos en la parte alta. En el capítulo 12 veremos cómo esta misma lectura del boxplot nos ayudará a interpretar la variabilidad estacional del extracto seco en la fabricación de queso camembert.
 
 ### El boxplot por grupos
 
@@ -1506,7 +1506,7 @@ plt.title("Temperatura media mensual en Oviedo 2020-2024")
 plt.show()
 ```
 
-El gráfico muestra con claridad la **estacionalidad** anual: temperaturas bajas en invierno y altas en verano, con un patrón que se repite cada año. Además, si observamos con atención, podemos apreciar que las medias anuales aumentan a lo largo del período (de 13,8 °C en 2020 a 15,5 °C en 2024). Cinco años son pocos para hablar de una tendencia climática, pero el gráfico muestra cómo una serie temporal permite ver a la vez la variación estacional y la evolución a más largo plazo..
+El gráfico muestra con claridad la **estacionalidad** anual: temperaturas bajas en invierno y altas en verano, con un patrón que se repite cada año. Además, si observamos con atención, podemos apreciar que las medias anuales aumentan a lo largo del período (de 13,8 °C en 2020 a 15,5 °C en 2024). Cinco años son pocos para hablar de una tendencia climática, pero el gráfico muestra cómo una serie temporal permite ver a la vez la variación estacional y la evolución a más largo plazo.
 
 Podemos calcular y representar la media anual para visualizar mejor la tendencia:
 
@@ -1592,6 +1592,6 @@ También esta guía proporciona información sobre el uso adecuado de cada tipo 
 
 La visualización gráfica es la herramienta más directa para explorar un conjunto de datos antes de aplicar cualquier análisis estadístico. El stemplot permite obtener una visión rápida de la distribución de datos pequeños manteniendo los valores originales, aunque su uso ha quedado desplazado por herramientas gráficas más potentes. Las tablas de distribución de frecuencias organizan los datos en intervalos y permiten calcular frecuencias absolutas, relativas y acumuladas; pueden construirse en Excel mediante tablas dinámicas, o en Python y R mediante código reproducible y auditable.
 
-El histograma es el gráfico estándar para representar la distribución de variables continuas. La forma del histograma nos informa sobre la naturaleza de los datos: una distribución simétrica con un solo pico indica un proceso homogéneo; una distribución asimétrica muestra valores que se alejan más hacia uno de los lados,donde son menos frecuentes, y una distribución bimodal revela la presencia de dos grupos distintos mezclados en los datos. El diagrama de barras se reserva para variables discretas o categóricas. El boxplot resume la distribución mediante cinco números (mínimo, Q1, mediana, Q3, máximo), refleja la forma de la distribución a través de la posición de la mediana y la longitud de los bigotes, y señala automáticamente los valores atípicos; con pocos datos es preferible usar el dotplot, que muestra los valores individuales. Para conjuntos de datos mayores pueden utilizarse alternativas como el beeswarm, el stripplot o el violin plot, que combinan el resumen estadístico con la visualización de los puntos individuales.
+El histograma es el gráfico estándar para representar la distribución de variables continuas. La forma del histograma nos informa sobre la naturaleza de los datos: una distribución simétrica con un solo pico indica un proceso homogéneo; una distribución asimétrica muestra valores que se alejan más hacia uno de los lados, donde son menos frecuentes, y una distribución bimodal revela la presencia de dos grupos distintos mezclados en los datos. El diagrama de barras se reserva para variables discretas o categóricas. El boxplot resume la distribución mediante cinco números (mínimo, Q1, mediana, Q3, máximo), refleja la forma de la distribución a través de la posición de la mediana y la longitud de los bigotes, y señala automáticamente los valores atípicos; con pocos datos es preferible usar el dotplot, que muestra los valores individuales. Para conjuntos de datos mayores pueden utilizarse alternativas como el beeswarm, el stripplot o el violin plot, que combinan el resumen estadístico con la visualización de los puntos individuales.
 
 Los gráficos de densidad, disponibles en Python mediante seaborn y en R mediante ggplot2, ofrecen una representación suavizada de la distribución y resultan especialmente útiles para comparar grupos. Los gráficos de dispersión permiten visualizar la relación entre dos variables numéricas e identificar correlaciones, relaciones no lineales y valores atípicos; Python y R facilitan la segmentación por una tercera variable, lo que en Excel requiere un trabajo manual adicional. Los gráficos de series temporales representan la evolución de una variable en el tiempo y permiten identificar simultáneamente la estacionalidad y la tendencia a largo plazo; pandas en Python proporciona funciones de remuestreo que simplifican este análisis. El capítulo concluye con referencias a galerías de ejemplos en Python y R y a guías de selección del tipo de gráfico según el objetivo del análisis.

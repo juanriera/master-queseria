@@ -38,7 +38,7 @@ La estadística proporciona las herramientas para analizar esa variabilidad: ide
 
 El pensamiento estadístico va más allá del uso de herramientas concretas: es una forma de entender y abordar los procesos industriales. Se apoya en tres principios fundamentales [@hoerl2020, p. 15]:
 
--   Todo trabajo industrial consiste en un sistema de procesos interconectados.
+-   Todo trabajo consiste en un sistema de procesos interconectados.
 -   La variabilidad existe y es inherente a esos procesos.
 -   Entender y reducir la variabilidad es la clave de la mejora y el éxito.
 
@@ -68,7 +68,7 @@ En el entorno industrial los datos pueden clasificarse atendiendo a dos criterio
 
 **Datos semiestructurados** tienen cierta organización pero con mayor flexibilidad que los estructurados. Los archivos XML o JSON y los registros de eventos son ejemplos habituales.
 
-En el contexto de la Industria 4.0, la cantidad y variedad de datos industriales crece de forma exponencial,utilizando redes de sensores cada vez más densas y una incorporación creciente de datos no estructurados, como imágenes de cámaras o registros de texto.
+En el contexto de la Industria 4.0, la cantidad y variedad de datos industriales crece de forma exponencial, utilizando redes de sensores cada vez más densas y una incorporación creciente de datos no estructurados, como imágenes de cámaras o registros de texto.
 
 ### Clasificación según el origen
 
@@ -86,7 +86,7 @@ La principal ventaja de los estudios retrospectivos es la disponibilidad inmedia
 -   Las notas explicativas sobre valores anómalos suelen ser insuficientes o inexistentes, y los recuerdos de quienes participaron en esos procesos se pierden o distorsionan con el tiempo.
 -   Los datos históricos se recogieron con una finalidad determinada, y pueden no ser adecuados para los objetivos del análisis actual.
 
-Por estas razones, los estudios retrospectivos suelen requerir una fase previa de preparación y depuración de datos que puede ser larga y laboriosa, y que, en la práctica,  suele ocupar un aparte considerable del tiempo total destinado al análisis. Las herramientas de análisis son de gran ayuda en esta fase, aunque en muchas ocasiones será necesario un trabajo manual de recolección a partir de papel, hojas de cálculo diversas y otras fuentes. Este trabajo, aunque tedioso, tiene un valor añadido: mejora el conocimiento de cómo se originan y almacenan los datos del proceso, lo que siempre es útil para mejorar los procedimientos de captura futuros.
+Por estas razones, los estudios retrospectivos suelen requerir una fase previa de preparación y depuración de datos que puede ser larga y laboriosa, y que, en la práctica,  suele ocupar una parte considerable del tiempo total destinado al análisis. Las herramientas de análisis son de gran ayuda en esta fase, aunque en muchas ocasiones será necesario un trabajo manual de recolección a partir de papel, hojas de cálculo diversas y otras fuentes. Este trabajo, aunque tedioso, tiene un valor añadido: mejora el conocimiento de cómo se originan y almacenan los datos del proceso, lo que siempre es útil para mejorar los procedimientos de captura futuros.
 
 #### Estudios observacionales
 
@@ -120,7 +120,7 @@ Esta advertencia es especialmente relevante en el trabajo con datos históricos,
 
 Este capítulo ha presentado los fundamentos conceptuales del análisis de datos en el entorno industrial. El punto de partida es el **método científico**: una forma sistemática de resolver problemas que obliga a basar las decisiones en datos y no en intuiciones. El concepto central que articula todo el capítulo es la **variabilidad**: todo proceso industrial varía, y el objetivo de la mejora es entender y reducir esa variación.
 
-El **pensamiento estadístico** es la filosofía de trabajo que integra estos principios en el día a día industrial. Se materializa en el **ciclo PDCA** —planificar, hacer, verificar, actuar—, que es la base de las metodologías de mejora continua más extendidas en el sector alimentario.
+El **pensamiento estadístico** es la filosofía de trabajo que integra estos principios en el día a día industrial. Se materializa en el **ciclo PDCA** (planificar, hacer, verificar, actuar), que es la base de las metodologías de mejora continua más extendidas en el sector alimentario.
 
 Los datos industriales pueden clasificarse por su estructura (estructurados, no estructurados y semiestructurados) y por su origen. Esta segunda clasificación es especialmente relevante para el análisis: los **estudios retrospectivos** trabajan con datos históricos y ofrecen abundancia de información pero con limitaciones de fiabilidad; los **estudios observacionales** recogen datos en condiciones reales de operación sin intervenir en el proceso; y los **experimentos diseñados** son la forma más rigurosa de establecer relaciones de causa y efecto, al introducir cambios controlados y aleatorizar las condiciones.
 

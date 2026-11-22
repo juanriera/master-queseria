@@ -201,7 +201,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./030-herramientas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -213,7 +213,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./050-exploracion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -515,7 +515,7 @@ n = 3
 <p>Para representar la media, aunque la media es un valor único, necesitamos añadir una columna a la derecha de nuestros datos, que rotulamos en la fila 1, celda C como <code>altura media</code>, e introducimos en cada una de las celdas desde <code>C2</code>hasta <code>C12</code>la fórmula del promedio, con el valor de nuestro rango de datos (Verificar hoja de cálculo). A continuación, designamos nuestro rango de datos para hacer un gráfico de puntos, y hacemos un <em>zoom</em> en los valores de manera que el eje Y se escale mejor entre los valores mínimo y máximo. Por último, hacemos unos ajustes en el formato para dibujar las líneas verticales que nos representan la distancia de cada valor a la media.</p>
 <p><img src="imagenes/image-20221115203450170.webp" class="img-fluid"></p>
 <p>Si verificamos el eje <span class="math inline">\(Y\)</span> , veremos que en este gráfico hemos ajustado la escala respecto al gráfico anterior, situando el mínimo en <span class="math inline">\(130\)</span>. Esto permite visualizar las diferencias con mucha más claridad. Hemos representado la media <span class="math inline">\(\bar{x}\)</span> como una línea, y hemos dibujado unas líneas que unen cada valor individual con la media, que se sitúa en el valor <span class="math inline">\(149,55\)</span>, tal como calculamos más arriba.</p>
-<p>Hemos representado la media como una serie de puntos unidos por una línea amarilla. Representamos en azul nuestros valores, uniendo cada valor con la línea media mediante una línea de puntos vertical. A partir de ahora, por conveniencia, eliminaremos los puntos en la linea media, dejando sólo la línea.</p>
+<p>Hemos representado la media como una serie de puntos unidos por una línea amarilla. Representamos en azul nuestros valores, uniendo cada valor con la línea media mediante una línea de puntos vertical. A partir de ahora, por conveniencia, eliminaremos los puntos en la linea media, dejando solo la línea.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="imagenes/image-20221115202048866.webp" class="img-fluid figure-img"></p>
@@ -532,7 +532,7 @@ n = 3
 <p><img src="imagenes/image-20221116105300331.webp" class="img-fluid figure-img"></p>
 <figcaption>Dos grupos de valores con la misma media</figcaption>
 </figure>
-</div></div><p>¿Podemos describir adecuadamente los valores de la altura de cada uno de los grupos utilizando el valor medio? Parece evidente que no, ya que a partir de diferentes valores de altura estamos obteniendo el mismo valor medio. Sin embargo, uno de los grupos <em>es más alto</em> que el otro, si no fuera por un sólo individuo que aparentemente distorsiona el cálculo. Podríamos incluir nuestro grupo original, y veremos que los tres grupos son diferentes, aunque su valor medio es idéntico.</p>
+</div></div><p>¿Podemos describir adecuadamente los valores de la altura de cada uno de los grupos utilizando el valor medio? Parece evidente que no, ya que a partir de diferentes valores de altura estamos obteniendo el mismo valor medio. Sin embargo, uno de los grupos <em>es más alto</em> que el otro, si no fuera por un solo individuo que aparentemente distorsiona el cálculo. Podríamos incluir nuestro grupo original, y veremos que los tres grupos son diferentes, aunque su valor medio es idéntico.</p>
 
 <div class="no-row-height column-margin column-container"><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -575,7 +575,7 @@ h^2= a^2+b^2
 </div></div><p><span class="math display">\[
 d(A,B)=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
 \]</span></p>
-<p>Podemos adaptar esta fórmula al cálculo de nuestra distancia media. Como estamos calculando la distancia en una dimensión, sólo necesitamos la coordenada <span class="math inline">\(X\)</span>. Si tenemos en cuenta un solo punto, esta distancia <span class="math inline">\(d\)</span> sería:</p>
+<p>Podemos adaptar esta fórmula al cálculo de nuestra distancia media. Como estamos calculando la distancia en una dimensión, solo necesitamos la coordenada <span class="math inline">\(X\)</span>. Si tenemos en cuenta un solo punto, esta distancia <span class="math inline">\(d\)</span> sería:</p>
 <p><span class="math display">\[
 (d{\ }del{\ }valor{\ }1{\ }a{\ }la{\ }media)^2=(x_1-\bar{x})^2
 \]</span></p>
@@ -600,9 +600,9 @@ Nota
 <p><span class="math display">\[
 (\bar{d}{\ }de{\ }los{\ }n{\ }valores{\ }a{\ }la{\ }media)^2={\frac {1}{n}}\sum _{i=1}^{n}(x_{i}-\bar{x})^2
 \]</span></p>
-<p>Al igual que en el cálculo de la distancia entre dos puntos, para volver alas uniddaes originales sólo tenemos que extraer la raíz cuadrada de este valor para obtener la distancia cuadrática media, que es el parámetro que estábamos buscando.</p>
+<p>Al igual que en el cálculo de la distancia entre dos puntos, para volver alas uniddaes originales solo tenemos que extraer la raíz cuadrada de este valor para obtener la distancia cuadrática media, que es el parámetro que estábamos buscando.</p>
 <p>Este promedio de las distancias al cuadrado <span class="math display">\[(\bar{d}{\ }de{\ }los{\ }n{\ }valores{\ }a{\ }la{\ }media)^2\]</span> se conoce en estadística como <strong>varianza</strong>, y su raíz cuadrada es lo que se conoce como <strong>desviación típica</strong>. La varianza de una población se representa en estadística con el signo de la letra griega <em>sigma</em> minúscula elevada al cuadrado, <span class="math inline">\(\sigma^2\)</span>, y la desviación típica, mediante la letra <span class="math inline">\(\sigma\)</span>. En el caso de una muestra, la varianza se representa como <span class="math inline">\(s_x^2\)</span>, y la desviación típica, como <span class="math inline">\(s_x\)</span>.</p>
-<p>Es importante resaltar que la desviación típica <em>es una medida de la distancia de los valores de una población a su media</em>. No es exactamente una distancia media, ya que al elevar al cuadrado damos más peso a las distancias grandes; podemos llamarla <em>distancia típica</em>. Tiene dimensión, con las mismas unidades que las medidas originales. La varianza, al estar elevada al cuadrado, no tiene dimensión, o, mejor dicho, tiene la de la medida al cuadrado.</p>
+<p>Es importante resaltar que la desviación típica <em>es una medida de la distancia de los valores de una población a su media</em>. No es exactamente una distancia media, ya que al elevar al cuadrado damos más peso a las distancias grandes; podemos llamarla <em>distancia típica</em>. Tiene dimensión, con las mismas unidades que las medidas originales. La varianza, al estar elevada al cuadrado, tiene como unidades el cuadrado de las unidades originales (en el ejemplo, <span class="math inline">\(cm^2\)</span>).</p>
 <p>Con estos nuevos hallazgos, recalculamos nuestra hoja de cálculo:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -727,7 +727,7 @@ Nota
 </div>
 </div>
 <p><strong>Paso 5 — Varianza y desviación típica poblacional:</strong></p>
-<p><span class="math display">\[s^2 = \frac{SC}{n} = \frac{1342{,}73}{11} = 122{,}07 \qquad s = \sqrt{122{,}07} = 11{,}05\]</span></p>
+<p><span class="math display">\[\sigma^2 = \frac{SC}{n} = \frac{1342{,}73}{11} = 122{,}07 \qquad \sigma = \sqrt{122{,}07} = 11{,}05\]</span></p>
 <p><strong>Paso 6 — Desviación típica muestral:</strong> <span class="math display">\[s = \sqrt{\frac{SC}{n-1}} = \sqrt{\frac{1342{,}73}{10}} = \sqrt{134{,}27} = 11{,}59\]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -844,7 +844,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<p>Una nota importante: tanto Python como R calculan por defecto la desviación típica muestral, dividiendo entre n−1 en lugar de n.&nbsp;La diferencia es pequeña cuando el número de datos es grande, pero conviene tenerlo en cuenta (Atención: la función std() de NumPy divide por n salvo que se indique ddof=1.).</p>
+<p>Una nota importante: tanto <code>pandas</code> como R calculan por defecto la desviación típica muestral, dividiendo entre n−1 en lugar de n.&nbsp;La diferencia es pequeña cuando el número de datos es grande, pero conviene tenerlo en cuenta (Atención: la función std() de NumPy divide por n salvo que se indique ddof=1).</p>
 </section>
 <section id="resumen-del-capítulo" class="level2" data-number="6.8">
 <h2 data-number="6.8" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">6.8</span> Resumen del capítulo</h2>
@@ -1259,8 +1259,8 @@ dtype: float64</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./050-exploracion.html" class="pagination-link" aria-label="La exploración de los datos mediante gráficos.">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos.</span></span>
+      <a href="./050-exploracion.html" class="pagination-link" aria-label="La exploración de los datos mediante gráficos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

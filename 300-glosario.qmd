@@ -59,6 +59,9 @@ Cuadrado del coeficiente de correlación de Pearson. Mide la proporción de la v
 **Coeficiente de Pearson (r)**
 Medida de la intensidad y la dirección de la relación lineal entre dos variables. Toma valores entre -1 y +1: valores cercanos a ±1 indican relación fuerte; valores cercanos a 0 indican ausencia de relación lineal.
 
+**Coeficiente de recuperación ESM/MP**
+Este coeficiente es la medida que utilizaremos como "rendimiento quesero"; estima la eficacia de la recuperación de proteína puesta en cuba, suponiendo que el resto de componentes de este ESM (lactosa, sal, minerales) se mantienen constantes de fabricación en fabricación. Es una estimación indirecta que evita el engorroso análisis de proteína en el producto final.
+
 **Control estadístico de procesos (SPC)**
 Metodología para la monitorización y control de procesos industriales mediante herramientas estadísticas, especialmente el gráfico de control. Permite distinguir entre variabilidad normal (causas comunes) y señales de alarma (causas especiales).
 
@@ -314,7 +317,7 @@ Método estadístico que ajusta una línea recta a la relación entre dos variab
 Técnica de análisis de series temporales que consiste en calcular estadísticos (media, mediana) sobre ventanas de tiempo para suavizar la variabilidad y detectar tendencias.
 
 **Rendimiento quesero**
-Indicador de la eficiencia de la transformación quesera que relaciona la cantidad de queso obtenido con la cantidad de leche utilizada. Existen múltiples formas de calcularlo; en este libro se usa el porcentaje de retención de materia prima en el extracto seco magro del queso.
+Indicador de la eficiencia de la transformación quesera que relaciona la cantidad de queso obtenido con la cantidad de leche utilizada. Existen múltiples formas de calcularlo; en este libro se usa el coeficiente de recuperación ESM/MP que establece la relación entre el extracto seco magro del queso y la proteína puesta en cuba.
 
 **Repetibilidad**
 Capacidad de un instrumento o analista de obtener resultados consistentes al repetir la misma medición en las mismas condiciones. Medida por la desviación típica de las repeticiones.

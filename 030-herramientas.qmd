@@ -2,7 +2,7 @@
 lang: es
 ---
 
-# Herramientas para el análisis. La reproducibilidad.
+# Herramientas para el análisis. La reproducibilidad
 
 ::: callout-note
 #### Objetivos de aprendizaje
@@ -67,7 +67,7 @@ Siguiendo esta recomendación, en este libro usaremos Excel principalmente para 
 -   `matplotlib` y `seaborn` para la generación de gráficos de alta calidad: tendencias, distribuciones, correlaciones.
 -   `numpy` para cálculos numéricos precisos sobre arrays de datos.
 
-**R** está muy extendido en la investigación estadística y en el análisis de datos, y algunos lo consideran la herramienta de referencia en campos como las ciencias de la salud o la biología. Dispone de algunas de las bibliotecas gráficas más potentes disponibles (en particular `ggplot2`) y cubre toda la gama de métodos estadísticos, desde la estadística descriptiva básica hasta los modelos más avanzados. Es el lenguaje más utilizado en investigación estadística y en análisis de datos en ciencias de la salud, biología y, en general, en cualquier disciplina con fuerte componente cuantitativo.
+**R** está muy extendido en la investigación estadística y en el análisis de datos, y algunos lo consideran la herramienta de referencia en campos como las ciencias de la salud o la biología. Dispone de algunas de las bibliotecas gráficas más potentes disponibles (en particular `ggplot2`) y cubre toda la gama de métodos estadísticos, desde la estadística descriptiva básica hasta los modelos más avanzados.
 
 Ambos lenguajes son **gratuitos y de código abierto**, cuentan con comunidades de usuarios enormes y están respaldados por una documentación extensa. A lo largo del libro, los ejemplos de código se presentan en pestañas alternativas Python/R, de modo que el lector puede seguir el lenguaje de su elección.
 
@@ -99,7 +99,7 @@ El químico irlandés **Robert Boyle**, en el siglo XVII, fue uno de los primero
 
 En las últimas décadas ha crecido la preocupación por la falta de reproducibilidad en resultados científicos publicados. Muchos estudios no pueden reproducirse porque los datos originales no están disponibles, el código de análisis no se ha conservado o documentado, o los procedimientos no se describen con suficiente detalle. Esta situación, conocida como **crisis de reproducibilidad**, afecta a disciplinas tan diversas como la psicología, la biomedicina o la economía, y ha llevado a un cambio en las exigencias de publicación y auditoría en muchos campos.
 
-La magnitud del problema ha quedado cuantificada recientemente de forma sistemática. En 2026, la revista Nature publicó cuatro artículos que evalúan la reproducibilidad, la replicabilidad y la robustez de la investigación en ciencias sociales y del comportamiento, a partir de la base de datos del programa SCORE [@nature2026editorial]: aproximadamente la mitad de los efectos estudiados no se confirmaron al replicar los estudios, y los que sí lo hicieron mostraron efectos considerablemente más débiles que los originales.. Aunque estos estudios se centran en la investigación académica, el principio que ilustran es directamente transferible al entorno industrial: un análisis que no puede verificarse ni auditarse introduce un riesgo oculto en cualquier decisión que se base en él.
+La magnitud del problema ha quedado cuantificada recientemente de forma sistemática. En 2026, la revista Nature publicó cuatro artículos que evalúan la reproducibilidad, la replicabilidad y la robustez de la investigación en ciencias sociales y del comportamiento, a partir de la base de datos del programa SCORE [@nature2026editorial]: aproximadamente la mitad de los efectos estudiados no se confirmaron al replicar los estudios, y los que sí lo hicieron mostraron efectos considerablemente más débiles que los originales. Aunque estos estudios se centran en la investigación académica, el principio que ilustran es directamente transferible al entorno industrial: un análisis que no puede verificarse ni auditarse introduce un riesgo oculto en cualquier decisión que se base en él.
 
 ### Reproducibilidad en metrología
 

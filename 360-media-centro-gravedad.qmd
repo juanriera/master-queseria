@@ -43,7 +43,7 @@ Ahora vamos a considerar el punto de equilibrio de una barra de la que se cuelga
 
 1.  **Identificar las fuerzas**: Supongamos que tienes varios pesos $W_1, W_2, W_3, \ldots, W_n$ colgados a distancias $d_1, d_2, d_3, \ldots, d_n$ del origen de la barra.
 
-2.  **Calcular los momentos**: El momento ($M$) de un peso respecto al origen se calcula como el producto de la fuerza (peso) y la distancia al punto de apoyo:
+2.  **Calcular los momentos**: El momento ($M$) de un peso respecto al origen se calcula como el producto de la fuerza (peso) y su distancia al origen:
 
 $$
     M_i = W_i \times d_i
@@ -230,7 +230,7 @@ Comparación gráfica del significado de la media en un diagrama de puntos (*dot
 
 Entender la media como punto de equilibrio tiene una consecuencia práctica directa: permite visualizar de forma intuitiva el efecto de los valores extremos u *outliers*.
 
-Cuando un conjunto de datos contiene un valor muy alejado del resto, ese valor actúa como un peso situado lejos del fulcro. Por la ley de la palanca, su momento (el producto de su masa, igual a todos los datos, por su distancia al punto de apoyo) es proporcional a esa distancia, de modo que un único valor muy alejado puede pesar tanto como muchos valores moderados juntos. El punto de equilibrio, es decir, la media, se desplaza hacia ese extremo, y puede dejar de representar al grupo mayoritario.
+Cuando un conjunto de datos contiene un valor muy alejado del resto, ese valor actúa como un peso situado lejos del fulcro. Por la ley de la palanca, su momento (el producto de su masa, igual para todos los datos, por su distancia al punto de apoyo) es proporcional a esa distancia, de modo que un único valor muy alejado puede pesar tanto como muchos valores moderados juntos. El punto de equilibrio, es decir, la media, se desplaza hacia ese extremo, y puede dejar de representar al grupo mayoritario.
 
 Este valor extremo tiene dos efectos simultáneos: la media deja de representar bien al grupo mayoritario de valores, y la varianza (el promedio de las distancias al cuadrado) aumenta de forma mucho más acusada, porque la distancia del valor extremo se eleva al cuadrado.
 

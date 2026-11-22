@@ -5,7 +5,7 @@ lang: es
 # Introducción
 La industria alimentaria genera cada vez más datos: sensores, líneas automatizadas, sistemas de trazabilidad. Transformar esos datos en información útil para la toma de decisiones es ya una competencia esencial para cualquier técnico de planta, tanto en el trabajo diario como en la presentación de resultados en las reuniones de los grupos de mejora Lean o ante la Dirección.
 
-Este libro aborda las herramientas y métodos del análisis de datos en la producción industrial.Parte de la hoja de cálculo, todavía la herramienta más extendida en las industrias, y propone una transición progresiva hacia Python y R como herramientas principales de análisis.. 
+Este libro aborda las herramientas y métodos del análisis de datos en la producción industrial. Parte de la hoja de cálculo, todavía la herramienta más extendida en las industrias, y propone una transición progresiva hacia Python y R como herramientas principales de análisis. 
 
 El enfoque es práctico: se hace hincapié en los métodos gráficos y en el análisis exploratorio, reduciendo al mínimo la estadística formal. Los capítulos de herramientas cubren desde la estadística descriptiva y las distribuciones de probabilidad hasta la correlación y regresión, el control estadístico de procesos y una introducción al diseño de experimentos. La segunda parte aplica estas herramientas a situaciones reales en producción: análisis exploratorio de una fabricación de camembert, análisis del sistema de medición y cumplimiento del RD 1801/2008 sobre contenido efectivo de envases. El libro cierra con dos capítulos de síntesis (la variabilidad industrial y la mejora continua) que integran todas las herramientas aprendidas en un marco de trabajo orientado a la acción.
 
@@ -15,11 +15,11 @@ Una idea recorre todo el libro: entender *en qué consiste* un estadístico es m
 
 La hoja de cálculo sigue siendo imprescindible en la empresa, y en este libro se trata con detalle. Pero los lenguajes de programación tienen una ventaja práctica que no puede ignorarse: el código documenta cada paso del análisis, lo que permite verificarlo, repetirlo y compartirlo. Esto es la **reproducibilidad** (concepto que se desarrolla en el capítulo 3), y es cada vez más valorada tanto en la industria como en las auditorías de calidad.
 
-Hay además una razón muy concreta para el sector alimentario: las normas de calidad y seguridad alimentaria (IFS, BRCGS, ISO 22000) exigen que los datos de proceso estén documentados y sean verificables. Un flujo de trabajo basado en código facilita ese requisito, porque deja registrado cada paso del análisis.»
+Hay además una razón muy concreta para el sector alimentario: las normas de calidad y seguridad alimentaria (IFS, BRCGS, ISO 22000) exigen que los datos de proceso estén documentados y sean verificables. Un flujo de trabajo basado en código facilita ese requisito, porque deja registrado cada paso del análisis.
 
 Otras razones de peso:
 
--   **Python** es el lenguaje de referencia en inteligencia artificial y el más extendido en la industria; qcupa la primera posición en el índice TIOBE en marzo 2026 con una calificación del 21% (nota de la 2ª ed: A noviembre de 2026, había mantenido esta posición durante 62 meses seguidos). Su conocimiento, aunque sea básico, representa un valor diferencial en cualquier currículum técnico.
+-   **Python** es el lenguaje de referencia en inteligencia artificial y el más extendido en la industria; ocupa la primera posición en el índice TIOBE en marzo 2026 con una calificación del 21% (en noviembre de 2026 había mantenido esta posición durante 62 meses seguidos). Su conocimiento, aunque sea básico, representa un valor diferencial en cualquier currículum técnico.
 -   **R** es el lenguaje de referencia en análisis estadístico y de datos, con uno de los mayores índices de crecimiento entre los lenguajes de programación.
 -   Ambos son gratuitos y de código abierto. En este libro se usan Google Colab (Python) y Posit Cloud (R), que permiten ejecutar el código en el navegador sin instalar nada (véase el apéndice B).
 
@@ -32,7 +32,7 @@ Para quienes deseen ampliar su formación, plataformas como Datacamp, edX, Udemy
 
 -   [Workplace Software and Skills](https://openstax.org/details/books/workplace-software-skills)
 -   [Principles of Data Science](https://openstax.org/details/books/principles-data-science)
--   [Introduction to Python Programming](https://openstax.org/details/books/principles-data-science)
+-   [Introduction to Python Programming](https://openstax.org/details/books/introduction-python-programming)
 -   [Introducción a la estadística empresarial](https://openstax.org/details/books/introducci%C3%B3n-estad%C3%ADstica-empresarial) (en español)
 
 Todos los datos de los ejemplos están disponibles en hojas de cálculo y ficheros CSV, accesibles mediante enlaces directos en el texto desde el repositorio GitHub del libro. Al final se incluyen referencias y la bibliografía completa.
@@ -79,7 +79,7 @@ Algunas sugerencias para el uso de este libro en el aula:
 Todos los conjuntos de datos usados en los ejemplos están disponibles en el repositorio GitHub del libro con licencia abierta, y pueden reutilizarse libremente para diseñar nuevos ejercicios o adaptar los existentes.
 
 ## Sobre este libro
-Este libro se ha realizado utilizando [RStudio Desktop](https://posit.co/products/open-source/rstudio/) [@rstudio] y [Positron](https://posit.co/products/ide/positron/) [@positron], y compilado con [Quarto](https://quarto.org/) [@quarto], un conjunto de herramientas gratuitas y libres de [Posit](https://posit.co/). En la redacción y corrección de algunas partes del contenido se ha utilizado [Claude Sonnet 4.6](https://claude.ai/) [@anthropic2025claude], de [Anthropic](https://www.anthropic.com/)
+Este libro se ha realizado utilizando [RStudio Desktop](https://posit.co/products/open-source/rstudio/) [@rstudio] y [Positron](https://posit.co/products/ide/positron/) [@positron], y compilado con [Quarto](https://quarto.org/) [@quarto], un conjunto de herramientas gratuitas y libres de [Posit](https://posit.co/). En la redacción y corrección de algunas partes del contenido se ha utilizado [Claude Sonnet 4.6](https://claude.ai/) [@anthropic2026claude], de [Anthropic](https://www.anthropic.com/)
 
 ## Versiones {.content-visible when-format="html"}
 
