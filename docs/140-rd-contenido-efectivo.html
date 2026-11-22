@@ -567,7 +567,7 @@ window.Quarto = {
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="imagenes/rd-1801.png" class="img-fluid figure-img"></p>
+<p><img src="imagenes/rd-1801-limite.png" class="img-fluid figure-img"></p>
 <figcaption>Los límites T1 y T2 sobre la curva normal del proceso</figcaption>
 </figure>
 </div>
@@ -835,7 +835,7 @@ Desviación típica : 4.56 g</code></pre>
 <span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>            flierprops<span class="op">=</span><span class="bu">dict</span>(marker<span class="op">=</span><span class="st">"o"</span>, color<span class="op">=</span><span class="st">"red"</span>, markersize<span class="op">=</span><span class="dv">2</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x000001D19F5BED50&gt;, &lt;matplotlib.lines.Line2D object at 0x000001D19F5BEE90&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x000001D19F5BEFD0&gt;, &lt;matplotlib.lines.Line2D object at 0x000001D19F5BF110&gt;], 'boxes': [&lt;matplotlib.patches.PathPatch object at 0x000001D19F525E80&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x000001D19F5BF250&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x000001D19F5BF390&gt;], 'means': []}</code></pre>
+<pre><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x000001A63FFCED50&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A63FFCEE90&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x000001A63FFCEFD0&gt;, &lt;matplotlib.lines.Line2D object at 0x000001A63FFCF110&gt;], 'boxes': [&lt;matplotlib.patches.PathPatch object at 0x000001A63FF35E80&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x000001A63FFCF250&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x000001A63FFCF390&gt;], 'means': []}</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -1038,6 +1038,12 @@ Desviación típica : 4.56 g</code></pre>
 <div class="callout-body-container callout-body">
 <p>Un proceso que produce envases de 130 g también produce envases de 170 g. Para evitar los primeros, el fabricante sube la media de dosificación — y con ello regala más producto en cada envase del extremo alto. Reducir la variabilidad es la única forma de escapar de ese dilema: permite bajar la media sin arriesgar el incumplimiento, y ese ahorro es cuantificable turno a turno.</p>
 </div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/rd-1801-proceso.png" class="img-fluid figure-img"></p>
+<figcaption>Proceso centrado por encima de Qn: con media 152,5 g y σ = 4 g, solo el 1 % de los envases queda bajo T1, pero la diferencia entre la media y Qn es producto regalado en cada envase</figcaption>
+</figure>
 </div>
 </section>
 </section>
