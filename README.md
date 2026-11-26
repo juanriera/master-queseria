@@ -1,4 +1,4 @@
-Este repositorio contiene los documentos publicados en el libro web [La mejora continua en la producción quesera. Análisis de datos industriales usando Excel, Python y R](https://juanriera.github.io/master-queseria/)
+Este repositorio contiene los documentos publicados en el libro web [La mejora continua en la producción quesera. Análisis de datos industriales usando Excel, Python y R](https://juanriera.github.io/mejora-continua/)
 
 El objetivo de este libro es facilitar a los alumnos y profesores de Formación Profesional las bases para el análisis de los datos técnicos que se manejan en la industria quesera, con la perspectiva de mi experiencia industrial. 
 
