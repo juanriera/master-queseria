@@ -65,7 +65,7 @@ Antes de describir las formas más habituales, conviene distinguir dos tipos de 
 
 Las **variables discretas** solo pueden tomar valores aislados, separados entre sí, sin posibilidad de valores intermedios: número de goles en un partido, número de colonias bacterianas en una placa, número de envases defectuosos en un lote. No tiene sentido hablar de 2,7 goles. Las distribuciones de variables discretas tienen barras separadas porque los valores posibles están separados.
 
-Las **variables continuas** pueden tomar cualquier valor dentro de un rango: la materia grasa de un queso, el pH, el peso de un envase. Entre 23,5% y 23,6% de grasa hay infinitos valores posibles. Las distribuciones de variables continuas se representan con una curva continua.
+Las **variables continuas** pueden tomar cualquier valor dentro de un rango: la materia grasa de un queso, el pH, el peso de un envase. Entre 23,5% y 23,6% de grasa hay infinitos valores posibles. Su distribución teórica se representa con una curva continua; con datos reales, la aproximamos mediante un histograma.
 
 En la práctica industrial, la mayoría de las variables de proceso y calidad son continuas, y la distribución normal, que veremos en detalle, es una distribución continua.
 
@@ -73,7 +73,7 @@ En la práctica industrial, la mayoría de las variables de proceso y calidad so
 
 Los datos que encontramos en la industria alimentaria no siempre tienen la misma forma. Reconocer la forma de una distribución es el primer paso para interpretarla correctamente y elegir las herramientas estadísticas adecuadas.
 
-Veamos las cuatro formas más frecuentes usando datos que ya conocemos del libro y uno que estudiaremos en el capítulo 12:
+Veamos las cuatro formas más frecuentes usando datos que ya conocemos del libro y un nuevo conjunto de datos que estudiaremos en el capítulo 12:
 
 ::: panel-tabset
 
@@ -84,6 +84,9 @@ Veamos las cuatro formas más frecuentes usando datos que ya conocemos del libro
 #| code-summary: "Mostrar código"
 #| message: false
 #| warning: false
+#| fig-width: 10
+#| fig-height: 8
+
 library(tidyverse)
 library(palmerpenguins)
 library(patchwork)
@@ -94,7 +97,6 @@ df_lla <- read_csv2("datos/laliga_resultados2425.csv",
 
 df_cam <- read_csv2("datos/camembert.csv",
                     locale = locale(encoding = "ISO-8859-1"))
-
 gentoo <- penguins |> filter(species == "Gentoo")
 p1 <- ggplot(gentoo, aes(x = flipper_length_mm)) +
     geom_histogram(bins = 15, fill = "steelblue",
@@ -146,7 +148,6 @@ p4 <- penguins |>
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 from palmerpenguins import load_penguins
 
 # Cargar datasets
@@ -154,7 +155,7 @@ url_lla = "datos/laliga_resultados2425.csv"
 df_lla = pd.read_csv(url_lla, sep=';', decimal=',', encoding='ISO-8859-1')
 df_lla['goles_totales'] = df_lla['goles_local'] + df_lla['goles_visitante']
 
-penguins = load_penguins().dropna(subset=['flipper_length_mm', 'species', 'body_mass_g'])
+penguins = load_penguins().dropna(subset=['flipper_length_mm', 'species'])
 df_cam = pd.read_csv("datos/camembert.csv", sep=';', decimal=',', encoding='ISO-8859-1')
 
 fig, axes = plt.subplots(2, 2, figsize=(11, 8))
@@ -420,7 +421,7 @@ del _
 
 :::
 
-La mayoría de los puntos siguen la línea roja, lo que indica que la longitud de aleta de los pingüinos Gentoo se aproxima a una distribución normal. El escalonado de los puntos se debe a que las longitudes están registradas en milímetros enteros. En los extremos hay desviaciones moderadas: los valores más bajos quedan por encima de la línea y hay una acumulación de valores en 230 mm. La aproximación es razonable para los cálculos de este capítulo, pero no es perfecta.
+La mayoría de los puntos siguen la línea roja, lo que indica que la longitud de aleta de los pingüinos Gentoo se aproxima a una distribución normal. El escalonado de los puntos se debe a que las longitudes están registradas en milímetros enteros. En los extremos hay desviaciones moderadas: los valores más bajos quedan por encima de la línea y hay una acumulación de valores en 230 mm. Los extremos se separan de la línea hacia dentro, lo que, según el cuadro siguiente, indica colas algo más ligeras que las de la normal. La aproximación es razonable para los cálculos de este capítulo, pero no es perfecta.
 
 ::: {.callout-note}
 ## Cómo interpretar un QQ-plot
@@ -435,6 +436,6 @@ La mayoría de los puntos siguen la línea roja, lo que indica que la longitud d
 
 Este capítulo ha establecido el puente entre las frecuencias relativas del histograma y el concepto de probabilidad: la proporción de valores en un intervalo es la probabilidad de que una observación caiga en ese intervalo. A partir de esta idea, la distribución normal aparece como el modelo teórico que describe el comportamiento de muchas variables industriales bajo control.
 
-Los cuatro tipos de distribución ilustrados con datos del libro (simétrica, asimétrica positiva, asimétrica positiva extrema y bimodal) permiten al alumno reconocer en sus propios datos la forma que subyace al proceso que los genera. La distribución normal se ha descrito en profundidad mediante sus parámetros $\mu$ y $\sigma$, la regla 68-95-99,7 y el cálculo de probabilidades con Python y R. El QQ-plot proporciona una herramienta visual sencilla para verificar si la hipótesis de normalidad es razonable antes de aplicar estos cálculos. En capítulos posteriores aplicaremos estas mismas herramientas a variables de proceso real como la materia grasa del queso o el peso de envases de yogur.
+Los cuatro tipos de distribución ilustrados con datos del libro (simétrica, asimétrica positiva, asimétrica positiva extrema y bimodal) permiten al alumno reconocer en sus propios datos la forma que subyace al proceso que los genera. La distribución normal se ha descrito en profundidad mediante sus parámetros $\mu$ y $\sigma$, la regla 68-95-99,7 y el cálculo de probabilidades con Python y R. El QQ-plot proporciona una herramienta visual sencilla para verificar si la hipótesis de normalidad es razonable antes de aplicar estos cálculos. 
 
-En el capítulo dedicado al contenido efectivo de envases aplicaremos estos conceptos a un problema real de control de calidad: el análisis del llenado de yogures según el RD 1801/2008.
+En el capítulo 14 aplicaremos estos conceptos a un problema real de control de calidad: el análisis del llenado de yogures según el RD 1801/2008.
