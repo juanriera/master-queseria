@@ -165,7 +165,7 @@ El gráfico de control avisa de una posible causa especial con dos tipos de señ
 - **Un punto fuera de los límites de control.** Indica un cambio brusco o grande en el proceso.
 - **Una racha larga de puntos seguidos al mismo lado de la línea central.** Indica un desplazamiento pequeño pero sostenido de la media, que no llega a sacar puntos fuera de los límites. Cuántos puntos hacen falta depende del número de puntos del gráfico: con 160 subgrupos, una racha de más de 10 puntos ya es una señal.
 
-`qicharts2` marca automáticamente las dos señales: los puntos fuera de los límites aparecen en rojo y, cuando detecta una racha anormalmente larga, dibuja la línea central en rojo y discontinua.
+`qicharts2` marca automáticamente las dos señales: los puntos fuera de los límites aparecen resaltados en otro color y, cuando detecta una racha anormalmente larga, dibuja la línea central discontinua y en ese mismo color.
 
 ::: {.callout-note collapse="true"}
 ## Para saber más: las reglas de Western Electric
