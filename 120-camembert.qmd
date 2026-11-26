@@ -54,7 +54,7 @@ En los capítulos anteriores hemos aprendido a describir datos mediante gráfico
 
 Como vimos en el capítulo 2, es muy conveniente establecer un flujo de trabajo regular, de forma que cada etapa del análisis se apoye en las anteriores:
 
-![Modelo de flujo de trabajo en la ciencia de datos, según Wickham](imagenes/080/data-science-explore.svg)
+![Modelo de flujo de trabajo en la ciencia de datos, según Wickham](imagenes/120/data-science-explore.svg)
 
 Vamos a ir desarrollando este flujo paso a paso.
 

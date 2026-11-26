@@ -71,19 +71,19 @@ Los componentes de un *stemplot* son:
 
 Supongamos que queremos medir la altura de un grupo de alumnos de nuestra clase. Este es nuestro grupo:
 
-![](imagenes/grupo1.jpg)
+![](imagenes/050/grupo1.jpg)
 
 Realizamos la medida de altura de cada persona y registramos los valores en una hoja de cálculo, siguiendo las buenas prácticas que hemos visto al estudiar los *datos ordenados*.
 
-![](imagenes/aula1.webp)
+![](imagenes/050/aula1.webp)
 
 Vamos a utilizar los datos de medidas de altura de nuestro grupo de alumnos. Quitamos el último dígito a la derecha de nuestros valores y colocamos verticalmente los valores resultantes ordenándolos de menor a mayor, y evitando las repeticiones. Para evitar errores en la escala, debemos incluir los valores intermedios aunque no haya ninguno en nuestros datos (en el ejemplo, el valor 16 que correspondería a los 160). Esto forma el "tallo" de nuestro diagrama:
 
-![](imagenes/aula1-stemplot-paso1.webp)
+![](imagenes/050/aula1-stemplot-paso1.webp)
 
 A continuación añadimos las "hojas" en la celda a la derecha, que consisten en los valores que hemos "cortado" de nuestro árbol, uno al lado de otro, incluyendo esta vez los valores repetidos, en orden de menor a mayor. Por ejemplo, para el valor 135, descartamos 13 y utilizamos 5; para el valor 138, descartamos 13 y utilizamos 8, y así sucesivamente para todos los valores.
 
-![](imagenes/aula1-stemplot-paso2.webp)
+![](imagenes/050/aula1-stemplot-paso2.webp)
 
 #### Construcción del diagrama en Python y R
 
@@ -190,7 +190,7 @@ Para crear una tabla de frecuencias de la variable `altura_cm` mediante una tabl
 2.  También puedes cambiar el formato de la tabla dinámica para que sea más fácil de leer.
 3.  Puedes renombrar los encabezados de la tabla para que sea más fácil de leer, rotulando las columnas, por ejemplo, como `frec_abs` y `frec_rel`, o cualquier otro encabezado que te resulte claro y útil.
 
-![](imagenes/aula1-td-frec.webp)
+![](imagenes/050/aula1-td-frec.webp)
 
 ### Construcción de una tabla de frecuencias mediante Python o R
 
@@ -360,13 +360,13 @@ Cuando nuestra variable es *discreta*, podemos representar las frecuencias de ca
 Este gráfico es muy utilizado para representar, por ejemplo, resultados de encuestas, como el número de votos que han obtenido los diferentes partidos políticos en unas elecciones, o tablas agrupadas por categorías, como los kilos fabricados de cada tipo de queso.
 
 ::: {layout-ncol="2"}
-![](imagenes/2024-12-07-excel-tabla-frec-1.webp){width="300"}
+![](imagenes/050/2024-12-07-excel-tabla-frec-1.webp){width="300"}
 
-![](imagenes/barras1.webp){width="300"}
+![](imagenes/050/barras1.webp){width="300"}
 
-![](imagenes/2024-12-07-excel-tabla-frec-2.webp){width="300"}
+![](imagenes/050/2024-12-07-excel-tabla-frec-2.webp){width="300"}
 
-![](imagenes/barras2.webp){width="300"}
+![](imagenes/050/barras2.webp){width="300"}
 :::
 
 ## Histograma
@@ -396,7 +396,7 @@ Podemos utilizar dos métodos para hacer un histograma en Excel
 -   En la opción de menú `Insertar`, seleccionamos el icono `Seleccionar gráficos de estadística`
 -   Seleccionamos `Histograma`
 
-![](imagenes/excel-histo-aula1.webp){fig-align="center" width="75%"}
+![](imagenes/050/excel-histo-aula1.webp){fig-align="center" width="75%"}
 
 Excel calcula automáticamente la amplitud de los intervalos y el número de columnas; estas opciones pueden modificarse seleccionando con el botón derecho del ratón el elemento a modificar. En este caso, utilizamos estas opciones:
 
@@ -421,7 +421,7 @@ Opcionalmente, aplicamos las siguientes opciones de formato:
 -   Eliminamos el título del gráfico
 -   Abrimos el formato de la serie de datos, e introducimos en la opción `Ancho del rango` el valor $50\%$ para ensanchar las barras.
 
-![](imagenes/aula1-diag-barras.webp){fig-align="center" width="75%"}
+![](imagenes/050/aula1-diag-barras.webp){fig-align="center" width="75%"}
 
 Al utilizar la tabla dinámica para construir el gráfico, Excel utiliza las categorías de la tabla dinámica. Dado que estas categorías (los intervalos que ha formado la tabla dinámica) son discretas, Excel utiliza el resultado de la tabla dinámica para hacer el gráfico con un diagrama de barras. No es posible insertar un histograma a partir de una tabla dinámica.
 
@@ -718,7 +718,7 @@ El **diagrama de caja**, también conocido como *boxplot*, es un gráfico que pe
 
 La construcción de un diagrama de caja es como sigue:
 
-![](imagenes/boxplot.svg)
+![](imagenes/050/boxplot.svg)
 
 Microsoft Excel incluye desde la versión 2016 un gráfico de cajas y bigotes (Insertar > Insertar gráfico estadístico > Cajas y bigotes), pero sus opciones son limitadas; en este libro los haremos con Python o R.
 
@@ -1586,7 +1586,7 @@ Una de las guías más conocidas y seguidas para la creación de gráficos es el
 
 También esta guía proporciona información sobre el uso adecuado de cada tipo de gráfico, facilitando la elección según el objetivo perseguido
 
-![](imagenes/060/1740294003188.jpg) ![](imagenes/060/1740121283445.jpg)
+![](imagenes/050/1740294003188.jpg) ![](imagenes/050/1740121283445.jpg)
 
 ## Resumen del capítulo
 

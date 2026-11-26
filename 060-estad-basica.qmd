@@ -132,7 +132,7 @@ $$
 
  Utilicemos una hoja de cálculo para guardar nuestros valores.
 
-![](imagenes/060/aula1.webp)
+![](imagenes/050/aula1.webp)
 
 La fórmula para obtener la media en la hoja de cálculo, por ejemplo en la versión en español de *Microsoft Excel*, es `=PROMEDIO(...)`, donde los puntos suspensivos deben sustituirse por el rango a calcular. En nuestro ejemplo, introduciríamos la fórmula en la celda `B13` como `=PROMEDIO(B2:B12)` (Para más detalles, verificar la hoja Excel adjunta).
 

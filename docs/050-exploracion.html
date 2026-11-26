@@ -526,13 +526,13 @@ window.Quarto = {
 <section id="construcción-del-diagrama-en-la-hoja-de-cálculo" class="level4">
 <h4 class="anchored" data-anchor-id="construcción-del-diagrama-en-la-hoja-de-cálculo">Construcción del diagrama en la hoja de cálculo</h4>
 <p>Supongamos que queremos medir la altura de un grupo de alumnos de nuestra clase. Este es nuestro grupo:</p>
-<p><img src="imagenes/grupo1.jpg" class="img-fluid"></p>
+<p><img src="imagenes/050/grupo1.jpg" class="img-fluid"></p>
 <p>Realizamos la medida de altura de cada persona y registramos los valores en una hoja de cálculo, siguiendo las buenas prácticas que hemos visto al estudiar los <em>datos ordenados</em>.</p>
-<p><img src="imagenes/aula1.webp" class="img-fluid"></p>
+<p><img src="imagenes/050/aula1.webp" class="img-fluid"></p>
 <p>Vamos a utilizar los datos de medidas de altura de nuestro grupo de alumnos. Quitamos el último dígito a la derecha de nuestros valores y colocamos verticalmente los valores resultantes ordenándolos de menor a mayor, y evitando las repeticiones. Para evitar errores en la escala, debemos incluir los valores intermedios aunque no haya ninguno en nuestros datos (en el ejemplo, el valor 16 que correspondería a los 160). Esto forma el “tallo” de nuestro diagrama:</p>
-<p><img src="imagenes/aula1-stemplot-paso1.webp" class="img-fluid"></p>
+<p><img src="imagenes/050/aula1-stemplot-paso1.webp" class="img-fluid"></p>
 <p>A continuación añadimos las “hojas” en la celda a la derecha, que consisten en los valores que hemos “cortado” de nuestro árbol, uno al lado de otro, incluyendo esta vez los valores repetidos, en orden de menor a mayor. Por ejemplo, para el valor 135, descartamos 13 y utilizamos 5; para el valor 138, descartamos 13 y utilizamos 8, y así sucesivamente para todos los valores.</p>
-<p><img src="imagenes/aula1-stemplot-paso2.webp" class="img-fluid"></p>
+<p><img src="imagenes/050/aula1-stemplot-paso2.webp" class="img-fluid"></p>
 </section>
 <section id="construcción-del-diagrama-en-python-y-r" class="level4">
 <h4 class="anchored" data-anchor-id="construcción-del-diagrama-en-python-y-r">Construcción del diagrama en Python y R</h4>
@@ -681,7 +681,7 @@ Key:
 <li>También puedes cambiar el formato de la tabla dinámica para que sea más fácil de leer.</li>
 <li>Puedes renombrar los encabezados de la tabla para que sea más fácil de leer, rotulando las columnas, por ejemplo, como <code>frec_abs</code> y <code>frec_rel</code>, o cualquier otro encabezado que te resulte claro y útil.</li>
 </ol>
-<p><img src="imagenes/aula1-td-frec.webp" class="img-fluid"></p>
+<p><img src="imagenes/050/aula1-td-frec.webp" class="img-fluid"></p>
 </section>
 <section id="construcción-de-una-tabla-de-frecuencias-mediante-python-o-r" class="level3">
 <h3 class="anchored" data-anchor-id="construcción-de-una-tabla-de-frecuencias-mediante-python-o-r">Construcción de una tabla de frecuencias mediante Python o R</h3>
@@ -918,18 +918,18 @@ Name: count, dtype: int64</code></pre>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="imagenes/2024-12-07-excel-tabla-frec-1.webp" class="img-fluid" width="300"></p>
+<p><img src="imagenes/050/2024-12-07-excel-tabla-frec-1.webp" class="img-fluid" width="300"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="imagenes/barras1.webp" class="img-fluid" width="300"></p>
+<p><img src="imagenes/050/barras1.webp" class="img-fluid" width="300"></p>
 </div>
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="imagenes/2024-12-07-excel-tabla-frec-2.webp" class="img-fluid" width="300"></p>
+<p><img src="imagenes/050/2024-12-07-excel-tabla-frec-2.webp" class="img-fluid" width="300"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="imagenes/barras2.webp" class="img-fluid" width="300"></p>
+<p><img src="imagenes/050/barras2.webp" class="img-fluid" width="300"></p>
 </div>
 </div>
 </div>
@@ -965,7 +965,7 @@ Name: count, dtype: int64</code></pre>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="imagenes/excel-histo-aula1.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+<p><img src="imagenes/050/excel-histo-aula1.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
 </figure>
 </div>
 <p>Excel calcula automáticamente la amplitud de los intervalos y el número de columnas; estas opciones pueden modificarse seleccionando con el botón derecho del ratón el elemento a modificar. En este caso, utilizamos estas opciones:</p>
@@ -992,7 +992,7 @@ Name: count, dtype: int64</code></pre>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="imagenes/aula1-diag-barras.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+<p><img src="imagenes/050/aula1-diag-barras.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
 </figure>
 </div>
 <p>Al utilizar la tabla dinámica para construir el gráfico, Excel utiliza las categorías de la tabla dinámica. Dado que estas categorías (los intervalos que ha formado la tabla dinámica) son discretas, Excel utiliza el resultado de la tabla dinámica para hacer el gráfico con un diagrama de barras. No es posible insertar un histograma a partir de una tabla dinámica.</p>
@@ -1413,7 +1413,7 @@ Nota
 <li>Permite detectar posibles valores atípicos, representando los <em>outliers</em> que están lejos del resto de los datos (un valor es atípico si está más allá de <span class="math inline">\((Q3 + 1{,}5 \cdot IQR)\)</span> o <span class="math inline">\((Q1 - 1{,}5 \cdot IQR)\)</span>).</li>
 </ul>
 <p>La construcción de un diagrama de caja es como sigue:</p>
-<p><img src="imagenes/boxplot.svg" class="img-fluid"></p>
+<p><img src="imagenes/050/boxplot.svg" class="img-fluid"></p>
 <p>Microsoft Excel incluye desde la versión 2016 un gráfico de cajas y bigotes (Insertar &gt; Insertar gráfico estadístico &gt; Cajas y bigotes), pero sus opciones son limitadas; en este libro los haremos con Python o R.</p>
 <section id="el-boxplot-con-pocos-datos" class="level3">
 <h3 class="anchored" data-anchor-id="el-boxplot-con-pocos-datos">El boxplot con pocos datos</h3>
@@ -2572,7 +2572,7 @@ memory usage: 1.1 KB</code></pre>
 </ul>
 <p>Una de las guías más conocidas y seguidas para la creación de gráficos es el <a href="https://raw.githubusercontent.com/ft-interactive/chart-doctor/master/visual-vocabulary/poster.webp">vocabulario visual del Financial Times</a></p>
 <p>También esta guía proporciona información sobre el uso adecuado de cada tipo de gráfico, facilitando la elección según el objetivo perseguido</p>
-<p><img src="imagenes/060/1740294003188.jpg" class="img-fluid"> <img src="imagenes/060/1740121283445.jpg" class="img-fluid"></p>
+<p><img src="imagenes/050/1740294003188.jpg" class="img-fluid"> <img src="imagenes/050/1740121283445.jpg" class="img-fluid"></p>
 </section>
 <section id="resumen-del-capítulo" class="level2" data-number="5.12">
 <h2 data-number="5.12" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">5.12</span> Resumen del capítulo</h2>

@@ -221,7 +221,7 @@ Cuando las masas son idénticas, la media aritmética de las posiciones coincide
 ::: {#fig-media-fulcro2 layout-ncol="2" layout-valign="bottom"}
 ![La media como punto de equilibrio](imagenes/060/media-balanza.svg){#fig-media}
 
-![Palanca de primer grado](imagenes/070/palanca.webp){#fig-palanca}
+![Palanca de primer grado](imagenes/060/palanca.webp){#fig-palanca}
 
 Comparación gráfica del significado de la media en un diagrama de puntos (*dotplot*) con una palanca de primer grado, con el fulcro como punto de equilibrio.
 :::

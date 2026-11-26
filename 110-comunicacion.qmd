@@ -394,9 +394,9 @@ T1 se aplica a cada envase, no a la media de 5 envases. Una media puede quedar m
 Un ejemplo brillante de la aplicación del color y el diseño es el que presentan [Yan Holtz](https://www.linkedin.com/in/yan-holtz-2477534a/) y [Cédric Scherer](https://www.linkedin.com/in/cedscherer/) en su sitio web [ggplot-uncharted](https://www.ggplot2-uncharted.com/), para explicar la relación de la ratio de estudiantes por maestro en el mundo:
 
 ::: {#fig-media-holtz layout-ncol="2" layout-valign="bottom"}
-![Gráfico básico](imagenes/095/ggplot2-evolution-start.png)
+![Gráfico básico](imagenes/110/ggplot2-evolution-start.png)
 
-![Gráfico avanzado](imagenes/095/ggplot2-evolution-end.png)
+![Gráfico avanzado](imagenes/110/ggplot2-evolution-end.png)
 
 Ejemplo del uso del color y el diseño para mejorar un gráfico básico de ggplot
 :::
