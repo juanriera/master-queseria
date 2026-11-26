@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; Análisis exploratorio de una fabricación de queso camembert. – La mejora continua en la producción quesera</title>
+<title>12&nbsp; Análisis exploratorio de una fabricación de queso camembert – La mejora continua en la producción quesera</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -61,7 +61,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -152,7 +171,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./120-camembert.html">Aplicaciones en producción</a></li><li class="breadcrumb-item"><a href="./120-camembert.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Análisis exploratorio de una fabricación de queso camembert.</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./120-camembert.html">Aplicaciones en producción</a></li><li class="breadcrumb-item"><a href="./120-camembert.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Análisis exploratorio de una fabricación de queso camembert</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -266,7 +285,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./120-camembert.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Análisis exploratorio de una fabricación de queso camembert.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Análisis exploratorio de una fabricación de queso camembert</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -373,7 +392,7 @@ window.Quarto = {
   <li><a href="#boxplot-mensual-del-extracto-seco" id="toc-boxplot-mensual-del-extracto-seco" class="nav-link" data-scroll-target="#boxplot-mensual-del-extracto-seco">Boxplot mensual del extracto seco</a></li>
   <li><a href="#materia-grasa-mg" id="toc-materia-grasa-mg" class="nav-link" data-scroll-target="#materia-grasa-mg">Materia grasa (<code>mg</code>)</a></li>
   <li><a href="#análisis-conjunto-gráfico-de-dispersión-est-vs-mg" id="toc-análisis-conjunto-gráfico-de-dispersión-est-vs-mg" class="nav-link" data-scroll-target="#análisis-conjunto-gráfico-de-dispersión-est-vs-mg">Análisis conjunto: gráfico de dispersión <code>est</code> vs <code>mg</code></a></li>
-  <li><a href="#variable-derivada-humedad-del-queso-desnatado-hqd" id="toc-variable-derivada-humedad-del-queso-desnatado-hqd" class="nav-link" data-scroll-target="#variable-derivada-humedad-del-queso-desnatado-hqd">Variable derivada: humedad del queso desnatado (<code>hqd</code>)</a></li>
+  <li><a href="#variable-derivada-humedad-del-queso-desengrasado-hqd" id="toc-variable-derivada-humedad-del-queso-desengrasado-hqd" class="nav-link" data-scroll-target="#variable-derivada-humedad-del-queso-desengrasado-hqd">Variable derivada: humedad del queso desengrasado (<code>hqd</code>)</a></li>
   </ul></li>
   <li><a href="#análisis-de-otras-variables" id="toc-análisis-de-otras-variables" class="nav-link" data-scroll-target="#análisis-de-otras-variables"><span class="header-section-number">12.5</span> Análisis de otras variables</a>
   <ul class="collapse">
@@ -401,9 +420,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./120-camembert.html">Aplicaciones en producción</a></li><li class="breadcrumb-item"><a href="./120-camembert.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Análisis exploratorio de una fabricación de queso camembert.</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./120-camembert.html">Aplicaciones en producción</a></li><li class="breadcrumb-item"><a href="./120-camembert.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Análisis exploratorio de una fabricación de queso camembert</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Análisis exploratorio de una fabricación de queso camembert.</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Análisis exploratorio de una fabricación de queso camembert</span></h1>
 </div>
 
 
@@ -440,14 +459,14 @@ window.Quarto = {
 <ul>
 <li>Aplicar el flujo de trabajo completo del análisis de datos (importar, limpiar, visualizar, comunicar) a un caso real de fabricación de queso camembert.</li>
 <li>Detectar e interpretar errores en los datos mediante la inspección visual y estadística de cada variable.</li>
-<li>Relacionar la forma de un histograma y un boxplot con las características del proceso que los genera, conectando lo aprendido en los capítulos 6 y 7.</li>
+<li>Relacionar la forma de un histograma y un boxplot con las características del proceso que los genera, conectando lo aprendido en los capítulos 5 y 7.</li>
 <li>Identificar y analizar la estacionalidad y la tendencia en una serie temporal de datos de fabricación.</li>
 <li>Calcular y analizar una variable derivada (<code>hqd</code>) a partir de variables medidas, y relacionar su evolución temporal con las causas tecnológicas del proceso.</li>
 <li>Interpretar la distribución asimétrica positiva de recuentos microbiológicos y extraer conclusiones sobre la higiene del proceso.</li>
 <li>Formular hipótesis de trabajo a partir del análisis gráfico y contrastarlas con el conocimiento tecnológico y la experiencia del equipo.</li>
 <li>Comunicar los resultados del análisis mediante un informe estructurado y un plan de acción priorizado.</li>
 </ul>
-<p>Conceptos clave: <strong>análisis exploratorio, flujo de trabajo, dato atípico, error de entrada, estacionalidad, tendencia, variable derivada, humedad del queso desnatado (hqd), distribución asimétrica positiva, recuento microbiológico, hipótesis de trabajo, plan de acción</strong>.</p>
+<p>Conceptos clave: <strong>análisis exploratorio, flujo de trabajo, valor atípico, error de entrada, estacionalidad, tendencia, variable derivada, humedad del queso desengrasado (hqd), distribución asimétrica positiva, recuento microbiológico, hipótesis de trabajo, plan de acción</strong>.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -461,11 +480,12 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <p>Este capítulo tiene una versión en formato cuaderno Jupyter con solo código Python que puedes abrir y ejecutar directamente en Google Colab, sin necesidad de instalar nada en tu ordenador:</p>
-<p><a href="https://colab.research.google.com/github/juanriera/mejora-continua/blob/master/jupyter/camembert.ipynb">Abrir versión sólo Python en Google Colab</a></p>
+<p><a href="https://colab.research.google.com/github/juanriera/mejora-continua/blob/master/jupyter/camembert.ipynb">Abrir versión solo Python en Google Colab</a></p>
 </div>
 </div>
-<p>En los capítulos anteriores hemos aprendido a describir datos mediante gráficos y estadísticos. Ahora vamos a aplicar todo lo aprendido a un caso real: el análisis exploratorio de una temporada completa de fabricación de queso camembert. Los datos corresponden a los análisis de control de calidad realizados durante el año 2020 en una quesería, con una o dos fabricaciones diarias a lo largo de los días laborables. El dataset contiene 211 observaciones y seis variables:</p>
+<p>En los capítulos anteriores hemos aprendido a describir datos mediante gráficos y estadísticos. Ahora vamos a aplicar todo lo aprendido a un caso real: el análisis exploratorio de una temporada completa de fabricación de queso camembert. Los datos corresponden a los análisis de control de calidad realizados en una quesería entre el 11 de enero y el 29 de diciembre de 2016, con una o dos fabricaciones analizadas por día. El dataset contiene 211 observaciones (200 días distintos, 11 de ellos con dos fabricaciones) y siete columnas, la fecha y seis variables:</p>
 <ul>
+<li><code>fecha</code>: fecha del registro (dd/mm/aaaa)</li>
 <li><code>est</code>: extracto seco total (%)</li>
 <li><code>mg</code>: materia grasa (%)</li>
 <li><code>ph</code>: pH del queso</li>
@@ -476,18 +496,18 @@ window.Quarto = {
 <p><a href="https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/camembert.csv">Descargar los datos <code>camembert.csv</code></a></p>
 <section id="flujo-de-trabajo" class="level2" data-number="12.1">
 <h2 data-number="12.1" class="anchored" data-anchor-id="flujo-de-trabajo"><span class="header-section-number">12.1</span> Flujo de trabajo</h2>
-<p>Como vimos en el capítulo 2, es muy conveniente establecer un flujo de trabajo regular, de forma que cada etapa del análisis se apoye en las anteriores:</p>
+<p>Como vimos en el capítulo 4, es muy conveniente establecer un flujo de trabajo regular, de forma que cada etapa del análisis se apoye en las anteriores:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="imagenes/120/data-science-explore.svg" class="img-fluid figure-img"></p>
-<figcaption>Modelo de flujo de trabajo en la ciencia de datos, según Wickham</figcaption>
+<figcaption>Modelo de flujo de trabajo en la ciencia de datos, según Wickham <span class="citation" data-cites="wickham2023">(<a href="400-bibliografia.html#ref-wickham2023" role="doc-biblioref">Wickham et&nbsp;al. 2023</a>)</span></figcaption>
 </figure>
 </div>
 <p>Vamos a ir desarrollando este flujo paso a paso.</p>
 </section>
 <section id="importar-los-datos" class="level2" data-number="12.2">
 <h2 data-number="12.2" class="anchored" data-anchor-id="importar-los-datos"><span class="header-section-number">12.2</span> Importar los datos</h2>
-<p>Cargamos el fichero desde GitHub. Si has descargado el fichero en tu ordenador, puedes adaptar la ruta de lectura según vimos en el capítulo anterior.</p>
+<p>Leemos el fichero desde la carpeta <code>datos/</code>. Si lo has guardado en otra carpeta, adapta la ruta de lectura como vimos en el capítulo 4.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
@@ -500,8 +520,9 @@ window.Quarto = {
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>url_datos <span class="ot">&lt;-</span> <span class="st">"datos/camembert.csv"</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(url_datos, <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Dimensiones:"</span>, <span class="fu">nrow</span>(df), <span class="st">"x"</span>, <span class="fu">ncol</span>(df), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(url_datos,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Dimensiones:"</span>, <span class="fu">nrow</span>(df), <span class="st">"x"</span>, <span class="fu">ncol</span>(df), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Dimensiones: 211 x 7 </code></pre>
@@ -549,12 +570,12 @@ Dimensiones: (211, 7)</code></pre>
 <pre><code># A tibble: 6 × 7
   fecha      fabricacion   est    mg    ph cloruros coliformes
   &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
-1 11/01/2020           1  46.7  24    4.85     1.5          80
-2 12/01/2020           1  48.1  25    4.67     1.61          0
-3 13/01/2020           1  46.0  24    4.71     1.48       9200
-4 14/01/2020           1  46.2  23.5  4.78     1.69         20
-5 15/01/2020           1  45.8  23    4.77     1.56        150
-6 18/01/2020           1  46    24    4.67     1.56         60</code></pre>
+1 11/01/2016           1  46.7  24    4.85     1.5          80
+2 12/01/2016           1  48.1  25    4.67     1.61          0
+3 13/01/2016           1  46.0  24    4.71     1.48       9200
+4 14/01/2016           1  46.2  23.5  4.78     1.69         20
+5 15/01/2016           1  45.8  23    4.77     1.56        150
+6 18/01/2016           1  46    24    4.67     1.56         60</code></pre>
 </div>
 <details class="code-fold">
 <summary>Mostrar código</summary>
@@ -563,7 +584,7 @@ Dimensiones: (211, 7)</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 211
 Columns: 7
-$ fecha       &lt;chr&gt; "11/01/2020", "12/01/2020", "13/01/2020", "14/01/2020", "1…
+$ fecha       &lt;chr&gt; "11/01/2016", "12/01/2016", "13/01/2016", "14/01/2016", "1…
 $ fabricacion &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2…
 $ est         &lt;dbl&gt; 46.68, 48.09, 45.97, 46.24, 45.81, 46.00, 44.83, 45.82, 47…
 $ mg          &lt;dbl&gt; 24.0, 25.0, 24.0, 23.5, 23.0, 24.0, 23.5, 25.0, 24.0, 24.0…
@@ -581,11 +602,11 @@ $ coliformes  &lt;dbl&gt; 80, 0, 9200, 20, 150, 60, 40, 40, 175, 340, 0, 0, 0, 0
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>        fecha  fabricacion    est    mg    ph  cloruros  coliformes
-0  11/01/2020            1  46.68  24.0  4.85      1.50        80.0
-1  12/01/2020            1  48.09  25.0  4.67      1.61         0.0
-2  13/01/2020            1  45.97  24.0  4.71      1.48      9200.0
-3  14/01/2020            1  46.24  23.5  4.78      1.69        20.0
-4  15/01/2020            1  45.81  23.0  4.77      1.56       150.0</code></pre>
+0  11/01/2016            1  46.68  24.0  4.85      1.50        80.0
+1  12/01/2016            1  48.09  25.0  4.67      1.61         0.0
+2  13/01/2016            1  45.97  24.0  4.71      1.48      9200.0
+3  14/01/2016            1  46.24  23.5  4.78      1.69        20.0
+4  15/01/2016            1  45.81  23.0  4.77      1.56       150.0</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -627,7 +648,7 @@ memory usage: 11.7 KB</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 211
 Columns: 7
-$ fecha       &lt;date&gt; 2020-01-11, 2020-01-12, 2020-01-13, 2020-01-14, 2020-01-1…
+$ fecha       &lt;date&gt; 2016-01-11, 2016-01-12, 2016-01-13, 2016-01-14, 2016-01-1…
 $ fabricacion &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2…
 $ est         &lt;dbl&gt; 46.68, 48.09, 45.97, 46.24, 45.81, 46.00, 44.83, 45.82, 47…
 $ mg          &lt;dbl&gt; 24.0, 25.0, 24.0, 23.5, 23.0, 24.0, 23.5, 25.0, 24.0, 24.0…
@@ -684,12 +705,12 @@ memory usage: 11.7 KB</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>     fecha             fabricacion         est              mg       
- Min.   :2020-01-11   Min.   :1.000   Min.   :42.92   Min.   :21.50  
- 1st Qu.:2020-03-21   1st Qu.:1.000   1st Qu.:45.62   1st Qu.:23.00  
- Median :2020-07-04   Median :1.000   Median :46.60   Median :23.50  
- Mean   :2020-06-30   Mean   :1.052   Mean   :46.64   Mean   :23.73  
- 3rd Qu.:2020-10-05   3rd Qu.:1.000   3rd Qu.:47.47   3rd Qu.:24.50  
- Max.   :2020-12-29   Max.   :2.000   Max.   :52.61   Max.   :28.00  
+ Min.   :2016-01-11   Min.   :1.000   Min.   :42.92   Min.   :21.50  
+ 1st Qu.:2016-03-21   1st Qu.:1.000   1st Qu.:45.62   1st Qu.:23.00  
+ Median :2016-07-04   Median :1.000   Median :46.60   Median :23.50  
+ Mean   :2016-06-30   Mean   :1.052   Mean   :46.64   Mean   :23.73  
+ 3rd Qu.:2016-10-05   3rd Qu.:1.000   3rd Qu.:47.47   3rd Qu.:24.50  
+ Max.   :2016-12-29   Max.   :2.000   Max.   :52.61   Max.   :28.00  
                                                                      
        ph           cloruros        coliformes     
  Min.   :4.350   Min.   :-1.000   Min.   :    0.0  
@@ -711,12 +732,12 @@ memory usage: 11.7 KB</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>                     fecha  fabricacion     est  ...      ph  cloruros  coliformes
 count                  211       211.00  211.00  ...  211.00    211.00      210.00
-mean   2020-06-30 14:06:15         1.05   46.64  ...    4.68      1.45      650.88
-min    2020-01-11 00:00:00         1.00   42.92  ...    4.35     -1.00        0.00
-25%    2020-03-21 12:00:00         1.00   45.61  ...    4.63      1.35        0.00
-50%    2020-07-04 00:00:00         1.00   46.60  ...    4.68      1.46       10.00
-75%    2020-10-05 12:00:00         1.00   47.47  ...    4.74      1.56      190.00
-max    2020-12-29 00:00:00         2.00   52.61  ...    4.99      1.89    20200.00
+mean   2016-06-30 14:06:15         1.05   46.64  ...    4.68      1.45      650.88
+min    2016-01-11 00:00:00         1.00   42.92  ...    4.35     -1.00        0.00
+25%    2016-03-21 12:00:00         1.00   45.61  ...    4.63      1.35        0.00
+50%    2016-07-04 00:00:00         1.00   46.60  ...    4.68      1.46       10.00
+75%    2016-10-05 12:00:00         1.00   47.47  ...    4.74      1.56      190.00
+max    2016-12-29 00:00:00         2.00   52.61  ...    4.99      1.89    20200.00
 std                    NaN         0.22    1.45  ...    0.08      0.23     2194.15
 
 [8 rows x 7 columns]</code></pre>
@@ -725,13 +746,13 @@ std                    NaN         0.22    1.45  ...    0.08      0.23     2194.
 </div>
 </div>
 </div>
-<p>Ya en este primer resumen aparecen varias señales que merecen atención: el mínimo de <code>cloruros</code> es -1, lo que es físicamente imposible; el máximo de <code>est</code> es 52,61, claramente alejado del resto; y el rango de <code>coliformes</code> va de 0 a 20.200, con una dispersión enorme. Analizaremos cada variable con detalle en la sección siguiente.</p>
+<p>Ya en este primer resumen aparecen varias señales que merecen atención: el mínimo de <code>cloruros</code> es -1, lo que es físicamente imposible; el máximo de <code>est</code> es 52,61, claramente alejado del resto; y el rango de <code>coliformes</code> va de 0 a 20.200, con una dispersión enorme. Además, <code>coliformes</code> tiene un valor ausente (7 de noviembre). Analizaremos cada variable con detalle en la sección siguiente.</p>
 </section>
 <section id="análisis-variable-a-variable" class="level2" data-number="12.4">
 <h2 data-number="12.4" class="anchored" data-anchor-id="análisis-variable-a-variable"><span class="header-section-number">12.4</span> Análisis variable a variable</h2>
 <section id="extracto-seco-total-est" class="level3">
 <h3 class="anchored" data-anchor-id="extracto-seco-total-est">Extracto seco total (<code>est</code>)</h3>
-<p>Comenzamos con la variable principal. En el capítulo 6 usamos el histograma y el boxplot para estudiar la forma de los datos; aquí los aplicamos directamente al caso real.</p>
+<p>Comenzamos con la variable principal. En el capítulo 5 usamos el histograma y el boxplot para estudiar la forma de los datos; aquí los aplicamos directamente al caso real.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
@@ -741,20 +762,21 @@ std                    NaN         0.22    1.45  ...    0.08      0.23     2194.
 <summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> est)) <span class="sc">+</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)), <span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histograma del extracto seco total"</span>,</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"EST (%)"</span>, <span class="at">y =</span> <span class="st">"Frecuencia"</span>) <span class="sc">+</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y =</span> est)) <span class="sc">+</span></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Boxplot del extracto seco total"</span>,</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"EST (%)"</span>) <span class="sc">+</span></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># la curva de densidad se escala a recuentos por intervalo (n x anchura)</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> est)) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count) <span class="sc">*</span> <span class="fl">0.5</span>), <span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histograma del extracto seco total"</span>,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"EST (%)"</span>, <span class="at">y =</span> <span class="st">"Frecuencia"</span>) <span class="sc">+</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y =</span> est)) <span class="sc">+</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Boxplot del extracto seco total"</span>,</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"EST (%)"</span>) <span class="sc">+</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -793,7 +815,7 @@ std                    NaN         0.22    1.45  ...    0.08      0.23     2194.
 </div>
 </div>
 </div>
-<p>El histograma muestra una distribución aproximadamente simétrica en torno a 46-47%, pero con una cola hacia la derecha y una barra aislada en torno a 52%. La curva de densidad muestra una pequeña elevación en ese extremo que no debería estar ahí si la distribución fuese una campana de Gauss limpia. El boxplot confirma la presencia de varios valores atípicos por encima de 50%.</p>
+<p>El histograma muestra una distribución aproximadamente simétrica en torno a 46-47%, pero con una cola hacia la derecha y una barra aislada en torno a 52%. La curva de densidad muestra una pequeña elevación en ese extremo que no debería estar ahí si la distribución fuese una campana de Gauss limpia. El boxplot confirma la presencia de tres valores atípicos por encima de 50% (52,61, 50,40 y 50,30%).</p>
 <p>¿Son errores o valores reales? Para responderlo necesitamos contexto temporal.</p>
 </section>
 <section id="serie-temporal-del-extracto-seco" class="level3">
@@ -846,7 +868,7 @@ std                    NaN         0.22    1.45  ...    0.08      0.23     2194.
 </div>
 </div>
 </div>
-<p>La serie temporal revela lo que el histograma no podía mostrar: los valores altos se concentran en los meses de verano, especialmente julio y agosto. El valor máximo de 52,61% corresponde al 21 de julio. Esto cambia completamente la interpretación: los valores por encima de 50% no son errores aislados sino parte de una desviación estacional sostenida durante varias semanas. La forma del histograma que parecía simplemente asimétrica era en realidad la mezcla de dos momentos del año con comportamientos distintos: exactamente el caso de distribución bimodal que estudiamos en el capítulo 6.</p>
+<p>La serie temporal revela lo que el histograma no podía mostrar: los valores altos se concentran en los meses de verano, especialmente julio y agosto. El valor máximo de 52,61% corresponde al 21 de julio. Esto cambia completamente la interpretación: los valores por encima de 50% no son errores aislados sino parte de una desviación estacional sostenida durante varias semanas. La cola derecha del histograma es, en realidad, la huella de un período del año en que el proceso se comportó de otra forma: el histograma mezcla dos situaciones distintas. Si ese período hubiera sido más largo o el desplazamiento mayor, la mezcla habría producido un histograma bimodal como los que vimos en el capítulo 5; aquí, como afecta a pocas semanas, solo produce una cola.</p>
 <p>Visualizamos la media semanal y su dispersión para ver la evolución con más claridad:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false" href="">Python</a></li></ul>
@@ -982,7 +1004,7 @@ std                    NaN         0.22    1.45  ...    0.08      0.23     2194.
 </div>
 </div>
 </div>
-<p>Ahora la imagen es completamente distinta. En julio prácticamente todos los valores son altos: la mediana mensual de julio es la más alta del año, y el valor de 52,61% no es tan extremo dentro de ese mes. En cambio, en mayo aparece una dispersión muy baja seguida de un salto brusco en junio, que merece atención. Los meses de otoño e invierno muestran una distribución mucho más estable y centrada.</p>
+<p>Ahora la imagen es completamente distinta. En julio prácticamente todos los valores son altos: la mediana de julio (49,59%) es la más alta del año, y dentro de ese mes el valor de 52,61% ni siquiera se marca como atípico. Agosto y septiembre siguen por encima del resto del año, aunque menos (medianas de 47,75 y 47,30%). En los demás meses las medianas están entre 45,4 y 47,0%.</p>
 </section>
 <section id="materia-grasa-mg" class="level3">
 <h3 class="anchored" data-anchor-id="materia-grasa-mg">Materia grasa (<code>mg</code>)</h3>
@@ -994,20 +1016,21 @@ std                    NaN         0.22    1.45  ...    0.08      0.23     2194.
 <div class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> mg)) <span class="sc">+</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)), <span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histograma de la materia grasa"</span>,</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"MG (%)"</span>, <span class="at">y =</span> <span class="st">"Frecuencia"</span>) <span class="sc">+</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y =</span> mg)) <span class="sc">+</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Boxplot de la materia grasa"</span>,</span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"MG (%)"</span>) <span class="sc">+</span></span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># mg se registra en pasos de 0,5: intervalos de 0,5 centrados en esos valores</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> mg)) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">center =</span> <span class="dv">0</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count) <span class="sc">*</span> <span class="fl">0.5</span>), <span class="at">color =</span> <span class="st">"darkblue"</span>) <span class="sc">+</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histograma de la materia grasa"</span>,</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"MG (%)"</span>, <span class="at">y =</span> <span class="st">"Frecuencia"</span>) <span class="sc">+</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y =</span> mg)) <span class="sc">+</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Boxplot de la materia grasa"</span>,</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"MG (%)"</span>) <span class="sc">+</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -1046,7 +1069,7 @@ std                    NaN         0.22    1.45  ...    0.08      0.23     2194.
 </div>
 </div>
 </div>
-<p>El histograma de la materia grasa muestra una distribución aproximadamente simétrica centrada en torno a 23,5%, pero el boxplot señala un valor atípico alto claramente separado del resto. Ese valor es 28%, registrado el 26 de enero, y es el único por encima de 27%. Puede ser un error de estandarización en el arranque del año, cuando la composición de la leche de invierno es más rica en grasa. Lo analizamos en la serie temporal:</p>
+<p>El histograma de la materia grasa muestra una distribución aproximadamente simétrica centrada en torno a 23,5%; tiene forma escalonada porque la materia grasa se registra en pasos de 0,5%. El boxplot señala un valor atípico alto claramente separado del resto. Ese valor es 28%, registrado en la primera fabricación del 26 de enero (la segunda de ese día dio 26%), y es el único por encima de 27%. Puede ser un error de estandarización en el arranque del año, cuando la composición de la leche de invierno es más rica en grasa. Lo analizamos en la serie temporal:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
@@ -1148,7 +1171,7 @@ std                    NaN         0.22    1.45  ...    0.08      0.23     2194.
 </div>
 </div>
 </div>
-<p>El boxplot mensual de la materia grasa no muestra la misma estacionalidad pronunciada que el extracto seco. El valor de 28% de enero es claramente atípico respecto a su mes, pero el resto del año la materia grasa se mantiene en un rango bastante estable entre 22 y 26%. A partir de febrero se observa una tendencia moderada al alza hasta el verano, que se corrige progresivamente en el segundo semestre.</p>
+<p>El boxplot mensual de la materia grasa no muestra la misma estacionalidad pronunciada que el extracto seco. El valor de 28% de enero es claramente atípico respecto a su mes, pero el resto del año la materia grasa se mantiene en un rango bastante estable entre 21,5 y 26%. La media mensual sube de forma moderada desde marzo (23,0%) hasta agosto (24,5%) y vuelve a 23,6% en el último trimestre.</p>
 </section>
 <section id="análisis-conjunto-gráfico-de-dispersión-est-vs-mg" class="level3">
 <h3 class="anchored" data-anchor-id="análisis-conjunto-gráfico-de-dispersión-est-vs-mg">Análisis conjunto: gráfico de dispersión <code>est</code> vs <code>mg</code></h3>
@@ -1205,7 +1228,13 @@ std                    NaN         0.22    1.45  ...    0.08      0.23     2194.
 </div>
 </div>
 </div>
-<p>La nube de puntos muestra una correlación positiva moderada: en general, cuando la materia grasa sube, el extracto seco también sube. Pero hay tres puntos que se separan claramente del conjunto: son los valores con <code>est</code> muy alto (en torno a 50-52%) combinados con <code>mg</code> normal o incluso baja. Estos puntos corresponden al período de verano que ya identificamos. El punto aislado con <code>mg</code> = 28% y <code>est</code> normal también destaca. Estos tres puntos anómalos son los que discutiremos con el equipo en la fase de conclusiones.</p>
+<p>La nube de puntos muestra una correlación positiva moderada (r = 0,49): en general, cuando la materia grasa sube, el extracto seco también sube. Pero hay tres puntos que se separan claramente de esa tendencia:</p>
+<ul>
+<li>21 de julio: <code>est</code> = 52,61% con <code>mg</code> = 22,5%, el extracto seco más alto del año con una grasa baja;</li>
+<li>4 de noviembre (segunda fabricación): <code>est</code> = 48,49% con <code>mg</code> = 21,5%, la grasa más baja del año con un extracto seco alto;</li>
+<li>26 de enero (primera fabricación): <code>mg</code> = 28%, la única por encima de 27%, con <code>est</code> = 46,60%.</li>
+</ul>
+<p>Las dos fabricaciones del 4 de noviembre tienen el mismo <code>est</code>, el mismo pH y los mismos cloruros, y solo difieren en la <code>mg</code> (25,5 y 21,5%), lo que apunta a un posible error de transcripción. Estos tres puntos anómalos son los que discutiremos con el equipo en la fase de conclusiones.</p>
 <p>Coloreamos por trimestre para ver mejor la estructura estacional con una paleta legible:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-13-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-1" role="tab" aria-controls="tabset-13-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-2" role="tab" aria-controls="tabset-13-2" aria-selected="false" href="">Python</a></li></ul>
@@ -1271,9 +1300,9 @@ std                    NaN         0.22    1.45  ...    0.08      0.23     2194.
 </div>
 <p>Los puntos del tercer trimestre (julio-septiembre) se sitúan claramente en la parte superior del gráfico, confirmando que la desviación de verano afecta a ambas variables simultáneamente, aunque con mayor intensidad en el extracto seco.</p>
 </section>
-<section id="variable-derivada-humedad-del-queso-desnatado-hqd" class="level3">
-<h3 class="anchored" data-anchor-id="variable-derivada-humedad-del-queso-desnatado-hqd">Variable derivada: humedad del queso desnatado (<code>hqd</code>)</h3>
-<p>Como tecnólogos queseros, sabemos que un factor crítico de la textura del queso, y en consecuencia de su calidad, es la humedad del extracto seco desnatado. Este parámetro se calcula a partir del extracto seco y la materia grasa:</p>
+<section id="variable-derivada-humedad-del-queso-desengrasado-hqd" class="level3">
+<h3 class="anchored" data-anchor-id="variable-derivada-humedad-del-queso-desengrasado-hqd">Variable derivada: humedad del queso desengrasado (<code>hqd</code>)</h3>
+<p>Como tecnólogos queseros, sabemos que un factor crítico de la textura del queso, y en consecuencia de su calidad, es la humedad del queso desengrasado, es decir, el agua expresada como porcentaje de la masa del queso sin su grasa. Este parámetro se calcula a partir del extracto seco y la materia grasa:</p>
 <p><span class="math display">\[\text{hqd} = \frac{(100 - \text{est\%})}{(100 - \text{mg\%})} \times 100\]</span></p>
 <p>Creamos la nueva columna y analizamos su evolución:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -1353,7 +1382,7 @@ std                    NaN         0.22    1.45  ...    0.08      0.23     2194.
 </div>
 </div>
 </div>
-<p>La <code>hqd</code> muestra el patrón más revelador de todo el análisis. El fabricante mantiene la humedad razonablemente estable en torno al 70-71% durante la primera mitad del año, con algunos ajustes menores. En julio se produce una caída brusca hasta valores de 61-63%, la peor semana corresponde al 21 de julio con una <code>hqd</code> de 61,15%. Esta desviación de casi 10 puntos es muy significativa para la textura del camembert y explica las reclamaciones de queso demasiado seco que se recibieron en ese período.</p>
+<p>La <code>hqd</code> muestra el patrón más revelador de todo el análisis. Durante el primer semestre el fabricante la mantiene razonablemente estable: las medias semanales oscilan entre 68,75 y 71,64%, con una media de 70,4%. En julio cae de forma brusca: la media de la semana del 18 de julio es 65,68%, unos 5 puntos por debajo de ese nivel, y el valor individual más bajo del año es 61,15% (21 de julio), unos 9 puntos por debajo. Una desviación de esta magnitud afecta a la textura del camembert y puede explicar las reclamaciones por queso demasiado seco que se recibieron en agosto.</p>
 </section>
 </section>
 <section id="análisis-de-otras-variables" class="level2" data-number="12.5">
@@ -1477,7 +1506,7 @@ std                    NaN         0.22    1.45  ...    0.08      0.23     2194.
 </div>
 </div>
 </div>
-<p>El histograma de cloruros muestra una distribución aproximadamente simétrica en torno a 1,45-1,50%, con un rango habitual entre 1,1 y 1,9%. El boxplot señala un único valor atípico muy llamativo: -1%, registrado el 11 de febrero. Un contenido en cloruros negativo es físicamente imposible, por lo que se trata sin duda de un error de entrada de datos: probablemente se introdujo el valor con el signo menos por error. Este valor debe tratarse como un dato ausente (<code>NaN</code>) antes de cualquier análisis posterior.</p>
+<p>El histograma de cloruros muestra una distribución aproximadamente simétrica en torno a 1,45-1,50%, con un rango habitual entre 1,1 y 1,9%. El boxplot señala un valor atípico muy llamativo: -1%, registrado el 11 de febrero. También marca tres valores altos (1,88-1,89%), muy próximos al extremo del bigote, que no parecen anómalos. Un contenido en cloruros negativo es físicamente imposible, por lo que se trata sin duda de un error de entrada de datos: probablemente se introdujo el valor con el signo menos por error. Este valor debe tratarse como un dato ausente (<code>NaN</code>) antes de cualquier análisis posterior.</p>
 </section>
 <section id="coliformes-un-ejemplo-de-distribución-asimétrica-positiva" class="level3">
 <h3 class="anchored" data-anchor-id="coliformes-un-ejemplo-de-distribución-asimétrica-positiva">Coliformes: un ejemplo de distribución asimétrica positiva</h3>
@@ -1553,7 +1582,7 @@ Valores = 0: 89</code></pre>
 </div>
 </div>
 </div>
-<p>La mediana es 10 ufc/g pero la media es 651 ufc/g, casi 65 veces mayor. El 42% de los valores son exactamente cero, y hay 9 valores por encima de 5.000 ufc/g, con un máximo de 20.200 ufc/g el 12 de agosto. Esta diferencia enorme entre la mediana y la media es la señal característica de una distribución muy asimétrica positiva.</p>
+<p>La mediana es 10 ufc/g pero la media es 651 ufc/g, unas 65 veces mayor. El 42% de los valores (89 de 210) son exactamente cero, y hay 9 valores por encima de 5.000 ufc/g, con un máximo de 20.200 ufc/g el 12 de agosto. Esta diferencia enorme entre la mediana y la media es la señal característica de una distribución muy asimétrica positiva.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-18-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-18-1" role="tab" aria-controls="tabset-18-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-18-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-18-2" role="tab" aria-controls="tabset-18-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
@@ -1617,7 +1646,7 @@ Valores = 0: 89</code></pre>
 </div>
 </div>
 </div>
-<p>En escala lineal, el histograma muestra una barra altísima en los valores bajos y una larga cola hacia la derecha: es la asimetría positiva extrema que veíamos en el capítulo 6 con los goles por partido, pero mucho más pronunciada. En escala logarítmica la distribución se hace visible con más detalle: la mayoría de los recuentos positivos están entre 10 y 1.000 ufc/g, y los valores muy altos son escasos pero existen.</p>
+<p>En escala lineal, el histograma muestra una barra altísima en los valores bajos y una larga cola hacia la derecha: es la asimetría positiva extrema que veíamos en el capítulo 5 con los goles por partido, pero mucho más pronunciada. En escala logarítmica la distribución se hace visible con más detalle: la mayoría de los recuentos positivos están entre 10 y 1.000 ufc/g, y los valores muy altos son escasos pero existen.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1628,10 +1657,10 @@ Nota
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>En microbiología alimentaria, los recuentos siempre siguen distribuciones asimétricas positivas: la mayoría de las muestras tienen recuentos bajos o nulos, pero ocasionalmente aparecen recuentos muy altos que reflejan episodios de contaminación. Por este motivo, en microbiología es habitual trabajar con la transformación logarítmica de los recuentos, que convierte la distribución asimétrica en una distribución más simétrica y más fácil de analizar. La media aritmética de los recuentos tiene muy poco sentido; es más informativo trabajar con la mediana o con la media geométrica (la media de los logaritmos).</p>
+<p>En microbiología alimentaria, los recuentos suelen seguir distribuciones asimétricas positivas: la mayoría de las muestras tienen recuentos bajos o nulos, pero ocasionalmente aparecen recuentos muy altos que reflejan episodios de contaminación. Por este motivo, en microbiología es habitual trabajar con la transformación logarítmica de los recuentos, que convierte la distribución asimétrica en una distribución más simétrica y más fácil de analizar. La media aritmética de los recuentos tiene muy poco sentido; es más informativo trabajar con la mediana o con la media geométrica (el antilogaritmo de la media de los logaritmos), que solo puede calcularse con recuentos mayores que cero.</p>
 </div>
 </div>
-<p>Este efecto es el mismo que el de un peso situado lejos del fulcro de una balanza: aunque sea un solo valor extremo, su distancia al centro multiplica su influencia sobre la media de forma desproporcionada. Por eso en variables con distribución muy asimétrica la media no es un buen descriptor del conjunto.</p>
+<p>La influencia de los valores extremos se entiende con la imagen de la media como punto de equilibrio de una balanza (apéndice D): un valor extremo actúa como un peso situado lejos del fulcro y desplaza la media en proporción a su distancia al centro. Aquí, el recuento de 20.200 ufc/g sube por sí solo la media de 557 a 651 ufc/g, mientras que la mediana sigue en 10 ufc/g. Por eso en variables con distribución muy asimétrica la media no es un buen descriptor del conjunto.</p>
 <p>Veamos la distribución mensual mediante un boxplot con los puntos individuales superpuestos. Como el logaritmo de cero no está definido, excluimos las muestras con recuento nulo: estas muestras no aportan información sobre la magnitud de la contaminación, y su inclusión aplastaría el gráfico hacia el cero haciendo ilegible el resto de la distribución. El alumno debe tener en cuenta que los meses con muchos ceros tendrán menos puntos representados, lo que también es información relevante sobre la higiene del proceso.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-19-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-19-1" role="tab" aria-controls="tabset-19-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-19-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-19-2" role="tab" aria-controls="tabset-19-2" aria-selected="false" href="">Python</a></li></ul>
@@ -1703,7 +1732,7 @@ Nota
 </div>
 </div>
 </div>
-<p>El gráfico muestra picos puntuales dispersos a lo largo del año, sin un patrón estacional claro y sostenido. La mediana de los valores se incrementa desde abril hasta julio, donde hay un máximo que parece significativo, ya que la caja del boxplot no se solapa con las anteriores. De manera coherente con la información agregada, los valores individuales se concentran en primavera y verano, coincidiendo con las temperaturas ambientales más altas y el período de sustituciones de personal en vacaciones. El valor máximo de 20.200 ufc/g del 12 de agosto es el más llamativo. En invierno los recuentos son en general más bajos y más homogéneos.</p>
+<p>El gráfico muestra picos puntuales dispersos a lo largo del año, sin un patrón estacional nítido, aunque sí con algunos rasgos claros. La mediana de los recuentos positivos sube desde abril (100 ufc/g) hasta julio (1.500 ufc/g); en julio, sin embargo, solo 5 de las 13 muestras tienen recuento positivo, de modo que esa caja descansa sobre muy pocos datos. De los 28 recuentos superiores a 1.000 ufc/g, 17 se dan entre mayo y agosto, coincidiendo con las temperaturas ambientales más altas y el período de sustituciones de personal en vacaciones. El valor máximo, 20.200 ufc/g el 12 de agosto, es el más llamativo. El invierno no es homogéneo: de enero a marzo las medianas son bajas (70-85 ufc/g), pero diciembre tiene una mediana de 372,5 ufc/g y un máximo de 13.600 ufc/g.</p>
 </section>
 </section>
 <section id="conclusiones-y-plan-de-acción" class="level2" data-number="12.6">
@@ -1712,12 +1741,12 @@ Nota
 <h3 class="anchored" data-anchor-id="análisis-de-resultados">Análisis de resultados</h3>
 <p>Una vez explorados los datos de todas las variables, podemos formular las hipótesis de trabajo:</p>
 <ol type="1">
-<li><p>A principio de año hay un valor anómalo de materia grasa (28%, 26 de enero) que puede haberse debido a un error en la estandarización coincidiendo con una leche de invierno más rica en grasa. A pesar de esto, la <code>hqd</code> se mantuvo estable, lo que indica que el fabricante corrigió el extracto seco para compensar.</p></li>
+<li><p>A principio de año hay un valor anómalo de materia grasa (28%, primera fabricación del 26 de enero), que puede deberse a un error de estandarización, coincidiendo con una leche de invierno más rica en grasa, o a un error analítico. Su <code>hqd</code> calculada, 74,17%, es la más alta del año; como la <code>hqd</code> se calcula a partir de la <code>mg</code>, un error en la materia grasa se trasladaría a la <code>hqd</code>.</p></li>
 <li><p>Hay un claro error de entrada en cloruros: el valor -1% del 11 de febrero es físicamente imposible y debe tratarse como dato ausente.</p></li>
 <li><p>El pH de 4,35 del 18 de abril se aleja significativamente del rango habitual y merece verificación con el laboratorio.</p></li>
-<li><p>La desviación más importante del año es el aumento sostenido del extracto seco en julio, con un máximo de 52,61% el 21 de julio, que produjo una caída de la <code>hqd</code> hasta 61,15%. Esta bajada de casi 10 puntos respecto al objetivo habitual de 70-71% es la causa directa de las reclamaciones por queso demasiado seco recibidas en ese período.</p></li>
-<li><p>Los recuentos de coliformes no muestran una tendencia estacional clara, pero los valores más altos se concentran en verano, coincidiendo con el período de aumento de temperatura ambiente que incrementa el riesgo de crecimiento bacteriano. Hay que tener en cuenta también las sustituciones de personal en vacaciones, que pueden añadir más variabilidad a los resultados analíticos como consecuencia de la menor experiencia analítica de las personas temporales.</p></li>
-<li><p>Hay tres puntos en el gráfico de dispersión <code>est</code> vs <code>mg</code> que se separan claramente del conjunto: son candidatos a revisión analítica antes de repetir el análisis definitivo.</p></li>
+<li><p>La desviación más importante del año es el aumento sostenido del extracto seco en julio, con un máximo de 52,61% el 21 de julio. La media semanal de la <code>hqd</code> bajó hasta 65,68%, unos 5 puntos por debajo de su nivel del primer semestre, y el valor individual más bajo fue 61,15%. Es la explicación más probable de las reclamaciones por queso demasiado seco recibidas en agosto.</p></li>
+<li><p>Los recuentos de coliformes no muestran una tendencia estacional nítida, pero los recuentos superiores a 1.000 ufc/g se concentran entre mayo y agosto, coincidiendo con el período de aumento de temperatura ambiente que incrementa el riesgo de crecimiento bacteriano. Hay que tener en cuenta también las sustituciones de personal en vacaciones, que pueden añadir más variabilidad a los resultados analíticos como consecuencia de la menor experiencia analítica de las personas temporales.</p></li>
+<li><p>Hay tres puntos en el gráfico de dispersión <code>est</code> vs <code>mg</code> (21 de julio, 4 de noviembre y 26 de enero) que se separan claramente del conjunto: son candidatos a revisión analítica antes de repetir el análisis definitivo.</p></li>
 </ol>
 </section>
 <section id="comunicar-discusión-en-equipo" class="level3">
@@ -1725,8 +1754,8 @@ Nota
 <p>Hemos presentado el análisis al equipo de fabricación, laboratorio y producción. Las conclusiones de la reunión son:</p>
 <ul>
 <li>El responsable de fabricación confirma que hace ajustes estacionales en la estandarización a lo largo del año para mantener la <code>hqd</code> constante. En verano, debido a las temperaturas más altas en las zonas de distribución, la práctica habitual es bajar moderadamente la <code>hqd</code> para evitar una proteólisis excesiva durante el ciclo de comercialización.</li>
-<li>Este año el quesero fue sustituido durante vacaciones por una persona con menos experiencia, que forzó el extracto seco más de lo debido. Las reclamaciones de los clientes por queso demasiado seco en agosto confirman esta hipótesis.</li>
-<li>El laboratorio confirma que los tres valores anómalos del gráfico de dispersión pueden corresponder a análisis incorrectos, y recomienda no tenerlos en cuenta en el análisis definitivo.</li>
+<li>Este año el quesero fue sustituido durante vacaciones por una persona con menos experiencia, que forzó el extracto seco más de lo debido. Las reclamaciones de los clientes por queso demasiado seco en agosto son coherentes con esta hipótesis.</li>
+<li>El laboratorio no puede confirmar ni descartar que los tres valores anómalos del gráfico de dispersión correspondan a análisis incorrectos, y recomienda repetir el análisis sin ellos para comprobar si las conclusiones se mantienen. El valor del 21 de julio, en todo caso, forma parte de la desviación de verano que confirman los demás datos de julio.</li>
 <li>El valor negativo de cloruros es claramente un error de entrada de datos.</li>
 </ul>
 </section>
@@ -1746,7 +1775,7 @@ Nota
 </section>
 <section id="resumen-del-capítulo" class="level2" data-number="12.7">
 <h2 data-number="12.7" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">12.7</span> Resumen del capítulo</h2>
-<p>En este capítulo hemos aplicado el flujo de trabajo completo del análisis de datos a una fabricación real de queso camembert. El análisis variable a variable ha permitido identificar errores de entrada (el valor negativo de cloruros), valores atípicos que requieren verificación (el pH de 4,35 en abril, el valor de materia grasa de 28% en enero) y la desviación estacional más importante del año: el aumento sostenido del extracto seco en julio, que produjo una caída de la humedad del queso desnatado de casi 10 puntos y originó reclamaciones de los clientes.</p>
+<p>En este capítulo hemos aplicado el flujo de trabajo completo del análisis de datos a una fabricación real de queso camembert. El análisis variable a variable ha permitido identificar errores de entrada (el valor negativo de cloruros), valores atípicos que requieren verificación (el pH de 4,35 en abril, el valor de materia grasa de 28% en enero) y la desviación estacional más importante del año: el aumento sostenido del extracto seco en julio, que produjo una caída de la humedad del queso desengrasado (unos 5 puntos en la media semanal y hasta 9 en el peor valor individual) y originó reclamaciones de los clientes.</p>
 <p>La serie temporal ha sido la herramienta clave para interpretar correctamente lo que el histograma mostraba como una simple distribución asimétrica: lo que parecía un valor atípico aislado era en realidad parte de una desviación estacional sostenida durante varias semanas. El análisis de los coliformes ha ilustrado con datos reales el concepto de distribución asimétrica positiva extrema, característica de los recuentos microbiológicos, y la razón por la que la mediana es más informativa que la media en este tipo de variables.</p>
 <p>El capítulo concluye con una fase de comunicación en equipo que transforma el análisis estadístico en hipótesis de trabajo contrastadas con el conocimiento tecnológico y en un plan de acción priorizado. En el capítulo siguiente analizaremos el sistema de medición: qué parte de la variación que observamos en los datos se debe al proceso y qué parte al propio método de análisis.</p>
 </section>
@@ -1761,24 +1790,29 @@ Nota
 <li>Boxplot mensual</li>
 <li>Interpretación de los valores atípicos detectados</li>
 </ul>
-<p>Para los cloruros, filtra previamente el valor negativo convirtiéndolo en <code>NaN</code> antes de representar los gráficos.</p>
+<p>Para los cloruros, convierte previamente el valor negativo en un dato ausente (<code>NA</code> en R, <code>NaN</code> en Python) antes de representar los gráficos.</p>
 </section>
 <section id="ejercicio-2-repetir-el-análisis-sin-los-valores-erróneos" class="level3">
 <h3 class="anchored" data-anchor-id="ejercicio-2-repetir-el-análisis-sin-los-valores-erróneos">Ejercicio 2: repetir el análisis sin los valores erróneos</h3>
-<p>El laboratorio ha confirmado que los tres puntos anómalos del gráfico de dispersión <code>est</code> vs <code>mg</code> son probablemente errores analíticos. Utiliza Python o R para filtrarlos y repite el análisis completo con el dataset corregido. ¿Cambian las conclusiones?</p>
+<p>El laboratorio recomienda comprobar si las conclusiones se mantienen sin los tres puntos anómalos del gráfico de dispersión <code>est</code> vs <code>mg</code>. Utiliza Python o R para filtrarlos y repite el análisis completo con el dataset corregido. ¿Cambian las conclusiones? ¿Se mantiene la desviación de julio?</p>
 <p>Como referencia, los criterios de filtrado son: valores de <code>mg</code> superiores a 27%, valores de <code>est</code> superiores a 52%, y valores con <code>mg</code> inferior a 22% y <code>est</code> superior a 48% de forma simultánea.</p>
 </section>
 <section id="ejercicio-3-avanzado-transformación-logarítmica-de-coliformes" class="level3">
 <h3 class="anchored" data-anchor-id="ejercicio-3-avanzado-transformación-logarítmica-de-coliformes">Ejercicio 3 (avanzado): transformación logarítmica de coliformes</h3>
-<p>Los recuentos microbiológicos se analizan habitualmente en escala logarítmica. Crea una nueva columna <code>log_coliformes</code> con el logaritmo en base 10 de los recuentos (excluyendo los ceros), y compara el histograma de la escala lineal con el de la escala logarítmica. ¿Cómo cambia la forma de la distribución? ¿Qué valores de la escala logarítmica corresponden a los límites microbiológicos habituales en queso camembert?</p>
+<p>Los recuentos microbiológicos se analizan habitualmente en escala logarítmica. Crea una nueva columna <code>log_coliformes</code> con el logaritmo en base 10 de los recuentos (excluyendo los ceros), y compara el histograma de la escala lineal con el de la escala logarítmica. ¿Cómo cambia la forma de la distribución? ¿Qué valores de la escala logarítmica corresponden a 100, 1.000 y 10.000 ufc/g?</p>
 </section>
 </section>
 <section id="práctica-en-google-colab" class="level2" data-number="12.9">
 <h2 data-number="12.9" class="anchored" data-anchor-id="práctica-en-google-colab"><span class="header-section-number">12.9</span> Práctica en Google Colab</h2>
 <p>En este enlace se proporciona acceso a los datos de este capítulo en un cuaderno de Google Colab, para practicar de forma interactiva el código Python desde ese entorno.</p>
-<p><a href="https://colab.research.google.com/github/juanriera/mejora-continua/blob/master/jupyter/camembert.ipynb">Abrir versión sólo Python de este cuaderno en Google Colab</a></p>
+<p><a href="https://colab.research.google.com/github/juanriera/mejora-continua/blob/master/jupyter/camembert.ipynb">Abrir versión solo Python de este cuaderno en Google Colab</a></p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-wickham2023" class="csl-entry" role="listitem">
+Wickham, Hadley, Mine Çetinkaya-Rundel, y Garrett Grolemund. 2023. <em>R for Data Science, 2nd ed.</em> O’Reilly Media Inc. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

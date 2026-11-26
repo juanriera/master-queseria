@@ -395,6 +395,7 @@ ggplot(resumen_t, aes(x = fecha, y = sesgo, color = analista)) +
     labs(title    = "Evolución del sesgo mensual por analista — Método Gerber",
          subtitle = "Líneas rojas: tolerancia orientativa de sesgo ±0,10%",
          x = NULL, y = "Sesgo (% MG)", color = "Analista") +
+    scale_y_continuous(labels = scales::label_number(decimal.mark = ",")) +
     theme_bw() +
     theme(panel.grid.minor = element_blank())
 ```
@@ -430,6 +431,7 @@ ggplot(resumen_t, aes(x = fecha, y = sigma, color = analista)) +
     labs(title    = "Evolución de la desviación típica de repetibilidad — Método Gerber",
          subtitle = "Línea roja: tolerancia orientativa σ = 0,10%",
          x = NULL, y = "Desviación típica (% MG)", color = "Analista") +
+    scale_y_continuous(labels = scales::label_number(decimal.mark = ",")) +
     theme_bw() +
     theme(panel.grid.minor = element_blank())
 ```
