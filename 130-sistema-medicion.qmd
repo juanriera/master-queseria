@@ -30,13 +30,13 @@ Una medida es el resultado de la acción de *medir*: comparar lo que queremos cu
 
 En apariencia, el proceso parece sencillo. Sin embargo, si lo analizamos con atención, veremos que hay múltiples elementos que pueden hacer que el resultado no sea tan fiable como esperamos. Pensemos en algo tan cotidiano como medir la altura de una persona con una cinta métrica:
 
-![Medición de la altura de un niño](imagenes/160/medida-altura.jpg){.column-margin}
+![Medición de la altura de un niño](imagenes/130/medida-altura.jpg){.column-margin}
 
 ¿Está el niño descalzo? ¿Tiene las rodillas rectas? ¿Está apoyado en un plano vertical? ¿La posición de los ojos del analista es perpendicular a la escala? ¿La cinta métrica está homologada? Cada uno de estos elementos puede introducir un error diferente en el resultado.
 
 La **descripción detallada del procedimiento**, junto con la especificación del instrumento y sus requisitos de calibración, constituye lo que se conoce como *método analítico*. Un buen método analítico reduce al mínimo la influencia del analista y del instrumento en el resultado, garantizando que diferentes personas obtengan resultados comparables en diferentes momentos y lugares.
 
-![Imagen ilustrativa del protocolo de la OMS para medir la altura de un niño en los estudios de malnutrición](imagenes/160/malnutrition-4.gif){.column-margin}
+![Imagen ilustrativa del protocolo de la OMS para medir la altura de un niño en los estudios de malnutrición](imagenes/130/malnutrition-4.gif){.column-margin}
 
 La Organización Mundial de la Salud, por ejemplo, define procedimientos muy precisos para la medición de peso y talla en niños, porque pequeños errores sistemáticos en esas medidas tienen consecuencias directas en el diagnóstico nutricional a escala global.
 
@@ -46,7 +46,7 @@ En un laboratorio de quesería, las fuentes de variación más habituales son:
 
 **El analista.** La técnica personal, la experiencia, la fatiga o simplemente un hábito incorrecto en la lectura del instrumento pueden introducir diferencias entre personas. Dos analistas que siguen el mismo método pueden obtener resultados distintos de forma sistemática.
 
-**El instrumento.** Un butirómero descalibrado, una centrífuga con velocidad irregular, un baño maría con temperatura inestable: todos ellos introducen variación en el resultado con independencia de la habilidad del analista.
+**El instrumento.** Un butirómetro descalibrado, una centrífuga con velocidad irregular, un baño maría con temperatura inestable: todos ellos introducen variación en el resultado con independencia de la habilidad del analista.
 
 **El método.** La temperatura de la muestra en el momento del análisis, el tiempo de reposo antes de la lectura, la forma de homogeneizar la muestra: son condiciones que el procedimiento debe especificar con precisión para que no sean una fuente de variación adicional.
 
@@ -56,9 +56,9 @@ En la práctica, lo que observamos en los resultados analíticos es la suma de t
 
 ## Veracidad y precisión: la norma ISO 5725-1:2023
 
-La norma internacional **ISO 5725-1:2023** (*Accuracy of measurement methods and results*) establece la terminología y los conceptos para evaluar la calidad de un método analítico. Distingue tres conceptos que en el uso cotidiano se confunden con frecuencia:
+La norma internacional **ISO 5725-1:2023** (*Accuracy (trueness and precision) of measurement methods and results*) establece la terminología y los conceptos para evaluar la calidad de un método analítico. Distingue tres conceptos que en el uso cotidiano se confunden con frecuencia:
 
-**Exactitud** (*accuracy*): término general que describe la proximidad entre un resultado de medida y el valor verdadero. Engloba dos componentes independientes.
+**Exactitud** (*accuracy*): término general que describe la proximidad entre un resultado de medida y el valor verdadero. Engloba dos componentes: la veracidad y la precisión.
 
 **Veracidad** (*trueness*): proximidad entre la media de un gran número de resultados y el valor verdadero o de referencia. Cuando un método no es verídico, produce un **sesgo** sistemático: los resultados están desplazados de forma consistente hacia arriba o hacia abajo.
 
@@ -66,12 +66,12 @@ La norma internacional **ISO 5725-1:2023** (*Accuracy of measurement methods and
 
 ::: {.callout-tip}
 ## Una aclaración terminológica
-En el uso coloquial, "exacto" y "preciso" se usan como sinónimos. En metrología, son conceptos distintos: un método puede ser muy preciso (resultados muy reproducibles) pero poco verídico (con sesgo), o verídico en promedio pero poco preciso (con mucha dispersión). La norma ISO 5725-1:2023 reserva el término *exactitud* para cuando ambas condiciones se cumplen simultáneamente.
+En el uso coloquial, "exacto" y "preciso" se usan como sinónimos. En metrología, son conceptos distintos: un método puede ser muy preciso (resultados muy parecidos entre sí) pero poco verídico (con sesgo), o verídico en promedio pero poco preciso (con mucha dispersión). En la norma ISO 5725-1:2023, la exactitud engloba las dos cosas: un resultado solo es exacto si el método es a la vez verídico y preciso.
 :::
 
 La imagen de las dianas ilustra las cuatro combinaciones posibles:
 
-![Veracidad y precisión: las cuatro combinaciones posibles](imagenes/160/veracidad_y_precision.svg){width="80%"}
+![Veracidad y precisión: las cuatro combinaciones posibles](imagenes/130/veracidad_y_precision.svg){width="80%"}
 
 - **Alta veracidad, alta precisión:** los impactos están agrupados y centrados. Es el objetivo.
 - **Alta veracidad, baja precisión:** los impactos están dispersos pero centrados en promedio. Hay variabilidad pero no sesgo.
@@ -86,13 +86,15 @@ Dentro del concepto de precisión, la norma ISO 5725 distingue dos niveles:
 
 **Repetibilidad:** variación obtenida cuando el mismo analista analiza la misma muestra varias veces en las mismas condiciones (mismo día, mismo instrumento, mismo procedimiento). Mide la consistencia interna de un analista.
 
-**Reproducibilidad:** variación obtenida cuando diferentes analistas, en diferentes momentos o laboratorios, analizan la misma muestra. Mide la comparabilidad entre analistas o entre laboratorios.
+**Reproducibilidad:** variación obtenida cuando la misma muestra se analiza en laboratorios diferentes, con analistas y equipos diferentes. Mide la comparabilidad entre laboratorios.
 
-La desviación típica de repetibilidad ($s_r$) y la desviación típica de reproducibilidad ($s_R$) son las medidas numéricas de cada uno de estos conceptos. Por definición, $s_R \geq s_r$: la variación entre analistas siempre es mayor o igual que la variación dentro de un mismo analista.
+Entre los dos extremos está la **precisión intermedia** (ISO 5725-3): la variación dentro de un mismo laboratorio cuando cambian el analista, el día o el equipo. Es la que corresponde a comparar a los analistas de nuestro propio laboratorio, como haremos en el caso práctico.
+
+La desviación típica de repetibilidad ($s_r$) y la desviación típica de reproducibilidad ($s_R$) son las medidas numéricas de los dos primeros conceptos. Como la reproducibilidad incluye la repetibilidad más la variación entre laboratorios, siempre se cumple que $s_R \geq s_r$.
 
 ## Caso práctico: evaluación de analistas en el método Gerber
 
-El método Gerber es uno de los métodos de referencia para la determinación de grasa en leche. Es un método volumétrico que los alumnos de tecnología láctea aprenden y practican en el laboratorio. Su resultado depende de varios factores de técnica personal: la temperatura del baño maría, el tiempo y la velocidad de centrifugación, y sobre todo la lectura correcta del menisco en el butirómetro.
+El método Gerber es el método de rutina más extendido para la determinación de grasa en leche; el método de referencia es el gravimétrico de Röse-Gottlieb (ISO 1211). Gerber es un método volumétrico que los alumnos de tecnología láctea aprenden y practican en el laboratorio. Su resultado depende de varios factores de técnica personal: la temperatura del baño maría, el tiempo y la velocidad de centrifugación, y sobre todo la lectura correcta del menisco en el butirómetro.
 
 Vamos a analizar los resultados de un estudio de repetibilidad en el que cinco analistas han determinado el contenido en grasa de tres muestras de leche con diferente contenido graso, realizando tres repeticiones cada uno.
 
@@ -109,13 +111,8 @@ Cargamos el dataset:
 
 library(tidyverse)
 
-url <- paste0(
-    "https://raw.githubusercontent.com/",
-    "juanriera/mejora-continua/master/",
-    "datos/grr_gerber.csv"
-)
-
-df <- read_csv2(url, locale = locale(decimal_mark = ","))
+df <- read_csv2("datos/grr_gerber.csv",
+                locale = locale(decimal_mark = ",", encoding = "ISO-8859-1"))
 cat("Dimensiones:", nrow(df), "x", ncol(df), "\n")
 head(df, 10)
 ```
@@ -171,7 +168,7 @@ ggplot(df, aes(x = analista, y = resultado, color = muestra)) +
     scale_color_brewer(palette = "Set2") +
     scale_fill_brewer(palette = "Set2") +
     labs(title = "Resultados Gerber por analista y muestra",
-         subtitle = "Líneas discontinuas = valor real",
+         subtitle = "Líneas discontinuas = valor de referencia",
          x = "Analista", y = "Grasa (%)",
          color = "Muestra", fill = "Muestra") +
     theme_bw() +
@@ -184,8 +181,6 @@ ggplot(df, aes(x = analista, y = resultado, color = muestra)) +
 #| message: false
 #| warning: false
 #|
-
-import calendar
 
 df_plot = df.copy()
 
@@ -207,7 +202,7 @@ for muestra, valor, color in zip(
                color=color, alpha=0.6)
 
 ax.set_title("Resultados Gerber por analista y muestra\n"
-             "(líneas discontinuas = valor real)")
+             "(líneas discontinuas = valor de referencia)")
 ax.set_xlabel("Analista")
 ax.set_ylabel("Grasa (%)")
 ax.legend(title='Muestra', bbox_to_anchor=(1.02, 1))
@@ -221,7 +216,7 @@ El gráfico permite identificar visualmente los dos problemas distintos. ¿Puede
 
 ### Cálculo del sesgo y la desviación típica de repetibilidad
 
-Calculamos para cada analista y muestra la media, la desviación típica de repetibilidad y el sesgo respecto al valor real:
+Calculamos para cada analista y muestra la media, la desviación típica de repetibilidad y el sesgo respecto al valor de referencia:
 
 ::: panel-tabset
 ## R
@@ -317,7 +312,7 @@ La tabla y el gráfico permiten clasificar claramente a los cinco analistas:
 
 **Analista 4** destaca por tener una dispersión muy baja (alta repetibilidad) pero un sesgo negativo importante: sus resultados son sistemáticamente bajos en las tres muestras. Es el caso típico de un error de posición del ojo al leer el menisco del butirómetro: alta precisión, baja veracidad. Este analista necesita corrección en la técnica de lectura, no en la consistencia de su procedimiento.
 
-**Analista 5** presenta la situación opuesta: sesgo nulo en promedio, pero una dispersión muy alta. Sus resultados son impredecibles: a veces acertados, a veces muy alejados del valor real. El origen más probable es una técnica irregular: temperatura del baño maría inestable, tiempo de centrifugación variable, o dificultad para homogeneizar la muestra antes del análisis.
+**Analista 5** presenta la situación opuesta: un sesgo medio moderado (−0,11%, que además cambia de signo de una muestra a otra), pero sobre todo una dispersión muy alta. Sus resultados son impredecibles: a veces acertados, a veces muy alejados del valor de referencia. El origen más probable es una técnica irregular: temperatura del baño maría inestable, tiempo de centrifugación variable, o dificultad para homogeneizar la muestra antes del análisis.
 
 ::: {.callout-note}
 ## Dos tipos de error, dos soluciones distintas
@@ -326,11 +321,11 @@ El analista 4 y el analista 5 tienen errores de magnitud comparable, pero de nat
 
 ## Seguimiento temporal del sistema de medición
 
-El estudio GRR que hemos realizado es una fotografía del sistema de medición en un momento concreto. Pero los sistemas de medición no son estáticos: los electrodos de los pHmetros se colmatan progresivamente, los analistas desarrollan hábitos que pueden derivar con el tiempo, los instrumentos pierden calibración. Un laboratorio que solo evalúa su sistema de medición una vez al año puede estar trabajando meses con un sistema degradado sin saberlo.
+El estudio de repetibilidad y sesgo que hemos realizado es una fotografía del sistema de medición en un momento concreto. Pero los sistemas de medición no son estáticos: los electrodos de los pHmetros se colmatan progresivamente, los analistas desarrollan hábitos que pueden derivar con el tiempo, los instrumentos pierden calibración. Un laboratorio que solo evalúa su sistema de medición una vez al año puede estar trabajando meses con un sistema degradado sin saberlo.
 
-La solución es el **seguimiento temporal**: repetir el estudio GRR de forma periódica — mensualmente en el caso del método Gerber — y representar la evolución de los indicadores clave a lo largo del tiempo. Esto convierte el análisis puntual en un sistema de vigilancia continua.
+La solución es el **seguimiento temporal**: repetir el estudio de forma periódica (mensualmente, en el caso del método Gerber) y representar la evolución de los indicadores clave a lo largo del tiempo. Esto convierte el análisis puntual en un sistema de vigilancia continua.
 
-Usamos el dataset `grr_gerber_temporal.csv` que contiene los resultados de 12 meses de control, con 5 analistas, 3 muestras de referencia y 3 repeticiones por combinación (540 observaciones en total). El dataset incluye dos intervenciones: en el mes 4 se corrigió el hábito de lectura del menisco del analista A4, y en el mes 6 se formó al analista A5 en la técnica de agitación.
+Usamos el dataset `grr_gerber_temporal.csv` que contiene los resultados de 12 meses de control, con 5 analistas, 3 muestras de referencia y 3 repeticiones por combinación (540 observaciones en total). Las muestras de referencia, con un 3,4%, un 4,2% y un 5,1% de grasa, son distintas de las del estudio anterior. El dataset incluye dos intervenciones: en el mes 4 se corrigió el hábito de lectura del menisco del analista A4, y en el mes 6 se formó al analista A5 en la técnica de agitación.
 
 ```{r temporal-carga}
 #| code-fold: true
@@ -341,7 +336,7 @@ Usamos el dataset `grr_gerber_temporal.csv` que contiene los resultados de 12 me
 library(tidyverse)
 
 df_t <- read_csv2("datos/grr_gerber_temporal.csv",
-                  locale = locale(decimal_mark = ",")) |>
+                  locale = locale(decimal_mark = ",", encoding = "ISO-8859-1")) |>
     mutate(fecha = dmy(fecha))
 
 cat("Dimensiones:", nrow(df_t), "x", ncol(df_t), "\n")
@@ -350,7 +345,7 @@ cat("Período:", format(min(df_t$fecha), "%b %Y"), "→",
 cat("Analistas:", paste(unique(df_t$analista), collapse = ", "), "\n")
 ```
 
-Calculamos el sesgo y la desviación típica mensual por analista:
+Calculamos cada mes, para cada analista, el sesgo y la desviación típica de repetibilidad. Igual que en el estudio anterior, la desviación típica se calcula dentro de cada muestra y después se promedia, para que las diferencias entre muestras no se confundan con la falta de repetibilidad:
 
 ```{r temporal-calculo}
 #| code-fold: true
@@ -360,10 +355,12 @@ Calculamos el sesgo y la desviación típica mensual por analista:
 
 resumen_t <- df_t |>
     mutate(error = resultado - valor_referencia) |>
+    group_by(mes, fecha, analista, muestra) |>
+    summarise(sesgo_m = mean(error), sd_m = sd(resultado), .groups = "drop") |>
     group_by(mes, fecha, analista) |>
     summarise(
-        sesgo = mean(error),
-        sigma = sd(error),
+        sesgo = mean(sesgo_m),
+        sigma = mean(sd_m),
         .groups = "drop"
     )
 ```
@@ -396,13 +393,15 @@ ggplot(resumen_t, aes(x = fecha, y = sesgo, color = analista)) +
              color = "steelblue", size = 3, hjust = 0) +
     scale_x_date(date_breaks = "1 month", date_labels = "%b") +
     labs(title    = "Evolución del sesgo mensual por analista — Método Gerber",
-         subtitle = "Líneas rojas: tolerancia de sesgo ±0,10% (ISO 2446)",
+         subtitle = "Líneas rojas: tolerancia orientativa de sesgo ±0,10%",
          x = NULL, y = "Sesgo (% MG)", color = "Analista") +
     theme_bw() +
     theme(panel.grid.minor = element_blank())
 ```
 
-El gráfico muestra claramente el sesgo persistente de Analista_4 durante los tres primeros meses (alrededor de −0,35%), bien fuera de la tolerancia ISO. Tras la intervención en abril, el sesgo se corrige y se mantiene dentro de los límites durante el resto del año.
+El gráfico muestra claramente el sesgo persistente de Analista_4 durante los tres primeros meses (alrededor de −0,35%), bien fuera de la tolerancia. Tras la intervención en abril, el sesgo se corrige y se mantiene dentro de los límites durante el resto del año.
+
+El sesgo de Analista_5 también sale de la tolerancia en algunos meses de la primera mitad del año, unas veces por debajo y otras por encima. No es un sesgo sistemático, sino una consecuencia de su alta dispersión: con resultados tan variables, la media de solo nueve análisis fluctúa mucho de un mes a otro.
 
 ### Evolución de la desviación típica de repetibilidad
 
@@ -435,14 +434,14 @@ ggplot(resumen_t, aes(x = fecha, y = sigma, color = analista)) +
     theme(panel.grid.minor = element_blank())
 ```
 
-La sigma elevada de A5 durante los cinco primeros meses (entre 0,20% y 0,28%) indica una técnica de análisis irregular. Tras la formación específica en el mes 6, su repetibilidad mejora notablemente y se mantiene por debajo de la tolerancia.
+La desviación típica elevada de Analista_5 durante los cinco primeros meses (entre 0,18% y 0,29%) indica una técnica de análisis irregular. Tras la formación específica en el mes 6, su repetibilidad mejora notablemente y se mantiene por debajo de la tolerancia.
 
 ::: {.callout-note}
 ## Seguimiento temporal e intervenciones documentadas
 El valor del seguimiento temporal no es solo detectar problemas, sino también **verificar que las intervenciones han sido eficaces** y que la mejora se mantiene en el tiempo. Un laboratorio que solo detecta el problema pero no verifica la corrección puede estar repitiendo el mismo ciclo de degradación y corrección indefinidamente sin saberlo. Los dos gráficos anteriores son exactamente el tipo de evidencia que se presenta en una auditoría de laboratorio para demostrar que el sistema de gestión de la calidad analítica funciona.
 :::
 
-
+## El conocimiento experto y la medida
 
 En muchas queserías tradicionales, la evaluación de la calidad se basa en la experiencia acumulada del quesero: el tacto para reconocer el punto de la cuajada, la vista para evaluar el color del suero, el olfato para detectar una contaminación incipiente. Este conocimiento tácito tiene un valor real e indudable.
 
@@ -452,10 +451,10 @@ El análisis del sistema de medición no pretende sustituir ese conocimiento, si
 
 La combinación del conocimiento experto con la cuantificación sistemática del error es lo que caracteriza a un laboratorio de producción maduro.
 
-![¡Atención a los sesgos!](imagenes/160/SESGO-DE-MUESTREO.png)
+![¡Atención a los sesgos!](imagenes/130/SESGO-DE-MUESTREO.png)
 
 ## Resumen del capítulo
 
 Este capítulo ha introducido los conceptos fundamentales del análisis del sistema de medición aplicados al laboratorio de quesería. La norma ISO 5725-1:2023 distingue entre veracidad (ausencia de sesgo) y precisión (consistencia de los resultados), dos componentes independientes de la exactitud que requieren diagnóstico y solución distintos.
 
-El caso práctico con el método Gerber ha mostrado cómo un estudio sencillo de repetibilidad —cinco analistas, tres muestras, tres repeticiones— permite identificar con claridad dos tipos de problema: el analista con sesgo sistemático pero alta repetibilidad, y el analista sin sesgo pero con alta variabilidad. La visualización con boxplot y puntos individuales superpuestos, combinada con el cálculo del sesgo y la desviación típica de repetibilidad, proporciona las herramientas suficientes para este diagnóstico en un laboratorio de producción.
+El caso práctico con el método Gerber ha mostrado cómo un estudio sencillo de repetibilidad (cinco analistas, tres muestras, tres repeticiones) permite identificar con claridad dos tipos de problema: el analista con sesgo sistemático pero alta repetibilidad, y el analista sin sesgo pero con alta variabilidad. La visualización con boxplot y puntos individuales superpuestos, combinada con el cálculo del sesgo y la desviación típica de repetibilidad, proporciona las herramientas suficientes para este diagnóstico en un laboratorio de producción.
