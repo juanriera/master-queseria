@@ -4,4 +4,4 @@ El objetivo de este libro es facilitar a los alumnos y profesores de Formación 
 
 El contenido debe ser de utilidad para la Formación Profesional Superior, y concretamente para el Curso de especialización de Formación Profesional de Grado Superior en Tecnología y gestión quesera, que con la categoría de máster, se imparte opcionalmente en las escuelas de Formación Profesional a partir de la publicación del [Real Decreto 1092/2024, de 22 de octubre](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-21708).
 
-En este repositorio se encuentran los archivos HTML del sitio web, los datasets utilizados.
+En este repositorio se encuentran los archivos HTML del sitio web, los datasets utilizados y los .qmd originales de la edición en Quarto (https://quarto.org/).
