@@ -1,6 +1,6 @@
 ---
 lang: es
-title: "La relación entre dos variables: correlación y regresion"
+title: "La relación entre dos variables: correlación y regresión"
 code-fold: true
 engine: knitr
 ---
@@ -21,7 +21,7 @@ Al finalizar este capítulo, el alumno será capaz de:
 - Explicar el concepto de correlación y usar el coeficiente de Pearson como medida numérica de la intensidad de la relación lineal.
 - Distinguir entre correlación y causalidad, y reconocer ejemplos de correlación espuria.
 - Interpretar una línea de regresión como resumen de la tendencia en un gráfico de dispersión.
-- Aplicar estos conceptos a datos reales de fabricación de queso.
+- Aplicar estos conceptos a datos reales y reconocer cuándo una correlación global oculta diferencias entre grupos.
 
 Conceptos clave: **correlación, coeficiente de Pearson, causalidad, correlación espuria, regresión lineal, línea de tendencia**.
 :::
@@ -35,7 +35,7 @@ Los bloques de código que generan gráficos complejos aparecen **ocultos por de
 
 En los capítulos anteriores hemos descrito las variables una a una: su distribución, su media, su dispersión. Pero en la práctica industrial, muchas de las preguntas más importantes son sobre la relación entre variables: ¿influye la composición de la leche en el rendimiento quesero? ¿Tiene relación el pH con el extracto seco? ¿Están correlacionadas la materia grasa y la humedad del queso?
 
-El gráfico de dispersión, que ya usamos en el capítulo de análisis del camembert, es la herramienta visual fundamental para explorar estas relaciones. Cada punto representa una observación con sus dos valores, y la forma de la nube de puntos nos dice si hay relación y de qué tipo.
+El gráfico de dispersión, que ya presentamos en el capítulo 5, es la herramienta visual fundamental para explorar estas relaciones. Cada punto representa una observación con sus dos valores, y la forma de la nube de puntos nos dice si hay relación y de qué tipo.
 
 ## El coeficiente de correlación de Pearson
 
@@ -43,20 +43,20 @@ La inspección visual del gráfico de dispersión nos da una idea cualitativa de
 
 $r$ toma valores entre $-1$ y $+1$:
 
-- $r = +1$: correlación positiva perfecta. Cuando una variable sube, la otra sube proporcionalmente siempre.
-- $r = -1$: correlación negativa perfecta. Cuando una variable sube, la otra baja proporcionalmente siempre.
+- $r = +1$: correlación positiva perfecta. Todos los puntos están exactamente sobre una recta de pendiente positiva.
+- $r = -1$: correlación negativa perfecta. Todos los puntos están exactamente sobre una recta de pendiente negativa.
 - $r = 0$: no hay relación lineal entre las variables.
-- Valores intermedios indican correlaciones parciales: cuanto más cerca de $\pm 1$, más intensa la relación.
+- Los valores intermedios indican una relación lineal imperfecta: cuanto más cerca de $\pm 1$, más intensa.
 
-Como referencia práctica, en datos industriales:
+Como referencia orientativa se usa a menudo la escala siguiente; los umbrales son convencionales y varían según el campo:
 
 | Valor de $|r|$ | Interpretación habitual |
 |----------------|------------------------|
-| 0,00 — 0,20 | Correlación muy débil o nula |
-| 0,20 — 0,40 | Correlación débil |
-| 0,40 — 0,60 | Correlación moderada |
-| 0,60 — 0,80 | Correlación fuerte |
-| 0,80 — 1,00 | Correlación muy fuerte |
+| 0,00–0,20 | Correlación muy débil o nula |
+| 0,20–0,40 | Correlación débil |
+| 0,40–0,60 | Correlación moderada |
+| 0,60–0,80 | Correlación fuerte |
+| 0,80–1,00 | Correlación muy fuerte |
 
 Veamos un ejemplo concreto con los pingüinos. La longitud de la aleta y la masa corporal deberían estar relacionadas: los pingüinos más grandes tienen aletas más largas. Calculamos $r$ y visualizamos la relación con la línea de regresión:
 
@@ -141,7 +141,7 @@ El **coeficiente de correlación de Pearson** ($r$) mide la **intensidad y la di
 
 El **coeficiente de determinación** ($R^2$) es simplemente el cuadrado de $r$. Va de 0 a 1 y se interpreta como la **proporción de la variación de una variable que queda explicada por la otra**.
 
-En el gráfico anterior, $r \approx 0{,}87$ y $R^2 \approx 0{,}76$. Esto significa que si tuviéramos que adivinar la masa corporal de un pingüino sin saber nada más, nuestra mejor apuesta sería la media de todos los pingüinos. Pero si además sabemos la longitud de su aleta, podemos hacer una predicción mucho mejor usando la línea de regresión. El $R^2 = 0{,}76$ nos dice que conocer la longitud de la aleta reduce en un 76% el error que cometeríamos si adivinásemos solo con la media. Ese 76% es la "variación explicada" por la longitud de la aleta; el 24% restante se debe a otros factores como la especie, el sexo o la condición corporal individual.
+En el gráfico anterior, $r \approx 0{,}87$ y $R^2 \approx 0{,}76$. Esto significa que si tuviéramos que adivinar la masa corporal de un pingüino sin saber nada más, nuestra mejor apuesta sería la media de todos los pingüinos. Pero si además sabemos la longitud de su aleta, podemos hacer una predicción mucho mejor usando la línea de regresión. El $R^2 = 0{,}76$ nos dice que conocer la longitud de la aleta reduce en un 76% la suma de los cuadrados de los errores que cometeríamos si adivinásemos solo con la media. Ese 76% es la "variación explicada" por la longitud de la aleta; el 24% restante es la variación que la recta no recoge, debida a otros factores como la especie, el sexo, la variación individual o el error de medida.
 
 Excel muestra $R^2$ cuando se añade una línea de tendencia a un gráfico de dispersión. Es habitual ver ambos valores en informes técnicos: $r$ para describir la relación y $R^2$ para cuantificar su poder explicativo.
 
@@ -158,7 +158,7 @@ $$\hat{y} = a + b \cdot x$$
 
 donde $\hat{y}$ es el valor predicho de la variable dependiente (masa corporal), $x$ es el valor de la variable independiente (longitud de aleta), $b$ es la pendiente (cuánto sube la masa corporal por cada milímetro adicional de aleta) y $a$ es la intersección con el eje Y.
 
-La línea se calcula por el método de los **mínimos cuadrados**: se busca la línea que minimiza la suma de los cuadrados de las distancias verticales entre cada punto y la línea. Este criterio garantiza que la línea pase lo más cerca posible de todos los puntos simultáneamente.
+La línea se calcula por el método de los **mínimos cuadrados**: se busca la línea que minimiza la suma de los cuadrados de las distancias verticales entre cada punto y la línea. Al elevar las distancias al cuadrado, las positivas y las negativas no se compensan, y las desviaciones grandes pesan más que las pequeñas.
 
 ::: {.callout-note}
 ## La regresión en Excel
@@ -167,23 +167,24 @@ Excel permite añadir una línea de tendencia a cualquier gráfico de dispersió
 
 ## Correlación no implica causalidad
 
-El coeficiente de correlación mide la intensidad de la asociación estadística entre dos variables, pero no dice nada sobre si una variable *causa* a la otra. Dos variables pueden estar correlacionadas por tres razones distintas:
+El coeficiente de correlación mide la intensidad de la asociación estadística entre dos variables, pero no dice nada sobre si una variable *causa* a la otra. Dos variables pueden estar correlacionadas por cuatro razones distintas:
 
 1. **Causalidad directa:** $x$ causa $y$. Por ejemplo, una mayor concentración de cuajo produce una coagulación más rápida.
-2. **Causa común:** una tercera variable $z$ influye en ambas. Por ejemplo, la temperatura ambiente afecta tanto al extracto seco como a la velocidad de acidificación, creando una correlación entre estas dos aunque no se causen entre sí.
-3. **Coincidencia:** es una correlación espuria, sin ninguna relación causal real.
+2. **Causalidad inversa:** $y$ causa $x$, y no al revés. Por ejemplo, las queserías con más problemas de calidad hacen más análisis microbiológicos: no son los análisis los que causan los problemas, sino al revés.
+3. **Causa común:** una tercera variable $z$ influye en ambas. Por ejemplo, la temperatura ambiente afecta tanto al extracto seco como a la velocidad de acidificación, creando una correlación entre estas dos aunque no se causen entre sí.
+4. **Coincidencia:** es una correlación espuria, sin ninguna relación causal real.
 
-El tercer caso es más frecuente de lo que parece, especialmente cuando se analizan series temporales largas donde muchas variables crecen o decrecen juntas simplemente porque el tiempo avanza.
+Las correlaciones espurias son más frecuentes de lo que parece, sobre todo en series temporales largas, donde muchas variables crecen o decrecen a la vez simplemente porque siguen una tendencia en el tiempo.
 
 ### Ejemplos de correlación espuria
 
 Tyler Vigen ha recopilado en su página web [tylervigen.com/spurious-correlations](https://tylervigen.com/spurious-correlations) miles de correlaciones estadísticamente fuertes entre variables que no tienen ninguna relación causal posible. Dos ejemplos especialmente ilustrativos:
 
-El primero tiene una conexión temática directa con este libro: el consumo de margarina per cápita correlaciona muy fuertemente con el número de divorcios en el estado de Maine (Estados Unidos). Ambas variables han crecido en paralelo durante décadas, pero nadie diría que comer más margarina lleva a divorciarse más.
+El primero tiene una conexión temática directa con este libro: el consumo per cápita de margarina en EE. UU. correlaciona muy fuertemente con la tasa de divorcios en el estado de Maine. Entre 2000 y 2009 ambas variables disminuyeron en paralelo (r = 0,99), pero nadie diría que comer menos margarina reduce los divorcios.
 
-![Correlación espuria entre consumo de margarina y tasa de divorcios en Maine (E.E.U.U.)](imagenes/080/correlacion-espuria-margarina-divorcios.svg)
+![Correlación espuria entre consumo de margarina y tasa de divorcios en Maine (EE. UU.)](imagenes/080/correlacion-espuria-margarina-divorcios.svg)
 
-*Fuente: Tyler Vigen, Spurious Correlations (tylervigen.com). Licencia Creative Commons Attribution.*
+*Fuente: Tyler Vigen, Spurious Correlations (tylervigen.com). Licencia CC BY 4.0.*
 
 El gráfico de dispersión de los mismos datos muestra la nube de puntos, la línea de regresión y el valor de r:
 
@@ -248,11 +249,11 @@ plt.show()
 
 :::
 
-El segundo es el consumo de queso en E.E.U.U., que correlaciona con el número de patentes concedidas en el país. La causa es simplemente que ambas series tienen tendencias temporales similares en el período analizado.
+El segundo es el consumo per cápita de queso americano en EE. UU., que correlaciona con el número total de patentes concedidas en el país. Ambas series crecen con el tiempo, y esa tendencia común basta para producir la correlación.
 
-![Correlación espuria entre consumo de queso y número de patentes concedidas en E.E.U.U.](imagenes/080/correlacion-espuria-queso-patentes.svg)
+![Correlación espuria entre consumo de queso y número de patentes concedidas en EE. UU.](imagenes/080/correlacion-espuria-queso-patentes.svg)
 
-*Fuente: Tyler Vigen, Spurious Correlations (tylervigen.com). Licencia Creative Commons Attribution.*
+*Fuente: Tyler Vigen, Spurious Correlations (tylervigen.com). Licencia CC BY 4.0.*
 
 ::: panel-tabset
 ## R
@@ -261,11 +262,15 @@ El segundo es el consumo de queso en E.E.U.U., que correlaciona con el número d
 #| code-fold: true
 #| code-summary: "Mostrar código"
 #| message: false
-# Datos: USDA / USPTO vía Tyler Vigen, Spurious Correlations (tylervigen.com)
+# Datos: USDA / USPTO (total de patentes concedidas) vía Tyler Vigen, Spurious Correlations (tylervigen.com)
 df_q <- tibble(
-    año      = c(2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021),
-    queso    = c(13.36,13.30,13.04,13.26,13.36,13.67,14.04,14.36,15.09,15.40,15.54,15.50,16.10),
-    patentes = c(46999,48358,50066,51784,53291,55124,56763,57867,59908,62823,65120,63531,70249)
+    año      = 1990:2020,
+    queso    = c(11.13, 11.03, 11.26, 11.31, 11.42, 11.69, 11.81, 11.81, 11.98, 12.70,
+                 12.68, 12.81, 12.83, 12.56, 12.86, 12.65, 13.07, 12.79, 13.13, 13.36,
+                 13.30, 13.04, 13.26, 13.36, 13.67, 14.04, 14.36, 15.09, 15.40, 15.54, 15.50),
+    patentes = c(99077, 106696, 107394, 109746, 113587, 113834, 121696, 124069, 163142, 169085,
+                 175979, 183970, 184375, 187012, 181299, 157718, 196405, 182899, 185224, 191927,
+                 244341, 247713, 276788, 302948, 326032, 325980, 333583, 351403, 339992, 391103, 388900)
 )
 r_q <- cor(df_q$queso, df_q$patentes)
 
@@ -275,11 +280,11 @@ ggplot(df_q, aes(x = queso, y = patentes)) +
     geom_smooth(method = "lm", color = "red", linetype = "dashed",
                 linewidth = 1, se = FALSE) +
     annotate("text", x = min(df_q$queso) + 0.3,
-             y = max(df_q$patentes) - 1500,
+             y = max(df_q$patentes) - 15000,
              label = paste0("r = ", round(r_q, 2)), size = 4) +
     labs(title = "Correlación espuria: queso y patentes",
          x = "Consumo de queso americano (lb per cápita)",
-         y = "Patentes concedidas en EE.UU.") +
+         y = "Patentes concedidas en EE. UU.") +
     theme_bw()
 ```
 
@@ -288,10 +293,14 @@ ggplot(df_q, aes(x = queso, y = patentes)) +
 ```{python espuria-queso-python}
 #| code-fold: true
 #| code-summary: "Mostrar código"
-# Datos: USDA / USPTO vía Tyler Vigen, Spurious Correlations (tylervigen.com)
-años_q   = [2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021]
-queso    = [13.36,13.30,13.04,13.26,13.36,13.67,14.04,14.36,15.09,15.40,15.54,15.50,16.10]
-patentes = [46999,48358,50066,51784,53291,55124,56763,57867,59908,62823,65120,63531,70249]
+# Datos: USDA / USPTO (total de patentes concedidas) vía Tyler Vigen, Spurious Correlations (tylervigen.com)
+años_q   = list(range(1990, 2021))
+queso    = [11.13, 11.03, 11.26, 11.31, 11.42, 11.69, 11.81, 11.81, 11.98, 12.70,
+            12.68, 12.81, 12.83, 12.56, 12.86, 12.65, 13.07, 12.79, 13.13, 13.36,
+            13.30, 13.04, 13.26, 13.36, 13.67, 14.04, 14.36, 15.09, 15.40, 15.54, 15.50]
+patentes = [99077, 106696, 107394, 109746, 113587, 113834, 121696, 124069, 163142, 169085,
+            175979, 183970, 184375, 187012, 181299, 157718, 196405, 182899, 185224, 191927,
+            244341, 247713, 276788, 302948, 326032, 325980, 333583, 351403, 339992, 391103, 388900]
 
 r_q = np.corrcoef(queso, patentes)[0, 1]
 m_q, b_q = np.polyfit(queso, patentes, 1)
@@ -305,7 +314,7 @@ for i, año in enumerate(años_q):
 ax.plot(x_q, m_q * x_q + b_q, color='red', linewidth=1.5,
         linestyle='--', label=f'Regresión (r = {r_q:.2f})')
 ax.set_xlabel("Consumo de queso americano (lb per cápita)")
-ax.set_ylabel("Patentes concedidas en EE.UU.")
+ax.set_ylabel("Patentes concedidas en EE. UU.")
 ax.set_title("Correlación espuria: queso y patentes")
 ax.legend()
 plt.tight_layout()
@@ -314,7 +323,7 @@ plt.show()
 
 :::
 
-Estos ejemplos ilustran una regla fundamental del análisis de datos: **una correlación, por fuerte que sea, no prueba causalidad**. Para establecer una relación causal se necesita un diseño experimental controlado, no solo datos observacionales.
+Estos ejemplos ilustran una regla fundamental del análisis de datos: **una correlación, por fuerte que sea, no prueba causalidad**. La vía más sólida para establecer una relación causal es un diseño experimental controlado; los datos observacionales, por sí solos, rara vez bastan.
 
 ## Correlaciones en los datos de pingüinos
 
@@ -393,10 +402,10 @@ plt.show()
 
 :::
 
-El panel de tres gráficos muestra situaciones muy distintas. La relación entre longitud de aleta y masa corporal es la más fuerte y clara: los pingüinos más grandes tienen aletas más largas. La relación entre dimensiones del pico es más compleja: el coeficiente global puede ser bajo o incluso negativo porque las tres especies tienen patrones diferentes que se mezclan en la nube de puntos. Este es un ejemplo de cómo el coloreado por grupos puede revelar estructura que el coeficiente global oculta.
+El panel de tres gráficos muestra situaciones muy distintas. La relación entre longitud de aleta y masa corporal es la más fuerte y clara: los pingüinos más grandes tienen aletas más largas. La relación entre las dimensiones del pico es más compleja: el coeficiente global es negativo (r = −0,23), aunque dentro de cada especie la relación es positiva (r entre 0,39 y 0,65). Al mezclar tres especies con picos de tamaño y forma distintos, la tendencia global se invierte (paradoja de Simpson). Este es un ejemplo de cómo el coloreado por grupos puede revelar estructura que el coeficiente global oculta.
 
 ## Resumen del capítulo
 
 Este capítulo ha extendido el análisis exploratorio más allá de las variables individuales para explorar las relaciones entre pares de variables. El gráfico de dispersión proporciona la visión cualitativa; el coeficiente de correlación de Pearson la cuantifica en un único número entre $-1$ y $+1$. La línea de regresión resume la tendencia lineal y permite hacer predicciones dentro del rango de los datos.
 
-El mensaje más importante del capítulo es la distinción entre correlación y causalidad: una correlación fuerte, incluso con $r > 0,95$, no prueba que una variable cause a la otra. Los ejemplos espurios de Vigen ilustran con humor que cualquier búsqueda sistemática de correlaciones en bases de datos grandes encontrará asociaciones sin ningún sentido causal. La única forma de establecer causalidad es a través del diseño experimental controlado, que introduciremos en el capítulo dedicado a la introducción al diseño experimental.
+El mensaje más importante del capítulo es la distinción entre correlación y causalidad: una correlación fuerte, incluso con $r > 0,95$, no prueba que una variable cause a la otra. Los ejemplos espurios de Vigen ilustran con humor que cualquier búsqueda sistemática de correlaciones en bases de datos grandes encontrará asociaciones sin ningún sentido causal. La forma más sólida de establecer causalidad es el diseño experimental controlado, que introduciremos en el capítulo 10.

@@ -202,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./080-correlacion-regresion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresión</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -427,23 +427,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="11.2" class="anchored" data-anchor-id="la-audiencia-determina-el-mensaje"><span class="header-section-number">11.2</span> La audiencia determina el mensaje</h2>
 <p>Antes de elegir un gráfico o preparar una presentación, hay que responder una pregunta fundamental: <strong>¿quién va a ver esto y para qué?</strong></p>
 <p>En el entorno industrial hay básicamente tres tipos de audiencia, cada una con necesidades diferentes:</p>
-<p><strong>El equipo de planta</strong> — operarios, técnicos de turno, jefes de línea — necesita información inmediata y accionable. La pregunta que tienen es “¿qué tengo que hacer ahora mismo?”. El gráfico de control en el panel de la línea de producción es para ellos: muestra si el proceso está bajo control o no, sin ambigüedades. No necesitan la distribución t de Student ni los índices de capacidad — necesitan saber si deben intervenir o no.</p>
-<p><strong>El equipo técnico</strong> — responsables de calidad, ingeniería de proceso, laboratorio — necesita entender el análisis en profundidad. La pregunta que tienen es “¿por qué está pasando esto y cómo lo mejoramos?”. Para ellos sí son relevantes los gráficos de correlación, los diagramas de dispersión por trimestre, los gráficos de interacción del diseño de experimentos.</p>
-<p><strong>La dirección</strong> — gerencia, responsables de área — necesita el impacto en negocio. La pregunta que tienen es “¿cuánto cuesta este problema y cuánto ganamos si lo resolvemos?”. Para ellos el análisis estadístico es secundario; lo que importa es la cifra económica y la recomendación clara.</p>
-<p>NotaUna presentación, un mensaje principal</p>
-<p>Un error frecuente es intentar mostrar todo el análisis a todas las audiencias. Una presentación eficaz tiene <strong>un mensaje principal</strong> claramente identificado antes de empezar a preparar ningún gráfico. Todos los elementos visuales deben apoyar ese mensaje. Lo que no apoya el mensaje no debería estar en la presentación — puede estar en un anexo para quien quiera profundizar.</p>
+<p><strong>El equipo de planta</strong> (operarios, técnicos de turno, jefes de línea) necesita información inmediata y accionable. La pregunta que tienen es “¿qué tengo que hacer ahora mismo?”. El gráfico de control en el panel de la línea de producción es para ellos: muestra si el proceso está bajo control o no, sin ambigüedades. No necesitan la distribución t de Student ni los índices de capacidad: necesitan saber si deben intervenir o no.</p>
+<p><strong>El equipo técnico</strong> (responsables de calidad, ingeniería de proceso, laboratorio) necesita entender el análisis en profundidad. La pregunta que tienen es “¿por qué está pasando esto y cómo lo mejoramos?”. Para ellos sí son relevantes los gráficos de correlación, los diagramas de dispersión por trimestre, los gráficos de interacción del diseño de experimentos.</p>
+<p><strong>La dirección</strong> (gerencia, responsables de área) necesita el impacto en negocio. La pregunta que tienen es “¿cuánto cuesta este problema y cuánto ganamos si lo resolvemos?”. Para ellos el análisis estadístico es secundario; lo que importa es la cifra económica y la recomendación clara.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Una presentación, un mensaje principal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un error frecuente es intentar mostrar todo el análisis a todas las audiencias. Una presentación eficaz tiene <strong>un mensaje principal</strong> claramente identificado antes de empezar a preparar ningún gráfico. Todos los elementos visuales deben apoyar ese mensaje. Lo que no apoya el mensaje no debería estar en la presentación; puede ir en un anexo para quien quiera profundizar.</p>
+</div>
+</div>
 </section>
 <section id="los-principios-de-tufte-menos-es-más" class="level2" data-number="11.3">
 <h2 data-number="11.3" class="anchored" data-anchor-id="los-principios-de-tufte-menos-es-más"><span class="header-section-number">11.3</span> Los principios de Tufte: menos es más</h2>
-<p>Edward Tufte es el referente más influyente en visualización de datos. En su obra <em>The Visual Display of Quantitative Information</em> (1983), formuló un principio que sigue siendo completamente vigente: el <strong>ratio datos/tinta</strong> (<em>data-ink ratio</em>).</p>
-<p>La idea es sencilla: cada elemento visual de un gráfico — cada línea, cada color, cada símbolo — ocupa “tinta” (espacio visual). Si ese elemento transmite información real sobre los datos, justifica su presencia. Si no transmite información — si es decoración, relleno o ruido visual — debe eliminarse.</p>
+<p>Edward Tufte es uno de los referentes más influyentes en visualización de datos. En su obra <em>The Visual Display of Quantitative Information</em> (1983), formuló un principio que sigue siendo completamente vigente: la <strong>ratio datos/tinta</strong> (<em>data-ink ratio</em>).</p>
+<p>La idea es sencilla: cada elemento visual de un gráfico (cada línea, cada color, cada símbolo) ocupa “tinta” (espacio visual). Si ese elemento transmite información real sobre los datos, justifica su presencia. Si no transmite información, porque es decoración, relleno o ruido visual, debe eliminarse.</p>
 <p>Tufte llamó “chartjunk” (basura de gráfico) a todos esos elementos decorativos que no aportan información: fondos de cuadrícula demasiado prominentes, sombras en las barras, efectos tridimensionales, degradados de color, iconos decorativos. No solo no añaden información: dificultan activamente la lectura del gráfico.</p>
 <p>Aplicado a los gráficos que hemos construido a lo largo del libro, esto significa:</p>
 <ul>
 <li>Usar <code>theme_bw()</code> o <code>theme_minimal()</code> en ggplot2 en lugar del tema gris por defecto</li>
 <li>Eliminar las líneas de cuadrícula secundarias cuando no añaden información</li>
 <li>No usar colores si no transmiten información adicional (un gráfico de barras de una sola variable no necesita barras de colores diferentes)</li>
-<li>No usar efectos 3D nunca — distorsionan la percepción de las magnitudes</li>
+<li>No usar nunca efectos 3D, porque distorsionan la percepción de las magnitudes</li>
 </ul>
 </section>
 <section id="los-gráficos-a-evitar" class="level2" data-number="11.4">
@@ -455,18 +466,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="los-gráficos-3d" class="level3">
 <h3 class="anchored" data-anchor-id="los-gráficos-3d">Los gráficos 3D</h3>
-<p>Los gráficos 3D son el ejemplo más claro de chartjunk. La tercera dimensión no añade ninguna información — solo distorsión visual. Las barras del fondo parecen más pequeñas que las del frente aunque tengan el mismo valor. La perspectiva hace imposible leer los valores con precisión. Y el efecto es peor en pantalla que en papel, y peor aún proyectado en una sala de reuniones.</p>
+<p>Los gráficos 3D son el ejemplo más claro de chartjunk. La tercera dimensión no añade ninguna información, solo distorsión visual. Las barras del fondo parecen más pequeñas que las del frente aunque tengan el mismo valor. La perspectiva hace imposible leer los valores con precisión. Y el efecto es peor en pantalla que en papel, y peor aún proyectado en una sala de reuniones.</p>
 <p>La regla es simple: <strong>nunca usar gráficos 3D para datos cuantitativos</strong>. Si los datos son en dos dimensiones, el gráfico debe ser en dos dimensiones.</p>
 </section>
 <section id="el-gráfico-de-doble-eje-y" class="level3">
 <h3 class="anchored" data-anchor-id="el-gráfico-de-doble-eje-y">El gráfico de doble eje Y</h3>
 <p>El gráfico con dos ejes Y distintos (uno a la izquierda y otro a la derecha, con escalas diferentes) es engañoso casi por definición. Al poder elegir las escalas libremente, se puede hacer que dos variables que no tienen ninguna relación parezcan perfectamente correlacionadas, o que dos variables muy relacionadas parezcan independientes. Es exactamente el truco visual que Tyler Vigen usa en sus correlaciones espurias que vimos en el capítulo de correlación.</p>
-<p>Si necesitas mostrar dos variables en el mismo gráfico, usa dos gráficos separados con el mismo eje X — el lector puede compararlos visualmente sin que la escala le engañe.</p>
+<p>Si necesitas mostrar dos variables en el mismo gráfico, usa dos gráficos separados con el mismo eje X: el lector puede compararlos visualmente sin que la escala le engañe.</p>
 </section>
 </section>
 <section id="qué-gráfico-usar-recursos-de-referencia" class="level2" data-number="11.5">
 <h2 data-number="11.5" class="anchored" data-anchor-id="qué-gráfico-usar-recursos-de-referencia"><span class="header-section-number">11.5</span> ¿Qué gráfico usar? Recursos de referencia</h2>
-<p>Elegir el tipo de gráfico correcto no siempre es obvio. El <strong>Visual Vocabulary</strong> del Financial Times (<a href="https://ft-interactive.github.io/visual-vocabulary/">ft-interactive.github.io/visual-vocabulary</a>) es una de las mejores referencias disponibles: organiza los tipos de gráfico según el tipo de comparación que se quiere hacer — distribución, correlación, cambio temporal, desviación, parte de un todo — y para cada categoría muestra ejemplos visuales con una breve descripción de cuándo usarlos. Es un recurso de consulta rápida especialmente útil cuando no tenemos claro qué tipo de gráfico comunicará mejor un resultado concreto.</p>
+<p>Elegir el tipo de gráfico correcto no siempre es obvio. El <strong>Visual Vocabulary</strong> del Financial Times (<a href="https://ft-interactive.github.io/visual-vocabulary/">ft-interactive.github.io/visual-vocabulary</a>) es una de las mejores referencias disponibles: organiza los tipos de gráfico según el tipo de comparación que se quiere hacer (distribución, correlación, cambio temporal, desviación, parte de un todo) y, para cada categoría muestra ejemplos visuales con una breve descripción de cuándo usarlos. Es un recurso de consulta rápida especialmente útil cuando no tenemos claro qué tipo de gráfico comunicará mejor un resultado concreto.</p>
 <p>Una versión similar pero más orientada a la implementación en R es el <a href="https://r-graph-gallery.com/">R Graph Gallery</a>, que muestra cientos de tipos de gráficos con el código R necesario para reproducirlos.</p>
 </section>
 <section id="ejemplos-comparativos-el-gráfico-incorrecto-y-el-gráfico-correcto" class="level2" data-number="11.6">
@@ -502,9 +513,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">fct_reorder</span>(species, n)) <span class="sc">|&gt;</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> n, <span class="at">y =</span> species)) <span class="sc">+</span></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(pct, <span class="dv">1</span>), <span class="st">"%"</span>)),</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">format</span>(<span class="fu">round</span>(pct, <span class="dv">1</span>), <span class="at">decimal.mark =</span> <span class="st">","</span>), <span class="st">"%"</span>)),</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>              <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.2</span>, <span class="at">size =</span> <span class="fl">3.5</span>) <span class="sc">+</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">175</span>) <span class="sc">+</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">190</span>) <span class="sc">+</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"✓ Barras horizontales"</span>,</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"La diferencia es inmediatamente visible"</span>,</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Número de individuos"</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
@@ -526,46 +537,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="ejemplo-2-color-innecesario-vs.-color-con-propósito" class="level3">
 <h3 class="anchored" data-anchor-id="ejemplo-2-color-innecesario-vs.-color-con-propósito">Ejemplo 2: color innecesario vs.&nbsp;color con propósito</h3>
-<p>Usar colores diferentes para cada barra cuando todas representan la misma variable sugiere falsamente que las categorías son distintas. Si queremos destacar algo específico — por ejemplo, el mes en que hubo una incidencia — el color tiene propósito:</p>
+<p>Usar colores diferentes para cada barra cuando todas representan la misma variable sugiere falsamente que las categorías son distintas. Si queremos destacar algo específico, por ejemplo el mes en que hubo una incidencia, el color tiene propósito:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos de ejemplo: goles por jornada (primeras 10 jornadas de La Liga)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>jornadas <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">jornada =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">goles   =</span> <span class="fu">c</span>(<span class="dv">28</span>, <span class="dv">25</span>, <span class="dv">31</span>, <span class="dv">22</span>, <span class="dv">35</span>, <span class="dv">24</span>, <span class="dv">29</span>, <span class="dv">27</span>, <span class="dv">33</span>, <span class="dv">26</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Goles por partido en cada mes de La Liga 2024-25</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>meses <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/laliga_resultados2425.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">mes =</span> <span class="fu">floor_date</span>(<span class="fu">dmy</span>(fecha), <span class="st">"month"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(mes) <span class="sc">|&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">goles =</span> <span class="fu">mean</span>(goles_local <span class="sc">+</span> goles_visitante)) <span class="sc">|&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">mes_txt =</span> <span class="fu">factor</span>(<span class="fu">format</span>(mes, <span class="st">"%m/%y"</span>), <span class="at">levels =</span> <span class="fu">format</span>(mes, <span class="st">"%m/%y"</span>)))</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico incorrecto: un color por barra sin motivo</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>p_malo2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(jornadas, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(jornada), <span class="at">y =</span> goles,</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">fill =</span> <span class="fu">factor</span>(jornada))) <span class="sc">+</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"❌ Color decorativo"</span>,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"¿Qué información añaden los colores?"</span>,</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Jornada"</span>, <span class="at">y =</span> <span class="st">"Goles totales"</span>) <span class="sc">+</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>))</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico correcto: un color, destacando el máximo</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>p_bueno2 <span class="ot">&lt;-</span> jornadas <span class="sc">|&gt;</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">destacar =</span> goles <span class="sc">==</span> <span class="fu">max</span>(goles)) <span class="sc">|&gt;</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(jornada), <span class="at">y =</span> goles, <span class="at">fill =</span> destacar)) <span class="sc">+</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"FALSE"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"TRUE"</span> <span class="ot">=</span> <span class="st">"tomato"</span>)) <span class="sc">+</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">5</span>, <span class="at">y =</span> <span class="fl">36.5</span>, <span class="at">label =</span> <span class="st">"Máximo de la serie"</span>,</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"tomato"</span>, <span class="at">size =</span> <span class="fl">3.5</span>) <span class="sc">+</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"✓ Color con propósito"</span>,</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"El color destaca el valor relevante"</span>,</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Jornada"</span>, <span class="at">y =</span> <span class="st">"Goles totales"</span>) <span class="sc">+</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>))</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>p_malo2 <span class="sc">+</span> p_bueno2</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>p_malo2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(meses, <span class="fu">aes</span>(<span class="at">x =</span> mes_txt, <span class="at">y =</span> goles, <span class="at">fill =</span> mes_txt)) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"❌ Color decorativo"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"¿Qué información añaden los colores?"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Mes"</span>, <span class="at">y =</span> <span class="st">"Goles por partido"</span>) <span class="sc">+</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>))</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico correcto: un color, destacando el máximo</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>p_bueno2 <span class="ot">&lt;-</span> meses <span class="sc">|&gt;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">destacar =</span> goles <span class="sc">==</span> <span class="fu">max</span>(goles)) <span class="sc">|&gt;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mes_txt, <span class="at">y =</span> goles, <span class="at">fill =</span> destacar)) <span class="sc">+</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"FALSE"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"TRUE"</span> <span class="ot">=</span> <span class="st">"tomato"</span>)) <span class="sc">+</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fu">which.max</span>(meses<span class="sc">$</span>goles), <span class="at">y =</span> <span class="fu">max</span>(meses<span class="sc">$</span>goles) <span class="sc">+</span> <span class="fl">0.15</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"Máximo de la temporada"</span>, <span class="at">color =</span> <span class="st">"tomato"</span>, <span class="at">size =</span> <span class="fl">3.5</span>) <span class="sc">+</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"✓ Color con propósito"</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"El color destaca el valor relevante"</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Mes"</span>, <span class="at">y =</span> <span class="st">"Goles por partido"</span>) <span class="sc">+</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>))</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>p_malo2 <span class="sc">+</span> p_bueno2</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -638,7 +648,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>Distribución de una variable</td>
 <td>Histograma, boxplot, densidad</td>
-<td>Flipper length de los pingüinos</td>
+<td>Longitud de aleta de los pingüinos</td>
 </tr>
 <tr class="even">
 <td>Evolución temporal</td>
@@ -648,7 +658,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td>Comparación entre grupos</td>
 <td>Boxplot, barras con error</td>
-<td>Masa corporal por especie de pingüino</td>
+<td>Longitud de aleta por especie</td>
 </tr>
 <tr class="even">
 <td>Relación entre dos variables</td>
@@ -672,7 +682,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="el-color-como-información-no-como-decoración" class="level2" data-number="11.7">
 <h2 data-number="11.7" class="anchored" data-anchor-id="el-color-como-información-no-como-decoración"><span class="header-section-number">11.7</span> El color como información, no como decoración</h2>
-<p>El color es uno de los recursos visuales más potentes y más mal utilizados. En un gráfico bien diseñado, el color transmite información específica: diferentes series, diferentes grupos, una escala de intensidad. En un gráfico mal diseñado, el color es pura decoración — barras de colores diferentes aunque todas representen la misma variable, gradientes sin significado, paletas llamativas que dificultan la lectura.</p>
+<p>El color es uno de los recursos visuales más potentes y más mal utilizados. En un gráfico bien diseñado, el color transmite información específica: diferentes series, diferentes grupos, una escala de intensidad. En un gráfico mal diseñado, el color es pura decoración: barras de colores diferentes aunque todas representen la misma variable, gradientes sin significado, paletas llamativas que dificultan la lectura.</p>
 <p>Algunas reglas prácticas:</p>
 <p><strong>Una variable, un color.</strong> Si tienes un gráfico de barras con los resultados mensuales de una sola variable, todas las barras deben ser del mismo color. Usar colores diferentes para cada mes sugiere que los meses son categorías distintas, lo que confunde al lector.</p>
 <p><strong>El color para destacar, no para decorar.</strong> Si quieres llamar la atención sobre un valor específico (el mes en que el proceso falló, el período fuera de control), usa un color diferente solo para ese elemento. El contraste entre el elemento destacado y el resto en color neutro comunica inmediatamente dónde debe mirar el lector.</p>
@@ -681,11 +691,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="de-los-gráficos-del-libro-a-la-comunicación-real" class="level2" data-number="11.8">
 <h2 data-number="11.8" class="anchored" data-anchor-id="de-los-gráficos-del-libro-a-la-comunicación-real"><span class="header-section-number">11.8</span> De los gráficos del libro a la comunicación real</h2>
-<p>A lo largo del libro hemos construido muchos gráficos con propósito analítico — para explorar los datos, detectar patrones, verificar supuestos. Esos gráficos son para nosotros, no para la audiencia. Antes de presentarlos, necesitan una revisión editorial:</p>
+<p>A lo largo del libro hemos construido muchos gráficos con propósito analítico: para explorar los datos, detectar patrones, verificar supuestos. Esos gráficos son para nosotros, no para la audiencia. Antes de presentarlos, necesitan una revisión editorial:</p>
 <section id="el-histograma-de-exploración-vs-el-histograma-de-comunicación" class="level3">
 <h3 class="anchored" data-anchor-id="el-histograma-de-exploración-vs-el-histograma-de-comunicación">El histograma de exploración vs el histograma de comunicación</h3>
 <p>Cuando cargamos un dataset nuevo y hacemos un histograma para ver la distribución, el gráfico tiene ejes automáticos, título genérico y ninguna anotación. Es suficiente para explorar. Para comunicar, el mismo histograma necesita: un título que diga exactamente qué muestra, etiquetas de eje con unidades, y posiblemente una línea vertical indicando el objetivo o límite relevante.</p>
-<p>Comparemos los dos enfoques con la distribución del peso de los pingüinos Gentoo, que usamos en el capítulo de distribuciones:</p>
+<p>Comparemos los dos enfoques con la distribución de la longitud de aleta de los pingüinos Gentoo, que usamos en el capítulo de distribuciones:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -694,11 +704,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Versión de exploración: rápida, sin pulir</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> body_mass_g)) <span class="sc">+</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm)) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Masa corporal — Gentoo"</span>,</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Masa corporal (g)"</span>, <span class="at">y =</span> <span class="st">"Frecuencia"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Longitud de aleta — Gentoo"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Longitud de aleta (mm)"</span>, <span class="at">y =</span> <span class="st">"Frecuencia"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -711,23 +721,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>, <span class="sc">!</span><span class="fu">is.na</span>(body_mass_g))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>media_g <span class="ot">&lt;-</span> <span class="fu">mean</span>(gentoo<span class="sc">$</span>body_mass_g)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gentoo <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span> <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>, <span class="sc">!</span><span class="fu">is.na</span>(flipper_length_mm))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>media_g <span class="ot">&lt;-</span> <span class="fu">mean</span>(gentoo<span class="sc">$</span>flipper_length_mm)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Versión de comunicación: orientada al mensaje</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>gentoo <span class="sc">|&gt;</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> body_mass_g)) <span class="sc">+</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm)) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">15</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> media_g, <span class="at">color =</span> <span class="st">"red"</span>,</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> media_g <span class="sc">+</span> <span class="dv">120</span>, <span class="at">y =</span> <span class="dv">18</span>,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"Media: "</span>, <span class="fu">round</span>(media_g), <span class="st">" g"</span>),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> media_g <span class="sc">+</span> <span class="fl">0.5</span>, <span class="at">y =</span> <span class="cn">Inf</span>, <span class="at">vjust =</span> <span class="dv">2</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"Media: "</span>, <span class="fu">format</span>(<span class="fu">round</span>(media_g, <span class="dv">1</span>), <span class="at">decimal.mark =</span> <span class="st">","</span>), <span class="st">" mm"</span>),</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title    =</span> <span class="st">"Distribución de la masa corporal — pingüinos Gentoo"</span>,</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">"n = "</span>, <span class="fu">nrow</span>(gentoo), <span class="st">" individuos. Isla Palmer, Antártida"</span>),</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">x        =</span> <span class="st">"Masa corporal (g)"</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title    =</span> <span class="st">"Distribución de la longitud de aleta — pingüinos Gentoo"</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">"n = "</span>, <span class="fu">nrow</span>(gentoo), <span class="st">" individuos. Isla Biscoe, archipiélago Palmer (Antártida)"</span>),</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">x        =</span> <span class="st">"Longitud de aleta (mm)"</span>,</span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">y        =</span> <span class="st">"Número de individuos"</span>,</span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">caption  =</span> <span class="st">"Fuente: Horst AM et al. (2020). palmerpenguins R package."</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -739,95 +749,82 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>La diferencia no está en el tipo de gráfico — es el mismo histograma — sino en los elementos que orientan al lector: el título descriptivo, el subtítulo con contexto, la línea de la media anotada, las etiquetas de eje con unidades, y la fuente de los datos.</p>
+<p>La diferencia no está en el tipo de gráfico (es el mismo histograma), sino en los elementos que orientan al lector: el título descriptivo, el subtítulo con contexto, la línea de la media anotada, las etiquetas de eje con unidades, y la fuente de los datos.</p>
 </section>
 <section id="el-gráfico-de-control-para-el-panel-de-planta" class="level3">
 <h3 class="anchored" data-anchor-id="el-gráfico-de-control-para-el-panel-de-planta">El gráfico de control para el panel de planta</h3>
-<p>El gráfico de control del proceso de llenado de yogures que construimos en el capítulo de SPC tenía todos los elementos necesarios para el análisis: límites de control, puntos fuera de límites marcados, título. Para un panel de planta, habría que añadir: el valor objetivo, la referencia al límite legal (T1 del RD 1801/2008), y una zona sombreada de advertencia entre los límites internos de proceso y el límite legal.</p>
+<p>El gráfico de control del proceso de llenado de yogures que construimos en el capítulo de SPC tenía todos los elementos necesarios para el análisis: límites de control, puntos fuera de límites marcados, título. Para un panel de planta, habría que añadir unas zonas coloreadas que indiquen de un vistazo si el proceso está en zona normal, de advertencia o fuera de control, y las etiquetas con el valor de cada línea.</p>
 <p>La diferencia clave entre un gráfico de análisis y un gráfico de panel de planta es que el panel de planta tiene que ser <strong>autoexplicativo para alguien que no ha visto el análisis</strong>. Tiene que responder por sí solo las preguntas: ¿qué se está midiendo?, ¿cuál es el objetivo?, ¿estamos dentro o fuera?, ¿qué hay que hacer si estamos fuera?</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos el dataset de muestreo de yogures (Fase I: proceso estable)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Muestreo de yogures del turno del 1 de octubre (capítulo 9)</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>df_m <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/llenado_yogures_muestra.csv"</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>))</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculamos medias y límites de control sobre Fase I (primeros 17 subgrupos)</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>fase1 <span class="ot">&lt;-</span> df_m <span class="sc">|&gt;</span> <span class="fu">filter</span>(muestra <span class="sc">&lt;=</span> <span class="dv">17</span>)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>media_ref  <span class="ot">&lt;-</span> <span class="fu">mean</span>(fase1<span class="sc">$</span>peso_g)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>sigma_ref  <span class="ot">&lt;-</span> <span class="fu">sd</span>(fase1<span class="sc">$</span>peso_g)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>UCL <span class="ot">&lt;-</span> media_ref <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> sigma_ref</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>LCL <span class="ot">&lt;-</span> media_ref <span class="sc">-</span> <span class="dv">3</span> <span class="sc">*</span> sigma_ref</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>UWL <span class="ot">&lt;-</span> media_ref <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> sigma_ref   <span class="co"># límite de advertencia superior</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>LWL <span class="ot">&lt;-</span> media_ref <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> sigma_ref   <span class="co"># límite de advertencia inferior</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>T1  <span class="ot">&lt;-</span> <span class="fl">143.2</span>                        <span class="co"># límite legal RD 1801/2008</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Medias por subgrupo</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>medias_sg <span class="ot">&lt;-</span> df_m <span class="sc">|&gt;</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(muestra) <span class="sc">|&gt;</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(peso_g), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">fuera_control =</span> media <span class="sc">&gt;</span> UCL <span class="sc">|</span> media <span class="sc">&lt;</span> LCL)</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(medias_sg, <span class="fu">aes</span>(<span class="at">x =</span> muestra, <span class="at">y =</span> media)) <span class="sc">+</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Zona de advertencia (entre 2σ y 3σ)</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">xmax =</span> <span class="cn">Inf</span>,</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>             <span class="at">ymin =</span> LCL, <span class="at">ymax =</span> LWL,</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">alpha =</span> <span class="fl">0.15</span>) <span class="sc">+</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">xmax =</span> <span class="cn">Inf</span>,</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>             <span class="at">ymin =</span> UWL, <span class="at">ymax =</span> UCL,</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">alpha =</span> <span class="fl">0.15</span>) <span class="sc">+</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Zona fuera de control</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">xmax =</span> <span class="cn">Inf</span>,</span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>             <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> LCL,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Medias por subgrupo, con la hora de inicio de cada subgrupo</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>medias_sg <span class="ot">&lt;-</span> df_m <span class="sc">|&gt;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(muestra) <span class="sc">|&gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">hora =</span> <span class="fu">min</span>(hora_envasado), <span class="at">media =</span> <span class="fu">mean</span>(peso_g), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Límites calculados con la Fase I (primeros 10 subgrupos, de 08:00 a 08:30).</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Como dibujamos medias de 5 envases, la desviación típica se divide por raíz de 5.</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>fase1     <span class="ot">&lt;-</span> df_m <span class="sc">|&gt;</span> <span class="fu">filter</span>(muestra <span class="sc">&lt;=</span> <span class="dv">10</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>media_ref <span class="ot">&lt;-</span> <span class="fu">mean</span>(fase1<span class="sc">$</span>peso_g)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>sigma_med <span class="ot">&lt;-</span> <span class="fu">sd</span>(fase1<span class="sc">$</span>peso_g) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">5</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>UCL <span class="ot">&lt;-</span> media_ref <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> sigma_med</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>LCL <span class="ot">&lt;-</span> media_ref <span class="sc">-</span> <span class="dv">3</span> <span class="sc">*</span> sigma_med</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>UWL <span class="ot">&lt;-</span> media_ref <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> sigma_med   <span class="co"># límite de advertencia superior</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>LWL <span class="ot">&lt;-</span> media_ref <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> sigma_med   <span class="co"># límite de advertencia inferior</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>medias_sg <span class="ot">&lt;-</span> medias_sg <span class="sc">|&gt;</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">fuera_control =</span> media <span class="sc">&gt;</span> UCL <span class="sc">|</span> media <span class="sc">&lt;</span> LCL)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>x_fin <span class="ot">&lt;-</span> <span class="fu">max</span>(medias_sg<span class="sc">$</span>hora)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(medias_sg, <span class="fu">aes</span>(<span class="at">x =</span> hora, <span class="at">y =</span> media)) <span class="sc">+</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Zonas de advertencia (entre 2σ y 3σ)</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">xmax =</span> <span class="cn">Inf</span>, <span class="at">ymin =</span> LCL, <span class="at">ymax =</span> LWL,</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">alpha =</span> <span class="fl">0.15</span>) <span class="sc">+</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">xmax =</span> <span class="cn">Inf</span>, <span class="at">ymin =</span> UWL, <span class="at">ymax =</span> UCL,</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"orange"</span>, <span class="at">alpha =</span> <span class="fl">0.15</span>) <span class="sc">+</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Zonas fuera de control (más allá de 3σ)</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">xmax =</span> <span class="cn">Inf</span>, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> LCL,</span>
 <span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">xmax =</span> <span class="cn">Inf</span>,</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>             <span class="at">ymin =</span> UCL, <span class="at">ymax =</span> <span class="cn">Inf</span>,</span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Límite legal T1</span></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> T1, <span class="at">color =</span> <span class="st">"darkred"</span>,</span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">2</span>, <span class="at">y =</span> T1 <span class="sc">+</span> <span class="fl">0.15</span>,</span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"Límite legal T1 (RD 1801/2008)"</span>,</span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"darkred"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Líneas de control</span></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> UCL, <span class="at">color =</span> <span class="st">"red"</span>,</span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> LCL, <span class="at">color =</span> <span class="st">"red"</span>,</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> UWL, <span class="at">color =</span> <span class="st">"orange"</span>,</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> LWL, <span class="at">color =</span> <span class="st">"orange"</span>,</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> media_ref, <span class="at">color =</span> <span class="st">"darkgreen"</span>,</span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Anotaciones de las líneas</span></span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">163</span>, <span class="at">y =</span> UCL <span class="sc">+</span> <span class="fl">0.1</span>,</span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"LSC ("</span>, <span class="fu">round</span>(UCL, <span class="dv">1</span>), <span class="st">" g)"</span>),</span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">2.8</span>, <span class="at">hjust =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">163</span>, <span class="at">y =</span> LCL <span class="sc">-</span> <span class="fl">0.1</span>,</span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"LIC ("</span>, <span class="fu">round</span>(LCL, <span class="dv">1</span>), <span class="st">" g)"</span>),</span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">2.8</span>, <span class="at">hjust =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">163</span>, <span class="at">y =</span> media_ref <span class="sc">+</span> <span class="fl">0.1</span>,</span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"Objetivo ("</span>, <span class="fu">round</span>(media_ref, <span class="dv">1</span>), <span class="st">" g)"</span>),</span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">size =</span> <span class="fl">2.8</span>, <span class="at">hjust =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Puntos</span></span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">linewidth =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> fuera_control), <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"FALSE"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"TRUE"</span> <span class="ot">=</span> <span class="st">"red"</span>),</span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>                       <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">160</span>, <span class="dv">20</span>)) <span class="sc">+</span></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>        <span class="at">title    =</span> <span class="st">"Control de peso — Línea de yogures 150 g"</span>,</span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>        <span class="at">subtitle =</span> <span class="st">"Zona naranja: advertencia (±2σ)  |  Zona roja: fuera de control (±3σ)  |  Puntos rojos: señal de alarma"</span>,</span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>        <span class="at">x        =</span> <span class="st">"Subgrupo (muestreo cada 3 min)"</span>,</span>
-<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>        <span class="at">y        =</span> <span class="st">"Peso medio del subgrupo (g)"</span>,</span>
-<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption  =</span> <span class="st">"LSC/LIC: límites de control superior/inferior  |  T1: límite legal de envase defectuoso"</span></span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">xmax =</span> <span class="cn">Inf</span>, <span class="at">ymin =</span> UCL, <span class="at">ymax =</span> <span class="cn">Inf</span>,</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Líneas de control y de referencia</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(UCL, LCL), <span class="at">color =</span> <span class="st">"red"</span>,</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(UWL, LWL), <span class="at">color =</span> <span class="st">"orange"</span>,</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>               <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">linewidth =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> media_ref, <span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Etiquetas con el valor de cada línea</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> x_fin, <span class="at">y =</span> UCL, <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.4</span>, <span class="at">hjust =</span> <span class="dv">1</span>,</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"LSC ("</span>, <span class="fu">format</span>(<span class="fu">round</span>(UCL, <span class="dv">1</span>), <span class="at">decimal.mark =</span> <span class="st">","</span>), <span class="st">" g)"</span>),</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">2.8</span>) <span class="sc">+</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> x_fin, <span class="at">y =</span> LCL, <span class="at">vjust =</span> <span class="fl">1.4</span>, <span class="at">hjust =</span> <span class="dv">1</span>,</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"LIC ("</span>, <span class="fu">format</span>(<span class="fu">round</span>(LCL, <span class="dv">1</span>), <span class="at">decimal.mark =</span> <span class="st">","</span>), <span class="st">" g)"</span>),</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">2.8</span>) <span class="sc">+</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> x_fin, <span class="at">y =</span> media_ref, <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.4</span>, <span class="at">hjust =</span> <span class="dv">1</span>,</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"Referencia ("</span>, <span class="fu">format</span>(<span class="fu">round</span>(media_ref, <span class="dv">1</span>), <span class="at">decimal.mark =</span> <span class="st">","</span>), <span class="st">" g)"</span>),</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"darkgreen"</span>, <span class="at">size =</span> <span class="fl">2.8</span>) <span class="sc">+</span></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Puntos</span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">linewidth =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> fuera_control), <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"FALSE"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"TRUE"</span> <span class="ot">=</span> <span class="st">"red"</span>),</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>                       <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>        <span class="at">title    =</span> <span class="st">"Control de peso — Línea de yogures 150 g — Turno del 1 de octubre"</span>,</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>        <span class="at">subtitle =</span> <span class="st">"Zona naranja: advertencia (±2σ)  |  Zona roja: fuera de control (±3σ)  |  Puntos rojos: señal de alarma"</span>,</span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>        <span class="at">x        =</span> <span class="st">"Hora (un subgrupo de 5 envases cada 3 min)"</span>,</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>        <span class="at">y        =</span> <span class="st">"Peso medio del subgrupo (g)"</span>,</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption  =</span> <span class="st">"LSC/LIC: límites de control superior/inferior  |  Referencia: media del período estable (08:00-08:30)"</span></span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -837,7 +834,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>El gráfico añade tres elementos respecto al gráfico de análisis del capítulo SPC: las zonas coloreadas de advertencia (naranja) y fuera de control (rojo) que permiten leer el estado del proceso de un vistazo, el límite legal T1 como referencia externa, y las etiquetas con los valores numéricos de cada línea para que el operario sepa exactamente cuándo actuar.</p>
+<p>El gráfico añade dos elementos respecto al gráfico de análisis del capítulo 9: las zonas coloreadas de advertencia (naranja) y fuera de control (rojo), que permiten leer el estado del proceso de un vistazo, y las etiquetas con el valor de cada línea, para que el operario sepa exactamente cuándo actuar.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>¿Por qué no dibujamos el límite legal T1?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>T1 se aplica a cada envase, no a la media de 5 envases. Una media puede quedar muy por encima de T1 aunque uno de sus envases esté por debajo. Por eso T1 no debe dibujarse en un gráfico de medias: daría una falsa sensación de seguridad. Su lugar es un gráfico de pesos individuales o un histograma, como el del capítulo 9.</p>
+</div>
+</div>
 <p>Un ejemplo brillante de la aplicación del color y el diseño es el que presentan <a href="https://www.linkedin.com/in/yan-holtz-2477534a/">Yan Holtz</a> y <a href="https://www.linkedin.com/in/cedscherer/">Cédric Scherer</a> en su sitio web <a href="https://www.ggplot2-uncharted.com/">ggplot-uncharted</a>, para explicar la relación de la ratio de estudiantes por maestro en el mundo:</p>
 <div id="fig-media-holtz" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
@@ -872,10 +882,10 @@ Figura&nbsp;11.1: Ejemplo del uso del color y el diseño para mejorar un gráfic
 <section id="organizar-una-presentación-de-resultados" class="level2" data-number="11.9">
 <h2 data-number="11.9" class="anchored" data-anchor-id="organizar-una-presentación-de-resultados"><span class="header-section-number">11.9</span> Organizar una presentación de resultados</h2>
 <p>Tanto si es un panel en la pared de la planta como una presentación en PowerPoint para dirección, la estructura efectiva sigue el mismo principio: <strong>mensaje antes que evidencia</strong>.</p>
-<p>El error más frecuente es organizar la presentación en el orden en que se hizo el análisis: primero los datos brutos, luego la exploración, luego el análisis, y al final la conclusión. Para el analista tiene sentido — así fue el proceso. Para la audiencia es agotador: tienen que esperar hasta el final para saber de qué va todo.</p>
+<p>El error más frecuente es organizar la presentación en el orden en que se hizo el análisis: primero los datos brutos, luego la exploración, luego el análisis, y al final la conclusión. Para el analista tiene sentido, porque así fue el proceso. Para la audiencia es agotador: tienen que esperar hasta el final para saber de qué va todo.</p>
 <p>La estructura efectiva invierte ese orden:</p>
 <ol type="1">
-<li><strong>El mensaje principal</strong> — una frase, en la primera diapositiva o en el encabezado del panel. “El proceso de llenado cumple el RD 1801/2008 en condiciones normales, pero no cuando hay derivas de más de 30 minutos.”</li>
+<li><strong>El mensaje principal</strong> — una frase, en la primera diapositiva o en el encabezado del panel. “El proceso de llenado es capaz, pero dos incidentes del turno del 1 de octubre dejaron envases por debajo de T2, y el lote no es conforme con el RD 1801/2008.”</li>
 <li><strong>La evidencia clave</strong> — uno o dos gráficos que demuestran el mensaje. No todos los gráficos del análisis, solo los que demuestran lo que se está afirmando.</li>
 <li><strong>La recomendación</strong> — qué hay que hacer. Concreta, asignable, con plazo si es posible.</li>
 <li><strong>El detalle</strong> — en un anexo, para quien quiera verificar el análisis completo.</li>
@@ -900,16 +910,16 @@ Figura&nbsp;11.1: Ejemplo del uso del color y el diseño para mejorar un gráfic
 <p>En el capítulo dedicado a las herramientas de análisis vimos en detalle las limitaciones de la hoja de cálculo para el análisis reproducible: las fórmulas ocultas en las celdas dificultan la auditoría, los informes no se pueden regenerar automáticamente cuando los datos cambian, y el conocimiento queda atrapado en ficheros que nadie más entiende. Aquí retomamos ese argumento desde la perspectiva de la comunicación: no basta con hacer un buen análisis y presentarlo bien, hay que asegurarse de que ese análisis sea verificable y actualizable.</p>
 <section id="la-alternativa-el-informe-reproducible" class="level3">
 <h3 class="anchored" data-anchor-id="la-alternativa-el-informe-reproducible">La alternativa: el informe reproducible</h3>
-<p>Un <strong>informe reproducible</strong> es un documento en el que el texto, los cálculos y los gráficos están escritos en el mismo fichero, en código visible. Cuando los datos cambian, basta con regenerar el documento — todo se recalcula y se redibuja automáticamente, sin intervención manual.</p>
-<p>El libro que estás leyendo es un ejemplo: está escrito en <strong>Quarto</strong>, una herramienta de código abierto que combina texto en formato Markdown con código en R o Python. Cada gráfico del libro se genera a partir del código que aparece junto a él. Si los datos cambian, el gráfico cambia. Si hay un error en el cálculo, está visible en el código y cualquiera puede encontrarlo y corregirlo.</p>
+<p>Un <strong>informe reproducible</strong> es un documento en el que el texto, los cálculos y los gráficos están escritos en el mismo fichero, en código visible. Cuando los datos cambian, basta con regenerar el documento: todo se recalcula y se redibuja automáticamente, sin intervención manual.</p>
+<p>El libro que estás leyendo es un ejemplo: está escrito en <strong>Quarto</strong>, una herramienta de código abierto que combina texto en formato Markdown con código en R o Python. Casi todos los gráficos del libro se generan a partir del código que aparece junto a ellos. Si los datos cambian, el gráfico cambia. Si hay un error en el cálculo, está visible en el código y cualquiera puede encontrarlo y corregirlo.</p>
 <p>Quarto puede generar documentos en múltiples formatos a partir del mismo fichero fuente: HTML para publicar en web, PDF para imprimir, Word para compartir con quien no tiene acceso al sistema. Un mismo informe mensual puede entregarse en los tres formatos sin trabajo adicional.</p>
 </section>
 <section id="código-abierto-vs.-herramientas-propietarias" class="level3">
 <h3 class="anchored" data-anchor-id="código-abierto-vs.-herramientas-propietarias">Código abierto vs.&nbsp;herramientas propietarias</h3>
 <p>Existen herramientas comerciales para crear informes y dashboards de datos, como <strong>Power BI</strong> (Microsoft) o <strong>Tableau</strong>. Son potentes, tienen interfaces visuales atractivas y están muy extendidas en grandes empresas. Pero tienen una limitación importante: <strong>el conocimiento que adquieres es propiedad de la empresa que vende el software</strong>.</p>
-<p>El lenguaje visual de Power BI, sus fórmulas DAX, su forma de conectar datos — todo ese aprendizaje solo sirve dentro de Power BI. Si la empresa deja de pagar la licencia, o si cambias de trabajo a una empresa que usa otra herramienta, parte de tu inversión de aprendizaje se pierde. Es una inversión “cerrada”.</p>
-<p>En cambio, aprender a analizar y comunicar datos con Python o R — y a generar informes con Quarto o Jupyter Notebooks — es una inversión abierta. Python y R son gratuitos, funcionan en cualquier ordenador, y el conocimiento que adquieres es completamente transferible: de una empresa a otra, de un sector a otro, de un proyecto a otro. La comunidad que los desarrolla y los mejora es global y no depende de ninguna empresa concreta.</p>
-<p>Esto no significa que las herramientas propietarias sean malas — en algunos contextos son la opción correcta. Pero para un técnico que está construyendo su perfil profesional, aprender herramientas de código abierto es una apuesta más sólida a largo plazo.</p>
+<p>El lenguaje visual de Power BI, sus fórmulas DAX, su forma de conectar datos: todo ese aprendizaje solo sirve dentro de Power BI. Si la empresa deja de pagar la licencia, o si cambias de trabajo a una empresa que usa otra herramienta, parte de tu inversión de aprendizaje se pierde. Es una inversión “cerrada”.</p>
+<p>En cambio, aprender a analizar y comunicar datos con Python o R, y a generar informes con Quarto o Jupyter Notebooks, es una inversión abierta. Python y R son gratuitos, funcionan en cualquier ordenador, y el conocimiento que adquieres es completamente transferible: de una empresa a otra, de un sector a otro, de un proyecto a otro. La comunidad que los desarrolla y los mejora es global y no depende de ninguna empresa concreta.</p>
+<p>Esto no significa que las herramientas propietarias sean malas: en algunos contextos son la opción correcta. Pero para un técnico que está construyendo su perfil profesional, aprender herramientas de código abierto es una apuesta más sólida a largo plazo.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -920,7 +930,7 @@ Figura&nbsp;11.1: Ejemplo del uso del color y el diseño para mejorar un gráfic
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>El equivalente de Quarto en el ecosistema Python son los <strong>Jupyter Notebooks</strong>: documentos que combinan código Python, texto y gráficos en un formato interactivo. Son el estándar en ciencia de datos y análisis en Python, y se pueden exportar a HTML o PDF igual que Quarto. Las prácticas en Google Colab de este libro están escritas en Jupyter Notebooks. Quarto, de hecho, puede incorporar notebooks de Jupyter directamente.</p>
+<p>El equivalente de Quarto en el ecosistema Python son los <strong>Jupyter Notebooks</strong>: documentos que combinan código Python, texto y gráficos en un formato interactivo. Son el estándar en ciencia de datos y análisis en Python, y se pueden exportar a HTML o PDF igual que Quarto. La versión en Google Colab del capítulo dedicado al camembert es un cuaderno Jupyter. Quarto, de hecho, puede incorporar notebooks de Jupyter directamente.</p>
 </div>
 </div>
 </section>
@@ -950,7 +960,7 @@ Figura&nbsp;11.1: Ejemplo del uso del color y el diseño para mejorar un gráfic
 <section id="resumen-del-capítulo" class="level2" data-number="11.12">
 <h2 data-number="11.12" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">11.12</span> Resumen del capítulo</h2>
 <p>Comunicar bien los resultados de un análisis es tan importante como hacer bien el análisis. Un gráfico efectivo tiene un propósito claro, está adaptado a su audiencia, elimina todo elemento visual que no transmite información, y orienta al lector hacia el mensaje principal.</p>
-<p>Los principios de Tufte — maximizar el ratio datos/tinta, eliminar el chartjunk — son una guía práctica para evaluar cualquier gráfico: si un elemento no transmite información sobre los datos, debe eliminarse. Los gráficos 3D, las tartas con muchas categorías y los dobles ejes Y son los errores más frecuentes y los más fáciles de evitar.</p>
+<p>Los principios de Tufte (maximizar la ratio datos/tinta, eliminar el chartjunk) son una guía práctica para evaluar cualquier gráfico: si un elemento no transmite información sobre los datos, debe eliminarse. Los gráficos 3D, las tartas con muchas categorías y los dobles ejes Y son los errores más frecuentes y los más fáciles de evitar.</p>
 <p>La elección del tipo de gráfico depende del tipo de comparación que se quiere hacer. Para distribuciones, el histograma y el boxplot. Para evolución temporal, el gráfico de líneas. Para relaciones entre variables, el gráfico de dispersión. Para seguimiento de proceso, el gráfico de control.</p>
 <p>Finalmente, una presentación efectiva pone el mensaje antes que la evidencia: primero el hallazgo principal, luego los gráficos que lo demuestran, luego la recomendación. El detalle del análisis va al final, para quien quiera verificarlo.</p>
 

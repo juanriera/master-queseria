@@ -32,21 +32,23 @@ Antes de elegir un gráfico o preparar una presentación, hay que responder una 
 
 En el entorno industrial hay básicamente tres tipos de audiencia, cada una con necesidades diferentes:
 
-**El equipo de planta** — operarios, técnicos de turno, jefes de línea — necesita información inmediata y accionable. La pregunta que tienen es “¿qué tengo que hacer ahora mismo?”. El gráfico de control en el panel de la línea de producción es para ellos: muestra si el proceso está bajo control o no, sin ambigüedades. No necesitan la distribución t de Student ni los índices de capacidad — necesitan saber si deben intervenir o no.
+**El equipo de planta** (operarios, técnicos de turno, jefes de línea) necesita información inmediata y accionable. La pregunta que tienen es “¿qué tengo que hacer ahora mismo?”. El gráfico de control en el panel de la línea de producción es para ellos: muestra si el proceso está bajo control o no, sin ambigüedades. No necesitan la distribución t de Student ni los índices de capacidad: necesitan saber si deben intervenir o no.
 
-**El equipo técnico** — responsables de calidad, ingeniería de proceso, laboratorio — necesita entender el análisis en profundidad. La pregunta que tienen es “¿por qué está pasando esto y cómo lo mejoramos?”. Para ellos sí son relevantes los gráficos de correlación, los diagramas de dispersión por trimestre, los gráficos de interacción del diseño de experimentos.
+**El equipo técnico** (responsables de calidad, ingeniería de proceso, laboratorio) necesita entender el análisis en profundidad. La pregunta que tienen es “¿por qué está pasando esto y cómo lo mejoramos?”. Para ellos sí son relevantes los gráficos de correlación, los diagramas de dispersión por trimestre, los gráficos de interacción del diseño de experimentos.
 
-**La dirección** — gerencia, responsables de área — necesita el impacto en negocio. La pregunta que tienen es “¿cuánto cuesta este problema y cuánto ganamos si lo resolvemos?”. Para ellos el análisis estadístico es secundario; lo que importa es la cifra económica y la recomendación clara.
+**La dirección** (gerencia, responsables de área) necesita el impacto en negocio. La pregunta que tienen es “¿cuánto cuesta este problema y cuánto ganamos si lo resolvemos?”. Para ellos el análisis estadístico es secundario; lo que importa es la cifra económica y la recomendación clara.
 
-NotaUna presentación, un mensaje principal
+::: callout-note
+## Una presentación, un mensaje principal
 
-Un error frecuente es intentar mostrar todo el análisis a todas las audiencias. Una presentación eficaz tiene **un mensaje principal** claramente identificado antes de empezar a preparar ningún gráfico. Todos los elementos visuales deben apoyar ese mensaje. Lo que no apoya el mensaje no debería estar en la presentación — puede estar en un anexo para quien quiera profundizar.
+Un error frecuente es intentar mostrar todo el análisis a todas las audiencias. Una presentación eficaz tiene **un mensaje principal** claramente identificado antes de empezar a preparar ningún gráfico. Todos los elementos visuales deben apoyar ese mensaje. Lo que no apoya el mensaje no debería estar en la presentación; puede ir en un anexo para quien quiera profundizar.
+:::
 
 ## Los principios de Tufte: menos es más
 
-Edward Tufte es el referente más influyente en visualización de datos. En su obra *The Visual Display of Quantitative Information* (1983), formuló un principio que sigue siendo completamente vigente: el **ratio datos/tinta** (*data-ink ratio*).
+Edward Tufte es uno de los referentes más influyentes en visualización de datos. En su obra *The Visual Display of Quantitative Information* (1983), formuló un principio que sigue siendo completamente vigente: la **ratio datos/tinta** (*data-ink ratio*).
 
-La idea es sencilla: cada elemento visual de un gráfico — cada línea, cada color, cada símbolo — ocupa “tinta” (espacio visual). Si ese elemento transmite información real sobre los datos, justifica su presencia. Si no transmite información — si es decoración, relleno o ruido visual — debe eliminarse.
+La idea es sencilla: cada elemento visual de un gráfico (cada línea, cada color, cada símbolo) ocupa “tinta” (espacio visual). Si ese elemento transmite información real sobre los datos, justifica su presencia. Si no transmite información, porque es decoración, relleno o ruido visual, debe eliminarse.
 
 Tufte llamó “chartjunk” (basura de gráfico) a todos esos elementos decorativos que no aportan información: fondos de cuadrícula demasiado prominentes, sombras en las barras, efectos tridimensionales, degradados de color, iconos decorativos. No solo no añaden información: dificultan activamente la lectura del gráfico.
 
@@ -55,7 +57,7 @@ Aplicado a los gráficos que hemos construido a lo largo del libro, esto signifi
 - Usar `theme_bw()` o `theme_minimal()` en ggplot2 en lugar del tema gris por defecto
 - Eliminar las líneas de cuadrícula secundarias cuando no añaden información
 - No usar colores si no transmiten información adicional (un gráfico de barras de una sola variable no necesita barras de colores diferentes)
-- No usar efectos 3D nunca — distorsionan la percepción de las magnitudes
+- No usar nunca efectos 3D, porque distorsionan la percepción de las magnitudes
 
 ## Los gráficos a evitar
 
@@ -67,7 +69,7 @@ La única excepción razonable es cuando hay exactamente dos categorías (confor
 
 ### Los gráficos 3D
 
-Los gráficos 3D son el ejemplo más claro de chartjunk. La tercera dimensión no añade ninguna información — solo distorsión visual. Las barras del fondo parecen más pequeñas que las del frente aunque tengan el mismo valor. La perspectiva hace imposible leer los valores con precisión. Y el efecto es peor en pantalla que en papel, y peor aún proyectado en una sala de reuniones.
+Los gráficos 3D son el ejemplo más claro de chartjunk. La tercera dimensión no añade ninguna información, solo distorsión visual. Las barras del fondo parecen más pequeñas que las del frente aunque tengan el mismo valor. La perspectiva hace imposible leer los valores con precisión. Y el efecto es peor en pantalla que en papel, y peor aún proyectado en una sala de reuniones.
 
 La regla es simple: **nunca usar gráficos 3D para datos cuantitativos**. Si los datos son en dos dimensiones, el gráfico debe ser en dos dimensiones.
 
@@ -75,11 +77,11 @@ La regla es simple: **nunca usar gráficos 3D para datos cuantitativos**. Si los
 
 El gráfico con dos ejes Y distintos (uno a la izquierda y otro a la derecha, con escalas diferentes) es engañoso casi por definición. Al poder elegir las escalas libremente, se puede hacer que dos variables que no tienen ninguna relación parezcan perfectamente correlacionadas, o que dos variables muy relacionadas parezcan independientes. Es exactamente el truco visual que Tyler Vigen usa en sus correlaciones espurias que vimos en el capítulo de correlación.
 
-Si necesitas mostrar dos variables en el mismo gráfico, usa dos gráficos separados con el mismo eje X — el lector puede compararlos visualmente sin que la escala le engañe.
+Si necesitas mostrar dos variables en el mismo gráfico, usa dos gráficos separados con el mismo eje X: el lector puede compararlos visualmente sin que la escala le engañe.
 
 ## ¿Qué gráfico usar? Recursos de referencia
 
-Elegir el tipo de gráfico correcto no siempre es obvio. El **Visual Vocabulary** del Financial Times ([ft-interactive.github.io/visual-vocabulary](https://ft-interactive.github.io/visual-vocabulary/)) es una de las mejores referencias disponibles: organiza los tipos de gráfico según el tipo de comparación que se quiere hacer — distribución, correlación, cambio temporal, desviación, parte de un todo — y para cada categoría muestra ejemplos visuales con una breve descripción de cuándo usarlos. Es un recurso de consulta rápida especialmente útil cuando no tenemos claro qué tipo de gráfico comunicará mejor un resultado concreto.
+Elegir el tipo de gráfico correcto no siempre es obvio. El **Visual Vocabulary** del Financial Times ([ft-interactive.github.io/visual-vocabulary](https://ft-interactive.github.io/visual-vocabulary/)) es una de las mejores referencias disponibles: organiza los tipos de gráfico según el tipo de comparación que se quiere hacer (distribución, correlación, cambio temporal, desviación, parte de un todo) y, para cada categoría muestra ejemplos visuales con una breve descripción de cuándo usarlos. Es un recurso de consulta rápida especialmente útil cuando no tenemos claro qué tipo de gráfico comunicará mejor un resultado concreto.
 
 Una versión similar pero más orientada a la implementación en R es el [R Graph Gallery](https://r-graph-gallery.com/), que muestra cientos de tipos de gráficos con el código R necesario para reproducirlos.
 
@@ -119,9 +121,9 @@ p_bueno <- conteo |>
     mutate(species = fct_reorder(species, n)) |>
     ggplot(aes(x = n, y = species)) +
     geom_col(fill = "steelblue") +
-    geom_text(aes(label = paste0(round(pct, 1), "%")),
+    geom_text(aes(label = paste0(format(round(pct, 1), decimal.mark = ","), "%")),
               hjust = -0.2, size = 3.5) +
-    xlim(0, 175) +
+    xlim(0, 190) +
     labs(title = "✓ Barras horizontales",
          subtitle = "La diferencia es inmediatamente visible",
          x = "Número de individuos", y = NULL) +
@@ -135,43 +137,42 @@ p_malo + p_bueno
 
 ### Ejemplo 2: color innecesario vs. color con propósito
 
-Usar colores diferentes para cada barra cuando todas representan la misma variable sugiere falsamente que las categorías son distintas. Si queremos destacar algo específico — por ejemplo, el mes en que hubo una incidencia — el color tiene propósito:
+Usar colores diferentes para cada barra cuando todas representan la misma variable sugiere falsamente que las categorías son distintas. Si queremos destacar algo específico, por ejemplo el mes en que hubo una incidencia, el color tiene propósito:
 
 ```{r}
 #| code-fold: true
 #| message: false
 #| warning: false
 
-# Datos de ejemplo: goles por jornada (primeras 10 jornadas de La Liga)
-set.seed(42)
-jornadas <- tibble(
-    jornada = 1:10,
-    goles   = c(28, 25, 31, 22, 35, 24, 29, 27, 33, 26)
-)
+# Goles por partido en cada mes de La Liga 2024-25
+meses <- read_csv2("datos/laliga_resultados2425.csv") |>
+    mutate(mes = floor_date(dmy(fecha), "month")) |>
+    group_by(mes) |>
+    summarise(goles = mean(goles_local + goles_visitante)) |>
+    mutate(mes_txt = factor(format(mes, "%m/%y"), levels = format(mes, "%m/%y")))
 
 # Gráfico incorrecto: un color por barra sin motivo
-p_malo2 <- ggplot(jornadas, aes(x = factor(jornada), y = goles,
-                                 fill = factor(jornada))) +
+p_malo2 <- ggplot(meses, aes(x = mes_txt, y = goles, fill = mes_txt)) +
     geom_col() +
     labs(title = "❌ Color decorativo",
          subtitle = "¿Qué información añaden los colores?",
-         x = "Jornada", y = "Goles totales") +
+         x = "Mes", y = "Goles por partido") +
     theme_bw() +
     theme(legend.position = "none",
           plot.title = element_text(color = "red", face = "bold"),
           plot.subtitle = element_text(size = 9))
 
 # Gráfico correcto: un color, destacando el máximo
-p_bueno2 <- jornadas |>
+p_bueno2 <- meses |>
     mutate(destacar = goles == max(goles)) |>
-    ggplot(aes(x = factor(jornada), y = goles, fill = destacar)) +
+    ggplot(aes(x = mes_txt, y = goles, fill = destacar)) +
     geom_col() +
     scale_fill_manual(values = c("FALSE" = "steelblue", "TRUE" = "tomato")) +
-    annotate("text", x = 5, y = 36.5, label = "Máximo de la serie",
-             color = "tomato", size = 3.5) +
+    annotate("text", x = which.max(meses$goles), y = max(meses$goles) + 0.15,
+             label = "Máximo de la temporada", color = "tomato", size = 3.5) +
     labs(title = "✓ Color con propósito",
          subtitle = "El color destaca el valor relevante",
-         x = "Jornada", y = "Goles totales") +
+         x = "Mes", y = "Goles por partido") +
     theme_bw() +
     theme(legend.position = "none",
           plot.title = element_text(color = "darkgreen", face = "bold"),
@@ -225,9 +226,9 @@ La elección del tipo de gráfico depende del **tipo de comparación** que quier
 
 | Comparación                                  | Gráfico recomendado           | Ejemplo del libro                     |
 | -------------------------------------------- | ----------------------------- | ------------------------------------- |
-| Distribución de una variable                 | Histograma, boxplot, densidad | Flipper length de los pingüinos       |
+| Distribución de una variable                 | Histograma, boxplot, densidad | Longitud de aleta de los pingüinos    |
 | Evolución temporal                           | Gráfico de líneas             | Temperatura media de Oviedo           |
-| Comparación entre grupos                     | Boxplot, barras con error     | Masa corporal por especie de pingüino |
+| Comparación entre grupos                     | Boxplot, barras con error     | Longitud de aleta por especie         |
 | Relación entre dos variables                 | Dispersión                    | MG vs EST en el camembert             |
 | Seguimiento de proceso                       | Gráfico de control            | Peso de yogures                       |
 | Composición (pocas categorías muy distintas) | Barras horizontales           | —                                     |
@@ -236,7 +237,7 @@ Una regla práctica: si te preguntas si deberías usar un gráfico de tarta, usa
 
 ## El color como información, no como decoración
 
-El color es uno de los recursos visuales más potentes y más mal utilizados. En un gráfico bien diseñado, el color transmite información específica: diferentes series, diferentes grupos, una escala de intensidad. En un gráfico mal diseñado, el color es pura decoración — barras de colores diferentes aunque todas representen la misma variable, gradientes sin significado, paletas llamativas que dificultan la lectura.
+El color es uno de los recursos visuales más potentes y más mal utilizados. En un gráfico bien diseñado, el color transmite información específica: diferentes series, diferentes grupos, una escala de intensidad. En un gráfico mal diseñado, el color es pura decoración: barras de colores diferentes aunque todas representen la misma variable, gradientes sin significado, paletas llamativas que dificultan la lectura.
 
 Algunas reglas prácticas:
 
@@ -250,13 +251,13 @@ Algunas reglas prácticas:
 
 ## De los gráficos del libro a la comunicación real
 
-A lo largo del libro hemos construido muchos gráficos con propósito analítico — para explorar los datos, detectar patrones, verificar supuestos. Esos gráficos son para nosotros, no para la audiencia. Antes de presentarlos, necesitan una revisión editorial:
+A lo largo del libro hemos construido muchos gráficos con propósito analítico: para explorar los datos, detectar patrones, verificar supuestos. Esos gráficos son para nosotros, no para la audiencia. Antes de presentarlos, necesitan una revisión editorial:
 
 ### El histograma de exploración vs el histograma de comunicación
 
 Cuando cargamos un dataset nuevo y hacemos un histograma para ver la distribución, el gráfico tiene ejes automáticos, título genérico y ninguna anotación. Es suficiente para explorar. Para comunicar, el mismo histograma necesita: un título que diga exactamente qué muestra, etiquetas de eje con unidades, y posiblemente una línea vertical indicando el objetivo o límite relevante.
 
-Comparemos los dos enfoques con la distribución del peso de los pingüinos Gentoo, que usamos en el capítulo de distribuciones:
+Comparemos los dos enfoques con la distribución de la longitud de aleta de los pingüinos Gentoo, que usamos en el capítulo de distribuciones:
 
 ```{r}
 #| code-fold: true
@@ -268,11 +269,11 @@ library(palmerpenguins)
 # Versión de exploración: rápida, sin pulir
 penguins |>
     filter(species == "Gentoo") |>
-    ggplot(aes(x = body_mass_g)) +
-    geom_histogram(bins = 20, fill = "steelblue", color = "white") +
+    ggplot(aes(x = flipper_length_mm)) +
+    geom_histogram(bins = 15, fill = "steelblue", color = "white") +
     theme_bw() +
-    labs(title = "Masa corporal — Gentoo",
-         x = "Masa corporal (g)", y = "Frecuencia")
+    labs(title = "Longitud de aleta — Gentoo",
+         x = "Longitud de aleta (mm)", y = "Frecuencia")
 ```
 
 ```{r}
@@ -280,32 +281,32 @@ penguins |>
 #| message: false
 #| warning: false
 
-gentoo <- penguins |> filter(species == "Gentoo", !is.na(body_mass_g))
-media_g <- mean(gentoo$body_mass_g)
+gentoo <- penguins |> filter(species == "Gentoo", !is.na(flipper_length_mm))
+media_g <- mean(gentoo$flipper_length_mm)
 
 # Versión de comunicación: orientada al mensaje
 gentoo |>
-    ggplot(aes(x = body_mass_g)) +
-    geom_histogram(bins = 20, fill = "steelblue", color = "white", alpha = 0.8) +
+    ggplot(aes(x = flipper_length_mm)) +
+    geom_histogram(bins = 15, fill = "steelblue", color = "white", alpha = 0.8) +
     geom_vline(xintercept = media_g, color = "red",
                linewidth = 1, linetype = "dashed") +
-    annotate("text", x = media_g + 120, y = 18,
-             label = paste0("Media: ", round(media_g), " g"),
+    annotate("text", x = media_g + 0.5, y = Inf, vjust = 2,
+             label = paste0("Media: ", format(round(media_g, 1), decimal.mark = ","), " mm"),
              color = "red", size = 3.5, hjust = 0) +
     theme_bw() +
     theme(panel.grid.minor = element_blank()) +
-    labs(title    = "Distribución de la masa corporal — pingüinos Gentoo",
-         subtitle = paste0("n = ", nrow(gentoo), " individuos. Isla Palmer, Antártida"),
-         x        = "Masa corporal (g)",
+    labs(title    = "Distribución de la longitud de aleta — pingüinos Gentoo",
+         subtitle = paste0("n = ", nrow(gentoo), " individuos. Isla Biscoe, archipiélago Palmer (Antártida)"),
+         x        = "Longitud de aleta (mm)",
          y        = "Número de individuos",
          caption  = "Fuente: Horst AM et al. (2020). palmerpenguins R package.")
 ```
 
-La diferencia no está en el tipo de gráfico — es el mismo histograma — sino en los elementos que orientan al lector: el título descriptivo, el subtítulo con contexto, la línea de la media anotada, las etiquetas de eje con unidades, y la fuente de los datos.
+La diferencia no está en el tipo de gráfico (es el mismo histograma), sino en los elementos que orientan al lector: el título descriptivo, el subtítulo con contexto, la línea de la media anotada, las etiquetas de eje con unidades, y la fuente de los datos.
 
 ### El gráfico de control para el panel de planta
 
-El gráfico de control del proceso de llenado de yogures que construimos en el capítulo de SPC tenía todos los elementos necesarios para el análisis: límites de control, puntos fuera de límites marcados, título. Para un panel de planta, habría que añadir: el valor objetivo, la referencia al límite legal (T1 del RD 1801/2008), y una zona sombreada de advertencia entre los límites internos de proceso y el límite legal.
+El gráfico de control del proceso de llenado de yogures que construimos en el capítulo de SPC tenía todos los elementos necesarios para el análisis: límites de control, puntos fuera de límites marcados, título. Para un panel de planta, habría que añadir unas zonas coloreadas que indiquen de un vistazo si el proceso está en zona normal, de advertencia o fuera de control, y las etiquetas con el valor de cada línea.
 
 La diferencia clave entre un gráfico de análisis y un gráfico de panel de planta es que el panel de planta tiene que ser **autoexplicativo para alguien que no ha visto el análisis**. Tiene que responder por sí solo las preguntas: ¿qué se está midiendo?, ¿cuál es el objetivo?, ¿estamos dentro o fuera?, ¿qué hay que hacer si estamos fuera?
 
@@ -313,90 +314,82 @@ La diferencia clave entre un gráfico de análisis y un gráfico de panel de pla
 #| code-fold: true
 #| message: false
 #| warning: false
-#| 
+
 library(tidyverse)
 
-# Cargamos el dataset de muestreo de yogures (Fase I: proceso estable)
+# Muestreo de yogures del turno del 1 de octubre (capítulo 9)
 df_m <- read_csv2("datos/llenado_yogures_muestra.csv",
-                  locale = locale(decimal_mark = ","))
+                  locale = locale(decimal_mark = ",", encoding = "ISO-8859-1"))
 
-# Calculamos medias y límites de control sobre Fase I (primeros 17 subgrupos)
-fase1 <- df_m |> filter(muestra <= 17)
-media_ref  <- mean(fase1$peso_g)
-sigma_ref  <- sd(fase1$peso_g)
-UCL <- media_ref + 3 * sigma_ref
-LCL <- media_ref - 3 * sigma_ref
-UWL <- media_ref + 2 * sigma_ref   # límite de advertencia superior
-LWL <- media_ref - 2 * sigma_ref   # límite de advertencia inferior
-T1  <- 143.2                        # límite legal RD 1801/2008
-
-# Medias por subgrupo
+# Medias por subgrupo, con la hora de inicio de cada subgrupo
 medias_sg <- df_m |>
     group_by(muestra) |>
-    summarise(media = mean(peso_g), .groups = "drop") |>
-    mutate(fuera_control = media > UCL | media < LCL)
+    summarise(hora = min(hora_envasado), media = mean(peso_g), .groups = "drop")
 
-ggplot(medias_sg, aes(x = muestra, y = media)) +
-    # Zona de advertencia (entre 2σ y 3σ)
-    annotate("rect", xmin = -Inf, xmax = Inf,
-             ymin = LCL, ymax = LWL,
+# Límites calculados con la Fase I (primeros 10 subgrupos, de 08:00 a 08:30).
+# Como dibujamos medias de 5 envases, la desviación típica se divide por raíz de 5.
+fase1     <- df_m |> filter(muestra <= 10)
+media_ref <- mean(fase1$peso_g)
+sigma_med <- sd(fase1$peso_g) / sqrt(5)
+UCL <- media_ref + 3 * sigma_med
+LCL <- media_ref - 3 * sigma_med
+UWL <- media_ref + 2 * sigma_med   # límite de advertencia superior
+LWL <- media_ref - 2 * sigma_med   # límite de advertencia inferior
+
+medias_sg <- medias_sg |>
+    mutate(fuera_control = media > UCL | media < LCL)
+x_fin <- max(medias_sg$hora)
+
+ggplot(medias_sg, aes(x = hora, y = media)) +
+    # Zonas de advertencia (entre 2σ y 3σ)
+    annotate("rect", xmin = -Inf, xmax = Inf, ymin = LCL, ymax = LWL,
              fill = "orange", alpha = 0.15) +
-    annotate("rect", xmin = -Inf, xmax = Inf,
-             ymin = UWL, ymax = UCL,
+    annotate("rect", xmin = -Inf, xmax = Inf, ymin = UWL, ymax = UCL,
              fill = "orange", alpha = 0.15) +
-    # Zona fuera de control
-    annotate("rect", xmin = -Inf, xmax = Inf,
-             ymin = -Inf, ymax = LCL,
+    # Zonas fuera de control (más allá de 3σ)
+    annotate("rect", xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = LCL,
              fill = "red", alpha = 0.1) +
-    annotate("rect", xmin = -Inf, xmax = Inf,
-             ymin = UCL, ymax = Inf,
+    annotate("rect", xmin = -Inf, xmax = Inf, ymin = UCL, ymax = Inf,
              fill = "red", alpha = 0.1) +
-    # Límite legal T1
-    geom_hline(yintercept = T1, color = "darkred",
-               linetype = "dotted", linewidth = 1) +
-    annotate("text", x = 2, y = T1 + 0.15,
-             label = "Límite legal T1 (RD 1801/2008)",
-             color = "darkred", size = 3, hjust = 0) +
-    # Líneas de control
-    geom_hline(yintercept = UCL, color = "red",
+    # Líneas de control y de referencia
+    geom_hline(yintercept = c(UCL, LCL), color = "red",
                linetype = "dashed", linewidth = 0.8) +
-    geom_hline(yintercept = LCL, color = "red",
-               linetype = "dashed", linewidth = 0.8) +
-    geom_hline(yintercept = UWL, color = "orange",
+    geom_hline(yintercept = c(UWL, LWL), color = "orange",
                linetype = "dashed", linewidth = 0.6) +
-    geom_hline(yintercept = LWL, color = "orange",
-               linetype = "dashed", linewidth = 0.6) +
-    geom_hline(yintercept = media_ref, color = "darkgreen",
-               linewidth = 1) +
-    # Anotaciones de las líneas
-    annotate("text", x = 163, y = UCL + 0.1,
-             label = paste0("LSC (", round(UCL, 1), " g)"),
-             color = "red", size = 2.8, hjust = 1) +
-    annotate("text", x = 163, y = LCL - 0.1,
-             label = paste0("LIC (", round(LCL, 1), " g)"),
-             color = "red", size = 2.8, hjust = 1) +
-    annotate("text", x = 163, y = media_ref + 0.1,
-             label = paste0("Objetivo (", round(media_ref, 1), " g)"),
-             color = "darkgreen", size = 2.8, hjust = 1) +
+    geom_hline(yintercept = media_ref, color = "darkgreen", linewidth = 1) +
+    # Etiquetas con el valor de cada línea
+    annotate("text", x = x_fin, y = UCL, vjust = -0.4, hjust = 1,
+             label = paste0("LSC (", format(round(UCL, 1), decimal.mark = ","), " g)"),
+             color = "red", size = 2.8) +
+    annotate("text", x = x_fin, y = LCL, vjust = 1.4, hjust = 1,
+             label = paste0("LIC (", format(round(LCL, 1), decimal.mark = ","), " g)"),
+             color = "red", size = 2.8) +
+    annotate("text", x = x_fin, y = media_ref, vjust = -0.4, hjust = 1,
+             label = paste0("Referencia (", format(round(media_ref, 1), decimal.mark = ","), " g)"),
+             color = "darkgreen", size = 2.8) +
     # Puntos
     geom_line(color = "steelblue", linewidth = 0.7) +
     geom_point(aes(color = fuera_control), size = 2.5) +
     scale_color_manual(values = c("FALSE" = "steelblue", "TRUE" = "red"),
                        guide = "none") +
-    scale_x_continuous(breaks = seq(0, 160, 20)) +
     labs(
-        title    = "Control de peso — Línea de yogures 150 g",
+        title    = "Control de peso — Línea de yogures 150 g — Turno del 1 de octubre",
         subtitle = "Zona naranja: advertencia (±2σ)  |  Zona roja: fuera de control (±3σ)  |  Puntos rojos: señal de alarma",
-        x        = "Subgrupo (muestreo cada 3 min)",
+        x        = "Hora (un subgrupo de 5 envases cada 3 min)",
         y        = "Peso medio del subgrupo (g)",
-        caption  = "LSC/LIC: límites de control superior/inferior  |  T1: límite legal de envase defectuoso"
+        caption  = "LSC/LIC: límites de control superior/inferior  |  Referencia: media del período estable (08:00-08:30)"
     ) +
     theme_bw() +
     theme(panel.grid.minor = element_blank(),
           plot.subtitle = element_text(size = 8))
 ```
 
-El gráfico añade tres elementos respecto al gráfico de análisis del capítulo SPC: las zonas coloreadas de advertencia (naranja) y fuera de control (rojo) que permiten leer el estado del proceso de un vistazo, el límite legal T1 como referencia externa, y las etiquetas con los valores numéricos de cada línea para que el operario sepa exactamente cuándo actuar.
+El gráfico añade dos elementos respecto al gráfico de análisis del capítulo 9: las zonas coloreadas de advertencia (naranja) y fuera de control (rojo), que permiten leer el estado del proceso de un vistazo, y las etiquetas con el valor de cada línea, para que el operario sepa exactamente cuándo actuar.
+
+::: {.callout-warning}
+## ¿Por qué no dibujamos el límite legal T1?
+T1 se aplica a cada envase, no a la media de 5 envases. Una media puede quedar muy por encima de T1 aunque uno de sus envases esté por debajo. Por eso T1 no debe dibujarse en un gráfico de medias: daría una falsa sensación de seguridad. Su lugar es un gráfico de pesos individuales o un histograma, como el del capítulo 9.
+:::
 
 Un ejemplo brillante de la aplicación del color y el diseño es el que presentan [Yan Holtz](https://www.linkedin.com/in/yan-holtz-2477534a/) y [Cédric Scherer](https://www.linkedin.com/in/cedscherer/) en su sitio web [ggplot-uncharted](https://www.ggplot2-uncharted.com/), para explicar la relación de la ratio de estudiantes por maestro en el mundo:
 
@@ -414,11 +407,11 @@ Estos dos analistas de datos ofrecen cursos para mejorar las capacidades en el d
 
 Tanto si es un panel en la pared de la planta como una presentación en PowerPoint para dirección, la estructura efectiva sigue el mismo principio: **mensaje antes que evidencia**.
 
-El error más frecuente es organizar la presentación en el orden en que se hizo el análisis: primero los datos brutos, luego la exploración, luego el análisis, y al final la conclusión. Para el analista tiene sentido — así fue el proceso. Para la audiencia es agotador: tienen que esperar hasta el final para saber de qué va todo.
+El error más frecuente es organizar la presentación en el orden en que se hizo el análisis: primero los datos brutos, luego la exploración, luego el análisis, y al final la conclusión. Para el analista tiene sentido, porque así fue el proceso. Para la audiencia es agotador: tienen que esperar hasta el final para saber de qué va todo.
 
 La estructura efectiva invierte ese orden:
 
-1. **El mensaje principal** — una frase, en la primera diapositiva o en el encabezado del panel. “El proceso de llenado cumple el RD 1801/2008 en condiciones normales, pero no cuando hay derivas de más de 30 minutos.”
+1. **El mensaje principal** — una frase, en la primera diapositiva o en el encabezado del panel. “El proceso de llenado es capaz, pero dos incidentes del turno del 1 de octubre dejaron envases por debajo de T2, y el lote no es conforme con el RD 1801/2008.”
 2. **La evidencia clave** — uno o dos gráficos que demuestran el mensaje. No todos los gráficos del análisis, solo los que demuestran lo que se está afirmando.
 3. **La recomendación** — qué hay que hacer. Concreta, asignable, con plazo si es posible.
 4. **El detalle** — en un anexo, para quien quiera verificar el análisis completo.
@@ -437,9 +430,9 @@ En el capítulo dedicado a las herramientas de análisis vimos en detalle las li
 
 ### La alternativa: el informe reproducible
 
-Un **informe reproducible** es un documento en el que el texto, los cálculos y los gráficos están escritos en el mismo fichero, en código visible. Cuando los datos cambian, basta con regenerar el documento — todo se recalcula y se redibuja automáticamente, sin intervención manual.
+Un **informe reproducible** es un documento en el que el texto, los cálculos y los gráficos están escritos en el mismo fichero, en código visible. Cuando los datos cambian, basta con regenerar el documento: todo se recalcula y se redibuja automáticamente, sin intervención manual.
 
-El libro que estás leyendo es un ejemplo: está escrito en **Quarto**, una herramienta de código abierto que combina texto en formato Markdown con código en R o Python. Cada gráfico del libro se genera a partir del código que aparece junto a él. Si los datos cambian, el gráfico cambia. Si hay un error en el cálculo, está visible en el código y cualquiera puede encontrarlo y corregirlo.
+El libro que estás leyendo es un ejemplo: está escrito en **Quarto**, una herramienta de código abierto que combina texto en formato Markdown con código en R o Python. Casi todos los gráficos del libro se generan a partir del código que aparece junto a ellos. Si los datos cambian, el gráfico cambia. Si hay un error en el cálculo, está visible en el código y cualquiera puede encontrarlo y corregirlo.
 
 Quarto puede generar documentos en múltiples formatos a partir del mismo fichero fuente: HTML para publicar en web, PDF para imprimir, Word para compartir con quien no tiene acceso al sistema. Un mismo informe mensual puede entregarse en los tres formatos sin trabajo adicional.
 
@@ -447,16 +440,16 @@ Quarto puede generar documentos en múltiples formatos a partir del mismo ficher
 
 Existen herramientas comerciales para crear informes y dashboards de datos, como **Power BI** (Microsoft) o **Tableau**. Son potentes, tienen interfaces visuales atractivas y están muy extendidas en grandes empresas. Pero tienen una limitación importante: **el conocimiento que adquieres es propiedad de la empresa que vende el software**.
 
-El lenguaje visual de Power BI, sus fórmulas DAX, su forma de conectar datos — todo ese aprendizaje solo sirve dentro de Power BI. Si la empresa deja de pagar la licencia, o si cambias de trabajo a una empresa que usa otra herramienta, parte de tu inversión de aprendizaje se pierde. Es una inversión “cerrada”.
+El lenguaje visual de Power BI, sus fórmulas DAX, su forma de conectar datos: todo ese aprendizaje solo sirve dentro de Power BI. Si la empresa deja de pagar la licencia, o si cambias de trabajo a una empresa que usa otra herramienta, parte de tu inversión de aprendizaje se pierde. Es una inversión “cerrada”.
 
-En cambio, aprender a analizar y comunicar datos con Python o R — y a generar informes con Quarto o Jupyter Notebooks — es una inversión abierta. Python y R son gratuitos, funcionan en cualquier ordenador, y el conocimiento que adquieres es completamente transferible: de una empresa a otra, de un sector a otro, de un proyecto a otro. La comunidad que los desarrolla y los mejora es global y no depende de ninguna empresa concreta.
+En cambio, aprender a analizar y comunicar datos con Python o R, y a generar informes con Quarto o Jupyter Notebooks, es una inversión abierta. Python y R son gratuitos, funcionan en cualquier ordenador, y el conocimiento que adquieres es completamente transferible: de una empresa a otra, de un sector a otro, de un proyecto a otro. La comunidad que los desarrolla y los mejora es global y no depende de ninguna empresa concreta.
 
-Esto no significa que las herramientas propietarias sean malas — en algunos contextos son la opción correcta. Pero para un técnico que está construyendo su perfil profesional, aprender herramientas de código abierto es una apuesta más sólida a largo plazo.
+Esto no significa que las herramientas propietarias sean malas: en algunos contextos son la opción correcta. Pero para un técnico que está construyendo su perfil profesional, aprender herramientas de código abierto es una apuesta más sólida a largo plazo.
 
 ::: callout-note
 ## Jupyter Notebooks: el equivalente en Python
 
-El equivalente de Quarto en el ecosistema Python son los **Jupyter Notebooks**: documentos que combinan código Python, texto y gráficos en un formato interactivo. Son el estándar en ciencia de datos y análisis en Python, y se pueden exportar a HTML o PDF igual que Quarto. Las prácticas en Google Colab de este libro están escritas en Jupyter Notebooks. Quarto, de hecho, puede incorporar notebooks de Jupyter directamente.
+El equivalente de Quarto en el ecosistema Python son los **Jupyter Notebooks**: documentos que combinan código Python, texto y gráficos en un formato interactivo. Son el estándar en ciencia de datos y análisis en Python, y se pueden exportar a HTML o PDF igual que Quarto. La versión en Google Colab del capítulo dedicado al camembert es un cuaderno Jupyter. Quarto, de hecho, puede incorporar notebooks de Jupyter directamente.
 :::
 
 ## Recursos para seguir aprendiendo
@@ -485,7 +478,7 @@ Los principios de este capítulo se desarrollan con mucho más detalle en una se
 
 Comunicar bien los resultados de un análisis es tan importante como hacer bien el análisis. Un gráfico efectivo tiene un propósito claro, está adaptado a su audiencia, elimina todo elemento visual que no transmite información, y orienta al lector hacia el mensaje principal.
 
-Los principios de Tufte — maximizar el ratio datos/tinta, eliminar el chartjunk — son una guía práctica para evaluar cualquier gráfico: si un elemento no transmite información sobre los datos, debe eliminarse. Los gráficos 3D, las tartas con muchas categorías y los dobles ejes Y son los errores más frecuentes y los más fáciles de evitar.
+Los principios de Tufte (maximizar la ratio datos/tinta, eliminar el chartjunk) son una guía práctica para evaluar cualquier gráfico: si un elemento no transmite información sobre los datos, debe eliminarse. Los gráficos 3D, las tartas con muchas categorías y los dobles ejes Y son los errores más frecuentes y los más fáciles de evitar.
 
 La elección del tipo de gráfico depende del tipo de comparación que se quiere hacer. Para distribuciones, el histograma y el boxplot. Para evolución temporal, el gráfico de líneas. Para relaciones entre variables, el gráfico de dispersión. Para seguimiento de proceso, el gráfico de control.
 

@@ -61,7 +61,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -231,7 +250,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./080-correlacion-regresion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresión</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -445,7 +464,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Los gráficos de control de este capítulo se generan exclusivamente con R, porque dispone de herramientas específicas mucho más adecuadas que Python para esta tarea.</p>
+<p>Los cálculos y gráficos de este capítulo se hacen solo con R. Son operaciones sencillas (medias por grupo y gráficos de líneas), que también podrían hacerse con Python o con una hoja de cálculo.</p>
 </div>
 </div>
 <section id="el-problema-del-ensayo-y-error-por-qué-un-factor-a-la-vez-no-es-suficiente" class="level2" data-number="10.1">
@@ -454,18 +473,18 @@ window.Quarto = {
 <p>La respuesta intuitiva es probar una cosa cada vez: primero cambio la temperatura y veo qué pasa, luego cambio la dosis y veo qué pasa. Este enfoque se conoce como <strong>OFAT</strong> (<em>One Factor At a Time</em>, un factor a la vez) y es, con diferencia, el más extendido en la práctica industrial. Su aparente sencillez lo hace atractivo: parece lógico, ordenado y fácil de interpretar.</p>
 <p><strong>El problema es que el enfoque OFAT es incorrecto en la mayoría de los casos industriales reales.</strong> Tiene dos defectos fundamentales:</p>
 <p><strong>Primero, no detecta las interacciones entre factores.</strong> Una interacción ocurre cuando el efecto de un factor depende del nivel al que se encuentra el otro. Por ejemplo: puede que subir la temperatura mejore la recuperación de proteína cuando la dosis de cuajo es baja, pero no cuando es alta. Si solo cambiamos un factor a la vez, fijaremos el otro en un nivel arbitrario y nunca sabremos si la conclusión que obtenemos es válida para otros niveles del factor fijo. Podemos llegar a recomendar “usa temperatura alta” cuando la respuesta correcta es “usa temperatura alta solo si usas dosis baja de cuajo”.</p>
-<p><strong>Segundo, es menos eficiente que el diseño factorial.</strong> Para estudiar dos factores con tres réplicas, el OFAT requiere al menos 12 experimentos pero solo obtiene información sobre cada factor de forma independiente. Un diseño factorial 2² con tres réplicas también usa 12 experimentos, pero obtiene información sobre los dos factores y su interacción simultáneamente, con mayor precisión estadística.</p>
+<p><strong>Segundo, es menos eficiente que el diseño factorial.</strong> Para estudiar dos factores con tres réplicas, el OFAT necesita 9 experimentos: 3 en las condiciones de partida, 3 cambiando solo la temperatura y 3 cambiando solo la dosis. Cada efecto se estima comparando 3 fabricaciones con otras 3, y no se obtiene ninguna información sobre la interacción. Un diseño factorial 2² con tres réplicas usa 12 experimentos, pero estima los dos efectos y su interacción, y cada efecto se calcula comparando 6 fabricaciones con otras 6, lo que da una estimación más precisa.</p>
 <p>El <strong>diseño de experimentos</strong> (DoE, del inglés <em>Design of Experiments</em>) es la metodología que permite estudiar varios factores simultáneamente de forma eficiente, detectar interacciones y obtener conclusiones estadísticamente sólidas con el mínimo número de experimentos necesarios.</p>
 </section>
 <section id="los-conceptos-básicos" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="los-conceptos-básicos"><span class="header-section-number">10.2</span> Los conceptos básicos</h2>
 <section id="factor-y-niveles" class="level3">
 <h3 class="anchored" data-anchor-id="factor-y-niveles">Factor y niveles</h3>
-<p>Un <strong>factor</strong> es una variable que controlamos deliberadamente durante el experimento. Los <strong>niveles</strong> son los valores que ese factor toma en el experimento. Usamos habitualmente dos niveles por factor — un nivel bajo y un nivel alto — lo que se denomina diseño de dos niveles.</p>
+<p>Un <strong>factor</strong> es una variable que controlamos deliberadamente durante el experimento. Los <strong>niveles</strong> son los valores que ese factor toma en el experimento. Usamos habitualmente dos niveles por factor, un nivel bajo y un nivel alto, lo que se denomina diseño de dos niveles.</p>
 <p>En nuestro caso:</p>
 <ul>
 <li><strong>Factor A — Temperatura de cuajado:</strong> nivel bajo = 30 °C, nivel alto = 34 °C</li>
-<li><strong>Factor B — Dosis de cuajo:</strong> nivel bajo = 20 ml/100L, nivel alto = 30 ml/100L</li>
+<li><strong>Factor B — Dosis de cuajo:</strong> nivel bajo = 20 ml/100 L, nivel alto = 30 ml/100 L</li>
 </ul>
 </section>
 <section id="la-variable-respuesta" class="level3">
@@ -474,11 +493,43 @@ window.Quarto = {
 </section>
 <section id="las-réplicas" class="level3">
 <h3 class="anchored" data-anchor-id="las-réplicas">Las réplicas</h3>
-<p>Una <strong>réplica</strong> es la repetición completa de una combinación de tratamiento. Las réplicas son imprescindibles porque permiten estimar la variabilidad experimental — la variación que existe incluso cuando hacemos exactamente lo mismo dos veces — y distinguirla del efecto real de los factores. Sin réplicas no podemos saber si una diferencia entre dos tratamientos es real o es simplemente ruido experimental.</p>
+<p>Una <strong>réplica</strong> es la repetición completa de una combinación de tratamiento. Las réplicas son imprescindibles porque permiten estimar la variabilidad experimental (la variación que existe incluso cuando hacemos exactamente lo mismo dos veces) y distinguirla del efecto real de los factores. Sin réplicas no podemos saber si una diferencia entre dos tratamientos es real o es simplemente ruido experimental.</p>
 </section>
 <section id="la-aleatorización" class="level3">
 <h3 class="anchored" data-anchor-id="la-aleatorización">La aleatorización</h3>
 <p>El orden en que se realizan los experimentos debe ser <strong>aleatorio</strong>. Si fabricamos primero todas las combinaciones con temperatura baja y luego todas con temperatura alta, cualquier factor que cambie con el tiempo (variación de la leche, temperatura ambiental, fatiga del operario) quedará confundido con el efecto de la temperatura. La aleatorización distribuye estos efectos de forma aleatoria entre todas las combinaciones y protege la validez de las conclusiones.</p>
+<p>Sortear el orden es sencillo. En R, por ejemplo:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2024</span>)   <span class="co"># para obtener siempre el mismo sorteo</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>plan <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">temperatura =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">30</span>, <span class="dv">34</span>, <span class="dv">34</span>), <span class="at">each =</span> <span class="dv">3</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">dosis_cuajo =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">20</span>, <span class="dv">30</span>), <span class="at">each =</span> <span class="dv">3</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">orden =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(orden)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>plan</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 3
+   temperatura dosis_cuajo orden
+         &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;
+ 1          30          20     1
+ 2          30          20     2
+ 3          34          20     3
+ 4          34          20     4
+ 5          30          20     5
+ 6          34          30     6
+ 7          34          30     7
+ 8          30          30     8
+ 9          30          30     9
+10          34          30    10
+11          34          20    11
+12          30          30    12</code></pre>
+</div>
+</div>
+<p>La columna <code>orden</code> indica en qué orden hay que hacer las 12 fabricaciones. Conviene anotar ese orden en la hoja de datos del experimento, para poder comprobar después si algún efecto se debe al paso del tiempo.</p>
 </section>
 </section>
 <section id="el-diseño-factorial-2²" class="level2" data-number="10.3">
@@ -495,23 +546,23 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">1-3</td>
-<td style="text-align: center;">30°C</td>
-<td style="text-align: center;">20 ml/100L</td>
+<td style="text-align: center;">30 °C</td>
+<td style="text-align: center;">20 ml/100 L</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">4-6</td>
-<td style="text-align: center;">30°C</td>
-<td style="text-align: center;">30 ml/100L</td>
+<td style="text-align: center;">30 °C</td>
+<td style="text-align: center;">30 ml/100 L</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">7-9</td>
-<td style="text-align: center;">34°C</td>
-<td style="text-align: center;">20 ml/100L</td>
+<td style="text-align: center;">34 °C</td>
+<td style="text-align: center;">20 ml/100 L</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">10-12</td>
-<td style="text-align: center;">34°C</td>
-<td style="text-align: center;">30 ml/100L</td>
+<td style="text-align: center;">34 °C</td>
+<td style="text-align: center;">30 ml/100 L</td>
 </tr>
 </tbody>
 </table>
@@ -526,29 +577,29 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Con 2 réplicas por combinación tendríamos 8 fabricaciones en total — suficiente para estimar los efectos, pero con muy poca información sobre la variabilidad experimental. Con 3 réplicas (12 fabricaciones) ya tenemos una estimación razonable del error. En proyectos industriales reales, el número de réplicas se decide en función del tiempo y el coste disponibles y de la magnitud del efecto que queremos detectar.</p>
+<p>Con 2 réplicas por combinación tendríamos 8 fabricaciones en total: suficientes para estimar los efectos, pero con muy poca información sobre la variabilidad experimental. Con 3 réplicas (12 fabricaciones) ya tenemos una estimación razonable del error. En proyectos industriales reales, el número de réplicas se decide en función del tiempo y el coste disponibles y de la magnitud del efecto que queremos detectar.</p>
 </div>
 </div>
 </section>
 <section id="el-caso-práctico-temperatura-y-dosis-de-cuajo" class="level2" data-number="10.4">
 <h2 data-number="10.4" class="anchored" data-anchor-id="el-caso-práctico-temperatura-y-dosis-de-cuajo"><span class="header-section-number">10.4</span> El caso práctico: temperatura y dosis de cuajo</h2>
-<p>Cargamos los resultados del experimento:</p>
+<p>Cargamos los resultados del experimento. El fichero presenta las 12 fabricaciones agrupadas por combinación y no recoge el orden en que se hicieron; en un experimento real, ese orden debería figurar en los datos.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/experimento_cuajo.csv"</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>))</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(temperatura, dosis_cuajo) <span class="sc">|&gt;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">n        =</span> <span class="fu">n</span>(),</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">media    =</span> <span class="fu">round</span>(<span class="fu">mean</span>(retencion_pct), <span class="dv">2</span>),</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">desv_tip =</span> <span class="fu">round</span>(<span class="fu">sd</span>(retencion_pct), <span class="dv">2</span>),</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">.groups  =</span> <span class="st">"drop"</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/experimento_cuajo.csv"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(temperatura, dosis_cuajo) <span class="sc">|&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">n        =</span> <span class="fu">n</span>(),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">media    =</span> <span class="fu">round</span>(<span class="fu">mean</span>(retencion_pct), <span class="dv">2</span>),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">desv_tip =</span> <span class="fu">round</span>(<span class="fu">sd</span>(retencion_pct), <span class="dv">2</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">.groups  =</span> <span class="st">"drop"</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 5
@@ -560,7 +611,7 @@ window.Quarto = {
 4          34          30     3  95.3     0.17</code></pre>
 </div>
 </div>
-<p>La tabla de medias ya revela algo importante: a 30°C, subir la dosis de cuajo de 20 a 30 ml/100L mejora el coeficiente de recuperación (ESM/MP) en más de 1 punto (de 93,75% a 94,96%). Pero a 34°C, esa misma subida de dosis apenas produce mejora (de 95,34% a 95,31%). Esto es exactamente una interacción, y es precisamente la información que el enfoque OFAT nunca habría podido revelar.</p>
+<p>La tabla de medias ya revela algo importante: a 30 °C, subir la dosis de cuajo de 20 a 30 ml/100 L mejora el coeficiente de recuperación (ESM/MP) en más de 1 punto (de 93,75% a 94,96%). Pero a 34 °C, esa misma subida de dosis apenas produce mejora (de 95,34% a 95,31%). Esto es exactamente una interacción, y es precisamente la información que el enfoque OFAT nunca habría podido revelar.</p>
 </section>
 <section id="los-gráficos-de-efectos-principales" class="level2" data-number="10.5">
 <h2 data-number="10.5" class="anchored" data-anchor-id="los-gráficos-de-efectos-principales"><span class="header-section-number">10.5</span> Los gráficos de efectos principales</h2>
@@ -568,41 +619,41 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>media_temp  <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(temperatura) <span class="sc">|&gt;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(retencion_pct), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>media_dosis <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(dosis_cuajo) <span class="sc">|&gt;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(retencion_pct), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>media_global <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span>retencion_pct)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(media_temp, <span class="fu">aes</span>(<span class="at">x =</span> temperatura, <span class="at">y =</span> media, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> media_global, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"gray50"</span>) <span class="sc">+</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylim</span>(<span class="dv">93</span>, <span class="fl">96.5</span>) <span class="sc">+</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efecto de la temperatura"</span>,</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Temperatura"</span>,</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Recuperación ESM/MP media (%)"</span>) <span class="sc">+</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(media_dosis, <span class="fu">aes</span>(<span class="at">x =</span> dosis_cuajo, <span class="at">y =</span> media, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> media_global, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"gray50"</span>) <span class="sc">+</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylim</span>(<span class="dv">93</span>, <span class="fl">96.5</span>) <span class="sc">+</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efecto de la dosis de cuajo"</span>,</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Dosis de cuajo"</span>,</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Recuperación ESM/MP media (%)"</span>) <span class="sc">+</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>media_temp  <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(temperatura) <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(retencion_pct), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>media_dosis <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(dosis_cuajo) <span class="sc">|&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(retencion_pct), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>media_global <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span>retencion_pct)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(media_temp, <span class="fu">aes</span>(<span class="at">x =</span> temperatura, <span class="at">y =</span> media, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> media_global, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"gray50"</span>) <span class="sc">+</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylim</span>(<span class="dv">93</span>, <span class="fl">96.5</span>) <span class="sc">+</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efecto de la temperatura"</span>,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Temperatura"</span>,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Recuperación ESM/MP media (%)"</span>) <span class="sc">+</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(media_dosis, <span class="fu">aes</span>(<span class="at">x =</span> dosis_cuajo, <span class="at">y =</span> media, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> media_global, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"gray50"</span>) <span class="sc">+</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylim</span>(<span class="dv">93</span>, <span class="fl">96.5</span>) <span class="sc">+</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Efecto de la dosis de cuajo"</span>,</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Dosis de cuajo"</span>,</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Recuperación ESM/MP media (%)"</span>) <span class="sc">+</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -612,7 +663,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>La línea discontinua horizontal es la media global del experimento. Los dos gráficos muestran que tanto la temperatura como la dosis de cuajo tienen un efecto positivo sobre la recuperación: subir la temperatura de 30°C a 34°C mejora la recuperación en promedio, y subir la dosis de 20 a 30 ml/100L también.</p>
+<p>La línea discontinua horizontal es la media global del experimento. Los dos gráficos muestran que tanto la temperatura como la dosis de cuajo tienen un efecto positivo sobre la recuperación: subir la temperatura de 30 °C a 34 °C mejora la recuperación en promedio, y subir la dosis de 20 a 30 ml/100 L también.</p>
 <p>Sin embargo, estos son efectos <strong>promedio</strong>; la interacción que veremos a continuación matiza considerablemente estas conclusiones. El gráfico de efectos principales oculta el hecho de que el efecto de la dosis depende fuertemente de la temperatura.</p>
 </section>
 <section id="el-gráfico-de-interacciones" class="level2" data-number="10.6">
@@ -621,24 +672,24 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>medias_cruzadas <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(temperatura, dosis_cuajo) <span class="sc">|&gt;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(retencion_pct), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(medias_cruzadas,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(dosis_cuajo), <span class="at">y =</span> media,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="fu">factor</span>(temperatura), <span class="at">group =</span> <span class="fu">factor</span>(temperatura))) <span class="sc">+</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"30"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"34"</span> <span class="ot">=</span> <span class="st">"tomato"</span>),</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"30"</span> <span class="ot">=</span> <span class="st">"30°C"</span>, <span class="st">"34"</span> <span class="ot">=</span> <span class="st">"34°C"</span>)) <span class="sc">+</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylim</span>(<span class="dv">93</span>, <span class="fl">96.5</span>) <span class="sc">+</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title    =</span> <span class="st">"Gráfico de interacciones"</span>,</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"Temperatura × Dosis de cuajo → Recuperación ESM/MP (%)"</span>,</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">x        =</span> <span class="st">"Dosis de cuajo (ml/100L)"</span>,</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">y        =</span> <span class="st">"Recuperación media (%)"</span>,</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">color    =</span> <span class="st">"Temperatura"</span>) <span class="sc">+</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>medias_cruzadas <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(temperatura, dosis_cuajo) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(retencion_pct), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(medias_cruzadas,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(dosis_cuajo), <span class="at">y =</span> media,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="fu">factor</span>(temperatura), <span class="at">group =</span> <span class="fu">factor</span>(temperatura))) <span class="sc">+</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"30"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"34"</span> <span class="ot">=</span> <span class="st">"tomato"</span>),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"30"</span> <span class="ot">=</span> <span class="st">"30 °C"</span>, <span class="st">"34"</span> <span class="ot">=</span> <span class="st">"34 °C"</span>)) <span class="sc">+</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylim</span>(<span class="dv">93</span>, <span class="fl">96.5</span>) <span class="sc">+</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title    =</span> <span class="st">"Gráfico de interacciones"</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"Temperatura × Dosis de cuajo → Recuperación ESM/MP (%)"</span>,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">x        =</span> <span class="st">"Dosis de cuajo (ml/100 L)"</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">y        =</span> <span class="st">"Recuperación media (%)"</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>         <span class="at">color    =</span> <span class="st">"Temperatura"</span>) <span class="sc">+</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -655,9 +706,9 @@ window.Quarto = {
 <li><strong>Líneas paralelas</strong> → no hay interacción. El efecto de la dosis de cuajo es el mismo independientemente de la temperatura a la que se trabaje.</li>
 <li><strong>Líneas que convergen o se cruzan</strong> → hay interacción. El efecto de la dosis de cuajo depende de la temperatura.</li>
 </ul>
-<p>En nuestro gráfico las líneas no son paralelas: a 30°C (línea azul), pasar de dosis baja a dosis alta produce una mejora notable de la recuperación. Pero a 34°C (línea roja), ambas dosis dan prácticamente el mismo resultado — la línea roja es casi horizontal. Las dos líneas convergen en el nivel alto de dosis.</p>
-<p><strong>La conclusión práctica es importante y no es trivial:</strong> si solo hubiéramos estudiado la dosis de cuajo a 30°C, habríamos concluido que conviene usar la dosis alta. Si hubiéramos hecho el experimento solo a 34°C, habríamos concluido que la dosis no importa. Ambas conclusiones son parcialmente correctas pero ninguna es completa. Solo el diseño factorial, que estudia los dos factores simultáneamente, revela la imagen completa: <strong>la dosis alta solo aporta mejora cuando la temperatura es baja</strong>.</p>
-<p>Esta es exactamente la limitación del enfoque OFAT que describimos al principio del capítulo. Al fijar la temperatura en un valor y variar solo la dosis, obtenemos una respuesta que solo es válida para ese valor de temperatura. Si el nivel fijo es 30°C, la dosis parece importante; si es 34°C, parece irrelevante. El OFAT nos da una respuesta incompleta que depende del nivel arbitrario al que fijamos el otro factor.</p>
+<p>En nuestro gráfico las líneas no son paralelas: a 30 °C (línea azul), pasar de dosis baja a dosis alta produce una mejora notable de la recuperación. Pero a 34 °C (línea roja), ambas dosis dan prácticamente el mismo resultado: la línea roja es casi horizontal. Las dos líneas convergen en el nivel alto de dosis.</p>
+<p><strong>La conclusión práctica es importante y no es trivial:</strong> si solo hubiéramos estudiado la dosis de cuajo a 30 °C, habríamos concluido que conviene usar la dosis alta. Si hubiéramos hecho el experimento solo a 34 °C, habríamos concluido que la dosis no importa. Ambas conclusiones son parcialmente correctas pero ninguna es completa. Solo el diseño factorial, que estudia los dos factores simultáneamente, revela la imagen completa: <strong>la dosis alta solo aporta mejora cuando la temperatura es baja</strong>.</p>
+<p>Esta es exactamente la limitación del enfoque OFAT que describimos al principio del capítulo. Al fijar la temperatura en un valor y variar solo la dosis, obtenemos una respuesta que solo es válida para ese valor de temperatura. Si el nivel fijo es 30 °C, la dosis parece importante; si es 34 °C, parece irrelevante. El OFAT nos da una respuesta incompleta que depende del nivel arbitrario al que fijamos el otro factor.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -668,14 +719,14 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>En la práctica, cuando un técnico responde “eso depende” a una pregunta sobre el efecto de un factor, casi siempre está describiendo una interacción. “¿Conviene usar más cuajo?” — “Depende de la temperatura a la que trabajes.” Esa dependencia es una interacción, y el diseño factorial es la herramienta que la cuantifica y la hace visible. Las interacciones son muy frecuentes en procesos biológicos como la fabricación de queso, donde las condiciones de temperatura, pH, concentración de enzimas y composición de la leche interactúan constantemente.</p>
+<p>En la práctica, cuando un técnico responde “eso depende” a una pregunta sobre el efecto de un factor, casi siempre está describiendo una interacción. A la pregunta “¿conviene usar más cuajo?”, responde “depende de la temperatura a la que trabajes”. Esa dependencia es una interacción, y el diseño factorial es la herramienta que la cuantifica y la hace visible. Las interacciones son muy frecuentes en procesos biológicos como la fabricación de queso, donde las condiciones de temperatura, pH, concentración de enzimas y composición de la leche interactúan constantemente.</p>
 </div>
 </div>
 </section>
 </section>
 <section id="los-puntos-centrales" class="level2" data-number="10.7">
 <h2 data-number="10.7" class="anchored" data-anchor-id="los-puntos-centrales"><span class="header-section-number">10.7</span> Los puntos centrales</h2>
-<p>Una práctica habitual es añadir algunos experimentos con los factores en sus valores centrales — en nuestro caso, 32°C y 25 ml/100L. Estos <strong>puntos centrales</strong> tienen dos utilidades:</p>
+<p>Una práctica habitual es añadir algunos experimentos con los factores en sus valores centrales (en nuestro caso, 32 °C y 25 ml/100 L). Estos <strong>puntos centrales</strong> tienen dos utilidades:</p>
 <ol type="1">
 <li>Permiten comprobar si la relación entre los factores y la respuesta es lineal o si hay curvatura (un efecto que los diseños de dos niveles no pueden detectar por sí solos).</li>
 <li>Proporcionan una estimación adicional de la variabilidad experimental sin incrementar el número de combinaciones a estudiar.</li>
@@ -684,7 +735,7 @@ window.Quarto = {
 </section>
 <section id="herramientas-para-el-diseño-de-experimentos" class="level2" data-number="10.8">
 <h2 data-number="10.8" class="anchored" data-anchor-id="herramientas-para-el-diseño-de-experimentos"><span class="header-section-number">10.8</span> Herramientas para el diseño de experimentos</h2>
-<p>El análisis que hemos hecho aquí — gráficos de efectos principales e interacciones — se puede realizar con R y con cualquier software estadístico. Para proyectos más complejos con más factores, réplicas o restricciones de aleatorización, existen herramientas especializadas:</p>
+<p>El análisis que hemos hecho aquí (gráficos de efectos principales e interacciones) se puede realizar con R y con cualquier software estadístico. Para proyectos más complejos con más factores, réplicas o restricciones de aleatorización, existen herramientas especializadas:</p>
 <p><strong>En R:</strong> las librerías <code>DoE.base</code> y <code>FrF2</code> permiten generar diseños factoriales completos y fraccionados, calcular efectos y construir los gráficos de análisis. <code>FrF2</code> es especialmente útil para diseños con muchos factores donde no es posible hacer todas las combinaciones.</p>
 <p><strong>En software industrial:</strong> <strong>Minitab</strong> y <strong>JMP</strong> son las herramientas más utilizadas en la industria para diseño de experimentos. Ambas integran el diseño del experimento, el análisis estadístico completo (incluyendo ANOVA) y los gráficos de diagnóstico en un flujo de trabajo guiado. Minitab es el estándar en muchos programas Six Sigma; JMP, desarrollado por SAS, es especialmente potente para el análisis visual interactivo. Ambas producen gráficos de efectos e interacciones similares a los que hemos construido aquí con R.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -698,7 +749,7 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <p>El análisis de varianza (ANOVA) es la herramienta estadística formal para determinar si los efectos que observamos en los gráficos son estadísticamente significativos o podrían deberse al azar. No lo hemos incluido aquí porque requiere conceptos de inferencia estadística que van más allá del alcance de este capítulo introductorio.</p>
-<p>Los gráficos de efectos e interacciones son suficientes para entender el concepto y para tomar decisiones orientativas en muchos casos industriales. Para proyectos formales de mejora — especialmente en contextos Six Sigma o de calificación de procesos — el ANOVA es imprescindible y el software especializado (Minitab, JMP, R) lo calcula automáticamente.</p>
+<p>Los gráficos de efectos e interacciones son suficientes para entender el concepto y para tomar decisiones orientativas en muchos casos industriales. Para proyectos formales de mejora, especialmente en contextos Six Sigma o de calificación de procesos, el ANOVA es imprescindible y el software especializado (Minitab, JMP, R) lo calcula automáticamente.</p>
 </div>
 </div>
 </section>
@@ -706,8 +757,24 @@ window.Quarto = {
 <h2 data-number="10.9" class="anchored" data-anchor-id="del-diseño-de-dos-factores-a-diseños-más-complejos"><span class="header-section-number">10.9</span> Del diseño de dos factores a diseños más complejos</h2>
 <p>El diseño 2² que hemos visto es el más sencillo posible. En la práctica, los procesos industriales tienen muchos más factores potenciales. Algunas extensiones naturales:</p>
 <p><strong>Más factores:</strong> un diseño 2³ (tres factores, dos niveles) tiene 8 combinaciones; un 2⁴ tiene 16. A partir de 4-5 factores, el número de combinaciones crece rápidamente y puede ser inviable hacer el experimento completo.</p>
-<p><strong>Diseños fraccionados y confundidos:</strong> cuando hay muchos factores, se puede hacer solo una fracción del diseño completo. Por ejemplo, en lugar de hacer las 32 combinaciones de un diseño 2⁵, se hacen solo 16 (la mitad). El precio que se paga es el <strong>confundimiento</strong>: algunos efectos quedan mezclados con otros y no se pueden estimar de forma independiente. En la práctica, se acepta este coste porque las interacciones de orden alto (tres o más factores a la vez) suelen ser despreciables, y confundirlas con efectos de orden bajo es un riesgo razonable.</p>
-<p>En el mundo real, los procesos industriales tienen docenas de variables potenciales que pueden interactuar entre sí de formas complejas. Elegir qué factores estudiar, en cuántos niveles, con cuántas réplicas y con qué grado de confundimiento aceptable es una decisión que requiere experiencia y conocimiento del proceso. No existe un diseño universalmente óptimo: el mejor diseño es el que extrae la máxima información relevante con los recursos disponibles.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Para saber más: diseños fraccionados y de superficie de respuesta
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Diseños fraccionados y confundidos:</strong> cuando hay muchos factores, se puede hacer solo una fracción del diseño completo. Por ejemplo, en lugar de hacer las 32 combinaciones de un diseño 2⁵, se hacen solo 16 (la mitad). El precio que se paga es la <strong>confusión</strong> de efectos: algunos efectos quedan mezclados con otros y no se pueden estimar de forma independiente. En la práctica, se acepta este coste porque las interacciones de orden alto (tres o más factores a la vez) suelen ser despreciables, y confundirlas con efectos de orden bajo es un riesgo razonable.</p>
+<p><strong>Diseños de superficie de respuesta:</strong> cuando se quiere optimizar el proceso, es decir, encontrar los valores óptimos de los factores y no solo comparar niveles, se usan diseños más elaborados que permiten modelar la curvatura de la respuesta.</p>
+</div>
+</div>
+</div>
+<p>En el mundo real, los procesos industriales tienen docenas de variables potenciales que pueden interactuar entre sí de formas complejas. Elegir qué factores estudiar, en cuántos niveles, con cuántas réplicas y con qué grado de confusión aceptable es una decisión que requiere experiencia y conocimiento del proceso. No existe un diseño universalmente óptimo: el mejor diseño es el que extrae la máxima información relevante con los recursos disponibles.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -718,22 +785,21 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La referencia clásica en diseño de experimentos para ingeniería industrial es <strong>Montgomery, D.C. (2017). <em>Design and Analysis of Experiments</em> (9ª ed.). Wiley.</strong> Es el libro de referencia en programas de ingeniería y Six Sigma, con capítulos específicos sobre diseños fraccionados, confundimiento y diseños de superficie de respuesta.</p>
-<p>Para una introducción más accesible orientada a la práctica industrial, <strong>Box, G.E.P., Hunter, J.S. y Hunter, W.G. (2005). <em>Statistics for Experimenters</em> (2ª ed.). Wiley</strong> es una obra muy recomendable por su enfoque intuitivo y su orientación a la resolución de problemas reales.</p>
+<p>La referencia clásica en diseño de experimentos para ingeniería industrial es <em>Design and Analysis of Experiments</em>, de Douglas C. Montgomery <span class="citation" data-cites="montgomery2017">(<a href="400-bibliografia.html#ref-montgomery2017" role="doc-biblioref">Montgomery 2017</a>)</span>. Es el libro de referencia en programas de ingeniería y Six Sigma, con capítulos específicos sobre diseños fraccionados, confusión y diseños de superficie de respuesta.</p>
+<p>Para una introducción más accesible orientada a la práctica industrial, <em>Statistics for Experimenters</em>, de George E. P. Box, J. Stuart Hunter y William G. Hunter <span class="citation" data-cites="box2005">(<a href="400-bibliografia.html#ref-box2005" role="doc-biblioref">Box et&nbsp;al. 2005</a>)</span>, es una obra muy recomendable por su enfoque intuitivo y su orientación a la resolución de problemas reales.</p>
 <p>Ambos libros están disponibles en las principales bibliotecas universitarias y en formatos digitales.</p>
 </div>
 </div>
-<p><strong>Diseños de superficie de respuesta:</strong> cuando se quiere optimizar el proceso — encontrar los valores óptimos de los factores, no solo comparar niveles — se usan diseños más elaborados que permiten modelar la curvatura de la respuesta.</p>
 <p>En todos los casos, el principio es el mismo: estudiar los factores simultáneamente, aleatorizar el orden, replicar para estimar el error, y representar los resultados gráficamente antes de aplicar cualquier análisis formal.</p>
 </section>
 <section id="el-diseño-de-experimentos-en-la-era-de-la-inteligencia-artificial" class="level2" data-number="10.10">
 <h2 data-number="10.10" class="anchored" data-anchor-id="el-diseño-de-experimentos-en-la-era-de-la-inteligencia-artificial"><span class="header-section-number">10.10</span> El diseño de experimentos en la era de la inteligencia artificial</h2>
-<p>Una pregunta razonable en el contexto actual es: si puedo enviar los datos de un experimento a un modelo de inteligencia artificial como Claude, GPT o Gemini y pedirle que calcule los efectos e interacciones, ¿sigue siendo necesario aprender diseño de experimentos?</p>
+<p>Una pregunta razonable en el contexto actual es: si puedo enviar los datos de un experimento a un modelo de inteligencia artificial como Claude, ChatGPT o Gemini y pedirle que calcule los efectos e interacciones, ¿sigue siendo necesario aprender diseño de experimentos?</p>
 <p>La respuesta es sí, y por razones que la IA no resuelve.</p>
-<p><strong>Lo que la IA puede hacer:</strong> si le proporcionas los datos de un experimento factorial — incluso con diseño confundido, si le explicas qué generadores usaste — un modelo de lenguaje puede calcular los efectos principales e interacciones, identificar cuáles son grandes y cuáles pequeños, e interpretar los resultados en lenguaje natural. Las versiones de pago de los principales modelos (Claude Pro, ChatGPT Plus, Gemini Advanced) pueden además generar el código R o Python para construir los gráficos, e incluso mostrar los gráficos directamente en la conversación. Las versiones gratuitas generalmente pueden hacer el análisis numérico y explicar los resultados, pero tienen más limitaciones para generar y ejecutar código o mostrar visualizaciones. En cualquier caso, la barrera de entrada al análisis se ha reducido enormemente respecto a hace pocos años.</p>
-<p><strong>Lo que no cambia:</strong> el diseño de experimentos se hace <em>antes</em> del experimento, no después. Decidir qué factores estudiar, cuántos niveles, cuántas réplicas, cómo aleatorizar y qué confundimientos son aceptables requiere conocimiento del proceso y juicio experto. Un modelo de IA puede ayudarte a generar el diseño si le describes bien el problema, pero alguien tiene que definir ese problema — y hacerlo mal puede llevar a experimentos que no responden la pregunta correcta, que son demasiado costosos, o que tienen sesgos no detectables.</p>
-<p>Además, <strong>los experimentos siguen costando dinero y tiempo</strong>. En la industria, cada fabricación experimental tiene un coste real: proteína, tiempo de línea, análisis de laboratorio. El diseño eficiente — obtener la máxima información con el mínimo de experimentos — sigue siendo igual de valioso independientemente de quién haga el análisis posterior.</p>
-<p>Finalmente, <strong>la interpretación requiere contexto que la IA no tiene</strong>. Un modelo puede decir “hay una interacción significativa entre temperatura y dosis de cuajo”. Pero traducir eso en una decisión concreta — ¿cambiamos el protocolo de fabricación? ¿el cambio es económicamente viable? ¿hay restricciones de proceso que lo impidan? ¿necesitamos más experimentos para confirmar? — requiere conocimiento del proceso, de la empresa y del contexto que solo el técnico que trabaja en esa planta tiene.</p>
+<p><strong>Lo que la IA puede hacer:</strong> si le proporcionas los datos de un experimento factorial (incluso con diseño confundido, si le explicas qué generadores usaste), un modelo de lenguaje puede calcular los efectos principales e interacciones, identificar cuáles son grandes y cuáles pequeños, e interpretar los resultados en lenguaje natural. Los principales asistentes de IA pueden además generar el código R o Python para construir los gráficos, e incluso mostrarlos directamente en la conversación. Las versiones gratuitas suelen tener más limitaciones que las de pago para ejecutar código o mostrar gráficos, y estas diferencias cambian con frecuencia. En cualquier caso, la barrera de entrada al análisis se ha reducido enormemente respecto a hace pocos años.</p>
+<p><strong>Lo que no cambia:</strong> el diseño de experimentos se hace <em>antes</em> del experimento, no después. Decidir qué factores estudiar, cuántos niveles, cuántas réplicas, cómo aleatorizar y qué confusiones son aceptables requiere conocimiento del proceso y juicio experto. Un modelo de IA puede ayudarte a generar el diseño si le describes bien el problema, pero alguien tiene que definir ese problema, y hacerlo mal puede llevar a experimentos que no responden la pregunta correcta, que son demasiado costosos, o que tienen sesgos no detectables.</p>
+<p>Además, <strong>los experimentos siguen costando dinero y tiempo</strong>. En la industria, cada fabricación experimental tiene un coste real: leche, tiempo de línea, análisis de laboratorio. El diseño eficiente, que obtiene la máxima información con el mínimo de experimentos, sigue siendo igual de valioso independientemente de quién haga el análisis posterior.</p>
+<p>Finalmente, <strong>la interpretación requiere contexto que la IA no tiene</strong>. Un modelo puede decir “hay una interacción significativa entre temperatura y dosis de cuajo”. Pero traducir eso en una decisión concreta (¿cambiamos el protocolo de fabricación?, ¿el cambio es económicamente viable?, ¿hay restricciones de proceso que lo impidan?, ¿necesitamos más experimentos para confirmar?) requiere conocimiento del proceso, de la empresa y del contexto que solo el técnico que trabaja en esa planta tiene.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -751,11 +817,19 @@ window.Quarto = {
 </section>
 <section id="resumen-del-capítulo" class="level2" data-number="10.11">
 <h2 data-number="10.11" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">10.11</span> Resumen del capítulo</h2>
-<p>El diseño de experimentos es la alternativa sistemática al ensayo y error. El enfoque OFAT — estudiar un factor a la vez mientras se fijan los demás — parece intuitivo pero tiene un defecto fundamental: no puede detectar interacciones entre factores. Una interacción ocurre cuando el efecto de un factor depende del nivel del otro, y en procesos biológicos como la fabricación de queso son la norma, no la excepción.</p>
-<p>El diseño factorial 2² estudia dos factores simultáneamente en cuatro combinaciones, con réplicas en orden aleatorio. Los gráficos de efectos principales muestran el efecto medio de cada factor; el gráfico de interacciones — donde las líneas no paralelas son la señal clave — muestra si ese efecto es constante o depende del otro factor.</p>
-<p>En el experimento de temperatura y dosis de cuajo, el gráfico de interacciones revela que la dosis alta mejora la recuperación de proteína a 30°C pero no a 34°C. Esta conclusión no habría sido posible con el enfoque OFAT, y es exactamente el tipo de conocimiento que permite tomar decisiones de proceso mejor fundamentadas.</p>
+<p>El diseño de experimentos es la alternativa sistemática al ensayo y error. El enfoque OFAT, que estudia un factor a la vez mientras fija los demás, parece intuitivo pero tiene un defecto fundamental: no puede detectar interacciones entre factores. Una interacción ocurre cuando el efecto de un factor depende del nivel del otro, y en procesos biológicos como la fabricación de queso son la norma, no la excepción.</p>
+<p>El diseño factorial 2² estudia dos factores simultáneamente en cuatro combinaciones, con réplicas en orden aleatorio. Los gráficos de efectos principales muestran el efecto medio de cada factor; el gráfico de interacciones, en el que las líneas no paralelas son la señal clave, muestra si ese efecto es constante o depende del otro factor.</p>
+<p>En el experimento de temperatura y dosis de cuajo, el gráfico de interacciones revela que la dosis alta mejora la recuperación de proteína a 30 °C pero no a 34 °C. Esta conclusión no habría sido posible con el enfoque OFAT, y es exactamente el tipo de conocimiento que permite tomar decisiones de proceso mejor fundamentadas.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-box2005" class="csl-entry" role="listitem">
+Box, George E. P., J. Stuart Hunter, y William G. Hunter. 2005. <em>Statistics for Experimenters: Design, Innovation, and Discovery</em>. 2.ª ed. Wiley.
+</div>
+<div id="ref-montgomery2017" class="csl-entry" role="listitem">
+Montgomery, Douglas C. 2017. <em>Design and Analysis of Experiments</em>. 9.ª ed. Wiley.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

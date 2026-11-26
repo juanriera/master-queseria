@@ -10,6 +10,10 @@ engine: knitr
 Sys.setenv(RETICULATE_PYTHON = "C:/ProgramData/miniconda3/python.exe")
 library(reticulate)
 use_python("C:/ProgramData/miniconda3/python.exe", required = TRUE)
+
+# Formato de números con coma decimal para el texto
+fmt <- function(x, d = 1) format(round(x, d), nsmall = d,
+                                 decimal.mark = ",", big.mark = ".")
 ```
 
 ::: callout-note
@@ -17,47 +21,49 @@ use_python("C:/ProgramData/miniconda3/python.exe", required = TRUE)
 
 Al finalizar este capítulo, el alumno será capaz de:
 
-- Identificar los conceptos clave del RD 1801/2008: peso nominal, EMDT, límites T1 y T2.
+- Identificar los conceptos clave del RD 1801/2008: cantidad nominal, EMDT, límites T1 y T2.
 - Analizar un lote de producción y determinar su conformidad con la norma.
 - Explicar la función y las limitaciones del discriminador de peso como medida de control.
 - Identificar las causas de variabilidad de un proceso de envasado mediante el análisis 5M.
 - Simular el efecto de planes de mejora sobre la distribución de pesos y cuantificar el ahorro económico.
 
-Conceptos clave: **contenido efectivo, peso nominal, EMDT, T1, T2, sobredosificación, discriminador de peso, capacidad de proceso, variabilidad especial, variabilidad común**.
+Conceptos clave: **contenido efectivo, cantidad nominal, EMDT, T1, T2, sobredosificación, discriminador de peso, capacidad de proceso, variabilidad especial, variabilidad común**.
 :::
 
 ::: {.callout-warning}
 ## Conocimientos previos necesarios
-Este capítulo aplica herramientas de los capítulos anteriores: estadísticos descriptivos (cap. 6), distribución normal (cap. 7), exploración gráfica (cap. 5) y control estadístico de procesos — gráficos de control y capacidad de proceso (cap. 9). Conviene tenerlos a mano.
+Este capítulo aplica herramientas de los capítulos anteriores: estadísticos descriptivos (cap. 6), distribución normal (cap. 7), exploración gráfica (cap. 5) y control estadístico de procesos, con sus gráficos de control y la capacidad de proceso (cap. 9). Conviene tenerlos a mano.
 :::
 
 ::: {.callout-tip}
 ## Sobre el código de este capítulo
 Los bloques de código que generan gráficos complejos aparecen **ocultos por defecto**. Puedes mostrarlos haciendo clic en «Mostrar código». Si quieres entender qué hace un bloque, cópialo y pégalo en un asistente de IA como Claude y pregúntale: *«Explícame este código línea a línea, en lenguaje sencillo»*.
 
-Algunos bloques de código generan los gráficos que se han estudiado, aplicados al dataset actual, con algunas modificaciones estéticas adicionales; otros bloques presentan gráficos necesarios para la explicación que se sigue en el texto, y tienen una realización más compleja que los gráficos básicos. Se incluye también el código oculto de estos bloques para revisarlo en caso de interés
+Algunos bloques de código generan los gráficos que se han estudiado, aplicados al dataset actual, con algunas modificaciones estéticas adicionales; otros bloques presentan gráficos necesarios para la explicación que se sigue en el texto, y tienen una realización más compleja que los gráficos básicos. Se incluye también el código oculto de estos bloques para revisarlo en caso de interés.
 :::
 
 ## Introducción
 
 En la industria alimentaria es frecuente que el fabricante comercialice sus productos en envases individuales con un peso declarado en la etiqueta: un yogur de 125 g, un queso fresco de 500 g, una nata de 200 ml. El consumidor confía en que el contenido real coincide con lo que promete la etiqueta.
 
-Ningún proceso de llenado industrial es perfecto. Siempre existe una dispersión natural alrededor del valor objetivo: unos envases pesarán un poco más, otros un poco menos. La pregunta no es si hay variabilidad —la hay siempre— sino cuánta variabilidad es aceptable y cómo se gestiona.
+Ningún proceso de llenado industrial es perfecto. Siempre existe una dispersión natural alrededor del valor objetivo: unos envases pesarán un poco más, otros un poco menos. La pregunta no es si hay variabilidad (la hay siempre), sino cuánta variabilidad es aceptable y cómo se gestiona.
 
-El **Real Decreto 1801/2008** responde a esa pregunta. No exige que cada envase pese exactamente lo declarado, sino que define unas tolerancias estadísticas que el fabricante debe cumplir mediante el control del proceso. Entregar menos peso del permitido es un fraude sancionable. Entregar peso por encima del nominal tiene un coste económico: se está regalando producto.
+El **Real Decreto 1801/2008** responde a esa pregunta. No exige que cada envase pese exactamente lo declarado, sino que define unas tolerancias que el envasador debe cumplir. Entregar menos contenido del permitido es un incumplimiento. Entregar peso por encima del nominal tiene un coste económico: se está regalando producto.
 
-Este capítulo usa el dataset de un turno completo de envasado de yogures de 150 g para recorrer el ciclo completo: entender qué exige la norma, diagnosticar el proceso, identificar las causas de variabilidad y cuantificar el impacto económico de las mejoras.
+Este capítulo usa los datos de un turno completo de envasado de yogures de 150 g para recorrer el ciclo completo: entender qué exige la norma, diagnosticar el proceso, identificar las causas de variabilidad y cuantificar el impacto económico de las mejoras.
 
 ## Dos formas de declarar el peso
-Un fabricante que comercializa productos a peso fijo puede acogerse a dos modalidades diferentes:
 
-- **Sin signo de estimación**. El fabricante declara el peso nominal en la etiqueta pero no se acoge al sistema de control estadístico de la norma. En este caso debe garantizar que todos y cada uno de sus envases contienen como mínimo el peso declarado — sin excepciones, sin tolerancias. No puede mostrar el signo ℮ en el etiquetado. Es una opción válida pero exigente en la práctica: cualquier envase por debajo del nominal es un incumplimiento.
-- **Bajo la norma de contenido efectivo (signo ℮)**. El fabricante realiza controles estadísticos de peso en cada lote siguiendo el procedimiento especificado en el **Real Decreto RD 1801/2008**. A cambio, la norma le permite trabajar con tolerancias: un pequeño porcentaje de envases puede estar por debajo del nominal, dentro de los límites que se describen a continuación. Puede imprimir el signo ℮ en el etiquetado, que funciona como certificación de cumplimiento y facilita la libre circulación del producto en el mercado europeo.
-La inmensa mayoría de las empresas del sector alimentario trabajan bajo la segunda modalidad. El resto de este capítulo se centra en ella.
+El RD 1801/2008 se aplica a los productos envasados destinados al consumidor con cantidades nominales constantes entre 5 g y 10 kg (o entre 5 ml y 10 l). El envasador puede trabajar de dos formas:
 
-### El signo de estimación ℮
+- **Sin signo ℮.** El envasador no está obligado a aplicar el control estadístico por lotes del RD: puede, por ejemplo, controlar el contenido envase a envase. Aun así, debe cumplir los principios generales y las tolerancias del RD (artículos 7, 8 y 14.3): la media del contenido no puede ser inferior a la cantidad nominal y ningún envase puede quedar por debajo de T2 [@consumo2019].
+- **Con signo ℮.** El envasador aplica el control estadístico por lotes de los artículos 10 a 12 del RD. A cambio puede imprimir el signo ℮, que certifica, bajo su responsabilidad, que el envase cumple con el real decreto y facilita la libre circulación del producto en el mercado europeo.
 
-Los envases cuyo proceso de llenado cumple las modalidades de control estadístico del RD pueden llevar impreso el **signo ℮** en el etiquetado. Este símbolo certifica, bajo responsabilidad del envasador, que el producto cumple con las disposiciones del real decreto y actúa como «pasaporte» para la libre circulación del producto en el mercado europeo.
+El resto de este capítulo se centra en la segunda modalidad.
+
+### El signo ℮
+
+Los envases que respondan a las modalidades de control estadístico de lotes establecidas en el RD pueden llevar impreso el **signo ℮** en el etiquetado (artículo 9). Su uso es voluntario. Este símbolo certifica, bajo responsabilidad del envasador o del importador, que el producto cumple con las disposiciones del real decreto, y actúa como «pasaporte» para la libre circulación del producto en el mercado europeo.
 
 ![El signo ℮ certifica el cumplimiento del RD 1801/2008](imagenes/signo-e.svg){.column-margin}
 
@@ -67,74 +73,75 @@ Los envases cuyo proceso de llenado cumple las modalidades de control estadísti
 
 **Cantidad nominal ($Q_n$):** el peso o volumen declarado en el envase. Para nuestro caso, $Q_n = 150$ g.
 
-**Error máximo por defecto tolerado (EMDT):** la diferencia máxima permitida entre el peso declarado y el contenido real del envase. No es un valor fijo: depende del rango de peso nominal según el Cuadro 1 del RD.
+**Error máximo por defecto tolerado (EMDT):** la cantidad máxima que el contenido de un envase puede diferir en menos de la cantidad nominal. No es un valor fijo: depende del rango de cantidad nominal según el cuadro 1 del RD.
 
 ![Cuadro 1 del RD 1801/2008: errores máximos por defecto tolerados](imagenes/tabla1.png)
 
-Para un yogur de 150 g (rango 101-200 g), el EMDT es el **4,5% del peso nominal**, redondeado por exceso a la décima de gramo:
+Para un yogur de 150 g (rango de 101 a 200 g), el EMDT es el **4,5% de la cantidad nominal**. El artículo 8 establece que los valores calculados a partir de un porcentaje se redondean por exceso a la décima de gramo:
 
-$$\text{EMDT} = 4{,}5\% \times 150 = 6{,}75 \text{ g}$$
+$$\text{EMDT} = 4{,}5\% \times 150 = 6{,}75 \text{ g} \;\rightarrow\; 6{,}8 \text{ g}$$
 
-A partir del EMDT se calculan los dos límites de control del proceso:
+A partir del EMDT se calculan los dos límites:
 
-**Límite T1 — envase deficiente:** un envase es deficiente cuando su peso es inferior a $Q_n - \text{EMDT}$:
+**Límite T1, envase deficiente:** un envase es deficiente cuando su contenido es inferior al contenido mínimo tolerado, $Q_n - \text{EMDT}$:
 
-$$T_1 = 150 - 6{,}75 = 143{,}25 \text{ g}$$
+$$T_1 = 150 - 6{,}8 = 143{,}2 \text{ g}$$
 
-La norma permite un máximo del **2,5%** de envases deficientes en el lote.
+**Límite T2:** ningún envase puede tener un error por defecto superior al doble del EMDT, es decir, ningún envase puede pesar menos de $Q_n - 2 \times \text{EMDT}$:
 
-**Límite T2 — envase no conforme:** ningún envase puede pesar menos de $Q_n - 2 \times \text{EMDT}$:
+$$T_2 = 150 - 2 \times 6{,}8 = 136{,}4 \text{ g}$$
 
-$$T_2 = 150 - 2 \times 6{,}75 = 136{,}5 \text{ g}$$
+### Los tres requisitos del artículo 7
 
-Un solo envase por debajo de T2 en la muestra de inspección da lugar al rechazo inmediato del lote.
+El artículo 7 del RD establece que el envasado debe realizarse de forma que se cumplan tres requisitos:
+
+1. **La media:** la media del contenido efectivo de los envases no puede ser inferior a la cantidad nominal.
+2. **Los envases deficientes:** la proporción de envases por debajo de T1 debe ser lo suficientemente pequeña para que los lotes superen los controles estadísticos del RD.
+3. **T2:** ningún envase puede estar por debajo de T2.
+
+El RD no fija un porcentaje máximo de envases deficientes: el segundo requisito se comprueba con el plan de muestreo que veremos a continuación. Como orientación, la guía WELMEC 6.5, de las autoridades europeas de metrología legal, considera adecuado no superar el **2,5%** de envases por debajo de T1. En este capítulo usaremos ese valor como referencia.
 
 ::: {.callout-note}
 ## Resumen de límites para yogur de 150 g
 
 | Concepto | Valor |
 |---|---|
-| Peso nominal ($Q_n$) | 150,00 g |
-| EMDT (4,5%) | 6,75 g |
-| Límite T1 — envase deficiente | 143,25 g |
-| Límite T2 — envase no conforme | 136,50 g |
-| Máximo de envases bajo T1 | 2,5% del lote |
-| Envases bajo T2 | 0 (ninguno permitido) |
+| Cantidad nominal ($Q_n$) | 150,0 g |
+| EMDT (4,5%, redondeado por exceso) | 6,8 g |
+| Límite T1, envase deficiente | 143,2 g |
+| Límite T2 | 136,4 g |
+| Envases bajo T1 | Los suficientemente pocos para superar el muestreo (referencia orientativa: 2,5%) |
+| Envases bajo T2 | Ninguno |
 :::
 
 ![Los límites T1 y T2 sobre la curva normal del proceso](imagenes/rd-1801-limite.png)
 
-::: {.callout-warning}
-## Las tres reglas del envasador
-
-Para que un lote sea conforme, deben cumplirse **simultáneamente** los tres criterios:
-
-1. **Criterio de la media:** el peso medio del lote no puede ser inferior a $Q_n$.
-2. **Criterio T1:** la proporción de envases deficientes (por debajo de T1) debe ser inferior al 2,5% del lote.
-3. **Criterio T2:** ningún envase puede estar por debajo de T2. Un solo envase no conforme rechaza el lote.
-:::
-
 ### El procedimiento de muestreo
 
-La norma no evalúa el cumplimiento envase a envase, sino mediante muestreo estadístico del lote. Para un lote de más de 3.200 unidades —el caso habitual en una línea de yogures con un turno completo de producción— el procedimiento es el siguiente:
+El cumplimiento se comprueba mediante muestreo estadístico del lote, con dos controles: uno sobre el número de envases deficientes y otro sobre la media.
 
-**Primera etapa:** se toman **80 envases** al azar. El lote se acepta directamente si no hay ningún envase bajo T2 y hay 3 o menos bajo T1. Se rechaza directamente si hay alguno bajo T2 o 7 o más bajo T1. Si el número de envases bajo T1 está entre 4 y 6, se pasa a la segunda etapa.
+**Control de los envases deficientes.** Para un lote de más de 3.200 unidades, el caso habitual en una línea de yogures con un turno completo de producción, el procedimiento es el siguiente:
 
-**Segunda etapa:** se toman **otros 80 envases** y se acumulan con los de la primera (160 en total). El lote se acepta si no hay ninguno bajo T2 y hay 8 o menos bajo T1. Se rechaza si hay alguno bajo T2 o 9 o más bajo T1.
+- **Primera etapa:** se toman **80 envases** al azar. El lote se acepta si hay 3 o menos bajo T1 y se rechaza si hay 7 o más. Si el número de envases bajo T1 está entre 4 y 6, se pasa a la segunda etapa.
+- **Segunda etapa:** se toman **otros 80 envases** y se acumulan con los de la primera (160 en total). El lote se acepta si hay 8 o menos bajo T1 y se rechaza si hay 9 o más.
 
 | Etapa | Muestra | Aceptación | Rechazo |
 |---|---|---|---|
-| 1.ª | 80 uds | ≤ 3 bajo T1 y 0 bajo T2 | ≥ 7 bajo T1 o ≥ 1 bajo T2 |
-| 1.ª + 2.ª | 160 uds | ≤ 8 bajo T1 y 0 bajo T2 | ≥ 9 bajo T1 o ≥ 1 bajo T2 |
+| 1.ª | 80 uds. | ≤ 3 bajo T1 | ≥ 7 bajo T1 |
+| 1.ª + 2.ª | 160 uds. | ≤ 8 bajo T1 | ≥ 9 bajo T1 |
+
+Además, cualquier envase por debajo de T2 incumple el tercer requisito del artículo 7. En los cálculos de este capítulo, por tanto, un solo envase bajo T2 en la muestra basta para rechazar el lote.
+
+**Control de la media.** Para un lote de más de 500 unidades se toma una muestra de 50 envases. El lote se acepta si la media de la muestra, $\bar{X}$, cumple $\bar{X} \geq Q_n - 0{,}379 \cdot s$, donde $s$ es la desviación típica de la muestra.
 
 ::: {.callout-warning}
-## Rechazo: basta una condición. Aceptación: deben cumplirse las dos
-Para **rechazar** el lote basta con que se cumpla cualquiera de las dos condiciones de rechazo. Para **aceptar** deben cumplirse las dos condiciones simultáneamente. Es un criterio conservador que protege al consumidor.
+## Rechazo: basta una condición. Aceptación: deben cumplirse todas
+Para **rechazar** el lote basta con que se cumpla cualquiera de las condiciones de rechazo. Para **aceptarlo** deben cumplirse todas las condiciones de aceptación. Es un criterio conservador que protege al consumidor.
 :::
 
 ## Análisis del lote: el turno del 1 de octubre
 
-Disponemos del registro de pesos de un turno completo de envasado de yogures de 150 g: **9.600 envases** producidos entre las 08:00 y las 16:00, con un envase cada 3 segundos. El fichero `simulacion_envasado_yogur.csv` contiene la hora de envasado, el número de envase, el subgrupo de control (grupos de 5 envases) y el peso en gramos.
+Disponemos del registro de pesos de un turno completo de envasado de yogures de 150 g: **9.600 envases** producidos entre las 08:00 y las 16:00, con un envase cada 3 segundos. Es el mismo turno que analizamos con gráficos de control en el capítulo 9, ahora con todos sus envases. El fichero `llenado_yogures.csv` contiene la hora de envasado, el número de envase, el subgrupo de control (grupos de 5 envases consecutivos), la posición del envase en el subgrupo y el peso en gramos. El turno es simulado.
 
 ### Carga de datos y estadísticos básicos
 
@@ -146,24 +153,27 @@ Disponemos del registro de pesos de un turno completo de envasado de yogures de 
 #| code-fold: true
 #| message: false
 #| warning: false
-library(dplyr)
-library(lubridate)
-library(ggplot2)
+library(tidyverse)
 
-df <- read.csv("datos/simulacion_envasado_yogur.csv") |>
-  mutate(hora_envasado = ymd_hms(hora_envasado))
+df <- read_csv2("datos/llenado_yogures.csv",
+                locale = locale(decimal_mark = ",", encoding = "ISO-8859-1"))
 
 # Límites del RD
-Qn   <- 150.00
-EMDT <-   6.75
-T1   <- Qn - EMDT        # 143.25 g
-T2   <- Qn - 2 * EMDT    # 136.50 g
+Qn   <- 150
+EMDT <- 6.8               # 4,5 % de 150 = 6,75, redondeado por exceso
+T1   <- Qn - EMDT        # 143,2 g
+T2   <- Qn - 2 * EMDT    # 136,4 g
+
+n       <- nrow(df)
+media   <- mean(df$peso_g)
+sigma   <- sd(df$peso_g)
+n_T1    <- sum(df$peso_g < T1)
+n_T2    <- sum(df$peso_g < T2)
 
 summary(df$peso_g)
-cat("Desviación típica :", round(sd(df$peso_g), 2), "g\n")
-cat("Envases bajo T1   :", sum(df$peso_g < T1),
-    "(", round(mean(df$peso_g < T1) * 100, 2), "%)\n")
-cat("Envases bajo T2   :", sum(df$peso_g < T2), "\n")
+cat("Desviación típica :", round(sigma, 2), "g\n")
+cat("Envases bajo T1   :", n_T1, "(", round(100 * n_T1 / n, 2), "%)\n")
+cat("Envases bajo T2   :", n_T2, "\n")
 ```
 
 ## Python
@@ -173,14 +183,14 @@ cat("Envases bajo T2   :", sum(df$peso_g < T2), "\n")
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv("datos/simulacion_envasado_yogur.csv",
-                 parse_dates=["hora_envasado"])
+df = pd.read_csv("datos/llenado_yogures.csv", sep=";", decimal=",",
+                 encoding="ISO-8859-1", parse_dates=["hora_envasado"])
 
 # Límites del RD
-Qn   = 150.00
-EMDT =   6.75
-T1   = Qn - EMDT        # 143.25 g
-T2   = Qn - 2 * EMDT    # 136.50 g
+Qn   = 150
+EMDT = 6.8               # 4,5 % de 150 = 6,75, redondeado por exceso
+T1   = Qn - EMDT         # 143,2 g
+T2   = Qn - 2 * EMDT     # 136,4 g
 
 print(df["peso_g"].describe().round(2))
 print(f"\nDesviación típica : {df['peso_g'].std():.2f} g")
@@ -191,7 +201,7 @@ print(f"Envases bajo T2   : {(df['peso_g'] < T2).sum()}")
 
 :::
 
-El peso medio es de 152,1 g, con una desviación típica de 3,7 g. El mínimo registrado es 129,7 g — muy por debajo de T2 — y el máximo 170,8 g. Ya en estos números se intuye un proceso con variabilidad importante.
+El peso medio es de `r fmt(media)` g, con una desviación típica de `r fmt(sigma)` g. El mínimo registrado es `r fmt(min(df$peso_g))` g, muy por debajo de T2, y el máximo `r fmt(max(df$peso_g))` g. Hay `r n_T1` envases por debajo de T1 (el `r fmt(100 * n_T1 / n, 2)`%) y `r n_T2` por debajo de T2. Con un solo envase bajo T2, el lote ya no cumple el artículo 7.
 
 ### Histograma y diagrama de caja
 
@@ -221,7 +231,7 @@ p1 <- ggplot(df, aes(x = peso_g)) +
            vjust = 2, colour = "orange", size = 3, hjust = 1) +
   annotate("text", x = T2 - 0.3, y = Inf, label = "T2",
            vjust = 2, colour = "red", size = 3, hjust = 1) +
-  labs(title = "Distribución de pesos — turno completo",
+  labs(title = "Distribución de pesos, turno completo",
        x = "Peso (g)", y = "Número de envases") +
   theme_minimal()
 
@@ -254,26 +264,26 @@ gs  = gridspec.GridSpec(1, 4)
 ax1 = fig.add_subplot(gs[0, :3])
 ax2 = fig.add_subplot(gs[0, 3])
 
-ax1.hist(df["peso_g"], bins=60, color="steelblue", edgecolor="white",
-         alpha=0.85)
+_ = ax1.hist(df["peso_g"], bins=70, color="steelblue", edgecolor="white",
+             alpha=0.85)
 for val, col, lbl in [(Qn, "green",  "Qn"),
                       (T1, "orange", "T1"),
                       (T2, "red",    "T2")]:
-    ax1.axvline(val, color=col, linewidth=1.5)
-    ax1.text(val + 0.2, ax1.get_ylim()[1] * 0.95, lbl,
-             color=col, fontsize=9, va="top")
-ax1.set_xlabel("Peso (g)")
-ax1.set_ylabel("Número de envases")
-ax1.set_title("Distribución de pesos — turno completo")
+    _ = ax1.axvline(val, color=col, linewidth=1.5)
+    _ = ax1.text(val + 0.2, ax1.get_ylim()[1] * 0.95, lbl,
+                 color=col, fontsize=9, va="top")
+_ = ax1.set_xlabel("Peso (g)")
+_ = ax1.set_ylabel("Número de envases")
+_ = ax1.set_title("Distribución de pesos, turno completo")
 
-ax2.boxplot(df["peso_g"], patch_artist=True,
-            boxprops=dict(facecolor="steelblue", alpha=0.6),
-            flierprops=dict(marker="o", color="red", markersize=2))
+_ = ax2.boxplot(df["peso_g"], patch_artist=True,
+                boxprops=dict(facecolor="steelblue", alpha=0.6),
+                flierprops=dict(marker="o", color="red", markersize=2))
 for val, col in [(Qn, "green"), (T1, "orange"), (T2, "red")]:
-    ax2.axhline(val, color=col, linewidth=1.2, linestyle="--")
-ax2.set_ylabel("Peso (g)")
-ax2.set_title("Caja")
-ax2.set_xticks([])
+    _ = ax2.axhline(val, color=col, linewidth=1.2, linestyle="--")
+_ = ax2.set_ylabel("Peso (g)")
+_ = ax2.set_title("Caja")
+_ = ax2.set_xticks([])
 
 plt.tight_layout()
 plt.show()
@@ -281,11 +291,11 @@ plt.show()
 
 :::
 
-La distribución es aproximadamente normal pero con una cola izquierda pronunciada: hay un grupo de envases con pesos muy bajos que deforman la distribución. El diagrama de caja los señala claramente como valores atípicos por debajo de T2.
+La distribución es aproximadamente simétrica en su parte central, pero tiene una cola izquierda larga: hay un grupo de envases con pesos muy bajos. El diagrama de caja los señala como valores atípicos, algunos por debajo de T2. Fíjate también en que el centro de la distribución está unos 3 g por encima de la cantidad nominal: el proceso está ajustado para dosificar de más. Veremos por qué más adelante.
 
 ### El muestreo del RD: la herramienta de la inspección
 
-El muestreo que define el RD es la herramienta que usa la inspección externa —el inspector de consumo, el auditor de calidad— para evaluar si un lote es conforme. No es la herramienta con la que el fabricante toma decisiones sobre su proceso: el fabricante conoce su proceso mejor que nadie y no necesita esperar a un muestreo para saber que tiene envases bajo T2. Lo ha visto en el gráfico de control.
+El muestreo que define el RD es la herramienta que usa la inspección externa para evaluar si un lote es conforme. No es la herramienta con la que el fabricante toma decisiones sobre su proceso: el fabricante conoce su proceso mejor que nadie y no necesita esperar a un muestreo para saber que tiene envases bajo T2. Lo ha visto en el gráfico de control.
 
 Aun así, es importante entender qué detecta y qué no detecta el muestreo, porque condiciona el razonamiento de muchos responsables de producción. Aplicamos el procedimiento sobre nuestro lote:
 
@@ -310,7 +320,8 @@ if (sum(muestra_1 < T2) >= 1) {
 } else if (sum(muestra_1 < T1) <= 3) {
   cat("→ ACEPTACIÓN en primera etapa\n")
 } else {
-  muestra_2     <- sample(df$peso_g[!df$peso_g %in% muestra_1], 80)
+  resto         <- df$peso_g[-match(muestra_1, df$peso_g)]
+  muestra_2     <- sample(resto, 80)
   muestra_total <- c(muestra_1, muestra_2)
   cat("→ Zona de duda: segunda etapa\n\n")
   cat("=== SEGUNDA ETAPA (n acumulado = 160) ===\n")
@@ -322,19 +333,31 @@ if (sum(muestra_1 < T2) >= 1) {
     cat("→ ACEPTACIÓN del lote\n")
   }
 }
-cat("\n=== CRITERIO DE LA MEDIA ===\n")
-cat("Media del lote :", round(mean(df$peso_g), 2), "g  →",
-    ifelse(mean(df$peso_g) >= Qn, "CUMPLE", "NO CUMPLE"), "\n")
+
+# Control de la media: muestra de 50 envases
+muestra_media <- sample(df$peso_g, 50)
+limite_media  <- Qn - 0.379 * sd(muestra_media)
+cat("\n=== CONTROL DE LA MEDIA (n = 50) ===\n")
+cat("Media de la muestra :", round(mean(muestra_media), 2), "g  | Límite:",
+    round(limite_media, 2), "g  →",
+    ifelse(mean(muestra_media) >= limite_media, "CUMPLE", "NO CUMPLE"), "\n")
+
+# Probabilidad de que una muestra de 80 envases contenga algún envase bajo T2
+p_T2 <- 1 - phyper(0, n_T2, n - n_T2, 80)
+cat("\nProbabilidad de encontrar algún envase bajo T2 en 80 envases:",
+    round(100 * p_T2, 1), "%\n")
 ```
 
 ## Python
 
 ```{python cumplimiento-python}
 #| code-fold: true
-import numpy as np
+from scipy import stats
 
 rng = np.random.default_rng(123)
-muestra_1 = rng.choice(df["peso_g"].values, size=80, replace=False)
+pesos = df["peso_g"].values
+indices = rng.permutation(len(pesos))
+muestra_1 = pesos[indices[:80]]
 
 bajo_T2_m1 = (muestra_1 < T2).sum()
 bajo_T1_m1 = (muestra_1 < T1).sum()
@@ -350,11 +373,9 @@ elif bajo_T1_m1 >= 7:
 elif bajo_T1_m1 <= 3:
     print("→ ACEPTACIÓN en primera etapa")
 else:
-    resto     = df["peso_g"].values[~np.isin(df["peso_g"].values, muestra_1)]
-    muestra_2 = rng.choice(resto, size=80, replace=False)
-    total     = np.concatenate([muestra_1, muestra_2])
+    total = pesos[indices[:160]]
     print("→ Zona de duda: segunda etapa")
-    print(f"\n=== SEGUNDA ETAPA (n acumulado = 160) ===")
+    print("\n=== SEGUNDA ETAPA (n acumulado = 160) ===")
     print(f"Envases bajo T2 : {(total < T2).sum()}")
     print(f"Envases bajo T1 : {(total < T1).sum()}")
     if (total < T2).sum() >= 1 or (total < T1).sum() >= 9:
@@ -362,15 +383,26 @@ else:
     else:
         print("→ ACEPTACIÓN del lote")
 
-print(f"\n=== CRITERIO DE LA MEDIA ===")
-media_lote = df["peso_g"].mean()
-print(f"Media del lote : {media_lote:.2f} g  →",
-      "CUMPLE" if media_lote >= Qn else "NO CUMPLE")
+# Control de la media: muestra de 50 envases
+muestra_media = rng.choice(pesos, size=50, replace=False)
+limite_media  = Qn - 0.379 * muestra_media.std(ddof=1)
+print("\n=== CONTROL DE LA MEDIA (n = 50) ===")
+print(f"Media de la muestra : {muestra_media.mean():.2f} g  | Límite: "
+      f"{limite_media:.2f} g  →",
+      "CUMPLE" if muestra_media.mean() >= limite_media else "NO CUMPLE")
+
+# Probabilidad de que una muestra de 80 envases contenga algún envase bajo T2
+n_T2 = (pesos < T2).sum()
+p_T2 = 1 - stats.hypergeom.pmf(0, len(pesos), n_T2, 80)
+print(f"\nProbabilidad de encontrar algún envase bajo T2 en 80 envases: "
+      f"{100 * p_T2:.1f} %")
 ```
 
 :::
 
-El resultado más probable es que el lote **pase la inspección**, a pesar de que sabemos que contiene 47 envases bajo T2 y 422 bajo T1. Esto no es un error: es una característica inherente al control estadístico por muestreo. El sistema del RD está diseñado para detectar lotes con proporciones altas de defectuosos — situaciones de fallo grave. Para proporciones pequeñas como la nuestra (0,5% bajo T2), una muestra de 80 unidades tiene menos de un 30% de probabilidad de capturar alguno.
+Sabemos que el lote contiene `r n_T2` envases bajo T2 y, por tanto, no cumple el RD. Sin embargo, la probabilidad de que una muestra de 80 envases recoja alguno de ellos es solo del `r fmt(100 * p_T2)`%. Y el porcentaje de envases bajo T1 (`r fmt(100 * n_T1 / n, 2)`%) es lo bastante bajo para que el plan de muestreo lo acepte casi siempre. Lo más probable, por tanto, es que el lote **pase la inspección**.
+
+Esto no es un error: es una característica del control estadístico por muestreo. El sistema del RD está diseñado para detectar lotes con proporciones altas de envases deficientes, es decir, situaciones de fallo grave. Una proporción pequeña de envases bajo T2, como la de nuestro lote, rara vez aparece en una muestra de 80 unidades.
 
 ### El razonamiento del fabricante "pragmático"
 
@@ -378,14 +410,14 @@ Un responsable de producción que ve este resultado puede llegar a la siguiente 
 
 Es un razonamiento que existe en la práctica, y merece una respuesta en dos niveles.
 
-**El nivel legal.** El RD no dice "si te pillan". El artículo 14 responsabiliza al envasador de que su proceso cumpla, y le obliga a tener documentación de sus controles disponible para la inspección. Un inspector que encuentra un envase bajo T2 en el punto de venta —no en la planta, sino en el supermercado— puede iniciar un expediente sancionador independientemente de que el muestreo de producción fuera correcto. La inspección puede ocurrir en cualquier punto de la cadena de distribución, y el fabricante no controla cuándo ni dónde.
+**El nivel legal.** El RD no dice "si te pillan". El artículo 7 exige que ningún envase esté por debajo de T2, y el artículo 14 hace responsable al envasador de que sus envases cumplan el real decreto y le obliga a tener la documentación de sus controles a disposición de la inspección. Además, la inspección puede realizar controles en todas las fases de la comercialización (artículo 15), no solo en la planta: el fabricante no controla cuándo ni dónde se comprobarán sus envases.
 
-**El nivel económico.** Este argumento es más contundente para un técnico de planta, porque se traduce directamente en euros. Un proceso con σ = 4,6 g no solo produce envases de 130 g — también produce envases de 170 g. La variabilidad actúa en los dos extremos. Cada gramo que se dosifica por encima del objetivo para "cubrir" la cola izquierda es producto que se regala al consumidor sin cobrar por ello. El coste de la sobredosificación — que calcularemos en detalle más adelante — es continuo, silencioso y muy superior al coste del discriminador y de las acciones de mejora.
+**El nivel económico.** Este argumento es más contundente para un técnico de planta, porque se traduce directamente en euros. Un proceso con σ = `r fmt(sigma)` g no solo produce envases de `r fmt(min(df$peso_g), 0)` g: también produce envases de `r fmt(max(df$peso_g), 0)` g. La variabilidad actúa en los dos extremos. Cada gramo que se dosifica por encima de la cantidad nominal para "cubrir" la cola izquierda es producto que se regala al consumidor sin cobrar por ello. El coste de la sobredosificación, que calcularemos más adelante, es continuo, silencioso y muy superior al coste del discriminador y de las acciones de mejora.
 
 ::: {.callout-note}
 ## La variabilidad tiene coste en los dos extremos
 
-Un proceso que produce envases de 130 g también produce envases de 170 g. Para evitar los primeros, el fabricante sube la media de dosificación — y con ello regala más producto en cada envase del extremo alto. Reducir la variabilidad es la única forma de escapar de ese dilema: permite bajar la media sin arriesgar el incumplimiento, y ese ahorro es cuantificable turno a turno.
+Un proceso que produce envases muy ligeros también produce envases muy pesados. Para evitar los primeros, el fabricante sube la media de dosificación, y con ello regala más producto en cada envase. Reducir la variabilidad es la única forma de escapar de ese dilema: permite bajar la media sin arriesgar el incumplimiento, y ese ahorro es cuantificable turno a turno.
 :::
 
 ![Proceso centrado por encima de Qn: con media 152,5 g y σ = 4 g, solo el 1 % de los envases queda bajo T1, pero la diferencia entre la media y Qn es producto regalado en cada envase](imagenes/rd-1801-proceso.png)
@@ -394,7 +426,9 @@ Un proceso que produce envases de 130 g también produce envases de 170 g. Para 
 
 ### Qué es y cómo funciona
 
-Un **discriminador de peso** es un sistema de control en línea que pesa cada envase individualmente a la salida de la llenadora y expulsa automáticamente los que no cumplen el criterio configurado. A diferencia del muestreo del RD —que evalúa una muestra del lote al final— el discriminador actúa **envase a envase durante la producción**: es la única herramienta que garantiza que ningún T2 salga de la línea. En la práctica se configura para rechazar con seguridad los envases por debajo de T2. La detección de envases en la zona entre T2 y T1 es menos fiable: la precisión del equipo en esa banda es limitada y la tasa de detección real rara vez supera el 70-80%.
+Un **discriminador de peso** es un sistema de control en línea que pesa cada envase a la salida de la llenadora y expulsa automáticamente todos los que pesan menos que el valor al que se ha ajustado (su **consigna**). A diferencia del muestreo del RD, que evalúa una muestra del lote, el discriminador actúa **envase a envase durante la producción**.
+
+Con el signo ℮, el discriminador se ajusta como mínimo en T2, para que ningún envase por debajo de ese límite llegue al mercado. Puede ajustarse más alto, por ejemplo en T1, a cambio de rechazar más envases. Cuando el envasador no aplica el control estadístico, el discriminador es la forma de asegurarse de que ningún envase sale por debajo del peso que se haya fijado.
 
 ### El coste del rechazo en el lote original
 
@@ -405,72 +439,47 @@ Un **discriminador de peso** es un sistema de control en línea que pesa cada en
 #| code-fold: true
 #| message: false
 #| warning: false
-# Parámetros económicos
-coste_kg      <- 1.20
-dias_año      <- 220
-tasa_det_T1T2 <- 0.75
+# Parámetros económicos (valores orientativos)
+coste_kg <- 1.20    # €/kg, coste de producción estimado
+dias_año <- 220     # turnos de producción al año
 
-env_bajo_T2    <- sum(df$peso_g < T2)
-env_zona_T1T2  <- sum(df$peso_g >= T2 & df$peso_g < T1)
-env_det_T1T2   <- round(env_zona_T1T2 * tasa_det_T1T2)
-env_total      <- env_bajo_T2 + env_det_T1T2
+rechazo <- tibble(consigna = c("T2", "T1"), limite = c(T2, T1)) |>
+  rowwise() |>
+  mutate(envases   = sum(df$peso_g < limite),
+         kg        = sum(df$peso_g[df$peso_g < limite]) / 1000,
+         coste_turno = kg * coste_kg,
+         coste_anual = coste_turno * dias_año) |>
+  ungroup()
 
-peso_T2   <- sum(df$peso_g[df$peso_g < T2]) / 1000
-peso_T1T2 <- sum(head(sort(
-  df$peso_g[df$peso_g >= T2 & df$peso_g < T1]), env_det_T1T2)) / 1000
-peso_rechazado_kg <- peso_T2 + peso_T1T2
-
-cat("Envases bajo T2 (rechazo seguro)  :", env_bajo_T2, "\n")
-cat("Envases zona T1-T2                :", env_zona_T1T2,
-    "| Detectados (~75%):", env_det_T1T2, "\n")
-cat("Total envases rechazados / turno  :", env_total, "\n")
-cat("Peso rechazado / turno            :",
-    round(peso_rechazado_kg, 1), "kg\n")
-cat("Coste rechazo / turno             :",
-    round(peso_rechazado_kg * coste_kg, 2), "€\n")
-cat("Coste rechazo anual estimado      :",
-    round(peso_rechazado_kg * coste_kg * dias_año, 0), "€\n")
+rechazo
 ```
 
 ## Python
 
 ```{python coste-discriminador-python}
 #| code-fold: true
-# Parámetros económicos
-coste_kg      = 1.20   # €/kg (coste de producción estimado)
-dias_año      = 220
-tasa_det_T1T2 = 0.75   # tasa de detección en zona T1-T2
+# Parámetros económicos (valores orientativos)
+coste_kg = 1.20    # €/kg, coste de producción estimado
+dias_año = 220     # turnos de producción al año
 
-env_bajo_T2    = (df["peso_g"] < T2).sum()
-env_zona_T1T2  = ((df["peso_g"] >= T2) & (df["peso_g"] < T1)).sum()
-env_det_T1T2   = round(env_zona_T1T2 * tasa_det_T1T2)
-env_total      = env_bajo_T2 + env_det_T1T2
-
-peso_T2    = df.loc[df["peso_g"] < T2, "peso_g"].sum() / 1000
-peso_T1T2  = (df.loc[(df["peso_g"] >= T2) & (df["peso_g"] < T1), "peso_g"]
-              .nsmallest(env_det_T1T2).sum() / 1000)
-peso_rech  = peso_T2 + peso_T1T2
-
-print(f"Envases bajo T2 (rechazo seguro)  : {env_bajo_T2}")
-print(f"Envases zona T1-T2                : {env_zona_T1T2}"
-      f"  | Detectados (~75%): {env_det_T1T2}")
-print(f"Total envases rechazados / turno  : {env_total}")
-print(f"Peso rechazado / turno            : {peso_rech:.1f} kg")
-print(f"Coste rechazo / turno             : {peso_rech * coste_kg:.2f} €")
-print(f"Coste rechazo anual estimado      : "
-      f"{peso_rech * coste_kg * dias_año:.0f} €")
+for nombre, limite in [("T2", T2), ("T1", T1)]:
+    rech = df.loc[df["peso_g"] < limite, "peso_g"]
+    kg = rech.sum() / 1000
+    print(f"Consigna {nombre}: {len(rech)} envases, {kg:.1f} kg, "
+          f"{kg * coste_kg:.2f} €/turno, {kg * coste_kg * dias_año:.0f} €/año")
 ```
-
 
 :::
 
+Con la consigna en T2, el discriminador retira `r rechazo$envases[1]` envases por turno (`r fmt(rechazo$kg[1])` kg), y el lote pasa a cumplir el tercer requisito del artículo 7. Con la consigna en T1, retira `r rechazo$envases[2]` envases (`r fmt(rechazo$kg[2])` kg por turno): el rechazo se multiplica, porque la cola izquierda de la distribución es larga. En cualquier caso, el discriminador no corrige el proceso: solo retira los envases que el proceso produce mal.
+
 ### La trampa de bajar la media con el discriminador instalado
 
-Una vez instalado el discriminador, los envases bajo T2 desaparecen de la línea y el lote pasa el control. La reacción habitual en planta es inmediata: *si ya no hay rechazos T2, podemos bajar un poco el peso medio y recuperar producto*.
+Una vez instalado el discriminador, los envases bajo T2 desaparecen de la línea y el lote pasa el control. La reacción habitual en planta es inmediata: *si ya no hay envases bajo T2, podemos bajar un poco el peso medio y recuperar producto*.
 
-El razonamiento parece lógico, pero esconde una trampa. Al bajar la media con la misma σ alta, el área bajo la curva entre T2 y T1 **crece rápidamente**. El discriminador elimina los T2, pero no los T1 — y el porcentaje de envases en esa zona puede superar el 2,5% permitido antes de lo que parece.
+El razonamiento parece lógico, pero esconde una trampa. Al bajar la media sin reducir la variabilidad, la proporción de envases entre T2 y T1 **crece rápidamente**. Con la consigna en T2, el discriminador elimina los envases bajo T2, pero no los que quedan entre T2 y T1, y esa proporción puede superar la referencia del 2,5% antes de lo que parece.
 
-La gráfica siguiente lo muestra: para cada valor posible de la media de dosificación, calcula el porcentaje esperado de envases bajo T1 usando la distribución normal con la σ actual del proceso (4,6 g):
+La gráfica siguiente lo muestra: para cada valor posible de la media de dosificación, calcula el porcentaje esperado de envases bajo T1 usando la distribución normal con la σ actual del proceso (`r fmt(sigma)` g):
 
 ::: {.panel-tabset}
 ## R
@@ -481,40 +490,35 @@ La gráfica siguiente lo muestra: para cada valor posible de la media de dosific
 #| warning: false
 #| fig-width: 8
 #| fig-height: 4
-sigma_actual    <- sd(df$peso_g)
-medias_posibles <- seq(149, 155, by = 0.1)
-pct_T1          <- pnorm(T1, mean = medias_posibles,
-                          sd = sigma_actual) * 100
-media_limite    <- medias_posibles[which(pct_T1 >= 2.5)[1]]
+medias_posibles <- seq(146, 158, by = 0.1)
+pct_T1          <- pnorm(T1, mean = medias_posibles, sd = sigma) * 100
 
-df_trampa <- data.frame(media = medias_posibles, pct = pct_T1)
+# Media más baja con la que el porcentaje bajo T1 no supera el 2,5 %
+media_limite <- min(medias_posibles[pct_T1 <= 2.5])
 
-ggplot(df_trampa, aes(x = media, y = pct)) +
+ggplot(tibble(media = medias_posibles, pct = pct_T1),
+       aes(x = media, y = pct)) +
   geom_line(colour = "steelblue", linewidth = 1.2) +
   geom_hline(yintercept = 2.5, colour = "red",
              linetype = "dashed", linewidth = 0.9) +
   geom_vline(xintercept = media_limite, colour = "orange",
              linetype = "dotted", linewidth = 0.9) +
-  geom_vline(xintercept = mean(df$peso_g), colour = "green4",
+  geom_vline(xintercept = media, colour = "green4",
              linetype = "dashed", linewidth = 0.8) +
-  annotate("text", x = mean(df$peso_g) + 0.1, y = 5.5,
-           label = paste0("Media actual\n",
-                          round(mean(df$peso_g), 1), " g"),
+  annotate("text", x = media + 0.1, y = 8,
+           label = paste0("Media actual\n", fmt(media), " g"),
            colour = "green4", size = 3, hjust = 0) +
-  annotate("text", x = media_limite + 0.1, y = 5.5,
-           label = paste0("Límite\n", round(media_limite, 1), " g"),
-           colour = "orange", size = 3, hjust = 0) +
-  annotate("text", x = 155, y = 2.8,
-           label = "Límite legal 2,5%",
-           colour = "red", size = 3, hjust = 1) +
-  labs(
-    title    = "La trampa del discriminador",
-    subtitle = paste0("Con σ = ", round(sigma_actual, 1),
-                      " g, bajar la media más de ",
-                      round(mean(df$peso_g) - media_limite, 1),
-                      " g supera el límite legal del criterio T1"),
-    x = "Media de dosificación (g)",
-    y = "% envases bajo T1") +
+  annotate("text", x = media_limite - 0.1, y = 8,
+           label = paste0("Límite\n", fmt(media_limite), " g"),
+           colour = "orange", size = 3, hjust = 1) +
+  annotate("text", x = 158, y = 3.3,
+           label = "Referencia 2,5%", colour = "red", size = 3, hjust = 1) +
+  labs(title    = "La trampa del discriminador",
+       subtitle = paste0("Con σ = ", fmt(sigma), " g, bajar la media más de ",
+                         fmt(media - media_limite),
+                         " g supera la referencia del 2,5% bajo T1"),
+       x = "Media de dosificación (g)",
+       y = "% de envases bajo T1") +
   theme_minimal()
 ```
 
@@ -524,183 +528,148 @@ ggplot(df_trampa, aes(x = media, y = pct)) +
 #| code-fold: true
 #| fig-width: 8
 #| fig-height: 4
-from scipy import stats
-
-sigma_actual    = df["peso_g"].std()
-medias_posibles = np.arange(149, 155.1, 0.1)
-pct_T1          = stats.norm.cdf(T1, loc=medias_posibles,
-                                  scale=sigma_actual) * 100
+sigma           = df["peso_g"].std()
 media_actual    = df["peso_g"].mean()
-media_limite    = medias_posibles[np.argmax(pct_T1 >= 2.5)]
+medias_posibles = np.arange(146, 158.05, 0.1)
+pct_T1          = stats.norm.cdf(T1, loc=medias_posibles, scale=sigma) * 100
+media_limite    = medias_posibles[pct_T1 <= 2.5].min()
 
 fig, ax = plt.subplots(figsize=(8, 4))
-ax.plot(medias_posibles, pct_T1, color="steelblue", linewidth=1.5)
-ax.axhline(2.5, color="red", linestyle="--", linewidth=1)
-ax.axvline(media_limite, color="orange", linestyle=":", linewidth=1.2)
-ax.axvline(media_actual, color="green",  linestyle="--", linewidth=1)
-ax.text(media_actual + 0.08, 5.2,
-        f"Media actual\n{media_actual:.1f} g",
-        color="green", fontsize=8)
-ax.text(media_limite + 0.08, 5.2,
-        f"Límite\n{media_limite:.1f} g",
-        color="orange", fontsize=8)
-ax.text(154.9, 2.7, "Límite legal 2,5%",
-        color="red", fontsize=8, ha="right")
-ax.set_xlabel("Media de dosificación (g)")
-ax.set_ylabel("% envases bajo T1")
-ax.set_title(
-    f"La trampa del discriminador\n"
-    f"Con σ = {sigma_actual:.1f} g, bajar la media más de "
-    f"{media_actual - media_limite:.1f} g supera el límite legal")
+_ = ax.plot(medias_posibles, pct_T1, color="steelblue", linewidth=1.5)
+_ = ax.axhline(2.5, color="red", linestyle="--", linewidth=1)
+_ = ax.axvline(media_limite, color="orange", linestyle=":", linewidth=1.2)
+_ = ax.axvline(media_actual, color="green", linestyle="--", linewidth=1)
+_ = ax.text(media_actual + 0.1, 8, f"Media actual\n{media_actual:.1f} g",
+            color="green", fontsize=8)
+_ = ax.text(media_limite - 0.1, 8, f"Límite\n{media_limite:.1f} g",
+            color="orange", fontsize=8, ha="right")
+_ = ax.text(158, 3.3, "Referencia 2,5%", color="red", fontsize=8, ha="right")
+_ = ax.set_xlabel("Media de dosificación (g)")
+_ = ax.set_ylabel("% de envases bajo T1")
+_ = ax.set_title(f"La trampa del discriminador\nCon σ = {sigma:.1f} g, bajar la "
+                 f"media más de {media_actual - media_limite:.1f} g supera la "
+                 f"referencia del 2,5% bajo T1")
 plt.tight_layout()
 plt.show()
 ```
 
 :::
 
-Con una σ de 3,7 g, el margen para bajar la media es de apenas `r round(mean(df$peso_g) - media_limite, 1)` g antes de incumplir el criterio T1. Y esto con el discriminador funcionando y eliminando todos los T2 — sin él, el lote ya estaría rechazado.
+Con una σ de `r fmt(sigma)` g, el margen para bajar la media es de apenas `r fmt(media - media_limite)` g antes de superar la referencia del 2,5% de envases bajo T1. Y esto con el discriminador funcionando y eliminando todos los envases bajo T2: sin él, el lote ya incumple el RD.
 
 ::: {.callout-note}
 ## El discriminador: solución inevitable, coste real
 
-El discriminador es en la práctica una solución casi inevitable: mientras se trabaja en reducir la variabilidad del proceso — un trabajo que puede llevar semanas o meses — la línea tiene que seguir produciendo dentro de la norma. El coste de rechazo se trata como un coste fijo asumido, que se incorpora al coste del producto, y, por lo tanto, al precio de venta, reduciendo su competitividad. Lo que rara vez se calcula es cuánto de ese coste es evitable. Cuando se hace ese cálculo — como haremos en las secciones siguientes — el ahorro potencial se convierte en el argumento más sólido para justificar ante la dirección la inversión en las acciones de mejora.
+El discriminador es en la práctica una solución casi inevitable: mientras se trabaja en reducir la variabilidad del proceso, un trabajo que puede llevar semanas o meses, la línea tiene que seguir produciendo dentro de la norma. El coste del rechazo se trata como un coste fijo asumido, que se incorpora al coste del producto y, por lo tanto, al precio de venta, reduciendo su competitividad. Lo que rara vez se calcula es cuánto de ese coste, y sobre todo cuánto de la sobredosificación, es evitable. Cuando se hace ese cálculo, como haremos en las secciones siguientes, el ahorro potencial se convierte en el argumento más sólido para justificar ante la dirección la inversión en las acciones de mejora.
 :::
 
 ## El proceso de mejora continua para reducir la variabilidad
 
+La mejora se plantea en dos etapas, cada una con sus acciones y sus conclusiones: primero se estabiliza el proceso eliminando las causas especiales, y después se reduce la variabilidad común.
+
 ### Etapa 1: estabilizar el proceso
 
-#### El gráfico de control: identificar las causas especiales
+#### Qué ocurrió durante el turno
 
-El primer paso del plan de mejora es entender *qué ocurrió* durante el turno. El gráfico de control X-barra agrupa los envases en intervalos de 3 minutos y representa la media de cada intervalo a lo largo del tiempo. Los puntos fuera de los límites de control señalan momentos en que el proceso dejó de comportarse de forma estable — las **causas especiales** de variabilidad.
+En el capítulo 9 analizamos este turno con gráficos de control a partir de una muestra de 5 envases cada 3 minutos, y reconstruimos lo que había ocurrido:
 
-```{r grafico-control-original}
-#| code-fold: true
-#| message: false
-#| warning: false
-#| results: hide
-#| fig-width: 11
-#| fig-height: 4
-library(qicharts2)
-
-df <- df |>
-  mutate(intervalo = floor_date(hora_envasado, "3 minutes"))
-
-qic(peso_g,
-    x          = intervalo,
-    data       = df,
-    chart      = "xbar",
-    point.size = 0.8,
-    title      = "Gráfico X-barra — turno del 1 de octubre (grupos de 3 min)",
-    ylab       = "Peso medio (g)",
-    xlab       = "Hora de envasado")
-```
-
-```{r grafico-s-original}
-#| code-fold: true
-#| message: false
-#| warning: false
-#| results: hide
-#| fig-width: 11
-#| fig-height: 4
-qic(peso_g,
-    x          = intervalo,
-    data       = df,
-    chart      = "s",
-    point.size = 0.8,
-    title      = "Gráfico S — desviación típica por intervalo de 3 min",
-    ylab       = "Desviación típica (g)",
-    xlab       = "Hora de envasado")
-```
-
-El gráfico revela una historia detallada del turno. Hay siete eventos identificables:
-
-| Hora | Evento observable | Tipo |
+| Hora | Qué ocurre | Tipo |
 |---|---|---|
-| 08:30 | Deriva ascendente: la media sube ~4 g en 8 min | Causa especial |
-| 08:38 | Sobrecorrección violenta: la media cae a ~143 g, aparecen envases bajo T2 | Causa especial |
-| 08:52 | Estabilización gradual en ~153 g | — |
-| 10:00 | Alta variabilidad sostenida 45 min, sin cambio de media | Causa especial |
-| 11:00 | Deriva descendente lenta: −3 g en hora y media | Causa especial |
-| 13:30 | Escalón brusco ascendente: +2,5 g en 5 min | Causa especial |
-| 14:00 | Oscilación rítmica periódica durante 30 min | Causa especial |
+| 08:30 | Deriva ascendente: la media sube unos 6 g en 9 minutos | Causa especial |
+| 08:39 | Sobrecorrección del operario: la media cae a unos 143 g durante 15 minutos | Causa especial |
+| 08:54 | Recuperación gradual hasta el nivel inicial, hacia las 09:03 | |
+| 10:00 | Alta variabilidad durante 45 minutos, sin cambio de la media | Causa especial |
+| 11:00 | Deriva descendente lenta: la media baja 3 g en hora y media y sigue baja hasta las 13:30 | Causa especial |
+| 13:30 | Escalón brusco en el cambio de turno: la media sube unos 4,5 g y queda alta hasta el final | Causa especial |
+| 14:00 | Oscilación periódica durante 30 minutos | Causa especial |
+
+Con todos los envases del turno podemos ver qué consecuencias tuvo cada incidente:
+
+```{r consecuencias-incidentes}
+#| code-fold: true
+#| message: false
+#| warning: false
+df <- df |>
+  mutate(hora = format(hora_envasado, "%H:%M"),
+         periodo = case_when(
+           hora >= "08:39" & hora < "09:03" ~ "Sobrecorrección (08:39-09:03)",
+           hora >= "10:00" & hora < "10:45" ~ "Alta variabilidad (10:00-10:45)",
+           TRUE                             ~ "Resto del turno"))
+
+incidentes <- df |>
+  group_by(periodo) |>
+  summarise(envases = n(),
+            bajo_T1 = sum(peso_g < T1),
+            bajo_T2 = sum(peso_g < T2))
+incidentes
+```
+
+La sobrecorrección y el período de alta variabilidad concentran casi todos los envases bajo T1 y todos los envases bajo T2. Son, por tanto, los dos incidentes que hacen que el lote no sea conforme.
 
 #### Diagnóstico 5M: causas y planes de acción
 
-**Máquina — Deriva ascendente 08:30, deriva descendente 11:00 y oscilación 14:00**
+**Máquina: deriva ascendente de las 08:30 y oscilación de las 14:00**
 
-La deriva lenta y progresiva de la media es la firma clásica del desgaste o pérdida de ajuste mecánico. En una llenadora de pistón, puede deberse al desgaste de juntas, variación de la carrera del pistón o cambio en la temperatura del fluido hidráulico. La oscilación rítmica de las 14:00 apunta a una vibración periódica de la bomba de producto.
+Una deriva progresiva de la media es la firma clásica del desgaste o la pérdida de ajuste mecánico. En una llenadora de pistón, puede deberse al desgaste de juntas, a una variación de la carrera del pistón o a un cambio en la temperatura del fluido hidráulico. La oscilación rítmica de las 14:00 apunta a una vibración periódica de la bomba de producto.
 
-*Plan de acción (Lean — TPM):* plan de mantenimiento preventivo con revisión de pistones y juntas cada N turnos; alarmas automáticas cuando la media de tres subgrupos consecutivos supere ±1,5 g respecto al objetivo.
+*Plan de acción (Lean, TPM):* plan de mantenimiento preventivo con revisión de pistones y juntas cada N turnos; alarmas automáticas cuando la media de tres subgrupos consecutivos se separe más de 1,5 g del objetivo.
 
-**Mano de obra — Sobrecorrección 08:38**
+**Mano de obra: sobrecorrección de las 08:39**
 
-El evento más grave del turno. Cuando el operario detectó la deriva ascendente de las 08:30, corrigió en exceso: bajó la dosificación tan agresivamente que la media cayó por debajo de T1, generando los 25 envases bajo T2 que rechazaron el lote. Completamente evitable.
+Es el incidente más grave del turno. Cuando el operario detectó la deriva ascendente de las 08:30, corrigió en exceso: bajó la dosificación tan bruscamente que la media cayó por debajo de T1 y aparecieron `r incidentes$bajo_T2[incidentes$periodo == "Sobrecorrección (08:39-09:03)"]` envases bajo T2, que bastan para que el lote no sea conforme. Era completamente evitable.
 
-*Plan de acción (Lean — trabajo estándar):* criterios de actuación escritos con límites de corrección: ajuste máximo de ±0,5 g por intervención, verificación del resultado antes del siguiente paso.
+*Plan de acción (Lean, trabajo estándar):* criterios de actuación escritos con límites de corrección, por ejemplo un ajuste máximo de ±0,5 g por intervención y la verificación del resultado antes del siguiente paso.
 
-**Mano de obra — Escalón brusco 13:30**
+**Mano de obra: escalón brusco de las 13:30**
 
-El cambio brusco coincide con el cambio de turno. El operario entrante ajustó la máquina de forma diferente al saliente, sin protocolo de entrega definido.
+El cambio brusco coincide con el cambio de turno. El operario entrante ajustó la máquina de forma diferente al saliente, sin un protocolo de entrega definido.
 
-*Plan de acción (Lean — estandarización):* protocolo escrito de cambio de turno con verificación de peso y firma de aceptación antes de liberar la línea.
+*Plan de acción (Lean, estandarización):* protocolo escrito de cambio de turno con verificación de peso y firma de aceptación antes de liberar la línea.
 
-**Material — Alta variabilidad sostenida 10:00-10:45**
+**Material: alta variabilidad de 10:00 a 10:45**
 
-Un período de variabilidad alta sin cambio de media apunta a material fuera de especificación: probablemente la llegada de un nuevo lote de leche con viscosidad diferente, que afecta al volumen dosificado por pistón.
+Un período de variabilidad alta sin cambio de la media apunta a un material diferente: probablemente la llegada de un nuevo lote de producto con una viscosidad distinta, que afecta al volumen dosificado por el pistón.
 
-*Plan de acción (Lean — poka-yoke):* control de viscosidad en recepción de cada cubeta antes de incorporarla a la línea. Si la viscosidad está fuera del rango aceptado, no se incorpora sin ajuste previo.
+*Plan de acción (Lean, poka-yoke):* control de viscosidad en la recepción de cada cuba antes de incorporarla a la línea. Si la viscosidad está fuera del rango aceptado, no se incorpora sin un ajuste previo.
 
-**Método — Deriva descendente 11:00-12:30**
+**Método: deriva descendente de 11:00 a 13:30**
 
-Una deriva relacionada con la hora del turno puede responder a la temperatura del producto: a medida que avanza la mañana, la temperatura en el depósito de alimentación sube, la viscosidad baja y el pistón entrega ligeramente menos masa. Es una causa de método porque no existe un procedimiento de control de temperatura.
+Una deriva relacionada con la hora del turno puede responder a la temperatura del producto: a medida que avanza la mañana, la temperatura en el depósito de alimentación sube, la viscosidad baja y el pistón entrega ligeramente menos masa. Es una causa de método, porque no existe un procedimiento de control de temperatura.
 
-*Plan de acción:* rango de temperatura del producto en el depósito con verificación horaria. A más largo plazo: control automático de temperatura.
+*Plan de acción:* rango de temperatura del producto en el depósito, con verificación horaria. A más largo plazo, control automático de temperatura.
 
 ::: {.callout-tip}
 ## Variabilidad especial y variabilidad común
 
-Los eventos identificados son **causas especiales** de variabilidad: tienen causa identificable, son esporádicas y se pueden eliminar con acciones concretas. Una vez eliminadas, el proceso queda con su **variabilidad común** — la inherente al sistema, que solo se puede reducir con mejoras estructurales más profundas.
+Los incidentes identificados son **causas especiales** de variabilidad: tienen una causa identificable, son esporádicos y se pueden eliminar con acciones concretas. Una vez eliminados, el proceso queda con su **variabilidad común**, la inherente al sistema, que solo se puede reducir con mejoras estructurales más profundas.
 
-Este enfoque de dos etapas — primero estabilizar eliminando causas especiales, después optimizar reduciendo la variabilidad común — es la base de las metodologías **Lean** y **Six Sigma**, que estudiaremos en el capítulo 20.
+Este enfoque de dos etapas (primero estabilizar eliminando causas especiales, después optimizar reduciendo la variabilidad común) es la base de las metodologías **Lean** y **Six Sigma**, que estudiaremos en el capítulo 16.
 :::
 
-#### El gráfico de capacidad del proceso original
+#### Por qué la media está en 153 g
 
-```{r capacidad-original}
+Antes del primer incidente, entre las 08:00 y las 08:30, el proceso funcionaba solo con causas comunes. Esos 600 envases nos dicen cómo es el proceso cuando no ocurre nada especial:
+
+```{r capacidad-fase1}
 #| code-fold: true
-#| message: false
-#| warning: false
-#| results: hide
-#| fig-width: 8
-#| fig-height: 5
-library(qcc)
+fase1       <- df |> filter(hora < "08:30")
+media_f1    <- mean(fase1$peso_g)
+sigma_f1    <- sd(fase1$peso_g)
+cpk_f1      <- (media_f1 - T1) / (3 * sigma_f1)
 
-df_qcc <- df |>
-  mutate(intervalo_5 = floor_date(hora_envasado, "5 minutes")) |>
-  group_by(intervalo_5) |>
-  mutate(obs_id = row_number()) |>
-  ungroup()
-
-datos_matriz <- df_qcc |>
-  select(intervalo_5, obs_id, peso_g) |>
-  tidyr::pivot_wider(names_from = obs_id, values_from = peso_g) |>
-  select(-intervalo_5) |>
-  as.matrix()
-
-obj_xbar <- qcc(datos_matriz, type = "xbar", plot = FALSE)
-process.capability(obj_xbar,
-                   spec.limits = c(T1, Qn + EMDT),
-                   target = Qn)
+cat(sprintf("Media = %.2f g   Desviación típica = %.2f g   Cpk = %.2f\n",
+            media_f1, sigma_f1, cpk_f1))
 ```
 
-Los índices Cp y Cpk lo confirman: el proceso no es capaz de mantenerse dentro de los límites especificados con la variabilidad actual. La cola izquierda de la distribución se extiende claramente por debajo de T1 y, en los peores momentos del turno, por debajo de T2.
+Sin incidentes, el proceso tiene una media de unos 153 g y una desviación típica de unos 2,5 g, con un $C_{pk}$ frente a T1 de `r fmt(cpk_f1, 2)`. En el capítulo 9 vimos que en la industria se suele exigir $C_{pk} \geq 1{,}33$. Como solo hay un límite inferior, eso significa que la media debe estar al menos 4 desviaciones típicas por encima de T1:
 
-### Análisis intermedio: el proceso estabilizado
+$$\mu \geq T_1 + 4\sigma = 143{,}2 + 4 \times 2{,}5 = 153{,}2 \text{ g}$$
 
-Una vez implementadas las acciones de la etapa 1, el proceso queda libre de causas especiales. Lo que queda es la **variabilidad común**: la dispersión inherente al sistema cuando todo funciona correctamente.
+Esta es la razón por la que la planta trabaja con una media de 153 g, 3 g por encima de la cantidad nominal: con la variabilidad actual, si baja la media aparecen envases bajo T2 o un número excesivo de envases bajo T1.
 
-Simulamos este escenario manteniendo la misma media objetivo (152,5 g) pero reduciendo la desviación típica a 2,3 g, que es lo esperable de un proceso estabilizado sin mejoras tecnológicas todavía.
+#### Simulación del proceso estabilizado
+
+Una vez implementadas las acciones de la etapa 1, el proceso queda libre de causas especiales y se comporta como en la Fase I. Lo simulamos con la misma media (153 g) y la desviación típica de la variabilidad común (2,5 g):
 
 ::: {.panel-tabset}
 ## R
@@ -710,9 +679,8 @@ Simulamos este escenario manteniendo la misma media objetivo (152,5 g) pero redu
 #| message: false
 #| warning: false
 set.seed(101)
-n        <- nrow(df)
-media_e1 <- 152.5
-sigma_e1 <- 2.3
+media_e1 <- 153
+sigma_e1 <- 2.5
 
 peso_etapa1 <- rnorm(n, mean = media_e1, sd = sigma_e1)
 
@@ -721,13 +689,7 @@ cat("Media  :", round(mean(peso_etapa1), 2), "g\n")
 cat("SD     :", round(sd(peso_etapa1), 2), "g\n")
 cat("Bajo T1:", sum(peso_etapa1 < T1),
     "(", round(mean(peso_etapa1 < T1) * 100, 2), "%)\n")
-cat("Bajo T2:", sum(peso_etapa1 < T2), "\n\n")
-cat("Criterio media :",
-    ifelse(mean(peso_etapa1) >= Qn, "CUMPLE", "NO CUMPLE"), "\n")
-cat("Criterio T1    :",
-    ifelse(mean(peso_etapa1 < T1) * 100 < 2.5, "CUMPLE", "NO CUMPLE"), "\n")
-cat("Criterio T2    :",
-    ifelse(sum(peso_etapa1 < T2) == 0, "CUMPLE", "NO CUMPLE"), "\n")
+cat("Bajo T2:", sum(peso_etapa1 < T2), "\n")
 ```
 
 ## Python
@@ -736,59 +698,22 @@ cat("Criterio T2    :",
 #| code-fold: true
 rng      = np.random.default_rng(101)
 n        = len(df)
-media_e1 = 152.5
-sigma_e1 = 2.3
+media_e1 = 153
+sigma_e1 = 2.5
 
 peso_etapa1 = rng.normal(media_e1, sigma_e1, n)
 
 print("=== PROCESO ESTABILIZADO (etapa 1) ===")
 print(f"Media  : {peso_etapa1.mean():.2f} g")
-print(f"SD     : {peso_etapa1.std():.2f} g")
+print(f"SD     : {peso_etapa1.std(ddof=1):.2f} g")
 print(f"Bajo T1: {(peso_etapa1 < T1).sum()} "
       f"({(peso_etapa1 < T1).mean()*100:.2f}%)")
 print(f"Bajo T2: {(peso_etapa1 < T2).sum()}")
-print()
-print("Criterio media :", "CUMPLE" if peso_etapa1.mean() >= Qn else "NO CUMPLE")
-print("Criterio T1    :",
-      "CUMPLE" if (peso_etapa1 < T1).mean()*100 < 2.5 else "NO CUMPLE")
-print("Criterio T2    :",
-      "CUMPLE" if (peso_etapa1 < T2).sum() == 0 else "NO CUMPLE")
 ```
 
 :::
 
-#### Gráfico de control del proceso estabilizado
-
-```{r grafico-control-estabilizado}
-#| code-fold: true
-#| message: false
-#| warning: false
-#| results: hide
-#| fig-width: 11
-#| fig-height: 4
-library(qicharts2)
-library(lubridate)
-
-# Asignamos timestamps ficticios del mismo turno
-tiempos_e1 <- seq(as.POSIXct("2024-10-01 08:00:00"),
-                  by = "3 sec", length.out = n)
-df_e1 <- data.frame(
-  hora      = tiempos_e1,
-  peso_g    = peso_etapa1
-) |> mutate(intervalo = floor_date(hora, "3 minutes"))
-
-qic(peso_g,
-    x          = intervalo,
-    data       = df_e1,
-    chart      = "xbar",
-    point.size = 0.8,
-    title      = "Gráfico de control del proceso estabilizado",
-    ylab       = "Peso medio (g)",
-    xlab       = "Hora de envasado")
-```
-
-
-#### Comparación visual: original vs. estabilizado
+#### Comparación visual: original frente a estabilizado
 
 ::: {.panel-tabset}
 
@@ -800,10 +725,11 @@ qic(peso_g,
 #| warning: false
 #| fig-width: 10
 #| fig-height: 4
-df_comp <- data.frame(
+df_comp <- tibble(
   peso  = c(df$peso_g, peso_etapa1),
-  etapa = rep(c("Original (σ = 3,7 g)",
-                "Etapa 1: estabilizado (σ = 2,3 g)"), each = n)
+  etapa = rep(c(paste0("Original (σ = ", fmt(sigma), " g)"),
+                paste0("Etapa 1: estabilizado (σ = ", fmt(sigma_e1), " g)")),
+              each = n)
 )
 
 ggplot(df_comp, aes(x = peso, fill = etapa, colour = etapa)) +
@@ -816,7 +742,7 @@ ggplot(df_comp, aes(x = peso, fill = etapa, colour = etapa)) +
              linetype = "solid",  linewidth = 0.8) +
   scale_fill_manual(values   = c("steelblue", "darkorange")) +
   scale_colour_manual(values = c("steelblue", "darkorange")) +
-  labs(title  = "Original vs. proceso estabilizado (etapa 1)",
+  labs(title  = "Original frente a proceso estabilizado (etapa 1)",
        x = "Peso (g)", y = "Densidad",
        fill = "Escenario", colour = "Escenario") +
   theme_minimal() +
@@ -832,129 +758,56 @@ ggplot(df_comp, aes(x = peso, fill = etapa, colour = etapa)) +
 from scipy.stats import gaussian_kde
 
 fig, ax = plt.subplots(figsize=(10, 4))
+xs = np.linspace(130, 170, 400)
 for datos, lbl, col in [
-    (df["peso_g"].values, "Original (σ = 3,7 g)", "steelblue"),
-    (peso_etapa1,         "Etapa 1: estabilizado (σ = 2,3 g)", "darkorange")
+    (df["peso_g"].values, f"Original (σ = {sigma:.1f} g)", "steelblue"),
+    (peso_etapa1, f"Etapa 1: estabilizado (σ = {sigma_e1} g)", "darkorange")
 ]:
-    kde = gaussian_kde(datos, bw_method=0.15)
-    xs  = np.linspace(135, 168, 300)
-    ax.fill_between(xs, kde(xs), alpha=0.25, color=col, label=lbl)
-    ax.plot(xs, kde(xs), color=col, linewidth=1.5)
+    kde = gaussian_kde(datos)
+    _ = ax.fill_between(xs, kde(xs), alpha=0.25, color=col, label=lbl)
+    _ = ax.plot(xs, kde(xs), color=col, linewidth=1.5)
 
 for val, col, lbl in [(Qn, "green",  "Qn"),
                       (T1, "orange", "T1"),
                       (T2, "red",    "T2")]:
-    ax.axvline(val, color=col, linewidth=1.3,
-               linestyle="--" if val == Qn else "-")
-    ax.text(val + 0.15, ax.get_ylim()[1] * 0.95, lbl,
-            color=col, fontsize=9, va="top")
+    _ = ax.axvline(val, color=col, linewidth=1.3,
+                   linestyle="--" if val == Qn else "-")
+    _ = ax.text(val + 0.15, ax.get_ylim()[1] * 0.95, lbl,
+                color=col, fontsize=9, va="top")
 
-ax.set_xlabel("Peso (g)")
-ax.set_ylabel("Densidad")
-ax.set_title("Original vs. proceso estabilizado (etapa 1)")
-ax.legend(loc="upper left", fontsize=9)
+_ = ax.set_xlabel("Peso (g)")
+_ = ax.set_ylabel("Densidad")
+_ = ax.set_title("Original frente a proceso estabilizado (etapa 1)")
+_ = ax.legend(loc="upper left", fontsize=9)
 plt.tight_layout()
 plt.show()
 ```
 
 :::
 
-La mejora es ya muy visible: la distribución se estrecha significativamente, los envases bajo T2 han desaparecido y los bajo T1 se reducen a una cifra pequeña. El lote ahora cumple los tres criterios.
+#### Conclusiones de la etapa 1
 
-#### La trampa revisada: ¿cuánto podemos bajar ahora?
-
-::: {.panel-tabset}
-## R
-
-```{r trampa-etapa1-r}
-#| code-fold: true
-#| message: false
-#| warning: false
-#| fig-width: 8
-#| fig-height: 4
-df_trampa2 <- data.frame(
-  media = rep(medias_posibles, 2),
-  pct   = c(
-    pnorm(T1, mean = medias_posibles, sd = sigma_actual) * 100,
-    pnorm(T1, mean = medias_posibles, sd = sigma_e1)     * 100
-  ),
-  etapa = rep(c(
-    paste0("Original (σ = ", round(sigma_actual, 1), " g)"),
-    paste0("Etapa 1  (σ = ", sigma_e1, " g)")
-  ), each = length(medias_posibles))
-)
-
-media_lim_e1 <- medias_posibles[
-  which(pnorm(T1, mean = medias_posibles, sd = sigma_e1) * 100 >= 2.5)[1]]
-
-ggplot(df_trampa2, aes(x = media, y = pct,
-                        colour = etapa, linetype = etapa)) +
-  geom_line(linewidth = 1.1) +
-  geom_hline(yintercept = 2.5, colour = "red",
-             linetype = "dashed", linewidth = 0.8) +
-  geom_vline(xintercept = media_lim_e1, colour = "darkorange",
-             linetype = "dotted", linewidth = 0.9) +
-  annotate("text", x = media_lim_e1 + 0.1, y = 5.5,
-           label = paste0("Nuevo límite\n",
-                          round(media_lim_e1, 1), " g"),
-           colour = "darkorange", size = 3, hjust = 0) +
-  annotate("text", x = 155, y = 2.8,
-           label = "Límite legal 2,5%",
-           colour = "red", size = 3, hjust = 1) +
-  scale_colour_manual(values = c("steelblue", "darkorange")) +
-  labs(title    = "La trampa del discriminador: original vs. etapa 1",
-       x = "Media de dosificación (g)", y = "% envases bajo T1",
-       colour = "Escenario", linetype = "Escenario") +
-  theme_minimal() +
-  theme(legend.position = "bottom")
-```
-
-
-## Python
-
-```{python trampa-etapa1-python}
-#| code-fold: true
-#| fig-width: 8
-#| fig-height: 4
-pct_original = stats.norm.cdf(T1, loc=medias_posibles,
-                               scale=sigma_actual) * 100
-pct_e1       = stats.norm.cdf(T1, loc=medias_posibles,
-                               scale=sigma_e1) * 100
-lim_e1       = medias_posibles[np.argmax(pct_e1 >= 2.5)]
-
-fig, ax = plt.subplots(figsize=(8, 4))
-ax.plot(medias_posibles, pct_original, color="steelblue",
-        linewidth=1.3, label=f"Original (σ = {sigma_actual:.1f} g)")
-ax.plot(medias_posibles, pct_e1, color="darkorange",
-        linewidth=1.3, label=f"Etapa 1 (σ = {sigma_e1} g)")
-ax.axhline(2.5, color="red", linestyle="--", linewidth=1)
-ax.axvline(lim_e1, color="darkorange", linestyle=":", linewidth=1.1)
-ax.text(lim_e1 + 0.1, 5.2,
-        f"Nuevo límite\n{lim_e1:.1f} g",
-        color="darkorange", fontsize=8)
-ax.text(154.9, 2.7, "Límite legal 2,5%",
-        color="red", fontsize=8, ha="right")
-ax.set_xlabel("Media de dosificación (g)")
-ax.set_ylabel("% envases bajo T1")
-ax.set_title("La trampa del discriminador: original vs. etapa 1")
-ax.legend(fontsize=9)
-plt.tight_layout()
-plt.show()
-```
-
-:::
-
-Con σ = 2,3 g ya hay `r round(mean(df$peso_g) - media_lim_e1, 1)` g más de margen que en el proceso original. Es una mejora real, pero todavía limitada: para bajar la media de dosificación de forma significativa hay que abordar la etapa 2.
+- **El lote pasa a ser conforme.** Sin causas especiales, la cola izquierda desaparece: no quedan envases bajo T2 y prácticamente ninguno bajo T1. El discriminador, ajustado en T2, apenas tiene que actuar.
+- **Las acciones son rápidas y baratas.** Trabajo estándar, protocolo de cambio de turno, control de la viscosidad y de la temperatura y mantenimiento preventivo no requieren grandes inversiones.
+- **La media no puede bajar todavía.** La variabilidad común sigue siendo de 2,5 g y, con el criterio $C_{pk} \geq 1{,}33$, la media debe mantenerse en torno a 153 g. Para dejar de regalar producto hay que pasar a la etapa 2.
 
 ### Etapa 2: reducir la variabilidad común
 
-Las acciones de la etapa 1 han eliminado las causas especiales. La variabilidad que queda — σ ≈ 2,3 g — es la inherente al sistema. Reducirla requiere intervenciones más profundas:
+#### Acciones
+
+Las acciones de la etapa 1 han eliminado las causas especiales. La variabilidad que queda, σ ≈ 2,5 g, es la inherente al sistema. Reducirla requiere intervenciones más profundas:
 
 - **Revisión o sustitución de componentes de la llenadora:** si el pistón tiene holguras de fabricación, ningún ajuste operativo las elimina.
-- **Control automático de temperatura** del depósito de alimentación: elimina la deriva de viscosidad.
+- **Control automático de temperatura** del depósito de alimentación, que sustituye a la verificación horaria de la etapa 1 y mantiene estable la viscosidad del producto.
 - **Sistema de pesaje en continuo con retroalimentación automática** (*feedback control*): el equipo ajusta la dosificación de forma continua en función del peso medido, reduciendo la dependencia del ajuste manual.
 
-Simulamos el proceso con σ = 1,5 g — un objetivo alcanzable con estas mejoras — y media ajustada a 151,0 g:
+#### Simulación del proceso optimizado
+
+Supongamos que estas mejoras reducen la desviación típica a 1,8 g. Con el mismo criterio de $C_{pk} \geq 1{,}33$, la media de dosificación puede bajar a:
+
+$$\mu = T_1 + 4\sigma = 143{,}2 + 4 \times 1{,}8 = 150{,}4 \text{ g}$$
+
+que sigue estando por encima de la cantidad nominal y cumple, por tanto, el requisito de la media.
 
 ::: {.panel-tabset}
 
@@ -965,8 +818,8 @@ Simulamos el proceso con σ = 1,5 g — un objetivo alcanzable con estas mejoras
 #| message: false
 #| warning: false
 set.seed(202)
-media_e2 <- 151.0
-sigma_e2 <- 1.5
+sigma_e2 <- 1.8
+media_e2 <- T1 + 4 * sigma_e2     # 150,4 g
 
 peso_etapa2 <- rnorm(n, mean = media_e2, sd = sigma_e2)
 
@@ -983,44 +836,20 @@ cat("Bajo T2:", sum(peso_etapa2 < T2), "\n")
 ```{python simulacion-etapa2-python}
 #| code-fold: true
 rng2     = np.random.default_rng(202)
-media_e2 = 151.0
-sigma_e2 = 1.5
+sigma_e2 = 1.8
+media_e2 = T1 + 4 * sigma_e2      # 150,4 g
 
 peso_etapa2 = rng2.normal(media_e2, sigma_e2, n)
 
 print("=== PROCESO OPTIMIZADO (etapa 2) ===")
 print(f"Media  : {peso_etapa2.mean():.2f} g")
-print(f"SD     : {peso_etapa2.std():.2f} g")
+print(f"SD     : {peso_etapa2.std(ddof=1):.2f} g")
 print(f"Bajo T1: {(peso_etapa2 < T1).sum()} "
       f"({(peso_etapa2 < T1).mean()*100:.3f}%)")
 print(f"Bajo T2: {(peso_etapa2 < T2).sum()}")
 ```
 
 :::
-#### Gráfico de control del proceso optimizado
-```{r grafico-control-optimizado}
-#| code-fold: true
-#| message: false
-#| warning: false
-#| results: hide
-#| fig-width: 11
-#| fig-height: 4
-tiempos_e2 <- seq(as.POSIXct("2024-10-01 08:00:00"),
-                  by = "3 sec", length.out = n)
-df_e2 <- data.frame(
-  hora      = tiempos_e2,
-  peso_g    = peso_etapa2
-) |> mutate(intervalo = floor_date(hora, "3 minutes"))
-
-qic(peso_g,
-    x          = intervalo,
-    data       = df_e2,
-    chart      = "xbar",
-    point.size = 0.8,
-    title      = "Gráfico de control del proceso optimizado",
-    ylab       = "Peso medio (g)",
-    xlab       = "Hora de envasado")
-```
 
 #### Comparación de los tres escenarios
 
@@ -1033,12 +862,14 @@ qic(peso_g,
 #| warning: false
 #| fig-width: 11
 #| fig-height: 4
-df_tres <- data.frame(
+df_tres <- tibble(
   peso  = c(df$peso_g, peso_etapa1, peso_etapa2),
   etapa = rep(c(
-    "Original  (σ = 3,7 g,  media = 152,1 g)",
-    "Etapa 1:  estabilizado (σ = 2,3 g,  media = 152,5 g)",
-    "Etapa 2:  optimizado   (σ = 1,5 g,  media = 151,0 g)"
+    paste0("Original (σ = ", fmt(sigma), " g, media = ", fmt(media), " g)"),
+    paste0("Etapa 1: estabilizado (σ = ", fmt(sigma_e1), " g, media = ",
+           fmt(media_e1), " g)"),
+    paste0("Etapa 2: optimizado (σ = ", fmt(sigma_e2), " g, media = ",
+           fmt(media_e2), " g)")
   ), each = n)
 )
 
@@ -1052,12 +883,12 @@ ggplot(df_tres, aes(x = peso, fill = etapa, colour = etapa)) +
              linetype = "solid",  linewidth = 0.8) +
   scale_fill_manual(values   = c("steelblue", "darkorange", "forestgreen")) +
   scale_colour_manual(values = c("steelblue", "darkorange", "forestgreen")) +
-  coord_cartesian(xlim = c(138, 165)) +
+  coord_cartesian(xlim = c(135, 165)) +
   labs(title  = "Evolución del proceso: original → etapa 1 → etapa 2",
        x = "Peso (g)", y = "Densidad",
        fill = "Escenario", colour = "Escenario") +
   theme_minimal() +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom", legend.direction = "vertical")
 ```
 
 ## Python
@@ -1068,117 +899,102 @@ ggplot(df_tres, aes(x = peso, fill = etapa, colour = etapa)) +
 #| fig-height: 4
 fig, ax = plt.subplots(figsize=(11, 4))
 escenarios = [
-    (df["peso_g"].values, "Original (σ=3,7 g, media=152,1 g)",       "steelblue"),
-    (peso_etapa1,         "Etapa 1: estabilizado (σ=2,3 g, media=152,5 g)", "darkorange"),
-    (peso_etapa2,         "Etapa 2: optimizado (σ=1,5 g, media=151,0 g)",   "forestgreen"),
+    (df["peso_g"].values,
+     f"Original (σ = {sigma:.1f} g, media = {media_actual:.1f} g)", "steelblue"),
+    (peso_etapa1,
+     f"Etapa 1: estabilizado (σ = {sigma_e1} g, media = {media_e1} g)", "darkorange"),
+    (peso_etapa2,
+     f"Etapa 2: optimizado (σ = {sigma_e2} g, media = {media_e2:.1f} g)", "forestgreen"),
 ]
-xs = np.linspace(136, 166, 400)
+xs = np.linspace(135, 165, 400)
 for datos, lbl, col in escenarios:
-    kde = gaussian_kde(datos, bw_method=0.15)
-    ax.fill_between(xs, kde(xs), alpha=0.2, color=col, label=lbl)
-    ax.plot(xs, kde(xs), color=col, linewidth=1.4)
+    kde = gaussian_kde(datos)
+    _ = ax.fill_between(xs, kde(xs), alpha=0.2, color=col, label=lbl)
+    _ = ax.plot(xs, kde(xs), color=col, linewidth=1.4)
 
 for val, col, ls in [(Qn, "green",  "--"),
                      (T1, "orange", "-"),
                      (T2, "red",    "-")]:
-    ax.axvline(val, color=col, linewidth=1.2, linestyle=ls)
+    _ = ax.axvline(val, color=col, linewidth=1.2, linestyle=ls)
 
-ax.set_xlabel("Peso (g)")
-ax.set_ylabel("Densidad")
-ax.set_title("Evolución del proceso: original → etapa 1 → etapa 2")
-ax.legend(fontsize=8, loc="upper left")
+_ = ax.set_xlabel("Peso (g)")
+_ = ax.set_ylabel("Densidad")
+_ = ax.set_title("Evolución del proceso: original → etapa 1 → etapa 2")
+_ = ax.legend(fontsize=8, loc="upper left")
 plt.tight_layout()
 plt.show()
 ```
 
 :::
 
-#### La trampa con σ = 1,5 g: ahora sí hay margen real
+#### La media necesaria según la variabilidad
+
+La gráfica siguiente resume el argumento del capítulo. Para cada desviación típica, muestra el porcentaje esperado de envases bajo T1 según la media de dosificación, y marca la media mínima que exige el criterio $C_{pk} \geq 1{,}33$ ($\mu = T_1 + 4\sigma$):
 
 ::: {.panel-tabset}
 ## R
 
-```{r trampa-final-r}
+```{r media-necesaria-r}
 #| code-fold: true
 #| message: false
 #| warning: false
 #| fig-width: 8
 #| fig-height: 4
-df_trampa3 <- data.frame(
-  media = rep(medias_posibles, 3),
-  pct   = c(
-    pnorm(T1, mean = medias_posibles, sd = sigma_actual) * 100,
-    pnorm(T1, mean = medias_posibles, sd = sigma_e1)     * 100,
-    pnorm(T1, mean = medias_posibles, sd = sigma_e2)     * 100
-  ),
-  etapa = rep(c(
-    paste0("Original (σ = ", round(sigma_actual, 1), " g)"),
-    paste0("Etapa 1  (σ = ", sigma_e1, " g)"),
-    paste0("Etapa 2  (σ = ", sigma_e2, " g)")
-  ), each = length(medias_posibles))
-)
+sigmas <- c(sigma_e1, sigma_e2)
+curvas <- expand_grid(media = medias_posibles, s = sigmas) |>
+  mutate(pct = pnorm(T1, mean = media, sd = s) * 100,
+         escenario = paste0("σ = ", fmt(s), " g"))
+minimas <- tibble(s = sigmas, media_min = T1 + 4 * sigmas,
+                  escenario = paste0("σ = ", fmt(s), " g"))
 
-media_lim_e2 <- medias_posibles[
-  which(pnorm(T1, mean = medias_posibles,
-              sd = sigma_e2) * 100 >= 2.5)[1]]
-
-ggplot(df_trampa3, aes(x = media, y = pct,
-                        colour = etapa, linetype = etapa)) +
+ggplot(curvas, aes(x = media, y = pct, colour = escenario)) +
   geom_line(linewidth = 1.1) +
-  geom_hline(yintercept = 2.5, colour = "red",
-             linetype = "dashed", linewidth = 0.8) +
-  geom_vline(xintercept = media_lim_e2, colour = "forestgreen",
+  geom_vline(data = minimas, aes(xintercept = media_min, colour = escenario),
              linetype = "dotted", linewidth = 0.9) +
-  annotate("text", x = media_lim_e2 + 0.1, y = 5.5,
-           label = paste0("Límite etapa 2\n",
-                          round(media_lim_e2, 1), " g"),
-           colour = "forestgreen", size = 3, hjust = 0) +
-  annotate("text", x = 155, y = 2.8,
-           label = "Límite legal 2,5%",
-           colour = "red", size = 3, hjust = 1) +
-  scale_colour_manual(values = c("steelblue", "darkorange", "forestgreen")) +
-  labs(title    = "La trampa del discriminador en los tres escenarios",
-       x = "Media de dosificación (g)", y = "% envases bajo T1",
-       colour = "Escenario", linetype = "Escenario") +
+  geom_vline(xintercept = Qn, colour = "green4", linetype = "dashed") +
+  geom_text(data = minimas,
+            aes(x = media_min, y = 4, label = paste0(fmt(media_min), " g")),
+            hjust = -0.1, size = 3, show.legend = FALSE) +
+  annotate("text", x = Qn, y = 4.5, label = "Qn", colour = "green4",
+           hjust = 1.2, size = 3) +
+  scale_colour_manual(values = setNames(c("darkorange", "forestgreen"),
+                                        paste0("σ = ", fmt(sigmas), " g"))) +
+  coord_cartesian(ylim = c(0, 5)) +
+  labs(title    = "Media mínima de dosificación según la variabilidad",
+       subtitle = "Líneas punteadas: media mínima con Cpk ≥ 1,33 frente a T1",
+       x = "Media de dosificación (g)", y = "% de envases bajo T1",
+       colour = "Escenario") +
   theme_minimal() +
   theme(legend.position = "bottom")
 ```
 
 ## Python
 
-```{python trampa-final-python}
+```{python media-necesaria-python}
 #| code-fold: true
 #| fig-width: 8
 #| fig-height: 4
-pct_e2  = stats.norm.cdf(T1, loc=medias_posibles, scale=sigma_e2) * 100
-lim_e2  = medias_posibles[np.argmax(pct_e2 >= 2.5)]
-
 fig, ax = plt.subplots(figsize=(8, 4))
-for pct, lbl, col in [
-    (pct_original, f"Original (σ = {sigma_actual:.1f} g)", "steelblue"),
-    (pct_e1,       f"Etapa 1 (σ = {sigma_e1} g)",          "darkorange"),
-    (pct_e2,       f"Etapa 2 (σ = {sigma_e2} g)",          "forestgreen"),
-]:
-    ax.plot(medias_posibles, pct, linewidth=1.3, label=lbl, color=col)
-
-ax.axhline(2.5, color="red", linestyle="--", linewidth=1)
-ax.axvline(lim_e2, color="forestgreen", linestyle=":", linewidth=1.1)
-ax.text(lim_e2 + 0.1, 5.2,
-        f"Límite etapa 2\n{lim_e2:.1f} g",
-        color="forestgreen", fontsize=8)
-ax.text(154.9, 2.7, "Límite legal 2,5%",
-        color="red", fontsize=8, ha="right")
-ax.set_xlabel("Media de dosificación (g)")
-ax.set_ylabel("% envases bajo T1")
-ax.set_title("La trampa del discriminador en los tres escenarios")
-ax.legend(fontsize=9)
+for s, col in [(sigma_e1, "darkorange"), (sigma_e2, "forestgreen")]:
+    pct = stats.norm.cdf(T1, loc=medias_posibles, scale=s) * 100
+    media_min = T1 + 4 * s
+    _ = ax.plot(medias_posibles, pct, color=col, linewidth=1.3,
+                label=f"σ = {s} g")
+    _ = ax.axvline(media_min, color=col, linestyle=":", linewidth=1.1)
+    _ = ax.text(media_min + 0.1, 4, f"{media_min:.1f} g", color=col, fontsize=8)
+_ = ax.axvline(Qn, color="green", linestyle="--", linewidth=1)
+_ = ax.set_ylim(0, 5)
+_ = ax.set_xlabel("Media de dosificación (g)")
+_ = ax.set_ylabel("% de envases bajo T1")
+_ = ax.set_title("Media mínima de dosificación según la variabilidad")
+_ = ax.legend(fontsize=9)
 plt.tight_layout()
 plt.show()
 ```
 
 :::
 
-Con σ = 1,5 g se puede dosificar hasta `r round(media_lim_e2, 1)` g sin superar el límite legal. Eso representa `r round(mean(df$peso_g) - media_lim_e2, 1)` g menos por envase respecto al proceso original — un margen real que justifica la inversión.
+Con σ = 2,5 g, la media mínima es 153,2 g; con σ = 1,8 g, baja a 150,4 g. Cada décima de gramo que se reduce la desviación típica permite bajar 0,4 g la media de dosificación.
 
 #### Estimación del ahorro anual
 
@@ -1190,61 +1006,43 @@ Con σ = 1,5 g se puede dosificar hasta `r round(media_lim_e2, 1)` g sin superar
 #| code-fold: true
 #| message: false
 #| warning: false
-gramos_ahorrados <- mean(df$peso_g) - media_e2
-kg_ahorrados_dia <- gramos_ahorrados * n / 1000
-ahorro_bruto_dia <- kg_ahorrados_dia * coste_kg
+gramos_ahorrados <- media_e1 - media_e2
+kg_ahorrados     <- gramos_ahorrados * n / 1000
+ahorro_turno     <- kg_ahorrados * coste_kg
+ahorro_anual     <- ahorro_turno * dias_año
 
-env_T2_e2    <- sum(peso_etapa2 < T2)
-env_T1T2_e2  <- round(sum(peso_etapa2 >= T2 & peso_etapa2 < T1) * 0.75)
-kg_rech_e2   <- (sum(peso_etapa2[peso_etapa2 < T2]) +
-  sum(head(sort(peso_etapa2[
-    peso_etapa2 >= T2 & peso_etapa2 < T1]), env_T1T2_e2))) / 1000
-ahorro_discrim <- (peso_rechazado_kg - kg_rech_e2) * coste_kg
-ahorro_neto    <- ahorro_bruto_dia + ahorro_discrim
-
-cat("Gramos ahorrados / envase        :", round(gramos_ahorrados, 1), "g\n")
-cat("Kg ahorrados / turno             :", round(kg_ahorrados_dia, 1), "kg\n")
-cat("Ahorro por dosificación / turno  :", round(ahorro_bruto_dia, 2), "€\n")
-cat("Ahorro por menos rechazo / turno :", round(ahorro_discrim, 2), "€\n")
-cat("Ahorro neto / turno              :", round(ahorro_neto, 2), "€\n")
-cat("Ahorro neto anual (", dias_año, "días)  :",
-    round(ahorro_neto * dias_año, 0), "€\n")
+cat("Gramos ahorrados / envase :", round(gramos_ahorrados, 1), "g\n")
+cat("Kg ahorrados / turno      :", round(kg_ahorrados, 1), "kg\n")
+cat("Ahorro / turno            :", round(ahorro_turno, 2), "€\n")
+cat("Ahorro anual (", dias_año, "turnos) :", round(ahorro_anual, 0), "€\n")
 ```
-
 
 ## Python
 
 ```{python ahorro-python}
 #| code-fold: true
-gramos_ahorrados = df["peso_g"].mean() - media_e2
-kg_ahorrados_dia = gramos_ahorrados * n / 1000
-ahorro_bruto_dia = kg_ahorrados_dia * coste_kg
+gramos_ahorrados = media_e1 - media_e2
+kg_ahorrados     = gramos_ahorrados * n / 1000
+ahorro_turno     = kg_ahorrados * coste_kg
+ahorro_anual     = ahorro_turno * dias_año
 
-# Rechazo discriminador en etapa 2 (mínimo)
-mask_T2_e2   = peso_etapa2 < T2
-mask_T1T2_e2 = (peso_etapa2 >= T2) & (peso_etapa2 < T1)
-n_det_e2     = round(mask_T1T2_e2.sum() * 0.75)
-kg_rech_e2   = (peso_etapa2[mask_T2_e2].sum() +
-                np.sort(peso_etapa2[mask_T1T2_e2])[:n_det_e2].sum()) / 1000
-coste_rech_e2 = kg_rech_e2 * coste_kg
-
-ahorro_discrim = (peso_rech - kg_rech_e2) * coste_kg
-ahorro_neto    = ahorro_bruto_dia + ahorro_discrim
-
-print(f"Gramos ahorrados / envase        : {gramos_ahorrados:.1f} g")
-print(f"Kg ahorrados / turno             : {kg_ahorrados_dia:.1f} kg")
-print(f"Ahorro por dosificación / turno  : {ahorro_bruto_dia:.2f} €")
-print(f"Ahorro por menos rechazo / turno : {ahorro_discrim:.2f} €")
-print(f"Ahorro neto / turno              : {ahorro_neto:.2f} €")
-print(f"Ahorro neto anual ({dias_año} días)  : "
-      f"{ahorro_neto * dias_año:.0f} €")
+print(f"Gramos ahorrados / envase : {gramos_ahorrados:.1f} g")
+print(f"Kg ahorrados / turno      : {kg_ahorrados:.1f} kg")
+print(f"Ahorro / turno            : {ahorro_turno:.2f} €")
+print(f"Ahorro anual ({dias_año} turnos) : {ahorro_anual:.0f} €")
 ```
 
 :::
 
+#### Conclusiones de la etapa 2
+
+- **La reducción de la variabilidad común se traduce directamente en ahorro.** Bajar la media de 153 a `r fmt(media_e2)` g ahorra `r fmt(gramos_ahorrados)` g por envase, es decir, `r fmt(kg_ahorrados)` kg por turno y unos `r fmt(ahorro_anual, 0)` € al año con los parámetros de este ejemplo.
+- **El proceso sigue cumpliendo con margen.** La media continúa por encima de la cantidad nominal, y prácticamente ningún envase queda por debajo de T1.
+- **Requiere inversión.** A diferencia de la etapa 1, estas acciones necesitan inversión en equipos, pero su retorno es cuantificable y directo, y ese cálculo es el que hay que presentar a la dirección.
+
 ## Resumen del capítulo
 
-El RD 1801/2008 define tres criterios simultáneos para que un lote de envases sea conforme: la media no puede ser inferior a $Q_n$, menos del 2,5% de los envases pueden estar bajo T1, y ninguno puede estar bajo T2. Un solo envase bajo T2 en la muestra de inspección rechaza el lote.
+El RD 1801/2008 establece tres requisitos para el envasado: la media del contenido no puede ser inferior a la cantidad nominal, la proporción de envases bajo T1 debe ser lo bastante pequeña para superar los controles estadísticos, y ningún envase puede estar por debajo de T2. Para un yogur de 150 g, con un EMDT de 6,8 g, T1 = 143,2 g y T2 = 136,4 g.
 
 La tabla siguiente resume los tres escenarios analizados:
 
@@ -1252,23 +1050,17 @@ La tabla siguiente resume los tres escenarios analizados:
 #| echo: false
 #| message: false
 #| warning: false
-tabla <- data.frame(
-  Escenario    = c("Original", "Etapa 1: estabilizado", "Etapa 2: optimizado"),
-  Media        = c(round(mean(df$peso_g), 1),
-                   round(mean(peso_etapa1), 1),
-                   round(mean(peso_etapa2), 1)),
-  SD           = c(round(sd(df$peso_g), 1),
-                   round(sd(peso_etapa1), 1),
-                   round(sd(peso_etapa2), 1)),
-  Bajo_T1      = c(paste0(round(mean(df$peso_g < T1) * 100, 2), "%"),
-                   paste0(round(mean(peso_etapa1 < T1) * 100, 2), "%"),
-                   paste0(round(mean(peso_etapa2 < T1) * 100, 3), "%")),
-  Bajo_T2      = c(sum(df$peso_g < T2),
-                   sum(peso_etapa1 < T2),
-                   sum(peso_etapa2 < T2)),
-  Conforme     = c("NO (T2)", "SÍ", "SÍ"),
-  Ahorro_anual = c("—", "Parcial",
-                   paste0(round(ahorro_neto * dias_año, 0), " €"))
+tabla <- tibble(
+  Escenario = c("Original", "Etapa 1: estabilizado", "Etapa 2: optimizado"),
+  Media     = fmt(c(media, mean(peso_etapa1), mean(peso_etapa2))),
+  SD        = fmt(c(sigma, sd(peso_etapa1), sd(peso_etapa2))),
+  Bajo_T1   = paste0(fmt(100 * c(n_T1 / n, mean(peso_etapa1 < T1),
+                                 mean(peso_etapa2 < T1)), 2), "%"),
+  Bajo_T2   = c(n_T2, sum(peso_etapa1 < T2), sum(peso_etapa2 < T2)),
+  Conforme  = c(ifelse(n_T2 > 0, "NO (T2)", "SÍ"),
+                ifelse(sum(peso_etapa1 < T2) > 0, "NO (T2)", "SÍ"),
+                ifelse(sum(peso_etapa2 < T2) > 0, "NO (T2)", "SÍ")),
+  Ahorro    = c("", "0 € (la media no baja)", paste0(fmt(ahorro_anual, 0), " €"))
 )
 
 knitr::kable(tabla,
@@ -1277,8 +1069,8 @@ knitr::kable(tabla,
   align = "lrrrrcr")
 ```
 
-El camino de mejora tiene dos etapas bien diferenciadas. La primera — eliminar las causas especiales mediante trabajo estándar, protocolos de turno y control de materiales — es rápida y de bajo coste, y ya produce resultados visibles. La segunda — reducir la variabilidad común con mejoras tecnológicas — requiere inversión pero tiene un retorno económico cuantificable y directo.
+El camino de mejora tiene dos etapas bien diferenciadas. La primera, eliminar las causas especiales mediante trabajo estándar, protocolos de turno, control de materiales y mantenimiento, es rápida y de bajo coste, y hace que el lote cumpla el RD; pero no permite bajar la media, porque esta depende de la variabilidad común. La segunda, reducir la variabilidad común con mejoras tecnológicas, requiere inversión, pero es la que permite dejar de regalar producto, con un retorno económico cuantificable y directo.
 
-El discriminador de peso es una herramienta necesaria durante todo el proceso, pero su coste de rechazo disminuye a medida que la variabilidad se reduce. Al final del camino, el discriminador apenas actúa — y eso es exactamente lo que se busca.
+El discriminador de peso es una herramienta necesaria durante todo el proceso, pero su papel disminuye a medida que la variabilidad se reduce. Al final del camino, el discriminador apenas actúa, y eso es exactamente lo que se busca.
 
-Este recorrido — medir, diagnosticar, estabilizar, optimizar — es la lógica que subyace a las metodologías **Lean** y **Six Sigma**, que formalizaremos en el capítulo 16.
+Este recorrido (medir, diagnosticar, estabilizar, optimizar) es la lógica que subyace a las metodologías **Lean** y **Six Sigma**, que formalizaremos en el capítulo 16.

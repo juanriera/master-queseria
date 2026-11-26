@@ -61,7 +61,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -231,7 +250,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./080-correlacion-regresion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresión</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -379,7 +398,7 @@ window.Quarto = {
   <li><a href="#el-gráfico-de-control-la-herramienta-de-shewhart" id="toc-el-gráfico-de-control-la-herramienta-de-shewhart" class="nav-link" data-scroll-target="#el-gráfico-de-control-la-herramienta-de-shewhart"><span class="header-section-number">9.4</span> El gráfico de control: la herramienta de Shewhart</a>
   <ul class="collapse">
   <li><a href="#el-gráfico-x-barras-y-el-muestreo" id="toc-el-gráfico-x-barras-y-el-muestreo" class="nav-link" data-scroll-target="#el-gráfico-x-barras-y-el-muestreo">El gráfico X-barra/S y el muestreo</a></li>
-  <li><a href="#las-reglas-de-detección" id="toc-las-reglas-de-detección" class="nav-link" data-scroll-target="#las-reglas-de-detección">Las reglas de detección</a></li>
+  <li><a href="#las-señales-de-alarma" id="toc-las-señales-de-alarma" class="nav-link" data-scroll-target="#las-señales-de-alarma">Las señales de alarma</a></li>
   </ul></li>
   <li><a href="#caso-práctico-control-del-proceso-de-llenado-de-yogures" id="toc-caso-práctico-control-del-proceso-de-llenado-de-yogures" class="nav-link" data-scroll-target="#caso-práctico-control-del-proceso-de-llenado-de-yogures"><span class="header-section-number">9.5</span> Caso práctico: control del proceso de llenado de yogures</a>
   <ul class="collapse">
@@ -391,7 +410,7 @@ window.Quarto = {
   <li><a href="#el-índice-c_p" id="toc-el-índice-c_p" class="nav-link" data-scroll-target="#el-índice-c_p">El índice <span class="math inline">\(C_p\)</span></a></li>
   <li><a href="#el-índice-c_pk" id="toc-el-índice-c_pk" class="nav-link" data-scroll-target="#el-índice-c_pk">El índice <span class="math inline">\(C_{pk}\)</span></a></li>
   <li><a href="#aplicación-al-proceso-de-llenado-de-yogures" id="toc-aplicación-al-proceso-de-llenado-de-yogures" class="nav-link" data-scroll-target="#aplicación-al-proceso-de-llenado-de-yogures">Aplicación al proceso de llenado de yogures</a></li>
-  <li><a href="#el-gráfico-de-capacidad" id="toc-el-gráfico-de-capacidad" class="nav-link" data-scroll-target="#el-gráfico-de-capacidad">El gráfico de capacidad</a></li>
+  <li><a href="#lo-que-ocurrió-en-el-turno-completo" id="toc-lo-que-ocurrió-en-el-turno-completo" class="nav-link" data-scroll-target="#lo-que-ocurrió-en-el-turno-completo">Lo que ocurrió en el turno completo</a></li>
   </ul></li>
   <li><a href="#actuar-correctamente-la-regla-de-oro-del-spc" id="toc-actuar-correctamente-la-regla-de-oro-del-spc" class="nav-link" data-scroll-target="#actuar-correctamente-la-regla-de-oro-del-spc"><span class="header-section-number">9.7</span> Actuar correctamente: la regla de oro del SPC</a></li>
   <li><a href="#resumen-del-capítulo" id="toc-resumen-del-capítulo" class="nav-link" data-scroll-target="#resumen-del-capítulo"><span class="header-section-number">9.8</span> Resumen del capítulo</a></li>
@@ -442,11 +461,11 @@ window.Quarto = {
 <li>Diferenciar la variabilidad a corto plazo de la variabilidad a largo plazo y reconocer sus causas típicas.</li>
 <li>Explicar qué significa que un proceso está “bajo control estadístico” y qué consecuencias tiene para la toma de decisiones.</li>
 <li>Interpretar un gráfico de control X-barra/S: límites de control, línea central, señales de alarma.</li>
-<li>Aplicar las reglas básicas de detección de causas especiales en un gráfico de control.</li>
+<li>Reconocer en un gráfico de control las señales de una causa especial: puntos fuera de los límites y rachas largas.</li>
 <li>Entender el concepto de capacidad de proceso y los índices <span class="math inline">\(C_p\)</span> y <span class="math inline">\(C_{pk}\)</span>.</li>
 <li>Usar <code>qicharts2</code> en R para construir gráficos de control a partir de datos reales de proceso.</li>
 </ul>
-<p>Conceptos clave: <strong>control estadístico de procesos, causas comunes, causas especiales, variabilidad a corto y largo plazo, gráfico de control, límites de control, X-barra, rango, reglas de Western Electric, capacidad de proceso, <span class="math inline">\(C_p\)</span>, <span class="math inline">\(C_{pk}\)</span></strong>.</p>
+<p>Conceptos clave: <strong>control estadístico de procesos, causas comunes, causas especiales, variabilidad a corto y largo plazo, gráfico de control, límites de control, X-barra, desviación típica del subgrupo (S), señales de alarma, capacidad de proceso, <span class="math inline">\(C_p\)</span>, <span class="math inline">\(C_{pk}\)</span></strong>.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -459,14 +478,14 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Los gráficos de control de este capítulo se generan exclusivamente con R, usando la librería <code>qicharts2</code>. Es uno de los casos en que R dispone de herramientas específicas mucho más adecuadas que Python para esta tarea.</p>
+<p>Los gráficos de control de este capítulo se generan solo con R, usando las librerías <code>qicharts2</code> y <code>qcc</code>, que son herramientas específicas y maduras para esta tarea.</p>
 </div>
 </div>
 <section id="el-origen-del-control-estadístico-de-procesos" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="el-origen-del-control-estadístico-de-procesos"><span class="header-section-number">9.1</span> El origen del control estadístico de procesos</h2>
-<p>A finales de los años 1920, el ingeniero Walter Shewhart, trabajando en los laboratorios Bell de AT&amp;T, se enfrentaba a un problema práctico: los teléfonos que fabricaban tenían una variabilidad de calidad que nadie sabía cómo interpretar. ¿Cuándo era necesario intervenir en el proceso y cuándo era mejor dejarlo en marcha? Intervenir innecesariamente introducía más variabilidad, no menos.</p>
-<p>Shewhart formuló una distinción que cambió la forma de entender la calidad industrial: no toda la variabilidad es igual. Hay una variabilidad que es inherente al proceso — inevitable, predecible, consecuencia de la suma de muchas causas pequeñas — y hay otra variabilidad que es señal de que algo ha cambiado y que requiere investigación.</p>
-<p>Esta distinción, y la herramienta que Shewhart desarrolló para detectarla — el gráfico de control —, siguen siendo hoy el fundamento del control estadístico de procesos (SPC, del inglés <em>Statistical Process Control</em>).</p>
+<p>A mediados de los años veinte, el físico e ingeniero Walter Shewhart, que trabajaba en el departamento de ingeniería de inspección de Western Electric (el fabricante de equipos del sistema telefónico Bell) y, desde 1925, en los Laboratorios Bell, se enfrentaba a un problema práctico: los equipos telefónicos que fabricaba la empresa tenían una variabilidad de calidad que nadie sabía cómo interpretar. ¿Cuándo era necesario intervenir en el proceso y cuándo era mejor dejarlo en marcha? Intervenir innecesariamente introducía más variabilidad, no menos.</p>
+<p>Shewhart formuló una distinción que cambió la forma de entender la calidad industrial: no toda la variabilidad es igual. Hay una variabilidad que es inherente al proceso (inevitable, predecible, consecuencia de la suma de muchas causas pequeñas) y hay otra variabilidad que es señal de que algo ha cambiado y que requiere investigación.</p>
+<p>Esta distinción y la herramienta que Shewhart propuso en un memorando interno del 16 de mayo de 1924 para detectarla, el gráfico de control, siguen siendo hoy el fundamento del control estadístico de procesos (SPC, del inglés <em>Statistical Process Control</em>).</p>
 </section>
 <section id="causas-comunes-y-causas-especiales" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="causas-comunes-y-causas-especiales"><span class="header-section-number">9.2</span> Causas comunes y causas especiales</h2>
@@ -475,7 +494,7 @@ window.Quarto = {
 <p>Las <strong>causas comunes</strong> son todas aquellas fuentes de variación que están siempre presentes en el proceso, que afectan a todos los resultados de forma continua y que son inherentes al sistema tal como está diseñado. Su efecto individual es pequeño, pero su suma produce la variabilidad de fondo del proceso.</p>
 <p>En un proceso de llenado de yogures, las causas comunes incluyen: pequeñas fluctuaciones de presión en la línea de llenado, variaciones mínimas en la viscosidad del producto, pequeñas diferencias en la temperatura del producto, vibraciones del equipo. Ninguna de estas causas produce por sí sola una desviación importante, pero juntas explican por qué dos envases consecutivos no pesan exactamente lo mismo.</p>
 <p>En un laboratorio de análisis de leche, las causas comunes incluyen: la variabilidad natural de la técnica analítica, pequeñas diferencias entre repeticiones del mismo analista, fluctuaciones del instrumento dentro de su rango normal de operación.</p>
-<p><strong>La variabilidad por causas comunes produce una distribución aproximadamente normal y predecible.</strong> Un proceso que solo tiene causas comunes se dice que está <em>bajo control estadístico</em>: sus resultados son aleatorios dentro de un rango definido y calculable.</p>
+<p><strong>La variabilidad por causas comunes es estable y predecible dentro de unos límites.</strong> A menudo se aproxima a una distribución normal, aunque no tiene por qué. Un proceso que solo tiene causas comunes se dice que está <em>bajo control estadístico</em>: sus resultados son aleatorios dentro de un rango definido y calculable.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -487,7 +506,7 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <p>Las causas comunes son responsabilidad del <strong>sistema</strong>, no del operario. Eliminarlas requiere cambiar el diseño del proceso, los equipos, los materiales o el método. Un operario que trabaja correctamente dentro de un sistema con mucha variabilidad no puede reducir esa variabilidad por sí solo.</p>
-<p>Esto tiene implicaciones importantes para la gestión: culpar al operario de la variabilidad causada por el sistema es un error que Deming identificó como uno de los principales obstáculos para la mejora de la calidad. La ausencia de procedimientos escritos, la falta de formación o la inexistencia de instrucciones de trabajo en el puesto son causas comunes del sistema — no del operario — y solo la dirección puede corregirlas. Este es uno de los principios fundamentales de Lean Manufacturing: estandarizar antes de mejorar.</p>
+<p>Esto tiene implicaciones importantes para la gestión: culpar al operario de la variabilidad causada por el sistema es un error que Deming identificó como uno de los principales obstáculos para la mejora de la calidad. La ausencia de procedimientos escritos, la falta de formación o la inexistencia de instrucciones de trabajo en el puesto son causas comunes del sistema, no del operario, y solo la dirección puede corregirlas. Este es uno de los principios fundamentales de Lean Manufacturing: estandarizar antes de mejorar.</p>
 </div>
 </div>
 </section>
@@ -507,7 +526,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Las causas especiales son responsabilidad del <strong>operario o del equipo de proceso</strong>. Cuando aparece una causa especial, la acción correcta es investigarla, identificarla y eliminarla. No requiere rediseñar el sistema — requiere encontrar qué cambió y corregirlo.</p>
+<p>Las causas especiales son responsabilidad del <strong>operario o del equipo de proceso</strong>. Cuando aparece una causa especial, la acción correcta es investigarla, identificarla y eliminarla. No requiere rediseñar el sistema, sino encontrar qué cambió y corregirlo.</p>
 <p>La distinción entre causas comunes (sistema) y causas especiales (proceso) es fundamental para actuar correctamente: intervenir en el sistema cuando hay una causa especial, o tratar de corregir el proceso cuando el problema es del sistema, son errores que empeoran la situación.</p>
 </div>
 </div>
@@ -573,7 +592,7 @@ window.Quarto = {
 </section>
 <section id="la-conexión-con-la-distribución-normal" class="level3">
 <h3 class="anchored" data-anchor-id="la-conexión-con-la-distribución-normal">La conexión con la distribución normal</h3>
-<p>Cuando un proceso opera solo con causas comunes, sus resultados se distribuyen de forma aproximadamente normal alrededor de la media del proceso. Cuando aparece una causa especial, la distribución ya no es normal ni predecible: puede aparecer un sesgo, una cola asimétrica, o incluso una distribución bimodal. Estos patrones son exactamente lo que los gráficos de control están diseñados para detectar.</p>
+<p>Cuando un proceso opera solo con causas comunes, sus resultados se distribuyen de forma estable alrededor de la media del proceso, a menudo de forma aproximadamente normal. Cuando aparece una causa especial, la distribución cambia y deja de ser predecible: puede desplazarse, ensancharse, volverse asimétrica o incluso bimodal. Estos patrones son exactamente lo que los gráficos de control están diseñados para detectar.</p>
 </section>
 </section>
 <section id="variabilidad-a-corto-plazo-y-variabilidad-a-largo-plazo" class="level2" data-number="9.3">
@@ -586,7 +605,7 @@ window.Quarto = {
 <section id="variabilidad-a-largo-plazo" class="level3">
 <h3 class="anchored" data-anchor-id="variabilidad-a-largo-plazo">Variabilidad a largo plazo</h3>
 <p>Es la variabilidad que solo se hace visible cuando se analizan datos de semanas o meses. Sus causas son más difíciles de identificar precisamente porque su efecto es gradual e imperceptible en el día a día:</p>
-<p><strong>En la industria quesera:</strong> - Deriva gradual de la composición de la leche a lo largo de la lactación (más grasa en otoño-invierno, más proteína en primavera) - Cambio imperceptible en el tiempo de acidificación por acostumbramiento o mutación del cultivo iniciador - Desgaste progresivo de equipos de corte de cuajada que produce granos cada vez más grandes - Deriva en los procedimientos de estandarización que el operario ha ido ajustando informalmente sin documentar - Colmatación progresiva del electrodo de los pHmetros por mantenimiento y limpieza insuficientes: las medidas de pH van perdiendo fiabilidad de forma tan gradual que el error pasa desapercibido durante semanas o meses, hasta que la desviación es ya demasiado grande para ignorarla. Es una de las causas de variabilidad analítica más frecuentes en quesería y una de las menos vigiladas</p>
+<p><strong>En la industria quesera:</strong> - Variación estacional de la composición de la leche, debida al estado de lactación del rebaño, a la alimentación y al clima: los contenidos de grasa y proteína suelen bajar en verano, sobre todo con el estrés por calor, y son más altos en otoño e invierno - Pérdida progresiva de actividad del fermento, por ejemplo por la acumulación de bacteriófagos en la planta cuando no se rotan los fermentos: la acidificación se vuelve cada vez más lenta - Desgaste progresivo de equipos de corte de cuajada que produce granos cada vez más grandes - Deriva en los procedimientos de estandarización que el operario ha ido ajustando informalmente sin documentar - Colmatación progresiva del electrodo de los pHmetros: las medidas de pH van perdiendo fiabilidad de forma tan gradual que el error pasa desapercibido durante semanas o meses, hasta que la desviación es ya demasiado grande para ignorarla. Es una causa de variabilidad analítica frecuente en las queserías donde el mantenimiento, la limpieza y la calibración de los electrodos no se hacen correctamente</p>
 <p><strong>En la industria alimentaria en general:</strong> - Cambio gradual en las características de un proveedor de envases que afecta al sellado - Deriva estacional en la humedad ambiental que afecta al secado de productos - Acumulación de depósitos en intercambiadores de calor que reduce progresivamente la eficiencia</p>
 <p><strong>En la industria en general:</strong> - Desgaste de herramientas de corte en mecanizado que produce dimensiones progresivamente fuera de tolerancia - Degradación de catalizadores en procesos químicos - Deriva de calibración de instrumentos de medida</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -610,10 +629,10 @@ window.Quarto = {
 <p>Un <strong>gráfico de control</strong> es una representación temporal de los resultados del proceso con tres líneas horizontales:</p>
 <ul>
 <li><strong>La línea central (CL):</strong> la media del proceso en condiciones de referencia</li>
-<li><strong>El límite de control superior (UCL):</strong> la media más 3 desviaciones típicas</li>
-<li><strong>El límite de control inferior (LCL):</strong> la media menos 3 desviaciones típicas</li>
+<li><strong>El límite de control superior (UCL):</strong> la media más 3 desviaciones típicas del estadístico representado (en el gráfico X-barra, <span class="math inline">\(3\sigma/\sqrt{n}\)</span>)</li>
+<li><strong>El límite de control inferior (LCL):</strong> la media menos esas mismas 3 desviaciones típicas</li>
 </ul>
-<p>Shewhart eligió ±3σ como límites por razones prácticas: con una distribución normal, el 99,7% de los valores caen dentro de ese rango. Un punto fuera de los límites es tan improbable por azar (probabilidad &lt; 0,3%) que su aparición es casi siempre señal de una causa especial.</p>
+<p>Los límites se sitúan a ±3σ. Si el proceso sigue una distribución normal, el 99,7% de los valores cae dentro de ese rango, de modo que un punto fuera de los límites es muy improbable por puro azar (probabilidad de alrededor del 0,3%): su aparición es casi siempre señal de una causa especial.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -629,13 +648,13 @@ window.Quarto = {
 </div>
 <section id="el-gráfico-x-barras-y-el-muestreo" class="level3">
 <h3 class="anchored" data-anchor-id="el-gráfico-x-barras-y-el-muestreo">El gráfico X-barra/S y el muestreo</h3>
-<p>En la práctica industrial, los datos no se toman de forma continua sino mediante <strong>muestreo</strong>: a intervalos regulares de tiempo se toma un pequeño grupo de unidades consecutivas, se miden y se registran. Para cada subgrupo se calculan:</p>
+<p>En la práctica industrial, los datos no se toman de forma continua sino mediante <strong>muestreo</strong>: a intervalos regulares de tiempo se toma un pequeño grupo de unidades consecutivas o muy próximas en el tiempo, se miden y se registran. Para cada subgrupo se calculan:</p>
 <ul>
 <li><strong>La media del subgrupo (<span class="math inline">\(\bar{X}\)</span>):</strong> representa el nivel del proceso en ese momento</li>
-<li><strong>La desviación típica del subgrupo (<span class="math inline">\(S\)</span>):</strong> mide la dispersión de los valores dentro del subgrupo y es más robusta que el rango cuando el tamaño del subgrupo es pequeño</li>
+<li><strong>La desviación típica del subgrupo (<span class="math inline">\(S\)</span>):</strong> mide cuánto varían entre sí los envases del subgrupo. Si sube, la dosificadora está llenando de forma menos regular</li>
 </ul>
 <p>El intervalo de muestreo es una decisión de diseño importante. Un intervalo corto (cada 5 minutos) permite detectar problemas rápidamente pero genera mucho trabajo de toma de datos. Un intervalo largo (cada hora) es más manejable pero puede perder señales importantes. En la práctica industrial se busca un equilibrio entre la frecuencia necesaria para tomar decisiones a tiempo y el coste del muestreo.</p>
-<p>En nuestro caso práctico, simularemos un muestreo de <strong>5 envases cada 3 minutos</strong>, lo que da 160 subgrupos a lo largo del turno de 8 horas — suficiente para ver las derivas con claridad sin emborronar el gráfico.</p>
+<p>En nuestro caso práctico, simularemos un muestreo de <strong>5 envases cada 3 minutos</strong>: en cada período de 3 minutos se toman 5 envases separados unos 45 segundos. Esto da 160 subgrupos a lo largo del turno de 8 horas, suficientes para ver las derivas con claridad sin emborronar el gráfico.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -647,29 +666,50 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <p>Un muestreo cada 3 minutos solo es realista con un <strong>sistema de control de peso automático en línea</strong>, integrado en la propia línea de llenado. Estos sistemas pesan cada envase o toman muestras automáticas a intervalos programados y registran los datos sin intervención del operario.</p>
-<p>En un sistema de <strong>muestreo manual</strong>, donde el operario tiene que detener la línea, pesar los envases, anotar los resultados y calcular la media del subgrupo, un intervalo inferior a 5-10 minutos no es realista: no hay tiempo material para hacerlo correctamente. Un operario presionado por un intervalo demasiado corto acabará tomando atajos — pesando menos envases, anotando de memoria, saltando muestras — lo que invalida el gráfico de control.</p>
+<p>En un sistema de <strong>muestreo manual</strong>, donde el operario tiene que detener la línea, pesar los envases, anotar los resultados y calcular la media del subgrupo, un intervalo inferior a 5-10 minutos no es realista: no hay tiempo material para hacerlo correctamente. Un operario presionado por un intervalo demasiado corto acabará tomando atajos (pesar menos envases, anotar de memoria, saltarse muestras), lo que invalida el gráfico de control.</p>
 <p>El diseño del sistema de muestreo debe ser compatible con la carga de trabajo real del operario. Un gráfico de control basado en datos mal tomados es peor que no tener gráfico: da una falsa sensación de control.</p>
 </div>
 </div>
 </section>
-<section id="las-reglas-de-detección" class="level3">
-<h3 class="anchored" data-anchor-id="las-reglas-de-detección">Las reglas de detección</h3>
-<p>Además de los puntos fuera de los límites de control, hay patrones en la secuencia de puntos que también indican la presencia de causas especiales. Las <strong>reglas de Western Electric</strong> son el conjunto más utilizado:</p>
+<section id="las-señales-de-alarma" class="level3">
+<h3 class="anchored" data-anchor-id="las-señales-de-alarma">Las señales de alarma</h3>
+<p>El gráfico de control avisa de una posible causa especial con dos tipos de señal:</p>
 <ul>
-<li><strong>Regla 1:</strong> un punto fuera de los límites ±3σ</li>
-<li><strong>Regla 2:</strong> dos de tres puntos consecutivos más allá de ±2σ en el mismo lado</li>
-<li><strong>Regla 3:</strong> cuatro de cinco puntos consecutivos más allá de ±1σ en el mismo lado</li>
-<li><strong>Regla 4:</strong> ocho puntos consecutivos en el mismo lado de la línea central</li>
+<li><strong>Un punto fuera de los límites de control.</strong> Indica un cambio brusco o grande en el proceso.</li>
+<li><strong>Una racha larga de puntos seguidos al mismo lado de la línea central.</strong> Indica un desplazamiento pequeño pero sostenido de la media, que no llega a sacar puntos fuera de los límites. Cuántos puntos hacen falta depende del número de puntos del gráfico: con 160 subgrupos, una racha de más de 10 puntos ya es una señal.</li>
 </ul>
-<p>Cada regla detecta un tipo diferente de señal: la regla 1 detecta cambios bruscos, las reglas 2 y 3 detectan tendencias moderadas, la regla 4 detecta desplazamientos sostenidos de la media.</p>
+<p><code>qicharts2</code> marca automáticamente las dos señales: los puntos fuera de los límites aparecen en rojo y, cuando detecta una racha anormalmente larga, dibuja la línea central en rojo y discontinua.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Para saber más: las reglas de Western Electric
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>En muchos manuales y programas de control de calidad se usan las <strong>reglas de Western Electric</strong>, que buscan patrones más detallados:</p>
+<ul>
+<li><strong>Regla 1:</strong> un punto fuera de los límites ±3σ.</li>
+<li><strong>Regla 2:</strong> dos de tres puntos consecutivos más allá de ±2σ en el mismo lado.</li>
+<li><strong>Regla 3:</strong> cuatro de cinco puntos consecutivos más allá de ±1σ en el mismo lado.</li>
+<li><strong>Regla 4:</strong> ocho puntos consecutivos en el mismo lado de la línea central.</li>
+</ul>
+<p><code>qicharts2</code> no aplica estas reglas, sino las reglas de Anhøj: busca rachas anormalmente largas a un lado de la línea central y cruces anormalmente escasos de esa línea. Su longitud límite depende del número de puntos del gráfico.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="caso-práctico-control-del-proceso-de-llenado-de-yogures" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="caso-práctico-control-del-proceso-de-llenado-de-yogures"><span class="header-section-number">9.5</span> Caso práctico: control del proceso de llenado de yogures</h2>
-<p>Usamos el dataset <code>llenado_yogures_muestra.csv</code> que contiene los resultados de un muestreo de 5 envases cada 3 minutos durante un turno de 8 horas (160 subgrupos, 800 envases en total). El turno incluye varias derivas simuladas que el gráfico de control debería detectar.</p>
+<p>Usamos el dataset <code>llenado_yogures_muestra.csv</code>, que contiene los resultados de un muestreo de 5 envases (separados unos 45 segundos) cada 3 minutos durante el turno del 1 de octubre, de 08:00 a 16:00: 160 subgrupos y 800 envases en total. Es una muestra del mismo turno que analizaremos completo en el capítulo 14, dedicado al contenido efectivo. El turno es simulado e incluye varios incidentes que el gráfico de control debería detectar.</p>
 <section id="fase-i-establecer-los-límites-de-control" class="level3">
 <h3 class="anchored" data-anchor-id="fase-i-establecer-los-límites-de-control">Fase I: establecer los límites de control</h3>
-<p>Usamos los primeros 17 subgrupos (proceso estable al inicio del turno, hasta las 08:51) como período de referencia para calcular los límites:</p>
+<p>Usamos los primeros 10 subgrupos (de 08:00 a 08:30, antes de que ocurra ningún incidente) como período de referencia para calcular los límites:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -677,16 +717,19 @@ window.Quarto = {
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qicharts2)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/llenado_yogures_muestra.csv"</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>))</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Subgrupos:"</span>, <span class="fu">n_distinct</span>(df<span class="sc">$</span>muestra), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(muestra) <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">hora =</span> <span class="fu">min</span>(hora_envasado)) <span class="sc">|&gt;</span>   <span class="co"># hora de inicio de cada subgrupo</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ungroup</span>()</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Subgrupos:"</span>, <span class="fu">n_distinct</span>(df<span class="sc">$</span>muestra), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Subgrupos: 160 </code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Envases por subgrupo:"</span>, </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Envases por subgrupo:"</span>,</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    df <span class="sc">|&gt;</span> <span class="fu">count</span>(muestra) <span class="sc">|&gt;</span> <span class="fu">pull</span>(n) <span class="sc">|&gt;</span> <span class="fu">unique</span>(), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -696,14 +739,14 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qic</span>(<span class="at">x      =</span> muestra,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qic</span>(<span class="at">x      =</span> hora,</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y      =</span> peso_g,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data   =</span> df,</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">chart  =</span> <span class="st">"xbar"</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">freeze =</span> <span class="dv">17</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">freeze =</span> <span class="dv">10</span>,</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title  =</span> <span class="st">"Gráfico X-barra — Peso de envases de yogur (150 g nominal)"</span>,</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab   =</span> <span class="st">"Peso medio del subgrupo (g)"</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab   =</span> <span class="st">"Subgrupo (muestreo cada 3 min)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab   =</span> <span class="st">"Hora (un subgrupo cada 3 min)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -716,14 +759,14 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qic</span>(<span class="at">x      =</span> muestra,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qic</span>(<span class="at">x      =</span> hora,</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">y      =</span> peso_g,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data   =</span> df,</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">chart  =</span> <span class="st">"s"</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">freeze =</span> <span class="dv">17</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">freeze =</span> <span class="dv">10</span>,</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title  =</span> <span class="st">"Gráfico S — Desviación típica del subgrupo"</span>,</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab   =</span> <span class="st">"Desviación típica (g)"</span>,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab   =</span> <span class="st">"Subgrupo (muestreo cada 3 min)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab   =</span> <span class="st">"Hora (un subgrupo cada 3 min)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -736,11 +779,60 @@ window.Quarto = {
 </section>
 <section id="interpretación-de-los-gráficos" class="level3">
 <h3 class="anchored" data-anchor-id="interpretación-de-los-gráficos">Interpretación de los gráficos</h3>
-<p>El gráfico X-barra muestra con claridad las tres derivas simuladas:</p>
-<p><strong>Deriva ascendente (subgrupos ~17-42):</strong> la media del proceso sube progresivamente desde aproximadamente 151,5 g hasta 153 g. Los puntos empiezan a aparecer sistemáticamente por encima de la línea central, activando primero las reglas 3 y 4 y luego la regla 1. En un proceso real, esta señal indicaría que la dosificadora está entregando más producto de lo previsto — posiblemente por desgaste de la válvula o por un aumento de temperatura que reduce la viscosidad del yogur.</p>
-<p><strong>Salto brusco a la baja (subgrupos ~42-50):</strong> la media cae bruscamente por debajo del límite de control inferior. Esta señal corresponde al ajuste incorrecto del operario: al detectar la deriva ascendente, corrigió en exceso. Los saltos bruscos de este tipo son consecuencia habitual de ajustes manuales no documentados.</p>
-<p><strong>Aumento de dispersión (subgrupos ~50-75):</strong> el gráfico S muestra un aumento progresivo de la desviación típica mientras que el X-barra muestra la media ligeramente baja pero sin tendencia clara. Este patrón — dispersión creciente sin cambio de media — es característico del desgaste de equipos: la dosificadora empieza a ser inconsistente, llenando algunos envases de más y otros de menos.</p>
-<p><strong>Restauración tras mantenimiento (subgrupos ~75 en adelante):</strong> tanto la media como el rango vuelven al rango de referencia.</p>
+<p>Los dos gráficos permiten reconstruir lo que ocurrió durante el turno:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Hora</th>
+<th>Qué ocurre</th>
+<th>Cómo se ve en los gráficos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>08:30</td>
+<td>Deriva ascendente: la media sube unos 6 g en 9 minutos</td>
+<td>Puntos por encima del límite superior en el gráfico X-barra</td>
+</tr>
+<tr class="even">
+<td>08:39</td>
+<td>Sobrecorrección del operario: la media cae a unos 143 g durante 15 minutos</td>
+<td>Siete puntos seguidos por debajo del límite inferior; algún punto alto en el gráfico S</td>
+</tr>
+<tr class="odd">
+<td>08:54</td>
+<td>Recuperación gradual hasta el nivel inicial, hacia las 09:03</td>
+<td>Los puntos vuelven a quedar entre los límites</td>
+</tr>
+<tr class="even">
+<td>10:00</td>
+<td>Alta variabilidad durante 45 minutos, sin cambio de la media</td>
+<td>La mayoría de los puntos del gráfico S por encima de su límite; las medias se vuelven erráticas</td>
+</tr>
+<tr class="odd">
+<td>11:00</td>
+<td>Deriva descendente lenta: la media baja 3 g en hora y media y sigue baja hasta las 13:30</td>
+<td>Racha muy larga por debajo de la línea central y, a medida que la media baja, puntos por debajo del límite inferior</td>
+</tr>
+<tr class="even">
+<td>13:30</td>
+<td>Escalón brusco en el cambio de turno: la media sube unos 4,5 g y queda alta hasta el final del turno</td>
+<td>Racha larga por encima de la línea central y puntos por encima del límite superior</td>
+</tr>
+<tr class="odd">
+<td>14:00</td>
+<td>Oscilación periódica durante 30 minutos</td>
+<td>Puntos que suben y bajan con un ritmo regular, de unos 12 minutos</td>
+</tr>
+</tbody>
+</table>
+<p>Cada incidente deja una huella distinta. Los cambios grandes de la media (la deriva de las 08:30, la sobrecorrección) sacan puntos fuera de los límites del gráfico X-barra. Los cambios lentos o pequeños (la deriva descendente, el escalón) apenas sacan puntos, pero producen rachas largas a un lado de la línea central. Y un aumento de la dispersión sin cambio de la media se ve sobre todo en el gráfico S: si S sube, la dosificadora está llenando de forma menos regular.</p>
+<p>El incidente más grave es la sobrecorrección. Al detectar la deriva ascendente, el operario corrigió en exceso y llevó la media muy por debajo del peso nominal. En el capítulo 14 volveremos sobre estos incidentes para buscar sus causas y analizar sus consecuencias legales y económicas.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -751,8 +843,8 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La librería <code>qicharts2</code> es moderna, integrada con ggplot2 y muy fácil de usar para casos estándar. Para análisis más avanzados — descomposición detallada de la varianza, índices de capacidad de proceso, gráficos CUSUM para detectar derivas lentas — la librería <code>qcc</code> ofrece más funcionalidades.</p>
-<p><code>qcc</code> es la librería de referencia académica para SPC en R, utilizada en el libro <em>Quality Control with R</em> de Emilio L. Cano, Javier M. Moguerza y Mariano Prieto Corcoba (Springer, 2015), con código disponible en <a href="https://www.qualitycontrolwithr.com">qualitycontrolwithr.com</a>.</p>
+<p>La librería <code>qicharts2</code> es moderna, integrada con ggplot2 y muy fácil de usar para casos estándar. Para análisis más avanzados (índices de capacidad de proceso, gráficos CUSUM y EWMA para detectar derivas lentas) la librería <code>qcc</code> ofrece más funcionalidades.</p>
+<p><code>qcc</code> es la librería de referencia académica para SPC en R, utilizada en el libro <em>Quality Control with R</em> de Emilio L. Cano, Javier M. Moguerza y Mariano Prieto Corcoba <span class="citation" data-cites="cano2015">(<a href="400-bibliografia.html#ref-cano2015" role="doc-biblioref">Cano et&nbsp;al. 2015</a>)</span>, con código disponible en <a href="https://www.qualitycontrolwithr.com">qualitycontrolwithr.com</a>.</p>
 </div>
 </div>
 </section>
@@ -771,122 +863,89 @@ window.Quarto = {
 <section id="el-índice-c_pk" class="level3">
 <h3 class="anchored" data-anchor-id="el-índice-c_pk">El índice <span class="math inline">\(C_{pk}\)</span></h3>
 <p><span class="math display">\[C_{pk} = \min\left(\frac{LSE - \mu}{3\sigma},\ \frac{\mu - LIE}{3\sigma}\right)\]</span></p>
-<p><span class="math inline">\(C_{pk}\)</span> toma el mínimo de las dos distancias — de la media al límite superior y de la media al límite inferior — y la expresa en unidades de 3σ. A diferencia de <span class="math inline">\(C_p\)</span>, sí tiene en cuenta el centrado de la media.</p>
+<p><span class="math inline">\(C_{pk}\)</span> toma el mínimo de las dos distancias (de la media al límite superior y de la media al límite inferior) y lo expresa en unidades de 3σ. A diferencia de <span class="math inline">\(C_p\)</span>, sí tiene en cuenta el centrado de la media.</p>
 <p>Si el proceso está perfectamente centrado, <span class="math inline">\(C_{pk} = C_p\)</span>. Si la media está desplazada, <span class="math inline">\(C_{pk} &lt; C_p\)</span>. Un <span class="math inline">\(C_{pk}\)</span> bajo con un <span class="math inline">\(C_p\)</span> alto indica que el problema no es la variabilidad sino el centrado del proceso.</p>
+<p>Cuando solo hay un límite, como ocurre con el peso de los envases, que tiene un límite inferior legal pero no uno superior, se usa solo la parte de la fórmula que corresponde a ese límite.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>La capacidad solo tiene sentido en un proceso bajo control
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los índices de capacidad describen lo que el proceso puede hacer cuando funciona solo con causas comunes. Por eso se calculan con los datos de un período estable, como la Fase I. Calcularlos con datos que incluyen causas especiales no tiene sentido: el resultado dependería de qué incidentes hubieran ocurrido ese día.</p>
+</div>
+</div>
 </section>
 <section id="aplicación-al-proceso-de-llenado-de-yogures" class="level3">
 <h3 class="anchored" data-anchor-id="aplicación-al-proceso-de-llenado-de-yogures">Aplicación al proceso de llenado de yogures</h3>
-<p>Para el proceso de llenado de yogures en el período estable (Fase I), con <span class="math inline">\(\mu \approx 151{,}5\)</span> g y <span class="math inline">\(\sigma \approx 1{,}3\)</span> g, y usando como límites de especificación los del RD 1801/2008 (T2 = 141 g como límite inferior; no hay límite superior legal):</p>
-<p><span class="math display">\[C_{pk} = \frac{\mu - LIE}{3\sigma} = \frac{151{,}5 - 141}{3 \times 1{,}3} = \frac{10{,}5}{3{,}9} \approx 2{,}7\]</span></p>
-<p>Un <span class="math inline">\(C_{pk} = 2{,}7\)</span> indica un proceso muy capaz respecto al límite T2. Pero si la variabilidad aumenta a <span class="math inline">\(\sigma = 3\)</span> g (como en el período de dispersión creciente):</p>
-<p><span class="math display">\[C_{pk} = \frac{151{,}5 - 141}{3 \times 3} = \frac{10{,}5}{9} \approx 1{,}2\]</span></p>
-<p>El proceso sigue siendo capaz (<span class="math inline">\(C_{pk} &gt; 1\)</span>) pero con mucho menos margen. Y si la media baja a 149 g (período tras el ajuste incorrecto):</p>
-<p><span class="math display">\[C_{pk} = \frac{149 - 141}{3 \times 3} = \frac{8}{9} \approx 0{,}9\]</span></p>
-<p>Un <span class="math inline">\(C_{pk} &lt; 1\)</span> indica que el proceso está produciendo producto por debajo de T2, lo que el RD 1801/2008 prohíbe. El análisis de capacidad conecta directamente con el análisis económico de la sobredosificación que veremos en el capítulo dedicado al RD 1801/2008.</p>
-</section>
-<section id="el-gráfico-de-capacidad" class="level3">
-<h3 class="anchored" data-anchor-id="el-gráfico-de-capacidad">El gráfico de capacidad</h3>
-<p>Los índices de capacidad son más fáciles de interpretar cuando se visualizan en un gráfico que muestra simultáneamente la distribución del proceso y los límites de especificación. Usamos la librería <code>qcc</code> para generarlo.</p>
-<p>Como límite inferior de especificación (LSL) usamos <strong>T1 = 145,5 g</strong>, el límite por debajo del cual un envase se considera defectuoso según el RD 1801/2008. Como límite superior usamos 157,5 g, valor simétrico respecto al peso nominal de 150 g, que aunque no existe como límite legal nos permite visualizar el centrado del proceso. El análisis detallado de los límites T1 y T2, el porcentaje máximo permitido de envases defectuosos y el análisis económico de la sobredosificación se desarrollan en el capítulo dedicado al RD 1801/2008.</p>
-<p><strong>Gráfico 1: capacidad del turno completo (incluyendo derivas)</strong></p>
-<p>En la situación real, los 800 envases muestreados durante el turno han salido al mercado — no había sistema de detección en tiempo real que los eliminara. El gráfico muestra la capacidad del proceso tal como ocurrió, con todas las derivas incluidas:</p>
+<p>En la Fase I, el proceso de llenado tiene una media <span class="math inline">\(\mu \approx 153{,}1\)</span> g y una desviación típica <span class="math inline">\(\sigma \approx 2{,}5\)</span> g. Como límite inferior de especificación usamos el T1 del RD 1801/2008 (T1 = 143,2 g), el límite por debajo del cual un envase se considera defectuoso:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qcc)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fase1 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">filter</span>(muestra <span class="sc">&lt;=</span> <span class="dv">10</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Todos los datos del turno</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>datos_completo <span class="ot">&lt;-</span> <span class="fu">qcc.groups</span>(df<span class="sc">$</span>peso_g, df<span class="sc">$</span>muestra)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>q_completo <span class="ot">&lt;-</span> <span class="fu">qcc</span>(datos_completo, <span class="at">type =</span> <span class="st">"xbar"</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">title =</span> <span class="st">"Turno completo"</span>,</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">process.capability</span>(q_completo,</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">spec.limits =</span> <span class="fu">c</span>(<span class="fl">145.5</span>, <span class="fl">157.5</span>),</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">target =</span> <span class="dv">150</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>media  <span class="ot">&lt;-</span> <span class="fu">mean</span>(fase1<span class="sc">$</span>peso_g)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>sigma  <span class="ot">&lt;-</span> <span class="fu">sd</span>(fase1<span class="sc">$</span>peso_g)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>T1     <span class="ot">&lt;-</span> <span class="fl">143.2</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>cpk    <span class="ot">&lt;-</span> (media <span class="sc">-</span> T1) <span class="sc">/</span> (<span class="dv">3</span> <span class="sc">*</span> sigma)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Media = %.2f g   Desviación típica = %.2f g   Cpk = %.2f</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>            media, sigma, cpk))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="090-control-proc_files/figure-html/capacidad-completo-1.png" class="img-fluid figure-img" width="768"></p>
-</figure>
-</div>
-</div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-Process Capability Analysis
-
-Call:
-process.capability(object = q_completo, spec.limits = c(145.5,     157.5), target = 150)
-
-Number of obs = 800          Target = 150
-       Center = 151.4           LSL = 145.5
-       StdDev = 1.663           USL = 157.5
-
-Capability indices:
-
-       Value    2.5%   97.5%
-Cp    1.2026  1.1437  1.2616
-Cp_l  1.1796  1.1274  1.2319
-Cp_u  1.2256  1.1716  1.2797
-Cp_k  1.1796  1.1174  1.2419
-Cpm   0.9241  0.8703  0.9778
-
-Exp&lt;LSL 0.02%    Obs&lt;LSL 1%
-Exp&gt;USL 0.012%   Obs&gt;USL 0%</code></pre>
+<pre><code>Media = 153.08 g   Desviación típica = 2.50 g   Cpk = 1.32</code></pre>
 </div>
 </div>
-<p><strong>Gráfico 2: capacidad del proceso en Fase I (solo proceso estable)</strong></p>
-<p>Ahora repetimos el análisis usando únicamente los primeros 17 subgrupos, cuando el proceso estaba bajo control estadístico sin causas especiales activas. Esta es la capacidad potencial del proceso si se eliminan las derivas:</p>
+<p><span class="math display">\[C_{pk} = \frac{\mu - LIE}{3\sigma} = \frac{153{,}1 - 143{,}2}{3 \times 2{,}5} = \frac{9{,}9}{7{,}5} \approx 1{,}3\]</span></p>
+<p>Un <span class="math inline">\(C_{pk} \approx 1{,}3\)</span> indica un proceso capaz respecto a T1, justo en el valor de 1,33 que se suele exigir: mientras funcione sin incidentes, prácticamente ningún envase quedará por debajo de ese límite. En el capítulo 14 veremos que esta es precisamente la razón por la que la planta trabaja con una media de 153 g, 3 g por encima del peso nominal. Pero si la variabilidad aumentara a <span class="math inline">\(\sigma = 3{,}5\)</span> g:</p>
+<p><span class="math display">\[C_{pk} = \frac{153{,}1 - 143{,}2}{3 \times 3{,}5} = \frac{9{,}9}{10{,}5} \approx 0{,}94\]</span></p>
+<p>El proceso deja de ser capaz (<span class="math inline">\(C_{pk} &lt; 1\)</span>): cabe esperar alrededor de un 0,2% de envases por debajo de T1. Y si además la media bajara a 150 g:</p>
+<p><span class="math display">\[C_{pk} = \frac{150 - 143{,}2}{3 \times 3{,}5} = \frac{6{,}8}{10{,}5} \approx 0{,}65\]</span></p>
+<p>Con <span class="math inline">\(C_{pk} \approx 0{,}65\)</span>, la proporción esperada de envases por debajo de T1 es de alrededor del 2,6%, por encima del 2,5% que se toma como referencia para el criterio T1 (lo veremos en el capítulo 14).</p>
+</section>
+<section id="lo-que-ocurrió-en-el-turno-completo" class="level3">
+<h3 class="anchored" data-anchor-id="lo-que-ocurrió-en-el-turno-completo">Lo que ocurrió en el turno completo</h3>
+<p>El <span class="math inline">\(C_{pk}\)</span> de la Fase I describe lo que el proceso puede hacer. Para ver lo que hizo realmente durante el turno, basta un histograma de los 800 envases muestreados con los dos límites legales:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Solo Fase I: primeros 17 subgrupos</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_fase1 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">filter</span>(muestra <span class="sc">&lt;=</span> <span class="dv">17</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>datos_fase1 <span class="ot">&lt;-</span> <span class="fu">qcc.groups</span>(df_fase1<span class="sc">$</span>peso_g, df_fase1<span class="sc">$</span>muestra)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>q_fase1 <span class="ot">&lt;-</span> <span class="fu">qcc</span>(datos_fase1, <span class="at">type =</span> <span class="st">"xbar"</span>,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">title =</span> <span class="st">"Fase I — proceso estable"</span>,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">process.capability</span>(q_fase1,</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">spec.limits =</span> <span class="fu">c</span>(<span class="fl">145.5</span>, <span class="fl">157.5</span>),</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">target =</span> <span class="dv">150</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>T2 <span class="ot">&lt;-</span> <span class="fl">136.4</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> peso_g)) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(T1, T2), <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fu">c</span>(T1, T2), <span class="at">y =</span> <span class="cn">Inf</span>, <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"T1"</span>, <span class="st">"T2"</span>),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">vjust =</span> <span class="fl">1.5</span>, <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.3</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Peso de los 800 envases muestreados durante el turno"</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Peso (g)"</span>, <span class="at">y =</span> <span class="st">"Número de envases"</span>) <span class="sc">+</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="090-control-proc_files/figure-html/capacidad-fase1-1.png" class="img-fluid figure-img" width="768"></p>
+<p><img src="090-control-proc_files/figure-html/histograma-turno-1.png" class="img-fluid figure-img" width="864"></p>
 </figure>
 </div>
 </div>
+<details class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">bajo_T1 =</span> <span class="fu">sum</span>(peso_g <span class="sc">&lt;</span> T1),</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">pct_bajo_T1 =</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(peso_g <span class="sc">&lt;</span> T1), <span class="dv">1</span>),</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">bajo_T2 =</span> <span class="fu">sum</span>(peso_g <span class="sc">&lt;</span> T2))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-Process Capability Analysis
-
-Call:
-process.capability(object = q_fase1, spec.limits = c(145.5, 157.5),     target = 150)
-
-Number of obs = 85           Target = 150
-       Center = 151.7           LSL = 145.5
-       StdDev = 1.194           USL = 157.5
-
-Capability indices:
-
-       Value    2.5%  97.5%
-Cp    1.6755  1.4224  1.928
-Cp_l  1.7241  1.4973  1.951
-Cp_u  1.6270  1.4121  1.842
-Cp_k  1.6270  1.3709  1.883
-Cpm   0.9728  0.7847  1.161
-
-Exp&lt;LSL 0%   Obs&lt;LSL 0%
-Exp&gt;USL 0%   Obs&gt;USL 0%</code></pre>
+<pre><code># A tibble: 1 × 3
+  bajo_T1 pct_bajo_T1 bajo_T2
+    &lt;int&gt;       &lt;dbl&gt;   &lt;int&gt;
+1      11         1.4       0</code></pre>
 </div>
 </div>
-<p>La comparación entre los dos gráficos muestra con claridad el efecto de las derivas sobre la capacidad del proceso. En el turno completo, la distribución es más ancha y menos centrada, lo que se traduce en índices <span class="math inline">\(C_p\)</span> y <span class="math inline">\(C_{pk}\)</span> más bajos y en un mayor porcentaje de envases fuera de especificación. En la Fase I, la distribución es más estrecha y mejor centrada, con índices notablemente mejores.</p>
-<p>La diferencia entre los dos escenarios es precisamente el argumento económico de la mejora: eliminar las causas especiales que producen las derivas no solo mejora la calidad del producto sino que reduce la sobredosificación necesaria para cumplir la legislación. Este análisis se desarrolla en detalle en el capítulo dedicado al RD 1801/2008.</p>
+<p>Durante el turno, 11 de los 800 envases muestreados (1,4%) quedaron por debajo de T1 y ninguno por debajo de T2. Ocho de esos 11 envases se produjeron entre las 08:39 y las 08:51, durante la sobrecorrección; los otros tres, durante el período de alta variabilidad. Que la muestra no recoja ningún envase bajo T2 no significa que no los haya: en el capítulo 14 veremos que en el turno completo, de 9.600 envases, hay 14.</p>
+<p>La comparación resume el argumento de la mejora. El proceso, cuando funciona sin incidentes, es capaz; los envases bajo T1 no se deben a la variabilidad de fondo, sino a causas especiales concretas, sobre todo a la sobrecorrección. Eliminar esas causas es más eficaz y más barato que aumentar la dosificación media para compensarlas. Este análisis económico se desarrolla en el capítulo dedicado al RD 1801/2008.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -897,7 +956,7 @@ Exp&gt;USL 0%   Obs&gt;USL 0%</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Un error frecuente en la industria es fijar límites técnicos de proceso (“no más de X defectos por turno”) sin haber evaluado previamente la capacidad del proceso. Si el proceso tiene una variabilidad natural que produce inevitablemente un 5% de defectos, fijar el límite en 1% es poco realista — no importa cuánto se esfuercen los operarios.</p>
+<p>Un error frecuente en la industria es fijar límites técnicos de proceso (“no más de X defectos por turno”) sin haber evaluado previamente la capacidad del proceso. Si el proceso tiene una variabilidad natural que produce inevitablemente un 5% de defectos, fijar el límite en 1% es poco realista, por mucho que se esfuercen los operarios.</p>
 <p>El enfoque correcto es:</p>
 <ol type="1">
 <li>Medir la capacidad real del proceso (<span class="math inline">\(C_{pk}\)</span>)</li>
@@ -912,19 +971,24 @@ Exp&gt;USL 0%   Obs&gt;USL 0%</code></pre>
 </section>
 <section id="actuar-correctamente-la-regla-de-oro-del-spc" class="level2" data-number="9.7">
 <h2 data-number="9.7" class="anchored" data-anchor-id="actuar-correctamente-la-regla-de-oro-del-spc"><span class="header-section-number">9.7</span> Actuar correctamente: la regla de oro del SPC</h2>
-<p>El gráfico de control no es solo una herramienta de detección — es también una guía de actuación:</p>
+<p>El gráfico de control no es solo una herramienta de detección, sino también una guía de actuación:</p>
 <ul>
 <li><strong>Si el proceso está bajo control:</strong> no intervenir. Los ajustes innecesarios introducen variabilidad adicional. Esta es una de las lecciones contraintuitivas del SPC: a veces la mejor acción es no hacer nada.</li>
-<li><strong>Si el gráfico muestra una señal:</strong> investigar la causa especial, identificarla y eliminarla. No ajustar el proceso a ciegas — primero entender qué ocurrió.</li>
+<li><strong>Si el gráfico muestra una señal:</strong> investigar la causa especial, identificarla y eliminarla. No ajustar el proceso a ciegas: primero hay que entender qué ocurrió.</li>
 </ul>
-<p>El turno de yogures ilustra el coste de no seguir esta regla: el operario que ajustó la dosificadora al detectar la deriva ascendente introdujo un salto brusco que fue peor que la propia deriva. Si hubiera esperado a confirmar la señal con las reglas de Western Electric, el ajuste habría sido más preciso.</p>
+<p>El turno de yogures ilustra el coste de no seguir esta regla: el operario que ajustó la dosificadora al detectar la deriva ascendente introdujo una caída que fue peor que la propia deriva. El error no fue reaccionar a la señal, que era real, sino corregir a ciegas y en exceso: si hubiera investigado la causa antes de ajustar, habría podido corregirla sin desplazar la media por debajo de su nivel de referencia.</p>
 </section>
 <section id="resumen-del-capítulo" class="level2" data-number="9.8">
 <h2 data-number="9.8" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">9.8</span> Resumen del capítulo</h2>
-<p>El control estadístico de procesos parte de una distinción fundamental: no toda la variabilidad es igual. La variabilidad por causas comunes es inherente al sistema y solo puede reducirse cambiando el sistema. La variabilidad por causas especiales es señal de que algo ha cambiado y debe investigarse. A esta distinción se añade la diferencia entre variabilidad a corto plazo — visible en el gráfico de control diario — y variabilidad a largo plazo, causada por derivas graduales en la composición de materias primas, el desgaste de equipos o la deriva imperceptible de los procedimientos.</p>
-<p>El gráfico de control X-barra/S detecta ambos tipos de señal. Los índices de capacidad <span class="math inline">\(C_p\)</span> y <span class="math inline">\(C_{pk}\)</span> cuantifican si la variabilidad natural del proceso es compatible con las especificaciones. Estos dos conceptos — control y capacidad — son los pilares del SPC y la base sobre la que se construye la mejora continua.</p>
+<p>El control estadístico de procesos parte de una distinción fundamental: no toda la variabilidad es igual. La variabilidad por causas comunes es inherente al sistema y solo puede reducirse cambiando el sistema. La variabilidad por causas especiales es señal de que algo ha cambiado y debe investigarse. A esta distinción se añade la diferencia entre variabilidad a corto plazo, visible en el gráfico de control diario, y variabilidad a largo plazo, causada por derivas graduales en la composición de materias primas, el desgaste de equipos o la deriva imperceptible de los procedimientos.</p>
+<p>El gráfico de control X-barra/S detecta ambos tipos de señal. Los índices de capacidad <span class="math inline">\(C_p\)</span> y <span class="math inline">\(C_{pk}\)</span> cuantifican si la variabilidad natural del proceso es compatible con las especificaciones. Estos dos conceptos, control y capacidad, son los pilares del SPC y la base sobre la que se construye la mejora continua.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-cano2015" class="csl-entry" role="listitem">
+Cano, Emilio L., Javier M. Moguerza, y Mariano Prieto Corcoba. 2015. <em>Quality Control with R: An ISO Standards Approach</em>. Use R! Springer. <a href="https://doi.org/10.1007/978-3-319-24046-6">https://doi.org/10.1007/978-3-319-24046-6</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1330,8 +1394,8 @@ Exp&gt;USL 0%   Obs&gt;USL 0%</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./080-correlacion-regresion.html" class="pagination-link" aria-label="La relación entre dos variables: correlación y regresion">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresion</span></span>
+      <a href="./080-correlacion-regresion.html" class="pagination-link" aria-label="La relación entre dos variables: correlación y regresión">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresión</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

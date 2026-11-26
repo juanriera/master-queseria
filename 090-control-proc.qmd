@@ -14,25 +14,25 @@ Al finalizar este capítulo, el alumno será capaz de:
 - Diferenciar la variabilidad a corto plazo de la variabilidad a largo plazo y reconocer sus causas típicas.
 - Explicar qué significa que un proceso está "bajo control estadístico" y qué consecuencias tiene para la toma de decisiones.
 - Interpretar un gráfico de control X-barra/S: límites de control, línea central, señales de alarma.
-- Aplicar las reglas básicas de detección de causas especiales en un gráfico de control.
+- Reconocer en un gráfico de control las señales de una causa especial: puntos fuera de los límites y rachas largas.
 - Entender el concepto de capacidad de proceso y los índices $C_p$ y $C_{pk}$.
 - Usar `qicharts2` en R para construir gráficos de control a partir de datos reales de proceso.
 
-Conceptos clave: **control estadístico de procesos, causas comunes, causas especiales, variabilidad a corto y largo plazo, gráfico de control, límites de control, X-barra, rango, reglas de Western Electric, capacidad de proceso, $C_p$, $C_{pk}$**.
+Conceptos clave: **control estadístico de procesos, causas comunes, causas especiales, variabilidad a corto y largo plazo, gráfico de control, límites de control, X-barra, desviación típica del subgrupo (S), señales de alarma, capacidad de proceso, $C_p$, $C_{pk}$**.
 :::
 
 ::: {.callout-tip}
 ## Sugerencia: sobre el código de este capítulo
-Los gráficos de control de este capítulo se generan exclusivamente con R, usando la librería `qicharts2`. Es uno de los casos en que R dispone de herramientas específicas mucho más adecuadas que Python para esta tarea.
+Los gráficos de control de este capítulo se generan solo con R, usando las librerías `qicharts2` y `qcc`, que son herramientas específicas y maduras para esta tarea.
 :::
 
 ## El origen del control estadístico de procesos
 
-A finales de los años 1920, el ingeniero Walter Shewhart, trabajando en los laboratorios Bell de AT&T, se enfrentaba a un problema práctico: los teléfonos que fabricaban tenían una variabilidad de calidad que nadie sabía cómo interpretar. ¿Cuándo era necesario intervenir en el proceso y cuándo era mejor dejarlo en marcha? Intervenir innecesariamente introducía más variabilidad, no menos.
+A mediados de los años veinte, el físico e ingeniero Walter Shewhart, que trabajaba en el departamento de ingeniería de inspección de Western Electric (el fabricante de equipos del sistema telefónico Bell) y, desde 1925, en los Laboratorios Bell, se enfrentaba a un problema práctico: los equipos telefónicos que fabricaba la empresa tenían una variabilidad de calidad que nadie sabía cómo interpretar. ¿Cuándo era necesario intervenir en el proceso y cuándo era mejor dejarlo en marcha? Intervenir innecesariamente introducía más variabilidad, no menos.
 
-Shewhart formuló una distinción que cambió la forma de entender la calidad industrial: no toda la variabilidad es igual. Hay una variabilidad que es inherente al proceso — inevitable, predecible, consecuencia de la suma de muchas causas pequeñas — y hay otra variabilidad que es señal de que algo ha cambiado y que requiere investigación.
+Shewhart formuló una distinción que cambió la forma de entender la calidad industrial: no toda la variabilidad es igual. Hay una variabilidad que es inherente al proceso (inevitable, predecible, consecuencia de la suma de muchas causas pequeñas) y hay otra variabilidad que es señal de que algo ha cambiado y que requiere investigación.
 
-Esta distinción, y la herramienta que Shewhart desarrolló para detectarla — el gráfico de control —, siguen siendo hoy el fundamento del control estadístico de procesos (SPC, del inglés *Statistical Process Control*).
+Esta distinción y la herramienta que Shewhart propuso en un memorando interno del 16 de mayo de 1924 para detectarla, el gráfico de control, siguen siendo hoy el fundamento del control estadístico de procesos (SPC, del inglés *Statistical Process Control*).
 
 ## Causas comunes y causas especiales
 
@@ -44,13 +44,13 @@ En un proceso de llenado de yogures, las causas comunes incluyen: pequeñas fluc
 
 En un laboratorio de análisis de leche, las causas comunes incluyen: la variabilidad natural de la técnica analítica, pequeñas diferencias entre repeticiones del mismo analista, fluctuaciones del instrumento dentro de su rango normal de operación.
 
-**La variabilidad por causas comunes produce una distribución aproximadamente normal y predecible.** Un proceso que solo tiene causas comunes se dice que está *bajo control estadístico*: sus resultados son aleatorios dentro de un rango definido y calculable.
+**La variabilidad por causas comunes es estable y predecible dentro de unos límites.** A menudo se aproxima a una distribución normal, aunque no tiene por qué. Un proceso que solo tiene causas comunes se dice que está *bajo control estadístico*: sus resultados son aleatorios dentro de un rango definido y calculable.
 
 ::: {.callout-note}
 ## Causas comunes y el sistema
 Las causas comunes son responsabilidad del **sistema**, no del operario. Eliminarlas requiere cambiar el diseño del proceso, los equipos, los materiales o el método. Un operario que trabaja correctamente dentro de un sistema con mucha variabilidad no puede reducir esa variabilidad por sí solo.
 
-Esto tiene implicaciones importantes para la gestión: culpar al operario de la variabilidad causada por el sistema es un error que Deming identificó como uno de los principales obstáculos para la mejora de la calidad. La ausencia de procedimientos escritos, la falta de formación o la inexistencia de instrucciones de trabajo en el puesto son causas comunes del sistema — no del operario — y solo la dirección puede corregirlas. Este es uno de los principios fundamentales de Lean Manufacturing: estandarizar antes de mejorar.
+Esto tiene implicaciones importantes para la gestión: culpar al operario de la variabilidad causada por el sistema es un error que Deming identificó como uno de los principales obstáculos para la mejora de la calidad. La ausencia de procedimientos escritos, la falta de formación o la inexistencia de instrucciones de trabajo en el puesto son causas comunes del sistema, no del operario, y solo la dirección puede corregirlas. Este es uno de los principios fundamentales de Lean Manufacturing: estandarizar antes de mejorar.
 :::
 
 ### La variabilidad por causas especiales
@@ -65,7 +65,7 @@ En el laboratorio, las causas especiales incluyen: un analista que ha desarrolla
 
 ::: {.callout-note}
 ## Causas especiales y el operario
-Las causas especiales son responsabilidad del **operario o del equipo de proceso**. Cuando aparece una causa especial, la acción correcta es investigarla, identificarla y eliminarla. No requiere rediseñar el sistema — requiere encontrar qué cambió y corregirlo.
+Las causas especiales son responsabilidad del **operario o del equipo de proceso**. Cuando aparece una causa especial, la acción correcta es investigarla, identificarla y eliminarla. No requiere rediseñar el sistema, sino encontrar qué cambió y corregirlo.
 
 La distinción entre causas comunes (sistema) y causas especiales (proceso) es fundamental para actuar correctamente: intervenir en el sistema cuando hay una causa especial, o tratar de corregir el proceso cuando el problema es del sistema, son errores que empeoran la situación.
 :::
@@ -85,7 +85,7 @@ La distinción entre causas comunes (sistema) y causas especiales (proceso) es f
 
 ### La conexión con la distribución normal
 
-Cuando un proceso opera solo con causas comunes, sus resultados se distribuyen de forma aproximadamente normal alrededor de la media del proceso. Cuando aparece una causa especial, la distribución ya no es normal ni predecible: puede aparecer un sesgo, una cola asimétrica, o incluso una distribución bimodal. Estos patrones son exactamente lo que los gráficos de control están diseñados para detectar.
+Cuando un proceso opera solo con causas comunes, sus resultados se distribuyen de forma estable alrededor de la media del proceso, a menudo de forma aproximadamente normal. Cuando aparece una causa especial, la distribución cambia y deja de ser predecible: puede desplazarse, ensancharse, volverse asimétrica o incluso bimodal. Estos patrones son exactamente lo que los gráficos de control están diseñados para detectar.
 
 ## Variabilidad a corto plazo y variabilidad a largo plazo
 
@@ -100,11 +100,11 @@ Es la variabilidad que se observa dentro de un turno o entre turnos consecutivos
 Es la variabilidad que solo se hace visible cuando se analizan datos de semanas o meses. Sus causas son más difíciles de identificar precisamente porque su efecto es gradual e imperceptible en el día a día:
 
 **En la industria quesera:**
-- Deriva gradual de la composición de la leche a lo largo de la lactación (más grasa en otoño-invierno, más proteína en primavera)
-- Cambio imperceptible en el tiempo de acidificación por acostumbramiento o mutación del cultivo iniciador
+- Variación estacional de la composición de la leche, debida al estado de lactación del rebaño, a la alimentación y al clima: los contenidos de grasa y proteína suelen bajar en verano, sobre todo con el estrés por calor, y son más altos en otoño e invierno
+- Pérdida progresiva de actividad del fermento, por ejemplo por la acumulación de bacteriófagos en la planta cuando no se rotan los fermentos: la acidificación se vuelve cada vez más lenta
 - Desgaste progresivo de equipos de corte de cuajada que produce granos cada vez más grandes
 - Deriva en los procedimientos de estandarización que el operario ha ido ajustando informalmente sin documentar
-- Colmatación progresiva del electrodo de los pHmetros por mantenimiento y limpieza insuficientes: las medidas de pH van perdiendo fiabilidad de forma tan gradual que el error pasa desapercibido durante semanas o meses, hasta que la desviación es ya demasiado grande para ignorarla. Es una de las causas de variabilidad analítica más frecuentes en quesería y una de las menos vigiladas
+- Colmatación progresiva del electrodo de los pHmetros: las medidas de pH van perdiendo fiabilidad de forma tan gradual que el error pasa desapercibido durante semanas o meses, hasta que la desviación es ya demasiado grande para ignorarla. Es una causa de variabilidad analítica frecuente en las queserías donde el mantenimiento, la limpieza y la calibración de los electrodos no se hacen correctamente
 
 **En la industria alimentaria en general:**
 - Cambio gradual en las características de un proveedor de envases que afecta al sellado
@@ -128,10 +128,10 @@ Lean Manufacturing pone especial énfasis en la **estandarización y auditoría 
 Un **gráfico de control** es una representación temporal de los resultados del proceso con tres líneas horizontales:
 
 - **La línea central (CL):** la media del proceso en condiciones de referencia
-- **El límite de control superior (UCL):** la media más 3 desviaciones típicas
-- **El límite de control inferior (LCL):** la media menos 3 desviaciones típicas
+- **El límite de control superior (UCL):** la media más 3 desviaciones típicas del estadístico representado (en el gráfico X-barra, $3\sigma/\sqrt{n}$)
+- **El límite de control inferior (LCL):** la media menos esas mismas 3 desviaciones típicas
 
-Shewhart eligió ±3σ como límites por razones prácticas: con una distribución normal, el 99,7% de los valores caen dentro de ese rango. Un punto fuera de los límites es tan improbable por azar (probabilidad < 0,3%) que su aparición es casi siempre señal de una causa especial.
+Los límites se sitúan a ±3σ. Si el proceso sigue una distribución normal, el 99,7% de los valores cae dentro de ese rango, de modo que un punto fuera de los límites es muy improbable por puro azar (probabilidad de alrededor del 0,3%): su aparición es casi siempre señal de una causa especial.
 
 ::: {.callout-note}
 ## Límites de control vs. especificaciones
@@ -140,42 +140,53 @@ Los límites de control **no son** las especificaciones del producto ni los lím
 
 ### El gráfico X-barra/S y el muestreo
 
-En la práctica industrial, los datos no se toman de forma continua sino mediante **muestreo**: a intervalos regulares de tiempo se toma un pequeño grupo de unidades consecutivas, se miden y se registran. Para cada subgrupo se calculan:
+En la práctica industrial, los datos no se toman de forma continua sino mediante **muestreo**: a intervalos regulares de tiempo se toma un pequeño grupo de unidades consecutivas o muy próximas en el tiempo, se miden y se registran. Para cada subgrupo se calculan:
 
 - **La media del subgrupo ($\bar{X}$):** representa el nivel del proceso en ese momento
-- **La desviación típica del subgrupo ($S$):** mide la dispersión de los valores dentro del subgrupo y es más robusta que el rango cuando el tamaño del subgrupo es pequeño
+- **La desviación típica del subgrupo ($S$):** mide cuánto varían entre sí los envases del subgrupo. Si sube, la dosificadora está llenando de forma menos regular
 
 El intervalo de muestreo es una decisión de diseño importante. Un intervalo corto (cada 5 minutos) permite detectar problemas rápidamente pero genera mucho trabajo de toma de datos. Un intervalo largo (cada hora) es más manejable pero puede perder señales importantes. En la práctica industrial se busca un equilibrio entre la frecuencia necesaria para tomar decisiones a tiempo y el coste del muestreo.
 
-En nuestro caso práctico, simularemos un muestreo de **5 envases cada 3 minutos**, lo que da 160 subgrupos a lo largo del turno de 8 horas — suficiente para ver las derivas con claridad sin emborronar el gráfico.
+En nuestro caso práctico, simularemos un muestreo de **5 envases cada 3 minutos**: en cada período de 3 minutos se toman 5 envases separados unos 45 segundos. Esto da 160 subgrupos a lo largo del turno de 8 horas, suficientes para ver las derivas con claridad sin emborronar el gráfico.
 
 ::: {.callout-note}
 ## Muestreo automático vs. muestreo manual
 Un muestreo cada 3 minutos solo es realista con un **sistema de control de peso automático en línea**, integrado en la propia línea de llenado. Estos sistemas pesan cada envase o toman muestras automáticas a intervalos programados y registran los datos sin intervención del operario.
 
-En un sistema de **muestreo manual**, donde el operario tiene que detener la línea, pesar los envases, anotar los resultados y calcular la media del subgrupo, un intervalo inferior a 5-10 minutos no es realista: no hay tiempo material para hacerlo correctamente. Un operario presionado por un intervalo demasiado corto acabará tomando atajos — pesando menos envases, anotando de memoria, saltando muestras — lo que invalida el gráfico de control.
+En un sistema de **muestreo manual**, donde el operario tiene que detener la línea, pesar los envases, anotar los resultados y calcular la media del subgrupo, un intervalo inferior a 5-10 minutos no es realista: no hay tiempo material para hacerlo correctamente. Un operario presionado por un intervalo demasiado corto acabará tomando atajos (pesar menos envases, anotar de memoria, saltarse muestras), lo que invalida el gráfico de control.
 
 El diseño del sistema de muestreo debe ser compatible con la carga de trabajo real del operario. Un gráfico de control basado en datos mal tomados es peor que no tener gráfico: da una falsa sensación de control.
 :::
 
-### Las reglas de detección
+### Las señales de alarma
 
-Además de los puntos fuera de los límites de control, hay patrones en la secuencia de puntos que también indican la presencia de causas especiales. Las **reglas de Western Electric** son el conjunto más utilizado:
+El gráfico de control avisa de una posible causa especial con dos tipos de señal:
 
-- **Regla 1:** un punto fuera de los límites ±3σ
-- **Regla 2:** dos de tres puntos consecutivos más allá de ±2σ en el mismo lado
-- **Regla 3:** cuatro de cinco puntos consecutivos más allá de ±1σ en el mismo lado
-- **Regla 4:** ocho puntos consecutivos en el mismo lado de la línea central
+- **Un punto fuera de los límites de control.** Indica un cambio brusco o grande en el proceso.
+- **Una racha larga de puntos seguidos al mismo lado de la línea central.** Indica un desplazamiento pequeño pero sostenido de la media, que no llega a sacar puntos fuera de los límites. Cuántos puntos hacen falta depende del número de puntos del gráfico: con 160 subgrupos, una racha de más de 10 puntos ya es una señal.
 
-Cada regla detecta un tipo diferente de señal: la regla 1 detecta cambios bruscos, las reglas 2 y 3 detectan tendencias moderadas, la regla 4 detecta desplazamientos sostenidos de la media.
+`qicharts2` marca automáticamente las dos señales: los puntos fuera de los límites aparecen en rojo y, cuando detecta una racha anormalmente larga, dibuja la línea central en rojo y discontinua.
+
+::: {.callout-note collapse="true"}
+## Para saber más: las reglas de Western Electric
+
+En muchos manuales y programas de control de calidad se usan las **reglas de Western Electric**, que buscan patrones más detallados:
+
+- **Regla 1:** un punto fuera de los límites ±3σ.
+- **Regla 2:** dos de tres puntos consecutivos más allá de ±2σ en el mismo lado.
+- **Regla 3:** cuatro de cinco puntos consecutivos más allá de ±1σ en el mismo lado.
+- **Regla 4:** ocho puntos consecutivos en el mismo lado de la línea central.
+
+`qicharts2` no aplica estas reglas, sino las reglas de Anhøj: busca rachas anormalmente largas a un lado de la línea central y cruces anormalmente escasos de esa línea. Su longitud límite depende del número de puntos del gráfico.
+:::
 
 ## Caso práctico: control del proceso de llenado de yogures
 
-Usamos el dataset `llenado_yogures_muestra.csv` que contiene los resultados de un muestreo de 5 envases cada 3 minutos durante un turno de 8 horas (160 subgrupos, 800 envases en total). El turno incluye varias derivas simuladas que el gráfico de control debería detectar.
+Usamos el dataset `llenado_yogures_muestra.csv`, que contiene los resultados de un muestreo de 5 envases (separados unos 45 segundos) cada 3 minutos durante el turno del 1 de octubre, de 08:00 a 16:00: 160 subgrupos y 800 envases en total. Es una muestra del mismo turno que analizaremos completo en el capítulo 14, dedicado al contenido efectivo. El turno es simulado e incluye varios incidentes que el gráfico de control debería detectar.
 
 ### Fase I: establecer los límites de control
 
-Usamos los primeros 17 subgrupos (proceso estable al inicio del turno, hasta las 08:51) como período de referencia para calcular los límites:
+Usamos los primeros 10 subgrupos (de 08:00 a 08:30, antes de que ocurra ningún incidente) como período de referencia para calcular los límites:
 
 ```{r spc-carga}
 #| message: false
@@ -184,10 +195,13 @@ library(tidyverse)
 library(qicharts2)
 
 df <- read_csv2("datos/llenado_yogures_muestra.csv",
-                locale = locale(decimal_mark = ","))
+                locale = locale(decimal_mark = ",", encoding = "ISO-8859-1")) |>
+    group_by(muestra) |>
+    mutate(hora = min(hora_envasado)) |>   # hora de inicio de cada subgrupo
+    ungroup()
 
 cat("Subgrupos:", n_distinct(df$muestra), "\n")
-cat("Envases por subgrupo:", 
+cat("Envases por subgrupo:",
     df |> count(muestra) |> pull(n) |> unique(), "\n")
 ```
 
@@ -197,14 +211,14 @@ cat("Envases por subgrupo:",
 #| fig-width: 10
 #| fig-height: 6
 
-qic(x      = muestra,
+qic(x      = hora,
     y      = peso_g,
     data   = df,
     chart  = "xbar",
-    freeze = 17,
+    freeze = 10,
     title  = "Gráfico X-barra — Peso de envases de yogur (150 g nominal)",
     ylab   = "Peso medio del subgrupo (g)",
-    xlab   = "Subgrupo (muestreo cada 3 min)")
+    xlab   = "Hora (un subgrupo cada 3 min)")
 ```
 
 ```{r spc-s}
@@ -213,34 +227,40 @@ qic(x      = muestra,
 #| fig-width: 10
 #| fig-height: 5
 
-qic(x      = muestra,
+qic(x      = hora,
     y      = peso_g,
     data   = df,
     chart  = "s",
-    freeze = 17,
+    freeze = 10,
     title  = "Gráfico S — Desviación típica del subgrupo",
     ylab   = "Desviación típica (g)",
-    xlab   = "Subgrupo (muestreo cada 3 min)")
+    xlab   = "Hora (un subgrupo cada 3 min)")
 ```
 
 ### Interpretación de los gráficos
 
-El gráfico X-barra muestra con claridad las tres derivas simuladas:
+Los dos gráficos permiten reconstruir lo que ocurrió durante el turno:
 
-**Deriva ascendente (subgrupos ~17-42):** la media del proceso sube progresivamente desde aproximadamente 151,5 g hasta 153 g. Los puntos empiezan a aparecer sistemáticamente por encima de la línea central, activando primero las reglas 3 y 4 y luego la regla 1. En un proceso real, esta señal indicaría que la dosificadora está entregando más producto de lo previsto — posiblemente por desgaste de la válvula o por un aumento de temperatura que reduce la viscosidad del yogur.
+| Hora | Qué ocurre | Cómo se ve en los gráficos |
+|---|---|---|
+| 08:30 | Deriva ascendente: la media sube unos 6 g en 9 minutos | Puntos por encima del límite superior en el gráfico X-barra |
+| 08:39 | Sobrecorrección del operario: la media cae a unos 143 g durante 15 minutos | Siete puntos seguidos por debajo del límite inferior; algún punto alto en el gráfico S |
+| 08:54 | Recuperación gradual hasta el nivel inicial, hacia las 09:03 | Los puntos vuelven a quedar entre los límites |
+| 10:00 | Alta variabilidad durante 45 minutos, sin cambio de la media | La mayoría de los puntos del gráfico S por encima de su límite; las medias se vuelven erráticas |
+| 11:00 | Deriva descendente lenta: la media baja 3 g en hora y media y sigue baja hasta las 13:30 | Racha muy larga por debajo de la línea central y, a medida que la media baja, puntos por debajo del límite inferior |
+| 13:30 | Escalón brusco en el cambio de turno: la media sube unos 4,5 g y queda alta hasta el final del turno | Racha larga por encima de la línea central y puntos por encima del límite superior |
+| 14:00 | Oscilación periódica durante 30 minutos | Puntos que suben y bajan con un ritmo regular, de unos 12 minutos |
 
-**Salto brusco a la baja (subgrupos ~42-50):** la media cae bruscamente por debajo del límite de control inferior. Esta señal corresponde al ajuste incorrecto del operario: al detectar la deriva ascendente, corrigió en exceso. Los saltos bruscos de este tipo son consecuencia habitual de ajustes manuales no documentados.
+Cada incidente deja una huella distinta. Los cambios grandes de la media (la deriva de las 08:30, la sobrecorrección) sacan puntos fuera de los límites del gráfico X-barra. Los cambios lentos o pequeños (la deriva descendente, el escalón) apenas sacan puntos, pero producen rachas largas a un lado de la línea central. Y un aumento de la dispersión sin cambio de la media se ve sobre todo en el gráfico S: si S sube, la dosificadora está llenando de forma menos regular.
 
-**Aumento de dispersión (subgrupos ~50-75):** el gráfico S muestra un aumento progresivo de la desviación típica mientras que el X-barra muestra la media ligeramente baja pero sin tendencia clara. Este patrón — dispersión creciente sin cambio de media — es característico del desgaste de equipos: la dosificadora empieza a ser inconsistente, llenando algunos envases de más y otros de menos.
-
-**Restauración tras mantenimiento (subgrupos ~75 en adelante):** tanto la media como el rango vuelven al rango de referencia.
+El incidente más grave es la sobrecorrección. Al detectar la deriva ascendente, el operario corrigió en exceso y llevó la media muy por debajo del peso nominal. En el capítulo 14 volveremos sobre estos incidentes para buscar sus causas y analizar sus consecuencias legales y económicas.
 
 ::: {.callout-note}
 ## `qcc`: una alternativa más potente
 
-La librería `qicharts2` es moderna, integrada con ggplot2 y muy fácil de usar para casos estándar. Para análisis más avanzados — descomposición detallada de la varianza, índices de capacidad de proceso, gráficos CUSUM para detectar derivas lentas — la librería `qcc` ofrece más funcionalidades.
+La librería `qicharts2` es moderna, integrada con ggplot2 y muy fácil de usar para casos estándar. Para análisis más avanzados (índices de capacidad de proceso, gráficos CUSUM y EWMA para detectar derivas lentas) la librería `qcc` ofrece más funcionalidades.
 
-`qcc` es la librería de referencia académica para SPC en R, utilizada en el libro *Quality Control with R* de Emilio L. Cano, Javier M. Moguerza y Mariano Prieto Corcoba (Springer, 2015), con código disponible en [qualitycontrolwithr.com](https://www.qualitycontrolwithr.com).
+`qcc` es la librería de referencia académica para SPC en R, utilizada en el libro *Quality Control with R* de Emilio L. Cano, Javier M. Moguerza y Mariano Prieto Corcoba [@cano2015], con código disponible en [qualitycontrolwithr.com](https://www.qualitycontrolwithr.com).
 :::
 
 ## La capacidad del proceso
@@ -263,86 +283,78 @@ Un $C_p = 1$ significa que la variabilidad natural del proceso ocupa exactamente
 
 $$C_{pk} = \min\left(\frac{LSE - \mu}{3\sigma},\ \frac{\mu - LIE}{3\sigma}\right)$$
 
-$C_{pk}$ toma el mínimo de las dos distancias — de la media al límite superior y de la media al límite inferior — y la expresa en unidades de 3σ. A diferencia de $C_p$, sí tiene en cuenta el centrado de la media.
+$C_{pk}$ toma el mínimo de las dos distancias (de la media al límite superior y de la media al límite inferior) y lo expresa en unidades de 3σ. A diferencia de $C_p$, sí tiene en cuenta el centrado de la media.
 
 Si el proceso está perfectamente centrado, $C_{pk} = C_p$. Si la media está desplazada, $C_{pk} < C_p$. Un $C_{pk}$ bajo con un $C_p$ alto indica que el problema no es la variabilidad sino el centrado del proceso.
 
+Cuando solo hay un límite, como ocurre con el peso de los envases, que tiene un límite inferior legal pero no uno superior, se usa solo la parte de la fórmula que corresponde a ese límite.
+
+::: {.callout-important}
+## La capacidad solo tiene sentido en un proceso bajo control
+Los índices de capacidad describen lo que el proceso puede hacer cuando funciona solo con causas comunes. Por eso se calculan con los datos de un período estable, como la Fase I. Calcularlos con datos que incluyen causas especiales no tiene sentido: el resultado dependería de qué incidentes hubieran ocurrido ese día.
+:::
+
 ### Aplicación al proceso de llenado de yogures
 
-Para el proceso de llenado de yogures en el período estable (Fase I), con $\mu \approx 151{,}5$ g y $\sigma \approx 1{,}3$ g, y usando como límites de especificación los del RD 1801/2008 (T2 = 141 g como límite inferior; no hay límite superior legal):
-
-$$C_{pk} = \frac{\mu - LIE}{3\sigma} = \frac{151{,}5 - 141}{3 \times 1{,}3} = \frac{10{,}5}{3{,}9} \approx 2{,}7$$
-
-Un $C_{pk} = 2{,}7$ indica un proceso muy capaz respecto al límite T2. Pero si la variabilidad aumenta a $\sigma = 3$ g (como en el período de dispersión creciente):
-
-$$C_{pk} = \frac{151{,}5 - 141}{3 \times 3} = \frac{10{,}5}{9} \approx 1{,}2$$
-
-El proceso sigue siendo capaz ($C_{pk} > 1$) pero con mucho menos margen. Y si la media baja a 149 g (período tras el ajuste incorrecto):
-
-$$C_{pk} = \frac{149 - 141}{3 \times 3} = \frac{8}{9} \approx 0{,}9$$
-
-Un $C_{pk} < 1$ indica que el proceso está produciendo producto por debajo de T2, lo que el RD 1801/2008 prohíbe. El análisis de capacidad conecta directamente con el análisis económico de la sobredosificación que veremos en el capítulo dedicado al RD 1801/2008.
-
-### El gráfico de capacidad
-
-Los índices de capacidad son más fáciles de interpretar cuando se visualizan en un gráfico que muestra simultáneamente la distribución del proceso y los límites de especificación. Usamos la librería `qcc` para generarlo.
-
-Como límite inferior de especificación (LSL) usamos **T1 = 145,5 g**, el límite por debajo del cual un envase se considera defectuoso según el RD 1801/2008. Como límite superior usamos 157,5 g, valor simétrico respecto al peso nominal de 150 g, que aunque no existe como límite legal nos permite visualizar el centrado del proceso. El análisis detallado de los límites T1 y T2, el porcentaje máximo permitido de envases defectuosos y el análisis económico de la sobredosificación se desarrollan en el capítulo dedicado al RD 1801/2008.
-
-**Gráfico 1: capacidad del turno completo (incluyendo derivas)**
-
-En la situación real, los 800 envases muestreados durante el turno han salido al mercado — no había sistema de detección en tiempo real que los eliminara. El gráfico muestra la capacidad del proceso tal como ocurrió, con todas las derivas incluidas:
-
-```{r capacidad-completo}
-#| message: false
-#| warning: false
-#| fig-width: 8
-#| fig-height: 6
-library(qcc)
-
-# Todos los datos del turno
-datos_completo <- qcc.groups(df$peso_g, df$muestra)
-
-q_completo <- qcc(datos_completo, type = "xbar",
-                  title = "Turno completo",
-                  plot = FALSE)
-
-process.capability(q_completo,
-                   spec.limits = c(145.5, 157.5),
-                   target = 150)
-```
-
-**Gráfico 2: capacidad del proceso en Fase I (solo proceso estable)**
-
-Ahora repetimos el análisis usando únicamente los primeros 17 subgrupos, cuando el proceso estaba bajo control estadístico sin causas especiales activas. Esta es la capacidad potencial del proceso si se eliminan las derivas:
+En la Fase I, el proceso de llenado tiene una media $\mu \approx 153{,}1$ g y una desviación típica $\sigma \approx 2{,}5$ g. Como límite inferior de especificación usamos el T1 del RD 1801/2008 (T1 = 143,2 g), el límite por debajo del cual un envase se considera defectuoso:
 
 ```{r capacidad-fase1}
-#| message: false
-#| warning: false
-#| fig-width: 8
-#| fig-height: 6
+fase1 <- df |> filter(muestra <= 10)
 
-# Solo Fase I: primeros 17 subgrupos
-df_fase1 <- df |> filter(muestra <= 17)
-datos_fase1 <- qcc.groups(df_fase1$peso_g, df_fase1$muestra)
+media  <- mean(fase1$peso_g)
+sigma  <- sd(fase1$peso_g)
+T1     <- 143.2
+cpk    <- (media - T1) / (3 * sigma)
 
-q_fase1 <- qcc(datos_fase1, type = "xbar",
-               title = "Fase I — proceso estable",
-               plot = FALSE)
-
-process.capability(q_fase1,
-                   spec.limits = c(145.5, 157.5),
-                   target = 150)
+cat(sprintf("Media = %.2f g   Desviación típica = %.2f g   Cpk = %.2f\n",
+            media, sigma, cpk))
 ```
 
-La comparación entre los dos gráficos muestra con claridad el efecto de las derivas sobre la capacidad del proceso. En el turno completo, la distribución es más ancha y menos centrada, lo que se traduce en índices $C_p$ y $C_{pk}$ más bajos y en un mayor porcentaje de envases fuera de especificación. En la Fase I, la distribución es más estrecha y mejor centrada, con índices notablemente mejores.
+$$C_{pk} = \frac{\mu - LIE}{3\sigma} = \frac{153{,}1 - 143{,}2}{3 \times 2{,}5} = \frac{9{,}9}{7{,}5} \approx 1{,}3$$
 
-La diferencia entre los dos escenarios es precisamente el argumento económico de la mejora: eliminar las causas especiales que producen las derivas no solo mejora la calidad del producto sino que reduce la sobredosificación necesaria para cumplir la legislación. Este análisis se desarrolla en detalle en el capítulo dedicado al RD 1801/2008.
+Un $C_{pk} \approx 1{,}3$ indica un proceso capaz respecto a T1, justo en el valor de 1,33 que se suele exigir: mientras funcione sin incidentes, prácticamente ningún envase quedará por debajo de ese límite. En el capítulo 14 veremos que esta es precisamente la razón por la que la planta trabaja con una media de 153 g, 3 g por encima del peso nominal. Pero si la variabilidad aumentara a $\sigma = 3{,}5$ g:
+
+$$C_{pk} = \frac{153{,}1 - 143{,}2}{3 \times 3{,}5} = \frac{9{,}9}{10{,}5} \approx 0{,}94$$
+
+El proceso deja de ser capaz ($C_{pk} < 1$): cabe esperar alrededor de un 0,2% de envases por debajo de T1. Y si además la media bajara a 150 g:
+
+$$C_{pk} = \frac{150 - 143{,}2}{3 \times 3{,}5} = \frac{6{,}8}{10{,}5} \approx 0{,}65$$
+
+Con $C_{pk} \approx 0{,}65$, la proporción esperada de envases por debajo de T1 es de alrededor del 2,6%, por encima del 2,5% que se toma como referencia para el criterio T1 (lo veremos en el capítulo 14).
+
+### Lo que ocurrió en el turno completo
+
+El $C_{pk}$ de la Fase I describe lo que el proceso puede hacer. Para ver lo que hizo realmente durante el turno, basta un histograma de los 800 envases muestreados con los dos límites legales:
+
+```{r histograma-turno}
+#| message: false
+#| warning: false
+#| fig-width: 9
+#| fig-height: 5
+T2 <- 136.4
+
+ggplot(df, aes(x = peso_g)) +
+    geom_histogram(binwidth = 1, fill = "steelblue", color = "white") +
+    geom_vline(xintercept = c(T1, T2), color = "red", linetype = "dashed") +
+    annotate("text", x = c(T1, T2), y = Inf, label = c("T1", "T2"),
+             vjust = 1.5, hjust = -0.3, color = "red") +
+    labs(title = "Peso de los 800 envases muestreados durante el turno",
+         x = "Peso (g)", y = "Número de envases") +
+    theme_bw()
+
+df |> summarise(bajo_T1 = sum(peso_g < T1),
+                pct_bajo_T1 = round(100 * mean(peso_g < T1), 1),
+                bajo_T2 = sum(peso_g < T2))
+```
+
+Durante el turno, 11 de los 800 envases muestreados (1,4%) quedaron por debajo de T1 y ninguno por debajo de T2. Ocho de esos 11 envases se produjeron entre las 08:39 y las 08:51, durante la sobrecorrección; los otros tres, durante el período de alta variabilidad. Que la muestra no recoja ningún envase bajo T2 no significa que no los haya: en el capítulo 14 veremos que en el turno completo, de 9.600 envases, hay 14.
+
+La comparación resume el argumento de la mejora. El proceso, cuando funciona sin incidentes, es capaz; los envases bajo T1 no se deben a la variabilidad de fondo, sino a causas especiales concretas, sobre todo a la sobrecorrección. Eliminar esas causas es más eficaz y más barato que aumentar la dosificación media para compensarlas. Este análisis económico se desarrolla en el capítulo dedicado al RD 1801/2008.
 
 ::: {.callout-note}
 ## Establecer límites técnicos a partir de la capacidad
 
-Un error frecuente en la industria es fijar límites técnicos de proceso ("no más de X defectos por turno") sin haber evaluado previamente la capacidad del proceso. Si el proceso tiene una variabilidad natural que produce inevitablemente un 5% de defectos, fijar el límite en 1% es poco realista — no importa cuánto se esfuercen los operarios.
+Un error frecuente en la industria es fijar límites técnicos de proceso ("no más de X defectos por turno") sin haber evaluado previamente la capacidad del proceso. Si el proceso tiene una variabilidad natural que produce inevitablemente un 5% de defectos, fijar el límite en 1% es poco realista, por mucho que se esfuercen los operarios.
 
 El enfoque correcto es:
 
@@ -356,15 +368,15 @@ Este es el vínculo entre el control estadístico de procesos y la mejora contin
 
 ## Actuar correctamente: la regla de oro del SPC
 
-El gráfico de control no es solo una herramienta de detección — es también una guía de actuación:
+El gráfico de control no es solo una herramienta de detección, sino también una guía de actuación:
 
 - **Si el proceso está bajo control:** no intervenir. Los ajustes innecesarios introducen variabilidad adicional. Esta es una de las lecciones contraintuitivas del SPC: a veces la mejor acción es no hacer nada.
-- **Si el gráfico muestra una señal:** investigar la causa especial, identificarla y eliminarla. No ajustar el proceso a ciegas — primero entender qué ocurrió.
+- **Si el gráfico muestra una señal:** investigar la causa especial, identificarla y eliminarla. No ajustar el proceso a ciegas: primero hay que entender qué ocurrió.
 
-El turno de yogures ilustra el coste de no seguir esta regla: el operario que ajustó la dosificadora al detectar la deriva ascendente introdujo un salto brusco que fue peor que la propia deriva. Si hubiera esperado a confirmar la señal con las reglas de Western Electric, el ajuste habría sido más preciso.
+El turno de yogures ilustra el coste de no seguir esta regla: el operario que ajustó la dosificadora al detectar la deriva ascendente introdujo una caída que fue peor que la propia deriva. El error no fue reaccionar a la señal, que era real, sino corregir a ciegas y en exceso: si hubiera investigado la causa antes de ajustar, habría podido corregirla sin desplazar la media por debajo de su nivel de referencia.
 
 ## Resumen del capítulo
 
-El control estadístico de procesos parte de una distinción fundamental: no toda la variabilidad es igual. La variabilidad por causas comunes es inherente al sistema y solo puede reducirse cambiando el sistema. La variabilidad por causas especiales es señal de que algo ha cambiado y debe investigarse. A esta distinción se añade la diferencia entre variabilidad a corto plazo — visible en el gráfico de control diario — y variabilidad a largo plazo, causada por derivas graduales en la composición de materias primas, el desgaste de equipos o la deriva imperceptible de los procedimientos.
+El control estadístico de procesos parte de una distinción fundamental: no toda la variabilidad es igual. La variabilidad por causas comunes es inherente al sistema y solo puede reducirse cambiando el sistema. La variabilidad por causas especiales es señal de que algo ha cambiado y debe investigarse. A esta distinción se añade la diferencia entre variabilidad a corto plazo, visible en el gráfico de control diario, y variabilidad a largo plazo, causada por derivas graduales en la composición de materias primas, el desgaste de equipos o la deriva imperceptible de los procedimientos.
 
-El gráfico de control X-barra/S detecta ambos tipos de señal. Los índices de capacidad $C_p$ y $C_{pk}$ cuantifican si la variabilidad natural del proceso es compatible con las especificaciones. Estos dos conceptos — control y capacidad — son los pilares del SPC y la base sobre la que se construye la mejora continua.
+El gráfico de control X-barra/S detecta ambos tipos de señal. Los índices de capacidad $C_p$ y $C_{pk}$ cuantifican si la variabilidad natural del proceso es compatible con las especificaciones. Estos dos conceptos, control y capacidad, son los pilares del SPC y la base sobre la que se construye la mejora continua.

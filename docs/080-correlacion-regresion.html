@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>8&nbsp; La relación entre dos variables: correlación y regresion – La mejora continua en la producción quesera</title>
+<title>8&nbsp; La relación entre dos variables: correlación y regresión – La mejora continua en la producción quesera</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -152,7 +152,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-estad-entorno.html">Herramientas y técnicas básicas</a></li><li class="breadcrumb-item"><a href="./080-correlacion-regresion.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresion</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-estad-entorno.html">Herramientas y técnicas básicas</a></li><li class="breadcrumb-item"><a href="./080-correlacion-regresion.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresión</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -231,7 +231,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./080-correlacion-regresion.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresión</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -378,9 +378,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-estad-entorno.html">Herramientas y técnicas básicas</a></li><li class="breadcrumb-item"><a href="./080-correlacion-regresion.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresion</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-estad-entorno.html">Herramientas y técnicas básicas</a></li><li class="breadcrumb-item"><a href="./080-correlacion-regresion.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresión</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresion</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresión</span></h1>
 </div>
 
 
@@ -419,7 +419,7 @@ window.Quarto = {
 <li>Explicar el concepto de correlación y usar el coeficiente de Pearson como medida numérica de la intensidad de la relación lineal.</li>
 <li>Distinguir entre correlación y causalidad, y reconocer ejemplos de correlación espuria.</li>
 <li>Interpretar una línea de regresión como resumen de la tendencia en un gráfico de dispersión.</li>
-<li>Aplicar estos conceptos a datos reales de fabricación de queso.</li>
+<li>Aplicar estos conceptos a datos reales y reconocer cuándo una correlación global oculta diferencias entre grupos.</li>
 </ul>
 <p>Conceptos clave: <strong>correlación, coeficiente de Pearson, causalidad, correlación espuria, regresión lineal, línea de tendencia</strong>.</p>
 </div>
@@ -440,19 +440,19 @@ window.Quarto = {
 <section id="más-allá-de-una-variable-la-relación-entre-dos-variables" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="más-allá-de-una-variable-la-relación-entre-dos-variables"><span class="header-section-number">8.1</span> Más allá de una variable: la relación entre dos variables</h2>
 <p>En los capítulos anteriores hemos descrito las variables una a una: su distribución, su media, su dispersión. Pero en la práctica industrial, muchas de las preguntas más importantes son sobre la relación entre variables: ¿influye la composición de la leche en el rendimiento quesero? ¿Tiene relación el pH con el extracto seco? ¿Están correlacionadas la materia grasa y la humedad del queso?</p>
-<p>El gráfico de dispersión, que ya usamos en el capítulo de análisis del camembert, es la herramienta visual fundamental para explorar estas relaciones. Cada punto representa una observación con sus dos valores, y la forma de la nube de puntos nos dice si hay relación y de qué tipo.</p>
+<p>El gráfico de dispersión, que ya presentamos en el capítulo 5, es la herramienta visual fundamental para explorar estas relaciones. Cada punto representa una observación con sus dos valores, y la forma de la nube de puntos nos dice si hay relación y de qué tipo.</p>
 </section>
 <section id="el-coeficiente-de-correlación-de-pearson" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="el-coeficiente-de-correlación-de-pearson"><span class="header-section-number">8.2</span> El coeficiente de correlación de Pearson</h2>
 <p>La inspección visual del gráfico de dispersión nos da una idea cualitativa de la relación entre dos variables, pero necesitamos también una medida numérica que nos permita compararla y comunicarla con precisión. El <strong>coeficiente de correlación de Pearson</strong> (<span class="math inline">\(r\)</span>) es esa medida.</p>
 <p><span class="math inline">\(r\)</span> toma valores entre <span class="math inline">\(-1\)</span> y <span class="math inline">\(+1\)</span>:</p>
 <ul>
-<li><span class="math inline">\(r = +1\)</span>: correlación positiva perfecta. Cuando una variable sube, la otra sube proporcionalmente siempre.</li>
-<li><span class="math inline">\(r = -1\)</span>: correlación negativa perfecta. Cuando una variable sube, la otra baja proporcionalmente siempre.</li>
+<li><span class="math inline">\(r = +1\)</span>: correlación positiva perfecta. Todos los puntos están exactamente sobre una recta de pendiente positiva.</li>
+<li><span class="math inline">\(r = -1\)</span>: correlación negativa perfecta. Todos los puntos están exactamente sobre una recta de pendiente negativa.</li>
 <li><span class="math inline">\(r = 0\)</span>: no hay relación lineal entre las variables.</li>
-<li>Valores intermedios indican correlaciones parciales: cuanto más cerca de <span class="math inline">\(\pm 1\)</span>, más intensa la relación.</li>
+<li>Los valores intermedios indican una relación lineal imperfecta: cuanto más cerca de <span class="math inline">\(\pm 1\)</span>, más intensa.</li>
 </ul>
-<p>Como referencia práctica, en datos industriales:</p>
+<p>Como referencia orientativa se usa a menudo la escala siguiente; los umbrales son convencionales y varían según el campo:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -462,23 +462,23 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>0,00 — 0,20</td>
+<td>0,00–0,20</td>
 <td>Correlación muy débil o nula</td>
 </tr>
 <tr class="even">
-<td>0,20 — 0,40</td>
+<td>0,20–0,40</td>
 <td>Correlación débil</td>
 </tr>
 <tr class="odd">
-<td>0,40 — 0,60</td>
+<td>0,40–0,60</td>
 <td>Correlación moderada</td>
 </tr>
 <tr class="even">
-<td>0,60 — 0,80</td>
+<td>0,60–0,80</td>
 <td>Correlación fuerte</td>
 </tr>
 <tr class="odd">
-<td>0,80 — 1,00</td>
+<td>0,80–1,00</td>
 <td>Correlación muy fuerte</td>
 </tr>
 </tbody>
@@ -582,7 +582,7 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>El <strong>coeficiente de correlación de Pearson</strong> (<span class="math inline">\(r\)</span>) mide la <strong>intensidad y la dirección de la relación lineal</strong> entre dos variables. Va de −1 a +1: valores cercanos a ±1 indican una relación fuerte; valores cercanos a 0 indican ausencia de relación lineal.</p>
 <p>El <strong>coeficiente de determinación</strong> (<span class="math inline">\(R^2\)</span>) es simplemente el cuadrado de <span class="math inline">\(r\)</span>. Va de 0 a 1 y se interpreta como la <strong>proporción de la variación de una variable que queda explicada por la otra</strong>.</p>
-<p>En el gráfico anterior, <span class="math inline">\(r \approx 0{,}87\)</span> y <span class="math inline">\(R^2 \approx 0{,}76\)</span>. Esto significa que si tuviéramos que adivinar la masa corporal de un pingüino sin saber nada más, nuestra mejor apuesta sería la media de todos los pingüinos. Pero si además sabemos la longitud de su aleta, podemos hacer una predicción mucho mejor usando la línea de regresión. El <span class="math inline">\(R^2 = 0{,}76\)</span> nos dice que conocer la longitud de la aleta reduce en un 76% el error que cometeríamos si adivinásemos solo con la media. Ese 76% es la “variación explicada” por la longitud de la aleta; el 24% restante se debe a otros factores como la especie, el sexo o la condición corporal individual.</p>
+<p>En el gráfico anterior, <span class="math inline">\(r \approx 0{,}87\)</span> y <span class="math inline">\(R^2 \approx 0{,}76\)</span>. Esto significa que si tuviéramos que adivinar la masa corporal de un pingüino sin saber nada más, nuestra mejor apuesta sería la media de todos los pingüinos. Pero si además sabemos la longitud de su aleta, podemos hacer una predicción mucho mejor usando la línea de regresión. El <span class="math inline">\(R^2 = 0{,}76\)</span> nos dice que conocer la longitud de la aleta reduce en un 76% la suma de los cuadrados de los errores que cometeríamos si adivinásemos solo con la media. Ese 76% es la “variación explicada” por la longitud de la aleta; el 24% restante es la variación que la recta no recoge, debida a otros factores como la especie, el sexo, la variación individual o el error de medida.</p>
 <p>Excel muestra <span class="math inline">\(R^2\)</span> cuando se añade una línea de tendencia a un gráfico de dispersión. Es habitual ver ambos valores en informes técnicos: <span class="math inline">\(r\)</span> para describir la relación y <span class="math inline">\(R^2\)</span> para cuantificar su poder explicativo.</p>
 <p>Una advertencia: una correlación baja no significa necesariamente que no hay relación entre las variables. Puede haber una relación curvilínea perfecta con <span class="math inline">\(r = 0\)</span>. Por eso siempre hay que mirar el gráfico de dispersión junto con el valor de <span class="math inline">\(r\)</span>.</p>
 </div>
@@ -594,7 +594,7 @@ window.Quarto = {
 <p>La ecuación de la línea tiene la forma:</p>
 <p><span class="math display">\[\hat{y} = a + b \cdot x\]</span></p>
 <p>donde <span class="math inline">\(\hat{y}\)</span> es el valor predicho de la variable dependiente (masa corporal), <span class="math inline">\(x\)</span> es el valor de la variable independiente (longitud de aleta), <span class="math inline">\(b\)</span> es la pendiente (cuánto sube la masa corporal por cada milímetro adicional de aleta) y <span class="math inline">\(a\)</span> es la intersección con el eje Y.</p>
-<p>La línea se calcula por el método de los <strong>mínimos cuadrados</strong>: se busca la línea que minimiza la suma de los cuadrados de las distancias verticales entre cada punto y la línea. Este criterio garantiza que la línea pase lo más cerca posible de todos los puntos simultáneamente.</p>
+<p>La línea se calcula por el método de los <strong>mínimos cuadrados</strong>: se busca la línea que minimiza la suma de los cuadrados de las distancias verticales entre cada punto y la línea. Al elevar las distancias al cuadrado, las positivas y las negativas no se compensan, y las desviaciones grandes pesan más que las pequeñas.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -611,24 +611,25 @@ window.Quarto = {
 </section>
 <section id="correlación-no-implica-causalidad" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="correlación-no-implica-causalidad"><span class="header-section-number">8.4</span> Correlación no implica causalidad</h2>
-<p>El coeficiente de correlación mide la intensidad de la asociación estadística entre dos variables, pero no dice nada sobre si una variable <em>causa</em> a la otra. Dos variables pueden estar correlacionadas por tres razones distintas:</p>
+<p>El coeficiente de correlación mide la intensidad de la asociación estadística entre dos variables, pero no dice nada sobre si una variable <em>causa</em> a la otra. Dos variables pueden estar correlacionadas por cuatro razones distintas:</p>
 <ol type="1">
 <li><strong>Causalidad directa:</strong> <span class="math inline">\(x\)</span> causa <span class="math inline">\(y\)</span>. Por ejemplo, una mayor concentración de cuajo produce una coagulación más rápida.</li>
+<li><strong>Causalidad inversa:</strong> <span class="math inline">\(y\)</span> causa <span class="math inline">\(x\)</span>, y no al revés. Por ejemplo, las queserías con más problemas de calidad hacen más análisis microbiológicos: no son los análisis los que causan los problemas, sino al revés.</li>
 <li><strong>Causa común:</strong> una tercera variable <span class="math inline">\(z\)</span> influye en ambas. Por ejemplo, la temperatura ambiente afecta tanto al extracto seco como a la velocidad de acidificación, creando una correlación entre estas dos aunque no se causen entre sí.</li>
 <li><strong>Coincidencia:</strong> es una correlación espuria, sin ninguna relación causal real.</li>
 </ol>
-<p>El tercer caso es más frecuente de lo que parece, especialmente cuando se analizan series temporales largas donde muchas variables crecen o decrecen juntas simplemente porque el tiempo avanza.</p>
+<p>Las correlaciones espurias son más frecuentes de lo que parece, sobre todo en series temporales largas, donde muchas variables crecen o decrecen a la vez simplemente porque siguen una tendencia en el tiempo.</p>
 <section id="ejemplos-de-correlación-espuria" class="level3">
 <h3 class="anchored" data-anchor-id="ejemplos-de-correlación-espuria">Ejemplos de correlación espuria</h3>
 <p>Tyler Vigen ha recopilado en su página web <a href="https://tylervigen.com/spurious-correlations">tylervigen.com/spurious-correlations</a> miles de correlaciones estadísticamente fuertes entre variables que no tienen ninguna relación causal posible. Dos ejemplos especialmente ilustrativos:</p>
-<p>El primero tiene una conexión temática directa con este libro: el consumo de margarina per cápita correlaciona muy fuertemente con el número de divorcios en el estado de Maine (Estados Unidos). Ambas variables han crecido en paralelo durante décadas, pero nadie diría que comer más margarina lleva a divorciarse más.</p>
+<p>El primero tiene una conexión temática directa con este libro: el consumo per cápita de margarina en EE. UU. correlaciona muy fuertemente con la tasa de divorcios en el estado de Maine. Entre 2000 y 2009 ambas variables disminuyeron en paralelo (r = 0,99), pero nadie diría que comer menos margarina reduce los divorcios.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="imagenes/080/correlacion-espuria-margarina-divorcios.svg" class="img-fluid figure-img"></p>
-<figcaption>Correlación espuria entre consumo de margarina y tasa de divorcios en Maine (E.E.U.U.)</figcaption>
+<figcaption>Correlación espuria entre consumo de margarina y tasa de divorcios en Maine (EE. UU.)</figcaption>
 </figure>
 </div>
-<p><em>Fuente: Tyler Vigen, Spurious Correlations (tylervigen.com). Licencia Creative Commons Attribution.</em></p>
+<p><em>Fuente: Tyler Vigen, Spurious Correlations (tylervigen.com). Licencia CC BY 4.0.</em></p>
 <p>El gráfico de dispersión de los mismos datos muestra la nube de puntos, la línea de regresión y el valor de r:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Python</a></li></ul>
@@ -705,14 +706,14 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>El segundo es el consumo de queso en E.E.U.U., que correlaciona con el número de patentes concedidas en el país. La causa es simplemente que ambas series tienen tendencias temporales similares en el período analizado.</p>
+<p>El segundo es el consumo per cápita de queso americano en EE. UU., que correlaciona con el número total de patentes concedidas en el país. Ambas series crecen con el tiempo, y esa tendencia común basta para producir la correlación.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="imagenes/080/correlacion-espuria-queso-patentes.svg" class="img-fluid figure-img"></p>
-<figcaption>Correlación espuria entre consumo de queso y número de patentes concedidas en E.E.U.U.</figcaption>
+<figcaption>Correlación espuria entre consumo de queso y número de patentes concedidas en EE. UU.</figcaption>
 </figure>
 </div>
-<p><em>Fuente: Tyler Vigen, Spurious Correlations (tylervigen.com). Licencia Creative Commons Attribution.</em></p>
+<p><em>Fuente: Tyler Vigen, Spurious Correlations (tylervigen.com). Licencia CC BY 4.0.</em></p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">Python</a></li></ul>
 <div class="tab-content">
@@ -720,26 +721,30 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos: USDA / USPTO vía Tyler Vigen, Spurious Correlations (tylervigen.com)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos: USDA / USPTO (total de patentes concedidas) vía Tyler Vigen, Spurious Correlations (tylervigen.com)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_q <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    año      <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2009</span>,<span class="dv">2010</span>,<span class="dv">2011</span>,<span class="dv">2012</span>,<span class="dv">2013</span>,<span class="dv">2014</span>,<span class="dv">2015</span>,<span class="dv">2016</span>,<span class="dv">2017</span>,<span class="dv">2018</span>,<span class="dv">2019</span>,<span class="dv">2020</span>,<span class="dv">2021</span>),</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">queso    =</span> <span class="fu">c</span>(<span class="fl">13.36</span>,<span class="fl">13.30</span>,<span class="fl">13.04</span>,<span class="fl">13.26</span>,<span class="fl">13.36</span>,<span class="fl">13.67</span>,<span class="fl">14.04</span>,<span class="fl">14.36</span>,<span class="fl">15.09</span>,<span class="fl">15.40</span>,<span class="fl">15.54</span>,<span class="fl">15.50</span>,<span class="fl">16.10</span>),</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">patentes =</span> <span class="fu">c</span>(<span class="dv">46999</span>,<span class="dv">48358</span>,<span class="dv">50066</span>,<span class="dv">51784</span>,<span class="dv">53291</span>,<span class="dv">55124</span>,<span class="dv">56763</span>,<span class="dv">57867</span>,<span class="dv">59908</span>,<span class="dv">62823</span>,<span class="dv">65120</span>,<span class="dv">63531</span>,<span class="dv">70249</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>r_q <span class="ot">&lt;-</span> <span class="fu">cor</span>(df_q<span class="sc">$</span>queso, df_q<span class="sc">$</span>patentes)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_q, <span class="fu">aes</span>(<span class="at">x =</span> queso, <span class="at">y =</span> patentes)) <span class="sc">+</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> año), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.7</span>, <span class="at">size =</span> <span class="fl">2.8</span>) <span class="sc">+</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fu">min</span>(df_q<span class="sc">$</span>queso) <span class="sc">+</span> <span class="fl">0.3</span>,</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> <span class="fu">max</span>(df_q<span class="sc">$</span>patentes) <span class="sc">-</span> <span class="dv">1500</span>,</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"r = "</span>, <span class="fu">round</span>(r_q, <span class="dv">2</span>)), <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Correlación espuria: queso y patentes"</span>,</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Consumo de queso americano (lb per cápita)"</span>,</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Patentes concedidas en EE.UU."</span>) <span class="sc">+</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    año      <span class="ot">=</span> <span class="dv">1990</span><span class="sc">:</span><span class="dv">2020</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">queso    =</span> <span class="fu">c</span>(<span class="fl">11.13</span>, <span class="fl">11.03</span>, <span class="fl">11.26</span>, <span class="fl">11.31</span>, <span class="fl">11.42</span>, <span class="fl">11.69</span>, <span class="fl">11.81</span>, <span class="fl">11.81</span>, <span class="fl">11.98</span>, <span class="fl">12.70</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">12.68</span>, <span class="fl">12.81</span>, <span class="fl">12.83</span>, <span class="fl">12.56</span>, <span class="fl">12.86</span>, <span class="fl">12.65</span>, <span class="fl">13.07</span>, <span class="fl">12.79</span>, <span class="fl">13.13</span>, <span class="fl">13.36</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                 <span class="fl">13.30</span>, <span class="fl">13.04</span>, <span class="fl">13.26</span>, <span class="fl">13.36</span>, <span class="fl">13.67</span>, <span class="fl">14.04</span>, <span class="fl">14.36</span>, <span class="fl">15.09</span>, <span class="fl">15.40</span>, <span class="fl">15.54</span>, <span class="fl">15.50</span>),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">patentes =</span> <span class="fu">c</span>(<span class="dv">99077</span>, <span class="dv">106696</span>, <span class="dv">107394</span>, <span class="dv">109746</span>, <span class="dv">113587</span>, <span class="dv">113834</span>, <span class="dv">121696</span>, <span class="dv">124069</span>, <span class="dv">163142</span>, <span class="dv">169085</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">175979</span>, <span class="dv">183970</span>, <span class="dv">184375</span>, <span class="dv">187012</span>, <span class="dv">181299</span>, <span class="dv">157718</span>, <span class="dv">196405</span>, <span class="dv">182899</span>, <span class="dv">185224</span>, <span class="dv">191927</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">244341</span>, <span class="dv">247713</span>, <span class="dv">276788</span>, <span class="dv">302948</span>, <span class="dv">326032</span>, <span class="dv">325980</span>, <span class="dv">333583</span>, <span class="dv">351403</span>, <span class="dv">339992</span>, <span class="dv">391103</span>, <span class="dv">388900</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>r_q <span class="ot">&lt;-</span> <span class="fu">cor</span>(df_q<span class="sc">$</span>queso, df_q<span class="sc">$</span>patentes)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_q, <span class="fu">aes</span>(<span class="at">x =</span> queso, <span class="at">y =</span> patentes)) <span class="sc">+</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> año), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.7</span>, <span class="at">size =</span> <span class="fl">2.8</span>) <span class="sc">+</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fu">min</span>(df_q<span class="sc">$</span>queso) <span class="sc">+</span> <span class="fl">0.3</span>,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> <span class="fu">max</span>(df_q<span class="sc">$</span>patentes) <span class="sc">-</span> <span class="dv">15000</span>,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"r = "</span>, <span class="fu">round</span>(r_q, <span class="dv">2</span>)), <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Correlación espuria: queso y patentes"</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Consumo de queso americano (lb per cápita)"</span>,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Patentes concedidas en EE. UU."</span>) <span class="sc">+</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -754,28 +759,32 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Mostrar código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos: USDA / USPTO vía Tyler Vigen, Spurious Correlations (tylervigen.com)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>años_q   <span class="op">=</span> [<span class="dv">2009</span>,<span class="dv">2010</span>,<span class="dv">2011</span>,<span class="dv">2012</span>,<span class="dv">2013</span>,<span class="dv">2014</span>,<span class="dv">2015</span>,<span class="dv">2016</span>,<span class="dv">2017</span>,<span class="dv">2018</span>,<span class="dv">2019</span>,<span class="dv">2020</span>,<span class="dv">2021</span>]</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>queso    <span class="op">=</span> [<span class="fl">13.36</span>,<span class="fl">13.30</span>,<span class="fl">13.04</span>,<span class="fl">13.26</span>,<span class="fl">13.36</span>,<span class="fl">13.67</span>,<span class="fl">14.04</span>,<span class="fl">14.36</span>,<span class="fl">15.09</span>,<span class="fl">15.40</span>,<span class="fl">15.54</span>,<span class="fl">15.50</span>,<span class="fl">16.10</span>]</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>patentes <span class="op">=</span> [<span class="dv">46999</span>,<span class="dv">48358</span>,<span class="dv">50066</span>,<span class="dv">51784</span>,<span class="dv">53291</span>,<span class="dv">55124</span>,<span class="dv">56763</span>,<span class="dv">57867</span>,<span class="dv">59908</span>,<span class="dv">62823</span>,<span class="dv">65120</span>,<span class="dv">63531</span>,<span class="dv">70249</span>]</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>r_q <span class="op">=</span> np.corrcoef(queso, patentes)[<span class="dv">0</span>, <span class="dv">1</span>]</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>m_q, b_q <span class="op">=</span> np.polyfit(queso, patentes, <span class="dv">1</span>)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>x_q <span class="op">=</span> np.linspace(<span class="bu">min</span>(queso), <span class="bu">max</span>(queso), <span class="dv">100</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos: USDA / USPTO (total de patentes concedidas) vía Tyler Vigen, Spurious Correlations (tylervigen.com)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>años_q   <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1990</span>, <span class="dv">2021</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>queso    <span class="op">=</span> [<span class="fl">11.13</span>, <span class="fl">11.03</span>, <span class="fl">11.26</span>, <span class="fl">11.31</span>, <span class="fl">11.42</span>, <span class="fl">11.69</span>, <span class="fl">11.81</span>, <span class="fl">11.81</span>, <span class="fl">11.98</span>, <span class="fl">12.70</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>            <span class="fl">12.68</span>, <span class="fl">12.81</span>, <span class="fl">12.83</span>, <span class="fl">12.56</span>, <span class="fl">12.86</span>, <span class="fl">12.65</span>, <span class="fl">13.07</span>, <span class="fl">12.79</span>, <span class="fl">13.13</span>, <span class="fl">13.36</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            <span class="fl">13.30</span>, <span class="fl">13.04</span>, <span class="fl">13.26</span>, <span class="fl">13.36</span>, <span class="fl">13.67</span>, <span class="fl">14.04</span>, <span class="fl">14.36</span>, <span class="fl">15.09</span>, <span class="fl">15.40</span>, <span class="fl">15.54</span>, <span class="fl">15.50</span>]</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>patentes <span class="op">=</span> [<span class="dv">99077</span>, <span class="dv">106696</span>, <span class="dv">107394</span>, <span class="dv">109746</span>, <span class="dv">113587</span>, <span class="dv">113834</span>, <span class="dv">121696</span>, <span class="dv">124069</span>, <span class="dv">163142</span>, <span class="dv">169085</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            <span class="dv">175979</span>, <span class="dv">183970</span>, <span class="dv">184375</span>, <span class="dv">187012</span>, <span class="dv">181299</span>, <span class="dv">157718</span>, <span class="dv">196405</span>, <span class="dv">182899</span>, <span class="dv">185224</span>, <span class="dv">191927</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>            <span class="dv">244341</span>, <span class="dv">247713</span>, <span class="dv">276788</span>, <span class="dv">302948</span>, <span class="dv">326032</span>, <span class="dv">325980</span>, <span class="dv">333583</span>, <span class="dv">351403</span>, <span class="dv">339992</span>, <span class="dv">391103</span>, <span class="dv">388900</span>]</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>ax.scatter(queso, patentes, color<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">60</span>, zorder<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, año <span class="kw">in</span> <span class="bu">enumerate</span>(años_q):</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    ax.annotate(<span class="bu">str</span>(año), (queso[i], patentes[i]),</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>                textcoords<span class="op">=</span><span class="st">"offset points"</span>, xytext<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>), fontsize<span class="op">=</span><span class="dv">7</span>)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>ax.plot(x_q, m_q <span class="op">*</span> x_q <span class="op">+</span> b_q, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>,</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="ss">f'Regresión (r = </span><span class="sc">{</span>r_q<span class="sc">:.2f}</span><span class="ss">)'</span>)</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Consumo de queso americano (lb per cápita)"</span>)</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Patentes concedidas en EE.UU."</span>)</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Correlación espuria: queso y patentes"</span>)</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>r_q <span class="op">=</span> np.corrcoef(queso, patentes)[<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>m_q, b_q <span class="op">=</span> np.polyfit(queso, patentes, <span class="dv">1</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>x_q <span class="op">=</span> np.linspace(<span class="bu">min</span>(queso), <span class="bu">max</span>(queso), <span class="dv">100</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>ax.scatter(queso, patentes, color<span class="op">=</span><span class="st">'steelblue'</span>, s<span class="op">=</span><span class="dv">60</span>, zorder<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, año <span class="kw">in</span> <span class="bu">enumerate</span>(años_q):</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    ax.annotate(<span class="bu">str</span>(año), (queso[i], patentes[i]),</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>                textcoords<span class="op">=</span><span class="st">"offset points"</span>, xytext<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">3</span>), fontsize<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>ax.plot(x_q, m_q <span class="op">*</span> x_q <span class="op">+</span> b_q, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="ss">f'Regresión (r = </span><span class="sc">{</span>r_q<span class="sc">:.2f}</span><span class="ss">)'</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Consumo de queso americano (lb per cápita)"</span>)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Patentes concedidas en EE. UU."</span>)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Correlación espuria: queso y patentes"</span>)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -788,7 +797,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Estos ejemplos ilustran una regla fundamental del análisis de datos: <strong>una correlación, por fuerte que sea, no prueba causalidad</strong>. Para establecer una relación causal se necesita un diseño experimental controlado, no solo datos observacionales.</p>
+<p>Estos ejemplos ilustran una regla fundamental del análisis de datos: <strong>una correlación, por fuerte que sea, no prueba causalidad</strong>. La vía más sólida para establecer una relación causal es un diseño experimental controlado; los datos observacionales, por sí solos, rara vez bastan.</p>
 </section>
 </section>
 <section id="correlaciones-en-los-datos-de-pingüinos" class="level2" data-number="8.5">
@@ -880,12 +889,12 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>El panel de tres gráficos muestra situaciones muy distintas. La relación entre longitud de aleta y masa corporal es la más fuerte y clara: los pingüinos más grandes tienen aletas más largas. La relación entre dimensiones del pico es más compleja: el coeficiente global puede ser bajo o incluso negativo porque las tres especies tienen patrones diferentes que se mezclan en la nube de puntos. Este es un ejemplo de cómo el coloreado por grupos puede revelar estructura que el coeficiente global oculta.</p>
+<p>El panel de tres gráficos muestra situaciones muy distintas. La relación entre longitud de aleta y masa corporal es la más fuerte y clara: los pingüinos más grandes tienen aletas más largas. La relación entre las dimensiones del pico es más compleja: el coeficiente global es negativo (r = −0,23), aunque dentro de cada especie la relación es positiva (r entre 0,39 y 0,65). Al mezclar tres especies con picos de tamaño y forma distintos, la tendencia global se invierte (paradoja de Simpson). Este es un ejemplo de cómo el coloreado por grupos puede revelar estructura que el coeficiente global oculta.</p>
 </section>
 <section id="resumen-del-capítulo" class="level2" data-number="8.6">
 <h2 data-number="8.6" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">8.6</span> Resumen del capítulo</h2>
 <p>Este capítulo ha extendido el análisis exploratorio más allá de las variables individuales para explorar las relaciones entre pares de variables. El gráfico de dispersión proporciona la visión cualitativa; el coeficiente de correlación de Pearson la cuantifica en un único número entre <span class="math inline">\(-1\)</span> y <span class="math inline">\(+1\)</span>. La línea de regresión resume la tendencia lineal y permite hacer predicciones dentro del rango de los datos.</p>
-<p>El mensaje más importante del capítulo es la distinción entre correlación y causalidad: una correlación fuerte, incluso con <span class="math inline">\(r &gt; 0,95\)</span>, no prueba que una variable cause a la otra. Los ejemplos espurios de Vigen ilustran con humor que cualquier búsqueda sistemática de correlaciones en bases de datos grandes encontrará asociaciones sin ningún sentido causal. La única forma de establecer causalidad es a través del diseño experimental controlado, que introduciremos en el capítulo dedicado a la introducción al diseño experimental.</p>
+<p>El mensaje más importante del capítulo es la distinción entre correlación y causalidad: una correlación fuerte, incluso con <span class="math inline">\(r &gt; 0,95\)</span>, no prueba que una variable cause a la otra. Los ejemplos espurios de Vigen ilustran con humor que cualquier búsqueda sistemática de correlaciones en bases de datos grandes encontrará asociaciones sin ningún sentido causal. La forma más sólida de establecer causalidad es el diseño experimental controlado, que introduciremos en el capítulo 10.</p>
 
 
 </section>
