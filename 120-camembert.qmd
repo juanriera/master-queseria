@@ -36,7 +36,7 @@ Conceptos clave: **análisis exploratorio, flujo de trabajo, dato atípico, erro
 
 Este capítulo tiene una versión en formato cuaderno Jupyter con solo código Python que puedes abrir y ejecutar directamente en Google Colab, sin necesidad de instalar nada en tu ordenador:
 
-[Abrir versión sólo Python en Google Colab](https://colab.research.google.com/github/juanriera/master-queseria/blob/master/090-pract01-colab-camembert.ipynb)
+[Abrir versión sólo Python en Google Colab](https://colab.research.google.com/github/juanriera/mejora-continua/blob/master/090-pract01-colab-camembert.ipynb)
 :::
 
 En los capítulos anteriores hemos aprendido a describir datos mediante gráficos y estadísticos. Ahora vamos a aplicar todo lo aprendido a un caso real: el análisis exploratorio de una temporada completa de fabricación de queso camembert. Los datos corresponden a los análisis de control de calidad realizados durante el año 2020 en una quesería, con una o dos fabricaciones diarias a lo largo de los días laborables. El dataset contiene 211 observaciones y seis variables:
@@ -48,7 +48,7 @@ En los capítulos anteriores hemos aprendido a describir datos mediante gráfico
 - `coliformes`: recuento de bacterias coliformes (ufc/g)
 - `fabricacion`: número de fabricación del día (1 o 2)
 
-[Descargar los datos `camembert.csv`](https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/camembert.csv)
+[Descargar los datos `camembert.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/camembert.csv)
 
 ## Flujo de trabajo
 
@@ -925,4 +925,4 @@ Los recuentos microbiológicos se analizan habitualmente en escala logarítmica.
 ## Práctica en Google Colab
 En este enlace se proporciona acceso a los datos de este capítulo en un cuaderno de Google Colab, para practicar de forma interactiva el código Python desde ese entorno.
 
-[Abrir versión sólo Python de este cuaderno en Google Colab](https://colab.research.google.com/github/juanriera/master-queseria/blob/master/102-camembert-colab.ipynb)
+[Abrir versión sólo Python de este cuaderno en Google Colab](https://colab.research.google.com/github/juanriera/mejora-continua/blob/master/102-camembert-colab.ipynb)

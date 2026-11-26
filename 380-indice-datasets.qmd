@@ -8,13 +8,13 @@ format:
 engine: knitr
 ---
 
-[Descargar todos los datasets (datasets.zip)](https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/datasets.zip)
+[Descargar todos los datasets (datasets.zip)](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/datasets.zip)
 
 ## Análisis de producto terminado de una fabricación diaria de camembert
 
 En formato `CSV` y `Excel`
 
-[Descargar `camembert.csv`](https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/camembert.csv)
+[Descargar `camembert.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/camembert.csv)
 
 ```{r}
 #| message: false
@@ -45,7 +45,7 @@ df |>
 
 ## Resultados de los partidos de La Liga, temporada 24-25
 
-[Descargar `laliga_resultados2425.csv`](https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/laliga_resultados2425.csv)
+[Descargar `laliga_resultados2425.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/laliga_resultados2425.csv)
 
 ```{r}
 #| message: false
@@ -71,7 +71,7 @@ df |>
 
 ## Datos de temperaturas medias mensuales de la ciudad de Oviedo, años 2020 a 2024
 
-[Descargar `oviedo_temperatura.csv`](https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/oviedo_temperatura.csv)
+[Descargar `oviedo_temperatura.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/oviedo_temperatura.csv)
 
 Proporcionados por [AEMET (Agencia Estatal de Meteorología)](https://www.aemet.es)
 
@@ -128,7 +128,7 @@ df |>
 
 ## Datos de llenado de yogures — serie completa (cap. 14)
 
-[Descargar `simulacion_envasado_yogur.csv`](https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/simulacion_envasado_yogur.csv)
+[Descargar `simulacion_envasado_yogur.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/simulacion_envasado_yogur.csv)
 
 Dataset de 9.600 envases simulados correspondientes a un turno completo de 8 horas en una línea de llenado de yogures de 150 g. Incluye cinco períodos con diferentes patrones de variabilidad. Utilizado en el capítulo de control estadístico de procesos.
 
@@ -156,7 +156,7 @@ df |>
 
 ## Datos de llenado de yogures — muestra por subgrupos (cap. 9)
 
-[Descargar `llenado_yogures_muestra.csv`](https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/llenado_yogures_muestra.csv)
+[Descargar `llenado_yogures_muestra.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/llenado_yogures_muestra.csv)
 
 Dataset de 160 subgrupos de 5 envases, obtenidos por muestreo cada 3 minutos durante el mismo turno. Utilizado en los gráficos de control X-barra y S y en el análisis de capacidad de proceso.
 
@@ -184,7 +184,7 @@ df |>
 
 ## Experimento de cuajado — diseño factorial 2²
 
-[Descargar `experimento_cuajo.csv`](https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/experimento_cuajo.csv)
+[Descargar `experimento_cuajo.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/experimento_cuajo.csv)
 
 Dataset de 12 fabricaciones correspondientes a un diseño factorial 2² (temperatura × dosis de cuajo, 3 réplicas por combinación). La variable respuesta son los kilos de extracto seco magro obtenidos en el queso por cada 100 kg de materia proteica de la leche. Utilizado en el capítulo de diseño de experimentos.
 
@@ -211,7 +211,7 @@ df |>
 
 ## Estudio GRR — método Gerber (puntual)
 
-[Descargar `grr_gerber.csv`](https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/grr_gerber.csv)
+[Descargar `grr_gerber.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/grr_gerber.csv)
 
 Dataset de un estudio de repetibilidad y reproducibilidad del método Gerber para la determinación de materia grasa, con 5 analistas, 3 muestras de referencia y 3 repeticiones por combinación (45 observaciones). Utilizado en el capítulo de análisis del sistema de medición.
 
@@ -239,7 +239,7 @@ df |>
 
 ## Seguimiento temporal del sistema de medición — método Gerber
 
-[Descargar `grr_gerber_temporal.csv`](https://raw.githubusercontent.com/juanriera/master-queseria/master/datos/grr_gerber_temporal.csv)
+[Descargar `grr_gerber_temporal.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/grr_gerber_temporal.csv)
 
 Dataset de 12 meses de control del sistema de medición, con 5 analistas, 3 muestras de referencia y 3 repeticiones por combinación (540 observaciones). Incluye dos intervenciones: corrección del sesgo de Analista_4 en abril y formación de Analista_5 en junio. Utilizado en el capítulo de análisis del sistema de medición.
 

@@ -111,7 +111,7 @@ library(tidyverse)
 
 url <- paste0(
     "https://raw.githubusercontent.com/",
-    "juanriera/master-queseria/master/",
+    "juanriera/mejora-continua/master/",
     "datos/grr_gerber.csv"
 )
 

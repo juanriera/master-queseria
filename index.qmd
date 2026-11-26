@@ -87,4 +87,4 @@ La última versión de este documento es de noviembre de 2026, con correcciones 
 
 La primera versión pública es de marzo de 2026. Incorpora los capítulos de comunicación de resultados, variabilidad industrial y mejora continua, el glosario completo y revisiones en los capítulos de correlación, SPC, DoE, sistema de medición y RD 1801/2008.
 
-[Ver historial completo de versiones en →](https://github.com/juanriera/master-queseria/blob/master/registro-de-cambios.md)
+[Ver historial completo de versiones en →](https://github.com/juanriera/mejora-continua/blob/master/registro-de-cambios.md)
