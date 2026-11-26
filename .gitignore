@@ -4,5 +4,8 @@
 .Ruserdata
 
 /.quarto/
+/_freeze/
+/_jupyter/
+.ipynb_checkpoints/
 
 **/*.quarto_ipynb
