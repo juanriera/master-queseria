@@ -54,9 +54,12 @@ Este capítulo usa los datos de un turno completo de envasado de yogures de 150 
 
 ## Dos formas de declarar el peso
 
-El RD 1801/2008 se aplica a los productos envasados destinados al consumidor con cantidades nominales constantes entre 5 g y 10 kg (o entre 5 ml y 10 l). El envasador puede trabajar de dos formas:
+El RD 1801/2008 se aplica a los productos envasados destinados al consumidor con cantidades nominales constantes entre 5 g y 10 kg (o entre 5 ml y 10 l). El envasador puede trabajar de dos formas (los límites T1 y T2 que se mencionan aquí se definen en el apartado siguiente):
 
 - **Sin signo ℮.** El envasador no está obligado a aplicar el control estadístico por lotes del RD: puede, por ejemplo, controlar el contenido envase a envase. Aun así, debe cumplir los principios generales y las tolerancias del RD (artículos 7, 8 y 14.3): la media del contenido no puede ser inferior a la cantidad nominal y ningún envase puede quedar por debajo de T2 [@consumo2019].
+
+  Si no se mide el contenido de los envases, el envasador no conoce la media del lote ni la proporción de envases bajo T1, y no puede demostrar que cumple el artículo 7. La forma más sencilla de garantizarlo es retirar, con un discriminador, todo envase por debajo de la cantidad nominal: así la media es necesariamente igual o superior a la nominal y no hay envases bajo T1 ni bajo T2. Por eso es frecuente la idea de que, sin el signo ℮, todos los envases deben alcanzar el peso nominal. No es una exigencia del RD, sino la forma más segura de cumplirlo cuando no se dispone de datos.
+
 - **Con signo ℮.** El envasador aplica el control estadístico por lotes de los artículos 10 a 12 del RD. A cambio puede imprimir el signo ℮, que certifica, bajo su responsabilidad, que el envase cumple con el real decreto y facilita la libre circulación del producto en el mercado europeo.
 
 El resto de este capítulo se centra en la segunda modalidad.
