@@ -219,7 +219,7 @@ que es el mismo resultado que obteníamos con la fórmula de la media aritmétic
 Cuando las masas son idénticas, la media aritmética de las posiciones coincide con el centro de gravedad. Esto nos permite afirmar que en el caso de una dimensión (por ejemplo, la altura de los alumnos) la media aritmética de un conjunto de valores coincide con el centro de gravedad o punto de equilibrio de ese conjunto de valores. Este es un resultado interesante que muestra la conexión entre conceptos estadísticos y físicos.
 
 ::: {#fig-media-fulcro2 layout-ncol="2" layout-valign="bottom"}
-![La media como punto de equilibrio](imagenes/070/media-balanza.svg){#fig-media}
+![La media como punto de equilibrio](imagenes/060/media-balanza.svg){#fig-media}
 
 ![Palanca de primer grado](imagenes/070/palanca.webp){#fig-palanca}
 
