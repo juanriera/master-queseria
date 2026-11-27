@@ -372,18 +372,22 @@ Recogemos en el diagrama las causas que identificamos en el diagnóstico del tur
 #| message: false
 #| warning: false
 #| fig-cap: "Diagrama causa-efecto del llenado de yogures"
+#| fig-width: 7
+#| fig-height: 5.5
 library(qcc)
 
+# "\n" parte un texto en dos líneas, para que no se solape con la espina siguiente
 cause.and.effect(
   cause = list(
-    "Máquina"        = c("Juntas gastadas", "Carrera del pistón", "Vibración"),
-    "Mano de obra"   = c("Sobrecorrección", "Cambio de turno"),
+    "Máquina"        = c("Juntas\ngastadas", "Carrera\ndel pistón", "Vibración"),
+    "Mano de obra"   = c("Sobrecorrección", "Cambio\nde turno"),
     "Material"       = c("Viscosidad"),
-    "Método"         = c("Temperatura del producto"),
-    "Medio ambiente" = c("Temperatura de la sala"),
-    "Medición"       = c("Verificación de la balanza")),
-  effect = "Peso irregular",
-  title  = "Llenado de yogures")
+    "Método"         = c("Temperatura\ndel producto"),
+    "Medio ambiente" = c("Temperatura\nde la sala"),
+    "Medición"       = c("Verificación\nde la balanza")),
+  effect = "Peso\nirregular",
+  title  = "Llenado de yogures",
+  cex    = c(1, 0.85, 0.9))   # tamaño de las categorías, las causas y el efecto
 ```
 
 **Cómo se lee:**

@@ -124,14 +124,14 @@ Y = [0.637, 0.326, 0.015]
 ax = panel(1, "La variabilidad es inevitable", [
     "Ningún proceso da dos resultados idénticos. El objetivo no es eliminar la "
     "variabilidad, sino reducirla hasta un nivel compatible con la calidad y con el coste.",
-    "Sus fuentes se agrupan en las 5M:",
+    "Sus fuentes se agrupan en las 6M:",
 ], X[0], Y[0], W, H)
 ax.set_xlim(0, 10); ax.set_ylim(0, 6); ax.axis("off")
 _ = ax.annotate("", xy=(7.5, 3), xytext=(0.8, 3),
                 arrowprops=dict(arrowstyle="-|>", color=AZUL, linewidth=2))
 _ = ax.text(7.65, 3, "Variabilidad\ndel resultado", va="center", fontsize=8.5, fontweight="bold")
 espinas = [(2.2, "Materia prima", 1), (4.6, "Método", 1), (7.0, "Maquinaria", 1),
-           (3.3, "Mano de obra", -1), (7.0, "Medio ambiente", -1)]
+           (2.2, "Mano de obra", -1), (4.6, "Medio\nambiente", -1), (7.0, "Medición", -1)]
 for xs, nombre, lado in espinas:
     _ = ax.plot([xs - 1.0, xs], [3 + lado * 2.2, 3], color=GRIS, linewidth=1.2)
     _ = ax.text(xs - 1.0, 3 + lado * 2.45, nombre, ha="center",

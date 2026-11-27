@@ -1069,16 +1069,18 @@ window.Quarto = {
 <summary>Código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qcc)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cause.and.effect</span>(</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">cause =</span> <span class="fu">list</span>(</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Máquina"</span>        <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Juntas gastadas"</span>, <span class="st">"Carrera del pistón"</span>, <span class="st">"Vibración"</span>),</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Mano de obra"</span>   <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Sobrecorrección"</span>, <span class="st">"Cambio de turno"</span>),</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Material"</span>       <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Viscosidad"</span>),</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Método"</span>         <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Temperatura del producto"</span>),</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Medio ambiente"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Temperatura de la sala"</span>),</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Medición"</span>       <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Verificación de la balanza"</span>)),</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">effect =</span> <span class="st">"Peso irregular"</span>,</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">title  =</span> <span class="st">"Llenado de yogures"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># "\n" parte un texto en dos líneas, para que no se solape con la espina siguiente</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cause.and.effect</span>(</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">cause =</span> <span class="fu">list</span>(</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Máquina"</span>        <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Juntas</span><span class="sc">\n</span><span class="st">gastadas"</span>, <span class="st">"Carrera</span><span class="sc">\n</span><span class="st">del pistón"</span>, <span class="st">"Vibración"</span>),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Mano de obra"</span>   <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Sobrecorrección"</span>, <span class="st">"Cambio</span><span class="sc">\n</span><span class="st">de turno"</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Material"</span>       <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Viscosidad"</span>),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Método"</span>         <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Temperatura</span><span class="sc">\n</span><span class="st">del producto"</span>),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Medio ambiente"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Temperatura</span><span class="sc">\n</span><span class="st">de la sala"</span>),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Medición"</span>       <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Verificación</span><span class="sc">\n</span><span class="st">de la balanza"</span>)),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">effect =</span> <span class="st">"Peso</span><span class="sc">\n</span><span class="st">irregular"</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">title  =</span> <span class="st">"Llenado de yogures"</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">cex    =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.85</span>, <span class="fl">0.9</span>))   <span class="co"># tamaño de las categorías, las causas y el efecto</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
