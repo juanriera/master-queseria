@@ -1,0 +1,2252 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>17&nbsp; La caja de herramientas de la mejora continua – La mejora continua en la producción quesera</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./300-glosario.html" rel="next">
+<link href="./160-mejora-continua.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-631496449bf32ff9b0bb69a6bfd9195d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./150-variabilidad.html">La metodología para la mejora continua</a></li><li class="breadcrumb-item"><a href="./170-caja-herramientas.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">La caja de herramientas de la mejora continua</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">La mejora continua en la producción quesera</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introducción</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Herramientas y técnicas básicas</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./020-estad-entorno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">El análisis de datos de producción en el entorno industrial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./030-herramientas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Herramientas para el análisis. La reproducibilidad</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./040-organizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Conceptos fundamentales, organización de datos y flujo de trabajo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./050-exploracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./060-estad-basica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./070-distribuciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Distribuciones de probabilidad y la distribución normal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./080-correlacion-regresion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">La relación entre dos variables: correlación y regresión</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./090-control-proc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El control estadístico de procesos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./100-disexp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción al diseño de experimentos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./110-comunicacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Comunicación</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Aplicaciones en producción</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./120-camembert.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Análisis exploratorio de una fabricación de queso camembert</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./130-sistema-medicion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">El análisis del sistema de medición</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./140-rd-contenido-efectivo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proceso de dosificación y control de peso en el envasado</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">La metodología para la mejora continua</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./150-variabilidad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">La variabilidad industrial</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./160-mejora-continua.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">La mejora continua y el análisis de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./170-caja-herramientas.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">La caja de herramientas de la mejora continua</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Apéndices</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./300-glosario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glosario de términos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./310-apendice-entorno.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Configuración del entorno de trabajo</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./340-sistema-medicion-grr-simulador.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Simulación del dataset de repetibilidad (Gerber)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./360-media-centro-gravedad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">La media aritmética como centro de gravedad de un grupo de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./380-indice-datasets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Índice de datasets utilizados</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./400-bibliografia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#cómo-usar-este-capítulo" id="toc-cómo-usar-este-capítulo" class="nav-link active" data-scroll-target="#cómo-usar-este-capítulo"><span class="header-section-number">17.1</span> Cómo usar este capítulo</a></li>
+  <li><a href="#definir" id="toc-definir" class="nav-link" data-scroll-target="#definir"><span class="header-section-number">17.2</span> Definir</a>
+  <ul class="collapse">
+  <li><a href="#ficha-1.-definición-del-problema-y-objetivo-smart" id="toc-ficha-1.-definición-del-problema-y-objetivo-smart" class="nav-link" data-scroll-target="#ficha-1.-definición-del-problema-y-objetivo-smart">Ficha 1. Definición del problema y objetivo SMART</a></li>
+  <li><a href="#ficha-2.-sipoc" id="toc-ficha-2.-sipoc" class="nav-link" data-scroll-target="#ficha-2.-sipoc">Ficha 2. SIPOC</a></li>
+  <li><a href="#lista-de-comprobación-definir" id="toc-lista-de-comprobación-definir" class="nav-link" data-scroll-target="#lista-de-comprobación-definir">Lista de comprobación: Definir</a></li>
+  </ul></li>
+  <li><a href="#medir" id="toc-medir" class="nav-link" data-scroll-target="#medir"><span class="header-section-number">17.3</span> Medir</a>
+  <ul class="collapse">
+  <li><a href="#ficha-3.-plan-de-recogida-de-datos-y-definiciones-operativas" id="toc-ficha-3.-plan-de-recogida-de-datos-y-definiciones-operativas" class="nav-link" data-scroll-target="#ficha-3.-plan-de-recogida-de-datos-y-definiciones-operativas">Ficha 3. Plan de recogida de datos y definiciones operativas</a></li>
+  <li><a href="#ficha-4.-histograma-con-límites" id="toc-ficha-4.-histograma-con-límites" class="nav-link" data-scroll-target="#ficha-4.-histograma-con-límites">Ficha 4. Histograma con límites</a></li>
+  <li><a href="#ficha-5.-valores-individuales-sesgo-y-repetibilidad" id="toc-ficha-5.-valores-individuales-sesgo-y-repetibilidad" class="nav-link" data-scroll-target="#ficha-5.-valores-individuales-sesgo-y-repetibilidad">Ficha 5. Valores individuales: sesgo y repetibilidad</a></li>
+  <li><a href="#ficha-6.-estabilidad-gráfico-de-rachas" id="toc-ficha-6.-estabilidad-gráfico-de-rachas" class="nav-link" data-scroll-target="#ficha-6.-estabilidad-gráfico-de-rachas">Ficha 6. Estabilidad: gráfico de rachas</a></li>
+  <li><a href="#ficha-7.-capacidad-del-proceso" id="toc-ficha-7.-capacidad-del-proceso" class="nav-link" data-scroll-target="#ficha-7.-capacidad-del-proceso">Ficha 7. Capacidad del proceso</a></li>
+  <li><a href="#lista-de-comprobación-medir" id="toc-lista-de-comprobación-medir" class="nav-link" data-scroll-target="#lista-de-comprobación-medir">Lista de comprobación: Medir</a></li>
+  </ul></li>
+  <li><a href="#analizar" id="toc-analizar" class="nav-link" data-scroll-target="#analizar"><span class="header-section-number">17.4</span> Analizar</a>
+  <ul class="collapse">
+  <li><a href="#ficha-8.-diagrama-causa-efecto-ishikawa" id="toc-ficha-8.-diagrama-causa-efecto-ishikawa" class="nav-link" data-scroll-target="#ficha-8.-diagrama-causa-efecto-ishikawa">Ficha 8. Diagrama causa-efecto (Ishikawa)</a></li>
+  <li><a href="#ficha-9.-los-cinco-porqués" id="toc-ficha-9.-los-cinco-porqués" class="nav-link" data-scroll-target="#ficha-9.-los-cinco-porqués">Ficha 9. Los cinco porqués</a></li>
+  <li><a href="#ficha-10.-diagrama-de-pareto" id="toc-ficha-10.-diagrama-de-pareto" class="nav-link" data-scroll-target="#ficha-10.-diagrama-de-pareto">Ficha 10. Diagrama de Pareto</a></li>
+  <li><a href="#ficha-11.-estratificación-boxplot-por-grupos" id="toc-ficha-11.-estratificación-boxplot-por-grupos" class="nav-link" data-scroll-target="#ficha-11.-estratificación-boxplot-por-grupos">Ficha 11. Estratificación: boxplot por grupos</a></li>
+  <li><a href="#ficha-12.-diagrama-de-dispersión" id="toc-ficha-12.-diagrama-de-dispersión" class="nav-link" data-scroll-target="#ficha-12.-diagrama-de-dispersión">Ficha 12. Diagrama de dispersión</a></li>
+  <li><a href="#ficha-13.-gráfico-de-interacción" id="toc-ficha-13.-gráfico-de-interacción" class="nav-link" data-scroll-target="#ficha-13.-gráfico-de-interacción">Ficha 13. Gráfico de interacción</a></li>
+  <li><a href="#lista-de-comprobación-analizar" id="toc-lista-de-comprobación-analizar" class="nav-link" data-scroll-target="#lista-de-comprobación-analizar">Lista de comprobación: Analizar</a></li>
+  </ul></li>
+  <li><a href="#mejorar" id="toc-mejorar" class="nav-link" data-scroll-target="#mejorar"><span class="header-section-number">17.5</span> Mejorar</a>
+  <ul class="collapse">
+  <li><a href="#ficha-14.-cuántos-quedarán-fuera-del-límite" id="toc-ficha-14.-cuántos-quedarán-fuera-del-límite" class="nav-link" data-scroll-target="#ficha-14.-cuántos-quedarán-fuera-del-límite">Ficha 14. ¿Cuántos quedarán fuera del límite?</a></li>
+  <li><a href="#ficha-15.-a-prueba-de-errores-poka-yoke-y-estandarización" id="toc-ficha-15.-a-prueba-de-errores-poka-yoke-y-estandarización" class="nav-link" data-scroll-target="#ficha-15.-a-prueba-de-errores-poka-yoke-y-estandarización">Ficha 15. A prueba de errores (<em>poka-yoke</em>) y estandarización</a></li>
+  <li><a href="#lista-de-comprobación-mejorar" id="toc-lista-de-comprobación-mejorar" class="nav-link" data-scroll-target="#lista-de-comprobación-mejorar">Lista de comprobación: Mejorar</a></li>
+  </ul></li>
+  <li><a href="#controlar" id="toc-controlar" class="nav-link" data-scroll-target="#controlar"><span class="header-section-number">17.6</span> Controlar</a>
+  <ul class="collapse">
+  <li><a href="#ficha-16.-gráfico-de-control" id="toc-ficha-16.-gráfico-de-control" class="nav-link" data-scroll-target="#ficha-16.-gráfico-de-control">Ficha 16. Gráfico de control</a></li>
+  <li><a href="#ficha-17.-plan-de-control" id="toc-ficha-17.-plan-de-control" class="nav-link" data-scroll-target="#ficha-17.-plan-de-control">Ficha 17. Plan de control</a></li>
+  <li><a href="#lista-de-comprobación-controlar" id="toc-lista-de-comprobación-controlar" class="nav-link" data-scroll-target="#lista-de-comprobación-controlar">Lista de comprobación: Controlar</a></li>
+  </ul></li>
+  <li><a href="#caso-completo-el-turno-del-1-de-octubre" id="toc-caso-completo-el-turno-del-1-de-octubre" class="nav-link" data-scroll-target="#caso-completo-el-turno-del-1-de-octubre"><span class="header-section-number">17.7</span> Caso completo: el turno del 1 de octubre</a></li>
+  <li><a href="#resumen-del-capítulo-y-cierre-del-libro" id="toc-resumen-del-capítulo-y-cierre-del-libro" class="nav-link" data-scroll-target="#resumen-del-capítulo-y-cierre-del-libro"><span class="header-section-number">17.8</span> Resumen del capítulo y cierre del libro</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./150-variabilidad.html">La metodología para la mejora continua</a></li><li class="breadcrumb-item"><a href="./170-caja-herramientas.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">La caja de herramientas de la mejora continua</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">La caja de herramientas de la mejora continua</span></h1>
+<p class="subtitle lead">Fichas prácticas con R, ordenadas según el ciclo DMAIC</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de última modificación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">22 de noviembre de 2026</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Objetivos de aprendizaje
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Al finalizar este capítulo, el alumno será capaz de:</p>
+<ul>
+<li>Elegir la herramienta adecuada para cada fase de un proyecto de mejora.</li>
+<li>Construir con unas pocas líneas de R los gráficos básicos de la mejora continua: histograma, valores individuales, gráfico de rachas, Pareto, causa-efecto, boxplot por grupos, dispersión, interacción y gráfico de control.</li>
+<li>Leer cada gráfico y reconocer sus errores de uso más frecuentes.</li>
+<li>Aplicar las herramientas en secuencia a un problema real de proceso.</li>
+</ul>
+<p>Conceptos clave: <strong>DMAIC, ficha de herramienta, lista de comprobación, plan de recogida de datos, cinco porqués, Pareto, causa-efecto, estratificación, plan de control</strong>.</p>
+</div>
+</div>
+<section id="cómo-usar-este-capítulo" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="cómo-usar-este-capítulo"><span class="header-section-number">17.1</span> Cómo usar este capítulo</h2>
+<p>Este capítulo no se lee de principio a fin: se consulta. Cada herramienta tiene una <strong>ficha</strong> con el mismo formato, inspirado en las guías de bolsillo de Lean Six Sigma <span class="citation" data-cites="brook2010">(<a href="400-bibliografia.html#ref-brook2010" role="doc-biblioref">Brook 2010</a>)</span>:</p>
+<ul>
+<li>una <strong>frase clave</strong>, que resume cuándo pensar en esa herramienta;</li>
+<li>un recuadro con <strong>para qué sirve</strong>, <strong>cuándo usarla</strong> y <strong>qué datos necesita</strong>;</li>
+<li>el <strong>código R</strong>, lo más corto posible, que se puede copiar y adaptar cambiando el nombre del archivo y de las columnas;</li>
+<li><strong>cómo se lee</strong> el gráfico en el ejemplo, y un <strong>aviso</strong> con los errores de uso más frecuentes;</li>
+<li>el capítulo del libro donde se vio la herramienta con más detalle.</li>
+</ul>
+<p>Todas las fichas usan datos del libro, que están en la carpeta <code>datos/</code>. Cada bloque de código es independiente: carga sus paquetes y sus datos, de modo que se puede copiar una ficha sin las demás. Los paquetes necesarios son <code>tidyverse</code>, <code>qcc</code> y <code>qicharts2</code>; si alguno no está instalado, se instala una sola vez con <code>install.packages("qcc")</code>.</p>
+<p>Las fichas se agrupan en las cinco fases del ciclo DMAIC que vimos en el capítulo 16. Al final de cada fase hay una <strong>lista de comprobación</strong> para revisar el trabajo antes de pasar a la siguiente, y al final del capítulo, un <strong>caso completo</strong> que recorre todas las fases con el turno de yogures de los capítulos 9 y 14.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  D["&lt;b&gt;Definir&lt;/b&gt;&lt;br/&gt;¿Cuál es exactamente&lt;br/&gt;el problema?&lt;br/&gt;&lt;br/&gt;1 Definición del problema&lt;br/&gt;2 SIPOC"]
+  M["&lt;b&gt;Medir&lt;/b&gt;&lt;br/&gt;¿Cómo se comporta&lt;br/&gt;el proceso hoy?&lt;br/&gt;&lt;br/&gt;3 Plan de recogida&lt;br/&gt;4 Histograma&lt;br/&gt;5 Valores individuales&lt;br/&gt;6 Gráfico de rachas&lt;br/&gt;7 Capacidad"]
+  A["&lt;b&gt;Analizar&lt;/b&gt;&lt;br/&gt;¿Cuál es la causa raíz?&lt;br/&gt;&lt;br/&gt;8 Causa-efecto&lt;br/&gt;9 Cinco porqués&lt;br/&gt;10 Pareto&lt;br/&gt;11 Boxplot por grupos&lt;br/&gt;12 Dispersión&lt;br/&gt;13 Interacción"]
+  I["&lt;b&gt;Mejorar&lt;/b&gt;&lt;br/&gt;¿Qué solución&lt;br/&gt;elimina la causa?&lt;br/&gt;&lt;br/&gt;14 ¿Cuántos fuera?&lt;br/&gt;15 Poka-yoke y&lt;br/&gt;estandarización"]
+  C["&lt;b&gt;Controlar&lt;/b&gt;&lt;br/&gt;¿Cómo mantenemos&lt;br/&gt;la mejora?&lt;br/&gt;&lt;br/&gt;16 Gráfico de control&lt;br/&gt;17 Plan de control"]
+  D --&gt; M --&gt; A --&gt; I --&gt; C
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="definir" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="definir"><span class="header-section-number">17.2</span> Definir</h2>
+<p>La fase Definir responde a una pregunta: <strong>¿cuál es exactamente el problema?</strong> Su resultado es una definición breve, cuantificada y acotada, y un objetivo que se pueda verificar.</p>
+<section id="ficha-1.-definición-del-problema-y-objetivo-smart" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-1.-definición-del-problema-y-objetivo-smart">Ficha 1. Definición del problema y objetivo SMART</h3>
+<blockquote class="blockquote">
+<p><strong>Si no cabe en tres frases y no tiene cifras, todavía no es una definición.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> fijar qué se va a resolver, cuánto cuesta y cómo sabremos que está resuelto.</p>
+<p><strong>Cuándo usarla:</strong> al empezar cualquier proyecto de mejora, antes de recoger datos.</p>
+<p><strong>Qué datos necesita:</strong> las cifras del problema (cuántos, cuánto, desde cuándo) y, si es posible, su coste.</p>
+</div>
+</div>
+</div>
+<p><strong>Plantilla:</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Elemento</th>
+<th>Pregunta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Qué</td>
+<td>¿Qué falla, en qué producto y en qué línea?</td>
+</tr>
+<tr class="even">
+<td>Cuánto</td>
+<td>¿Cuántas unidades, qué porcentaje, cuánto dinero?</td>
+</tr>
+<tr class="odd">
+<td>Cuándo</td>
+<td>¿Desde cuándo, en qué turnos?</td>
+</tr>
+<tr class="even">
+<td>Objetivo</td>
+<td>¿Qué cifra queremos alcanzar y en qué plazo?</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ejemplo (turno de yogures, capítulo 14):</strong> «En el turno del 1 de octubre de 2024 de la línea de yogures de 150 g, 198 de los 9.600 envases (2,1 %) quedaron por debajo de T1 y 14 por debajo de T2, por lo que el lote no es conforme con el RD 1801/2008. Objetivo: proceso estable, sin envases bajo T2 y con un <span class="math inline">\(C_{pk} \geq 1{,}33\)</span> frente a T1 en todos los turnos, antes de fin de año.»</p>
+<p>El objetivo es <strong>SMART</strong>: específico (la línea de 150 g), medible (envases bajo T1 y T2, <span class="math inline">\(C_{pk}\)</span>), alcanzable (las etapas de mejora del capítulo 14 lo alcanzan), relevante (cumplimiento legal) y acotado en el tiempo (fin de año).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>«Hay que mejorar el peso» no es una definición: no dice cuánto ni dónde.</li>
+<li>La definición describe el problema, no la solución ni el culpable: «el operario ajusta mal» es una hipótesis sobre la causa, y se comprueba en Analizar.</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 16 (definir el problema) y capítulo 14 (el turno del 1 de octubre).</p>
+</section>
+<section id="ficha-2.-sipoc" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-2.-sipoc">Ficha 2. SIPOC</h3>
+<blockquote class="blockquote">
+<p><strong>Antes de medir un proceso, hay que saber dónde empieza y dónde acaba.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> delimitar el proceso que se va a estudiar: quién aporta qué (proveedores y entradas), qué pasos tiene, qué produce y para quién (salidas y clientes).</p>
+<p><strong>Cuándo usarla:</strong> en Definir, para que todo el equipo comparta la misma idea del proceso.</p>
+<p><strong>Qué datos necesita:</strong> ninguno numérico; el conocimiento del proceso.</p>
+</div>
+</div>
+</div>
+<p><strong>Ejemplo (esquema simplificado de la línea de yogures):</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Proveedores</th>
+<th>Entradas</th>
+<th>Proceso</th>
+<th>Salidas</th>
+<th>Clientes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Elaboración (cuba de yogur)</td>
+<td>Producto con su viscosidad y temperatura</td>
+<td>1. Recepción de la cuba</td>
+<td>Envases de 150 g</td>
+<td>Distribución y consumidor</td>
+</tr>
+<tr class="even">
+<td>Proveedor de envases</td>
+<td>Envases y tapas</td>
+<td>2. Llenado</td>
+<td>Registros de peso</td>
+<td>Inspección (RD 1801/2008)</td>
+</tr>
+<tr class="odd">
+<td>Mantenimiento</td>
+<td>Llenadora ajustada</td>
+<td>3. Sellado</td>
+<td></td>
+<td>Control de calidad</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>4. Control de peso</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>5. Paletizado</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>El SIPOC se hace a alto nivel: cinco a siete pasos como máximo. El detalle de cada paso viene después.</li>
+<li>Las entradas son lo que puede variar y afectar al resultado (aquí, la viscosidad del producto): son las primeras candidatas a causa.</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 14 (las causas del turno estaban en las entradas y en el llenado).</p>
+</section>
+<section id="lista-de-comprobación-definir" class="level3">
+<h3 class="anchored" data-anchor-id="lista-de-comprobación-definir">Lista de comprobación: Definir</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">¿La definición del problema tiene cifras y cabe en tres frases?</label></li>
+<li><label><input type="checkbox">¿Está acotado el ámbito: producto, línea, turno, periodo?</label></li>
+<li><label><input type="checkbox">¿El objetivo es SMART y verificable con datos?</label></li>
+<li><label><input type="checkbox">¿Está estimado el coste del problema, o al menos su consecuencia (lote no conforme, reclamaciones)?</label></li>
+<li><label><input type="checkbox">¿Está delimitado el proceso con un SIPOC que conoce todo el equipo?</label></li>
+</ul>
+</section>
+</section>
+<section id="medir" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="medir"><span class="header-section-number">17.3</span> Medir</h2>
+<p>La fase Medir responde a la pregunta <strong>¿cómo se comporta el proceso hoy?</strong> Antes de buscar causas hay que tener datos fiables, ver su forma, comprobar si el proceso es estable y cuantificar su capacidad.</p>
+<section id="ficha-3.-plan-de-recogida-de-datos-y-definiciones-operativas" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-3.-plan-de-recogida-de-datos-y-definiciones-operativas">Ficha 3. Plan de recogida de datos y definiciones operativas</h3>
+<blockquote class="blockquote">
+<p><strong>Un dato que cada persona mide a su manera no es un dato.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> decidir qué se mide, cómo, cuándo y quién lo mide, para que los datos sean comparables y se puedan analizar.</p>
+<p><strong>Cuándo usarla:</strong> antes de empezar a recoger datos.</p>
+<p><strong>Qué datos necesita:</strong> ninguno; es el plan para obtenerlos.</p>
+</div>
+</div>
+</div>
+<p>Una <strong>definición operativa</strong> describe la medida con tanta precisión que dos personas distintas obtendrían el mismo resultado.</p>
+<p><strong>Ejemplo (llenado de yogures):</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Definición operativa</th>
+<th>Unidad</th>
+<th>Frecuencia</th>
+<th>Quién</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>peso_g</code></td>
+<td>Peso neto del envase cerrado, en la balanza de control, descontando la tara media del envase y la tapa</td>
+<td>g</td>
+<td>5 envases cada 3 minutos</td>
+<td>Operario de línea</td>
+</tr>
+<tr class="even">
+<td><code>hora_envasado</code></td>
+<td>Hora de llenado del envase</td>
+<td>hh:mm:ss</td>
+<td>Cada envase</td>
+<td>Registro automático</td>
+</tr>
+<tr class="odd">
+<td>Temperatura del producto</td>
+<td>Temperatura en el depósito de alimentación</td>
+<td>°C</td>
+<td>Cada hora</td>
+<td>Operario de línea</td>
+</tr>
+</tbody>
+</table>
+<p>Los datos se registran en formato ordenado (<em>tidy data</em>): una fila por envase y una columna por variable, como en <code>llenado_yogures_muestra.csv</code>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Si cada turno pesa los envases de una forma distinta (con o sin tapa, en balanzas distintas), las diferencias entre turnos pueden ser de la medida y no del proceso.</li>
+<li>Recoger también el contexto (hora, turno, lote): sin él no se puede estratificar después (ficha 11).</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 4 (datos ordenados) y capítulo 13 (sistema de medición).</p>
+</section>
+<section id="ficha-4.-histograma-con-límites" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-4.-histograma-con-límites">Ficha 4. Histograma con límites</h3>
+<blockquote class="blockquote">
+<p><strong>Para ver de un vistazo si un proceso cabe dentro de sus límites, piensa en un histograma.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> ver la forma de los datos (centro, dispersión, asimetría, valores atípicos) y su posición respecto a los límites.</p>
+<p><strong>Cuándo usarlo:</strong> en Medir, con una variable continua y bastantes datos (al menos 50).</p>
+<p><strong>Qué datos necesita:</strong> una columna numérica; los límites, si los hay.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/llenado_yogures.csv"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> peso_g)) <span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">colour =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">150</span>,   <span class="at">colour =</span> <span class="st">"green4"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">143.2</span>, <span class="at">colour =</span> <span class="st">"orange"</span>) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">136.4</span>, <span class="at">colour =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Peso de los yogures del turno del 1 de octubre"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Peso (g)"</span>, <span class="at">y =</span> <span class="st">"Envases"</span>) <span class="sc">+</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="170-caja-herramientas_files/figure-html/f04-histograma-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Peso de los 9.600 envases del turno, con Qn (verde), T1 (naranja) y T2 (rojo)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Cómo se lee:</strong></p>
+<ul>
+<li>La mayor parte de los envases está entre 145 y 160 g, con la media (152,45 g) por encima de Qn.</li>
+<li>La cola izquierda llega por debajo de T1 y de T2: 198 envases bajo T1 y 14 bajo T2.</li>
+<li>Una cola tan larga en un solo lado hace sospechar que hubo momentos del turno con un comportamiento distinto. El histograma no dice cuándo: para eso están las fichas 6 y 16.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Con pocos datos (menos de 50) la forma del histograma depende demasiado del ancho de las barras: mejor la ficha 5.</li>
+<li>El histograma no muestra el orden en el tiempo. Un proceso puede tener un histograma perfecto y estar cambiando a lo largo del turno.</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 5 (histograma) y capítulo 14 (el turno completo).</p>
+</section>
+<section id="ficha-5.-valores-individuales-sesgo-y-repetibilidad" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-5.-valores-individuales-sesgo-y-repetibilidad">Ficha 5. Valores individuales: sesgo y repetibilidad</h3>
+<blockquote class="blockquote">
+<p><strong>Con pocos datos por grupo, dibuja cada dato: nada se esconde.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> comparar grupos pequeños dibujando todos sus valores. Aplicado a los análisis de laboratorio, muestra a la vez el sesgo (dónde está el centro de cada analista) y la repetibilidad (cuánto se dispersan sus resultados).</p>
+<p><strong>Cuándo usarlo:</strong> cuando cada grupo tiene pocos datos (menos de 25), y en particular para evaluar un sistema de medida.</p>
+<p><strong>Qué datos necesita:</strong> una columna numérica y una columna con el grupo; para el sistema de medida, el valor de referencia de cada muestra.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/grr_gerber.csv"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">error =</span> resultado <span class="sc">-</span> valor_referencia)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> analista, <span class="at">y =</span> error)) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">colour =</span> <span class="st">"green4"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">colour =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">decimal.mark =</span> <span class="st">","</span>)) <span class="sc">+</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Error de cada análisis respecto al valor de referencia"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Error (puntos de grasa, %)"</span>) <span class="sc">+</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="170-caja-herramientas_files/figure-html/f05-valores-individuales-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Error de cada análisis Gerber respecto al valor de referencia, por analista</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Cómo se lee:</strong></p>
+<ul>
+<li>La línea discontinua es el error cero. Un analista sin sesgo tiene sus puntos repartidos alrededor de ella.</li>
+<li>El analista 4 tiene todos sus puntos juntos y por debajo de la línea: es repetible, pero tiene un sesgo de unos −0,36 puntos.</li>
+<li>El analista 5 tiene los puntos muy dispersos: su problema es la repetibilidad (desviación típica de unos 0,23 puntos), no un desplazamiento fijo.</li>
+<li>Los dos problemas se corrigen de forma distinta: el sesgo, con una causa concreta (la lectura del menisco); la falta de repetibilidad, revisando todo el procedimiento.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Cada analista tiene aquí 9 resultados. Con tan pocos datos, un boxplot daría cuartiles poco fiables: los puntos individuales son más honestos.</li>
+<li>Restar el valor de referencia permite juntar en un solo gráfico muestras con contenidos de grasa distintos.</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 13 (análisis del sistema de medición).</p>
+</section>
+<section id="ficha-6.-estabilidad-gráfico-de-rachas" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-6.-estabilidad-gráfico-de-rachas">Ficha 6. Estabilidad: gráfico de rachas</h3>
+<blockquote class="blockquote">
+<p><strong>Antes de calcular límites o índices, mira si el proceso es el mismo de principio a fin.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> ver la evolución de una variable en el tiempo respecto a su mediana, y detectar si el proceso ha cambiado (desplazamientos, tendencias, ciclos).</p>
+<p><strong>Cuándo usarlo:</strong> en Medir, con datos en orden cronológico, antes de calcular la capacidad o los límites de control.</p>
+<p><strong>Qué datos necesita:</strong> una columna numérica y otra con el orden o la fecha.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qicharts2)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/camembert.csv"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fecha =</span> <span class="fu">dmy</span>(fecha))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">qic</span>(<span class="at">x =</span> fecha, <span class="at">y =</span> est, <span class="at">data =</span> df, <span class="at">chart =</span> <span class="st">"run"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Extracto seco total del camembert"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab =</span> <span class="st">"Extracto seco total (%)"</span>, <span class="at">xlab =</span> <span class="st">"Fecha"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="170-caja-herramientas_files/figure-html/f06-rachas-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Gráfico de rachas del extracto seco total del camembert</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Cómo se lee:</strong></p>
+<ul>
+<li>La línea central es la mediana: la mitad de los valores queda por encima y la otra mitad por debajo.</li>
+<li>En un proceso estable, los puntos cruzan la mediana a menudo y no forman rachas largas a un mismo lado. Si <code>qicharts2</code> detecta una racha demasiado larga o pocos cruces, dibuja la línea central discontinua y en color.</li>
+<li>En los meses de verano los valores quedan por encima de la mediana durante semanas: el extracto seco cambió a lo largo del año. En el capítulo 12, el equipo lo atribuyó al ajuste estacional de la fabricación y a la sustitución del quesero en vacaciones.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>El gráfico de rachas no tiene límites de control: sirve para saber si el proceso es estable, no para vigilarlo turno a turno (para eso está la ficha 16).</li>
+<li>Los días con dos fabricaciones se representan con su media.</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 9 (señales de alarma) y capítulo 12 (serie temporal del extracto seco).</p>
+</section>
+<section id="ficha-7.-capacidad-del-proceso" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-7.-capacidad-del-proceso">Ficha 7. Capacidad del proceso</h3>
+<blockquote class="blockquote">
+<p><strong>¿Cabe el proceso en sus límites con margen? Calcula el Cpk.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> cuantificar si la variabilidad natural del proceso es compatible con los límites de especificación, teniendo en cuenta su centrado.</p>
+<p><strong>Cuándo usarla:</strong> en Medir, para tener la línea base, y en Controlar, para comprobar la mejora. Solo con el proceso estable (ficha 6).</p>
+<p><strong>Qué datos necesita:</strong> una columna numérica de un periodo estable y los límites de especificación.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/llenado_yogures_muestra.csv"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>fase1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(df, muestra <span class="sc">&lt;=</span> <span class="dv">10</span>)   <span class="co"># 08:00 a 08:30, sin incidentes (capítulo 9)</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>media <span class="ot">&lt;-</span> <span class="fu">mean</span>(fase1<span class="sc">$</span>peso_g)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>s     <span class="ot">&lt;-</span> <span class="fu">sd</span>(fase1<span class="sc">$</span>peso_g)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>T1    <span class="ot">&lt;-</span> <span class="fl">143.2</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>Cpk <span class="ot">&lt;-</span> (media <span class="sc">-</span> T1) <span class="sc">/</span> (<span class="dv">3</span> <span class="sc">*</span> s)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>Cpk</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.315754</code></pre>
+</div>
+</div>
+<p><strong>Cómo se lee:</strong></p>
+<ul>
+<li>Con media 153,08 g y desviación típica 2,50 g, el <span class="math inline">\(C_{pk}\)</span> frente a T1 es 1,32: prácticamente el 1,33 que se suele exigir.</li>
+<li>Aquí solo hay un límite, el inferior (T1), por eso solo se calcula el <span class="math inline">\(C_{pk}\)</span> de ese lado. El <span class="math inline">\(C_p\)</span> necesita los dos límites: <span class="math inline">\(C_p = (LSE - LIE) / 6\sigma\)</span>.</li>
+<li>Para que <span class="math inline">\(C_{pk} \geq 1{,}33\)</span>, la media debe estar al menos a <span class="math inline">\(4\sigma\)</span> del límite.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Un <span class="math inline">\(C_{pk}\)</span> calculado con un proceso inestable no significa nada: describe una mezcla de procesos distintos.</li>
+<li>El <span class="math inline">\(C_{pk}\)</span> de la Fase I describe lo que el proceso <strong>puede</strong> hacer, no lo que <strong>hizo</strong>: en el turno completo hubo un 2,1 % de envases bajo T1 por las causas especiales.</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 9 (índices <span class="math inline">\(C_p\)</span> y <span class="math inline">\(C_{pk}\)</span>).</p>
+</section>
+<section id="lista-de-comprobación-medir" class="level3">
+<h3 class="anchored" data-anchor-id="lista-de-comprobación-medir">Lista de comprobación: Medir</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">¿Hay definiciones operativas escritas y todos miden igual?</label></li>
+<li><label><input type="checkbox">¿Se ha comprobado el sistema de medida (sesgo y repetibilidad) antes de analizar?</label></li>
+<li><label><input type="checkbox">¿Se ha visto la forma de los datos con un histograma o con los valores individuales?</label></li>
+<li><label><input type="checkbox">¿Se ha comprobado si el proceso es estable antes de calcular la capacidad?</label></li>
+<li><label><input type="checkbox">¿Está calculada la línea base (<span class="math inline">\(C_{pk}\)</span>, porcentaje fuera de límites) para comparar después?</label></li>
+</ul>
+</section>
+</section>
+<section id="analizar" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="analizar"><span class="header-section-number">17.4</span> Analizar</h2>
+<p>La fase Analizar responde a la pregunta <strong>¿cuál es la causa raíz?</strong> Tiene dos puertas de entrada, que se usan juntas:</p>
+<ul>
+<li>la <strong>puerta del proceso</strong> (fichas 8 y 9): lo que sabe el equipo sobre cómo funciona el proceso;</li>
+<li>la <strong>puerta de los datos</strong> (fichas 10 a 13): lo que dicen los datos.</li>
+</ul>
+<p>Las ideas que salen de la primera son hipótesis; los datos de la segunda las confirman o las descartan.</p>
+<section id="ficha-8.-diagrama-causa-efecto-ishikawa" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-8.-diagrama-causa-efecto-ishikawa">Ficha 8. Diagrama causa-efecto (Ishikawa)</h3>
+<blockquote class="blockquote">
+<p><strong>Para no olvidar ninguna causa posible, ordénalas en las 5M.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> ordenar las posibles causas de un problema en grupos (las 5M), para no olvidar ninguna.</p>
+<p><strong>Cuándo usarlo:</strong> al empezar a analizar un problema, normalmente en una reunión del equipo.</p>
+<p><strong>Qué datos necesita:</strong> ninguno numérico; solo el conocimiento del proceso de las personas que trabajan en él.</p>
+</div>
+</div>
+</div>
+<p>Recogemos en el diagrama las causas que identificamos en el diagnóstico del turno de yogures (capítulo 14): el desgaste de las juntas, la carrera del pistón y la vibración de la bomba (máquina); la sobrecorrección del operario y el cambio de turno sin protocolo (mano de obra); la viscosidad del nuevo lote de producto (material), y la falta de control de la temperatura del producto (método).</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qcc)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cause.and.effect</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">cause =</span> <span class="fu">list</span>(</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Máquina"</span>      <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Juntas gastadas"</span>, <span class="st">"Carrera del pistón"</span>, <span class="st">"Vibración"</span>),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Mano de obra"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Sobrecorrección"</span>, <span class="st">"Cambio de turno"</span>),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Material"</span>     <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Viscosidad"</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Método"</span>       <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Temperatura"</span>)),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">effect =</span> <span class="st">"Variabilidad del peso"</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">title  =</span> <span class="st">"Llenado de yogures"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="170-caja-herramientas_files/figure-html/f08-ishikawa-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Diagrama causa-efecto del llenado de yogures</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Cómo se lee:</strong></p>
+<ul>
+<li>Cada espina es un grupo de causas (una de las 5M); en ella se anotan las causas concretas.</li>
+<li>El diagrama no demuestra nada: es una lista ordenada de hipótesis. Cada causa hay que comprobarla con datos, por ejemplo con un gráfico de control o con un diagrama de Pareto.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>No es una lista de culpables («el operario»). La causa no es la persona, sino lo que le falta: un procedimiento, una formación, un criterio de ajuste.</li>
+<li>Las causas deben ser concretas («juntas gastadas») y no vagas («la máquina»).</li>
+<li>Si un grupo no tiene causas, se deja vacío: no hay que rellenar todas las espinas por obligación.</li>
+<li>El diagrama no reparte el texto en varias líneas y las causas largas se solapan: basta con dos o tres palabras; la explicación va en el texto o en una tabla aparte.</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 14 (diagnóstico 5M) y capítulo 15 (las fuentes de variabilidad).</p>
+</section>
+<section id="ficha-9.-los-cinco-porqués" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-9.-los-cinco-porqués">Ficha 9. Los cinco porqués</h3>
+<blockquote class="blockquote">
+<p><strong>Pregunta «¿por qué?» hasta llegar a algo que se pueda cambiar.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> pasar de un síntoma a su causa raíz encadenando preguntas.</p>
+<p><strong>Cuándo usarla:</strong> cuando ya se ha localizado dónde está el problema (por ejemplo, con un Pareto) y hay que entender por qué ocurre.</p>
+<p><strong>Qué datos necesita:</strong> ninguno numérico; el conocimiento del proceso y los registros del suceso.</p>
+</div>
+</div>
+</div>
+<p><strong>Ejemplo (los envases bajo T2 del turno, capítulo 14):</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pregunta</th>
+<th>Respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>¿Por qué el lote no es conforme?</td>
+<td>Porque hubo 14 envases bajo T2, 12 de ellos entre las 08:39 y las 09:03.</td>
+</tr>
+<tr class="even">
+<td>¿Por qué hubo envases bajo T2 a esa hora?</td>
+<td>Porque la media del llenado cayó por debajo de T1.</td>
+</tr>
+<tr class="odd">
+<td>¿Por qué cayó la media?</td>
+<td>Porque el operario bajó la dosificación de golpe para compensar la deriva ascendente de las 08:30.</td>
+</tr>
+<tr class="even">
+<td>¿Por qué corrigió tanto?</td>
+<td>Porque no tenía un criterio escrito de cuánto se puede corregir en cada ajuste.</td>
+</tr>
+<tr class="odd">
+<td>¿Por qué hubo que corregir?</td>
+<td>Porque la llenadora deriva, probablemente por desgaste de las juntas o del pistón.</td>
+</tr>
+</tbody>
+</table>
+<p>Las dos últimas respuestas llevan a dos acciones distintas: un criterio de ajuste escrito (ficha 15) y el mantenimiento preventivo de la llenadora.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Cinco es orientativo: se para cuando se llega a una causa sobre la que se puede actuar.</li>
+<li>Cada respuesta debe apoyarse en datos o en registros, no en suposiciones. Aquí, la última respuesta es una hipótesis que hay que comprobar.</li>
+<li>Si la cadena termina en una persona («el operario se equivocó»), hay que seguir preguntando: ¿qué le faltaba para no equivocarse?</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 14 (el diagnóstico del turno).</p>
+</section>
+<section id="ficha-10.-diagrama-de-pareto" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-10.-diagrama-de-pareto">Ficha 10. Diagrama de Pareto</h3>
+<blockquote class="blockquote">
+<p><strong>Cuando hay muchas causas y poco tiempo, empieza por la más grande.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> ordenar las causas de un problema de mayor a menor importancia, para decidir por dónde empezar.</p>
+<p><strong>Cuándo usarlo:</strong> cuando hay varias causas posibles y no se puede actuar sobre todas a la vez.</p>
+<p><strong>Qué datos necesita:</strong> una lista de causas y, para cada una, cuántas veces aparece o cuánto cuesta.</p>
+</div>
+</div>
+</div>
+<p>En el turno de yogures del 1 de octubre (capítulo 14) hubo 198 envases por debajo de T1. Los clasificamos según el incidente que los produjo:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qcc)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Envases bajo T1 de cada incidente del turno (capítulo 14)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>bajo_T1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Sobrecorrección</span><span class="sc">\n</span><span class="st">(mano de obra)"</span> <span class="ot">=</span> <span class="dv">166</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Alta variabilidad</span><span class="sc">\n</span><span class="st">(material)"</span>   <span class="ot">=</span> <span class="dv">27</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Deriva descendente</span><span class="sc">\n</span><span class="st">(método)"</span>    <span class="ot">=</span> <span class="dv">5</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">pareto.chart</span>(bajo_T1,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">main  =</span> <span class="st">"Envases bajo T1 por causa"</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">ylab  =</span> <span class="st">"Envases bajo T1"</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">ylab2 =</span> <span class="st">"Porcentaje acumulado"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="170-caja-herramientas_files/figure-html/f10-pareto-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Envases bajo T1 en el turno del 1 de octubre, por causa</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                 
+Pareto chart analysis for bajo_T1
+                                   Frequency  Cum.Freq. Percentage Cum.Percent.
+  Sobrecorrección\n(mano de obra) 166.000000 166.000000  83.838384    83.838384
+  Alta variabilidad\n(material)    27.000000 193.000000  13.636364    97.474747
+  Deriva descendente\n(método)      5.000000 198.000000   2.525253   100.000000</code></pre>
+</div>
+</div>
+<p><strong>Cómo se lee:</strong></p>
+<ul>
+<li>Las barras van de mayor a menor; la línea suma los porcentajes.</li>
+<li>Una sola causa, la sobrecorrección del operario, explica más de cuatro de cada cinco envases bajo T1 (166 de 198). Con la segunda, se llega al 97 %.</li>
+<li>Por ahí hay que empezar (ficha 9).</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Contar frecuencias cuando lo que importa es el coste. Aquí los envases bajo T2 pesan más que los bajo T1, porque uno solo basta para rechazar el lote.</li>
+<li>Usar demasiadas categorías, o una categoría «Otros» tan grande que esconde las causas.</li>
+<li>Mezclar causas con síntomas («envase ligero» no es una causa).</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 14 (incidentes del turno) y capítulo 15 (priorizar).</p>
+</section>
+<section id="ficha-11.-estratificación-boxplot-por-grupos" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-11.-estratificación-boxplot-por-grupos">Ficha 11. Estratificación: boxplot por grupos</h3>
+<blockquote class="blockquote">
+<p><strong>Cuando compares varios grupos de datos, piensa en un boxplot.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> separar los datos por grupos (mes, turno, línea, operario, proveedor) y comparar su centro y su dispersión. Es la estratificación de Ishikawa.</p>
+<p><strong>Cuándo usarlo:</strong> cuando los datos mezclan situaciones distintas y queremos ver si alguna se comporta de otra manera.</p>
+<p><strong>Qué datos necesita:</strong> una columna numérica y una columna con el grupo.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/camembert.csv"</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fecha =</span> <span class="fu">dmy</span>(fecha),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">mes   =</span> <span class="fu">month</span>(fecha, <span class="at">label =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> mes, <span class="at">y =</span> est)) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.15</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">decimal.mark =</span> <span class="st">","</span>)) <span class="sc">+</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Extracto seco total por mes"</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Extracto seco total (%)"</span>) <span class="sc">+</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="170-caja-herramientas_files/figure-html/f11-boxplot-grupos-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Extracto seco total del camembert por mes</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Cómo se lee:</strong></p>
+<ul>
+<li>Cada caja contiene la mitad central de los datos del mes; la línea interior es la mediana, no la media. Los puntos son las fabricaciones; por eso se ocultan los atípicos de la caja (<code>outlier.shape = NA</code>), que si no aparecerían dos veces.</li>
+<li>Julio destaca: su mediana (49,59 %) es la más alta del año. Agosto y septiembre siguen por encima del resto (47,75 y 47,30 %); los demás meses están entre 45,4 y 47,0 %.</li>
+<li>Mezclados todos los meses, el valor de 52,61 % parecía un atípico. Separados por meses, se ve que forma parte de un verano con valores altos: la estratificación cambia la interpretación.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Con pocos datos por grupo (menos de unos 25), los cuartiles son poco fiables. Aquí cada mes tiene entre 13 y 22 fabricaciones: por eso se añaden los puntos individuales sobre las cajas.</li>
+<li>Si solo hay un grupo, un boxplot dice poco: mejor un histograma (ficha 4).</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 5 (boxplot) y capítulo 12 (boxplot mensual del extracto seco).</p>
+</section>
+<section id="ficha-12.-diagrama-de-dispersión" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-12.-diagrama-de-dispersión">Ficha 12. Diagrama de dispersión</h3>
+<blockquote class="blockquote">
+<p><strong>Para saber si dos variables se mueven juntas, dibuja una frente a la otra.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> ver si existe relación entre dos variables numéricas y medir su intensidad con el coeficiente de correlación.</p>
+<p><strong>Cuándo usarlo:</strong> cuando sospechamos que una variable del proceso influye en otra.</p>
+<p><strong>Qué datos necesita:</strong> dos columnas numéricas medidas en los mismos casos.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/camembert.csv"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> mg, <span class="at">y =</span> est)) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">colour =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Relación entre materia grasa y extracto seco total"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Materia grasa (%)"</span>, <span class="at">y =</span> <span class="st">"Extracto seco total (%)"</span>) <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="170-caja-herramientas_files/figure-html/f12-dispersion-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Extracto seco total frente a materia grasa del camembert</figcaption>
+</figure>
+</div>
+</div>
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>est, df<span class="sc">$</span>mg)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4903122</code></pre>
+</div>
+</div>
+<p><strong>Cómo se lee:</strong></p>
+<ul>
+<li>La nube sube de izquierda a derecha: los quesos con más materia grasa tienden a tener más extracto seco.</li>
+<li>El coeficiente de correlación es 0,49: una relación positiva moderada. La nube es ancha, así que la materia grasa explica solo una parte de las diferencias de extracto seco.</li>
+<li>Hay tres puntos alejados de la nube (capítulo 12) que conviene revisar antes de sacar conclusiones.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Correlación no implica causalidad: dos variables pueden moverse juntas porque las dos dependen de una tercera.</li>
+<li>Un coeficiente de correlación sin gráfico puede engañar: siempre hay que mirar la nube.</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 8 (correlación) y capítulo 12 (dispersión <code>est</code> frente a <code>mg</code>).</p>
+</section>
+<section id="ficha-13.-gráfico-de-interacción" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-13.-gráfico-de-interacción">Ficha 13. Gráfico de interacción</h3>
+<blockquote class="blockquote">
+<p><strong>Si el efecto de un factor depende del otro, las líneas no son paralelas.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> ver en un experimento con dos factores si el efecto de uno depende del nivel del otro (interacción).</p>
+<p><strong>Cuándo usarlo:</strong> para analizar un experimento diseñado, como el diseño factorial 2² del capítulo 10.</p>
+<p><strong>Qué datos necesita:</strong> los resultados del experimento, con una columna para cada factor y otra para la respuesta.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/experimento_cuajo.csv"</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(<span class="at">x.factor     =</span> df<span class="sc">$</span>dosis_cuajo,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">trace.factor =</span> df<span class="sc">$</span>temperatura,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">response     =</span> df<span class="sc">$</span>retencion_pct,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xlab         =</span> <span class="st">"Dosis de cuajo (ml/100 L)"</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">ylab         =</span> <span class="st">"Recuperación ESM/MP media (%)"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>                 <span class="at">trace.label  =</span> <span class="st">"Temperatura (°C)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="170-caja-herramientas_files/figure-html/f13-interaccion-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Interacción entre la dosis de cuajo y la temperatura</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Cómo se lee:</strong></p>
+<ul>
+<li>Cada línea es una temperatura; cada punto, la media de las fabricaciones con esa combinación.</li>
+<li>A 30 °C, subir la dosis de 20 a 30 ml/100 L mejora la recuperación en más de un punto (de 93,75 % a 94,96 %). A 34 °C la mejora desaparece (de 95,34 % a 95,31 %).</li>
+<li>Las líneas no son paralelas: hay interacción. El efecto de la dosis depende de la temperatura.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Este gráfico solo tiene sentido con datos de un experimento diseñado, en el que los factores se han fijado a propósito. Con datos históricos, otras variables pueden estar cambiando a la vez.</li>
+<li>Antes de concluir, hay que comparar las diferencias con la variabilidad entre réplicas (capítulo 10).</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 10 (diseño de experimentos).</p>
+</section>
+<section id="lista-de-comprobación-analizar" class="level3">
+<h3 class="anchored" data-anchor-id="lista-de-comprobación-analizar">Lista de comprobación: Analizar</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">¿Se han recogido las causas posibles con el equipo (causa-efecto) sin culpar a personas?</label></li>
+<li><label><input type="checkbox">¿Se ha priorizado con datos (Pareto) antes de buscar la causa raíz?</label></li>
+<li><label><input type="checkbox">¿Se ha estratificado por mes, turno, línea u operario para ver si algún grupo se comporta distinto?</label></li>
+<li><label><input type="checkbox">¿Cada causa raíz propuesta está comprobada con datos, y no solo con la opinión del equipo?</label></li>
+<li><label><input type="checkbox">¿Se distingue entre causas especiales (sucesos concretos) y causas comunes (el sistema)?</label></li>
+</ul>
+</section>
+</section>
+<section id="mejorar" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="mejorar"><span class="header-section-number">17.5</span> Mejorar</h2>
+<p>La fase Mejorar responde a la pregunta <strong>¿qué solución elimina la causa raíz?</strong> Antes de implantar un cambio conviene estimar su efecto, y después hay que diseñarlo para que el error no pueda repetirse.</p>
+<section id="ficha-14.-cuántos-quedarán-fuera-del-límite" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-14.-cuántos-quedarán-fuera-del-límite">Ficha 14. ¿Cuántos quedarán fuera del límite?</h3>
+<blockquote class="blockquote">
+<p><strong>Antes de cambiar el proceso, calcula qué ganarías.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> estimar qué porcentaje de unidades quedará fuera de un límite con una media y una desviación típica dadas, para comparar escenarios de mejora.</p>
+<p><strong>Cuándo usarla:</strong> al evaluar una solución, antes de implantarla, y para fijar la media de trabajo.</p>
+<p><strong>Qué datos necesita:</strong> la media y la desviación típica del proceso (de la ficha 7) y el límite.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Porcentaje de envases bajo T1 = 143,2 g en tres escenarios (capítulo 9)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">143.2</span>, <span class="at">mean =</span> <span class="fl">153.1</span>, <span class="at">sd =</span> <span class="fl">2.5</span>) <span class="sc">*</span> <span class="dv">100</span>   <span class="co"># proceso estable actual</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.003747488</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">143.2</span>, <span class="at">mean =</span> <span class="fl">153.1</span>, <span class="at">sd =</span> <span class="fl">3.5</span>) <span class="sc">*</span> <span class="dv">100</span>   <span class="co"># si la desviación típica sube a 3,5 g</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2337813</code></pre>
+</div>
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">143.2</span>, <span class="at">mean =</span> <span class="dv">150</span>,   <span class="at">sd =</span> <span class="fl">3.5</span>) <span class="sc">*</span> <span class="dv">100</span>   <span class="co"># y además la media baja a 150 g</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.601671</code></pre>
+</div>
+</div>
+<p><strong>Cómo se lee:</strong></p>
+<ul>
+<li>Con el proceso estable, la proporción esperada bajo T1 es prácticamente nula (0,004 %).</li>
+<li>Si la desviación típica sube a 3,5 g, sube al 0,23 %; si además la media baja a 150 g, llega al 2,6 %, por encima del 2,5 % de referencia.</li>
+<li>Reducir la variabilidad permite acercar la media a Qn sin aumentar el riesgo: es el ahorro de la etapa 2 del capítulo 14.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>El cálculo supone que los datos siguen una distribución normal (compruébalo con un QQ-plot, capítulo 7) y que el proceso es estable.</li>
+<li>Las causas especiales no entran en el cálculo: con el proceso estable se esperaba un 0,004 % bajo T1, y en el turno real hubo un 2,1 %.</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 7 (distribución normal), capítulo 9 (escenarios) y capítulo 14 (etapas de mejora).</p>
+</section>
+<section id="ficha-15.-a-prueba-de-errores-poka-yoke-y-estandarización" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-15.-a-prueba-de-errores-poka-yoke-y-estandarización">Ficha 15. A prueba de errores (<em>poka-yoke</em>) y estandarización</h3>
+<blockquote class="blockquote">
+<p><strong>La mejor solución es la que impide que el error vuelva a ocurrir.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> convertir la causa raíz en una solución que no dependa de la memoria ni de la atención de las personas.</p>
+<p><strong>Cuándo usarla:</strong> al diseñar la solución, una vez confirmada la causa raíz.</p>
+<p><strong>Qué datos necesita:</strong> la causa raíz y el conocimiento del proceso.</p>
+</div>
+</div>
+</div>
+<p>De más a menos eficaz:</p>
+<ol type="1">
+<li><strong>Eliminar la posibilidad de error</strong> (<em>poka-yoke</em>): el proceso no permite equivocarse. Ejemplo: control de viscosidad en la recepción de cada cuba; si está fuera de rango, la cuba no se incorpora a la línea sin un ajuste previo.</li>
+<li><strong>Detectar el error automáticamente</strong>: una alarma avisa antes de que haya consecuencias. Ejemplo: alarma cuando la media de tres subgrupos consecutivos se separa más de 1,5 g del objetivo.</li>
+<li><strong>Estandarizar el trabajo</strong>: un procedimiento escrito que todos siguen igual. Ejemplos: ajuste máximo de ±0,5 g por intervención, con verificación antes del siguiente; protocolo de cambio de turno con verificación de peso y firma.</li>
+<li><strong>Mantenimiento preventivo</strong>: revisión periódica de pistones y juntas para evitar la deriva.</li>
+</ol>
+<p>Todas estas acciones son las del plan de acción del capítulo 14.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>«Formar al operario» o «tener más cuidado» no son soluciones por sí solas: dependen de que nadie se equivoque nunca.</li>
+<li>Antes de implantar el cambio en toda la planta, conviene probarlo en una línea o en unos turnos (prueba piloto) y medir su efecto.</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 14 (diagnóstico 5M y planes de acción) y capítulo 16 (Lean y estandarización).</p>
+</section>
+<section id="lista-de-comprobación-mejorar" class="level3">
+<h3 class="anchored" data-anchor-id="lista-de-comprobación-mejorar">Lista de comprobación: Mejorar</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">¿La solución actúa sobre la causa raíz y no sobre el síntoma?</label></li>
+<li><label><input type="checkbox">¿Se ha estimado su efecto antes de implantarla (ficha 14)?</label></li>
+<li><label><input type="checkbox">¿Impide el error o solo pide más atención a las personas?</label></li>
+<li><label><input type="checkbox">¿Se ha probado a pequeña escala antes de extenderla?</label></li>
+<li><label><input type="checkbox">¿Se ha medido de nuevo después del cambio para confirmar la mejora?</label></li>
+</ul>
+</section>
+</section>
+<section id="controlar" class="level2" data-number="17.6">
+<h2 data-number="17.6" class="anchored" data-anchor-id="controlar"><span class="header-section-number">17.6</span> Controlar</h2>
+<p>La fase Controlar responde a la pregunta <strong>¿cómo mantenemos la mejora?</strong> Sin seguimiento, los procesos vuelven a su comportamiento anterior.</p>
+<section id="ficha-16.-gráfico-de-control" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-16.-gráfico-de-control">Ficha 16. Gráfico de control</h3>
+<blockquote class="blockquote">
+<p><strong>Para saber si hay que actuar o dejar el proceso tranquilo, mira el gráfico de control.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> vigilar el proceso en el tiempo y distinguir la variabilidad normal (causas comunes) de las señales de un cambio (causas especiales).</p>
+<p><strong>Cuándo usarlo:</strong> en la línea, de forma continua, y en Medir para conocer el comportamiento del proceso.</p>
+<p><strong>Qué datos necesita:</strong> mediciones en orden cronológico; con subgrupos (por ejemplo, 5 envases cada 3 minutos) o con valores individuales.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Código</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qicharts2)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/llenado_yogures_muestra.csv"</span>,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>))</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qic</span>(<span class="at">x =</span> muestra, <span class="at">y =</span> peso_g, <span class="at">data =</span> df,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">chart  =</span> <span class="st">"xbar"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">freeze =</span> <span class="dv">10</span>,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title  =</span> <span class="st">"Gráfico X-barra del peso de los yogures"</span>,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab   =</span> <span class="st">"Peso medio del subgrupo (g)"</span>,</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab   =</span> <span class="st">"Subgrupo (uno cada 3 minutos)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="170-caja-herramientas_files/figure-html/f16-control-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Gráfico X-barra del peso de los yogures</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Cómo se lee:</strong></p>
+<ul>
+<li>Los límites se calculan con los 10 primeros subgrupos (<code>freeze = 10</code>), el periodo sin incidentes.</li>
+<li>Las dos señales de alarma son un punto fuera de los límites y una racha larga al mismo lado de la línea central. <code>qicharts2</code> marca las dos.</li>
+<li>En el gráfico se reconocen los incidentes del turno que analizamos en el capítulo 9: la deriva de las 08:30, la sobrecorrección, la deriva descendente y el escalón del cambio de turno.</li>
+<li>Para controlar la dispersión dentro de cada subgrupo se usa el gráfico S: basta cambiar <code>chart = "s"</code>. Para valores individuales (una medida cada vez, como el extracto seco de cada fabricación), <code>chart = "i"</code>.</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Sin señales, no se toca el proceso: los ajustes innecesarios añaden variabilidad.</li>
+<li>Con una señal, primero se investiga la causa y después se actúa. Corregir sin entender qué ha pasado produjo la sobrecorrección del turno.</li>
+<li>Los límites de control no son los límites legales (T1, T2): salen del propio proceso.</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 9 (control estadístico de procesos) y capítulo 11 (el gráfico de control para el panel de planta).</p>
+</section>
+<section id="ficha-17.-plan-de-control" class="level3">
+<h3 class="anchored" data-anchor-id="ficha-17.-plan-de-control">Ficha 17. Plan de control</h3>
+<blockquote class="blockquote">
+<p><strong>Una mejora que no está escrita en el plan de control se pierde.</strong></p>
+</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Para qué sirve:</strong> dejar escrito qué se vigila, cómo, cada cuánto, quién lo hace y qué hacer si algo se sale de lo previsto.</p>
+<p><strong>Cuándo usarlo:</strong> al cerrar el proyecto, para que la mejora se mantenga cuando el equipo de mejora ya no esté.</p>
+<p><strong>Qué datos necesita:</strong> las variables críticas, sus límites y las acciones de las fases anteriores.</p>
+</div>
+</div>
+</div>
+<p><strong>Ejemplo (llenado de yogures, con las acciones del capítulo 14):</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Qué se controla</th>
+<th>Cómo</th>
+<th>Frecuencia</th>
+<th>Criterio</th>
+<th>Quién</th>
+<th>Si no se cumple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Peso del envase</td>
+<td>Gráfico X-barra y S (ficha 16)</td>
+<td>5 envases cada 3 minutos</td>
+<td>Dentro de los límites de control</td>
+<td>Operario de línea</td>
+<td>Investigar la causa; ajuste máximo de ±0,5 g</td>
+</tr>
+<tr class="even">
+<td>Viscosidad del producto</td>
+<td>Medida en la recepción de cada cuba</td>
+<td>Cada cuba</td>
+<td>Dentro del rango aceptado</td>
+<td>Calidad</td>
+<td>No incorporar la cuba sin ajuste</td>
+</tr>
+<tr class="odd">
+<td>Temperatura en el depósito</td>
+<td>Termómetro</td>
+<td>Cada hora</td>
+<td>Dentro del rango fijado</td>
+<td>Operario de línea</td>
+<td>Ajustar la temperatura antes de continuar</td>
+</tr>
+<tr class="even">
+<td>Cambio de turno</td>
+<td>Verificación de peso y firma</td>
+<td>Cada cambio</td>
+<td>Peso conforme antes de liberar la línea</td>
+<td>Operario entrante</td>
+<td>No liberar la línea</td>
+</tr>
+<tr class="odd">
+<td>Pistones y juntas</td>
+<td>Revisión preventiva</td>
+<td>Cada N turnos</td>
+<td>Según el plan de mantenimiento</td>
+<td>Mantenimiento</td>
+<td>Sustituir piezas</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Atención
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Cada fila tiene que tener un responsable con nombre de puesto: lo que es de todos no lo hace nadie.</li>
+<li>El plan se revisa cuando cambia el proceso, el producto o el equipo.</li>
+</ul>
+</div>
+</div>
+<p><strong>Lo vimos en:</strong> capítulo 14 (planes de acción) y capítulo 15 (seguimiento con indicadores).</p>
+</section>
+<section id="lista-de-comprobación-controlar" class="level3">
+<h3 class="anchored" data-anchor-id="lista-de-comprobación-controlar">Lista de comprobación: Controlar</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">¿Hay un gráfico de control en la línea, con límites calculados en un periodo estable?</label></li>
+<li><label><input type="checkbox">¿Sabe el operario qué hacer ante cada señal, y qué no hacer si no hay señales?</label></li>
+<li><label><input type="checkbox">¿Está escrito el plan de control, con responsables y frecuencias?</label></li>
+<li><label><input type="checkbox">¿Se ha comprobado que la mejora se mantiene semanas después (<span class="math inline">\(C_{pk}\)</span>, porcentaje fuera de límites)?</label></li>
+<li><label><input type="checkbox">¿Se han actualizado los procedimientos y se ha formado al equipo?</label></li>
+</ul>
+</section>
+</section>
+<section id="caso-completo-el-turno-del-1-de-octubre" class="level2" data-number="17.7">
+<h2 data-number="17.7" class="anchored" data-anchor-id="caso-completo-el-turno-del-1-de-octubre"><span class="header-section-number">17.7</span> Caso completo: el turno del 1 de octubre</h2>
+<p>El turno de yogures que hemos seguido en los capítulos 9 y 14 sirve para recorrer las cinco fases con las fichas.</p>
+<p><strong>Definir.</strong> El lote del 1 de octubre no es conforme: 198 envases bajo T1 y 14 bajo T2 (ficha 1). El proceso se delimita desde la recepción de la cuba hasta el control de peso (ficha 2).</p>
+<p><strong>Medir.</strong> El peso se mide en 5 envases cada 3 minutos, con hora de llenado (ficha 3). El histograma del turno muestra una cola izquierda larga (ficha 4). En el periodo sin incidentes, el proceso tiene un <span class="math inline">\(C_{pk}\)</span> de 1,32 frente a T1 (ficha 7): es capaz cuando funciona sin incidentes.</p>
+<p><strong>Analizar.</strong> El equipo recoge las causas posibles en el diagrama causa-efecto (ficha 8). El Pareto de los envases bajo T1 señala la sobrecorrección como la causa principal (ficha 10), y los cinco porqués la llevan a la falta de un criterio escrito de ajuste y a la deriva de la llenadora (ficha 9).</p>
+<p><strong>Mejorar.</strong> Las acciones son un criterio de ajuste máximo, el control de viscosidad en la recepción, el protocolo de cambio de turno, el control de temperatura del producto y el mantenimiento preventivo (ficha 15). Con el proceso estable, la proporción esperada bajo T1 es prácticamente nula (ficha 14); reduciendo después la desviación típica de 2,5 a 1,8 g, la media puede bajar de 153 a 150,4 g y ahorrar 6.589 € al año (capítulo 14).</p>
+<p><strong>Controlar.</strong> El gráfico de control queda en el panel de la línea (ficha 16) y el plan de control recoge quién vigila cada variable y qué hacer si se sale de lo previsto (ficha 17).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Para el aula
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Repetid el recorrido con los datos del camembert (<code>camembert.csv</code>): definid el problema de las reclamaciones por queso seco de agosto (capítulo 12) y elegid, fase a fase, qué fichas usaríais y en qué orden.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Para saber más: el paquete SixSigma
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>El paquete <code>SixSigma</code>, de Emilio L. Cano y otros autores, reúne herramientas organizadas según las fases del ciclo DMAIC: mapa de proceso, diagrama causa-efecto, estudio de repetibilidad y reproducibilidad (Gage R&amp;R), análisis de capacidad y gráficos de control, entre otras. Sus salidas son más completas y más técnicas que las de este capítulo, y están pensadas para proyectos Six Sigma. Acompaña al libro <em>Quality Control with R</em> <span class="citation" data-cites="cano2015">(<a href="400-bibliografia.html#ref-cano2015" role="doc-biblioref">Cano et&nbsp;al. 2015</a>)</span>. El código y la documentación están en su repositorio: <a href="https://github.com/emilopezcano/SixSigma" class="uri">https://github.com/emilopezcano/SixSigma</a>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="resumen-del-capítulo-y-cierre-del-libro" class="level2" data-number="17.8">
+<h2 data-number="17.8" class="anchored" data-anchor-id="resumen-del-capítulo-y-cierre-del-libro"><span class="header-section-number">17.8</span> Resumen del capítulo y cierre del libro</h2>
+<p>Las fichas de este capítulo reúnen, en el orden del ciclo DMAIC, las herramientas que hemos aprendido a lo largo del libro: definir el problema con cifras, medir con datos fiables, buscar la causa raíz con el equipo y con los datos, diseñar soluciones que impidan el error y mantener la mejora con un gráfico de control y un plan escrito. Ninguna exige más de unas pocas líneas de R.</p>
+<p>Pero más allá de las metodologías y las herramientas, lo que hace que una organización mejore de verdad es algo más sencillo y más difícil a la vez: la cultura de hacer preguntas, de medir antes de opinar, de buscar causas raíz en lugar de culpables, y de ver en cada problema una oportunidad de aprendizaje. Esa cultura es lo que este libro ha intentado transmitir, a través de los datos de los pingüinos de Palmer, de los partidos de La Liga, de los quesos camembert, de los yogures de 150 g y de todos los demás ejemplos que hemos analizado juntos.</p>
+<p>Los datos no mienten. Pero tampoco hablan solos. Necesitan alguien que sepa escucharlos.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-brook2010" class="csl-entry" role="listitem">
+Brook, Quentin. 2010. <em>Lean Six Sigma and Minitab: The Complete Toolbox Guide for All Lean Six Sigma Practitioners</em>. 3.ª ed. OPEX Resources.
+</div>
+<div id="ref-cano2015" class="csl-entry" role="listitem">
+Cano, Emilio L., Javier M. Moguerza, y Mariano Prieto Corcoba. 2015. <em>Quality Control with R: An ISO Standards Approach</em>. Use R! Springer. <a href="https://doi.org/10.1007/978-3-319-24046-6">https://doi.org/10.1007/978-3-319-24046-6</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./160-mejora-continua.html" class="pagination-link" aria-label="La mejora continua y el análisis de datos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">La mejora continua y el análisis de datos</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./300-glosario.html" class="pagination-link" aria-label="Glosario de términos">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glosario de términos</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -37,6 +37,7 @@ book:
       chapters: 
       - 150-variabilidad.qmd
       - 160-mejora-continua.qmd
+      - 170-caja-herramientas.qmd
   appendices: 
     - 300-glosario.qmd
     - 310-apendice-entorno.qmd
