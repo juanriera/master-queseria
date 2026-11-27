@@ -4,10 +4,20 @@ Historial de versiones del libro *La mejora continua en la producción quesera*.
 Los cambios menores (correcciones ortográficas, ajustes de formato, pequeñas aclaraciones) no se registran aquí; pueden consultarse en el [historial de commits del repositorio](https://github.com/juanriera/mejora-continua/commits/master).
 
 ## Noviembre 2026
-Revisión de errores en todos los capítulos.
-Los capítulos de precio de la leche, balance de materia y rendimientos, y el apéndice de simulación de datos de fabricación, se trasladan a un libro específico de tecnología quesera. Se reorganiza la parte de aplicaciones.
+
+- Revisión de errores en todos los capítulos y apéndices: cifras, datos, terminología y referencias verificadas.
+- Los capítulos de precio de la leche, balance de materia y rendimientos, y el apéndice de simulación de datos de fabricación, se trasladan a un libro específico de tecnología quesera. Se reorganiza la parte de aplicaciones.
+- **Cap. 14 — RD 1801/2008:** criterios verificados en el BOE (T1, T2, plan de muestreo del cuadro 2 y criterio de la media); el 2,5 % de envases deficientes se atribuye a la guía WELMEC 6.5, no al RD.
+- El caso del turno de envasado de yogures se unifica en los caps. 9, 14, 15 y 17, con su script de simulación en `scripts/`.
+- El diagnóstico de causas pasa de las 5M a las 6M, con la medición como sexta categoría.
+- **Cap. 17 nuevo — La caja de herramientas de la mejora continua:** 17 fichas ordenadas por las fases DMAIC, con código R y un caso completo.
+- Glosario ampliado y actualizado; índice de datasets completo.
+- Las referencias entre capítulos y apéndices son ahora enlaces.
 
 ## Marzo 2026 — primera versión pública
+
+*Numeración de capítulos de esa versión: los antiguos caps. 16, 17, 19 y 20 son ahora los 13, 14, 15 y 16.*
+
 ### Capítulos nuevos
 
 - **Cap. 11 — Comunicación de resultados:** principios de Tufte y chartjunk, gráficos a evitar, Visual Vocabulary del Financial Times, ejemplos comparativos, gráfico de control para panel de planta, informes reproducibles.

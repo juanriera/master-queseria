@@ -83,8 +83,8 @@ Este libro se ha realizado utilizando [RStudio Desktop](https://posit.co/product
 
 ## Versiones {.content-visible when-format="html"}
 
-La última versión de este documento es de noviembre de 2026, con correcciones de errores. Los capítulos de precio de la leche, balance de materia y rendimientos, y el apéndice de simulación de datos de fabricación, se trasladan a un libro específico de tecnología quesera. Se reorganiza la parte de aplicaciones.
+La última versión de este documento es de noviembre de 2026. Corrige errores en todos los capítulos, incorpora el capítulo [-@sec-caja-herramientas], una caja de herramientas de la mejora continua ordenada por las fases DMAIC, y amplía el glosario. Los capítulos de precio de la leche, balance de materia y rendimientos, y el apéndice de simulación de datos de fabricación, se trasladan a un libro específico de tecnología quesera.
 
 La primera versión pública es de marzo de 2026. Incorpora los capítulos de comunicación de resultados, variabilidad industrial y mejora continua, el glosario completo y revisiones en los capítulos de correlación, SPC, DoE, sistema de medición y RD 1801/2008.
 
-[Ver historial completo de versiones en →](https://github.com/juanriera/mejora-continua/blob/master/registro-de-cambios.md)
+[Ver el historial completo de versiones →](https://github.com/juanriera/mejora-continua/blob/master/registro-de-cambios.md)
