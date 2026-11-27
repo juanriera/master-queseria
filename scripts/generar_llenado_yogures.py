@@ -1,6 +1,6 @@
 """Simula un turno de llenado de yogures de 150 g (media sin incidentes 153 g, σ = 2,5 g) (1/10/2024, 08:00-16:00, un envase cada 3 s)
 y extrae la muestra para gráficos de control (5 envases cada 3 min, separados ~45 s).
-Uso, desde la carpeta raíz del libro: python python/generar_llenado_yogures.py
+Uso, desde la carpeta raíz del libro: python scripts/generar_llenado_yogures.py
 (escribe en datos/; se puede indicar otra carpeta como argumento)"""
 import sys, numpy as np, pandas as pd
 
