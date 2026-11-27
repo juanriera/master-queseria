@@ -379,7 +379,7 @@ cause.and.effect(
     "Mano de obra" = c("Sobrecorrección", "Cambio de turno"),
     "Material"     = c("Viscosidad"),
     "Método"       = c("Temperatura")),
-  effect = "Variabilidad del peso",
+  effect = "Peso irregular",
   title  = "Llenado de yogures")
 ```
 
@@ -449,6 +449,7 @@ En el turno de yogures del 1 de octubre (capítulo 14) hubo 198 envases por deba
 #| code-fold: show
 #| message: false
 #| warning: false
+#| results: hide
 #| fig-cap: "Envases bajo T1 en el turno del 1 de octubre, por causa"
 library(qcc)
 
@@ -460,7 +461,8 @@ bajo_T1 <- c("Sobrecorrección\n(mano de obra)" = 166,
 pareto.chart(bajo_T1,
              main  = "Envases bajo T1 por causa",
              ylab  = "Envases bajo T1",
-             ylab2 = "Porcentaje acumulado")
+             ylab2 = "Porcentaje acumulado",
+             las   = 1)
 ```
 
 **Cómo se lee:**

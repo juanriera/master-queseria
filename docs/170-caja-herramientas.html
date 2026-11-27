@@ -1075,7 +1075,7 @@ window.Quarto = {
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Mano de obra"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Sobrecorrección"</span>, <span class="st">"Cambio de turno"</span>),</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Material"</span>     <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Viscosidad"</span>),</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Método"</span>       <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Temperatura"</span>)),</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">effect =</span> <span class="st">"Variabilidad del peso"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">effect =</span> <span class="st">"Peso irregular"</span>,</span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">title  =</span> <span class="st">"Llenado de yogures"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
@@ -1215,7 +1215,8 @@ window.Quarto = {
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">pareto.chart</span>(bajo_T1,</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">main  =</span> <span class="st">"Envases bajo T1 por causa"</span>,</span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">ylab  =</span> <span class="st">"Envases bajo T1"</span>,</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">ylab2 =</span> <span class="st">"Porcentaje acumulado"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">ylab2 =</span> <span class="st">"Porcentaje acumulado"</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">las   =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1224,14 +1225,6 @@ window.Quarto = {
 <figcaption>Envases bajo T1 en el turno del 1 de octubre, por causa</figcaption>
 </figure>
 </div>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                                 
-Pareto chart analysis for bajo_T1
-                                   Frequency  Cum.Freq. Percentage Cum.Percent.
-  Sobrecorrección\n(mano de obra) 166.000000 166.000000  83.838384    83.838384
-  Alta variabilidad\n(material)    27.000000 193.000000  13.636364    97.474747
-  Deriva descendente\n(método)      5.000000 198.000000   2.525253   100.000000</code></pre>
 </div>
 </div>
 <p><strong>Cómo se lee:</strong></p>
@@ -1279,20 +1272,20 @@ Pareto chart analysis for bajo_T1
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/camembert.csv"</span>,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fecha =</span> <span class="fu">dmy</span>(fecha),</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">mes   =</span> <span class="fu">month</span>(fecha, <span class="at">label =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> mes, <span class="at">y =</span> est)) <span class="sc">+</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.15</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">decimal.mark =</span> <span class="st">","</span>)) <span class="sc">+</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Extracto seco total por mes"</span>,</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Extracto seco total (%)"</span>) <span class="sc">+</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/camembert.csv"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fecha =</span> <span class="fu">dmy</span>(fecha),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">mes   =</span> <span class="fu">month</span>(fecha, <span class="at">label =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> mes, <span class="at">y =</span> est)) <span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.15</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">decimal.mark =</span> <span class="st">","</span>)) <span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Extracto seco total por mes"</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Extracto seco total (%)"</span>) <span class="sc">+</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1347,16 +1340,16 @@ Pareto chart analysis for bajo_T1
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/camembert.csv"</span>,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>))</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> mg, <span class="at">y =</span> est)) <span class="sc">+</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">colour =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Relación entre materia grasa y extracto seco total"</span>,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Materia grasa (%)"</span>, <span class="at">y =</span> <span class="st">"Extracto seco total (%)"</span>) <span class="sc">+</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/camembert.csv"</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> mg, <span class="at">y =</span> est)) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">colour =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Relación entre materia grasa y extracto seco total"</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Materia grasa (%)"</span>, <span class="at">y =</span> <span class="st">"Extracto seco total (%)"</span>) <span class="sc">+</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1368,7 +1361,7 @@ Pareto chart analysis for bajo_T1
 </div>
 <details open="" class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>est, df<span class="sc">$</span>mg)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>est, df<span class="sc">$</span>mg)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.4903122</code></pre>
@@ -1418,17 +1411,17 @@ Pareto chart analysis for bajo_T1
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/experimento_cuajo.csv"</span>,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>))</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(<span class="at">x.factor     =</span> df<span class="sc">$</span>dosis_cuajo,</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">trace.factor =</span> df<span class="sc">$</span>temperatura,</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">response     =</span> df<span class="sc">$</span>retencion_pct,</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xlab         =</span> <span class="st">"Dosis de cuajo (ml/100 L)"</span>,</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">ylab         =</span> <span class="st">"Recuperación ESM/MP media (%)"</span>,</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>                 <span class="at">trace.label  =</span> <span class="st">"Temperatura (°C)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/experimento_cuajo.csv"</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(<span class="at">x.factor     =</span> df<span class="sc">$</span>dosis_cuajo,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">trace.factor =</span> df<span class="sc">$</span>temperatura,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">response     =</span> df<span class="sc">$</span>retencion_pct,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">xlab         =</span> <span class="st">"Dosis de cuajo (ml/100 L)"</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">ylab         =</span> <span class="st">"Recuperación ESM/MP media (%)"</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>                 <span class="at">trace.label  =</span> <span class="st">"Temperatura (°C)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1497,22 +1490,22 @@ Pareto chart analysis for bajo_T1
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Porcentaje de envases bajo T1 = 143,2 g en tres escenarios (capítulo 9)</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">143.2</span>, <span class="at">mean =</span> <span class="fl">153.1</span>, <span class="at">sd =</span> <span class="fl">2.5</span>) <span class="sc">*</span> <span class="dv">100</span>   <span class="co"># proceso estable actual</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Porcentaje de envases bajo T1 = 143,2 g en tres escenarios (capítulo 9)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">143.2</span>, <span class="at">mean =</span> <span class="fl">153.1</span>, <span class="at">sd =</span> <span class="fl">2.5</span>) <span class="sc">*</span> <span class="dv">100</span>   <span class="co"># proceso estable actual</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.003747488</code></pre>
 </div>
 <details open="" class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">143.2</span>, <span class="at">mean =</span> <span class="fl">153.1</span>, <span class="at">sd =</span> <span class="fl">3.5</span>) <span class="sc">*</span> <span class="dv">100</span>   <span class="co"># si la desviación típica sube a 3,5 g</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">143.2</span>, <span class="at">mean =</span> <span class="fl">153.1</span>, <span class="at">sd =</span> <span class="fl">3.5</span>) <span class="sc">*</span> <span class="dv">100</span>   <span class="co"># si la desviación típica sube a 3,5 g</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2337813</code></pre>
 </div>
 <details open="" class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">143.2</span>, <span class="at">mean =</span> <span class="dv">150</span>,   <span class="at">sd =</span> <span class="fl">3.5</span>) <span class="sc">*</span> <span class="dv">100</span>   <span class="co"># y además la media baja a 150 g</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fl">143.2</span>, <span class="at">mean =</span> <span class="dv">150</span>,   <span class="at">sd =</span> <span class="fl">3.5</span>) <span class="sc">*</span> <span class="dv">100</span>   <span class="co"># y además la media baja a 150 g</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.601671</code></pre>
@@ -1619,18 +1612,18 @@ Pareto chart analysis for bajo_T1
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Código</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qicharts2)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/llenado_yogures_muestra.csv"</span>,</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>))</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qic</span>(<span class="at">x =</span> muestra, <span class="at">y =</span> peso_g, <span class="at">data =</span> df,</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">chart  =</span> <span class="st">"xbar"</span>,</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">freeze =</span> <span class="dv">10</span>,</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title  =</span> <span class="st">"Gráfico X-barra del peso de los yogures"</span>,</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab   =</span> <span class="st">"Peso medio del subgrupo (g)"</span>,</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab   =</span> <span class="st">"Subgrupo (uno cada 3 minutos)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qicharts2)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"datos/llenado_yogures_muestra.csv"</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">encoding =</span> <span class="st">"ISO-8859-1"</span>))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qic</span>(<span class="at">x =</span> muestra, <span class="at">y =</span> peso_g, <span class="at">data =</span> df,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">chart  =</span> <span class="st">"xbar"</span>,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">freeze =</span> <span class="dv">10</span>,</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title  =</span> <span class="st">"Gráfico X-barra del peso de los yogures"</span>,</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">ylab   =</span> <span class="st">"Peso medio del subgrupo (g)"</span>,</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">xlab   =</span> <span class="st">"Subgrupo (uno cada 3 minutos)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
