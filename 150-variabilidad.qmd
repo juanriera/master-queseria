@@ -30,6 +30,8 @@ Ningún proceso industrial produce resultados idénticos. Dos yogures fabricados
 
 Esta variación inevitable es la **variabilidad industrial**: la dispersión de los resultados de un proceso alrededor de su valor medio, causada por la suma de múltiples factores que actúan simultáneamente y que nunca se pueden controlar de forma perfecta.
 
+![Dos líneas de llenado con la misma media y distinta variabilidad. La línea B, con mayor desviación típica, reparte sus envases en un intervalo más amplio y se acerca más a Qn y a T1 (simulación de 9.600 envases por línea; script `scripts/figura_variabilidad_dos_lineas.py`)](imagenes/150/variabilidad-dos-lineas.svg)
+
 La variabilidad tiene tres características fundamentales que hay que entender antes de intentar gestionarla:
 
 **Es inevitable.** Todo proceso real tiene variabilidad. El objetivo nunca es eliminarla completamente — eso es imposible — sino reducirla hasta niveles que sean compatibles con los requisitos de calidad y con el coste que estamos dispuestos a asumir.
@@ -137,3 +139,11 @@ A lo largo del libro hemos visto las herramientas para medir la variabilidad en 
 Reducir la variabilidad es un proceso sistemático: medir, eliminar causas especiales, priorizar, actuar sobre las causas comunes, verificar y mantener. El seguimiento mediante indicadores y revisiones periódicas es lo que garantiza que las mejoras se mantienen en el tiempo.
 
 Finalmente, la variabilidad no es solo un problema: es información sobre el proceso. Cada episodio de variabilidad anómala es una oportunidad de aprendizaje. La mejora continua, que veremos en el capítulo siguiente, es precisamente la metodología para convertir esa información en acción sistemática.
+
+## Hoja resumen
+
+La hoja siguiente reúne en una sola página los conceptos sobre la variabilidad que hemos visto a lo largo del libro.
+
+![Hoja resumen: la variabilidad en la producción](imagenes/150/hoja-resumen-variabilidad.svg)
+
+[Descargar la hoja resumen en PDF (A4) para imprimir](imagenes/150/hoja-resumen-variabilidad.pdf)

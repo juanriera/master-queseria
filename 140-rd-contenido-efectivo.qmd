@@ -123,7 +123,11 @@ El RD no fija un porcentaje máximo de envases deficientes: el segundo requisito
 
 El cumplimiento se comprueba mediante muestreo estadístico del lote, con dos controles: uno sobre el número de envases deficientes y otro sobre la media.
 
-**Control de los envases deficientes.** Para un lote de más de 3.200 unidades, el caso habitual en una línea de yogures con un turno completo de producción, el procedimiento es el siguiente:
+**Control de los envases deficientes.** El plan de muestreo depende del tamaño del lote, según el cuadro 2 del RD (art. 11):
+
+![Cuadro 2 del RD 1801/2008: plan de muestreo para el control del número de envases deficientes](imagenes/140/tabla2.webp)
+
+Para un lote de más de 3.200 unidades, el caso habitual en una línea de yogures con un turno completo de producción, el procedimiento es el siguiente:
 
 - **Primera etapa:** se toman **80 envases** al azar. El lote se acepta si hay 3 o menos bajo T1 y se rechaza si hay 7 o más. Si el número de envases bajo T1 está entre 4 y 6, se pasa a la segunda etapa.
 - **Segunda etapa:** se toman **otros 80 envases** y se acumulan con los de la primera (160 en total). El lote se acepta si hay 8 o menos bajo T1 y se rechaza si hay 9 o más.

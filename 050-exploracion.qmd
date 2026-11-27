@@ -1584,9 +1584,11 @@ Algunos sitios tienen ejemplos de gráficos que puede resultar útil revisar:
 
 Una de las guías más conocidas y seguidas para la creación de gráficos es el [vocabulario visual del Financial Times](https://raw.githubusercontent.com/ft-interactive/chart-doctor/master/visual-vocabulary/poster.webp)
 
-También esta guía proporciona información sobre el uso adecuado de cada tipo de gráfico, facilitando la elección según el objetivo perseguido
+También esta guía proporciona información sobre el uso adecuado de cada tipo de gráfico, facilitando la elección según el objetivo perseguido:
 
-![](imagenes/050/1740294003188.jpg) ![](imagenes/050/1740121283445.jpg)
+![Guía para elegir el tipo de gráfico según lo que se quiere mostrar (© 2009 A. Abela; traducción de Víctor Caballero)](imagenes/050/que-grafico-elegir.webp)
+
+![](imagenes/050/1740121283445.jpg)
 
 ## Resumen del capítulo
 

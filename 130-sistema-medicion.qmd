@@ -64,6 +64,8 @@ La norma internacional **ISO 5725-1:2023** (*Accuracy (trueness and precision) o
 
 **Precisión** (*precision*): proximidad entre resultados independientes obtenidos en condiciones definidas. Un método preciso produce resultados muy parecidos entre sí, aunque no necesariamente cercanos al valor verdadero.
 
+![El sesgo es la distancia entre la media de los resultados y el valor de referencia (veracidad); la dispersión es la anchura de la distribución de los resultados (precisión)](imagenes/130/sesgo-dispersion.webp)
+
 ::: {.callout-tip}
 ## Una aclaración terminológica
 En el uso coloquial, "exacto" y "preciso" se usan como sinónimos. En metrología, son conceptos distintos: un método puede ser muy preciso (resultados muy parecidos entre sí) pero poco verídico (con sesgo), o verídico en promedio pero poco preciso (con mucha dispersión). En la norma ISO 5725-1:2023, la exactitud engloba las dos cosas: un resultado solo es exacto si el método es a la vez verídico y preciso.
@@ -452,8 +454,6 @@ Sin embargo, tiene una limitación importante: **no se puede transferir, no se p
 El análisis del sistema de medición no pretende sustituir ese conocimiento, sino complementarlo. Cuando cuantificamos el error analítico, convertimos una percepción subjetiva ("este analista es menos fiable") en un dato objetivable ("este analista tiene un sesgo de −0,35% en el método Gerber"). Eso permite actuar con precisión: formarle en la lectura correcta del butirómetro, no en todo el método.
 
 La combinación del conocimiento experto con la cuantificación sistemática del error es lo que caracteriza a un laboratorio de producción maduro.
-
-![¡Atención a los sesgos!](imagenes/130/SESGO-DE-MUESTREO.png)
 
 ## Resumen del capítulo
 

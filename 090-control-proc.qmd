@@ -116,6 +116,8 @@ Es la variabilidad que solo se hace visible cuando se analizan datos de semanas 
 - Degradación de catalizadores en procesos químicos
 - Deriva de calibración de instrumentos de medida
 
+![Gráfico de medias semanales del extracto seco total del camembert del capítulo 12, tal como lo genera la biblioteca `qcc` de R (rótulos en inglés). Los puntos rojos quedan fuera de los límites de control y los naranjas forman parte de rachas. Los recuadros, añadidos sobre la salida, delimitan periodos con distinto nivel medio: una variabilidad que solo se aprecia con datos de muchas semanas](imagenes/090/graf_control.webp)
+
 ::: {.callout-note}
 ## La variabilidad a largo plazo y los procedimientos
 Una de las causas más frecuentes e insidiosas de la variabilidad a largo plazo es la **deriva en los procedimientos**: los operarios van introduciendo pequeños ajustes informales que no quedan documentados y que con el tiempo se convierten en la forma habitual de trabajar, desviándose del procedimiento original sin que nadie lo haya decidido explícitamente.

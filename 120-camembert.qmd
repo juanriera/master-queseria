@@ -31,6 +31,8 @@ Al finalizar este capítulo, el alumno será capaz de:
 Conceptos clave: **análisis exploratorio, flujo de trabajo, valor atípico, error de entrada, estacionalidad, tendencia, variable derivada, humedad del queso desengrasado (hqd), distribución asimétrica positiva, recuento microbiológico, hipótesis de trabajo, plan de acción**.
 :::
 
+![Moldeo del camembert en multimoldes](imagenes/120/moulage.jpg){.column-margin}
+
 ::: {.callout-tip}
 ## Versión interactiva en Google Colab
 

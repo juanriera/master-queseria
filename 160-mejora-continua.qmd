@@ -23,6 +23,8 @@ Conceptos clave: **mejora continua, DMAIC, Lean Manufacturing, Six Sigma, defini
 
 La **mejora continua** es la filosofía de gestión que plantea que ningún proceso es perfecto y que siempre existe margen para mejorar — en calidad, en eficiencia, en reducción de variabilidad, en coste. No es un proyecto puntual que se hace y se acaba: es una forma sistemática y permanente de trabajar.
 
+![La mejora continua: avanzar con ajustes constantes en lugar de esperar al plan perfecto](imagenes/160/plan-perfecto.jpeg){width=70%}
+
 En la industria alimentaria en general, y en la quesería en particular, la mejora continua es especialmente relevante por varias razones. Los procesos son biológicos y por tanto inherentemente variables: la composición de la leche cambia con la estación, el cultivo iniciador evoluciona, las condiciones ambientales de maduración fluctúan. Esta variabilidad es la materia prima del trabajo de mejora: cada fuente de variación identificada y reducida es una ganancia real en calidad y en rentabilidad.
 
 La mejora continua no es una tarea exclusiva de los técnicos de calidad o de los ingenieros de proceso. Es una responsabilidad de toda la organización, desde el operario que detecta una anomalía en su turno hasta la dirección que decide invertir en un nuevo equipo de dosificación. Lo que diferencia a una organización que mejora de una que no mejora no es la ausencia de problemas — todos los procesos tienen problemas — sino la capacidad de identificarlos, cuantificarlos y resolverlos de forma sistemática.

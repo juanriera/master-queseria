@@ -59,6 +59,8 @@ Una **población** es el conjunto completo de casos que queremos estudiar. En mu
 
 Para que los resultados obtenidos a partir de la muestra sean válidos para la población, la muestra debe ser **representativa**, es decir, debe reflejar adecuadamente las características de la población. Esto se consigue mediante el **muestreo aleatorio**: cada caso de la población debe tener la misma probabilidad de ser seleccionado.
 
+![Una muestra no representativa: solo responden la encuesta quienes disfrutan respondiéndola](imagenes/040/SESGO-DE-MUESTREO.png)
+
 ::: callout-note
 #### Ejemplo: muestreo en una cámara de maduración
 

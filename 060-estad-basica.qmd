@@ -180,6 +180,8 @@ Como hemos visto en el apartado anterior, diferentes conjuntos de datos pueden t
 
 Ahora que conocemos cómo calcular un valor resumen de un conjunto de datos, podríamos utilizar una medida semejante para describir de qué forma en cada caso los valores se separan de la media. Podríamos utilizar una *distancia media*: calculamos las diferencias entre cada valor y la media, y hacemos su promedio: esto debería darnos una indicación de la magnitud de la separación de los valores en cada uno de los tres grupos.
 
+![Diferencias entre cada altura del aula 1 y la media, señalada con el punto de apoyo: las diferencias a un lado y a otro de la media se compensan](imagenes/060/plot_varianzas.webp)
+
 Usemos la hoja de cálculo para ello:
 
 ![Tres grupos de valores en la hoja de cálculo](imagenes/060/image-20221116113404185.webp)
@@ -378,4 +380,4 @@ Para completar la descripción es necesario medir la dispersión, es decir, cuá
 
 Estos estadísticos paramétricos son muy potentes cuando los datos tienen una distribución aproximadamente simétrica, pero son sensibles a los valores extremos. En esos casos, la mediana y el rango intercuartil, ya vistos en el boxplot del capítulo 5, resultan más robustos y seguros. En la práctica, ambos tipos de estadísticos se usan de forma complementaria. 
 
-En el capítulo 12 aplicaremos todos estos conceptos al análisis de una fabricación real de queso camembert.
+En el capítulo 12 aplicaremos todos estos conceptos al análisis de una fabricación real de queso camembert.
