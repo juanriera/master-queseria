@@ -68,7 +68,7 @@ El resto de este capítulo se centra en la segunda modalidad.
 
 Los envases que respondan a las modalidades de control estadístico de lotes establecidas en el RD pueden llevar impreso el **signo ℮** en el etiquetado (artículo 9). Su uso es voluntario. Este símbolo certifica, bajo responsabilidad del envasador o del importador, que el producto cumple con las disposiciones del real decreto, y actúa como «pasaporte» para la libre circulación del producto en el mercado europeo.
 
-![El signo ℮ certifica el cumplimiento del RD 1801/2008](imagenes/signo-e.svg){.column-margin}
+![El signo ℮ certifica el cumplimiento del RD 1801/2008](imagenes/140/signo-e.webp){.column-margin}
 
 ## El RD 1801/2008: qué exige la norma
 
@@ -78,7 +78,7 @@ Los envases que respondan a las modalidades de control estadístico de lotes est
 
 **Error máximo por defecto tolerado (EMDT):** la cantidad máxima que el contenido de un envase puede diferir en menos de la cantidad nominal. No es un valor fijo: depende del rango de cantidad nominal según el cuadro 1 del RD.
 
-![Cuadro 1 del RD 1801/2008: errores máximos por defecto tolerados](imagenes/tabla1.png)
+![Cuadro 1 del RD 1801/2008: errores máximos por defecto tolerados](imagenes/140/tabla1.webp)
 
 Para un yogur de 150 g (rango de 101 a 200 g), el EMDT es el **4,5% de la cantidad nominal**. El artículo 8 establece que los valores calculados a partir de un porcentaje se redondean por exceso a la décima de gramo:
 
@@ -117,7 +117,7 @@ El RD no fija un porcentaje máximo de envases deficientes: el segundo requisito
 | Envases bajo T2 | Ninguno |
 :::
 
-![Los límites T1 y T2 sobre la curva normal del proceso](imagenes/rd-1801-limite.png)
+![Los límites T1 y T2 sobre la curva normal del proceso](imagenes/140/rd-1801-limite.png)
 
 ### El procedimiento de muestreo
 
@@ -423,7 +423,7 @@ Es un razonamiento que existe en la práctica, y merece una respuesta en dos niv
 Un proceso que produce envases muy ligeros también produce envases muy pesados. Para evitar los primeros, el fabricante sube la media de dosificación, y con ello regala más producto en cada envase. Reducir la variabilidad es la única forma de escapar de ese dilema: permite bajar la media sin arriesgar el incumplimiento, y ese ahorro es cuantificable turno a turno.
 :::
 
-![Proceso centrado por encima de Qn: con media 152,5 g y σ = 4 g, solo el 1 % de los envases queda bajo T1, pero la diferencia entre la media y Qn es producto regalado en cada envase](imagenes/rd-1801-proceso.png)
+![Proceso centrado por encima de Qn: con media 152,5 g y σ = 4 g, solo el 1 % de los envases queda bajo T1, pero la diferencia entre la media y Qn es producto regalado en cada envase](imagenes/140/rd-1801-proceso.png)
 
 ## El discriminador de peso: solución inmediata, coste real
 
