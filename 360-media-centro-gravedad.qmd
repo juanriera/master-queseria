@@ -1,13 +1,14 @@
 ---
 lang: es
-title: "La media aritmética como centro de gravedad de un grupo de datos"
 engine: knitr
 ---
-![Balanza tradicional romana](imagenes/360/roldana.jpg){width=50%}
 
-Para ver cómo la media aritmética equivale al punto de equilibrio o centro de gravedad de un grupo de datos, imaginaremos que tenemos un conjunto de datos cuyos valores se distribuyen en un eje longitudinal X. Podemos hacer equivalentes estos valores a un conjunto de pesos que se distribuyen a lo largo de una barra, y vamos a suponer que existe un punto a una distancia $x$ del origen de la barra en el cual dicha barra está en equilibrio. Para encontrar ese valor, empezaremos considerando el principio o ley de la palanca.
+# La media aritmética como centro de gravedad de un grupo de datos {#sec-media-centro-gravedad}
+![Romana, balanza tradicional de brazos desiguales basada en la ley de la palanca](imagenes/360/romana.jpg){width=50%}
 
-El **Principio de la Palanca** o la **Ley de la Palanca** fue formulada por el científico y matemático griego Arquímedes. Este principio dice que, en equilibrio, el producto de la fuerza aplicada (potencia) por su distancia al punto de apoyo (brazo de la potencia) es igual al producto de la resistencia por su distancia al punto de apoyo (brazo de la resistencia). Matemáticamente, se expresa como: 
+Para ver cómo la media aritmética equivale al punto de equilibrio o centro de gravedad de un grupo de datos, imaginaremos que tenemos un conjunto de datos cuyos valores se distribuyen en un eje X. Podemos hacer equivalentes estos valores a un conjunto de pesos que se distribuyen a lo largo de una barra, y vamos a suponer que existe un punto a una distancia $x$ del origen de la barra en el cual dicha barra está en equilibrio. Para encontrar ese valor, empezaremos considerando el principio o ley de la palanca.
+
+El **principio** o **ley de la palanca** se conocía antes de Arquímedes, pero fue él quien dio su demostración matemática en el tratado *Sobre el equilibrio de los planos* (siglo III a. C.). Este principio dice que, en equilibrio, el producto de la fuerza aplicada (potencia) por su distancia al punto de apoyo (brazo de la potencia) es igual al producto de la resistencia por su distancia al punto de apoyo (brazo de la resistencia). Matemáticamente, se expresa como: 
 $$
 P \cdot d_p = R \cdot d_r
 $$
@@ -19,11 +20,9 @@ Donde:
 -   $R$ es la resistencia o carga.
 -   $d_r$ es la distancia desde el punto de apoyo hasta el punto donde se aplica la resistencia (BR: brazo de la resistencia).
 
-![Palanca de primer grado con el fulcro como punto de equilibrio](imagenes/360/palanca.jpeg){#fig-palanca-fulcro}
-
 ## Ejemplo
 
-Si tienes una palanca con una longitud de 5 metros y aplicas una fuerza de 10 Newtons a 1 metro del punto de apoyo, para mantener el equilibrio, la fuerza de resistencia en el otro extremo a 4 metros del punto de apoyo debería ser: 
+Si tienes una palanca de 5 metros de longitud y de peso despreciable, y aplicas una fuerza de 10 newtons a 1 metro del punto de apoyo, para mantener el equilibrio, la fuerza de resistencia en el otro extremo a 4 metros del punto de apoyo debería ser: 
 
 $$
 P \cdot d_p = R \cdot d_r
@@ -37,16 +36,16 @@ $$
 R = \frac{10 \cdot 1}{4} = 2{,}5 \text{ N}
 $$
 
-Ahora vamos a considerar el punto de equilibrio de una barra de la que se cuelgan diferentes pesos a diferente distancias de su origen. Calcular el punto de equilibrio de una barra de la que se cuelgan diferentes pesos a diferentes distancias de su origen es un problema clásico de física que se puede resolver usando el principio de momentos.
+Ahora vamos a considerar una barra, también de peso despreciable, de la que se cuelgan diferentes masas a diferentes distancias de su origen. Calcular su punto de equilibrio es un problema clásico de física que se resuelve con el principio de los momentos.
 
 ## Paso a paso
 
-1.  **Identificar las fuerzas**: Supongamos que tienes varios pesos $W_1, W_2, W_3, \ldots, W_n$ colgados a distancias $d_1, d_2, d_3, \ldots, d_n$ del origen de la barra.
+1.  **Identificar las fuerzas**: Supongamos que tienes varias masas $m_1, m_2, m_3, \ldots, m_n$ colgadas a distancias $d_1, d_2, d_3, \ldots, d_n$ del origen de la barra. Cada masa ejerce sobre la barra una fuerza, su peso, $W_i = m_i \cdot g$, donde $g$ es la aceleración de la gravedad.
 
-2.  **Calcular los momentos**: El momento ($M$) de un peso respecto al origen se calcula como el producto de la fuerza (peso) y su distancia al origen:
+2.  **Calcular los momentos**: El momento ($M$) de un peso respecto al origen es el producto de la fuerza (el peso) por su distancia al origen:
 
 $$
-    M_i = W_i \times d_i
+    M_i = W_i \times d_i = m_i \cdot g \times d_i
 $$
 
 3.  **Sumar los momentos**: Calcula la suma de todos los momentos: 
@@ -59,18 +58,20 @@ $$
     W_{\text{total}} = W_1 + W_2 + W_3 + \ldots + W_n
 $$
 
-5.  **Determinar el punto de equilibrio (**$x$): El punto de equilibrio se encuentra dividiendo la suma de los momentos por el peso total. El punto de apoyo está en equilibrio cuando los momentos de los pesos situados a cada lado se compensan, es decir, cuando $\sum W_i (d_i - x) = 0$; despejando $x$ se obtiene:
+5.  **Determinar el punto de equilibrio** ($x$): La barra está en equilibrio sobre el punto de apoyo cuando los momentos de los pesos situados a cada lado se compensan, es decir, cuando $\sum W_i (d_i - x) = 0$. Despejando $x$, el punto de equilibrio es la suma de los momentos dividida por el peso total:
 $$
-    x = \frac{\sum (W_i \times d_i)}{\sum W_i}
+    x = \frac{\sum (W_i \times d_i)}{\sum W_i} = \frac{\sum (m_i \cdot g \times d_i)}{\sum m_i \cdot g} = \frac{\sum (m_i \times d_i)}{\sum m_i}
 $$
+
+Como $g$ es la misma para todas las masas, se simplifica, y el punto de equilibrio puede calcularse directamente con las masas. En el ejemplo siguiente trabajamos así: los «momentos» se expresan en kg·m y la «masa total» en kg.
 
 ## Ejemplo práctico
 
-Supongamos que tenemos tres pesos de 4, 9 y 1 kg, situados, respectivamente, a 2, 1 y 3 m  del origen de la barra.
+Supongamos que tenemos tres masas de 4, 9 y 1 kg, situados, respectivamente, a 2, 1 y 3 m  del origen de la barra.
 
--   $W_1 = 4 \, \text{kg}$ a $d_1 = 2 \, \text{m}$
--   $W_2 = 9 \, \text{kg}$ a $d_2 = 1 \, \text{m}$
--   $W_3 = 1 \, \text{kg}$ a $d_3 = 3 \, \text{m}$
+-   $m_1 = 4 \, \text{kg}$ a $d_1 = 2 \, \text{m}$
+-   $m_2 = 9 \, \text{kg}$ a $d_2 = 1 \, \text{m}$
+-   $m_3 = 1 \, \text{kg}$ a $d_3 = 3 \, \text{m}$
 
 1.  **Calcular los momentos**: 
 $$
@@ -88,9 +89,9 @@ $$
     M_{\text{total}} = 8 + 9 + 3 = 20 \, \text{kg·m}
 $$
 
-3.  **Calcular el peso total**: 
+3.  **Calcular la masa total**: 
 $$
-    W_{\text{total}} = 4 + 9 + 1 = 14 \, \text{kg}
+    m_{\text{total}} = 4 + 9 + 1 = 14 \, \text{kg}
 $$
 
 4.  **Determinar el punto de equilibrio**:
@@ -103,7 +104,7 @@ El punto de equilibrio se encuentra a aproximadamente 1,43 metros del origen.
 
 ## Media ponderada
 
-En muchas situaciones, el centro de gravedad de un sistema de masas puede interpretarse como una **media ponderada** de las posiciones de las masas.
+El centro de gravedad de un sistema de masas, cuando la gravedad es la misma en todos sus puntos (como ocurre con cualquier objeto de tamaño ordinario), es una **media ponderada** de las posiciones de las masas, y coincide con su centro de masas.
 
 ### Media aritmética
 
@@ -226,12 +227,12 @@ Cuando las masas son idénticas, la media aritmética de las posiciones coincide
 Comparación gráfica del significado de la media en un diagrama de puntos (*dotplot*) con una palanca de primer grado, con el fulcro como punto de equilibrio.
 :::
 
-## Importancia del concepto de la media como centro de gravedad, y su comparación con la mediana.
+## La media como punto de equilibrio y la mediana
 
-Entender la media como punto de equilibrio tiene una consecuencia práctica directa: permite visualizar de forma intuitiva el efecto de los valores extremos u *outliers*.
+Entender la media como punto de equilibrio tiene una consecuencia práctica directa: permite visualizar de forma intuitiva el efecto de los valores extremos o atípicos (*outliers*).
 
 Cuando un conjunto de datos contiene un valor muy alejado del resto, ese valor actúa como un peso situado lejos del fulcro. Por la ley de la palanca, su momento (el producto de su masa, igual para todos los datos, por su distancia al punto de apoyo) es proporcional a esa distancia, de modo que un único valor muy alejado puede pesar tanto como muchos valores moderados juntos. El punto de equilibrio, es decir, la media, se desplaza hacia ese extremo, y puede dejar de representar al grupo mayoritario.
 
-Este valor extremo tiene dos efectos simultáneos: la media deja de representar bien al grupo mayoritario de valores, y la varianza (el promedio de las distancias al cuadrado) aumenta de forma mucho más acusada, porque la distancia del valor extremo se eleva al cuadrado.
+Además, el valor extremo hace aumentar mucho la varianza, que promedia los cuadrados de las distancias a la media, porque su distancia se eleva al cuadrado.
 
-La mediana, en cambio, no se ve afectada de la misma manera: al ser el valor central por orden de magnitud, un único dato extremo no puede desplazarla más allá de una posición. Por eso, ante distribuciones con valores atípicos, la mediana y el rango intercuartil son estadísticos más robustos y más fiables para describir el conjunto de datos.
+La mediana, en cambio, no se ve afectada de la misma manera: al ser el valor central de los datos ordenados, solo depende del orden. Un único dato extremo puede desplazarla, como mucho, a un valor contiguo en la ordenación, y alejarlo todavía más ya no la cambia. Por eso, ante distribuciones con valores atípicos, la mediana y el rango intercuartil son estadísticos más robustos y más fiables para describir el conjunto de datos.

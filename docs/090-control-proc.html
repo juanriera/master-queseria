@@ -428,7 +428,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-estad-entorno.html">Herramientas y técnicas básicas</a></li><li class="breadcrumb-item"><a href="./090-control-proc.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El control estadístico de procesos</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El control estadístico de procesos</span></h1>
+<h1 class="title"><span id="sec-control-procesos" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">El control estadístico de procesos</span></span></h1>
 </div>
 
 
@@ -554,7 +554,7 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>El extracto seco varía ±0,5% de forma aleatoria entre fabricaciones</td>
+<td>El extracto seco varía ±0,5&nbsp;% de forma aleatoria entre fabricaciones</td>
 <td>Común</td>
 <td>Revisar el proceso de estandarización y los equipos</td>
 </tr>
@@ -617,7 +617,7 @@ window.Quarto = {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="imagenes/090/graf_control.webp" class="img-fluid figure-img"></p>
-<figcaption>Gráfico de medias semanales del extracto seco total del camembert del capítulo 12, tal como lo genera la biblioteca <code>qcc</code> de R (rótulos en inglés). Los puntos rojos quedan fuera de los límites de control y los naranjas forman parte de rachas. Los recuadros, añadidos sobre la salida, delimitan periodos con distinto nivel medio: una variabilidad que solo se aprecia con datos de muchas semanas</figcaption>
+<figcaption>Gráfico de medias semanales del extracto seco total del camembert del capítulo <a href="120-camembert.html" class="quarto-xref"><span>12</span></a>, tal como lo genera la biblioteca <code>qcc</code> de R (rótulos en inglés). Los puntos rojos quedan fuera de los límites de control y los naranjas forman parte de rachas. Los recuadros, añadidos sobre la salida, delimitan periodos con distinto nivel medio: una variabilidad que solo se aprecia con datos de muchas semanas</figcaption>
 </figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -644,7 +644,7 @@ window.Quarto = {
 <li><strong>El límite de control superior (UCL):</strong> la media más 3 desviaciones típicas del estadístico representado (en el gráfico X-barra, <span class="math inline">\(3\sigma/\sqrt{n}\)</span>)</li>
 <li><strong>El límite de control inferior (LCL):</strong> la media menos esas mismas 3 desviaciones típicas</li>
 </ul>
-<p>Los límites se sitúan a ±3σ. Si el proceso sigue una distribución normal, el 99,7% de los valores cae dentro de ese rango, de modo que un punto fuera de los límites es muy improbable por puro azar (probabilidad de alrededor del 0,3%): su aparición es casi siempre señal de una causa especial.</p>
+<p>Los límites se sitúan a ±3σ. Si el proceso sigue una distribución normal, el 99,7&nbsp;% de los valores cae dentro de ese rango, de modo que un punto fuera de los límites es muy improbable por puro azar (probabilidad de alrededor del 0,3&nbsp;%): su aparición es casi siempre señal de una causa especial.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -718,7 +718,7 @@ window.Quarto = {
 </section>
 <section id="caso-práctico-control-del-proceso-de-llenado-de-yogures" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="caso-práctico-control-del-proceso-de-llenado-de-yogures"><span class="header-section-number">9.5</span> Caso práctico: control del proceso de llenado de yogures</h2>
-<p>Usamos el dataset <code>llenado_yogures_muestra.csv</code>, que contiene los resultados de un muestreo de 5 envases (separados unos 45 segundos) cada 3 minutos durante el turno del 1 de octubre, de 08:00 a 16:00: 160 subgrupos y 800 envases en total. Es una muestra del mismo turno que analizaremos completo en el capítulo 14, dedicado al contenido efectivo. El turno es simulado e incluye varios incidentes que el gráfico de control debería detectar.</p>
+<p>Usamos el dataset <code>llenado_yogures_muestra.csv</code>, que contiene los resultados de un muestreo de 5 envases (separados unos 45 segundos) cada 3 minutos durante el turno del 1 de octubre, de 08:00 a 16:00: 160 subgrupos y 800 envases en total. Es una muestra del mismo turno que analizaremos completo en el capítulo <a href="140-rd-contenido-efectivo.html" class="quarto-xref"><span>14</span></a>, dedicado al contenido efectivo. El turno es simulado e incluye varios incidentes que el gráfico de control debería detectar.</p>
 <section id="fase-i-establecer-los-límites-de-control" class="level3">
 <h3 class="anchored" data-anchor-id="fase-i-establecer-los-límites-de-control">Fase I: establecer los límites de control</h3>
 <p>Usamos los primeros 10 subgrupos (de 08:00 a 08:30, antes de que ocurra ningún incidente) como período de referencia para calcular los límites:</p>
@@ -844,7 +844,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p>Cada incidente deja una huella distinta. Los cambios grandes de la media (la deriva de las 08:30, la sobrecorrección) sacan puntos fuera de los límites del gráfico X-barra. Los cambios lentos o pequeños (la deriva descendente, el escalón) apenas sacan puntos, pero producen rachas largas a un lado de la línea central. Y un aumento de la dispersión sin cambio de la media se ve sobre todo en el gráfico S: si S sube, la dosificadora está llenando de forma menos regular.</p>
-<p>El incidente más grave es la sobrecorrección. Al detectar la deriva ascendente, el operario corrigió en exceso y llevó la media muy por debajo del peso nominal. En el capítulo 14 volveremos sobre estos incidentes para buscar sus causas y analizar sus consecuencias legales y económicas.</p>
+<p>El incidente más grave es la sobrecorrección. Al detectar la deriva ascendente, el operario corrigió en exceso y llevó la media muy por debajo del peso nominal. En el capítulo <a href="140-rd-contenido-efectivo.html" class="quarto-xref"><span>14</span></a> volveremos sobre estos incidentes para buscar sus causas y analizar sus consecuencias legales y económicas.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -913,11 +913,11 @@ window.Quarto = {
 </div>
 </div>
 <p><span class="math display">\[C_{pk} = \frac{\mu - LIE}{3\sigma} = \frac{153{,}1 - 143{,}2}{3 \times 2{,}5} = \frac{9{,}9}{7{,}5} \approx 1{,}3\]</span></p>
-<p>Un <span class="math inline">\(C_{pk} \approx 1{,}3\)</span> indica un proceso capaz respecto a T1, justo en el valor de 1,33 que se suele exigir: mientras funcione sin incidentes, prácticamente ningún envase quedará por debajo de ese límite. En el capítulo 14 veremos que esta es precisamente la razón por la que la planta trabaja con una media de 153 g, 3 g por encima del peso nominal. Pero si la variabilidad aumentara a <span class="math inline">\(\sigma = 3{,}5\)</span> g:</p>
+<p>Un <span class="math inline">\(C_{pk} \approx 1{,}3\)</span> indica un proceso capaz respecto a T1, justo en el valor de 1,33 que se suele exigir: mientras funcione sin incidentes, prácticamente ningún envase quedará por debajo de ese límite. En el capítulo <a href="140-rd-contenido-efectivo.html" class="quarto-xref"><span>14</span></a> veremos que esta es precisamente la razón por la que la planta trabaja con una media de 153 g, 3 g por encima del peso nominal. Pero si la variabilidad aumentara a <span class="math inline">\(\sigma = 3{,}5\)</span> g:</p>
 <p><span class="math display">\[C_{pk} = \frac{153{,}1 - 143{,}2}{3 \times 3{,}5} = \frac{9{,}9}{10{,}5} \approx 0{,}94\]</span></p>
-<p>El proceso deja de ser capaz (<span class="math inline">\(C_{pk} &lt; 1\)</span>): cabe esperar alrededor de un 0,2% de envases por debajo de T1. Y si además la media bajara a 150 g:</p>
+<p>El proceso deja de ser capaz (<span class="math inline">\(C_{pk} &lt; 1\)</span>): cabe esperar alrededor de un 0,2&nbsp;% de envases por debajo de T1. Y si además la media bajara a 150 g:</p>
 <p><span class="math display">\[C_{pk} = \frac{150 - 143{,}2}{3 \times 3{,}5} = \frac{6{,}8}{10{,}5} \approx 0{,}65\]</span></p>
-<p>Con <span class="math inline">\(C_{pk} \approx 0{,}65\)</span>, la proporción esperada de envases por debajo de T1 es de alrededor del 2,6%, por encima del 2,5% que se toma como referencia para el criterio T1 (lo veremos en el capítulo 14).</p>
+<p>Con <span class="math inline">\(C_{pk} \approx 0{,}65\)</span>, la proporción esperada de envases por debajo de T1 es de alrededor del 2,6&nbsp;%, por encima del 2,5&nbsp;% que se toma como referencia para el criterio T1 (lo veremos en el capítulo <a href="140-rd-contenido-efectivo.html" class="quarto-xref"><span>14</span></a>).</p>
 </section>
 <section id="lo-que-ocurrió-en-el-turno-completo" class="level3">
 <h3 class="anchored" data-anchor-id="lo-que-ocurrió-en-el-turno-completo">Lo que ocurrió en el turno completo</h3>
@@ -956,7 +956,7 @@ window.Quarto = {
 1      11         1.4       0</code></pre>
 </div>
 </div>
-<p>Durante el turno, 11 de los 800 envases muestreados (1,4%) quedaron por debajo de T1 y ninguno por debajo de T2. Ocho de esos 11 envases se produjeron entre las 08:39 y las 08:51, durante la sobrecorrección; los otros tres, durante el período de alta variabilidad. Que la muestra no recoja ningún envase bajo T2 no significa que no los haya: en el capítulo 14 veremos que en el turno completo, de 9.600 envases, hay 14.</p>
+<p>Durante el turno, 11 de los 800 envases muestreados (1,4&nbsp;%) quedaron por debajo de T1 y ninguno por debajo de T2. Ocho de esos 11 envases se produjeron entre las 08:39 y las 08:51, durante la sobrecorrección; los otros tres, durante el período de alta variabilidad. Que la muestra no recoja ningún envase bajo T2 no significa que no los haya: en el capítulo <a href="140-rd-contenido-efectivo.html" class="quarto-xref"><span>14</span></a> veremos que en el turno completo, de 9.600 envases, hay 14.</p>
 <p>La comparación resume el argumento de la mejora. El proceso, cuando funciona sin incidentes, es capaz; los envases bajo T1 no se deben a la variabilidad de fondo, sino a causas especiales concretas, sobre todo a la sobrecorrección. Eliminar esas causas es más eficaz y más barato que aumentar la dosificación media para compensarlas. Este análisis económico se desarrolla en el capítulo dedicado al RD 1801/2008.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -968,7 +968,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Un error frecuente en la industria es fijar límites técnicos de proceso (“no más de X defectos por turno”) sin haber evaluado previamente la capacidad del proceso. Si el proceso tiene una variabilidad natural que produce inevitablemente un 5% de defectos, fijar el límite en 1% es poco realista, por mucho que se esfuercen los operarios.</p>
+<p>Un error frecuente en la industria es fijar límites técnicos de proceso (“no más de X defectos por turno”) sin haber evaluado previamente la capacidad del proceso. Si el proceso tiene una variabilidad natural que produce inevitablemente un 5&nbsp;% de defectos, fijar el límite en 1&nbsp;% es poco realista, por mucho que se esfuercen los operarios.</p>
 <p>El enfoque correcto es:</p>
 <ol type="1">
 <li>Medir la capacidad real del proceso (<span class="math inline">\(C_{pk}\)</span>)</li>

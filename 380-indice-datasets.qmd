@@ -1,6 +1,5 @@
 ---
 lang: es
-title: Índice de datasets utilizados
 format:
   html:
     code-fold: true
@@ -8,29 +7,42 @@ format:
 engine: knitr
 ---
 
+# Índice de datasets utilizados {#sec-indice-datasets}
+
 [Descargar todos los datasets (datasets.zip)](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/datasets.zip)
 
-## Análisis de producto terminado de una fabricación diaria de camembert
+Los archivos CSV usan el punto y coma (`;`) como separador y la coma (`,`) como separador decimal, y están codificados en ISO-8859-1, salvo `laliga_resultados2425.csv`, que está en UTF-8. En cada apartado se muestran las primeras filas del archivo y el código para leerlo en R.
 
-En formato `CSV` y `Excel`
-
-[Descargar `camembert.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/camembert.csv)
-
-```{r}
+```{r paquetes-indice}
 #| message: false
 #| warning: false
 
-library(gt)
+library(readr)
 library(dplyr)
+library(gt)
+```
 
-df <- read.csv2("datos/camembert.csv", dec = ",")
+## Alturas de los alumnos de un aula
+
+[Descargar `aula1.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/aula1.csv)
+
+Alturas, en centímetros, de los 11 alumnos de un aula. Es el primer ejemplo de los capítulos [-@sec-exploracion] y [-@sec-media-varianza].
+
+```{r datos-aula1}
+#| message: false
+#| warning: false
+df <- read_csv2("datos/aula1.csv",
+                locale = locale(decimal_mark = ",", encoding = "ISO-8859-1"))
 
 df |> 
   slice_head(n = 6) |> 
   gt() |>
   fmt_number(
     columns = where(is.numeric),
-    decimals = 2
+    decimals = 2,
+    drop_trailing_zeros = TRUE,
+    dec_mark = ",",
+    sep_mark = ""
   ) |>
   tab_style(
     style = cell_fill(color = "#f7f7f7"),
@@ -42,22 +54,66 @@ df |>
   )
 ```
 
+## Hoja de cálculo de los ejemplos de dispersión
 
-## Resultados de los partidos de La Liga, temporada 24-25
+[Descargar `dibujos_varianza.xlsx`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/dibujos_varianza.xlsx)
+
+Libro de Excel con los datos del aula y los cálculos de la media, la varianza y la desviación típica que se muestran en el capítulo [-@sec-media-varianza].
+
+## Análisis de producto terminado de la fabricación de camembert
+
+[Descargar `camembert.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/camembert.csv) · [Descargar `camembert.xlsx`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/camembert.xlsx)
+
+Análisis de control de calidad del queso camembert de una quesería entre el 11 de enero y el 29 de diciembre de 2016: 211 fabricaciones analizadas en 200 días, con la fecha, el número de fabricación del día, el extracto seco total, la materia grasa, el pH, los cloruros y los coliformes. La versión Excel contiene los mismos datos y una tabla dinámica. Utilizado en los capítulos [-@sec-camembert] y [-@sec-caja-herramientas].
+
+```{r datos-camembert}
+#| message: false
+#| warning: false
+df <- read_csv2("datos/camembert.csv",
+                locale = locale(decimal_mark = ",", encoding = "ISO-8859-1"))
+
+df |> 
+  slice_head(n = 6) |> 
+  gt() |>
+  fmt_number(
+    columns = where(is.numeric),
+    decimals = 2,
+    drop_trailing_zeros = TRUE,
+    dec_mark = ",",
+    sep_mark = ""
+  ) |>
+  tab_style(
+    style = cell_fill(color = "#f7f7f7"),
+    locations = cells_body(rows = seq(1, 6, 2))
+  ) |>
+  tab_options(
+    table.font.size = px(14),
+    data_row.padding = px(6)
+  )
+```
+
+## Resultados de los partidos de La Liga, temporada 2024-25
 
 [Descargar `laliga_resultados2425.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/laliga_resultados2425.csv)
 
-```{r}
+Resultados de los 380 partidos de Primera División de la temporada 2024-25, del 15 de agosto de 2024 al 25 de mayo de 2025. Utilizado en los capítulos [-@sec-exploracion], [-@sec-distribuciones] y [-@sec-comunicacion].
+
+```{r datos-laliga}
 #| message: false
 #| warning: false
-df <- read.csv2("datos/laliga_resultados2425.csv", dec = ",")
+# Este archivo está en UTF-8: no se indica la codificación
+df <- read_csv2("datos/laliga_resultados2425.csv",
+                locale = locale(decimal_mark = ","))
 
 df |> 
   slice_head(n = 6) |> 
   gt() |>
   fmt_number(
     columns = where(is.numeric),
-    decimals = 0
+    decimals = 0,
+    drop_trailing_zeros = TRUE,
+    dec_mark = ",",
+    sep_mark = ""
   ) |>
   tab_style(
     style = cell_fill(color = "#f7f7f7"),
@@ -69,22 +125,27 @@ df |>
   )
 ```
 
-## Datos de temperaturas medias mensuales de la ciudad de Oviedo, años 2020 a 2024
+## Temperaturas medias mensuales de Oviedo, 2020 a 2024
 
 [Descargar `oviedo_temperatura.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/oviedo_temperatura.csv)
 
-Proporcionados por [AEMET (Agencia Estatal de Meteorología)](https://www.aemet.es)
+Temperatura media mensual de Oviedo de enero de 2020 a diciembre de 2024 (60 observaciones), procedente de los registros de [AEMET (Agencia Estatal de Meteorología)](https://www.aemet.es). Utilizado en el capítulo [-@sec-exploracion].
 
-```{r}
+```{r datos-oviedo}
 #| message: false
 #| warning: false
-df <- read.csv2("datos/oviedo_temperatura.csv", dec = ",")
+df <- read_csv2("datos/oviedo_temperatura.csv",
+                locale = locale(decimal_mark = ",", encoding = "ISO-8859-1"))
+
 df |> 
   slice_head(n = 6) |> 
   gt() |>
   fmt_number(
     columns = where(is.numeric),
-    decimals = 2
+    decimals = 2,
+    drop_trailing_zeros = TRUE,
+    dec_mark = ",",
+    sep_mark = ""
   ) |>
   tab_style(
     style = cell_fill(color = "#f7f7f7"),
@@ -98,23 +159,26 @@ df |>
 
 ## Datos de los pingüinos Palmer
 
-Este dataset vieneincluido en las distribuciones de R y en la biblioteca `seaborn`
+Medidas de 344 pingüinos de tres especies del archipiélago Palmer (Antártida). En el libro se cargan con el paquete `palmerpenguins`, disponible para R y para Python, que hay que instalar la primera vez (capítulo [-@sec-exploracion]). Desde R 4.5 el paquete `datasets` incluye también `penguins`, pero con nombres de columna más cortos (`bill_len`, `flipper_len`, `body_mass`…); el código del libro usa los de `palmerpenguins` (`bill_length_mm`, `flipper_length_mm`, `body_mass_g`…). Utilizado en los capítulos [-@sec-exploracion], [-@sec-distribuciones], [-@sec-correlacion-regresion] y [-@sec-comunicacion].
 
 Ver [https://allisonhorst.github.io/palmerpenguins/](https://allisonhorst.github.io/palmerpenguins/)
 
-```{r}
+```{r datos-penguins}
 #| message: false
 #| warning: false
-
 library(palmerpenguins)
 
 df <- penguins
+
 df |> 
   slice_head(n = 6) |> 
   gt() |>
   fmt_number(
     columns = where(is.numeric),
-    decimals = 2
+    decimals = 2,
+    drop_trailing_zeros = TRUE,
+    dec_mark = ",",
+    sep_mark = ""
   ) |>
   tab_style(
     style = cell_fill(color = "#f7f7f7"),
@@ -126,23 +190,27 @@ df |>
   )
 ```
 
-## Datos de llenado de yogures — serie completa (cap. 14)
+## Llenado de yogures: serie completa del turno
 
-[Descargar `simulacion_envasado_yogur.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/simulacion_envasado_yogur.csv)
+[Descargar `llenado_yogures.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/llenado_yogures.csv)
 
-Dataset de 9.600 envases simulados correspondientes a un turno completo de 8 horas en una línea de llenado de yogures de 150 g. Incluye cinco períodos con diferentes patrones de variabilidad. Utilizado en el capítulo de control estadístico de procesos.
+Pesos simulados de los 9.600 envases de yogur de 150 g de un turno de 8 horas (1 de octubre de 2024, de 08:00 a 16:00, un envase cada 3 segundos), con la hora de envasado, el número de envase, el subgrupo de 5 envases consecutivos, la posición en el subgrupo y el peso en gramos. Tras la primera media hora sin incidentes, el turno incluye seis incidentes: deriva ascendente, sobrecorrección, alta variabilidad, deriva descendente, escalón en el cambio de turno y oscilación periódica. Utilizado en los capítulos [-@sec-contenido-efectivo] y [-@sec-caja-herramientas].
 
-```{r}
+```{r datos-llenado}
 #| message: false
 #| warning: false
-df <- read.csv2("datos/simulacion_envasado_yogur.csv", dec = ",")
+df <- read_csv2("datos/llenado_yogures.csv",
+                locale = locale(decimal_mark = ",", encoding = "ISO-8859-1"))
 
 df |> 
   slice_head(n = 6) |> 
   gt() |>
   fmt_number(
     columns = where(is.numeric),
-    decimals = 2
+    decimals = 2,
+    drop_trailing_zeros = TRUE,
+    dec_mark = ",",
+    sep_mark = ""
   ) |>
   tab_style(
     style = cell_fill(color = "#f7f7f7"),
@@ -154,23 +222,27 @@ df |>
   )
 ```
 
-## Datos de llenado de yogures — muestra por subgrupos (cap. 9)
+## Llenado de yogures: muestra por subgrupos
 
 [Descargar `llenado_yogures_muestra.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/llenado_yogures_muestra.csv)
 
-Dataset de 160 subgrupos de 5 envases, obtenidos por muestreo cada 3 minutos durante el mismo turno. Utilizado en los gráficos de control X-barra y S y en el análisis de capacidad de proceso.
+Muestra del mismo turno: 160 subgrupos de 5 envases, uno cada 3 minutos, con los envases de cada subgrupo separados unos 45 segundos (800 envases). Tiene las mismas columnas que la serie completa y una más, `muestra`, con el número de subgrupo. Utilizado en los gráficos de control X-barra y S y en el análisis de la capacidad del proceso de los capítulos [-@sec-control-procesos], [-@sec-comunicacion] y [-@sec-caja-herramientas].
 
-```{r}
+```{r datos-llenado-muestra}
 #| message: false
 #| warning: false
-df <- read.csv2("datos/llenado_yogures_muestra.csv", dec = ",")
+df <- read_csv2("datos/llenado_yogures_muestra.csv",
+                locale = locale(decimal_mark = ",", encoding = "ISO-8859-1"))
 
 df |> 
   slice_head(n = 6) |> 
   gt() |>
   fmt_number(
     columns = where(is.numeric),
-    decimals = 2
+    decimals = 2,
+    drop_trailing_zeros = TRUE,
+    dec_mark = ",",
+    sep_mark = ""
   ) |>
   tab_style(
     style = cell_fill(color = "#f7f7f7"),
@@ -182,22 +254,26 @@ df |>
   )
 ```
 
-## Experimento de cuajado — diseño factorial 2²
+## Experimento de cuajado: diseño factorial 2²
 
 [Descargar `experimento_cuajo.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/experimento_cuajo.csv)
 
-Dataset de 12 fabricaciones correspondientes a un diseño factorial 2² (temperatura × dosis de cuajo, 3 réplicas por combinación). La variable respuesta son los kilos de extracto seco magro obtenidos en el queso por cada 100 kg de materia proteica de la leche. Utilizado en el capítulo de diseño de experimentos.
+Doce fabricaciones de un diseño factorial 2²: temperatura de cuajado (30 y 34 °C) por dosis de cuajo (20 y 30 ml/100 L), con 3 réplicas por combinación. La variable respuesta (`rendimiento_esm_pct`) es el coeficiente de recuperación ESM/MP: el extracto seco magro del queso por cada 100 kg de materia proteica de la leche puesta en cuba, en porcentaje. Utilizado en los capítulos [-@sec-diseno-experimentos] y [-@sec-caja-herramientas].
 
-```{r}
+```{r datos-experimento}
 #| message: false
 #| warning: false
-df <- read.csv2("datos/experimento_cuajo.csv", dec = ",")
+df <- read_csv2("datos/experimento_cuajo.csv",
+                locale = locale(decimal_mark = ",", encoding = "ISO-8859-1"))
 
 df |> 
   gt() |>
   fmt_number(
     columns = where(is.numeric),
-    decimals = 2
+    decimals = 2,
+    drop_trailing_zeros = TRUE,
+    dec_mark = ",",
+    sep_mark = ""
   ) |>
   tab_style(
     style = cell_fill(color = "#f7f7f7"),
@@ -209,23 +285,27 @@ df |>
   )
 ```
 
-## Estudio GRR — método Gerber (puntual)
+## Estudio GRR del método Gerber (puntual)
 
 [Descargar `grr_gerber.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/grr_gerber.csv)
 
-Dataset de un estudio de repetibilidad y reproducibilidad del método Gerber para la determinación de materia grasa, con 5 analistas, 3 muestras de referencia y 3 repeticiones por combinación (45 observaciones). Utilizado en el capítulo de análisis del sistema de medición.
+Estudio de repetibilidad y reproducibilidad del método Gerber para la determinación de la materia grasa, con 5 analistas, 3 muestras de referencia y 3 repeticiones por combinación (45 observaciones). Utilizado en el capítulo [-@sec-sistema-medicion], el capítulo [-@sec-caja-herramientas] y el apéndice [-@sec-simulador-grr].
 
-```{r}
+```{r datos-grr}
 #| message: false
 #| warning: false
-df <- read.csv2("datos/grr_gerber.csv", dec = ",")
+df <- read_csv2("datos/grr_gerber.csv",
+                locale = locale(decimal_mark = ",", encoding = "ISO-8859-1"))
 
 df |> 
   slice_head(n = 6) |> 
   gt() |>
   fmt_number(
     columns = where(is.numeric),
-    decimals = 2
+    decimals = 2,
+    drop_trailing_zeros = TRUE,
+    dec_mark = ",",
+    sep_mark = ""
   ) |>
   tab_style(
     style = cell_fill(color = "#f7f7f7"),
@@ -237,23 +317,27 @@ df |>
   )
 ```
 
-## Seguimiento temporal del sistema de medición — método Gerber
+## Seguimiento temporal del sistema de medición: método Gerber
 
 [Descargar `grr_gerber_temporal.csv`](https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/grr_gerber_temporal.csv)
 
-Dataset de 12 meses de control del sistema de medición, con 5 analistas, 3 muestras de referencia y 3 repeticiones por combinación (540 observaciones). Incluye dos intervenciones: corrección del sesgo de Analista_4 en abril y formación de Analista_5 en junio. Utilizado en el capítulo de análisis del sistema de medición.
+Doce meses de control del sistema de medición en 2024, con 5 analistas, 3 muestras de referencia y 3 repeticiones por combinación (540 observaciones). Incluye dos intervenciones: la corrección del sesgo de Analista_4 en abril y la formación de Analista_5 en junio. Utilizado en el capítulo [-@sec-sistema-medicion].
 
-```{r}
+```{r datos-grr-temporal}
 #| message: false
 #| warning: false
-df <- read.csv2("datos/grr_gerber_temporal.csv", dec = ",")
+df <- read_csv2("datos/grr_gerber_temporal.csv",
+                locale = locale(decimal_mark = ",", encoding = "ISO-8859-1"))
 
 df |> 
   slice_head(n = 6) |> 
   gt() |>
   fmt_number(
     columns = where(is.numeric),
-    decimals = 2
+    decimals = 2,
+    drop_trailing_zeros = TRUE,
+    dec_mark = ",",
+    sep_mark = ""
   ) |>
   tab_style(
     style = cell_fill(color = "#f7f7f7"),
@@ -267,7 +351,7 @@ df |>
 
 ## Otros datasets no utilizados en este libro
 
-La mejor manera de aprender R y Pyhton es... ¡practicar! Hacer graficos de otros datasets es una de las mejores formas; hay muchas fuentes que puedes explorar y concursos en los que puedes participar.
+La mejor manera de aprender R y Python es... ¡practicar! Hacer gráficos con otros datasets es una de las mejores formas; hay muchas fuentes que puedes explorar y concursos en los que puedes participar.
 
 * [Buscador de datasets de Google](https://datasetsearch.research.google.com/help)
 * [GitHub del 30DayChartChallenge/Edition2026](https://github.com/30DayChartChallenge/Edition2026)

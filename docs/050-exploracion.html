@@ -443,7 +443,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-estad-entorno.html">Herramientas y técnicas básicas</a></li><li class="breadcrumb-item"><a href="./050-exploracion.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos</span></h1>
+<h1 class="title"><span id="sec-exploracion" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">La exploración de los datos mediante gráficos</span></span></h1>
 </div>
 
 
@@ -977,7 +977,7 @@ Name: count, dtype: int64</code></pre>
 <p>Excel calcula automáticamente la amplitud de los intervalos y el número de columnas; estas opciones pueden modificarse seleccionando con el botón derecho del ratón el elemento a modificar. En este caso, utilizamos estas opciones:</p>
 <ul>
 <li>Eliminamos título del gráfico</li>
-<li>Modificamos anchura de las barras seleccionando <code>Dar formato a serie de datos</code>, <code>Opciones de serie</code>, <code>Ancho del rango</code>= 50%</li>
+<li>Modificamos anchura de las barras seleccionando <code>Dar formato a serie de datos</code>, <code>Opciones de serie</code>, <code>Ancho del rango</code>= 50&nbsp;%</li>
 <li>Modificamos los intervalos seleccionando el eje X: <code>Dar formato al eje</code>, <code>Opciones de eje</code>, <code>Ancho del rango</code> = 10</li>
 </ul>
 <p>La descripción de los intervalos utiliza los mismos símbolos que hemos visto en las tablas de frecuencias de <code>Python</code>.</p>
@@ -1241,11 +1241,11 @@ Nota
 <section id="la-forma-de-los-datos" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="la-forma-de-los-datos"><span class="header-section-number">5.5</span> La forma de los datos</h2>
 <p>¿Por qué es importante conocer la forma de los datos? Porque la forma nos dice si los datos son homogéneos o si hay grupos distintos mezclados, y eso cambia completamente la interpretación. Imaginemos que medimos la altura de los alumnos de un aula y obtenemos el histograma que ya conocemos: una distribución centrada en torno a 150 cm, aproximadamente simétrica. Ahora imaginemos que en esa misma aula hay tres alumnos de 16 años mezclados con alumnos de 12 años: el histograma mostraría dos grupos claramente separados, y la forma nos estaría diciendo que no estamos ante una población homogénea sino ante dos grupos distintos. Si no miramos la forma y nos quedamos solo con un número resumen, perderíamos esa información fundamental.</p>
-<p>Lo mismo ocurre en la industria: si mezclamos en una tabla de datos la producción de dos líneas con ajustes diferentes, o de dos turnos con operarios distintos, o de dos épocas del año con materias primas diferentes, el histograma nos lo mostrará. La forma de los datos es la primera señal de que algo merece una investigación más profunda, antes de hacer ningún cálculo. En el capítulo 12 veremos un caso real de fabricación de queso camembert en el que la forma de los datos nos dará la primera pista sobre una desviación estacional que solo se explica cuando analizamos los datos en el tiempo.</p>
+<p>Lo mismo ocurre en la industria: si mezclamos en una tabla de datos la producción de dos líneas con ajustes diferentes, o de dos turnos con operarios distintos, o de dos épocas del año con materias primas diferentes, el histograma nos lo mostrará. La forma de los datos es la primera señal de que algo merece una investigación más profunda, antes de hacer ningún cálculo. En el capítulo <a href="120-camembert.html" class="quarto-xref"><span>12</span></a> veremos un caso real de fabricación de queso camembert en el que la forma de los datos nos dará la primera pista sobre una desviación estacional que solo se explica cuando analizamos los datos en el tiempo.</p>
 <section id="distribución-simétrica" class="level3">
 <h3 class="anchored" data-anchor-id="distribución-simétrica">Distribución simétrica</h3>
 <p>Cuando la mayoría de los valores se concentran en el centro y las frecuencias disminuyen de forma equilibrada hacia ambos lados, decimos que la distribución es <strong>simétrica</strong>. Es el caso más frecuente en medidas de procesos industriales controlados: pesos, temperaturas, extractos secos. A primera vista, el histograma de la longitud de aleta de los pingüinos que acabamos de ver podría parecer aproximadamente simétrico, aunque enseguida veremos que no es así.</p>
-<p>Esta forma recuerda a una campana, y es la que en estadística se conoce como <strong>distribución normal</strong> o <strong>campana de Gauss</strong>. Volveremos sobre este concepto en el capítulo 7, dedicado a la distribución normal.</p>
+<p>Esta forma recuerda a una campana, y es la que en estadística se conoce como <strong>distribución normal</strong> o <strong>campana de Gauss</strong>. Volveremos sobre este concepto en el capítulo <a href="070-distribuciones.html" class="quarto-xref"><span>7</span></a>, dedicado a la distribución normal.</p>
 </section>
 <section id="distribución-asimétrica" class="level3">
 <h3 class="anchored" data-anchor-id="distribución-asimétrica">Distribución asimétrica</h3>
@@ -1398,7 +1398,7 @@ Nota
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La presencia de valores extremos es uno de los motivos por los que la exploración gráfica siempre debe preceder al cálculo de estadísticos. Como veremos en el capítulo 6, los valores extremos tienen una gran influencia sobre la media y aún mayor sobre la varianza y la desviación típica, y pueden llevar a conclusiones erróneas si no se han detectado previamente.</p>
+<p>La presencia de valores extremos es uno de los motivos por los que la exploración gráfica siempre debe preceder al cálculo de estadísticos. Como veremos en el capítulo <a href="060-estad-basica.html" class="quarto-xref"><span>6</span></a>, los valores extremos tienen una gran influencia sobre la media y aún mayor sobre la varianza y la desviación típica, y pueden llevar a conclusiones erróneas si no se han detectado previamente.</p>
 </div>
 </div>
 <p>A continuación veremos cómo la forma de los datos se refleja también en el diagrama de caja, y cómo la elección del estadístico más adecuado depende precisamente de esta forma.</p>
@@ -1406,7 +1406,7 @@ Nota
 </section>
 <section id="diagrama-de-caja-o-boxplot" class="level2" data-number="5.6">
 <h2 data-number="5.6" class="anchored" data-anchor-id="diagrama-de-caja-o-boxplot"><span class="header-section-number">5.6</span> Diagrama de caja o <em>boxplot</em></h2>
-<p>Este gráfico fue popularizado por el estadístico John Tukey en su libro <em>Exploratory Data Analysis</em> (1977), y es una herramienta fundamental en la exploración de datos. Se basa en el conjunto de <strong>cuartiles</strong>: si dividimos un grupo de datos <strong>ordenados</strong> en cuatro partes iguales mediante <strong>tres</strong> puntos de corte, llamamos <strong>primer cuartil</strong> o <span class="math inline">\(Q1\)</span> al valor que se sitúa en el 25%, <strong>segundo cuartil</strong> o <span class="math inline">\(Q2\)</span> al valor que se sitúa en el centro (50%), y <strong>tercer cuartil</strong> o <span class="math inline">\(Q3\)</span> al punto que se sitúa en el 75% de los datos. A estos tres valores añadimos el <strong>mínimo</strong> y el <strong>máximo</strong>, y tenemos un conjunto de <strong>cinco números</strong> que nos permiten describir la forma de la distribución con cierta precisión. El segundo cuartil (<span class="math inline">\(Q2\)</span>), que corresponde al 50% de los datos, se conoce habitualmente como <strong>mediana</strong>. El valor resultante de restar <span class="math inline">\(Q3-Q1\)</span> es lo que se conoce como <strong>rango intercuartil</strong> o <span class="math inline">\(IQR\)</span>, y es una medida de la dispersión de la distribución.</p>
+<p>Este gráfico fue popularizado por el estadístico John Tukey en su libro <em>Exploratory Data Analysis</em> (1977), y es una herramienta fundamental en la exploración de datos. Se basa en el conjunto de <strong>cuartiles</strong>: si dividimos un grupo de datos <strong>ordenados</strong> en cuatro partes iguales mediante <strong>tres</strong> puntos de corte, llamamos <strong>primer cuartil</strong> o <span class="math inline">\(Q1\)</span> al valor que se sitúa en el 25&nbsp;%, <strong>segundo cuartil</strong> o <span class="math inline">\(Q2\)</span> al valor que se sitúa en el centro (50&nbsp;%), y <strong>tercer cuartil</strong> o <span class="math inline">\(Q3\)</span> al punto que se sitúa en el 75&nbsp;% de los datos. A estos tres valores añadimos el <strong>mínimo</strong> y el <strong>máximo</strong>, y tenemos un conjunto de <strong>cinco números</strong> que nos permiten describir la forma de la distribución con cierta precisión. El segundo cuartil (<span class="math inline">\(Q2\)</span>), que corresponde al 50&nbsp;% de los datos, se conoce habitualmente como <strong>mediana</strong>. El valor resultante de restar <span class="math inline">\(Q3-Q1\)</span> es lo que se conoce como <strong>rango intercuartil</strong> o <span class="math inline">\(IQR\)</span>, y es una medida de la dispersión de la distribución.</p>
 <p>El <strong>diagrama de caja</strong>, también conocido como <em>boxplot</em>, es un gráfico que permite resumir las características principales de un conjunto de datos utilizando estos cinco números. Sus ventajas son:</p>
 <ul>
 <li>Muestra la mediana y los cuartiles (Q1 y Q3) de los datos.</li>
@@ -1468,7 +1468,7 @@ Nota
 </div>
 </div>
 </div>
-<p>El boxplot nos indica que hay un valor alto que se separa del resto (175 cm), y que la distribución es ligeramente asimétrica. Pero con solo 11 valores, ¿podemos fiarnos de este resumen? La caja representa el 50% central de los datos, pero ese 50% son apenas 5 o 6 alumnos. En estos casos es mucho más informativo mostrar los puntos individuales directamente, usando un dotplot:</p>
+<p>El boxplot nos indica que hay un valor alto que se separa del resto (175 cm), y que la distribución es ligeramente asimétrica. Pero con solo 11 valores, ¿podemos fiarnos de este resumen? La caja representa el 50&nbsp;% central de los datos, pero ese 50&nbsp;% son apenas 5 o 6 alumnos. En estos casos es mucho más informativo mostrar los puntos individuales directamente, usando un dotplot:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true" href="">R (base)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false" href="">Python (seaborn)</a></li></ul>
 <div class="tab-content">
@@ -1651,7 +1651,7 @@ Nota
 </div>
 </div>
 </div>
-<p>En el boxplot de los goles la caja es simétrica porque los goles toman pocos valores enteros, pero la asimetría positiva se aprecia en los bigotes: el superior (de 3 a 6 goles) es mucho más largo que el inferior (de 1 a 0), y hay varios valores atípicos en la parte alta. En el capítulo 12 veremos cómo esta misma lectura del boxplot nos ayudará a interpretar la variabilidad estacional del extracto seco en la fabricación de queso camembert.</p>
+<p>En el boxplot de los goles la caja es simétrica porque los goles toman pocos valores enteros, pero la asimetría positiva se aprecia en los bigotes: el superior (de 3 a 6 goles) es mucho más largo que el inferior (de 1 a 0), y hay varios valores atípicos en la parte alta. En el capítulo <a href="120-camembert.html" class="quarto-xref"><span>12</span></a> veremos cómo esta misma lectura del boxplot nos ayudará a interpretar la variabilidad estacional del extracto seco en la fabricación de queso camembert.</p>
 </section>
 <section id="el-boxplot-por-grupos" class="level3">
 <h3 class="anchored" data-anchor-id="el-boxplot-por-grupos">El boxplot por grupos</h3>
@@ -1707,11 +1707,11 @@ Nota
 </div>
 </div>
 </div>
-<p>Cuando la caja de un grupo se sitúa claramente por encima o por debajo de la caja de otro grupo, las diferencias entre ellos son visualmente significativas. En este caso, los pingüinos <em>Gentoo</em> tienen aletas notablemente más largas que los <em>Adelie</em> y los <em>Chinstrap</em>. En el capítulo 8 usaremos este mismo tipo de gráfico para comparar la composición del queso camembert mes a mes a lo largo del año.</p>
+<p>Cuando la caja de un grupo se sitúa claramente por encima o por debajo de la caja de otro grupo, las diferencias entre ellos son visualmente significativas. En este caso, los pingüinos <em>Gentoo</em> tienen aletas notablemente más largas que los <em>Adelie</em> y los <em>Chinstrap</em>. En el capítulo <a href="120-camembert.html" class="quarto-xref"><span>12</span></a> usaremos este mismo tipo de gráfico para comparar la composición del queso camembert mes a mes a lo largo del año.</p>
 </section>
 <section id="relación-entre-el-boxplot-y-el-histograma" class="level3">
 <h3 class="anchored" data-anchor-id="relación-entre-el-boxplot-y-el-histograma">Relación entre el <em>boxplot</em> y el histograma</h3>
-<p>Resulta muy útil comprender visualmente la relación entre el <em>boxplot</em> y el histograma para entender la distribución de los datos. La caja del boxplot se corresponde con el 50% central de los datos, y la línea media representa la mediana. En el gráfico siguiente mostramos ambas representaciones de forma simultánea para la longitud de aleta de penguins:</p>
+<p>Resulta muy útil comprender visualmente la relación entre el <em>boxplot</em> y el histograma para entender la distribución de los datos. La caja del boxplot se corresponde con el 50&nbsp;% central de los datos, y la línea media representa la mediana. En el gráfico siguiente mostramos ambas representaciones de forma simultánea para la longitud de aleta de penguins:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-13-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-1" role="tab" aria-controls="tabset-13-1" aria-selected="true" href="">R (ggplot)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-2" role="tab" aria-controls="tabset-13-2" aria-selected="false" href="">Python (seaborn)</a></li></ul>
 <div class="tab-content">

@@ -1,6 +1,5 @@
 ---
 lang: es
-title: "Simulación del dataset de repetibilidad (Gerber)"
 engine: knitr
 format:
   html:
@@ -8,13 +7,15 @@ format:
     code-summary: Mostrar código
 ---
 
-```{r}
+# Simulación del dataset de repetibilidad (Gerber) {#sec-simulador-grr}
+
+```{r setup-340}
 #| include: false
 library(reticulate)
 use_python("C:/ProgramData/miniconda3/python.exe", required = TRUE)
 ```
 
-Este documento genera el dataset utilizado en el capítulo de análisis del sistema de medición. El código está documentado para que el profesorado pueda ajustar los parámetros de simulación si lo considera necesario.
+Este documento genera el dataset `grr_gerber.csv`, utilizado en el estudio puntual del capítulo [-@sec-sistema-medicion] (análisis del sistema de medición). El código está documentado para que el profesorado pueda ajustar los parámetros de simulación si lo considera necesario.
 
 ## Diseño del estudio
 
@@ -37,15 +38,15 @@ El estudio simula un análisis de repetibilidad del método Gerber para la deter
 
 | Analista | Sesgo | Desv. típica | Descripción |
 |----------|-------|--------------|-------------|
-| 1 (referencia) | 0,00% | 0,04% | Técnica depurada, lectura correcta del butirómetro, baño maría estable |
-| 2 (correcto) | 0,00% | 0,08% | Buen nivel general, pequeña variación natural de técnica |
-| 3 (correcto, sesgo leve) | +0,10% | 0,12% | Tiende a redondear ligeramente al alza en la lectura de la columna de grasa |
-| 4 (sesgo sistemático) | −0,35% | 0,06% | Lee sistemáticamente bajo: error de posición del ojo al leer el menisco del butirómetro. Alta repetibilidad pero resultado alejado del valor de referencia |
-| 5 (alta variabilidad) | 0,00% | 0,25% | Técnica irregular: temperatura del baño maría inestable, tiempo de centrifugación variable, dificultad para homogeneizar la muestra |
+| 1 (referencia) | 0,00 % | 0,04 % | Técnica depurada, lectura correcta del butirómetro, baño maría estable |
+| 2 (correcto) | 0,00 % | 0,08 % | Buen nivel general, pequeña variación natural de técnica |
+| 3 (correcto, sesgo leve) | +0,10 % | 0,12 % | Tiende a redondear ligeramente al alza en la lectura de la columna de grasa |
+| 4 (sesgo sistemático) | −0,35 % | 0,06 % | Lee sistemáticamente bajo: error de posición del ojo al leer el menisco del butirómetro. Alta repetibilidad pero resultado alejado del valor de referencia |
+| 5 (alta variabilidad) | 0,00 % | 0,25 % | Técnica irregular: temperatura del baño maría inestable, tiempo de centrifugación variable, dificultad para homogeneizar la muestra |
 
 ## Código de simulación
 
-```{python}
+```{python sim-grr-gerber}
 #| eval: false
 import pandas as pd
 import numpy as np
@@ -72,9 +73,8 @@ import numpy as np
 #     en la lectura de la columna de grasa.
 #
 #   - Analista 4 (sesgo sistemático): σ = 0,06%, sesgo = -0,35%.
-#     Resultados consistentemente bajos. Error típico de lectura del menisco
-#     del butirómetro: lee el borde superior en lugar del borde inferior,
-#     o posición de ojos incorrecta. Alta repetibilidad pero resultado
+#     Resultados consistentemente bajos. Error típico de posición del ojo
+#     al leer el menisco del butirómetro. Alta repetibilidad pero resultado
 #     sistemáticamente alejado del valor de referencia.
 #
 #   - Analista 5 (alta variabilidad): σ = 0,25%, sin sesgo.

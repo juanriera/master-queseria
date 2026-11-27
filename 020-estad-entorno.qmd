@@ -2,7 +2,7 @@
 lang: es
 ---
 
-# El análisis de datos de producción en el entorno industrial
+# El análisis de datos de producción en el entorno industrial {#sec-entorno-industrial}
 
 ![Un grupo de trabajo en planta ante un panel de variables indicadoras](imagenes/020/1520188654204.jpg){.column-page-inset-right}
 
@@ -114,7 +114,7 @@ La calidad del análisis depende directamente de la calidad de los datos. Antes 
 Esta advertencia es especialmente relevante en el trabajo con datos históricos, como se ha visto en la sección anterior, pero se aplica a cualquier tipo de estudio. Por esa razón, la organización, la depuración y la verificación de los datos antes del análisis es un paso metodológico imprescindible, y no un trámite previo que pueda obviarse.
 :::
 
- El capítulo 4 desarrolla con detalle los principios y herramientas para organizar correctamente los datos antes de analizarlos.
+ El capítulo [-@sec-organizacion-datos] desarrolla con detalle los principios y herramientas para organizar correctamente los datos antes de analizarlos.
 
 ## Resumen del capítulo
 
@@ -124,4 +124,4 @@ El **pensamiento estadístico** es la filosofía de trabajo que integra estos pr
 
 Los datos industriales pueden clasificarse por su estructura (estructurados, no estructurados y semiestructurados) y por su origen. Esta segunda clasificación es especialmente relevante para el análisis: los **estudios retrospectivos** trabajan con datos históricos y ofrecen abundancia de información pero con limitaciones de fiabilidad; los **estudios observacionales** recogen datos en condiciones reales de operación sin intervenir en el proceso; y los **experimentos diseñados** son la forma más rigurosa de establecer relaciones de causa y efecto, al introducir cambios controlados y aleatorizar las condiciones.
 
-Finalmente, cualquier análisis parte de una condición previa ineludible: la **calidad de los datos**. Datos incorrectos o incompletos producen conclusiones incorrectas independientemente del método utilizado. La organización y depuración de los datos antes del análisis, que se desarrolla en el capítulo 4, es un paso metodológico tan importante como el análisis mismo. 
+Finalmente, cualquier análisis parte de una condición previa ineludible: la **calidad de los datos**. Datos incorrectos o incompletos producen conclusiones incorrectas independientemente del método utilizado. La organización y depuración de los datos antes del análisis, que se desarrolla en el capítulo [-@sec-organizacion-datos], es un paso metodológico tan importante como el análisis mismo. 

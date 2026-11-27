@@ -1,9 +1,10 @@
 ---
 lang: es
-title: "La caja de herramientas de la mejora continua"
 subtitle: "Fichas prácticas con R, ordenadas según el ciclo DMAIC"
 engine: knitr
 ---
+
+# La caja de herramientas de la mejora continua {#sec-caja-herramientas}
 
 ::: callout-note
 ## Objetivos de aprendizaje
@@ -30,7 +31,7 @@ Este capítulo no se lee de principio a fin: se consulta. Cada herramienta tiene
 
 Todas las fichas usan datos del libro, que están en la carpeta `datos/`. Cada bloque de código es independiente: carga sus paquetes y sus datos, de modo que se puede copiar una ficha sin las demás. Los paquetes necesarios son `tidyverse`, `qcc` y `qicharts2`; si alguno no está instalado, se instala una sola vez con `install.packages("qcc")`.
 
-Las fichas se agrupan en las cinco fases del ciclo DMAIC que vimos en el capítulo 16. Al final de cada fase hay una **lista de comprobación** para revisar el trabajo antes de pasar a la siguiente, y al final del capítulo, un **caso completo** que recorre todas las fases con el turno de yogures de los capítulos 9 y 14.
+Las fichas se agrupan en las cinco fases del ciclo DMAIC que vimos en el capítulo [-@sec-mejora-continua]. Al final de cada fase hay una **lista de comprobación** para revisar el trabajo antes de pasar a la siguiente, y al final del capítulo, un **caso completo** que recorre todas las fases con el turno de yogures de los capítulos [-@sec-control-procesos] y [-@sec-contenido-efectivo].
 
 ```{mermaid}
 flowchart LR
@@ -67,9 +68,9 @@ La fase Definir responde a una pregunta: **¿cuál es exactamente el problema?**
 | Cuándo | ¿Desde cuándo, en qué turnos? |
 | Objetivo | ¿Qué cifra queremos alcanzar y en qué plazo? |
 
-**Ejemplo (turno de yogures, capítulo 14):** «En el turno del 1 de octubre de 2024 de la línea de yogures de 150 g, 198 de los 9.600 envases (2,1 %) quedaron por debajo de T1 y 14 por debajo de T2, por lo que el lote no es conforme con el RD 1801/2008. Objetivo: proceso estable, sin envases bajo T2 y con un $C_{pk} \geq 1{,}33$ frente a T1 en todos los turnos, antes de fin de año.»
+**Ejemplo (turno de yogures, capítulo [-@sec-contenido-efectivo]):** «En el turno del 1 de octubre de 2024 de la línea de yogures de 150 g, 198 de los 9.600 envases (2,1 %) quedaron por debajo de T1 y 14 por debajo de T2, por lo que el lote no es conforme con el RD 1801/2008. Objetivo: proceso estable, sin envases bajo T2 y con un $C_{pk} \geq 1{,}33$ frente a T1 en todos los turnos, antes de fin de año.»
 
-El objetivo es **SMART**: específico (la línea de 150 g), medible (envases bajo T1 y T2, $C_{pk}$), alcanzable (las etapas de mejora del capítulo 14 lo alcanzan), relevante (cumplimiento legal) y acotado en el tiempo (fin de año).
+El objetivo es **SMART**: específico (la línea de 150 g), medible (envases bajo T1 y T2, $C_{pk}$), alcanzable (las etapas de mejora del capítulo [-@sec-contenido-efectivo] lo alcanzan), relevante (cumplimiento legal) y acotado en el tiempo (fin de año).
 
 ::: {.callout-warning}
 ## Atención
@@ -77,7 +78,7 @@ El objetivo es **SMART**: específico (la línea de 150 g), medible (envases baj
 - La definición describe el problema, no la solución ni el culpable: «el operario ajusta mal» es una hipótesis sobre la causa, y se comprueba en Analizar.
 :::
 
-**Lo vimos en:** capítulo 16 (definir el problema) y capítulo 14 (el turno del 1 de octubre).
+**Lo vimos en:** capítulo [-@sec-mejora-continua] (definir el problema) y capítulo [-@sec-contenido-efectivo] (el turno del 1 de octubre).
 
 ### Ficha 2. SIPOC
 
@@ -107,7 +108,7 @@ El objetivo es **SMART**: específico (la línea de 150 g), medible (envases baj
 - Las entradas son lo que puede variar y afectar al resultado (aquí, la viscosidad del producto): son las primeras candidatas a causa.
 :::
 
-**Lo vimos en:** capítulo 14 (las causas del turno estaban en las entradas y en el llenado).
+**Lo vimos en:** capítulo [-@sec-contenido-efectivo] (las causas del turno estaban en las entradas y en el llenado).
 
 ### Lista de comprobación: Definir
 
@@ -151,7 +152,7 @@ Los datos se registran en formato ordenado (*tidy data*): una fila por envase y 
 - Recoger también el contexto (hora, turno, lote): sin él no se puede estratificar después (ficha 11).
 :::
 
-**Lo vimos en:** capítulo 4 (datos ordenados) y capítulo 13 (sistema de medición).
+**Lo vimos en:** capítulo [-@sec-organizacion-datos] (datos ordenados) y capítulo [-@sec-sistema-medicion] (sistema de medición).
 
 ### Ficha 4. Histograma con límites
 
@@ -197,7 +198,7 @@ ggplot(df, aes(x = peso_g)) +
 - El histograma no muestra el orden en el tiempo. Un proceso puede tener un histograma perfecto y estar cambiando a lo largo del turno.
 :::
 
-**Lo vimos en:** capítulo 5 (histograma) y capítulo 14 (el turno completo).
+**Lo vimos en:** capítulo [-@sec-exploracion] (histograma) y capítulo [-@sec-contenido-efectivo] (el turno completo).
 
 ### Ficha 5. Valores individuales: sesgo y repetibilidad
 
@@ -245,7 +246,7 @@ ggplot(df, aes(x = analista, y = error)) +
 - Restar el valor de referencia permite juntar en un solo gráfico muestras con contenidos de grasa distintos.
 :::
 
-**Lo vimos en:** capítulo 13 (análisis del sistema de medición).
+**Lo vimos en:** capítulo [-@sec-sistema-medicion] (análisis del sistema de medición).
 
 ### Ficha 6. Estabilidad: gráfico de rachas
 
@@ -280,7 +281,7 @@ qic(x = fecha, y = est, data = df, chart = "run",
 
 - La línea central es la mediana: la mitad de los valores queda por encima y la otra mitad por debajo.
 - En un proceso estable, los puntos cruzan la mediana a menudo y no forman rachas largas a un mismo lado. Si `qicharts2` detecta una racha demasiado larga o pocos cruces, dibuja la línea central discontinua y en color.
-- En los meses de verano los valores quedan por encima de la mediana durante semanas: el extracto seco cambió a lo largo del año. En el capítulo 12, el equipo lo atribuyó al ajuste estacional de la fabricación y a la sustitución del quesero en vacaciones.
+- En los meses de verano los valores quedan por encima de la mediana durante semanas: el extracto seco cambió a lo largo del año. En el capítulo [-@sec-camembert], el equipo lo atribuyó al ajuste estacional de la fabricación y a la sustitución del quesero en vacaciones.
 
 ::: {.callout-warning}
 ## Atención
@@ -288,7 +289,7 @@ qic(x = fecha, y = est, data = df, chart = "run",
 - Los días con dos fabricaciones se representan con su media.
 :::
 
-**Lo vimos en:** capítulo 9 (señales de alarma) y capítulo 12 (serie temporal del extracto seco).
+**Lo vimos en:** capítulo [-@sec-control-procesos] (señales de alarma) y capítulo [-@sec-camembert] (serie temporal del extracto seco).
 
 ### Ficha 7. Capacidad del proceso
 
@@ -330,10 +331,10 @@ Cpk
 ::: {.callout-warning}
 ## Atención
 - Un $C_{pk}$ calculado con un proceso inestable no significa nada: describe una mezcla de procesos distintos.
-- El $C_{pk}$ de la Fase I describe lo que el proceso **puede** hacer, no lo que **hizo**: en el turno completo hubo un 2,1 % de envases bajo T1 por las causas especiales.
+- El $C_{pk}$ de la Fase I describe lo que el proceso **puede** hacer, no lo que **hizo**: en el turno completo hubo un 2,1 % de envases bajo T1 por las causas especiales.
 :::
 
-**Lo vimos en:** capítulo 9 (índices $C_p$ y $C_{pk}$).
+**Lo vimos en:** capítulo [-@sec-control-procesos] (índices $C_p$ y $C_{pk}$).
 
 ### Lista de comprobación: Medir
 
@@ -354,17 +355,17 @@ Las ideas que salen de la primera son hipótesis; los datos de la segunda las co
 
 ### Ficha 8. Diagrama causa-efecto (Ishikawa)
 
-> **Para no olvidar ninguna causa posible, ordénalas en las 5M.**
+> **Para no olvidar ninguna causa posible, ordénalas en las 6M.**
 
 ::: {.callout-note appearance="simple"}
-**Para qué sirve:** ordenar las posibles causas de un problema en grupos (las 5M), para no olvidar ninguna.
+**Para qué sirve:** ordenar las posibles causas de un problema en grupos (las 6M), para no olvidar ninguna.
 
 **Cuándo usarlo:** al empezar a analizar un problema, normalmente en una reunión del equipo.
 
 **Qué datos necesita:** ninguno numérico; solo el conocimiento del proceso de las personas que trabajan en él.
 :::
 
-Recogemos en el diagrama las causas que identificamos en el diagnóstico del turno de yogures (capítulo 14): el desgaste de las juntas, la carrera del pistón y la vibración de la bomba (máquina); la sobrecorrección del operario y el cambio de turno sin protocolo (mano de obra); la viscosidad del nuevo lote de producto (material), y la falta de control de la temperatura del producto (método).
+Recogemos en el diagrama las causas que identificamos en el diagnóstico del turno de yogures (capítulo [-@sec-contenido-efectivo]): el desgaste de las juntas, la carrera del pistón y la vibración de la bomba (máquina); la sobrecorrección del operario y el cambio de turno sin protocolo (mano de obra); la viscosidad del nuevo lote de producto (material), y la falta de control de la temperatura del producto (método). Añadimos la temperatura de la sala (medio ambiente) y la verificación de la balanza (medición), que hay que revisar aunque no expliquen ningún incidente concreto.
 
 ```{r f08-ishikawa}
 #| code-fold: show
@@ -375,17 +376,19 @@ library(qcc)
 
 cause.and.effect(
   cause = list(
-    "Máquina"      = c("Juntas gastadas", "Carrera del pistón", "Vibración"),
-    "Mano de obra" = c("Sobrecorrección", "Cambio de turno"),
-    "Material"     = c("Viscosidad"),
-    "Método"       = c("Temperatura")),
+    "Máquina"        = c("Juntas gastadas", "Carrera del pistón", "Vibración"),
+    "Mano de obra"   = c("Sobrecorrección", "Cambio de turno"),
+    "Material"       = c("Viscosidad"),
+    "Método"         = c("Temperatura del producto"),
+    "Medio ambiente" = c("Temperatura de la sala"),
+    "Medición"       = c("Verificación de la balanza")),
   effect = "Peso irregular",
   title  = "Llenado de yogures")
 ```
 
 **Cómo se lee:**
 
-- Cada espina es un grupo de causas (una de las 5M); en ella se anotan las causas concretas.
+- Cada espina es un grupo de causas (una de las 6M); en ella se anotan las causas concretas.
 - El diagrama no demuestra nada: es una lista ordenada de hipótesis. Cada causa hay que comprobarla con datos, por ejemplo con un gráfico de control o con un diagrama de Pareto.
 
 ::: {.callout-warning}
@@ -396,7 +399,7 @@ cause.and.effect(
 - El diagrama no reparte el texto en varias líneas y las causas largas se solapan: basta con dos o tres palabras; la explicación va en el texto o en una tabla aparte.
 :::
 
-**Lo vimos en:** capítulo 14 (diagnóstico 5M) y capítulo 15 (las fuentes de variabilidad).
+**Lo vimos en:** capítulo [-@sec-contenido-efectivo] (diagnóstico 6M) y capítulo [-@sec-variabilidad] (las fuentes de variabilidad).
 
 ### Ficha 9. Los cinco porqués
 
@@ -410,7 +413,7 @@ cause.and.effect(
 **Qué datos necesita:** ninguno numérico; el conocimiento del proceso y los registros del suceso.
 :::
 
-**Ejemplo (los envases bajo T2 del turno, capítulo 14):**
+**Ejemplo (los envases bajo T2 del turno, capítulo [-@sec-contenido-efectivo]):**
 
 | Pregunta | Respuesta |
 |---|---|
@@ -429,7 +432,7 @@ Las dos últimas respuestas llevan a dos acciones distintas: un criterio de ajus
 - Si la cadena termina en una persona («el operario se equivocó»), hay que seguir preguntando: ¿qué le faltaba para no equivocarse?
 :::
 
-**Lo vimos en:** capítulo 14 (el diagnóstico del turno).
+**Lo vimos en:** capítulo [-@sec-contenido-efectivo] (el diagnóstico del turno).
 
 ### Ficha 10. Diagrama de Pareto
 
@@ -443,7 +446,7 @@ Las dos últimas respuestas llevan a dos acciones distintas: un criterio de ajus
 **Qué datos necesita:** una lista de causas y, para cada una, cuántas veces aparece o cuánto cuesta.
 :::
 
-En el turno de yogures del 1 de octubre (capítulo 14) hubo 198 envases por debajo de T1. Los clasificamos según el incidente que los produjo:
+En el turno de yogures del 1 de octubre (capítulo [-@sec-contenido-efectivo]) hubo 198 envases por debajo de T1. Los clasificamos según el incidente que los produjo:
 
 ```{r f10-pareto}
 #| code-fold: show
@@ -468,7 +471,7 @@ pareto.chart(bajo_T1,
 **Cómo se lee:**
 
 - Las barras van de mayor a menor; la línea suma los porcentajes.
-- Una sola causa, la sobrecorrección del operario, explica más de cuatro de cada cinco envases bajo T1 (166 de 198). Con la segunda, se llega al 97 %.
+- Una sola causa, la sobrecorrección del operario, explica más de cuatro de cada cinco envases bajo T1 (166 de 198). Con la segunda, se llega al 97 %.
 - Por ahí hay que empezar (ficha 9).
 
 ::: {.callout-warning}
@@ -478,7 +481,7 @@ pareto.chart(bajo_T1,
 - Mezclar causas con síntomas («envase ligero» no es una causa).
 :::
 
-**Lo vimos en:** capítulo 14 (incidentes del turno) y capítulo 15 (priorizar).
+**Lo vimos en:** capítulo [-@sec-contenido-efectivo] (incidentes del turno) y capítulo [-@sec-variabilidad] (priorizar).
 
 ### Ficha 11. Estratificación: boxplot por grupos
 
@@ -516,8 +519,8 @@ ggplot(df, aes(x = mes, y = est)) +
 **Cómo se lee:**
 
 - Cada caja contiene la mitad central de los datos del mes; la línea interior es la mediana, no la media. Los puntos son las fabricaciones; por eso se ocultan los atípicos de la caja (`outlier.shape = NA`), que si no aparecerían dos veces.
-- Julio destaca: su mediana (49,59 %) es la más alta del año. Agosto y septiembre siguen por encima del resto (47,75 y 47,30 %); los demás meses están entre 45,4 y 47,0 %.
-- Mezclados todos los meses, el valor de 52,61 % parecía un atípico. Separados por meses, se ve que forma parte de un verano con valores altos: la estratificación cambia la interpretación.
+- Julio destaca: su mediana (49,59 %) es la más alta del año. Agosto y septiembre siguen por encima del resto (47,75 y 47,30 %); los demás meses están entre 45,4 y 47,0 %.
+- Mezclados todos los meses, el valor de 52,61 % parecía un atípico. Separados por meses, se ve que forma parte de un verano con valores altos: la estratificación cambia la interpretación.
 
 ::: {.callout-warning}
 ## Atención
@@ -525,7 +528,7 @@ ggplot(df, aes(x = mes, y = est)) +
 - Si solo hay un grupo, un boxplot dice poco: mejor un histograma (ficha 4).
 :::
 
-**Lo vimos en:** capítulo 5 (boxplot) y capítulo 12 (boxplot mensual del extracto seco).
+**Lo vimos en:** capítulo [-@sec-exploracion] (boxplot) y capítulo [-@sec-camembert] (boxplot mensual del extracto seco).
 
 ### Ficha 12. Diagrama de dispersión
 
@@ -562,7 +565,7 @@ cor(df$est, df$mg)
 
 - La nube sube de izquierda a derecha: los quesos con más materia grasa tienden a tener más extracto seco.
 - El coeficiente de correlación es 0,49: una relación positiva moderada. La nube es ancha, así que la materia grasa explica solo una parte de las diferencias de extracto seco.
-- Hay tres puntos alejados de la nube (capítulo 12) que conviene revisar antes de sacar conclusiones.
+- Hay tres puntos alejados de la nube (capítulo [-@sec-camembert]) que conviene revisar antes de sacar conclusiones.
 
 ::: {.callout-warning}
 ## Atención
@@ -570,7 +573,7 @@ cor(df$est, df$mg)
 - Un coeficiente de correlación sin gráfico puede engañar: siempre hay que mirar la nube.
 :::
 
-**Lo vimos en:** capítulo 8 (correlación) y capítulo 12 (dispersión `est` frente a `mg`).
+**Lo vimos en:** capítulo [-@sec-correlacion-regresion] (correlación) y capítulo [-@sec-camembert] (dispersión `est` frente a `mg`).
 
 ### Ficha 13. Gráfico de interacción
 
@@ -579,7 +582,7 @@ cor(df$est, df$mg)
 ::: {.callout-note appearance="simple"}
 **Para qué sirve:** ver en un experimento con dos factores si el efecto de uno depende del nivel del otro (interacción).
 
-**Cuándo usarlo:** para analizar un experimento diseñado, como el diseño factorial 2² del capítulo 10.
+**Cuándo usarlo:** para analizar un experimento diseñado, como el diseño factorial 2² del capítulo [-@sec-diseno-experimentos].
 
 **Qué datos necesita:** los resultados del experimento, con una columna para cada factor y otra para la respuesta.
 :::
@@ -596,7 +599,7 @@ df <- read_csv2("datos/experimento_cuajo.csv",
 
 interaction.plot(x.factor     = df$dosis_cuajo,
                  trace.factor = df$temperatura,
-                 response     = df$retencion_pct,
+                 response     = df$rendimiento_esm_pct,
                  xlab         = "Dosis de cuajo (ml/100 L)",
                  ylab         = "Recuperación ESM/MP media (%)",
                  trace.label  = "Temperatura (°C)")
@@ -605,16 +608,16 @@ interaction.plot(x.factor     = df$dosis_cuajo,
 **Cómo se lee:**
 
 - Cada línea es una temperatura; cada punto, la media de las fabricaciones con esa combinación.
-- A 30 °C, subir la dosis de 20 a 30 ml/100 L mejora la recuperación en más de un punto (de 93,75 % a 94,96 %). A 34 °C la mejora desaparece (de 95,34 % a 95,31 %).
+- A 30 °C, subir la dosis de 20 a 30 ml/100 L mejora la recuperación en más de un punto (de 93,75 % a 94,96 %). A 34 °C la mejora desaparece (de 95,34 % a 95,31 %).
 - Las líneas no son paralelas: hay interacción. El efecto de la dosis depende de la temperatura.
 
 ::: {.callout-warning}
 ## Atención
 - Este gráfico solo tiene sentido con datos de un experimento diseñado, en el que los factores se han fijado a propósito. Con datos históricos, otras variables pueden estar cambiando a la vez.
-- Antes de concluir, hay que comparar las diferencias con la variabilidad entre réplicas (capítulo 10).
+- Antes de concluir, hay que comparar las diferencias con la variabilidad entre réplicas (capítulo [-@sec-diseno-experimentos]).
 :::
 
-**Lo vimos en:** capítulo 10 (diseño de experimentos).
+**Lo vimos en:** capítulo [-@sec-diseno-experimentos] (diseño de experimentos).
 
 ### Lista de comprobación: Analizar
 
@@ -650,17 +653,17 @@ pnorm(143.2, mean = 150,   sd = 3.5) * 100   # y además la media baja a 150 g
 
 **Cómo se lee:**
 
-- Con el proceso estable, la proporción esperada bajo T1 es prácticamente nula (0,004 %).
-- Si la desviación típica sube a 3,5 g, sube al 0,23 %; si además la media baja a 150 g, llega al 2,6 %, por encima del 2,5 % de referencia.
-- Reducir la variabilidad permite acercar la media a Qn sin aumentar el riesgo: es el ahorro de la etapa 2 del capítulo 14.
+- Con el proceso estable, la proporción esperada bajo T1 es prácticamente nula (0,004 %).
+- Si la desviación típica sube a 3,5 g, sube al 0,23 %; si además la media baja a 150 g, llega al 2,6 %, por encima del 2,5 % de referencia.
+- Reducir la variabilidad permite acercar la media a Qn sin aumentar el riesgo: es el ahorro de la etapa 2 del capítulo [-@sec-contenido-efectivo].
 
 ::: {.callout-warning}
 ## Atención
-- El cálculo supone que los datos siguen una distribución normal (compruébalo con un QQ-plot, capítulo 7) y que el proceso es estable.
-- Las causas especiales no entran en el cálculo: con el proceso estable se esperaba un 0,004 % bajo T1, y en el turno real hubo un 2,1 %.
+- El cálculo supone que los datos siguen una distribución normal (compruébalo con un QQ-plot, capítulo [-@sec-distribuciones]) y que el proceso es estable.
+- Las causas especiales no entran en el cálculo: con el proceso estable se esperaba un 0,004 % bajo T1, y en el turno real hubo un 2,1 %.
 :::
 
-**Lo vimos en:** capítulo 7 (distribución normal), capítulo 9 (escenarios) y capítulo 14 (etapas de mejora).
+**Lo vimos en:** capítulo [-@sec-distribuciones] (distribución normal), capítulo [-@sec-control-procesos] (escenarios) y capítulo [-@sec-contenido-efectivo] (etapas de mejora).
 
 ### Ficha 15. A prueba de errores (*poka-yoke*) y estandarización
 
@@ -681,7 +684,7 @@ De más a menos eficaz:
 3. **Estandarizar el trabajo**: un procedimiento escrito que todos siguen igual. Ejemplos: ajuste máximo de ±0,5 g por intervención, con verificación antes del siguiente; protocolo de cambio de turno con verificación de peso y firma.
 4. **Mantenimiento preventivo**: revisión periódica de pistones y juntas para evitar la deriva.
 
-Todas estas acciones son las del plan de acción del capítulo 14.
+Todas estas acciones son las del plan de acción del capítulo [-@sec-contenido-efectivo].
 
 ::: {.callout-warning}
 ## Atención
@@ -689,7 +692,7 @@ Todas estas acciones son las del plan de acción del capítulo 14.
 - Antes de implantar el cambio en toda la planta, conviene probarlo en una línea o en unos turnos (prueba piloto) y medir su efecto.
 :::
 
-**Lo vimos en:** capítulo 14 (diagnóstico 5M y planes de acción) y capítulo 16 (Lean y estandarización).
+**Lo vimos en:** capítulo [-@sec-contenido-efectivo] (diagnóstico 6M y planes de acción) y capítulo [-@sec-mejora-continua] (Lean y estandarización).
 
 ### Lista de comprobación: Mejorar
 
@@ -738,7 +741,7 @@ qic(x = muestra, y = peso_g, data = df,
 
 - Los límites se calculan con los 10 primeros subgrupos (`freeze = 10`), el periodo sin incidentes.
 - Las dos señales de alarma son un punto fuera de los límites y una racha larga al mismo lado de la línea central. `qicharts2` marca las dos.
-- En el gráfico se reconocen los incidentes del turno que analizamos en el capítulo 9: la deriva de las 08:30, la sobrecorrección, la deriva descendente y el escalón del cambio de turno.
+- En el gráfico se reconocen los incidentes del turno que analizamos en el capítulo [-@sec-control-procesos]: la deriva de las 08:30, la sobrecorrección, la deriva descendente y el escalón del cambio de turno.
 - Para controlar la dispersión dentro de cada subgrupo se usa el gráfico S: basta cambiar `chart = "s"`. Para valores individuales (una medida cada vez, como el extracto seco de cada fabricación), `chart = "i"`.
 
 ::: {.callout-warning}
@@ -748,7 +751,7 @@ qic(x = muestra, y = peso_g, data = df,
 - Los límites de control no son los límites legales (T1, T2): salen del propio proceso.
 :::
 
-**Lo vimos en:** capítulo 9 (control estadístico de procesos) y capítulo 11 (el gráfico de control para el panel de planta).
+**Lo vimos en:** capítulo [-@sec-control-procesos] (control estadístico de procesos) y capítulo [-@sec-comunicacion] (el gráfico de control para el panel de planta).
 
 ### Ficha 17. Plan de control
 
@@ -762,7 +765,7 @@ qic(x = muestra, y = peso_g, data = df,
 **Qué datos necesita:** las variables críticas, sus límites y las acciones de las fases anteriores.
 :::
 
-**Ejemplo (llenado de yogures, con las acciones del capítulo 14):**
+**Ejemplo (llenado de yogures, con las acciones del capítulo [-@sec-contenido-efectivo]):**
 
 | Qué se controla | Cómo | Frecuencia | Criterio | Quién | Si no se cumple |
 |---|---|---|---|---|---|
@@ -778,7 +781,7 @@ qic(x = muestra, y = peso_g, data = df,
 - El plan se revisa cuando cambia el proceso, el producto o el equipo.
 :::
 
-**Lo vimos en:** capítulo 14 (planes de acción) y capítulo 15 (seguimiento con indicadores).
+**Lo vimos en:** capítulo [-@sec-contenido-efectivo] (planes de acción) y capítulo [-@sec-variabilidad] (seguimiento con indicadores).
 
 ### Lista de comprobación: Controlar
 
@@ -790,7 +793,7 @@ qic(x = muestra, y = peso_g, data = df,
 
 ## Caso completo: el turno del 1 de octubre
 
-El turno de yogures que hemos seguido en los capítulos 9 y 14 sirve para recorrer las cinco fases con las fichas.
+El turno de yogures que hemos seguido en los capítulos [-@sec-control-procesos] y [-@sec-contenido-efectivo] sirve para recorrer las cinco fases con las fichas.
 
 **Definir.** El lote del 1 de octubre no es conforme: 198 envases bajo T1 y 14 bajo T2 (ficha 1). El proceso se delimita desde la recepción de la cuba hasta el control de peso (ficha 2).
 
@@ -798,13 +801,13 @@ El turno de yogures que hemos seguido en los capítulos 9 y 14 sirve para recorr
 
 **Analizar.** El equipo recoge las causas posibles en el diagrama causa-efecto (ficha 8). El Pareto de los envases bajo T1 señala la sobrecorrección como la causa principal (ficha 10), y los cinco porqués la llevan a la falta de un criterio escrito de ajuste y a la deriva de la llenadora (ficha 9).
 
-**Mejorar.** Las acciones son un criterio de ajuste máximo, el control de viscosidad en la recepción, el protocolo de cambio de turno, el control de temperatura del producto y el mantenimiento preventivo (ficha 15). Con el proceso estable, la proporción esperada bajo T1 es prácticamente nula (ficha 14); reduciendo después la desviación típica de 2,5 a 1,8 g, la media puede bajar de 153 a 150,4 g y ahorrar 6.589 € al año (capítulo 14).
+**Mejorar.** Las acciones son un criterio de ajuste máximo, el control de viscosidad en la recepción, el protocolo de cambio de turno, el control de temperatura del producto y el mantenimiento preventivo (ficha 15). Con el proceso estable, la proporción esperada bajo T1 es prácticamente nula (ficha 14); reduciendo después la desviación típica de 2,5 a 1,8 g, la media puede bajar de 153 a 150,4 g y ahorrar 6.589 € al año (capítulo [-@sec-contenido-efectivo]).
 
 **Controlar.** El gráfico de control queda en el panel de la línea (ficha 16) y el plan de control recoge quién vigila cada variable y qué hacer si se sale de lo previsto (ficha 17).
 
 ::: {.callout-tip}
 ## Para el aula
-Repetid el recorrido con los datos del camembert (`camembert.csv`): definid el problema de las reclamaciones por queso seco de agosto (capítulo 12) y elegid, fase a fase, qué fichas usaríais y en qué orden.
+Repetid el recorrido con los datos del camembert (`camembert.csv`): definid el problema de las reclamaciones por queso seco de agosto (capítulo [-@sec-camembert]) y elegid, fase a fase, qué fichas usaríais y en qué orden.
 :::
 
 ::: {.callout-note collapse="true"}

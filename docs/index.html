@@ -324,7 +324,7 @@ div.csl-indent {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">1</span> Introducción</a>
+  <li><a href="#sec-introduccion" id="toc-sec-introduccion" class="nav-link active" data-scroll-target="#sec-introduccion"><span class="header-section-number">1</span> Introducción</a>
   <ul class="collapse">
   <li><a href="#por-qué-aprender-python-y-r-además-de-la-hoja-de-cálculo" id="toc-por-qué-aprender-python-y-r-además-de-la-hoja-de-cálculo" class="nav-link" data-scroll-target="#por-qué-aprender-python-y-r-además-de-la-hoja-de-cálculo"><span class="header-section-number">1.1</span> Por qué aprender Python y R, además de la hoja de cálculo</a></li>
   <li><a href="#recursos-adicionales" id="toc-recursos-adicionales" class="nav-link" data-scroll-target="#recursos-adicionales"><span class="header-section-number">1.2</span> Recursos adicionales</a></li>
@@ -382,7 +382,7 @@ div.csl-indent {
 </header>
 
 
-<section id="introducción" class="level1" data-number="1">
+<section id="sec-introduccion" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introducción</h1>
 <p>La industria alimentaria genera cada vez más datos: sensores, líneas automatizadas, sistemas de trazabilidad. Transformar esos datos en información útil para la toma de decisiones es ya una competencia esencial para cualquier técnico de planta, tanto en el trabajo diario como en la presentación de resultados en las reuniones de los grupos de mejora Lean o ante la Dirección.</p>
 <p>Este libro aborda las herramientas y métodos del análisis de datos en la producción industrial. Parte de la hoja de cálculo, todavía la herramienta más extendida en las industrias, y propone una transición progresiva hacia Python y R como herramientas principales de análisis.</p>
@@ -390,19 +390,19 @@ div.csl-indent {
 <p>Una idea recorre todo el libro: entender <em>en qué consiste</em> un estadístico es más importante que saber <em>cómo se calcula</em>; en la mayoría de las ocasiones, será la herramienta utilizada la que se ocupe del cálculo. Se busca desarrollar el juicio analítico del estudiante, no memorizar fórmulas. Un buen ejemplo es la media aritmética: veremos que su valor equivale al centro de gravedad de los datos (como el punto de equilibrio de una palanca) y eso explica de forma intuitiva por qué los valores extremos la distorsionan, y cuándo conviene usar otros estadísticos como la mediana. Este tipo de razonamiento práctico, apoyado en analogías físicas concretas, es el que se utiliza a lo largo de todo el libro.</p>
 <section id="por-qué-aprender-python-y-r-además-de-la-hoja-de-cálculo" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="por-qué-aprender-python-y-r-además-de-la-hoja-de-cálculo"><span class="header-section-number">1.1</span> Por qué aprender Python y R, además de la hoja de cálculo</h2>
-<p>La hoja de cálculo sigue siendo imprescindible en la empresa, y en este libro se trata con detalle. Pero los lenguajes de programación tienen una ventaja práctica que no puede ignorarse: el código documenta cada paso del análisis, lo que permite verificarlo, repetirlo y compartirlo. Esto es la <strong>reproducibilidad</strong> (concepto que se desarrolla en el capítulo 3), y es cada vez más valorada tanto en la industria como en las auditorías de calidad.</p>
+<p>La hoja de cálculo sigue siendo imprescindible en la empresa, y en este libro se trata con detalle. Pero los lenguajes de programación tienen una ventaja práctica que no puede ignorarse: el código documenta cada paso del análisis, lo que permite verificarlo, repetirlo y compartirlo. Esto es la <strong>reproducibilidad</strong> (concepto que se desarrolla en el capítulo <a href="030-herramientas.html" class="quarto-xref"><span>3</span></a>), y es cada vez más valorada tanto en la industria como en las auditorías de calidad.</p>
 <p>Hay además una razón muy concreta para el sector alimentario: las normas de calidad y seguridad alimentaria (IFS, BRCGS, ISO 22000) exigen que los datos de proceso estén documentados y sean verificables. Un flujo de trabajo basado en código facilita ese requisito, porque deja registrado cada paso del análisis.</p>
 <p>Otras razones de peso:</p>
 <ul>
-<li><strong>Python</strong> es el lenguaje de referencia en inteligencia artificial y el más extendido en la industria; ocupa la primera posición en el índice TIOBE en marzo 2026 con una calificación del 21% (en noviembre de 2026 había mantenido esta posición durante 62 meses seguidos). Su conocimiento, aunque sea básico, representa un valor diferencial en cualquier currículum técnico.</li>
+<li><strong>Python</strong> es el lenguaje de referencia en inteligencia artificial y el más extendido en la industria; ocupa la primera posición en el índice TIOBE en marzo 2026 con una calificación del 21&nbsp;% (en noviembre de 2026 había mantenido esta posición durante 62 meses seguidos). Su conocimiento, aunque sea básico, representa un valor diferencial en cualquier currículum técnico.</li>
 <li><strong>R</strong> es el lenguaje de referencia en análisis estadístico y de datos, con uno de los mayores índices de crecimiento entre los lenguajes de programación.</li>
-<li>Ambos son gratuitos y de código abierto. En este libro se usan Google Colab (Python) y Posit Cloud (R), que permiten ejecutar el código en el navegador sin instalar nada (véase el apéndice B).</li>
+<li>Ambos son gratuitos y de código abierto. En este libro se usan Google Colab (Python) y Posit Cloud (R), que permiten ejecutar el código en el navegador sin instalar nada (véase el apéndice <a href="310-apendice-entorno.html" class="quarto-xref"><span>B</span></a>).</li>
 </ul>
 <p>Este libro no pretende formar programadores. El código se usa como sucesión de órdenes sencillas en scripts cortos, al servicio de la comprensión del análisis. La programación en Excel (macros, Visual Basic) queda fuera del alcance.</p>
 </section>
 <section id="recursos-adicionales" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="recursos-adicionales"><span class="header-section-number">1.2</span> Recursos adicionales</h2>
-<p>Este libro no proporciona una formación de base en Excel, Python o R, aunque el código utilizado se explica con detalle y se indica la forma en la que se pueden utilizar los diferentes modelos de IA para explicar y ayudar a comprender el código. El apéndice B detalla algunos recursos para este aprendizaje.</p>
+<p>Este libro no proporciona una formación de base en Excel, Python o R, aunque el código utilizado se explica con detalle y se indica la forma en la que se pueden utilizar los diferentes modelos de IA para explicar y ayudar a comprender el código. El apéndice <a href="310-apendice-entorno.html" class="quarto-xref"><span>B</span></a> detalla algunos recursos para este aprendizaje.</p>
 <p>Para quienes deseen ampliar su formación, plataformas como Datacamp, edX, Udemy y Coursera ofrecen cursos gratuitos de Python, R y estadística aplicada. La editorial <strong>OpenStax</strong> (<a href="https://openstax.org/">openstax.org</a>, Universidad Rice, EE. UU.) publica recursos educativos abiertos de alta calidad, que pueden complementar el estudio:</p>
 <ul>
 <li><a href="https://openstax.org/details/books/workplace-software-skills">Workplace Software and Skills</a></li>
@@ -433,7 +433,7 @@ div.csl-indent {
 </section>
 <section id="el-problema-de-los-errores-en-hojas-de-cálculo" class="level3">
 <h3 class="anchored" data-anchor-id="el-problema-de-los-errores-en-hojas-de-cálculo">El problema de los errores en hojas de cálculo</h3>
-<p>La literatura académica sobre fiabilidad de hojas de cálculo es inequívoca: las auditorías de campo realizadas desde 1995 encontraron errores en el 94 % de las 88 hojas de cálculo revisadas, con una tasa media de celdas erróneas del 5,2 %; muchos de esos errores eran silenciosos y no se detectaban sin una revisión celda a celda <span class="citation" data-cites="panko2005 powell2009126">(<a href="400-bibliografia.html#ref-panko2005" role="doc-biblioref">Panko 2005</a>; <a href="400-bibliografia.html#ref-powell2009126" role="doc-biblioref">Powell et&nbsp;al. 2009</a>)</span>. En un entorno donde una decisión basada en datos erróneos puede afectar a la seguridad del producto o a la conformidad con una auditoría, este no es un argumento menor.</p>
+<p>La literatura académica sobre fiabilidad de hojas de cálculo es inequívoca: las auditorías de campo realizadas desde 1995 encontraron errores en el 94&nbsp;% de las 88 hojas de cálculo revisadas, con una tasa media de celdas erróneas del 5,2&nbsp;%; muchos de esos errores eran silenciosos y no se detectaban sin una revisión celda a celda <span class="citation" data-cites="panko2005 powell2009126">(<a href="400-bibliografia.html#ref-panko2005" role="doc-biblioref">Panko 2005</a>; <a href="400-bibliografia.html#ref-powell2009126" role="doc-biblioref">Powell et&nbsp;al. 2009</a>)</span>. En un entorno donde una decisión basada en datos erróneos puede afectar a la seguridad del producto o a la conformidad con una auditoría, este no es un argumento menor.</p>
 <p>El código en Python o R, al ser revisable paso a paso y ejecutable de forma reproducible, reduce estructuralmente ese riesgo. No se trata de abandonar la hoja de cálculo, sino de complementarla con herramientas que aporten trazabilidad y control al proceso de análisis.</p>
 </section>
 <section id="orientación-didáctica" class="level3">

@@ -1,12 +1,13 @@
 ---
 lang: es
-title: "Configuración del entorno de trabajo"
 engine: knitr
 ---
 
+# Configuración del entorno de trabajo {#sec-entorno-trabajo}
+
 Este apéndice describe cómo preparar el entorno de trabajo para ejecutar el código Python y R que aparece a lo largo del libro. Se presentan dos escenarios: uno sin instalación, recomendado para centros con restricciones de administrador, y otro con instalación local, para quien disponga de libertad para instalar software en su equipo.
 
-## Escenario 1: Sin instalación (recomendado)
+## Escenario 1: sin instalación (recomendado)
 
 Esta es la opción más sencilla y funciona en cualquier ordenador con conexión a internet, incluso sin permisos de administrador. Solo se necesita una cuenta de Google.
 
@@ -24,7 +25,7 @@ Todos los cuadernos de práctica de este libro tienen un enlace directo para abr
 
 ::: {.callout-note}
 ## Librerías en Colab
-Colab incluye preinstaladas las librerías más habituales (`pandas`, `matplotlib`, `seaborn`, `numpy`). Si algún cuaderno requiere una librería adicional, lo indicará con una celda de instalación al principio del tipo `!pip install nombre_libreria`.
+Colab incluye preinstaladas las librerías más habituales (`pandas`, `numpy`, `matplotlib`, `seaborn`, `scipy`). Si algún cuaderno requiere una librería adicional, como `palmerpenguins` o `stemgraphic`, lo indicará con una celda de instalación al principio del tipo `!pip install nombre_libreria`.
 :::
 
 ### R: Posit Cloud
@@ -40,31 +41,31 @@ Para empezar:
 Para instalar las librerías necesarias, ejecuta en la consola de R:
 
 ```r
-install.packages(c("tidyverse", "palmerpenguins", 
-                   "ggbeeswarm", "patchwork", "lubridate"))
+install.packages(c("tidyverse", "palmerpenguins", "ggbeeswarm",
+                   "patchwork", "qcc", "qicharts2", "gt"))
 ```
 
-## Escenario 2: Instalación en local
+## Escenario 2: instalación en local
 
 Si tienes permisos para instalar software en tu equipo, esta opción ofrece más velocidad y comodidad para un uso continuo.
 
 ### Python: Miniconda
 
-[Miniconda](https://docs.conda.io/en/latest/miniconda.html) es una distribución mínima de Python que incluye el gestor de paquetes `conda`. A diferencia de la instalación estándar de Python, Miniconda puede instalarse **sin permisos de administrador** seleccionando la opción "Install just for me" durante el proceso de instalación en Windows.
+[Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/main) es una distribución mínima de Python que incluye el gestor de paquetes `conda`. En Windows puede instalarse **sin permisos de administrador** eligiendo la opción «Just Me» durante la instalación.
 
 Pasos:
 
-1. Descarga el instalador desde [docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html). Selecciona la versión para Windows de 64 bits.
-2. Ejecuta el instalador y selecciona **"Just Me"** cuando pregunte para quién se instala.
+1. Descarga el instalador de Miniconda para Windows de 64 bits desde [anaconda.com/download](https://www.anaconda.com/download).
+2. Ejecuta el instalador y selecciona **«Just Me»** cuando pregunte para quién se instala.
 3. Una vez instalado, abre el terminal **Anaconda Prompt** (aparecerá en el menú de inicio) e instala las librerías necesarias:
 
 ```bash
-pip install pandas matplotlib seaborn palmerpenguins
+pip install pandas matplotlib seaborn scipy palmerpenguins stemgraphic
 ```
 
 ### R: instalación base
 
-La instalación de R en Windows **requiere permisos de administrador** en la mayoría de configuraciones de centro. Si no dispones de ellos, utiliza Posit Cloud (Escenario 1).
+El instalador de R para Windows no exige permisos de administrador: sin ellos, instala R en la carpeta de programas del propio usuario. Si la configuración del equipo no permite ejecutar instaladores, utiliza Posit Cloud (escenario 1).
 
 Si puedes instalar:
 
@@ -73,9 +74,11 @@ Si puedes instalar:
 3. Abre Positron o RStudio e instala las librerías necesarias desde la consola de R:
 
 ```r
-install.packages(c("tidyverse", "palmerpenguins",
-                   "ggbeeswarm", "patchwork", "lubridate"))
+install.packages(c("tidyverse", "palmerpenguins", "ggbeeswarm",
+                   "patchwork", "qcc", "qicharts2", "gt"))
 ```
+
+`tidyverse` incluye, entre otros, `ggplot2`, `dplyr`, `readr`, `tidyr` y `lubridate`. `qcc` y `qicharts2` se usan en los gráficos de control y en la caja de herramientas (capítulos [-@sec-control-procesos] y [-@sec-caja-herramientas]), y `gt`, en las tablas del apéndice [-@sec-indice-datasets].
 
 ## Recursos para aprender Python y R
 
@@ -83,15 +86,14 @@ Si necesitas una base más sólida antes de abordar el código del libro, estos 
 
 **Python**
 
-- [Python for Everybody](https://www.py4e.com/) — Curso introductorio completo del Dr. Chuck Severance. Sin conocimientos previos. Disponible en español.
-- [Kaggle Learn — Python](https://www.kaggle.com/learn/python) — Lecciones breves e interactivas directamente en el navegador. Enfocado en análisis de datos.
-- [Kaggle Learn — Pandas](https://www.kaggle.com/learn/pandas) — Introducción práctica a pandas, la librería central del libro.
+- [Python for Everybody](https://www.py4e.com/): curso introductorio completo de Charles Severance, sin conocimientos previos. Tiene versión en español, [Python para todos](https://es.py4e.com/).
+- [Kaggle Learn: Python](https://www.kaggle.com/learn/python): lecciones breves e interactivas en el navegador, orientadas al análisis de datos.
+- [Kaggle Learn: Pandas](https://www.kaggle.com/learn/pandas): introducción práctica a pandas, la librería central del libro.
 
 **R**
 
-- [R for Data Science (2ª ed.)](https://r4ds.hadley.nz/) — El manual de referencia para análisis de datos con tidyverse. Gratuito en línea.
-- [Posit Primers](https://posit.cloud/learn/primers) — Ejercicios interactivos de R en el navegador, sin instalación. Cubre desde los fundamentos hasta visualización y transformación de datos.
-- [Maxima Formación](https://www.maximaformacion.es/blog-dat/top-37-recursos-online-sobre-data-science-r/) ha agrupado varios buenos enlaces de sitios para aprendizaje de R y *data science* con R. Esta web está dirigida por [Rosana Ferrero](https://www.linkedin.com/in/rosanaferrero), que publica regularmente en LinkedIn contenido formativo en ciencia de datos y es una de las *top voices* en esta plataforma.
+- [R for Data Science (2.ª ed.)](https://r4ds.hadley.nz/): el manual de referencia para el análisis de datos con tidyverse, gratuito en línea.
+- [R Primers](https://r-primers.andrewheiss.com/): versión de Andrew Heiss de los antiguos Posit Primers, retirados por Posit en 2023. Tutoriales de R en el navegador, sin instalación, desde los fundamentos hasta la visualización y la transformación de datos.
 
 ## Cómo usar la inteligencia artificial para entender el código
 
@@ -99,14 +101,14 @@ A lo largo del libro encontrarás bloques de código Python y R que pueden resul
 
 Una forma eficaz de avanzar es copiar cualquier bloque de código en un asistente de IA como [Gemini](https://gemini.google.com/), [ChatGPT](https://chatgpt.com/) o [Claude](https://claude.ai/) y preguntar directamente:
 
-> *"Explícame este código línea a línea, en un lenguaje sencillo, como si no supiera programar"*
+> *«Explícame este código línea a línea, en un lenguaje sencillo, como si no supiera programar»*
 
 o bien:
 
-> *"¿Qué hace este código? ¿Qué representa el gráfico que genera?"*
+> *«¿Qué hace este código? ¿Qué representa el gráfico que genera?»*
 
-o también, para un detalle mayor, 
+o también, para más detalle:
 
-> *"Actúa como un tutor de programación. Explica este código instrucción a instrucción de forma detallada y sencilla, indicando qué hace cada línea y por qué es necesaria. Usa analogías con Excel o tareas manuales para que sea más fácil de entender"*
+> *«Actúa como un tutor de programación. Explica este código instrucción a instrucción de forma detallada y sencilla, indicando qué hace cada línea y por qué es necesaria. Usa analogías con Excel o tareas manuales para que sea más fácil de entender»*
 
 Este enfoque es especialmente útil con las partes de formato y presentación gráfica (títulos, ejes, colores), que son secundarias para el análisis pero pueden distraer cuando se está aprendiendo.

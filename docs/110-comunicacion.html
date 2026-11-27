@@ -378,7 +378,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-estad-entorno.html">Herramientas y técnicas básicas</a></li><li class="breadcrumb-item"><a href="./110-comunicacion.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Comunicación</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Comunicación</span></h1>
+<h1 class="title"><span id="sec-comunicacion" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Comunicación</span></span></h1>
 <p class="subtitle lead">Del análisis a la acción: cómo presentar datos para que se entiendan y se usen</p>
 </div>
 
@@ -468,7 +468,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="el-gráfico-de-tarta-pie-chart" class="level3">
 <h3 class="anchored" data-anchor-id="el-gráfico-de-tarta-pie-chart">El gráfico de tarta (pie chart)</h3>
 <p>El gráfico de tarta es uno de los más usados y uno de los menos efectivos. El ojo humano compara mal áreas y ángulos; comparamos mucho mejor longitudes. Si tenemos cinco categorías con proporciones similares, es prácticamente imposible saber cuál es mayor en un gráfico de tarta. Un gráfico de barras ordenado comunica exactamente la misma información de forma mucho más clara.</p>
-<p>La única excepción razonable es cuando hay exactamente dos categorías (conforme / no conforme, por ejemplo) y la proporción es muy diferente (95% / 5%). En ese caso, el gráfico de tarta es intuitivo. Pero incluso ahí, una sola cifra (“5% de no conformes”) suele ser más efectiva que el gráfico.</p>
+<p>La única excepción razonable es cuando hay exactamente dos categorías (conforme / no conforme, por ejemplo) y la proporción es muy diferente (95&nbsp;% / 5&nbsp;%). En ese caso, el gráfico de tarta es intuitivo. Pero incluso ahí, una sola cifra (“5&nbsp;% de no conformes”) suele ser más efectiva que el gráfico.</p>
 </section>
 <section id="los-gráficos-3d" class="level3">
 <h3 class="anchored" data-anchor-id="los-gráficos-3d">Los gráficos 3D</h3>
@@ -692,7 +692,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Algunas reglas prácticas:</p>
 <p><strong>Una variable, un color.</strong> Si tienes un gráfico de barras con los resultados mensuales de una sola variable, todas las barras deben ser del mismo color. Usar colores diferentes para cada mes sugiere que los meses son categorías distintas, lo que confunde al lector.</p>
 <p><strong>El color para destacar, no para decorar.</strong> Si quieres llamar la atención sobre un valor específico (el mes en que el proceso falló, el período fuera de control), usa un color diferente solo para ese elemento. El contraste entre el elemento destacado y el resto en color neutro comunica inmediatamente dónde debe mirar el lector.</p>
-<p><strong>Accesibilidad para daltónicos.</strong> Aproximadamente el 8% de los hombres tiene algún grado de daltonismo. El rojo y el verde son los colores más problemáticos. Si necesitas distinguir dos grupos, usa azul y naranja, o azul y rojo, en lugar de rojo y verde. En ggplot2, la paleta <code>viridis</code> y las paletas de <code>RColorBrewer</code> están diseñadas para ser legibles por personas con daltonismo.</p>
+<p><strong>Accesibilidad para daltónicos.</strong> Aproximadamente el 8&nbsp;% de los hombres tiene algún grado de daltonismo. El rojo y el verde son los colores más problemáticos. Si necesitas distinguir dos grupos, usa azul y naranja, o azul y rojo, en lugar de rojo y verde. En ggplot2, la paleta <code>viridis</code> y las paletas de <code>RColorBrewer</code> están diseñadas para ser legibles por personas con daltonismo.</p>
 <p><strong>Pocas categorías, colores diferenciados.</strong> El ojo humano distingue bien hasta 6-8 colores en un gráfico. Con más categorías, el gráfico de colores se vuelve ilegible. Si tienes más de 8 grupos, considera otras formas de organizar la información (facetas, gráficos separados).</p>
 </section>
 <section id="de-los-gráficos-del-libro-a-la-comunicación-real" class="level2" data-number="11.8">
@@ -840,7 +840,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>El gráfico añade dos elementos respecto al gráfico de análisis del capítulo 9: las zonas coloreadas de advertencia (naranja) y fuera de control (rojo), que permiten leer el estado del proceso de un vistazo, y las etiquetas con el valor de cada línea, para que el operario sepa exactamente cuándo actuar.</p>
+<p>El gráfico añade dos elementos respecto al gráfico de análisis del capítulo <a href="090-control-proc.html" class="quarto-xref"><span>9</span></a>: las zonas coloreadas de advertencia (naranja) y fuera de control (rojo), que permiten leer el estado del proceso de un vistazo, y las etiquetas con el valor de cada línea, para que el operario sepa exactamente cuándo actuar.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -851,7 +851,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>T1 se aplica a cada envase, no a la media de 5 envases. Una media puede quedar muy por encima de T1 aunque uno de sus envases esté por debajo. Por eso T1 no debe dibujarse en un gráfico de medias: daría una falsa sensación de seguridad. Su lugar es un gráfico de pesos individuales o un histograma, como el del capítulo 9.</p>
+<p>T1 se aplica a cada envase, no a la media de 5 envases. Una media puede quedar muy por encima de T1 aunque uno de sus envases esté por debajo. Por eso T1 no debe dibujarse en un gráfico de medias: daría una falsa sensación de seguridad. Su lugar es un gráfico de pesos individuales o un histograma, como el del capítulo <a href="090-control-proc.html" class="quarto-xref"><span>9</span></a>.</p>
 </div>
 </div>
 <p>Un ejemplo brillante de la aplicación del color y el diseño es el que presentan <a href="https://www.linkedin.com/in/yan-holtz-2477534a/">Yan Holtz</a> y <a href="https://www.linkedin.com/in/cedscherer/">Cédric Scherer</a> en su sitio web <a href="https://www.ggplot2-uncharted.com/">ggplot-uncharted</a>, para explicar la relación de la ratio de estudiantes por maestro en el mundo:</p>
@@ -907,7 +907,7 @@ Figura&nbsp;11.1: Ejemplo del uso del color y el diseño para mejorar un gráfic
 </div>
 <div class="callout-body-container callout-body">
 <p>Un buen ejercicio antes de preparar cualquier presentación de datos es escribir el titular: una frase de menos de 15 palabras que resume el hallazgo principal. Si no puedes escribirlo, probablemente no tienes claro cuál es el mensaje principal. Si el titular es obvio y poco informativo (“Análisis de los datos de peso del mes de marzo”), el análisis no ha encontrado nada relevante o no se ha formulado la pregunta correcta.</p>
-<p>Ejemplos de titulares poco informativos: “Resultados del análisis de peso de enero”. Ejemplos de titulares efectivos: “La variabilidad del peso aumenta un 40% en el turno de noche” o “Reducir σ de 2,6 a 1,5 g ahorra 8.000 € anuales en sobredosificación”.</p>
+<p>Ejemplos de titulares poco informativos: “Resultados del análisis de peso de enero”. Ejemplos de titulares efectivos: “La variabilidad del peso aumenta un 40&nbsp;% en el turno de noche” o “Reducir σ de 2,6 a 1,5 g ahorra 8.000 € anuales en sobredosificación”.</p>
 </div>
 </div>
 </section>

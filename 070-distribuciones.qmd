@@ -1,8 +1,9 @@
 ---
 lang: es
-title: "Distribuciones de probabilidad y la distribución normal"
 engine: knitr
 ---
+
+# Distribuciones de probabilidad y la distribución normal {#sec-distribuciones}
 
 ```{r setup-092}
 #| include: false
@@ -34,11 +35,11 @@ No es necesario entender cada línea para seguir el razonamiento del capítulo. 
 
 ## De la frecuencia relativa a la probabilidad
 
-En los capítulos anteriores hemos usado el histograma para describir la distribución de los valores de una variable. Cada barra del histograma representa cuántos valores caen en un intervalo determinado. Si en lugar de contar valores contamos su proporción respecto al total, obtenemos las **frecuencias relativas**, que ya conocemos del capítulo 5.
+En los capítulos anteriores hemos usado el histograma para describir la distribución de los valores de una variable. Cada barra del histograma representa cuántos valores caen en un intervalo determinado. Si en lugar de contar valores contamos su proporción respecto al total, obtenemos las **frecuencias relativas**, que ya conocemos del capítulo [-@sec-exploracion].
 
 Hay un paso conceptual sencillo desde las frecuencias relativas hasta la probabilidad: la frecuencia relativa de un intervalo es la **probabilidad** de que un valor tomado al azar de ese conjunto caiga en ese intervalo.
 
-Por ejemplo, si en los datos de La Liga el 23,7% de los partidos terminan con 2 goles en total, podemos decir que la probabilidad de que un partido elegido al azar acabe con 2 goles es del 23,7%, o 0,237.
+Por ejemplo, si en los datos de La Liga el 23,7 % de los partidos terminan con 2 goles en total, podemos decir que la probabilidad de que un partido elegido al azar acabe con 2 goles es del 23,7 %, o 0,237.
 
 ::: {.callout-note}
 ## Probabilidad y frecuencia relativa
@@ -57,15 +58,15 @@ Para precisar la distinción entre los dos conceptos, la tabla siguiente resume 
 
 En el análisis de datos industriales trabajamos casi siempre con frecuencias relativas: no conocemos la probabilidad teórica de que un queso salga fuera de especificación, pero podemos estimarla a partir de los datos históricos del proceso.
 
-Esta conexión tiene una consecuencia práctica importante. En un histograma de frecuencias relativas, la proporción de valores comprendidos entre dos límites es la **suma de las frecuencias relativas** de los intervalos que abarcan, o la diferencia entre las frecuencias relativas acumuladas en esos dos límites, que vimos en el capítulo 5. En una distribución teórica, esa probabilidad es el **área bajo la curva** entre los dos valores.
+Esta conexión tiene una consecuencia práctica importante. En un histograma de frecuencias relativas, la proporción de valores comprendidos entre dos límites es la **suma de las frecuencias relativas** de los intervalos que abarcan, o la diferencia entre las frecuencias relativas acumuladas en esos dos límites, que vimos en el capítulo [-@sec-exploracion]. En una distribución teórica, esa probabilidad es el **área bajo la curva** entre los dos valores.
 
 ## Distribuciones discretas y continuas
 
 Antes de describir las formas más habituales, conviene distinguir dos tipos de variables:
 
-Las **variables discretas** solo pueden tomar valores aislados, separados entre sí, sin posibilidad de valores intermedios: número de goles en un partido, número de colonias bacterianas en una placa, número de envases defectuosos en un lote. No tiene sentido hablar de 2,7 goles. Las distribuciones de variables discretas tienen barras separadas porque los valores posibles están separados.
+Las **variables discretas** solo pueden tomar valores aislados, separados entre sí, sin posibilidad de valores intermedios: número de goles en un partido, número de colonias bacterianas en una placa, número de envases defectuosos (o deficientes, según el RD 1801/2008) en un lote. No tiene sentido hablar de 2,7 goles. Las distribuciones de variables discretas tienen barras separadas porque los valores posibles están separados.
 
-Las **variables continuas** pueden tomar cualquier valor dentro de un rango: la materia grasa de un queso, el pH, el peso de un envase. Entre 23,5% y 23,6% de grasa hay infinitos valores posibles. Su distribución teórica se representa con una curva continua; con datos reales, la aproximamos mediante un histograma.
+Las **variables continuas** pueden tomar cualquier valor dentro de un rango: la materia grasa de un queso, el pH, el peso de un envase. Entre 23,5 % y 23,6 % de grasa hay infinitos valores posibles. Su distribución teórica se representa con una curva continua; con datos reales, la aproximamos mediante un histograma.
 
 En la práctica industrial, la mayoría de las variables de proceso y calidad son continuas, y la distribución normal, que veremos en detalle, es una distribución continua.
 
@@ -73,7 +74,7 @@ En la práctica industrial, la mayoría de las variables de proceso y calidad so
 
 Los datos que encontramos en la industria alimentaria no siempre tienen la misma forma. Reconocer la forma de una distribución es el primer paso para interpretarla correctamente y elegir las herramientas estadísticas adecuadas.
 
-Veamos las cuatro formas más frecuentes usando datos que ya conocemos del libro y un nuevo conjunto de datos que estudiaremos en el capítulo 12:
+Veamos las cuatro formas más frecuentes usando datos que ya conocemos del libro y un nuevo conjunto de datos que estudiaremos en el capítulo [-@sec-camembert]:
 
 ::: panel-tabset
 
@@ -208,7 +209,7 @@ Cada una de estas formas tiene una explicación en el proceso que genera los dat
 
 - **Asimétrica positiva:** la mayoría de los valores son bajos pero hay una cola hacia valores altos. Es típica de recuentos de eventos poco frecuentes, como los goles por partido: la mayoría de los partidos tienen pocos goles, pero alguno tiene muchos.
 
-- **Asimétrica positiva extrema:** versión extrema de la anterior. Los coliformes son el ejemplo perfecto: la mayoría de las muestras tienen recuentos bajos o nulos, pero episodios de contaminación producen valores muy altos. En el capítulo 12 veremos que la escala logarítmica permite examinar esta distribución con más detalle.
+- **Asimétrica positiva extrema:** versión extrema de la anterior. Los coliformes son el ejemplo perfecto: la mayoría de las muestras tienen recuentos bajos o nulos, pero episodios de contaminación producen valores muy altos. En el capítulo [-@sec-camembert] veremos que la escala logarítmica permite examinar esta distribución con más detalle.
 
 - **Bimodal:** dos grupos superpuestos con características distintas. En los pingüinos, la mezcla de especies con diferente tamaño produce dos modas. En datos de proceso, una distribución bimodal suele indicar que hay dos máquinas, dos operarios o dos materias primas mezcladas en el mismo dataset.
 
@@ -225,9 +226,9 @@ Su forma es característica: simétrica, con un único máximo en el centro, y c
 
 Una propiedad fundamental de la distribución normal es que la proporción de valores dentro de cada rango alrededor de la media es siempre la misma, independientemente de los valores concretos de $\mu$ y $\sigma$:
 
-- Aproximadamente, el **68%** de los valores cae dentro de $\mu \pm 1\sigma$
-- Aproximadamente, el **95%** de los valores cae dentro de $\mu \pm 2\sigma$
-- Aproximadamente, el **99,7%** de los valores cae dentro de $\mu \pm 3\sigma$
+- Aproximadamente, el **68 %** de los valores cae dentro de $\mu \pm 1\sigma$
+- Aproximadamente, el **95 %** de los valores cae dentro de $\mu \pm 2\sigma$
+- Aproximadamente, el **99,7 %** de los valores cae dentro de $\mu \pm 3\sigma$
 
 Esta regla tiene consecuencias prácticas inmediatas: si sabemos que un proceso sigue una distribución normal con media $\mu$ y desviación típica $\sigma$, podemos calcular qué proporción de unidades estará fuera de cualquier límite especificado.
 
@@ -306,7 +307,7 @@ plt.show()
 
 ::: {.callout-note}
 ## La regla 68-95-99,7 y el boxplot
-¿Recuerdas el boxplot del capítulo 5? En una distribución normal, los bigotes del boxplot (que alcanzan, como máximo, 1,5 veces el rango intercuartil más allá de los bordes de la caja) capturan aproximadamente el 99,3% de los valores. Los puntos fuera de los bigotes corresponden aproximadamente al 0,7% de las observaciones, que es la región de las colas más allá de ±2,7$\sigma$.
+¿Recuerdas el boxplot del capítulo [-@sec-exploracion]? En una distribución normal, los bigotes del boxplot (que alcanzan, como máximo, 1,5 veces el rango intercuartil más allá de los bordes de la caja) capturan aproximadamente el 99,3 % de los valores. Los puntos fuera de los bigotes corresponden aproximadamente al 0,7 % de las observaciones, que es la región de las colas más allá de ±2,7$\sigma$.
 
 ![Relación entre la campana de Gauss y el boxplot](imagenes/070/campana-de-gauss-boxplot.webp)
 :::
@@ -319,7 +320,7 @@ $$Z = \frac{x - \mu}{\sigma}$$
 
 La puntuación Z indica cuántas desviaciones típicas separan un valor concreto de la media. Un valor con $Z = 2$ está 2 desviaciones típicas por encima de la media; un valor con $Z = -1,5$ está 1,5 desviaciones típicas por debajo.
 
-La utilidad práctica de la tipificación es que permite calcular probabilidades para cualquier distribución normal usando una única tabla o función, sin importar las unidades ni los valores concretos de $\mu$ y $\sigma$. Las funciones de Python y R que veremos a continuación hacen este cálculo directamente, sin necesidad de tipificar; en el capítulo 14 las usaremos para calcular la proporción de envases que incumple el contenido efectivo reglamentario.
+La utilidad práctica de la tipificación es que permite calcular probabilidades para cualquier distribución normal usando una única tabla o función, sin importar las unidades ni los valores concretos de $\mu$ y $\sigma$. Las funciones de Python y R que veremos a continuación hacen este cálculo directamente, sin necesidad de tipificar; en el capítulo [-@sec-contenido-efectivo] las usaremos para calcular la proporción de envases que incumple el contenido efectivo reglamentario.
 
 ## Cálculo de probabilidades con Python y R
 
@@ -438,4 +439,4 @@ Este capítulo ha establecido el puente entre las frecuencias relativas del hist
 
 Los cuatro tipos de distribución ilustrados con datos del libro (simétrica, asimétrica positiva, asimétrica positiva extrema y bimodal) permiten al alumno reconocer en sus propios datos la forma que subyace al proceso que los genera. La distribución normal se ha descrito en profundidad mediante sus parámetros $\mu$ y $\sigma$, la regla 68-95-99,7 y el cálculo de probabilidades con Python y R. El QQ-plot proporciona una herramienta visual sencilla para verificar si la hipótesis de normalidad es razonable antes de aplicar estos cálculos. 
 
-En el capítulo 14 aplicaremos estos conceptos a un problema real de control de calidad: el análisis del llenado de yogures según el RD 1801/2008.
+En el capítulo [-@sec-contenido-efectivo] aplicaremos estos conceptos a un problema real de control de calidad: el análisis del llenado de yogures según el RD 1801/2008.

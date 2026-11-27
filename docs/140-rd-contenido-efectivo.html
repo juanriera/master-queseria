@@ -426,7 +426,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./120-camembert.html">Aplicaciones en producción</a></li><li class="breadcrumb-item"><a href="./140-rd-contenido-efectivo.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proceso de dosificación y control de peso en el envasado</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proceso de dosificación y control de peso en el envasado</span></h1>
+<h1 class="title"><span id="sec-contenido-efectivo" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proceso de dosificación y control de peso en el envasado</span></span></h1>
 <p class="subtitle lead">Aplicación práctica del RD 1801/2008 de contenido efectivo</p>
 </div>
 
@@ -465,7 +465,7 @@ window.Quarto = {
 <li>Identificar los conceptos clave del RD 1801/2008: cantidad nominal, EMDT, límites T1 y T2.</li>
 <li>Analizar un lote de producción y determinar su conformidad con la norma.</li>
 <li>Explicar la función y las limitaciones del discriminador de peso como medida de control.</li>
-<li>Identificar las causas de variabilidad de un proceso de envasado mediante el análisis 5M.</li>
+<li>Identificar las causas de variabilidad de un proceso de envasado mediante el análisis de las 6M.</li>
 <li>Simular el efecto de planes de mejora sobre la distribución de pesos y cuantificar el ahorro económico.</li>
 </ul>
 <p>Conceptos clave: <strong>contenido efectivo, cantidad nominal, EMDT, T1, T2, sobredosificación, discriminador de peso, capacidad de proceso, variabilidad especial, variabilidad común</strong>.</p>
@@ -481,7 +481,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Este capítulo aplica herramientas de los capítulos anteriores: estadísticos descriptivos (cap. 6), distribución normal (cap. 7), exploración gráfica (cap. 5) y control estadístico de procesos, con sus gráficos de control y la capacidad de proceso (cap. 9). Conviene tenerlos a mano.</p>
+<p>Este capítulo aplica herramientas de los capítulos anteriores: estadísticos descriptivos (cap. <a href="060-estad-basica.html" class="quarto-xref"><span>6</span></a>), distribución normal (cap. <a href="070-distribuciones.html" class="quarto-xref"><span>7</span></a>), exploración gráfica (cap. <a href="050-exploracion.html" class="quarto-xref"><span>5</span></a>) y control estadístico de procesos, con sus gráficos de control y la capacidad de proceso (cap. <a href="090-control-proc.html" class="quarto-xref"><span>9</span></a>). Conviene tenerlos a mano.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -537,7 +537,7 @@ window.Quarto = {
 <figcaption>Cuadro 1 del RD 1801/2008: errores máximos por defecto tolerados</figcaption>
 </figure>
 </div>
-<p>Para un yogur de 150 g (rango de 101 a 200 g), el EMDT es el <strong>4,5% de la cantidad nominal</strong>. El artículo 8 establece que los valores calculados a partir de un porcentaje se redondean por exceso a la décima de gramo:</p>
+<p>Para un yogur de 150 g (rango de 101 a 200 g), el EMDT es el <strong>4,5&nbsp;% de la cantidad nominal</strong>. El artículo 8 establece que los valores calculados a partir de un porcentaje se redondean por exceso a la décima de gramo:</p>
 <p><span class="math display">\[\text{EMDT} = 4{,}5\% \times 150 = 6{,}75 \text{ g} \;\rightarrow\; 6{,}8 \text{ g}\]</span></p>
 <p>A partir del EMDT se calculan los dos límites:</p>
 <p><strong>Límite T1, envase deficiente:</strong> un envase es deficiente cuando su contenido es inferior al contenido mínimo tolerado, <span class="math inline">\(Q_n - \text{EMDT}\)</span>:</p>
@@ -553,7 +553,7 @@ window.Quarto = {
 <li><strong>Los envases deficientes:</strong> la proporción de envases por debajo de T1 debe ser lo suficientemente pequeña para que los lotes superen los controles estadísticos del RD.</li>
 <li><strong>T2:</strong> ningún envase puede estar por debajo de T2.</li>
 </ol>
-<p>El RD no fija un porcentaje máximo de envases deficientes: el segundo requisito se comprueba con el plan de muestreo que veremos a continuación. Como orientación, la guía WELMEC 6.5, de las autoridades europeas de metrología legal, considera adecuado no superar el <strong>2,5%</strong> de envases por debajo de T1. En este capítulo usaremos ese valor como referencia.</p>
+<p>El RD no fija un porcentaje máximo de envases deficientes: el segundo requisito se comprueba con el plan de muestreo que veremos a continuación. Como orientación, la guía WELMEC 6.5, de las autoridades europeas de metrología legal, considera adecuado no superar el <strong>2,5&nbsp;%</strong> de envases por debajo de T1. En este capítulo usaremos ese valor como referencia.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -581,7 +581,7 @@ window.Quarto = {
 <td>150,0 g</td>
 </tr>
 <tr class="even">
-<td>EMDT (4,5%, redondeado por exceso)</td>
+<td>EMDT (4,5&nbsp;%, redondeado por exceso)</td>
 <td>6,8 g</td>
 </tr>
 <tr class="odd">
@@ -594,7 +594,7 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td>Envases bajo T1</td>
-<td>Los suficientemente pocos para superar el muestreo (referencia orientativa: 2,5%)</td>
+<td>Los suficientemente pocos para superar el muestreo (referencia orientativa: 2,5&nbsp;%)</td>
 </tr>
 <tr class="even">
 <td>Envases bajo T2</td>
@@ -669,7 +669,7 @@ window.Quarto = {
 </section>
 <section id="análisis-del-lote-el-turno-del-1-de-octubre" class="level2" data-number="14.4">
 <h2 data-number="14.4" class="anchored" data-anchor-id="análisis-del-lote-el-turno-del-1-de-octubre"><span class="header-section-number">14.4</span> Análisis del lote: el turno del 1 de octubre</h2>
-<p>Disponemos del registro de pesos de un turno completo de envasado de yogures de 150 g: <strong>9.600 envases</strong> producidos entre las 08:00 y las 16:00, con un envase cada 3 segundos. Es el mismo turno que analizamos con gráficos de control en el capítulo 9, ahora con todos sus envases. El fichero <code>llenado_yogures.csv</code> contiene la hora de envasado, el número de envase, el subgrupo de control (grupos de 5 envases consecutivos), la posición del envase en el subgrupo y el peso en gramos. El turno es simulado.</p>
+<p>Disponemos del registro de pesos de un turno completo de envasado de yogures de 150 g: <strong>9.600 envases</strong> producidos entre las 08:00 y las 16:00, con un envase cada 3 segundos. Es el mismo turno que analizamos con gráficos de control en el capítulo <a href="090-control-proc.html" class="quarto-xref"><span>9</span></a>, ahora con todos sus envases. El fichero <code>llenado_yogures.csv</code> contiene la hora de envasado, el número de envase, el subgrupo de control (grupos de 5 envases consecutivos), la posición del envase en el subgrupo y el peso en gramos. El turno es simulado.</p>
 <section id="carga-de-datos-y-estadísticos-básicos" class="level3">
 <h3 class="anchored" data-anchor-id="carga-de-datos-y-estadísticos-básicos">Carga de datos y estadísticos básicos</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -781,7 +781,7 @@ Desviación típica : 3.88 g</code></pre>
 </div>
 </div>
 </div>
-<p>El peso medio es de 152,4 g, con una desviación típica de 3,9 g. El mínimo registrado es 133,8 g, muy por debajo de T2, y el máximo 168,8 g. Hay 198 envases por debajo de T1 (el 2,06%) y 14 por debajo de T2. Con un solo envase bajo T2, el lote ya no cumple el artículo 7.</p>
+<p>El peso medio es de 152,4 g, con una desviación típica de 3,9 g. El mínimo registrado es 133,8 g, muy por debajo de T2, y el máximo 168,8 g. Hay 198 envases por debajo de T1 (el 2,06&nbsp;%) y 14 por debajo de T2. Con un solo envase bajo T2, el lote ya no cumple el artículo 7.</p>
 </section>
 <section id="histograma-y-diagrama-de-caja" class="level3">
 <h3 class="anchored" data-anchor-id="histograma-y-diagrama-de-caja">Histograma y diagrama de caja</h3>
@@ -1068,7 +1068,7 @@ Probabilidad de encontrar algún envase bajo T2 en 80 envases: 11.1 %</code></pr
 </div>
 </div>
 </div>
-<p>Sabemos que el lote contiene 14 envases bajo T2 y, por tanto, no cumple el RD. Sin embargo, la probabilidad de que una muestra de 80 envases recoja alguno de ellos es solo del 11,1%. Y el porcentaje de envases bajo T1 (2,06%) es lo bastante bajo para que el plan de muestreo lo acepte casi siempre. Lo más probable, por tanto, es que el lote <strong>pase la inspección</strong>.</p>
+<p>Sabemos que el lote contiene 14 envases bajo T2 y, por tanto, no cumple el RD. Sin embargo, la probabilidad de que una muestra de 80 envases recoja alguno de ellos es solo del 11,1&nbsp;%. Y el porcentaje de envases bajo T1 (2,06&nbsp;%) es lo bastante bajo para que el plan de muestreo lo acepte casi siempre. Lo más probable, por tanto, es que el lote <strong>pase la inspección</strong>.</p>
 <p>Esto no es un error: es una característica del control estadístico por muestreo. El sistema del RD está diseñado para detectar lotes con proporciones altas de envases deficientes, es decir, situaciones de fallo grave. Una proporción pequeña de envases bajo T2, como la de nuestro lote, rara vez aparece en una muestra de 80 unidades.</p>
 </section>
 <section id="el-razonamiento-del-fabricante-pragmático" class="level3">
@@ -1093,7 +1093,7 @@ Probabilidad de encontrar algún envase bajo T2 en 80 envases: 11.1 %</code></pr
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="imagenes/140/rd-1801-proceso.png" class="img-fluid figure-img"></p>
-<figcaption>Proceso centrado por encima de Qn: con media 152,5 g y σ = 4 g, solo el 1 % de los envases queda bajo T1, pero la diferencia entre la media y Qn es producto regalado en cada envase</figcaption>
+<figcaption>Proceso centrado por encima de Qn: con media 152,5 g y σ = 4 g, solo el 1&nbsp;% de los envases queda bajo T1, pero la diferencia entre la media y Qn es producto regalado en cada envase</figcaption>
 </figure>
 </div>
 </section>
@@ -1164,7 +1164,7 @@ Consigna T1: 198 envases, 27.8 kg, 33.42 €/turno, 7352 €/año</code></pre>
 <section id="la-trampa-de-bajar-la-media-con-el-discriminador-instalado" class="level3">
 <h3 class="anchored" data-anchor-id="la-trampa-de-bajar-la-media-con-el-discriminador-instalado">La trampa de bajar la media con el discriminador instalado</h3>
 <p>Una vez instalado el discriminador, los envases bajo T2 desaparecen de la línea y el lote pasa el control. La reacción habitual en planta es inmediata: <em>si ya no hay envases bajo T2, podemos bajar un poco el peso medio y recuperar producto</em>.</p>
-<p>El razonamiento parece lógico, pero esconde una trampa. Al bajar la media sin reducir la variabilidad, la proporción de envases entre T2 y T1 <strong>crece rápidamente</strong>. Con la consigna en T2, el discriminador elimina los envases bajo T2, pero no los que quedan entre T2 y T1, y esa proporción puede superar la referencia del 2,5% antes de lo que parece.</p>
+<p>El razonamiento parece lógico, pero esconde una trampa. Al bajar la media sin reducir la variabilidad, la proporción de envases entre T2 y T1 <strong>crece rápidamente</strong>. Con la consigna en T2, el discriminador elimina los envases bajo T2, pero no los que quedan entre T2 y T1, y esa proporción puede superar la referencia del 2,5&nbsp;% antes de lo que parece.</p>
 <p>La gráfica siguiente lo muestra: para cada valor posible de la media de dosificación, calcula el porcentaje esperado de envases bajo T1 usando la distribución normal con la σ actual del proceso (3,9 g):</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">Python</a></li></ul>
@@ -1252,7 +1252,7 @@ Consigna T1: 198 envases, 27.8 kg, 33.42 €/turno, 7352 €/año</code></pre>
 </div>
 </div>
 </div>
-<p>Con una σ de 3,9 g, el margen para bajar la media es de apenas 1,5 g antes de superar la referencia del 2,5% de envases bajo T1. Y esto con el discriminador funcionando y eliminando todos los envases bajo T2: sin él, el lote ya incumple el RD.</p>
+<p>Con una σ de 3,9 g, el margen para bajar la media es de apenas 1,5 g antes de superar la referencia del 2,5&nbsp;% de envases bajo T1. Y esto con el discriminador funcionando y eliminando todos los envases bajo T2: sin él, el lote ya incumple el RD.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1275,7 +1275,7 @@ Consigna T1: 198 envases, 27.8 kg, 33.42 €/turno, 7352 €/año</code></pre>
 <h3 class="anchored" data-anchor-id="etapa-1-estabilizar-el-proceso">Etapa 1: estabilizar el proceso</h3>
 <section id="qué-ocurrió-durante-el-turno" class="level4">
 <h4 class="anchored" data-anchor-id="qué-ocurrió-durante-el-turno">Qué ocurrió durante el turno</h4>
-<p>En el capítulo 9 analizamos este turno con gráficos de control a partir de una muestra de 5 envases cada 3 minutos, y reconstruimos lo que había ocurrido:</p>
+<p>En el capítulo <a href="090-control-proc.html" class="quarto-xref"><span>9</span></a> analizamos este turno con gráficos de control a partir de una muestra de 5 envases cada 3 minutos, y reconstruimos lo que había ocurrido:</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -1356,8 +1356,9 @@ Consigna T1: 198 envases, 27.8 kg, 33.42 €/turno, 7352 €/año</code></pre>
 </div>
 <p>La sobrecorrección y el período de alta variabilidad concentran casi todos los envases bajo T1 y todos los envases bajo T2. Son, por tanto, los dos incidentes que hacen que el lote no sea conforme.</p>
 </section>
-<section id="diagnóstico-5m-causas-y-planes-de-acción" class="level4">
-<h4 class="anchored" data-anchor-id="diagnóstico-5m-causas-y-planes-de-acción">Diagnóstico 5M: causas y planes de acción</h4>
+<section id="diagnóstico-6m-causas-y-planes-de-acción" class="level4">
+<h4 class="anchored" data-anchor-id="diagnóstico-6m-causas-y-planes-de-acción">Diagnóstico 6M: causas y planes de acción</h4>
+<p>Ordenamos las posibles causas según las <strong>6M</strong>: máquina, mano de obra, material, método, medio ambiente y medición. Las cuatro primeras explican los incidentes del turno; las dos últimas también hay que revisarlas, y descartarlas si no influyen, antes de actuar.</p>
 <p><strong>Máquina: deriva ascendente de las 08:30 y oscilación de las 14:00</strong></p>
 <p>Una deriva progresiva de la media es la firma clásica del desgaste o la pérdida de ajuste mecánico. En una llenadora de pistón, puede deberse al desgaste de juntas, a una variación de la carrera del pistón o a un cambio en la temperatura del fluido hidráulico. La oscilación rítmica de las 14:00 apunta a una vibración periódica de la bomba de producto.</p>
 <p><em>Plan de acción (Lean, TPM):</em> plan de mantenimiento preventivo con revisión de pistones y juntas cada N turnos; alarmas automáticas cuando la media de tres subgrupos consecutivos se separe más de 1,5 g del objetivo.</p>
@@ -1373,6 +1374,12 @@ Consigna T1: 198 envases, 27.8 kg, 33.42 €/turno, 7352 €/año</code></pre>
 <p><strong>Método: deriva descendente de 11:00 a 13:30</strong></p>
 <p>Una deriva relacionada con la hora del turno puede responder a la temperatura del producto: a medida que avanza la mañana, la temperatura en el depósito de alimentación sube, la viscosidad baja y el pistón entrega ligeramente menos masa. Es una causa de método, porque no existe un procedimiento de control de temperatura.</p>
 <p><em>Plan de acción:</em> rango de temperatura del producto en el depósito, con verificación horaria. A más largo plazo, control automático de temperatura.</p>
+<p><strong>Medio ambiente: condiciones de la sala de envasado</strong></p>
+<p>La temperatura de la sala influye en la del producto que espera en el depósito y, a través de la viscosidad, en la masa que entrega el pistón. Está, por tanto, relacionada con la deriva descendente de 11:00 a 13:30, que hemos clasificado como causa de método porque lo que falta es un procedimiento de control. En la industria agroalimentaria, el medio ambiente incluye también la humedad y la higiene de la sala, que en otros procesos pueden ser causas principales.</p>
+<p><em>Plan de acción:</em> registrar la temperatura de la sala junto con los pesos, para poder relacionar las dos series si la deriva se repite.</p>
+<p><strong>Medición: el sistema de pesaje</strong></p>
+<p>Todo el diagnóstico se apoya en los pesos registrados. Si la balanza o el control de peso en línea tuvieran un sesgo, todos los pesos estarían desplazados y la media real sería otra; si su repetibilidad empeorase, la desviación típica del proceso parecería mayor de lo que es. Por eso, antes de actuar sobre la máquina, hay que comprobar que el sistema de medición es fiable, como vimos en el capítulo <a href="130-sistema-medicion.html" class="quarto-xref"><span>13</span></a>. En este análisis hemos supuesto que lo es.</p>
+<p><em>Plan de acción:</em> verificación de la balanza con pesas patrón al inicio de cada turno, con registro del resultado, y estudio periódico de su repetibilidad.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1384,7 +1391,7 @@ Consigna T1: 198 envases, 27.8 kg, 33.42 €/turno, 7352 €/año</code></pre>
 </div>
 <div class="callout-body-container callout-body">
 <p>Los incidentes identificados son <strong>causas especiales</strong> de variabilidad: tienen una causa identificable, son esporádicos y se pueden eliminar con acciones concretas. Una vez eliminados, el proceso queda con su <strong>variabilidad común</strong>, la inherente al sistema, que solo se puede reducir con mejoras estructurales más profundas.</p>
-<p>Este enfoque de dos etapas (primero estabilizar eliminando causas especiales, después optimizar reduciendo la variabilidad común) es la base de las metodologías <strong>Lean</strong> y <strong>Six Sigma</strong>, que estudiaremos en el capítulo 16.</p>
+<p>Este enfoque de dos etapas (primero estabilizar eliminando causas especiales, después optimizar reduciendo la variabilidad común) es la base de las metodologías <strong>Lean</strong> y <strong>Six Sigma</strong>, que estudiaremos en el capítulo <a href="160-mejora-continua.html" class="quarto-xref"><span>16</span></a>.</p>
 </div>
 </div>
 </section>
@@ -1406,7 +1413,7 @@ Consigna T1: 198 envases, 27.8 kg, 33.42 €/turno, 7352 €/año</code></pre>
 <pre><code>Media = 153.02 g   Desviación típica = 2.49 g   Cpk = 1.31</code></pre>
 </div>
 </div>
-<p>Sin incidentes, el proceso tiene una media de unos 153 g y una desviación típica de unos 2,5 g, con un <span class="math inline">\(C_{pk}\)</span> frente a T1 de 1,31. En el capítulo 9 vimos que en la industria se suele exigir <span class="math inline">\(C_{pk} \geq 1{,}33\)</span>. Como solo hay un límite inferior, eso significa que la media debe estar al menos 4 desviaciones típicas por encima de T1:</p>
+<p>Sin incidentes, el proceso tiene una media de unos 153 g y una desviación típica de unos 2,5 g, con un <span class="math inline">\(C_{pk}\)</span> frente a T1 de 1,31. En el capítulo <a href="090-control-proc.html" class="quarto-xref"><span>9</span></a> vimos que en la industria se suele exigir <span class="math inline">\(C_{pk} \geq 1{,}33\)</span>. Como solo hay un límite inferior, eso significa que la media debe estar al menos 4 desviaciones típicas por encima de T1:</p>
 <p><span class="math display">\[\mu \geq T_1 + 4\sigma = 143{,}2 + 4 \times 2{,}5 = 153{,}2 \text{ g}\]</span></p>
 <p>Esta es la razón por la que la planta trabaja con una media de 153 g, 3 g por encima de la cantidad nominal: con la variabilidad actual, si baja la media aparecen envases bajo T2 o un número excesivo de envases bajo T1.</p>
 </section>
@@ -1966,7 +1973,7 @@ Consigna T1: 198 envases, 27.8 kg, 33.42 €/turno, 7352 €/año</code></pre>
 </div>
 <p>El camino de mejora tiene dos etapas bien diferenciadas. La primera, eliminar las causas especiales mediante trabajo estándar, protocolos de turno, control de materiales y mantenimiento, es rápida y de bajo coste, y hace que el lote cumpla el RD; pero no permite bajar la media, porque esta depende de la variabilidad común. La segunda, reducir la variabilidad común con mejoras tecnológicas, requiere inversión, pero es la que permite dejar de regalar producto, con un retorno económico cuantificable y directo.</p>
 <p>El discriminador de peso es una herramienta necesaria durante todo el proceso, pero su papel disminuye a medida que la variabilidad se reduce. Al final del camino, el discriminador apenas actúa, y eso es exactamente lo que se busca.</p>
-<p>Este recorrido (medir, diagnosticar, estabilizar, optimizar) es la lógica que subyace a las metodologías <strong>Lean</strong> y <strong>Six Sigma</strong>, que formalizaremos en el capítulo 16.</p>
+<p>Este recorrido (medir, diagnosticar, estabilizar, optimizar) es la lógica que subyace a las metodologías <strong>Lean</strong> y <strong>Six Sigma</strong>, que formalizaremos en el capítulo <a href="160-mejora-continua.html" class="quarto-xref"><span>16</span></a>.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">

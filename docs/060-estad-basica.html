@@ -371,11 +371,11 @@ window.Quarto = {
   <ul>
   <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">6.1</span> Introducción</a></li>
   <li><a href="#recursos-utilizados" id="toc-recursos-utilizados" class="nav-link" data-scroll-target="#recursos-utilizados"><span class="header-section-number">6.2</span> Recursos utilizados</a></li>
-  <li><a href="#la-media-aritmética-un-ejemplo-de-cálculo." id="toc-la-media-aritmética-un-ejemplo-de-cálculo." class="nav-link" data-scroll-target="#la-media-aritmética-un-ejemplo-de-cálculo."><span class="header-section-number">6.3</span> La media aritmética: un ejemplo de cálculo.</a>
+  <li><a href="#la-media-aritmética-un-ejemplo-de-cálculo" id="toc-la-media-aritmética-un-ejemplo-de-cálculo" class="nav-link" data-scroll-target="#la-media-aritmética-un-ejemplo-de-cálculo"><span class="header-section-number">6.3</span> La media aritmética: un ejemplo de cálculo</a>
   <ul class="collapse">
   <li><a href="#definición" id="toc-definición" class="nav-link" data-scroll-target="#definición">Definición</a></li>
-  <li><a href="#deducción-de-la-fórmula" id="toc-deducción-de-la-fórmula" class="nav-link" data-scroll-target="#deducción-de-la-fórmula">Deducción de la fórmula:</a></li>
-  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo:</a></li>
+  <li><a href="#deducción-de-la-fórmula" id="toc-deducción-de-la-fórmula" class="nav-link" data-scroll-target="#deducción-de-la-fórmula">Deducción de la fórmula</a></li>
+  <li><a href="#ejemplo" id="toc-ejemplo" class="nav-link" data-scroll-target="#ejemplo">Ejemplo</a></li>
   </ul></li>
   <li><a href="#las-medidas-de-dispersión-la-varianza-y-la-desviación-típica" id="toc-las-medidas-de-dispersión-la-varianza-y-la-desviación-típica" class="nav-link" data-scroll-target="#las-medidas-de-dispersión-la-varianza-y-la-desviación-típica"><span class="header-section-number">6.4</span> Las medidas de dispersión: la varianza y la desviación típica</a></li>
   <li><a href="#las-limitaciones-de-la-media-y-la-desviación-típica" id="toc-las-limitaciones-de-la-media-y-la-desviación-típica" class="nav-link" data-scroll-target="#las-limitaciones-de-la-media-y-la-desviación-típica"><span class="header-section-number">6.5</span> Las limitaciones de la media y la desviación típica</a></li>
@@ -390,7 +390,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-estad-entorno.html">Herramientas y técnicas básicas</a></li><li class="breadcrumb-item"><a href="./060-estad-basica.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza</span></h1>
+<h1 class="title"><span id="sec-media-varianza" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Medidas centrales y medidas de dispersión: la media y la varianza</span></span></h1>
 </div>
 
 
@@ -441,8 +441,8 @@ window.Quarto = {
 <p>Al estudiar el diagrama de caja (<em>boxplot</em>) hemos visto que este gráfico se describe mediante los <strong>cinco números</strong>, que son:</p>
 <ul>
 <li>mínimo y máximo,</li>
-<li>primer y tercer cuartil (25% y 75%), y</li>
-<li>segundo cuartil (50%).</li>
+<li>primer y tercer cuartil (25&nbsp;% y 75&nbsp;%), y</li>
+<li>segundo cuartil (50&nbsp;%).</li>
 </ul>
 <p>De estos valores, el segundo cuartil, que se corresponde con la mitad de los valores, representa una estimación del centro de la distribución, y por eso lo llamamos <strong>mediana</strong>. La distancia entre el primer y tercer cuartil es lo que se conoce como <strong>rango intercuartil</strong> (se suele representar por sus siglas en inglés, <strong>IQR</strong>), y nos da una indicación de la <strong>dispersión</strong>: cuanto mayor es la dispersión de nuestros valores, más alejados estarán del centro, y por lo tanto habrá mayor distancia entre el primer y el tercer cuartil.</p>
 <p>Una de las mayores ventajas de la mediana y del rango intercuartil es que son estadísticos robustos, es decir, tienen una alta robustez a los valores atípicos. Como en el cálculo del rango intercuartil no se tienen en cuenta los valores extremos, su valor variará muy poco si aparecen nuevas observaciones atípicas (outliers). Como no presuponen ninguna forma concreta de distribución de los datos, a estos estadísticos se los conoce como <strong>no paramétricos</strong>.</p>
@@ -453,14 +453,14 @@ window.Quarto = {
 <p>En este ejercicio usaremos diversos datos y gráficas realizados en Excel. Para facilitar el análisis, puede descargarse esta hoja Excel, con muchas tablas y gráficos, en el enlace a continuación.</p>
 <p><a href="https://raw.githubusercontent.com/juanriera/mejora-continua/master/datos/dibujos_varianza.xlsx">Descargar hoja Excel</a></p>
 </section>
-<section id="la-media-aritmética-un-ejemplo-de-cálculo." class="level2 page-columns page-full" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="la-media-aritmética-un-ejemplo-de-cálculo."><span class="header-section-number">6.3</span> La media aritmética: un ejemplo de cálculo.</h2>
+<section id="la-media-aritmética-un-ejemplo-de-cálculo" class="level2 page-columns page-full" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="la-media-aritmética-un-ejemplo-de-cálculo"><span class="header-section-number">6.3</span> La media aritmética: un ejemplo de cálculo</h2>
 <section id="definición" class="level3">
 <h3 class="anchored" data-anchor-id="definición">Definición</h3>
 <p>La media aritmética de un conjunto de valores es el valor central que se obtiene al dividir la suma de todos los valores por la cantidad de valores. Es una medida de tendencia central que proporciona un punto de referencia para el conjunto de datos.</p>
 </section>
 <section id="deducción-de-la-fórmula" class="level3">
-<h3 class="anchored" data-anchor-id="deducción-de-la-fórmula">Deducción de la fórmula:</h3>
+<h3 class="anchored" data-anchor-id="deducción-de-la-fórmula">Deducción de la fórmula</h3>
 <p>Supongamos que tenemos un conjunto de <span class="math inline">\(n\)</span> valores numéricos: <span class="math inline">\(x_1, x_2, x_3, \ldots, x_n\)</span>.</p>
 <ol type="1">
 <li><p><strong>Suma de todos los valores</strong>: Primero, sumamos todos los valores del conjunto. Matemáticamente, esto se expresa como:</p>
@@ -479,7 +479,7 @@ S = x_1 + x_2 + x_3 + \cdots + x_n
 </ol>
 </section>
 <section id="ejemplo" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="ejemplo">Ejemplo:</h3>
+<h3 class="anchored" data-anchor-id="ejemplo">Ejemplo</h3>
 <p>Supongamos que tenemos los siguientes valores: <span class="math inline">\(5, 7, 9\)</span>.</p>
 <ol type="1">
 <li><p><strong>Suma de los valores</strong>: <span class="math display">\[
@@ -625,8 +625,8 @@ Nota
 <p>Vamos a analizar con detalle esta tabla.</p>
 <p>En la columna <code>J</code> tenemos nuestra población original de 11 alumnos, con las alturas que hemos medido. En la columna <code>B</code> hemos supuesto que todos los alumnos fuesen iguales, con la misma altura del valor medio de los datos originales. En la columna <code>F</code> hemos simulado otro grupo, con todos los valores iguales excepto uno, y con la misma media que los otros dos grupos.</p>
 <p>A la derecha de cada columna de medias, tenemos la columna de diferencias (columnas <code>D</code>, <code>H</code> y <code>L</code>), y en la fila <code>13</code>, nuestro primer intento de calcular una dispersión media; intento fallido, puesto que obteníamos el valor <span class="math inline">\(0\)</span> para los tres grupos.</p>
-<p>En la siguiente columna a la derecha, para los tres grupos (columnas <code>E</code>, <code>I</code> y <code>M</code>), hemos elevado al cuadrado la distancia de cada valor a la media, siguiendo los hallazgos que nos ha proporcionado el teorema de Pitágoras y la fórmula de la distancia entre dos puntos. En la fila <code>13</code> de estas columnas, calculamos el promedio de la distancia a la media al cuadrado: esta vez el resultado ya no es cero, sino que obtenemos el valor de la <strong>varianza</strong>, de acuerdo con la fórmula que hemos deducido más arriba. En la fila <code>14</code> (columnas B, <code>F</code> y <code>J</code>)utilizamos la fórmula de la hoja de cálculo para la <strong>varianza poblacional</strong> (más detalles posteriormente), y vemos que coincide exactamente con el promedio de las diferencias al cuadrado, tal como debe ser, ya que en eso consiste la fórmula que hemos deducido.</p>
-<p>Por último, en la fila <code>15</code> calculamos la desviación típica de ambas formas, con la fórmula de la hoja de cálculo para la <strong>desviación típica poblacional</strong> (columnas <code>B</code>, <code>F</code> y <code>J</code>), que Excel llama <strong>desviación estándar</strong>, y como la raíz cuadrada del promedio calculado antes (columnas <code>E</code>, <code>I</code>y <code>M</code>). De nuevo, ambos valores coinciden exactamente, como esperamos.</p>
+<p>En la siguiente columna a la derecha, para los tres grupos (columnas <code>E</code>, <code>I</code> y <code>M</code>), hemos elevado al cuadrado la distancia de cada valor a la media, siguiendo los hallazgos que nos ha proporcionado el teorema de Pitágoras y la fórmula de la distancia entre dos puntos. En la fila <code>13</code> de estas columnas, calculamos el promedio de la distancia a la media al cuadrado: esta vez el resultado ya no es cero, sino que obtenemos el valor de la <strong>varianza</strong>, de acuerdo con la fórmula que hemos deducido más arriba. En la fila <code>14</code> (columnas <code>B</code>, <code>F</code> y <code>J</code>) utilizamos la fórmula de la hoja de cálculo para la <strong>varianza poblacional</strong> (más detalles posteriormente), y vemos que coincide exactamente con el promedio de las diferencias al cuadrado, tal como debe ser, ya que en eso consiste la fórmula que hemos deducido.</p>
+<p>Por último, en la fila <code>15</code> calculamos la desviación típica de ambas formas, con la fórmula de la hoja de cálculo para la <strong>desviación típica poblacional</strong> (columnas <code>B</code>, <code>F</code> y <code>J</code>), que Excel llama <strong>desviación estándar</strong>, y como la raíz cuadrada del promedio calculado antes (columnas <code>E</code>, <code>I</code> y <code>M</code>). De nuevo, ambos valores coinciden exactamente, como esperamos.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="imagenes/060/image-20221116135458643.webp" class="img-fluid figure-img"></p>
@@ -692,7 +692,7 @@ Figura&nbsp;6.1: Comparación gráfica del significado de la media en un diagram
 </figcaption>
 </figure>
 </div>
-<p>Un valor muy alejado del centro actúa como un <strong>peso situado lejos del fulcro</strong>: su efecto sobre el equilibrio es proporcional a su distancia a la media: un único valor extremo puede desplazar el punto de equilibrio (la media) tanto como varios valores moderados juntos. En la varianza el efecto es aún mayor, porque las diferencias se elevan al cuadrado: un valor situado al doble de distancia aporta cuatro veces más.</p>
+<p>Un valor muy alejado del centro actúa como un <strong>peso situado lejos del fulcro</strong>. Su efecto sobre el equilibrio es proporcional a su distancia a la media: un único valor extremo puede desplazar el punto de equilibrio (la media) tanto como varios valores moderados juntos. En la varianza el efecto es aún mayor, porque las diferencias se elevan al cuadrado: un valor situado al doble de distancia aporta cuatro veces más.</p>
 <p>Por eso, <strong>deberíamos usar la media y la desviación típica preferiblemente cuando estamos razonablemente seguros de que los datos tienen una forma aproximadamente simétrica y equilibrada</strong>, como la famosa <strong>campana de Gauss</strong> (distribución normal), que podemos relacionar con el boxplot, tal como vemos en el gráfico a continuación:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -862,8 +862,8 @@ dtype: float64</code></pre>
 <h2 data-number="6.8" class="anchored" data-anchor-id="resumen-del-capítulo"><span class="header-section-number">6.8</span> Resumen del capítulo</h2>
 <p>La media aritmética es el estadístico central más utilizado: representa el valor en torno al cual se distribuye el conjunto de datos y se calcula como la suma de todos los valores dividida entre su número. Sin embargo, la media por sí sola no es suficiente para describir un conjunto de datos, ya que grupos muy distintos pueden compartir el mismo valor medio.</p>
 <p>Para completar la descripción es necesario medir la dispersión, es decir, cuánto se alejan los valores individuales de ese centro. La varianza mide esa distancia elevando al cuadrado las diferencias entre cada valor y la media, lo que evita que las diferencias positivas y negativas se anulen; la desviación típica es su raíz cuadrada y recupera las unidades originales de la medida.</p>
-<p>Estos estadísticos paramétricos son muy potentes cuando los datos tienen una distribución aproximadamente simétrica, pero son sensibles a los valores extremos. En esos casos, la mediana y el rango intercuartil, ya vistos en el boxplot del capítulo 5, resultan más robustos y seguros. En la práctica, ambos tipos de estadísticos se usan de forma complementaria.</p>
-<p>En el capítulo 12 aplicaremos todos estos conceptos al análisis de una fabricación real de queso camembert.</p>
+<p>Estos estadísticos paramétricos son muy potentes cuando los datos tienen una distribución aproximadamente simétrica, pero son sensibles a los valores extremos. En esos casos, la mediana y el rango intercuartil, ya vistos en el boxplot del capítulo <a href="050-exploracion.html" class="quarto-xref"><span>5</span></a>, resultan más robustos y seguros. En la práctica, ambos tipos de estadísticos se usan de forma complementaria.</p>
+<p>En el capítulo <a href="120-camembert.html" class="quarto-xref"><span>12</span></a> aplicaremos todos estos conceptos al análisis de una fabricación real de queso camembert.</p>
 
 
 </section>

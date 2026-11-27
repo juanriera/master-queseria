@@ -416,7 +416,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./020-estad-entorno.html">Herramientas y técnicas básicas</a></li><li class="breadcrumb-item"><a href="./100-disexp.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción al diseño de experimentos</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción al diseño de experimentos</span></h1>
+<h1 class="title"><span id="sec-diseno-experimentos" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción al diseño de experimentos</span></span></h1>
 </div>
 
 
@@ -495,7 +495,7 @@ window.Quarto = {
 </section>
 <section id="la-variable-respuesta" class="level3">
 <h3 class="anchored" data-anchor-id="la-variable-respuesta">La variable respuesta</h3>
-<p>La <strong>respuesta</strong> es la variable que medimos para evaluar el efecto de los factores. En nuestro experimento, la respuesta es el coeficiente de recuperación ESM/MP, que establece la relación entre el extracto seco magro (ESM) del queso y la materia proteica (MP) puesta en cuba, expresada en porcentaje. En condiciones normales de proceso, este indicador oscila entre el 92 % y el 98 %.</p>
+<p>La <strong>respuesta</strong> es la variable que medimos para evaluar el efecto de los factores. En nuestro experimento, la respuesta es el coeficiente de recuperación ESM/MP, que establece la relación entre el extracto seco magro (ESM) del queso y la materia proteica (MP) puesta en cuba, expresada en porcentaje. En condiciones normales de proceso, este indicador oscila entre el 92&nbsp;% y el 98&nbsp;%.</p>
 </section>
 <section id="las-réplicas" class="level3">
 <h3 class="anchored" data-anchor-id="las-réplicas">Las réplicas</h3>
@@ -602,8 +602,8 @@ window.Quarto = {
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(temperatura, dosis_cuajo) <span class="sc">|&gt;</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">n        =</span> <span class="fu">n</span>(),</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">media    =</span> <span class="fu">round</span>(<span class="fu">mean</span>(retencion_pct), <span class="dv">2</span>),</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">desv_tip =</span> <span class="fu">round</span>(<span class="fu">sd</span>(retencion_pct), <span class="dv">2</span>),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">media    =</span> <span class="fu">round</span>(<span class="fu">mean</span>(rendimiento_esm_pct), <span class="dv">2</span>),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">desv_tip =</span> <span class="fu">round</span>(<span class="fu">sd</span>(rendimiento_esm_pct), <span class="dv">2</span>),</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">.groups  =</span> <span class="st">"drop"</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -617,7 +617,7 @@ window.Quarto = {
 4          34          30     3  95.3     0.17</code></pre>
 </div>
 </div>
-<p>La tabla de medias ya revela algo importante: a 30 °C, subir la dosis de cuajo de 20 a 30 ml/100 L mejora el coeficiente de recuperación (ESM/MP) en más de 1 punto (de 93,75% a 94,96%). Pero a 34 °C, esa misma subida de dosis apenas produce mejora (de 95,34% a 95,31%). Esto es exactamente una interacción, y es precisamente la información que el enfoque OFAT nunca habría podido revelar.</p>
+<p>La tabla de medias ya revela algo importante: a 30 °C, subir la dosis de cuajo de 20 a 30 ml/100 L mejora el coeficiente de recuperación (ESM/MP) en más de 1 punto (de 93,75&nbsp;% a 94,96&nbsp;%). Pero a 34 °C, esa misma subida de dosis apenas produce mejora (de 95,34&nbsp;% a 95,31&nbsp;%). Esto es exactamente una interacción, y es precisamente la información que el enfoque OFAT nunca habría podido revelar.</p>
 </section>
 <section id="los-gráficos-de-efectos-principales" class="level2" data-number="10.5">
 <h2 data-number="10.5" class="anchored" data-anchor-id="los-gráficos-de-efectos-principales"><span class="header-section-number">10.5</span> Los gráficos de efectos principales</h2>
@@ -629,13 +629,13 @@ window.Quarto = {
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>media_temp  <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(temperatura) <span class="sc">|&gt;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(retencion_pct), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(rendimiento_esm_pct), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>media_dosis <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(dosis_cuajo) <span class="sc">|&gt;</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(retencion_pct), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(rendimiento_esm_pct), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>media_global <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span>retencion_pct)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>media_global <span class="ot">&lt;-</span> <span class="fu">mean</span>(df<span class="sc">$</span>rendimiento_esm_pct)</span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(media_temp, <span class="fu">aes</span>(<span class="at">x =</span> temperatura, <span class="at">y =</span> media, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
@@ -680,7 +680,7 @@ window.Quarto = {
 <summary>Mostrar código</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>medias_cruzadas <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(temperatura, dosis_cuajo) <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(retencion_pct), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">media =</span> <span class="fu">mean</span>(rendimiento_esm_pct), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(medias_cruzadas,</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(dosis_cuajo), <span class="at">y =</span> media,</span>

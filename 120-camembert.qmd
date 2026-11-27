@@ -1,12 +1,13 @@
 ---
 lang: es
-title: Análisis exploratorio de una fabricación de queso camembert
 format:
   html:
     code-fold: true
     code-summary: Mostrar código
 engine: knitr
 ---
+
+# Análisis exploratorio de una fabricación de queso camembert {#sec-camembert}
 
 ```{r bloque-1}
 #| include: false
@@ -21,7 +22,7 @@ Al finalizar este capítulo, el alumno será capaz de:
 
 - Aplicar el flujo de trabajo completo del análisis de datos (importar, limpiar, visualizar, comunicar) a un caso real de fabricación de queso camembert.
 - Detectar e interpretar errores en los datos mediante la inspección visual y estadística de cada variable.
-- Relacionar la forma de un histograma y un boxplot con las características del proceso que los genera, conectando lo aprendido en los capítulos 5 y 7.
+- Relacionar la forma de un histograma y un boxplot con las características del proceso que los genera, conectando lo aprendido en los capítulos [-@sec-exploracion] y [-@sec-distribuciones].
 - Identificar y analizar la estacionalidad y la tendencia en una serie temporal de datos de fabricación.
 - Calcular y analizar una variable derivada (`hqd`) a partir de variables medidas, y relacionar su evolución temporal con las causas tecnológicas del proceso.
 - Interpretar la distribución asimétrica positiva de recuentos microbiológicos y extraer conclusiones sobre la higiene del proceso.
@@ -55,7 +56,7 @@ En los capítulos anteriores hemos aprendido a describir datos mediante gráfico
 
 ## Flujo de trabajo
 
-Como vimos en el capítulo 4, es muy conveniente establecer un flujo de trabajo regular, de forma que cada etapa del análisis se apoye en las anteriores:
+Como vimos en el capítulo [-@sec-organizacion-datos], es muy conveniente establecer un flujo de trabajo regular, de forma que cada etapa del análisis se apoye en las anteriores:
 
 ![Modelo de flujo de trabajo en la ciencia de datos, según Wickham [@wickham2023]](imagenes/120/data-science-explore.svg)
 
@@ -63,7 +64,7 @@ Vamos a ir desarrollando este flujo paso a paso.
 
 ## Importar los datos
 
-Leemos el fichero desde la carpeta `datos/`. Si lo has guardado en otra carpeta, adapta la ruta de lectura como vimos en el capítulo 4.
+Leemos el fichero desde la carpeta `datos/`. Si lo has guardado en otra carpeta, adapta la ruta de lectura como vimos en el capítulo [-@sec-organizacion-datos].
 
 ::: panel-tabset
 
@@ -177,7 +178,7 @@ Ya en este primer resumen aparecen varias señales que merecen atención: el mí
 
 ### Extracto seco total (`est`)
 
-Comenzamos con la variable principal. En el capítulo 5 usamos el histograma y el boxplot para estudiar la forma de los datos; aquí los aplicamos directamente al caso real.
+Comenzamos con la variable principal. En el capítulo [-@sec-exploracion] usamos el histograma y el boxplot para estudiar la forma de los datos; aquí los aplicamos directamente al caso real.
 
 ::: panel-tabset
 
@@ -224,7 +225,7 @@ plt.show()
 
 :::
 
-El histograma muestra una distribución aproximadamente simétrica en torno a 46-47%, pero con una cola hacia la derecha y una barra aislada en torno a 52%. La curva de densidad muestra una pequeña elevación en ese extremo que no debería estar ahí si la distribución fuese una campana de Gauss limpia. El boxplot confirma la presencia de tres valores atípicos por encima de 50% (52,61, 50,40 y 50,30%).
+El histograma muestra una distribución aproximadamente simétrica en torno a 46-47 %, pero con una cola hacia la derecha y una barra aislada en torno a 52 %. La curva de densidad muestra una pequeña elevación en ese extremo que no debería estar ahí si la distribución fuese una campana de Gauss limpia. El boxplot confirma la presencia de tres valores atípicos por encima de 50 % (52,61, 50,40 y 50,30 %).
 
 ¿Son errores o valores reales? Para responderlo necesitamos contexto temporal.
 
@@ -260,7 +261,7 @@ plt.show()
 
 :::
 
-La serie temporal revela lo que el histograma no podía mostrar: los valores altos se concentran en los meses de verano, especialmente julio y agosto. El valor máximo de 52,61% corresponde al 21 de julio. Esto cambia completamente la interpretación: los valores por encima de 50% no son errores aislados sino parte de una desviación estacional sostenida durante varias semanas. La cola derecha del histograma es, en realidad, la huella de un período del año en que el proceso se comportó de otra forma: el histograma mezcla dos situaciones distintas. Si ese período hubiera sido más largo o el desplazamiento mayor, la mezcla habría producido un histograma bimodal como los que vimos en el capítulo 5; aquí, como afecta a pocas semanas, solo produce una cola.
+La serie temporal revela lo que el histograma no podía mostrar: los valores altos se concentran en los meses de verano, especialmente julio y agosto. El valor máximo de 52,61 % corresponde al 21 de julio. Esto cambia completamente la interpretación: los valores por encima de 50 % no son errores aislados sino parte de una desviación estacional sostenida durante varias semanas. La cola derecha del histograma es, en realidad, la huella de un período del año en que el proceso se comportó de otra forma: el histograma mezcla dos situaciones distintas. Si ese período hubiera sido más largo o el desplazamiento mayor, la mezcla habría producido un histograma bimodal como los que vimos en el capítulo [-@sec-exploracion]; aquí, como afecta a pocas semanas, solo produce una cola.
 
 Visualizamos la media semanal y su dispersión para ver la evolución con más claridad:
 
@@ -364,7 +365,7 @@ plt.show()
 
 :::
 
-Ahora la imagen es completamente distinta. En julio prácticamente todos los valores son altos: la mediana de julio (49,59%) es la más alta del año, y dentro de ese mes el valor de 52,61% ni siquiera se marca como atípico. Agosto y septiembre siguen por encima del resto del año, aunque menos (medianas de 47,75 y 47,30%). En los demás meses las medianas están entre 45,4 y 47,0%.
+Ahora la imagen es completamente distinta. En julio prácticamente todos los valores son altos: la mediana de julio (49,59 %) es la más alta del año, y dentro de ese mes el valor de 52,61 % ni siquiera se marca como atípico. Agosto y septiembre siguen por encima del resto del año, aunque menos (medianas de 47,75 y 47,30 %). En los demás meses las medianas están entre 45,4 y 47,0 %.
 
 ### Materia grasa (`mg`)
 
@@ -411,7 +412,7 @@ plt.show()
 
 :::
 
-El histograma de la materia grasa muestra una distribución aproximadamente simétrica centrada en torno a 23,5%; tiene forma escalonada porque la materia grasa se registra en pasos de 0,5%. El boxplot señala un valor atípico alto claramente separado del resto. Ese valor es 28%, registrado en la primera fabricación del 26 de enero (la segunda de ese día dio 26%), y es el único por encima de 27%. Puede ser un error de estandarización en el arranque del año, cuando la composición de la leche de invierno es más rica en grasa. Lo analizamos en la serie temporal:
+El histograma de la materia grasa muestra una distribución aproximadamente simétrica centrada en torno a 23,5 %; tiene forma escalonada porque la materia grasa se registra en pasos de 0,5 %. El boxplot señala un valor atípico alto claramente separado del resto. Ese valor es 28 %, registrado en la primera fabricación del 26 de enero (la segunda de ese día dio 26 %), y es el único por encima de 27 %. Puede ser un error de estandarización en el arranque del año, cuando la composición de la leche de invierno es más rica en grasa. Lo analizamos en la serie temporal:
 
 ::: panel-tabset
 
@@ -474,7 +475,7 @@ plt.show()
 ```
 
 :::
-El boxplot mensual de la materia grasa no muestra la misma estacionalidad pronunciada que el extracto seco. El valor de 28% de enero es claramente atípico respecto a su mes, pero el resto del año la materia grasa se mantiene en un rango bastante estable entre 21,5 y 26%. La media mensual sube de forma moderada desde marzo (23,0%) hasta agosto (24,5%) y vuelve a 23,6% en el último trimestre.
+El boxplot mensual de la materia grasa no muestra la misma estacionalidad pronunciada que el extracto seco. El valor de 28 % de enero es claramente atípico respecto a su mes, pero el resto del año la materia grasa se mantiene en un rango bastante estable entre 21,5 y 26 %. La media mensual sube de forma moderada desde marzo (23,0 %) hasta agosto (24,5 %) y vuelve a 23,6 % en el último trimestre.
 
 ### Análisis conjunto: gráfico de dispersión `est` vs `mg`
 
@@ -516,11 +517,11 @@ plt.show()
 
 La nube de puntos muestra una correlación positiva moderada (r = 0,49): en general, cuando la materia grasa sube, el extracto seco también sube. Pero hay tres puntos que se separan claramente de esa tendencia:
 
-- 21 de julio: `est` = 52,61% con `mg` = 22,5%, el extracto seco más alto del año con una grasa baja;
-- 4 de noviembre (segunda fabricación): `est` = 48,49% con `mg` = 21,5%, la grasa más baja del año con un extracto seco alto;
-- 26 de enero (primera fabricación): `mg` = 28%, la única por encima de 27%, con `est` = 46,60%.
+- 21 de julio: `est` = 52,61 % con `mg` = 22,5 %, el extracto seco más alto del año con una grasa baja;
+- 4 de noviembre (segunda fabricación): `est` = 48,49 % con `mg` = 21,5 %, la grasa más baja del año con un extracto seco alto;
+- 26 de enero (primera fabricación): `mg` = 28 %, la única por encima de 27 %, con `est` = 46,60 %.
 
-Las dos fabricaciones del 4 de noviembre tienen el mismo `est`, el mismo pH y los mismos cloruros, y solo difieren en la `mg` (25,5 y 21,5%), lo que apunta a un posible error de transcripción. Estos tres puntos anómalos son los que discutiremos con el equipo en la fase de conclusiones.
+Las dos fabricaciones del 4 de noviembre tienen el mismo `est`, el mismo pH y los mismos cloruros, y solo difieren en la `mg` (25,5 y 21,5 %), lo que apunta a un posible error de transcripción. Estos tres puntos anómalos son los que discutiremos con el equipo en la fase de conclusiones.
 
 Coloreamos por trimestre para ver mejor la estructura estacional con una paleta legible:
 
@@ -635,7 +636,7 @@ plt.show()
 
 :::
 
-La `hqd` muestra el patrón más revelador de todo el análisis. Durante el primer semestre el fabricante la mantiene razonablemente estable: las medias semanales oscilan entre 68,75 y 71,64%, con una media de 70,4%. En julio cae de forma brusca: la media de la semana del 18 de julio es 65,68%, unos 5 puntos por debajo de ese nivel, y el valor individual más bajo del año es 61,15% (21 de julio), unos 9 puntos por debajo. Una desviación de esta magnitud afecta a la textura del camembert y puede explicar las reclamaciones por queso demasiado seco que se recibieron en agosto.
+La `hqd` muestra el patrón más revelador de todo el análisis. Durante el primer semestre el fabricante la mantiene razonablemente estable: las medias semanales oscilan entre 68,75 y 71,64 %, con una media de 70,4 %. En julio cae de forma brusca: la media de la semana del 18 de julio es 65,68 %, unos 5 puntos por debajo de ese nivel, y el valor individual más bajo del año es 61,15 % (21 de julio), unos 9 puntos por debajo. Una desviación de esta magnitud afecta a la textura del camembert y puede explicar las reclamaciones por queso demasiado seco que se recibieron en agosto.
 
 ## Análisis de otras variables
 
@@ -719,7 +720,7 @@ plt.show()
 
 :::
 
-El histograma de cloruros muestra una distribución aproximadamente simétrica en torno a 1,45-1,50%, con un rango habitual entre 1,1 y 1,9%. El boxplot señala un valor atípico muy llamativo: -1%, registrado el 11 de febrero. También marca tres valores altos (1,88-1,89%), muy próximos al extremo del bigote, que no parecen anómalos. Un contenido en cloruros negativo es físicamente imposible, por lo que se trata sin duda de un error de entrada de datos: probablemente se introdujo el valor con el signo menos por error. Este valor debe tratarse como un dato ausente (`NaN`) antes de cualquier análisis posterior.
+El histograma de cloruros muestra una distribución aproximadamente simétrica en torno a 1,45-1,50 %, con un rango habitual entre 1,1 y 1,9 %. El boxplot señala un valor atípico muy llamativo: -1 %, registrado el 11 de febrero. También marca tres valores altos (1,88-1,89 %), muy próximos al extremo del bigote, que no parecen anómalos. Un contenido en cloruros negativo es físicamente imposible, por lo que se trata sin duda de un error de entrada de datos: probablemente se introdujo el valor con el signo menos por error. Este valor debe tratarse como un dato ausente (`NaN`) antes de cualquier análisis posterior.
 
 ### Coliformes: un ejemplo de distribución asimétrica positiva
 
@@ -754,7 +755,7 @@ print(f"Valores > 5000: {(df['coliformes']>5000).sum()}")
 
 :::
 
-La mediana es 10 ufc/g pero la media es 651 ufc/g, unas 65 veces mayor. El 42% de los valores (89 de 210) son exactamente cero, y hay 9 valores por encima de 5.000 ufc/g, con un máximo de 20.200 ufc/g el 12 de agosto. Esta diferencia enorme entre la mediana y la media es la señal característica de una distribución muy asimétrica positiva.
+La mediana es 10 ufc/g pero la media es 651 ufc/g, unas 65 veces mayor. El 42 % de los valores (89 de 210) son exactamente cero, y hay 9 valores por encima de 5.000 ufc/g, con un máximo de 20.200 ufc/g el 12 de agosto. Esta diferencia enorme entre la mediana y la media es la señal característica de una distribución muy asimétrica positiva.
 
 ::: panel-tabset
 ## R
@@ -801,13 +802,13 @@ plt.show()
 
 :::
 
-En escala lineal, el histograma muestra una barra altísima en los valores bajos y una larga cola hacia la derecha: es la asimetría positiva extrema que veíamos en el capítulo 5 con los goles por partido, pero mucho más pronunciada. En escala logarítmica la distribución se hace visible con más detalle: la mayoría de los recuentos positivos están entre 10 y 1.000 ufc/g, y los valores muy altos son escasos pero existen.
+En escala lineal, el histograma muestra una barra altísima en los valores bajos y una larga cola hacia la derecha: es la asimetría positiva extrema que veíamos en el capítulo [-@sec-exploracion] con los goles por partido, pero mucho más pronunciada. En escala logarítmica la distribución se hace visible con más detalle: la mayoría de los recuentos positivos están entre 10 y 1.000 ufc/g, y los valores muy altos son escasos pero existen.
 
 ::: {.callout-note}
 En microbiología alimentaria, los recuentos suelen seguir distribuciones asimétricas positivas: la mayoría de las muestras tienen recuentos bajos o nulos, pero ocasionalmente aparecen recuentos muy altos que reflejan episodios de contaminación. Por este motivo, en microbiología es habitual trabajar con la transformación logarítmica de los recuentos, que convierte la distribución asimétrica en una distribución más simétrica y más fácil de analizar. La media aritmética de los recuentos tiene muy poco sentido; es más informativo trabajar con la mediana o con la media geométrica (el antilogaritmo de la media de los logaritmos), que solo puede calcularse con recuentos mayores que cero.
 :::
 
-La influencia de los valores extremos se entiende con la imagen de la media como punto de equilibrio de una balanza (apéndice D): un valor extremo actúa como un peso situado lejos del fulcro y desplaza la media en proporción a su distancia al centro. Aquí, el recuento de 20.200 ufc/g sube por sí solo la media de 557 a 651 ufc/g, mientras que la mediana sigue en 10 ufc/g. Por eso en variables con distribución muy asimétrica la media no es un buen descriptor del conjunto.
+La influencia de los valores extremos se entiende con la imagen de la media como punto de equilibrio de una balanza (apéndice [-@sec-media-centro-gravedad]): un valor extremo actúa como un peso situado lejos del fulcro y desplaza la media en proporción a su distancia al centro. Aquí, el recuento de 20.200 ufc/g sube por sí solo la media de 557 a 651 ufc/g, mientras que la mediana sigue en 10 ufc/g. Por eso en variables con distribución muy asimétrica la media no es un buen descriptor del conjunto.
 
 Veamos la distribución mensual mediante un boxplot con los puntos individuales superpuestos. Como el logaritmo de cero no está definido, excluimos las muestras con recuento nulo: estas muestras no aportan información sobre la magnitud de la contaminación, y su inclusión aplastaría el gráfico hacia el cero haciendo ilegible el resto de la distribución. El alumno debe tener en cuenta que los meses con muchos ceros tendrán menos puntos representados, lo que también es información relevante sobre la higiene del proceso.
 
@@ -869,13 +870,13 @@ El gráfico muestra picos puntuales dispersos a lo largo del año, sin un patró
 
 Una vez explorados los datos de todas las variables, podemos formular las hipótesis de trabajo:
 
-1. A principio de año hay un valor anómalo de materia grasa (28%, primera fabricación del 26 de enero), que puede deberse a un error de estandarización, coincidiendo con una leche de invierno más rica en grasa, o a un error analítico. Su `hqd` calculada, 74,17%, es la más alta del año; como la `hqd` se calcula a partir de la `mg`, un error en la materia grasa se trasladaría a la `hqd`.
+1. A principio de año hay un valor anómalo de materia grasa (28 %, primera fabricación del 26 de enero), que puede deberse a un error de estandarización, coincidiendo con una leche de invierno más rica en grasa, o a un error analítico. Su `hqd` calculada, 74,17 %, es la más alta del año; como la `hqd` se calcula a partir de la `mg`, un error en la materia grasa se trasladaría a la `hqd`.
 
-2. Hay un claro error de entrada en cloruros: el valor -1% del 11 de febrero es físicamente imposible y debe tratarse como dato ausente.
+2. Hay un claro error de entrada en cloruros: el valor -1 % del 11 de febrero es físicamente imposible y debe tratarse como dato ausente.
 
 3. El pH de 4,35 del 18 de abril se aleja significativamente del rango habitual y merece verificación con el laboratorio.
 
-4. La desviación más importante del año es el aumento sostenido del extracto seco en julio, con un máximo de 52,61% el 21 de julio. La media semanal de la `hqd` bajó hasta 65,68%, unos 5 puntos por debajo de su nivel del primer semestre, y el valor individual más bajo fue 61,15%. Es la explicación más probable de las reclamaciones por queso demasiado seco recibidas en agosto.
+4. La desviación más importante del año es el aumento sostenido del extracto seco en julio, con un máximo de 52,61 % el 21 de julio. La media semanal de la `hqd` bajó hasta 65,68 %, unos 5 puntos por debajo de su nivel del primer semestre, y el valor individual más bajo fue 61,15 %. Es la explicación más probable de las reclamaciones por queso demasiado seco recibidas en agosto.
 
 5. Los recuentos de coliformes no muestran una tendencia estacional nítida, pero los recuentos superiores a 1.000 ufc/g se concentran entre mayo y agosto, coincidiendo con el período de aumento de temperatura ambiente que incrementa el riesgo de crecimiento bacteriano. Hay que tener en cuenta también las sustituciones de personal en vacaciones, que pueden añadir más variabilidad a los resultados analíticos como consecuencia de la menor experiencia analítica de las personas temporales.
 
@@ -905,7 +906,7 @@ Dado que la capacidad del equipo es limitada, en sucesivas reuniones se prioriza
 
 ## Resumen del capítulo
 
-En este capítulo hemos aplicado el flujo de trabajo completo del análisis de datos a una fabricación real de queso camembert. El análisis variable a variable ha permitido identificar errores de entrada (el valor negativo de cloruros), valores atípicos que requieren verificación (el pH de 4,35 en abril, el valor de materia grasa de 28% en enero) y la desviación estacional más importante del año: el aumento sostenido del extracto seco en julio, que produjo una caída de la humedad del queso desengrasado (unos 5 puntos en la media semanal y hasta 9 en el peor valor individual) y originó reclamaciones de los clientes.
+En este capítulo hemos aplicado el flujo de trabajo completo del análisis de datos a una fabricación real de queso camembert. El análisis variable a variable ha permitido identificar errores de entrada (el valor negativo de cloruros), valores atípicos que requieren verificación (el pH de 4,35 en abril, el valor de materia grasa de 28 % en enero) y la desviación estacional más importante del año: el aumento sostenido del extracto seco en julio, que produjo una caída de la humedad del queso desengrasado (unos 5 puntos en la media semanal y hasta 9 en el peor valor individual) y originó reclamaciones de los clientes.
 
 La serie temporal ha sido la herramienta clave para interpretar correctamente lo que el histograma mostraba como una simple distribución asimétrica: lo que parecía un valor atípico aislado era en realidad parte de una desviación estacional sostenida durante varias semanas. El análisis de los coliformes ha ilustrado con datos reales el concepto de distribución asimétrica positiva extrema, característica de los recuentos microbiológicos, y la razón por la que la mediana es más informativa que la media en este tipo de variables.
 
@@ -928,7 +929,7 @@ Para los cloruros, convierte previamente el valor negativo en un dato ausente (`
 
 El laboratorio recomienda comprobar si las conclusiones se mantienen sin los tres puntos anómalos del gráfico de dispersión `est` vs `mg`. Utiliza Python o R para filtrarlos y repite el análisis completo con el dataset corregido. ¿Cambian las conclusiones? ¿Se mantiene la desviación de julio?
 
-Como referencia, los criterios de filtrado son: valores de `mg` superiores a 27%, valores de `est` superiores a 52%, y valores con `mg` inferior a 22% y `est` superior a 48% de forma simultánea.
+Como referencia, los criterios de filtrado son: valores de `mg` superiores a 27 %, valores de `est` superiores a 52 %, y valores con `mg` inferior a 22 % y `est` superior a 48 % de forma simultánea.
 
 ### Ejercicio 3 (avanzado): transformación logarítmica de coliformes
 

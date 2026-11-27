@@ -1,9 +1,10 @@
 ---
 lang: es
-title: "La mejora continua y el análisis de datos"
 subtitle: "Del número a la acción: integración de las herramientas del libro en un marco de mejora"
 engine: knitr
 ---
+
+# La mejora continua y el análisis de datos {#sec-mejora-continua}
 
 ::: callout-note
 ## Objetivos de aprendizaje
@@ -52,7 +53,7 @@ Una buena definición de problema tiene estas características:
 
 ❌ **Incorrecta:** "Tenemos problemas con el rendimiento quesero."
 
-✓ **Correcta:** "El rendimiento (ESM/MP) del queso semicurado de vaca en la línea 2 ha disminuido de 95,8% a 94,6% entre enero y marzo, lo que representa una pérdida estimada de 12.000 € en el trimestre. El problema afecta principalmente al turno de noche (lunes a viernes). Objetivo: recuperar el rendimiento a 95,5% antes del 30 de junio."
+✓ **Correcta:** "El rendimiento (ESM/MP) del queso semicurado de vaca en la línea 2 ha disminuido de 95,8 % a 94,6 % entre enero y marzo, lo que representa una pérdida estimada de 12.000 € en el trimestre. El problema afecta principalmente al turno de noche (lunes a viernes). Objetivo: recuperar el rendimiento a 95,5 % antes del 30 de junio."
 :::
 
 ## Estrategia de resolución de problemas
@@ -78,7 +79,7 @@ El **ciclo DMAIC** (*Define, Measure, Analyze, Improve, Control*) es el marco me
 
 **Define (Definir):** se define el problema con precisión, se identifican los clientes afectados y sus requisitos, se delimita el alcance del proyecto y se estima el impacto económico. La herramienta principal es el *Project Charter* o acta de proyecto.
 
-**Measure (Medir):** se recogen datos del proceso actual para cuantificar la magnitud del problema y establecer una línea base. En esta fase se verifica también la fiabilidad del sistema de medición, porque no tiene sentido analizar datos si el sistema que los genera no es fiable. El análisis del sistema de medición que vimos en el capítulo 13 pertenece a esta fase.
+**Measure (Medir):** se recogen datos del proceso actual para cuantificar la magnitud del problema y establecer una línea base. En esta fase se verifica también la fiabilidad del sistema de medición, porque no tiene sentido analizar datos si el sistema que los genera no es fiable. El análisis del sistema de medición que vimos en el capítulo [-@sec-sistema-medicion] pertenece a esta fase.
 
 **Analyze (Analizar):** se analizan los datos para identificar las causas raíz del problema. Aquí entran en juego la mayor parte de las herramientas estadísticas del libro: gráficos de control, análisis de correlación y diseño de experimentos.
 
@@ -98,7 +99,7 @@ La tabla siguiente muestra cómo las herramientas que hemos aprendido encajan en
 | **Improve** | Diseño de experimentos, simulación con `rnorm()` |
 | **Control** | Gráfico de control (seguimiento), índices de capacidad $C_p$ y $C_{pk}$ |
 
-Ninguna de estas herramientas pertenece exclusivamente a una fase (el gráfico de control se usa en la fase Measure para entender el proceso actual y en la fase Control para verificar que la mejora se mantiene), pero la tabla ilustra cómo el ciclo DMAIC integra el conjunto de herramientas en una secuencia coherente. En el capítulo 17 cada una de estas herramientas tiene su ficha práctica, con el código R para aplicarla.
+Ninguna de estas herramientas pertenece exclusivamente a una fase (el gráfico de control se usa en la fase Measure para entender el proceso actual y en la fase Control para verificar que la mejora se mantiene), pero la tabla ilustra cómo el ciclo DMAIC integra el conjunto de herramientas en una secuencia coherente. En el capítulo [-@sec-caja-herramientas] cada una de estas herramientas tiene su ficha práctica, con el código R para aplicarla.
 
 ## Las 7 herramientas clásicas de la calidad
 
@@ -106,15 +107,15 @@ Las **7 herramientas clásicas de la calidad**, que Kaoru Ishikawa presentó en 
 
 | Herramienta | Propósito | Equivalente en el libro |
 |------------|-----------|------------------------|
-| Hoja de recogida de datos | Registrar observaciones de forma estructurada | Datos ordenados (*tidy data*), capítulo 4 |
-| Diagrama de Pareto | Priorizar causas por frecuencia o impacto | Ficha del capítulo 17 |
-| Diagrama causa-efecto (Ishikawa) | Identificar causas potenciales de un problema | Las 5M (capítulos 14 y 15); ficha del capítulo 17 |
-| Histograma | Ver la distribución de una variable | Capítulo 5 |
-| Diagrama de dispersión | Ver la relación entre dos variables | Capítulo 8 |
-| Gráfico de control | Seguir el proceso en el tiempo | Capítulo 9 |
-| Diagrama de flujo | Documentar el proceso | Ficha del capítulo 17 |
+| Hoja de recogida de datos | Registrar observaciones de forma estructurada | Datos ordenados (*tidy data*), capítulo [-@sec-organizacion-datos] |
+| Diagrama de Pareto | Priorizar causas por frecuencia o impacto | Ficha del capítulo [-@sec-caja-herramientas] |
+| Diagrama causa-efecto (Ishikawa) | Identificar causas potenciales de un problema | Las 6M (capítulos [-@sec-contenido-efectivo] y [-@sec-variabilidad]); ficha del capítulo [-@sec-caja-herramientas] |
+| Histograma | Ver la distribución de una variable | Capítulo [-@sec-exploracion] |
+| Diagrama de dispersión | Ver la relación entre dos variables | Capítulo [-@sec-correlacion-regresion] |
+| Gráfico de control | Seguir el proceso en el tiempo | Capítulo [-@sec-control-procesos] |
+| Diagrama de flujo | Documentar el proceso | Ficha del capítulo [-@sec-caja-herramientas] |
 
-La lista original de Ishikawa incluía la **estratificación** (separar los datos por máquina, turno, operario o proveedor) en lugar del diagrama de flujo; muchas listas actuales la sustituyen por el diagrama de flujo. Varias de estas herramientas las hemos usado ya: la hoja de recogida de datos, el histograma, el diagrama de dispersión, el gráfico de control y la estratificación (el boxplot por meses del capítulo 12). El diagrama de Pareto, el diagrama causa-efecto y el diagrama de flujo tienen su ficha en el capítulo 17.
+La lista original de Ishikawa incluía la **estratificación** (separar los datos por máquina, turno, operario o proveedor) en lugar del diagrama de flujo; muchas listas actuales la sustituyen por el diagrama de flujo. Varias de estas herramientas las hemos usado ya: la hoja de recogida de datos, el histograma, el diagrama de dispersión, el gráfico de control y la estratificación (el boxplot por meses del capítulo [-@sec-camembert]). El diagrama de Pareto, el diagrama causa-efecto y el diagrama de flujo tienen su ficha en el capítulo [-@sec-caja-herramientas].
 
 ## Lean Manufacturing: eliminar el desperdicio
 
@@ -142,7 +143,7 @@ A lo largo del libro hemos insistido en que los gráficos no son un ejercicio es
 
 Un gráfico de control en el panel de la línea de producción no está ahí para que quede bien. Está ahí para que el operario sepa, en cada momento, si el proceso está bajo control o no, y qué debe hacer en cada caso. Un gráfico de dispersión en la reunión mensual de calidad no está ahí para impresionar. Está ahí para que el equipo vea si el rendimiento varía a la par que la grasa de la leche, y decida si investigar esa relación.
 
-La diferencia entre un gráfico bien hecho y uno mal hecho no es estética: es la diferencia entre una decisión bien fundamentada y una decisión tomada a ciegas. En el capítulo 11 vimos los principios para hacer gráficos efectivos. Aquí añadimos la perspectiva de la mejora continua: **el gráfico debe estar diseñado para responder una pregunta concreta de proceso, no para mostrar todos los datos disponibles**.
+La diferencia entre un gráfico bien hecho y uno mal hecho no es estética: es la diferencia entre una decisión bien fundamentada y una decisión tomada a ciegas. En el capítulo [-@sec-comunicacion] vimos los principios para hacer gráficos efectivos. Aquí añadimos la perspectiva de la mejora continua: **el gráfico debe estar diseñado para responder una pregunta concreta de proceso, no para mostrar todos los datos disponibles**.
 
 ## Casos de discusión en equipo
 
@@ -152,7 +153,7 @@ Los casos siguientes presentan situaciones reales de proceso quesero para analiz
 
 ### Caso 1: El rendimiento que bajó sin razón aparente
 
-Una quesería artesanal produce queso de oveja curado con un rendimiento histórico estable de 95,5% (ESM/MP). En octubre, el responsable de producción nota que el rendimiento ha bajado a 94,2% (ESM/MP) y que lleva así tres semanas. No ha habido cambios conocidos en el proceso: mismo protocolo, mismos operarios, mismo proveedor de leche.
+Una quesería artesanal produce queso de oveja curado con un rendimiento histórico estable de 95,5 % (ESM/MP). En octubre, el responsable de producción nota que el rendimiento ha bajado a 94,2 % (ESM/MP) y que lleva así tres semanas. No ha habido cambios conocidos en el proceso: mismo protocolo, mismos operarios, mismo proveedor de leche.
 
 El responsable atribuye la bajada a cambios en la leche, y decide esperar a que mejore sola. El técnico de calidad no está de acuerdo y propone hacer un análisis antes de decidir.
 
@@ -186,16 +187,16 @@ El responsable de mantenimiento dice que las dos líneas son idénticas y que "s
 ## Respuesta sugerida — Caso 1: El rendimiento que bajó sin razón aparente
 
 **1. Definición del problema:**
-La información disponible ya permite una definición bastante completa: "El rendimiento del queso de oveja curado ha bajado de 95,5% a 94,2% en las últimas tres semanas, lo que representa aproximadamente 1,3 puntos porcentuales de pérdida. Con una producción de X kg de leche semanales, esto equivale a Y kg de queso no producido por semana, con un coste estimado de Z €. El problema se detectó a principios de octubre. Objetivo: identificar la causa y recuperar el rendimiento a 95,5% o superior antes de fin de mes." Lo que falta es la producción semanal para calcular el impacto económico real.
+La información disponible ya permite una definición bastante completa: "El rendimiento del queso de oveja curado ha bajado de 95,5 % a 94,2 % en las últimas tres semanas, lo que representa aproximadamente 1,3 puntos porcentuales de pérdida. Con una producción de X kg de leche semanales, esto equivale a Y kg de queso no producido por semana, con un coste estimado de Z €. El problema se detectó a principios de octubre. Objetivo: identificar la causa y recuperar el rendimiento a 95,5 % o superior antes de fin de mes." Lo que falta es la producción semanal para calcular el impacto económico real.
 
 **2. Datos a recoger:**
-En las primeras 48 horas conviene recoger: composición de la leche (grasa, proteína, extracto seco) de los últimos lotes afectados comparada con el período anterior, registros de temperatura y pH en cada etapa del proceso, tiempos de cuajado y desuerado, y pesos de entrada (leche) y salida (queso) de cada fabricación. Si hay registro histórico, conviene hacer un gráfico de evolución del rendimiento en el tiempo para ver exactamente cuándo empezó la bajada.
+En las primeras 48 horas conviene recoger: composición de la leche (grasa, proteína, extracto seco) y recuento de células somáticas de los últimos lotes afectados, comparados con el período anterior; registros de temperatura y pH en cada etapa del proceso, tiempos de cuajado y desuerado, y pesos de entrada (leche) y salida (queso) de cada fabricación. Si hay registro histórico, conviene hacer un gráfico de evolución del rendimiento en el tiempo para ver exactamente cuándo empezó la bajada.
 
 **3. La hipótesis "se debe a cambios en la leche":**
-No es suficiente para tomar una decisión, pero tampoco es descartable. La composición de la leche de oveja cambia significativamente con la estación y puede afectar al rendimiento. Como el rendimiento se expresa como recuperación de ESM (coeficiente ESM/MP) y no en kilos de queso por cada 100 kg de leche, una leche más pobre en grasa o proteína no basta para explicar la bajada. La leche de final de lactación puede, sin embargo, coagular peor y aumentar las pérdidas en el suero. Para verificarlo hay que comparar la recuperación y los análisis del suero con los del mismo período de años anteriores: si en otros otoños la recuperación fue normal, la hipótesis pierde fuerza; si también bajó, puede ser la causa, aunque habría que comprobar que explica toda la bajada.
+No es suficiente para tomar una decisión, pero tampoco es descartable. La composición de la leche de oveja cambia significativamente con la estación y puede afectar al rendimiento. Como el rendimiento se expresa como coeficiente ESM/MP, que ya está referido a la proteína puesta en cuba, una leche con menos proteína no basta por sí sola para explicar la bajada. Lo que sí puede bajarlo sin que cambie la fabricación es la calidad de esa proteína: en el queso queda sobre todo la caseína, y si baja su proporción en la proteína total o aumenta su degradación, como ocurre con recuentos altos de células somáticas, el ESM/MP baja aunque el proceso sea el mismo [@martideolives2020]. La leche de final de lactación puede, sin embargo, coagular peor y aumentar las pérdidas en el suero. Para verificarlo hay que comparar la recuperación y los análisis del suero con los del mismo período de años anteriores: si en otros otoños la recuperación fue normal, la hipótesis pierde fuerza; si también bajó, puede ser la causa, aunque habría que comprobar que explica toda la bajada.
 
 **4. ¿Esperar o intervenir?**
-La herramienta para decidir es el gráfico de control: si el rendimiento actual está fuera de los límites de control calculados sobre el histórico, es una señal de causa especial y hay que investigar. Si está dentro de los límites, aunque sea bajo, podría ser variabilidad normal. En este caso, si la variabilidad semanal histórica es pequeña frente a 1,3 puntos, tres semanas seguidas por debajo de la media formarán una racha, que es una señal de causa especial (capítulo 9); hay que comprobarlo en el gráfico antes de afirmarlo. En cualquier caso, esperar sin mirar los datos no está justificado.
+La herramienta para decidir es el gráfico de control: si el rendimiento actual está fuera de los límites de control calculados sobre el histórico, es una señal de causa especial y hay que investigar. Si está dentro de los límites, aunque sea bajo, podría ser variabilidad normal. En este caso, si la variabilidad semanal histórica es pequeña frente a 1,3 puntos, tres semanas seguidas por debajo de la media formarán una racha, que es una señal de causa especial (capítulo [-@sec-control-procesos]); hay que comprobarlo en el gráfico antes de afirmarlo. En cualquier caso, esperar sin mirar los datos no está justificado.
 
 **5. Acciones correctoras:**
 Si la causa es la composición de la leche de otoño: estandarizar la leche (ajustar la grasa o la proteína antes de cuajar) o ajustar el protocolo de cuajado en función de la composición. Si la causa es otra (por ejemplo, un cambio en el tiempo de desuerado o en la temperatura), la acción depende de la causa identificada. En ningún caso es correcto ajustar el proceso sin haber verificado la causa.
@@ -230,4 +231,4 @@ La mejora continua no es una metodología más: es la razón de ser de todo el a
 
 El ciclo DMAIC organiza ese trabajo en cinco fases coherentes. Lean Manufacturing aporta la perspectiva del desperdicio y la estandarización. Six Sigma aporta el rigor estadístico y la exigencia de basar las decisiones en datos. Las tres perspectivas son complementarias y se refuerzan mutuamente.
 
-Las herramientas se presentan, una por una y con su código R, en el capítulo 17, que cierra el libro con su aplicación a un caso completo.
+Las herramientas se presentan, una por una y con su código R, en el capítulo [-@sec-caja-herramientas], que cierra el libro con su aplicación a un caso completo.

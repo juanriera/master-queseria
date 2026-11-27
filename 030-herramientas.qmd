@@ -2,7 +2,7 @@
 lang: es
 ---
 
-# Herramientas para el análisis. La reproducibilidad
+# Herramientas para el análisis. La reproducibilidad {#sec-herramientas}
 
 ::: callout-note
 #### Objetivos de aprendizaje

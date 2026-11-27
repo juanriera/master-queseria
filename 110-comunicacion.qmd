@@ -1,9 +1,10 @@
 ---
 lang: es
-title: "Comunicación"
 subtitle: "Del análisis a la acción: cómo presentar datos para que se entiendan y se usen"
 engine: knitr
 ---
+
+# Comunicación {#sec-comunicacion}
 
 ::: callout-note
 ## Objetivos de aprendizaje
@@ -65,7 +66,7 @@ Aplicado a los gráficos que hemos construido a lo largo del libro, esto signifi
 
 El gráfico de tarta es uno de los más usados y uno de los menos efectivos. El ojo humano compara mal áreas y ángulos; comparamos mucho mejor longitudes. Si tenemos cinco categorías con proporciones similares, es prácticamente imposible saber cuál es mayor en un gráfico de tarta. Un gráfico de barras ordenado comunica exactamente la misma información de forma mucho más clara.
 
-La única excepción razonable es cuando hay exactamente dos categorías (conforme / no conforme, por ejemplo) y la proporción es muy diferente (95% / 5%). En ese caso, el gráfico de tarta es intuitivo. Pero incluso ahí, una sola cifra (“5% de no conformes”) suele ser más efectiva que el gráfico.
+La única excepción razonable es cuando hay exactamente dos categorías (conforme / no conforme, por ejemplo) y la proporción es muy diferente (95 % / 5 %). En ese caso, el gráfico de tarta es intuitivo. Pero incluso ahí, una sola cifra (“5 % de no conformes”) suele ser más efectiva que el gráfico.
 
 ### Los gráficos 3D
 
@@ -245,7 +246,7 @@ Algunas reglas prácticas:
 
 **El color para destacar, no para decorar.** Si quieres llamar la atención sobre un valor específico (el mes en que el proceso falló, el período fuera de control), usa un color diferente solo para ese elemento. El contraste entre el elemento destacado y el resto en color neutro comunica inmediatamente dónde debe mirar el lector.
 
-**Accesibilidad para daltónicos.** Aproximadamente el 8% de los hombres tiene algún grado de daltonismo. El rojo y el verde son los colores más problemáticos. Si necesitas distinguir dos grupos, usa azul y naranja, o azul y rojo, en lugar de rojo y verde. En ggplot2, la paleta `viridis` y las paletas de `RColorBrewer` están diseñadas para ser legibles por personas con daltonismo.
+**Accesibilidad para daltónicos.** Aproximadamente el 8 % de los hombres tiene algún grado de daltonismo. El rojo y el verde son los colores más problemáticos. Si necesitas distinguir dos grupos, usa azul y naranja, o azul y rojo, en lugar de rojo y verde. En ggplot2, la paleta `viridis` y las paletas de `RColorBrewer` están diseñadas para ser legibles por personas con daltonismo.
 
 **Pocas categorías, colores diferenciados.** El ojo humano distingue bien hasta 6-8 colores en un gráfico. Con más categorías, el gráfico de colores se vuelve ilegible. Si tienes más de 8 grupos, considera otras formas de organizar la información (facetas, gráficos separados).
 
@@ -384,11 +385,11 @@ ggplot(medias_sg, aes(x = hora, y = media)) +
           plot.subtitle = element_text(size = 8))
 ```
 
-El gráfico añade dos elementos respecto al gráfico de análisis del capítulo 9: las zonas coloreadas de advertencia (naranja) y fuera de control (rojo), que permiten leer el estado del proceso de un vistazo, y las etiquetas con el valor de cada línea, para que el operario sepa exactamente cuándo actuar.
+El gráfico añade dos elementos respecto al gráfico de análisis del capítulo [-@sec-control-procesos]: las zonas coloreadas de advertencia (naranja) y fuera de control (rojo), que permiten leer el estado del proceso de un vistazo, y las etiquetas con el valor de cada línea, para que el operario sepa exactamente cuándo actuar.
 
 ::: {.callout-warning}
 ## ¿Por qué no dibujamos el límite legal T1?
-T1 se aplica a cada envase, no a la media de 5 envases. Una media puede quedar muy por encima de T1 aunque uno de sus envases esté por debajo. Por eso T1 no debe dibujarse en un gráfico de medias: daría una falsa sensación de seguridad. Su lugar es un gráfico de pesos individuales o un histograma, como el del capítulo 9.
+T1 se aplica a cada envase, no a la media de 5 envases. Una media puede quedar muy por encima de T1 aunque uno de sus envases esté por debajo. Por eso T1 no debe dibujarse en un gráfico de medias: daría una falsa sensación de seguridad. Su lugar es un gráfico de pesos individuales o un histograma, como el del capítulo [-@sec-control-procesos].
 :::
 
 Un ejemplo brillante de la aplicación del color y el diseño es el que presentan [Yan Holtz](https://www.linkedin.com/in/yan-holtz-2477534a/) y [Cédric Scherer](https://www.linkedin.com/in/cedscherer/) en su sitio web [ggplot-uncharted](https://www.ggplot2-uncharted.com/), para explicar la relación de la ratio de estudiantes por maestro en el mundo:
@@ -421,7 +422,7 @@ La estructura efectiva invierte ese orden:
 
 Un buen ejercicio antes de preparar cualquier presentación de datos es escribir el titular: una frase de menos de 15 palabras que resume el hallazgo principal. Si no puedes escribirlo, probablemente no tienes claro cuál es el mensaje principal. Si el titular es obvio y poco informativo (“Análisis de los datos de peso del mes de marzo”), el análisis no ha encontrado nada relevante o no se ha formulado la pregunta correcta.
 
-Ejemplos de titulares poco informativos: “Resultados del análisis de peso de enero”. Ejemplos de titulares efectivos: “La variabilidad del peso aumenta un 40% en el turno de noche” o “Reducir σ de 2,6 a 1,5 g ahorra 8.000 € anuales en sobredosificación”.
+Ejemplos de titulares poco informativos: “Resultados del análisis de peso de enero”. Ejemplos de titulares efectivos: “La variabilidad del peso aumenta un 40 % en el turno de noche” o “Reducir σ de 2,6 a 1,5 g ahorra 8.000 € anuales en sobredosificación”.
 :::
 
 ## Informes reproducibles: Quarto y el código abierto

@@ -2,7 +2,7 @@
 lang: es
 ---
 
-# Conceptos fundamentales, organización de datos y flujo de trabajo
+# Conceptos fundamentales, organización de datos y flujo de trabajo {#sec-organizacion-datos}
 
 ::: callout-note
 #### Objetivos de aprendizaje
@@ -114,7 +114,7 @@ Este modelo integra todas las actividades del análisis: importación y limpieza
 
 ### Recolección de datos
 
-La primera etapa es obtener los datos desde sus fuentes: archivos CSV, bases de datos, sistemas de captura automática, hojas de cálculo. La calidad del análisis depende directamente de la calidad de los datos recogidos, como se señaló en el capítulo 2.
+La primera etapa es obtener los datos desde sus fuentes: archivos CSV, bases de datos, sistemas de captura automática, hojas de cálculo. La calidad del análisis depende directamente de la calidad de los datos recogidos, como se señaló en el capítulo [-@sec-entorno-industrial].
 
 ### Inspección de los datos
 
@@ -124,7 +124,7 @@ Una vez disponibles los datos, se examinan para entender su estructura y conteni
 
 La limpieza incluye el tratamiento de valores faltantes, la eliminación de duplicados, la corrección de inconsistencias y la conversión de los datos al formato adecuado para el análisis. Es, con diferencia, la fase más larga y laboriosa de cualquier proyecto de datos porque los datos reales raramente llegan limpios, completos y listos para el análisis, independientemente de si provienen de registros históricos, de sistemas automáticos o de mediciones de laboratorio.
 
-Por su extensión y su dependencia del contexto (las técnicas de limpieza varían según el tipo de dato y el problema concreto) esta etapa no se desarrolla de forma abstracta en un único capítulo, sino de forma práctica a lo largo del libro, aplicada a los conjuntos de datos de cada ejemplo. Lo que sí conviene interiorizar desde ahora es su importancia: ninguna herramienta de análisis, por potente que sea, puede compensar datos mal preparados. Como se señaló en el capítulo 2, *garbage in, garbage out*.
+Por su extensión y su dependencia del contexto (las técnicas de limpieza varían según el tipo de dato y el problema concreto) esta etapa no se desarrolla de forma abstracta en un único capítulo, sino de forma práctica a lo largo del libro, aplicada a los conjuntos de datos de cada ejemplo. Lo que sí conviene interiorizar desde ahora es su importancia: ninguna herramienta de análisis, por potente que sea, puede compensar datos mal preparados. Como se señaló en el capítulo [-@sec-entorno-industrial], *garbage in, garbage out*.
 
 ### Transformación de los datos
 
@@ -136,7 +136,7 @@ El análisis exploratorio busca entender los patrones y relaciones en los datos 
 
 ### Modelado
 
-Dependiendo del objetivo, se pueden aplicar modelos estadísticos para extraer información más profunda: regresión, análisis de tendencias, control estadístico de procesos. Este libro introduce algunas de estas técnicas (la regresión lineal en el capítulo 8 y el control estadístico de procesos en el capítulo 9); el flujo de trabajo que aquí se aprende es el mismo que se usaría en análisis más avanzados.
+Dependiendo del objetivo, se pueden aplicar modelos estadísticos para extraer información más profunda: regresión, análisis de tendencias, control estadístico de procesos. Este libro introduce algunas de estas técnicas (la regresión lineal en el capítulo [-@sec-correlacion-regresion] y el control estadístico de procesos en el capítulo [-@sec-control-procesos]); el flujo de trabajo que aquí se aprende es el mismo que se usaría en análisis más avanzados.
 
 ### Comunicación de resultados
 

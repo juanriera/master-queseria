@@ -395,7 +395,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./120-camembert.html">Aplicaciones en producción</a></li><li class="breadcrumb-item"><a href="./130-sistema-medicion.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">El análisis del sistema de medición</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">El análisis del sistema de medición</span></h1>
+<h1 class="title"><span id="sec-sistema-medicion" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">El análisis del sistema de medición</span></span></h1>
 </div>
 
 
@@ -842,7 +842,7 @@ window.Quarto = {
 <p><strong>Analistas 1 y 2</strong> muestran un sesgo prácticamente nulo y una desviación típica de repetibilidad baja. Son analistas con buena veracidad y buena precisión.</p>
 <p><strong>Analista 3</strong> presenta un sesgo leve pero consistente hacia valores altos, con una dispersión algo mayor que los anteriores. Probablemente redondea sistemáticamente al alza en la lectura de la columna de grasa del butirómetro. La solución pasa por revisar la técnica de lectura.</p>
 <p><strong>Analista 4</strong> destaca por tener una dispersión muy baja (alta repetibilidad) pero un sesgo negativo importante: sus resultados son sistemáticamente bajos en las tres muestras. Es el caso típico de un error de posición del ojo al leer el menisco del butirómetro: alta precisión, baja veracidad. Este analista necesita corrección en la técnica de lectura, no en la consistencia de su procedimiento.</p>
-<p><strong>Analista 5</strong> presenta la situación opuesta: un sesgo medio moderado (−0,11%, que además cambia de signo de una muestra a otra), pero sobre todo una dispersión muy alta. Sus resultados son impredecibles: a veces acertados, a veces muy alejados del valor de referencia. El origen más probable es una técnica irregular: temperatura del baño maría inestable, tiempo de centrifugación variable, o dificultad para homogeneizar la muestra antes del análisis.</p>
+<p><strong>Analista 5</strong> presenta la situación opuesta: un sesgo medio moderado (−0,11&nbsp;%, que además cambia de signo de una muestra a otra), pero sobre todo una dispersión muy alta. Sus resultados son impredecibles: a veces acertados, a veces muy alejados del valor de referencia. El origen más probable es una técnica irregular: temperatura del baño maría inestable, tiempo de centrifugación variable, o dificultad para homogeneizar la muestra antes del análisis.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -862,7 +862,7 @@ window.Quarto = {
 <h2 data-number="13.6" class="anchored" data-anchor-id="seguimiento-temporal-del-sistema-de-medición"><span class="header-section-number">13.6</span> Seguimiento temporal del sistema de medición</h2>
 <p>El estudio de repetibilidad y sesgo que hemos realizado es una fotografía del sistema de medición en un momento concreto. Pero los sistemas de medición no son estáticos: los electrodos de los pHmetros se colmatan progresivamente, los analistas desarrollan hábitos que pueden derivar con el tiempo, los instrumentos pierden calibración. Un laboratorio que solo evalúa su sistema de medición una vez al año puede estar trabajando meses con un sistema degradado sin saberlo.</p>
 <p>La solución es el <strong>seguimiento temporal</strong>: repetir el estudio de forma periódica (mensualmente, en el caso del método Gerber) y representar la evolución de los indicadores clave a lo largo del tiempo. Esto convierte el análisis puntual en un sistema de vigilancia continua.</p>
-<p>Usamos el dataset <code>grr_gerber_temporal.csv</code> que contiene los resultados de 12 meses de control, con 5 analistas, 3 muestras de referencia y 3 repeticiones por combinación (540 observaciones en total). Las muestras de referencia, con un 3,4%, un 4,2% y un 5,1% de grasa, son distintas de las del estudio anterior. El dataset incluye dos intervenciones: en el mes 4 se corrigió el hábito de lectura del menisco del analista A4, y en el mes 6 se formó al analista A5 en la técnica de agitación.</p>
+<p>Usamos el dataset <code>grr_gerber_temporal.csv</code> que contiene los resultados de 12 meses de control, con 5 analistas, 3 muestras de referencia y 3 repeticiones por combinación (540 observaciones en total). Las muestras de referencia, con un 3,4&nbsp;%, un 4,2&nbsp;% y un 5,1&nbsp;% de grasa, son distintas de las del estudio anterior. El dataset incluye dos intervenciones: en el mes 4 se corrigió el hábito de lectura del menisco del analista A4, y en el mes 6 se formó al analista A5 en la técnica de agitación.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -950,7 +950,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>El gráfico muestra claramente el sesgo persistente de Analista_4 durante los tres primeros meses (alrededor de −0,35%), bien fuera de la tolerancia. Tras la intervención en abril, el sesgo se corrige y se mantiene dentro de los límites durante el resto del año.</p>
+<p>El gráfico muestra claramente el sesgo persistente de Analista_4 durante los tres primeros meses (alrededor de −0,35&nbsp;%), bien fuera de la tolerancia. Tras la intervención en abril, el sesgo se corrige y se mantiene dentro de los límites durante el resto del año.</p>
 <p>El sesgo de Analista_5 también sale de la tolerancia en algunos meses de la primera mitad del año, unas veces por debajo y otras por encima. No es un sesgo sistemático, sino una consecuencia de su alta dispersión: con resultados tan variables, la media de solo nueve análisis fluctúa mucho de un mes a otro.</p>
 </section>
 <section id="evolución-de-la-desviación-típica-de-repetibilidad" class="level3">
@@ -987,7 +987,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>La desviación típica elevada de Analista_5 durante los cinco primeros meses (entre 0,18% y 0,29%) indica una técnica de análisis irregular. Tras la formación específica en el mes 6, su repetibilidad mejora notablemente y se mantiene por debajo de la tolerancia.</p>
+<p>La desviación típica elevada de Analista_5 durante los cinco primeros meses (entre 0,18&nbsp;% y 0,29&nbsp;%) indica una técnica de análisis irregular. Tras la formación específica en el mes 6, su repetibilidad mejora notablemente y se mantiene por debajo de la tolerancia.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1007,7 +1007,7 @@ window.Quarto = {
 <h2 data-number="13.7" class="anchored" data-anchor-id="el-conocimiento-experto-y-la-medida"><span class="header-section-number">13.7</span> El conocimiento experto y la medida</h2>
 <p>En muchas queserías tradicionales, la evaluación de la calidad se basa en la experiencia acumulada del quesero: el tacto para reconocer el punto de la cuajada, la vista para evaluar el color del suero, el olfato para detectar una contaminación incipiente. Este conocimiento tácito tiene un valor real e indudable.</p>
 <p>Sin embargo, tiene una limitación importante: <strong>no se puede transferir, no se puede auditar, y se pierde cuando el experto deja la empresa.</strong></p>
-<p>El análisis del sistema de medición no pretende sustituir ese conocimiento, sino complementarlo. Cuando cuantificamos el error analítico, convertimos una percepción subjetiva (“este analista es menos fiable”) en un dato objetivable (“este analista tiene un sesgo de −0,35% en el método Gerber”). Eso permite actuar con precisión: formarle en la lectura correcta del butirómetro, no en todo el método.</p>
+<p>El análisis del sistema de medición no pretende sustituir ese conocimiento, sino complementarlo. Cuando cuantificamos el error analítico, convertimos una percepción subjetiva (“este analista es menos fiable”) en un dato objetivable (“este analista tiene un sesgo de −0,35&nbsp;% en el método Gerber”). Eso permite actuar con precisión: formarle en la lectura correcta del butirómetro, no en todo el método.</p>
 <p>La combinación del conocimiento experto con la cuantificación sistemática del error es lo que caracteriza a un laboratorio de producción maduro.</p>
 </section>
 <section id="resumen-del-capítulo" class="level2" data-number="13.8">

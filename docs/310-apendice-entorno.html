@@ -340,12 +340,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#escenario-1-sin-instalación-recomendado" id="toc-escenario-1-sin-instalación-recomendado" class="nav-link active" data-scroll-target="#escenario-1-sin-instalación-recomendado"><span class="header-section-number">B.1</span> Escenario 1: Sin instalación (recomendado)</a>
+  <li><a href="#escenario-1-sin-instalación-recomendado" id="toc-escenario-1-sin-instalación-recomendado" class="nav-link active" data-scroll-target="#escenario-1-sin-instalación-recomendado"><span class="header-section-number">B.1</span> Escenario 1: sin instalación (recomendado)</a>
   <ul class="collapse">
   <li><a href="#python-google-colaboratory" id="toc-python-google-colaboratory" class="nav-link" data-scroll-target="#python-google-colaboratory">Python: Google Colaboratory</a></li>
   <li><a href="#r-posit-cloud" id="toc-r-posit-cloud" class="nav-link" data-scroll-target="#r-posit-cloud">R: Posit Cloud</a></li>
   </ul></li>
-  <li><a href="#escenario-2-instalación-en-local" id="toc-escenario-2-instalación-en-local" class="nav-link" data-scroll-target="#escenario-2-instalación-en-local"><span class="header-section-number">B.2</span> Escenario 2: Instalación en local</a>
+  <li><a href="#escenario-2-instalación-en-local" id="toc-escenario-2-instalación-en-local" class="nav-link" data-scroll-target="#escenario-2-instalación-en-local"><span class="header-section-number">B.2</span> Escenario 2: instalación en local</a>
   <ul class="collapse">
   <li><a href="#python-miniconda" id="toc-python-miniconda" class="nav-link" data-scroll-target="#python-miniconda">Python: Miniconda</a></li>
   <li><a href="#r-instalación-base" id="toc-r-instalación-base" class="nav-link" data-scroll-target="#r-instalación-base">R: instalación base</a></li>
@@ -360,7 +360,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./300-glosario.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./310-apendice-entorno.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Configuración del entorno de trabajo</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Apéndice B — Configuración del entorno de trabajo</h1>
+<h1 class="title"><span id="sec-entorno-trabajo" class="quarto-section-identifier">Apéndice B — Configuración del entorno de trabajo</span></h1>
 </div>
 
 
@@ -385,7 +385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Este apéndice describe cómo preparar el entorno de trabajo para ejecutar el código Python y R que aparece a lo largo del libro. Se presentan dos escenarios: uno sin instalación, recomendado para centros con restricciones de administrador, y otro con instalación local, para quien disponga de libertad para instalar software en su equipo.</p>
 <section id="escenario-1-sin-instalación-recomendado" class="level2" data-number="B.1">
-<h2 data-number="B.1" class="anchored" data-anchor-id="escenario-1-sin-instalación-recomendado"><span class="header-section-number">B.1</span> Escenario 1: Sin instalación (recomendado)</h2>
+<h2 data-number="B.1" class="anchored" data-anchor-id="escenario-1-sin-instalación-recomendado"><span class="header-section-number">B.1</span> Escenario 1: sin instalación (recomendado)</h2>
 <p>Esta es la opción más sencilla y funciona en cualquier ordenador con conexión a internet, incluso sin permisos de administrador. Solo se necesita una cuenta de Google.</p>
 <section id="python-google-colaboratory" class="level3">
 <h3 class="anchored" data-anchor-id="python-google-colaboratory">Python: Google Colaboratory</h3>
@@ -407,7 +407,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Colab incluye preinstaladas las librerías más habituales (<code>pandas</code>, <code>matplotlib</code>, <code>seaborn</code>, <code>numpy</code>). Si algún cuaderno requiere una librería adicional, lo indicará con una celda de instalación al principio del tipo <code>!pip install nombre_libreria</code>.</p>
+<p>Colab incluye preinstaladas las librerías más habituales (<code>pandas</code>, <code>numpy</code>, <code>matplotlib</code>, <code>seaborn</code>, <code>scipy</code>). Si algún cuaderno requiere una librería adicional, como <code>palmerpenguins</code> o <code>stemgraphic</code>, lo indicará con una celda de instalación al principio del tipo <code>!pip install nombre_libreria</code>.</p>
 </div>
 </div>
 </section>
@@ -421,35 +421,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>El plan gratuito incluye 25 horas de cómputo al mes, suficiente para seguir el libro.</li>
 </ol>
 <p>Para instalar las librerías necesarias, ejecuta en la consola de R:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"palmerpenguins"</span>, </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"ggbeeswarm"</span>, <span class="st">"patchwork"</span>, <span class="st">"lubridate"</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"palmerpenguins"</span>, <span class="st">"ggbeeswarm"</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"patchwork"</span>, <span class="st">"qcc"</span>, <span class="st">"qicharts2"</span>, <span class="st">"gt"</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="escenario-2-instalación-en-local" class="level2" data-number="B.2">
-<h2 data-number="B.2" class="anchored" data-anchor-id="escenario-2-instalación-en-local"><span class="header-section-number">B.2</span> Escenario 2: Instalación en local</h2>
+<h2 data-number="B.2" class="anchored" data-anchor-id="escenario-2-instalación-en-local"><span class="header-section-number">B.2</span> Escenario 2: instalación en local</h2>
 <p>Si tienes permisos para instalar software en tu equipo, esta opción ofrece más velocidad y comodidad para un uso continuo.</p>
 <section id="python-miniconda" class="level3">
 <h3 class="anchored" data-anchor-id="python-miniconda">Python: Miniconda</h3>
-<p><a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> es una distribución mínima de Python que incluye el gestor de paquetes <code>conda</code>. A diferencia de la instalación estándar de Python, Miniconda puede instalarse <strong>sin permisos de administrador</strong> seleccionando la opción “Install just for me” durante el proceso de instalación en Windows.</p>
+<p><a href="https://www.anaconda.com/docs/getting-started/miniconda/main">Miniconda</a> es una distribución mínima de Python que incluye el gestor de paquetes <code>conda</code>. En Windows puede instalarse <strong>sin permisos de administrador</strong> eligiendo la opción «Just Me» durante la instalación.</p>
 <p>Pasos:</p>
 <ol type="1">
-<li>Descarga el instalador desde <a href="https://docs.conda.io/en/latest/miniconda.html">docs.conda.io/en/latest/miniconda.html</a>. Selecciona la versión para Windows de 64 bits.</li>
-<li>Ejecuta el instalador y selecciona <strong>“Just Me”</strong> cuando pregunte para quién se instala.</li>
+<li>Descarga el instalador de Miniconda para Windows de 64 bits desde <a href="https://www.anaconda.com/download">anaconda.com/download</a>.</li>
+<li>Ejecuta el instalador y selecciona <strong>«Just Me»</strong> cuando pregunte para quién se instala.</li>
 <li>Una vez instalado, abre el terminal <strong>Anaconda Prompt</strong> (aparecerá en el menú de inicio) e instala las librerías necesarias:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pandas matplotlib seaborn palmerpenguins</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pandas matplotlib seaborn scipy palmerpenguins stemgraphic</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="r-instalación-base" class="level3">
 <h3 class="anchored" data-anchor-id="r-instalación-base">R: instalación base</h3>
-<p>La instalación de R en Windows <strong>requiere permisos de administrador</strong> en la mayoría de configuraciones de centro. Si no dispones de ellos, utiliza Posit Cloud (Escenario 1).</p>
+<p>El instalador de R para Windows no exige permisos de administrador: sin ellos, instala R en la carpeta de programas del propio usuario. Si la configuración del equipo no permite ejecutar instaladores, utiliza Posit Cloud (escenario 1).</p>
 <p>Si puedes instalar:</p>
 <ol type="1">
 <li>Descarga R desde <a href="https://cran.r-project.org/">cran.r-project.org</a> y ejecuta el instalador.</li>
 <li>Descarga <strong>Positron</strong> desde <a href="https://positron.posit.co/">positron.posit.co</a> como IDE. Es el entorno recomendado para este libro por su soporte simultáneo de Python y R. Alternativamente, puedes usar <strong>RStudio</strong> desde <a href="https://posit.co/download/rstudio-desktop/">posit.co/download/rstudio-desktop</a>.</li>
 <li>Abre Positron o RStudio e instala las librerías necesarias desde la consola de R:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"palmerpenguins"</span>,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"ggbeeswarm"</span>, <span class="st">"patchwork"</span>, <span class="st">"lubridate"</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"palmerpenguins"</span>, <span class="st">"ggbeeswarm"</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"patchwork"</span>, <span class="st">"qcc"</span>, <span class="st">"qicharts2"</span>, <span class="st">"gt"</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>tidyverse</code> incluye, entre otros, <code>ggplot2</code>, <code>dplyr</code>, <code>readr</code>, <code>tidyr</code> y <code>lubridate</code>. <code>qcc</code> y <code>qicharts2</code> se usan en los gráficos de control y en la caja de herramientas (capítulos <a href="090-control-proc.html" class="quarto-xref"><span>9</span></a> y <a href="170-caja-herramientas.html" class="quarto-xref"><span>17</span></a>), y <code>gt</code>, en las tablas del apéndice <a href="380-indice-datasets.html" class="quarto-xref"><span>E</span></a>.</p>
 </section>
 </section>
 <section id="recursos-para-aprender-python-y-r" class="level2" data-number="B.3">
@@ -457,15 +458,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Si necesitas una base más sólida antes de abordar el código del libro, estos recursos gratuitos están entre los mejor valorados:</p>
 <p><strong>Python</strong></p>
 <ul>
-<li><a href="https://www.py4e.com/">Python for Everybody</a> — Curso introductorio completo del Dr.&nbsp;Chuck Severance. Sin conocimientos previos. Disponible en español.</li>
-<li><a href="https://www.kaggle.com/learn/python">Kaggle Learn — Python</a> — Lecciones breves e interactivas directamente en el navegador. Enfocado en análisis de datos.</li>
-<li><a href="https://www.kaggle.com/learn/pandas">Kaggle Learn — Pandas</a> — Introducción práctica a pandas, la librería central del libro.</li>
+<li><a href="https://www.py4e.com/">Python for Everybody</a>: curso introductorio completo de Charles Severance, sin conocimientos previos. Tiene versión en español, <a href="https://es.py4e.com/">Python para todos</a>.</li>
+<li><a href="https://www.kaggle.com/learn/python">Kaggle Learn: Python</a>: lecciones breves e interactivas en el navegador, orientadas al análisis de datos.</li>
+<li><a href="https://www.kaggle.com/learn/pandas">Kaggle Learn: Pandas</a>: introducción práctica a pandas, la librería central del libro.</li>
 </ul>
 <p><strong>R</strong></p>
 <ul>
-<li><a href="https://r4ds.hadley.nz/">R for Data Science (2ª ed.)</a> — El manual de referencia para análisis de datos con tidyverse. Gratuito en línea.</li>
-<li><a href="https://posit.cloud/learn/primers">Posit Primers</a> — Ejercicios interactivos de R en el navegador, sin instalación. Cubre desde los fundamentos hasta visualización y transformación de datos.</li>
-<li><a href="https://www.maximaformacion.es/blog-dat/top-37-recursos-online-sobre-data-science-r/">Maxima Formación</a> ha agrupado varios buenos enlaces de sitios para aprendizaje de R y <em>data science</em> con R. Esta web está dirigida por <a href="https://www.linkedin.com/in/rosanaferrero">Rosana Ferrero</a>, que publica regularmente en LinkedIn contenido formativo en ciencia de datos y es una de las <em>top voices</em> en esta plataforma.</li>
+<li><a href="https://r4ds.hadley.nz/">R for Data Science (2.ª ed.)</a>: el manual de referencia para el análisis de datos con tidyverse, gratuito en línea.</li>
+<li><a href="https://r-primers.andrewheiss.com/">R Primers</a>: versión de Andrew Heiss de los antiguos Posit Primers, retirados por Posit en 2023. Tutoriales de R en el navegador, sin instalación, desde los fundamentos hasta la visualización y la transformación de datos.</li>
 </ul>
 </section>
 <section id="cómo-usar-la-inteligencia-artificial-para-entender-el-código" class="level2" data-number="B.4">
@@ -473,15 +473,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A lo largo del libro encontrarás bloques de código Python y R que pueden resultar densos a primera vista. No es necesario entender cada línea antes de ejecutarlos: el objetivo es comprender qué hace el código y cómo interpretar su resultado.</p>
 <p>Una forma eficaz de avanzar es copiar cualquier bloque de código en un asistente de IA como <a href="https://gemini.google.com/">Gemini</a>, <a href="https://chatgpt.com/">ChatGPT</a> o <a href="https://claude.ai/">Claude</a> y preguntar directamente:</p>
 <blockquote class="blockquote">
-<p><em>“Explícame este código línea a línea, en un lenguaje sencillo, como si no supiera programar”</em></p>
+<p><em>«Explícame este código línea a línea, en un lenguaje sencillo, como si no supiera programar»</em></p>
 </blockquote>
 <p>o bien:</p>
 <blockquote class="blockquote">
-<p><em>“¿Qué hace este código? ¿Qué representa el gráfico que genera?”</em></p>
+<p><em>«¿Qué hace este código? ¿Qué representa el gráfico que genera?»</em></p>
 </blockquote>
-<p>o también, para un detalle mayor,</p>
+<p>o también, para más detalle:</p>
 <blockquote class="blockquote">
-<p><em>“Actúa como un tutor de programación. Explica este código instrucción a instrucción de forma detallada y sencilla, indicando qué hace cada línea y por qué es necesaria. Usa analogías con Excel o tareas manuales para que sea más fácil de entender”</em></p>
+<p><em>«Actúa como un tutor de programación. Explica este código instrucción a instrucción de forma detallada y sencilla, indicando qué hace cada línea y por qué es necesaria. Usa analogías con Excel o tareas manuales para que sea más fácil de entender»</em></p>
 </blockquote>
 <p>Este enfoque es especialmente útil con las partes de formato y presentación gráfica (títulos, ejes, colores), que son secundarias para el análisis pero pueden distraer cuando se está aprendiendo.</p>
 

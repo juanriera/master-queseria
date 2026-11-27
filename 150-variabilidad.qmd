@@ -1,9 +1,10 @@
 ---
 lang: es
-title: "La variabilidad industrial"
 subtitle: "Síntesis: qué es, cómo se mide, cómo se reduce y cómo se gestiona"
 engine: knitr
 ---
+
+# La variabilidad industrial {#sec-variabilidad}
 
 ::: callout-note
 ## Objetivos de aprendizaje
@@ -31,30 +32,31 @@ La variabilidad tiene tres características fundamentales que hay que entender a
 
 **Es inevitable.** Todo proceso real tiene variabilidad. El objetivo nunca es eliminarla por completo (es imposible), sino reducirla hasta niveles que sean compatibles con los requisitos de calidad y con el coste que estamos dispuestos a asumir.
 
-**No es aleatoria en su totalidad.** Como vimos en el capítulo 9, hay una parte de la variabilidad que es aleatoria e inherente al sistema (causas comunes) y otra parte que responde a causas concretas identificables (causas especiales). Confundir las dos lleva a tomar decisiones incorrectas: intervenir cuando no hace falta, o no intervenir cuando sí hace falta.
+**No es aleatoria en su totalidad.** Como vimos en el capítulo [-@sec-control-procesos], hay una parte de la variabilidad que es aleatoria e inherente al sistema (causas comunes) y otra parte que responde a causas concretas identificables (causas especiales). Confundir las dos lleva a tomar decisiones incorrectas: intervenir cuando no hace falta, o no intervenir cuando sí hace falta.
 
 **Tiene estructura.** La variabilidad no aparece de forma uniforme. Hay variabilidad entre fabricaciones del mismo turno, entre turnos del mismo día, entre días de la misma semana, entre semanas del mismo mes, y entre meses del mismo año. Cada nivel tiene sus propias causas y requiere herramientas diferentes para analizarla.
 
 ### Las fuentes de variabilidad
 
-En un proceso quesero, y en cualquier proceso industrial de transformación biológica, las fuentes de variabilidad son múltiples y se agrupan en cinco categorías clásicas, conocidas como las **5M**:
+En un proceso quesero, y en cualquier proceso industrial de transformación biológica, las fuentes de variabilidad son múltiples y se agrupan en seis categorías, conocidas como las **6M** (a menudo se citan solo cinco, sin la medición):
 
 - **Materia prima** (o material): la composición de la leche varía con la raza, la alimentación, la etapa de lactación y la estación del año. Es una fuente de variabilidad que el fabricante no controla pero sí puede medir y compensar.
 - **Método:** el protocolo de fabricación puede estar bien o mal documentado, bien o mal seguido. La variabilidad de método es una de las más frecuentes y de las más evitables.
 - **Maquinaria** (o máquina): los equipos envejecen, se desajustan, se ensucian. Un pHmetro con el electrodo colmatado, una dosificadora con la válvula desgastada, un intercambiador de calor con depósitos: todos son fuentes de variabilidad creciente a lo largo del tiempo.
 - **Mano de obra:** la formación, la experiencia y la atención del operario influyen en el resultado. La variabilidad de mano de obra se reduce con formación, procedimientos claros e instrucciones de trabajo en el puesto.
 - **Medio ambiente:** la temperatura y la humedad de la sala de maduración, la carga microbiana ambiental, las variaciones estacionales. Son fuentes de variabilidad difíciles de eliminar pero posibles de monitorizar y controlar parcialmente.
+- **Medición:** el propio sistema de medida añade variabilidad a los datos. Un instrumento con sesgo o con poca repetibilidad hace que los resultados varíen de forma distinta a como varía el producto. Antes de buscar causas en el proceso hay que comprobar que el sistema de medición es fiable (capítulo [-@sec-sistema-medicion]).
 
 ::: {.callout-note}
 ## La variabilidad no es mala gestión
-Es importante no confundir variabilidad con incompetencia. Un proceso con variabilidad alta puede estar gestionado por un equipo muy competente que, sencillamente, trabaja con una tecnología antigua, una materia prima muy variable o unos recursos insuficientes. La variabilidad de fondo, la que se debe a causas comunes, es una propiedad del sistema y no del operario (capítulo 9). Reducirla requiere actuar sobre el sistema, y eso es responsabilidad de la dirección, no solo del equipo de planta.
+Es importante no confundir variabilidad con incompetencia. Un proceso con variabilidad alta puede estar gestionado por un equipo muy competente que, sencillamente, trabaja con una tecnología antigua, una materia prima muy variable o unos recursos insuficientes. La variabilidad de fondo, la que se debe a causas comunes, es una propiedad del sistema y no del operario (capítulo [-@sec-control-procesos]). Reducirla requiere actuar sobre el sistema, y eso es responsabilidad de la dirección, no solo del equipo de planta.
 :::
 
 ## Consecuencias económicas y de calidad: el coste de no medir
 
 La variabilidad tiene un coste real, aunque con frecuencia no aparezca en ninguna partida del presupuesto. Es un coste invisible que se manifiesta de formas distintas:
 
-**Coste de la sobredosificación.** Como vimos en el capítulo 14, un proceso con alta variabilidad de peso obliga a llenar los envases con más producto del nominal para garantizar el cumplimiento legal. En la línea de yogures de ese capítulo, reducir σ de 2,5 g a 1,8 g permitía bajar la media de 153 g a 150,4 g y ahorrar 6.589 € al año. Con los mismos supuestos (1,20 €/kg, 220 jornadas de producción al año y una media mínima que garantice $C_{pk} \geq 1{,}33$ frente a T1 sin bajar de Qn), una línea de 50.000 envases diarios con σ = 3,0 g necesita una media de 155,2 g, frente a los 150 g que bastan con σ = 1,0 g: la diferencia supone unos 69.000 € anuales en producto entregado gratuitamente.
+**Coste de la sobredosificación.** Como vimos en el capítulo [-@sec-contenido-efectivo], un proceso con alta variabilidad de peso obliga a llenar los envases con más producto del nominal para garantizar el cumplimiento legal. En la línea de yogures de ese capítulo, reducir σ de 2,5 g a 1,8 g permitía bajar la media de 153 g a 150,4 g y ahorrar 6.589 € al año. Con los mismos supuestos (1,20 €/kg, 220 jornadas de producción al año y una media mínima que garantice $C_{pk} \geq 1{,}33$ frente a T1 sin bajar de Qn), una línea de 50.000 envases diarios con σ = 3,0 g necesita una media de 155,2 g, frente a los 150 g que bastan con σ = 1,0 g: la diferencia supone unos 69.000 € anuales en producto entregado gratuitamente.
 
 **Coste de la no conformidad.** Un proceso con alta variabilidad produce más unidades fuera de especificación: quesos con humedad incorrecta, yogures con pH fuera de rango, lotes con recuentos microbiológicos elevados. Cada unidad no conforme es producto que no se puede vender, o que se vende a precio reducido, o que genera reclamaciones y devoluciones.
 
@@ -68,19 +70,19 @@ La variabilidad tiene un coste real, aunque con frecuencia no aparezca en ningun
 
 A lo largo de los capítulos anteriores hemos utilizado diferentes herramientas para medir y describir la variabilidad. Cada una captura un aspecto distinto:
 
-**La desviación típica y la varianza** (capítulo 6) son las medidas fundamentales de dispersión. La desviación típica cuantifica en las mismas unidades que la variable cuánto se alejan los valores de la media. Es el punto de partida de cualquier análisis de variabilidad.
+**La desviación típica y la varianza** (capítulo [-@sec-media-varianza]) son las medidas fundamentales de dispersión. La desviación típica cuantifica en las mismas unidades que la variable cuánto se alejan los valores de la media. Es el punto de partida de cualquier análisis de variabilidad.
 
-**El histograma y el boxplot** (capítulo 5) permiten ver la forma de la distribución: si es simétrica o asimétrica, si tiene valores atípicos, si hay varios grupos mezclados. Un proceso con distribución bimodal está diciendo que hay dos poblaciones distintas (dos turnos, dos operarios, dos proveedores) que hay que separar antes de analizar.
+**El histograma y el boxplot** (capítulo [-@sec-exploracion]) permiten ver la forma de la distribución: si es simétrica o asimétrica, si tiene valores atípicos, si hay varios grupos mezclados. Un proceso con distribución bimodal está diciendo que hay dos poblaciones distintas (dos turnos, dos operarios, dos proveedores) que hay que separar antes de analizar.
 
-**El QQ-plot** (capítulo 7) permite comprobar si los datos se ajustan razonablemente a una distribución normal, algo conveniente antes de aplicar cualquier cálculo basado en ella, como la proporción esperada de valores fuera de un límite.
+**El QQ-plot** (capítulo [-@sec-distribuciones]) permite comprobar si los datos se ajustan razonablemente a una distribución normal, algo conveniente antes de aplicar cualquier cálculo basado en ella, como la proporción esperada de valores fuera de un límite.
 
-**El coeficiente de correlación y la regresión** (capítulo 8) permiten identificar qué variables varían conjuntamente: si el extracto seco del camembert aumenta cuando aumenta su materia grasa (capítulo 12), tenemos una pista sobre dónde buscar la causa de sus variaciones, aunque la correlación por sí sola no demuestra la causalidad.
+**El coeficiente de correlación y la regresión** (capítulo [-@sec-correlacion-regresion]) permiten identificar qué variables varían conjuntamente: si el extracto seco del camembert aumenta cuando aumenta su materia grasa (capítulo [-@sec-camembert]), tenemos una pista sobre dónde buscar la causa de sus variaciones, aunque la correlación por sí sola no demuestra la causalidad.
 
-**El análisis del sistema de medición** (capítulo 13) evalúa el error del propio sistema de análisis: el sesgo y la repetibilidad de cada analista. Es inútil intentar reducir la variabilidad del proceso si el error de la medida es comparable a ella, porque no podremos distinguir los cambios del proceso de los errores del laboratorio.
+**El análisis del sistema de medición** (capítulo [-@sec-sistema-medicion]) evalúa el error del propio sistema de análisis: el sesgo y la repetibilidad de cada analista. Es inútil intentar reducir la variabilidad del proceso si el error de la medida es comparable a ella, porque no podremos distinguir los cambios del proceso de los errores del laboratorio.
 
-**El gráfico de control y los índices de capacidad** (capítulo 9) son las herramientas específicas para la gestión en tiempo real de la variabilidad. El gráfico distingue entre variabilidad normal (causas comunes) y señales de alarma (causas especiales). Los índices $C_p$ y $C_{pk}$ cuantifican si la variabilidad natural del proceso es compatible con las especificaciones.
+**El gráfico de control y los índices de capacidad** (capítulo [-@sec-control-procesos]) son las herramientas específicas para la gestión en tiempo real de la variabilidad. El gráfico distingue entre variabilidad normal (causas comunes) y señales de alarma (causas especiales). Los índices $C_p$ y $C_{pk}$ cuantifican si la variabilidad natural del proceso es compatible con las especificaciones.
 
-**El diseño de experimentos** (capítulo 10) es la herramienta para identificar qué factores influyen en la respuesta del proceso y en qué medida. Conocerlos nos dice dónde actuar con el mayor efecto: fijar esos factores en el nivel adecuado y controlar sus oscilaciones reduce la variabilidad que provocan.
+**El diseño de experimentos** (capítulo [-@sec-diseno-experimentos]) es la herramienta para identificar qué factores influyen en la respuesta del proceso y en qué medida. Conocerlos nos dice dónde actuar con el mayor efecto: fijar esos factores en el nivel adecuado y controlar sus oscilaciones reduce la variabilidad que provocan.
 
 ## Cómo reducir la variabilidad: herramientas, prioridades y objetivos realistas
 
@@ -98,7 +100,7 @@ Reducir la variabilidad es un proceso sistemático, no un conjunto de acciones a
 
 ::: {.callout-note}
 ## Objetivos realistas
-Un error frecuente es fijar objetivos de reducción de variabilidad sin conocer la capacidad actual del proceso. "Reducir los defectos a cero" o "eliminar toda la variabilidad" son objetivos imposibles de alcanzar o de verificar. Un objetivo realista parte de la variabilidad actual, evalúa qué es posible con los recursos disponibles, y fija un objetivo concreto y alcanzable: por ejemplo, "reducir la desviación típica del peso de 2,5 g a 1,8 g en 6 meses", como en la etapa 2 del capítulo 14. Ese objetivo es verificable, tiene un plazo, y su impacto económico se puede calcular de antemano.
+Un error frecuente es fijar objetivos de reducción de variabilidad sin conocer la capacidad actual del proceso. "Reducir los defectos a cero" o "eliminar toda la variabilidad" son objetivos imposibles de alcanzar o de verificar. Un objetivo realista parte de la variabilidad actual, evalúa qué es posible con los recursos disponibles, y fija un objetivo concreto y alcanzable: por ejemplo, "reducir la desviación típica del peso de 2,5 g a 1,8 g en 6 meses", como en la etapa 2 del capítulo [-@sec-contenido-efectivo]. Ese objetivo es verificable, tiene un plazo, y su impacto económico se puede calcular de antemano.
 :::
 
 ## Cómo hacer el seguimiento: indicadores, revisiones y tendencias
@@ -111,7 +113,7 @@ El seguimiento de la variabilidad requiere tres elementos:
 
 **Revisiones periódicas.** Los indicadores deben revisarse con una frecuencia adecuada al ritmo del proceso. Un gráfico de control diario es adecuado para seguir la variabilidad turno a turno. Un análisis mensual de la desviación típica por categoría de producto es adecuado para detectar derivas de largo plazo. Una revisión trimestral de los índices de capacidad es adecuada para evaluar el progreso de los planes de mejora.
 
-**Tendencias, no solo niveles.** Un indicador que hoy está dentro del objetivo pero lleva tres meses subiendo es una alarma tan importante como uno que ya ha superado el límite. El seguimiento efectivo mira la tendencia, no solo el valor puntual. Los gráficos de control a largo plazo, construidos con datos de semanas o meses y no de horas (como el del extracto seco semanal del capítulo 9), son la herramienta para detectar estas tendencias antes de que se conviertan en problemas.
+**Tendencias, no solo niveles.** Un indicador que hoy está dentro del objetivo pero lleva tres meses subiendo es una alarma tan importante como uno que ya ha superado el límite. El seguimiento efectivo mira la tendencia, no solo el valor puntual. Los gráficos de control a largo plazo, construidos con datos de semanas o meses y no de horas (como el del extracto seco semanal del capítulo [-@sec-control-procesos]), son la herramienta para detectar estas tendencias antes de que se conviertan en problemas.
 
 ## La variabilidad como oportunidad
 
@@ -125,7 +127,7 @@ Esta es la perspectiva con la que cerramos este capítulo y con la que abrimos e
 
 ## Resumen del capítulo
 
-La variabilidad industrial es inevitable: ningún proceso produce resultados idénticos. Sus fuentes son múltiples (materia prima, método, maquinaria, mano de obra y medio ambiente) y su gestión requiere distinguir entre la variabilidad de fondo inherente al sistema (causas comunes) y las señales de cambio que requieren investigación (causas especiales).
+La variabilidad industrial es inevitable: ningún proceso produce resultados idénticos. Sus fuentes son múltiples (materia prima, método, maquinaria, mano de obra, medio ambiente y medición) y su gestión requiere distinguir entre la variabilidad de fondo inherente al sistema (causas comunes) y las señales de cambio que requieren investigación (causas especiales).
 
 El coste de no medir la variabilidad es real aunque invisible: sobredosificación, no conformidades, retrabajo, pérdida de confianza de los clientes. Medir es la condición previa para mejorar.
 

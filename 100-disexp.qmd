@@ -1,9 +1,10 @@
 ---
 lang: es
-title: "Introducción al diseño de experimentos"
 code-fold: true
 engine: knitr
 ---
+
+# Introducción al diseño de experimentos {#sec-diseno-experimentos}
 
 ```{r setup-090}
 #| include: false
@@ -56,7 +57,7 @@ En nuestro caso:
 
 ### La variable respuesta
 
-La **respuesta** es la variable que medimos para evaluar el efecto de los factores. En nuestro experimento, la respuesta es el coeficiente de recuperación ESM/MP, que establece la relación entre el extracto seco magro (ESM) del queso y la materia proteica (MP) puesta en cuba, expresada en porcentaje. En condiciones normales de proceso, este indicador oscila entre el 92 % y el 98 %.
+La **respuesta** es la variable que medimos para evaluar el efecto de los factores. En nuestro experimento, la respuesta es el coeficiente de recuperación ESM/MP, que establece la relación entre el extracto seco magro (ESM) del queso y la materia proteica (MP) puesta en cuba, expresada en porcentaje. En condiciones normales de proceso, este indicador oscila entre el 92 % y el 98 %.
 
 ### Las réplicas
 
@@ -114,13 +115,13 @@ df |>
     group_by(temperatura, dosis_cuajo) |>
     summarise(
         n        = n(),
-        media    = round(mean(retencion_pct), 2),
-        desv_tip = round(sd(retencion_pct), 2),
+        media    = round(mean(rendimiento_esm_pct), 2),
+        desv_tip = round(sd(rendimiento_esm_pct), 2),
         .groups  = "drop"
     )
 ```
 
-La tabla de medias ya revela algo importante: a 30 °C, subir la dosis de cuajo de 20 a 30 ml/100 L mejora el coeficiente de recuperación (ESM/MP) en más de 1 punto (de 93,75% a 94,96%). Pero a 34 °C, esa misma subida de dosis apenas produce mejora (de 95,34% a 95,31%). Esto es exactamente una interacción, y es precisamente la información que el enfoque OFAT nunca habría podido revelar.
+La tabla de medias ya revela algo importante: a 30 °C, subir la dosis de cuajo de 20 a 30 ml/100 L mejora el coeficiente de recuperación (ESM/MP) en más de 1 punto (de 93,75 % a 94,96 %). Pero a 34 °C, esa misma subida de dosis apenas produce mejora (de 95,34 % a 95,31 %). Esto es exactamente una interacción, y es precisamente la información que el enfoque OFAT nunca habría podido revelar.
 
 ## Los gráficos de efectos principales
 
@@ -138,13 +139,13 @@ library(patchwork)
 
 media_temp  <- df |>
     group_by(temperatura) |>
-    summarise(media = mean(retencion_pct), .groups = "drop")
+    summarise(media = mean(rendimiento_esm_pct), .groups = "drop")
 
 media_dosis <- df |>
     group_by(dosis_cuajo) |>
-    summarise(media = mean(retencion_pct), .groups = "drop")
+    summarise(media = mean(rendimiento_esm_pct), .groups = "drop")
 
-media_global <- mean(df$retencion_pct)
+media_global <- mean(df$rendimiento_esm_pct)
 
 p1 <- ggplot(media_temp, aes(x = temperatura, y = media, group = 1)) +
     geom_point(size = 4, color = "steelblue") +
@@ -189,7 +190,7 @@ El **gráfico de interacciones** es el más informativo del análisis factorial.
 
 medias_cruzadas <- df |>
     group_by(temperatura, dosis_cuajo) |>
-    summarise(media = mean(retencion_pct), .groups = "drop")
+    summarise(media = mean(rendimiento_esm_pct), .groups = "drop")
 
 ggplot(medias_cruzadas,
        aes(x = factor(dosis_cuajo), y = media,

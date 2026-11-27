@@ -1,9 +1,10 @@
 ---
 lang: es
-title: "El control estadístico de procesos"
 code-fold: true
 engine: knitr
 ---
+
+# El control estadístico de procesos {#sec-control-procesos}
 
 ::: callout-note
 ## Objetivos de aprendizaje
@@ -74,7 +75,7 @@ La distinción entre causas comunes (sistema) y causas especiales (proceso) es f
 
 | Situación | Tipo de causa | Acción correcta |
 |-----------|--------------|-----------------|
-| El extracto seco varía ±0,5% de forma aleatoria entre fabricaciones | Común | Revisar el proceso de estandarización y los equipos |
+| El extracto seco varía ±0,5 % de forma aleatoria entre fabricaciones | Común | Revisar el proceso de estandarización y los equipos |
 | El extracto seco sube de forma sostenida durante tres semanas de verano | Especial | Investigar cambio estacional, ajuste del operario |
 | El pH varía ±0,05 unidades de forma aleatoria | Común | Revisar la precisión del método analítico |
 | Un análisis de pH da 4,35 cuando el rango habitual es 4,5-4,9 | Especial | Verificar la muestra, repetir el análisis |
@@ -116,7 +117,7 @@ Es la variabilidad que solo se hace visible cuando se analizan datos de semanas 
 - Degradación de catalizadores en procesos químicos
 - Deriva de calibración de instrumentos de medida
 
-![Gráfico de medias semanales del extracto seco total del camembert del capítulo 12, tal como lo genera la biblioteca `qcc` de R (rótulos en inglés). Los puntos rojos quedan fuera de los límites de control y los naranjas forman parte de rachas. Los recuadros, añadidos sobre la salida, delimitan periodos con distinto nivel medio: una variabilidad que solo se aprecia con datos de muchas semanas](imagenes/090/graf_control.webp)
+![Gráfico de medias semanales del extracto seco total del camembert del capítulo [-@sec-camembert], tal como lo genera la biblioteca `qcc` de R (rótulos en inglés). Los puntos rojos quedan fuera de los límites de control y los naranjas forman parte de rachas. Los recuadros, añadidos sobre la salida, delimitan periodos con distinto nivel medio: una variabilidad que solo se aprecia con datos de muchas semanas](imagenes/090/graf_control.webp)
 
 ::: {.callout-note}
 ## La variabilidad a largo plazo y los procedimientos
@@ -133,7 +134,7 @@ Un **gráfico de control** es una representación temporal de los resultados del
 - **El límite de control superior (UCL):** la media más 3 desviaciones típicas del estadístico representado (en el gráfico X-barra, $3\sigma/\sqrt{n}$)
 - **El límite de control inferior (LCL):** la media menos esas mismas 3 desviaciones típicas
 
-Los límites se sitúan a ±3σ. Si el proceso sigue una distribución normal, el 99,7% de los valores cae dentro de ese rango, de modo que un punto fuera de los límites es muy improbable por puro azar (probabilidad de alrededor del 0,3%): su aparición es casi siempre señal de una causa especial.
+Los límites se sitúan a ±3σ. Si el proceso sigue una distribución normal, el 99,7 % de los valores cae dentro de ese rango, de modo que un punto fuera de los límites es muy improbable por puro azar (probabilidad de alrededor del 0,3 %): su aparición es casi siempre señal de una causa especial.
 
 ::: {.callout-note}
 ## Límites de control vs. especificaciones
@@ -184,7 +185,7 @@ En muchos manuales y programas de control de calidad se usan las **reglas de Wes
 
 ## Caso práctico: control del proceso de llenado de yogures
 
-Usamos el dataset `llenado_yogures_muestra.csv`, que contiene los resultados de un muestreo de 5 envases (separados unos 45 segundos) cada 3 minutos durante el turno del 1 de octubre, de 08:00 a 16:00: 160 subgrupos y 800 envases en total. Es una muestra del mismo turno que analizaremos completo en el capítulo 14, dedicado al contenido efectivo. El turno es simulado e incluye varios incidentes que el gráfico de control debería detectar.
+Usamos el dataset `llenado_yogures_muestra.csv`, que contiene los resultados de un muestreo de 5 envases (separados unos 45 segundos) cada 3 minutos durante el turno del 1 de octubre, de 08:00 a 16:00: 160 subgrupos y 800 envases en total. Es una muestra del mismo turno que analizaremos completo en el capítulo [-@sec-contenido-efectivo], dedicado al contenido efectivo. El turno es simulado e incluye varios incidentes que el gráfico de control debería detectar.
 
 ### Fase I: establecer los límites de control
 
@@ -255,7 +256,7 @@ Los dos gráficos permiten reconstruir lo que ocurrió durante el turno:
 
 Cada incidente deja una huella distinta. Los cambios grandes de la media (la deriva de las 08:30, la sobrecorrección) sacan puntos fuera de los límites del gráfico X-barra. Los cambios lentos o pequeños (la deriva descendente, el escalón) apenas sacan puntos, pero producen rachas largas a un lado de la línea central. Y un aumento de la dispersión sin cambio de la media se ve sobre todo en el gráfico S: si S sube, la dosificadora está llenando de forma menos regular.
 
-El incidente más grave es la sobrecorrección. Al detectar la deriva ascendente, el operario corrigió en exceso y llevó la media muy por debajo del peso nominal. En el capítulo 14 volveremos sobre estos incidentes para buscar sus causas y analizar sus consecuencias legales y económicas.
+El incidente más grave es la sobrecorrección. Al detectar la deriva ascendente, el operario corrigió en exceso y llevó la media muy por debajo del peso nominal. En el capítulo [-@sec-contenido-efectivo] volveremos sobre estos incidentes para buscar sus causas y analizar sus consecuencias legales y económicas.
 
 ::: {.callout-note}
 ## `qcc`: una alternativa más potente
@@ -314,15 +315,15 @@ cat(sprintf("Media = %.2f g   Desviación típica = %.2f g   Cpk = %.2f\n",
 
 $$C_{pk} = \frac{\mu - LIE}{3\sigma} = \frac{153{,}1 - 143{,}2}{3 \times 2{,}5} = \frac{9{,}9}{7{,}5} \approx 1{,}3$$
 
-Un $C_{pk} \approx 1{,}3$ indica un proceso capaz respecto a T1, justo en el valor de 1,33 que se suele exigir: mientras funcione sin incidentes, prácticamente ningún envase quedará por debajo de ese límite. En el capítulo 14 veremos que esta es precisamente la razón por la que la planta trabaja con una media de 153 g, 3 g por encima del peso nominal. Pero si la variabilidad aumentara a $\sigma = 3{,}5$ g:
+Un $C_{pk} \approx 1{,}3$ indica un proceso capaz respecto a T1, justo en el valor de 1,33 que se suele exigir: mientras funcione sin incidentes, prácticamente ningún envase quedará por debajo de ese límite. En el capítulo [-@sec-contenido-efectivo] veremos que esta es precisamente la razón por la que la planta trabaja con una media de 153 g, 3 g por encima del peso nominal. Pero si la variabilidad aumentara a $\sigma = 3{,}5$ g:
 
 $$C_{pk} = \frac{153{,}1 - 143{,}2}{3 \times 3{,}5} = \frac{9{,}9}{10{,}5} \approx 0{,}94$$
 
-El proceso deja de ser capaz ($C_{pk} < 1$): cabe esperar alrededor de un 0,2% de envases por debajo de T1. Y si además la media bajara a 150 g:
+El proceso deja de ser capaz ($C_{pk} < 1$): cabe esperar alrededor de un 0,2 % de envases por debajo de T1. Y si además la media bajara a 150 g:
 
 $$C_{pk} = \frac{150 - 143{,}2}{3 \times 3{,}5} = \frac{6{,}8}{10{,}5} \approx 0{,}65$$
 
-Con $C_{pk} \approx 0{,}65$, la proporción esperada de envases por debajo de T1 es de alrededor del 2,6%, por encima del 2,5% que se toma como referencia para el criterio T1 (lo veremos en el capítulo 14).
+Con $C_{pk} \approx 0{,}65$, la proporción esperada de envases por debajo de T1 es de alrededor del 2,6 %, por encima del 2,5 % que se toma como referencia para el criterio T1 (lo veremos en el capítulo [-@sec-contenido-efectivo]).
 
 ### Lo que ocurrió en el turno completo
 
@@ -349,14 +350,14 @@ df |> summarise(bajo_T1 = sum(peso_g < T1),
                 bajo_T2 = sum(peso_g < T2))
 ```
 
-Durante el turno, 11 de los 800 envases muestreados (1,4%) quedaron por debajo de T1 y ninguno por debajo de T2. Ocho de esos 11 envases se produjeron entre las 08:39 y las 08:51, durante la sobrecorrección; los otros tres, durante el período de alta variabilidad. Que la muestra no recoja ningún envase bajo T2 no significa que no los haya: en el capítulo 14 veremos que en el turno completo, de 9.600 envases, hay 14.
+Durante el turno, 11 de los 800 envases muestreados (1,4 %) quedaron por debajo de T1 y ninguno por debajo de T2. Ocho de esos 11 envases se produjeron entre las 08:39 y las 08:51, durante la sobrecorrección; los otros tres, durante el período de alta variabilidad. Que la muestra no recoja ningún envase bajo T2 no significa que no los haya: en el capítulo [-@sec-contenido-efectivo] veremos que en el turno completo, de 9.600 envases, hay 14.
 
 La comparación resume el argumento de la mejora. El proceso, cuando funciona sin incidentes, es capaz; los envases bajo T1 no se deben a la variabilidad de fondo, sino a causas especiales concretas, sobre todo a la sobrecorrección. Eliminar esas causas es más eficaz y más barato que aumentar la dosificación media para compensarlas. Este análisis económico se desarrolla en el capítulo dedicado al RD 1801/2008.
 
 ::: {.callout-note}
 ## Establecer límites técnicos a partir de la capacidad
 
-Un error frecuente en la industria es fijar límites técnicos de proceso ("no más de X defectos por turno") sin haber evaluado previamente la capacidad del proceso. Si el proceso tiene una variabilidad natural que produce inevitablemente un 5% de defectos, fijar el límite en 1% es poco realista, por mucho que se esfuercen los operarios.
+Un error frecuente en la industria es fijar límites técnicos de proceso ("no más de X defectos por turno") sin haber evaluado previamente la capacidad del proceso. Si el proceso tiene una variabilidad natural que produce inevitablemente un 5 % de defectos, fijar el límite en 1 % es poco realista, por mucho que se esfuercen los operarios.
 
 El enfoque correcto es:
 

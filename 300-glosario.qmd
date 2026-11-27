@@ -2,7 +2,7 @@
 lang: es
 ---
 
-# Glosario de términos
+# Glosario de términos {#sec-glosario}
 
 Relación alfabética de los conceptos clave introducidos a lo largo del libro, con una definición breve de cada uno.
 
@@ -14,17 +14,14 @@ En diseño de experimentos, el orden en que se realizan los experimentos debe se
 **Análisis de datos**
 Proceso sistemático de inspección, limpieza, transformación e interpretación de datos con el objetivo de descubrir información útil, apoyar conclusiones y orientar la toma de decisiones.
 
+**Análisis exploratorio**
+Primera fase del análisis de un conjunto de datos, en la que se examinan con gráficos y estadísticos descriptivos la forma, el centro, la dispersión y la evolución de las variables, y se buscan errores, valores atípicos y patrones antes de formular hipótesis.
+
 **Asimetría**
 Propiedad de una distribución de datos que no es simétrica respecto a su media. Una distribución asimétrica positiva tiene una cola larga hacia la derecha (valores extremos altos); una distribución asimétrica negativa tiene la cola larga hacia la izquierda.
 
 **Beeswarm**
 Variante del diagrama de puntos en la que los puntos se desplazan lateralmente para evitar solapamientos, mostrando la distribución individual de los datos. Útil como alternativa al boxplot cuando el número de observaciones es pequeño.
-
-**C_p (índice de capacidad)**
-Índice que mide la relación entre la variabilidad natural del proceso (±3σ) y la amplitud de los límites de especificación. Un C_p ≥ 1 indica que el proceso cabe dentro de los límites; no tiene en cuenta si la media está centrada.
-
-**C_pk (índice de capacidad centrado)**
-Variante del C_p que tiene en cuenta la posición de la media respecto a los límites de especificación. Si el proceso está descentrado, C_pk < C_p. Es el indicador más completo de la capacidad real del proceso.
 
 **Calidad de los datos**
 Conjunto de propiedades que determinan la aptitud de los datos para el análisis: exactitud, completitud, consistencia, trazabilidad y ausencia de errores. Un análisis solo es tan bueno como los datos en que se basa.
@@ -32,11 +29,17 @@ Conjunto de propiedades que determinan la aptitud de los datos para el análisis
 **Campana de Gauss**
 Nombre coloquial de la distribución normal, por la forma característica de su función de densidad. Véase *distribución normal*.
 
+**Cantidad nominal ($Q_n$)**
+Peso o volumen declarado en el envase. Es la referencia de todos los límites del RD 1801/2008.
+
 **Capacidad de proceso**
 Medida de la aptitud de un proceso para producir resultados dentro de los límites de especificación, teniendo en cuenta su variabilidad natural. Se cuantifica mediante los índices C_p y C_pk.
 
 **Caso (observación)**
 En un conjunto de datos, cada una de las unidades de análisis sobre las que se recogen valores de las variables. En una tabla de datos, cada caso corresponde a una fila.
+
+**Causalidad**
+Relación en la que una variable provoca cambios en otra. Una correlación entre dos variables puede deberse a causalidad directa, a causalidad inversa, a una causa común que influye en ambas o a la casualidad (correlación espuria). La correlación no implica causalidad.
 
 **Causas comunes**
 Fuentes de variación inherentes al sistema que están siempre presentes y producen la variabilidad de fondo del proceso. Su eliminación requiere cambiar el diseño del sistema, no intervenir en el proceso. Véase también *causas especiales*.
@@ -50,17 +53,23 @@ Término acuñado por Edward Tufte para referirse a los elementos visuales de un
 **Ciclo PDCA**
 Marco de mejora continua compuesto por cuatro fases: Plan (planificar), Do (hacer), Check (verificar) y Act (actuar). Es la base de la filosofía de mejora continua y precursor del ciclo DMAIC de Six Sigma.
 
+**Cinco porqués**
+Técnica que pasa de un síntoma a su causa raíz encadenando la pregunta «¿por qué?» hasta llegar a algo que se pueda cambiar.
+
 **Código abierto**
 Software cuyo código fuente es accesible, modificable y redistribuible libremente. Python y R son herramientas de código abierto; el conocimiento adquirido con ellas es completamente transferible entre empresas y sectores.
 
-**Coeficiente de determinación (R²)**
-Cuadrado del coeficiente de correlación de Pearson. Mide la proporción de la variación de una variable que queda explicada por la otra. Un R² = 0,76 significa que el 76% de la variación de y queda explicada por x.
+**Coeficiente de determinación ($R^2$)**
+Cuadrado del coeficiente de correlación de Pearson. Se interpreta como la proporción de la variación de una variable que queda explicada por su relación lineal con la otra. Un $R^2 = 0{,}76$ significa que el 76 % de la variación de $y$ queda explicada por $x$.
 
 **Coeficiente de Pearson (r)**
 Medida de la intensidad y la dirección de la relación lineal entre dos variables. Toma valores entre -1 y +1: valores cercanos a ±1 indican relación fuerte; valores cercanos a 0 indican ausencia de relación lineal.
 
 **Coeficiente de recuperación ESM/MP**
-Este coeficiente es la medida que utilizaremos como "rendimiento quesero"; estima la eficacia de la recuperación de proteína puesta en cuba, suponiendo que el resto de componentes de este ESM (lactosa, sal, minerales) se mantienen constantes de fabricación en fabricación. Es una estimación indirecta que evita el engorroso análisis de proteína en el producto final.
+Kilos de extracto seco magro (ESM) del queso por cada 100 kg de materia proteica (MP) de la leche puesta en cuba. Es la medida que se usa en este libro como «rendimiento quesero»: estima la eficacia de la recuperación de la proteína, suponiendo que los demás componentes del ESM (lactosa, sal, minerales) se mantienen constantes de una fabricación a otra. Es una estimación indirecta que evita el engorroso análisis de la proteína en el producto final.
+
+**Contenido efectivo**
+Cantidad de producto que contiene realmente un envase. El RD 1801/2008 regula sus tolerancias respecto a la cantidad nominal.
 
 **Control estadístico de procesos (SPC)**
 Metodología para la monitorización y control de procesos industriales mediante herramientas estadísticas, especialmente el gráfico de control. Permite distinguir entre variabilidad normal (causas comunes) y señales de alarma (causas especiales).
@@ -70,6 +79,18 @@ Relación estadística entre dos variables: cuando una varía, la otra tiende a 
 
 **Correlación espuria**
 Correlación estadística fuerte entre dos variables que no tienen ninguna relación causal. Ocurre frecuentemente cuando dos variables siguen tendencias temporales similares por razones independientes.
+
+**Coste de la variabilidad**
+Conjunto de costes que genera un proceso con alta variabilidad: la sobredosificación necesaria para cumplir los límites, las unidades no conformes y el retrabajo y el desperdicio.
+
+**Costes de no calidad**
+Costes del retrabajo, de las no conformidades, de las devoluciones y de la sobredosificación. Suelen ser mayores de lo que percibe la dirección, y cuantificarlos justifica el esfuerzo de mejora.
+
+**$C_p$ (índice de capacidad)**
+Índice que compara la amplitud de los límites de especificación con la variabilidad natural del proceso: $C_p = (LSE - LIE) / 6\sigma$. Un $C_p \geq 1$ indica que la variabilidad del proceso cabe entre los límites; no tiene en cuenta si la media está centrada. En la industria se suele exigir $C_p \geq 1{,}33$.
+
+**$C_{pk}$ (índice de capacidad)**
+Índice de capacidad que tiene en cuenta la posición de la media: es la menor de las distancias de la media a cada límite de especificación, dividida por $3\sigma$. Si el proceso está centrado, $C_{pk} = C_p$; si está descentrado, $C_{pk} < C_p$. Cuando solo hay un límite, como el límite inferior T1 del peso de los envases, se calcula solo con ese límite.
 
 **CSV (Comma-Separated Values)**
 Formato de fichero de texto plano para almacenar datos tabulares, en el que los valores están separados por un delimitador (coma, punto y coma). Es el formato más universal para el intercambio de datos entre aplicaciones.
@@ -92,23 +113,38 @@ Estructura de datos en la que cada variable ocupa una columna, cada observación
 **Datos rectangulares**
 Estructura de datos organizada en filas y columnas donde todas las filas tienen el mismo número de columnas. Es el formato estándar para el análisis estadístico. Sinónimo de datos tabulares o datos estructurados.
 
+**Definición del problema**
+Primer paso de un proyecto de mejora (fase Definir del DMAIC): una descripción breve, en lenguaje sencillo, que cuantifica el problema, incluye su coste, delimita su ámbito y fija un objetivo SMART (específico, medible, alcanzable, relevante y acotado en el tiempo).
+
 **Desviación típica**
 Medida de dispersión que cuantifica, en las mismas unidades que la variable, cuánto se alejan los valores de la media. Es la raíz cuadrada de la varianza. Símbolo: σ (población) o s (muestra).
 
-**Diagrama de barras**
-Gráfico que representa frecuencias o magnitudes de categorías mediante barras de longitud proporcional al valor. Más efectivo que el gráfico de tarta para comparar categorías.
+**Diagrama causa-efecto (Ishikawa)**
+Diagrama en forma de espina de pescado que ordena las posibles causas de un problema en grupos, normalmente las 6M (máquina, mano de obra, material, método, medio ambiente y medición), para no olvidar ninguna.
+
+**Diagrama de barras (gráfico de barras)**
+Gráfico que representa frecuencias o magnitudes de categorías mediante barras de longitud proporcional al valor. Más eficaz que el gráfico de tarta para comparar categorías.
 
 **Diagrama de caja (boxplot)**
-Gráfico que representa la distribución de una variable mediante cinco estadísticos: mínimo, Q1, mediana, Q3 y máximo. Permite comparar distribuciones entre grupos y detectar valores atípicos.
+Gráfico que resume la distribución de una variable: la caja va del primer cuartil (Q1) al tercero (Q3) y lleva marcada la mediana; los bigotes llegan hasta el último dato situado a menos de 1,5 veces el rango intercuartil de la caja, y los datos más alejados se dibujan aparte como valores atípicos. Permite comparar distribuciones entre grupos.
 
-**Diagrama de dispersión**
+**Diagrama de dispersión (gráfico de dispersión)**
 Gráfico que representa pares de valores (x, y) como puntos en un plano cartesiano. Es la herramienta visual fundamental para explorar la relación entre dos variables cuantitativas.
+
+**Diagrama de Pareto**
+Gráfico de barras que ordena las causas de un problema de mayor a menor frecuencia o coste, con la línea del porcentaje acumulado, para decidir por dónde empezar.
+
+**Discriminador de peso**
+Sistema de control en línea que pesa cada envase a la salida de la llenadora y expulsa los que pesan menos que el valor al que se ha ajustado (su consigna). Retira los envases que el proceso produce mal, pero no corrige el proceso.
 
 **Diseño de experimentos (DoE)**
 Metodología para estudiar el efecto de varios factores sobre una variable respuesta de forma simultánea y eficiente, permitiendo detectar interacciones entre factores que el enfoque OFAT no puede revelar.
 
 **Diseño factorial**
 Tipo de diseño de experimentos en el que se estudian todas las combinaciones posibles de los niveles de los factores. Un diseño 2² estudia 2 factores con 2 niveles cada uno, resultando en 4 combinaciones.
+
+**Dispersión**
+Grado en que los valores de un conjunto de datos se separan de su centro. Se mide con el rango intercuartil, la varianza o la desviación típica.
 
 **Distribución bimodal**
 Distribución de datos con dos modas (dos picos) claramente diferenciados. Suele indicar la mezcla de dos poblaciones distintas en los datos (dos turnos, dos proveedores, dos grupos de analistas).
@@ -119,11 +155,14 @@ Distribución de probabilidad de una variable que puede tomar cualquier valor de
 **Distribución de frecuencias**
 Tabla o gráfico que muestra cuántas veces aparece cada valor o intervalo de valores en un conjunto de datos. Base del histograma.
 
+**Distribución de probabilidad**
+Descripción de la probabilidad con que una variable toma cada valor o cada intervalo de valores. El histograma de frecuencias relativas es su versión empírica, obtenida de los datos.
+
 **Distribución discreta**
-Distribución de probabilidad de una variable que solo puede tomar valores enteros o un conjunto finito de valores. Ejemplo: número de defectos por lote.
+Distribución de una variable que solo puede tomar valores aislados, sin valores intermedios, como los recuentos. Ejemplos: número de goles en un partido, número de envases deficientes en un lote.
 
 **Distribución normal**
-Distribución de probabilidad simétrica en forma de campana, definida por su media (μ) y su desviación típica (σ). El 68,3% de los valores cae dentro de μ ± σ; el 95,4% dentro de μ ± 2σ; el 99,7% dentro de μ ± 3σ.
+Distribución de probabilidad simétrica en forma de campana, definida por su media (μ) y su desviación típica (σ). El 68,3 % de los valores cae dentro de μ ± σ; el 95,4 % dentro de μ ± 2σ; el 99,7 % dentro de μ ± 3σ.
 
 **Distribución simétrica**
 Distribución de datos en la que los valores se distribuyen de forma equilibrada a ambos lados de la media. La distribución normal es el caso más importante.
@@ -135,16 +174,13 @@ Ciclo de mejora de Six Sigma: Define (definir el problema), Measure (medir el pr
 En diseño de experimentos, el efecto medio de un factor sobre la variable respuesta, promediando sobre todos los niveles del otro factor. Se visualiza en el gráfico de efectos principales.
 
 **EMDT (error máximo por defecto tolerado)**
-En el RD 1801/2008, la diferencia máxima admisible entre el contenido real de un envase y el peso nominal declarado. Su valor depende del peso nominal según una tabla establecida en la norma.
+En el RD 1801/2008, cantidad máxima en que el contenido de un envase puede quedar por debajo de la cantidad nominal. Depende de la cantidad nominal (cuadro 1 del RD); los valores calculados como porcentaje se redondean por exceso a la décima de gramo. Para un envase de 150 g es el 4,5 %: 6,8 g.
 
-**Envase defectuoso**
-Según el RD 1801/2008, envase cuyo contenido es inferior al peso nominal menos el EMDT (límite T1). La norma permite un máximo del 2,5% de envases defectuosos en un lote.
+**Envase deficiente**
+Según el RD 1801/2008, envase cuyo contenido es inferior a T1, es decir, a la cantidad nominal menos el EMDT. El RD no fija un porcentaje máximo: exige que la proporción de envases deficientes sea lo bastante pequeña para que el lote supere el control por muestreo (cuadro 2). La guía WELMEC 6.5 toma como referencia el 2,5 %.
 
-**Envase no conforme**
-Según el RD 1801/2008, envase cuyo contenido es inferior al peso nominal menos el doble del EMDT (límite T2). Ningún envase no conforme está permitido en un lote.
-
-**ggplot2**
-Librería de R para la creación de gráficos estadísticos basada en la gramática de gráficos. Es la herramienta de visualización principal del ecosistema tidyverse.
+**Error de entrada**
+Valor erróneo introducido al registrar o transcribir un dato, como un contenido negativo de cloruros. Suele aparecer como un valor atípico imposible o inverosímil y debe corregirse o eliminarse antes del análisis.
 
 **Estacionalidad**
 Patrón de variación que se repite con una periodicidad regular (mensual, estacional, anual) en una serie temporal. En quesería, la composición de la leche tiene una marcada estacionalidad.
@@ -153,13 +189,16 @@ Patrón de variación que se repite con una periodicidad regular (mensual, estac
 Valor numérico calculado a partir de una muestra que describe alguna característica de la misma. La media muestral y la desviación típica muestral son estadísticos. Distinto de parámetro, que describe la población.
 
 **Estadístico no paramétrico**
-Estadístico que no asume que los datos siguen una distribución normal. La mediana y el rango intercuartil son estadísticos no paramétricos; son más robustos frente a valores atípicos que la media y la desviación típica.
+Estadístico que no presupone ninguna forma concreta de la distribución de los datos. La mediana y el rango intercuartil son estadísticos no paramétricos; son más robustos frente a los valores atípicos que la media y la desviación típica.
 
 **Estadístico paramétrico**
-Estadístico cuyo cálculo asume que los datos siguen una distribución conocida, generalmente la normal. La media y la desviación típica son estadísticos paramétricos.
+Estadístico ligado a los parámetros de un modelo de distribución, en particular la normal, que queda definida por su media y su desviación típica. La media y la desviación típica (o la varianza) son estadísticos paramétricos: describen bien los datos cuando la distribución es aproximadamente simétrica, pero son sensibles a los valores atípicos.
 
 **Estandarización de la leche**
 Ajuste de la composición de la leche (relación grasa/proteína) antes de la fabricación para reducir la variabilidad del rendimiento quesero y optimizar el proceso.
+
+**Estratificación**
+Separación de los datos por grupos (mes, turno, línea, operario, proveedor) para comparar su centro y su dispersión, normalmente con un diagrama de caja por grupos. Es una de las herramientas de Ishikawa.
 
 **Estudio observacional**
 Tipo de estudio en el que el analista recoge datos del proceso sin intervenir en él. Permite detectar correlaciones pero no establecer causalidad, ya que no se controlan los factores externos.
@@ -167,13 +206,17 @@ Tipo de estudio en el que el analista recoge datos del proceso sin intervenir en
 **Estudio retrospectivo**
 Tipo de estudio basado en datos ya recogidos en el pasado. Es rápido y económico, pero está limitado por la calidad y disponibilidad de los registros históricos.
 
+**Exactitud**
+Según la norma ISO 5725-1, proximidad entre un resultado de medida y el valor verdadero. Engloba dos componentes: la veracidad y la precisión.
+
 **Experimento diseñado**
 Tipo de estudio en el que el analista interviene deliberadamente en el proceso modificando factores de forma controlada para estudiar su efecto sobre la respuesta. Permite establecer relaciones causales. Véase también *diseño de experimentos*.
 
 **Extracto seco magro (ESM)**
-Fracción sólida del queso sin contar la materia grasa. 
+Extracto seco del queso sin su materia grasa (extracto seco total menos materia grasa). Es la base del indicador de rendimiento utilizado en este libro (véase *coeficiente de recuperación ESM/MP*), porque permite comparar fabricaciones con diferente humedad y contenido graso.
+
 **Factor**
-En diseño de experimentos, variable que se controla deliberadamente durante el experimento para estudiar su efecto sobre la respuesta. Es la base del indicador de rendimiento utilizado en este libro (kilos de ESM por cada 100 kg de materia proteica de la leche; véase Rendimiento quesero), porque permite comparar fabricaciones con diferente humedad.
+En diseño de experimentos, variable que se controla deliberadamente durante el experimento para estudiar su efecto sobre la respuesta.
 
 **Fichero plano**
 Fichero de texto sin formato especial en el que los datos están separados por un delimitador (espacio, tabulador, punto y coma). El fichero CSV es el tipo más común de fichero plano usado en análisis de datos.
@@ -196,17 +239,35 @@ Suma de las frecuencias absolutas (o relativas) de todos los valores hasta un de
 **Frecuencia relativa**
 Proporción de veces que aparece un valor o intervalo respecto al total de datos. Equivale a la probabilidad empírica de ese valor.
 
+**Fuente de variación**
+Cada uno de los orígenes de la variación de los resultados de una medición o de un proceso. En el laboratorio, las más habituales son el analista, el instrumento, el método y la muestra.
+
+**ggplot2**
+Librería de R para la creación de gráficos estadísticos basada en la gramática de gráficos. Es la herramienta de visualización principal del ecosistema tidyverse.
+
 **Gráfico de control**
-Representación temporal de los resultados de un proceso con tres líneas horizontales: la línea central (media), el límite de control superior (media + 3σ) y el límite de control inferior (media − 3σ). Permite distinguir variabilidad normal de señales de alarma.
+Representación temporal de los resultados de un proceso con tres líneas horizontales: la línea central (la media del proceso en condiciones de referencia) y los límites de control superior e inferior, situados a ±3 desviaciones típicas del estadístico representado (en el gráfico X-barra, $\pm 3\sigma/\sqrt{n}$). Permite distinguir la variabilidad debida a causas comunes de las señales de causas especiales.
 
 **Gráfico de densidad**
 Estimación suavizada de la distribución de una variable continua. Alternativa al histograma que no depende de la elección del tamaño de intervalo.
+
+**Gráfico de líneas**
+Gráfico que une con líneas los valores de una variable ordenados en el tiempo. Es el gráfico adecuado para mostrar la evolución temporal.
+
+**Gráfico de rachas**
+Gráfico de la evolución de una variable en el tiempo respecto a su mediana. Permite ver si el proceso ha cambiado (desplazamientos, tendencias, ciclos) antes de calcular límites de control o índices de capacidad.
+
+**Gráfico S**
+Gráfico de control que representa la desviación típica de cada subgrupo a lo largo del tiempo. Detecta cambios en la dispersión del proceso. Se usa junto con el gráfico X-barra.
 
 **Histograma**
 Gráfico de barras contiguas que representa la distribución de frecuencias de una variable continua dividida en intervalos (bins). La altura de cada barra es proporcional al número de datos en ese intervalo.
 
 **Hoja de cálculo**
 Aplicación informática que organiza datos en una cuadrícula de filas y columnas con celdas que pueden contener valores o fórmulas. Es útil para el análisis básico, pero sus fórmulas ocultas dificultan la auditoría y la reproducibilidad del análisis.
+
+**Humedad del queso desengrasado (hqd)**
+Agua del queso expresada como porcentaje de la masa del queso sin su grasa: $\text{hqd} = (100 - \text{EST}) / (100 - \text{MG}) \times 100$, con el extracto seco total (EST) y la materia grasa (MG) en porcentaje. Es un factor crítico de la textura del queso.
 
 **Informe reproducible**
 Documento en el que el texto, los cálculos y los gráficos están escritos en el mismo fichero en código visible. Cuando los datos cambian, basta con regenerar el documento para que todo se actualice automáticamente.
@@ -220,20 +281,20 @@ En un histograma, cada uno de los rangos de valores en que se divide la variable
 **Lean Manufacturing**
 Filosofía de gestión orientada a eliminar el desperdicio en los procesos productivos. En el contexto del análisis de datos, pone especial énfasis en la estandarización de procedimientos como base para la reducción de la variabilidad.
 
-**matplotlib**
-Librería de Python para la creación de gráficos estáticos, animados e interactivos. Es la base sobre la que se construye seaborn.
-
 **Lenguaje de programación**
 Sistema formal de instrucciones que permite comunicarse con un ordenador para realizar cálculos, transformaciones y visualizaciones de datos. Python y R son los lenguajes de programación principales de este libro.
 
 **Límites de control**
-En un gráfico de control, las líneas que delimitan la zona de variabilidad esperada del proceso (media ± 3σ). Un punto fuera de estos límites es señal de una causa especial.
+En un gráfico de control, las líneas situadas a ±3 desviaciones típicas del estadístico representado, calculadas a partir del comportamiento del proceso en un período estable. Un punto fuera de ellas es señal de una causa especial. No son límites de especificación ni límites legales.
 
 **Línea de tendencia**
 Véase *regresión lineal*.
 
 **Materia grasa**
-Componente graso de la leche y del queso. Es el principal determinante del precio de la leche en el sistema de pago por calidad y uno de los factores clave del rendimiento quesero.
+Componente graso de la leche y del queso. Junto con la proteína, determina el rendimiento quesero.
+
+**matplotlib**
+Librería de Python para la creación de gráficos estáticos, animados e interactivos. Es la base sobre la que se construye seaborn.
 
 **Media aritmética**
 Suma de todos los valores dividida por el número de valores. Es el estadístico de centralidad más utilizado, pero sensible a los valores atípicos. Equivale al centro de gravedad de los datos.
@@ -243,6 +304,9 @@ Media calculada sobre una ventana de n valores consecutivos de una serie tempora
 
 **Mediana**
 Valor que divide un conjunto de datos ordenados en dos mitades iguales. Es más robusta que la media frente a valores atípicos.
+
+**Medida**
+Resultado de un proceso de medición. En el laboratorio, su variación procede del analista, del instrumento, del método y de la propia muestra (las fuentes de variación).
 
 **Mejora continua**
 Filosofía de gestión que plantea que todo proceso puede mejorarse de forma permanente y sistemática en calidad, eficiencia y reducción de variabilidad.
@@ -256,14 +320,14 @@ Subconjunto de la población seleccionado para el análisis. Los estadísticos c
 **Nivel**
 En diseño de experimentos, cada uno de los valores que toma un factor durante el experimento. Un diseño de dos niveles usa un valor bajo y un valor alto para cada factor.
 
-**pandas**
-Librería de Python para la manipulación y análisis de datos tabulares. Proporciona la estructura dataframe y operaciones de agrupación, filtrado y transformación.
-
 **OFAT (One Factor At a Time)**
 Enfoque experimental que estudia un factor a la vez manteniendo los demás fijos. No puede detectar interacciones entre factores y es menos eficiente que el diseño factorial.
 
-**Outlier (valor atípico)**
-Valor que se aleja notablemente del resto de los datos de un conjunto. Puede deberse a un error de medida, a un evento inusual o a la existencia de una subpoblación distinta en los datos.
+**pandas**
+Librería de Python para la manipulación y análisis de datos tabulares. Proporciona la estructura dataframe y operaciones de agrupación, filtrado y transformación.
+
+**Panel de resultados**
+Conjunto de gráficos e indicadores organizados para que un equipo de planta o la dirección vean de un vistazo el estado del proceso.
 
 **Parámetro**
 Valor numérico que caracteriza una distribución de probabilidad teórica. La distribución normal tiene dos parámetros: la media (μ) y la desviación típica (σ).
@@ -274,11 +338,26 @@ Filosofía de trabajo que reconoce que toda actividad ocurre en un sistema de pr
 **Pérdidas en proceso**
 En quesería, la materia grasa y proteína de la leche que no queda retenida en el queso, sino que se pierde en el suero, en los finos o por roturas durante la elaboración.
 
+**Plan de control**
+Documento que fija qué se vigila, cómo, cada cuánto, quién lo hace y qué hacer si algo se sale de lo previsto, para que una mejora se mantenga al cerrar el proyecto.
+
+**Plan de recogida de datos**
+Documento que fija qué se mide, cómo, cuándo y quién lo mide, con definiciones operativas, para que los datos sean comparables y se puedan analizar.
+
 **Población**
 Conjunto completo de elementos sobre los que se quiere obtener información. En la industria, raramente se puede medir toda la población, por lo que se trabaja con muestras.
 
+**Poka-yoke**
+Dispositivo o procedimiento «a prueba de errores» que impide que un error se produzca o que pase inadvertido, de modo que la solución no dependa de la memoria ni de la atención de las personas.
+
+**Precisión**
+Según la norma ISO 5725-1, proximidad entre resultados independientes obtenidos en condiciones definidas. Un método preciso da resultados muy parecidos entre sí, aunque no necesariamente cercanos al valor verdadero. Según las condiciones, se habla de repetibilidad, precisión intermedia o reproducibilidad.
+
+**Precisión intermedia**
+Variación de los resultados dentro de un mismo laboratorio cuando cambian el analista, el día o el equipo (ISO 5725-3). Está entre la repetibilidad y la reproducibilidad.
+
 **Proteína**
-Componente nutritivo de la leche que, junto con la materia grasa, determina el precio de la leche y el rendimiento quesero. 
+Componente de la leche que, junto con la materia grasa, determina el rendimiento quesero; las caseínas forman la red de la cuajada.
 
 **Puntuación Z (Z-score)**
 Valor tipificado que indica cuántas desviaciones típicas se aleja un valor de la media de su distribución. Se calcula como Z = (x − μ) / σ. Permite comparar valores de distribuciones con diferente escala.
@@ -296,64 +375,76 @@ Herramienta de código abierto para la creación de informes reproducibles que c
 Lenguaje de programación y entorno estadístico de código abierto, especialmente potente para el análisis estadístico y la visualización de datos. En este libro se usa principalmente con el ecosistema tidyverse y ggplot2.
 
 **Rango intercuartil (IQR)**
-Diferencia entre el tercer cuartil (Q3) y el primero (Q1). Mide la dispersión del 50% central de los datos. Es una medida robusta de dispersión, no afectada por los valores atípicos.
+Diferencia entre el tercer cuartil (Q3) y el primero (Q1). Mide la dispersión del 50 % central de los datos. Es una medida robusta de dispersión, no afectada por los valores atípicos.
 
 **Ratio datos/tinta**
-Principio de visualización de Edward Tufte: la proporción de la tinta de un gráfico que transmite información real sobre los datos respecto a la tinta total. Un buen gráfico maximiza este ratio eliminando todos los elementos decorativos.
-
-**seaborn**
-Librería de Python para la visualización estadística de datos, construida sobre matplotlib. Facilita la creación de gráficos estadísticos complejos con menos código.
+Principio de visualización de Edward Tufte: la proporción de la tinta de un gráfico que transmite información sobre los datos respecto a la tinta total. Un buen gráfico maximiza esta ratio eliminando los elementos decorativos.
 
 **Recuperación de materia**
-En tecnología quesera, proporción de la materia grasa o proteína de la leche que queda retenida en el queso. Es el indicador fundamental de la eficiencia tecnológica del proceso.
+En tecnología quesera, proporción de la materia grasa o de la proteína de la leche que queda retenida en el queso. Es un indicador directo de la eficiencia tecnológica del proceso.
 
 **Reglas de Western Electric**
-Conjunto de cuatro reglas para detectar causas especiales en un gráfico de control, basadas en patrones no aleatorios en la secuencia de puntos: puntos fuera de límites, tendencias, ciclos y desplazamientos sostenidos.
+Reglas para detectar causas especiales en un gráfico de control a partir de patrones no aleatorios: un punto fuera de ±3σ; dos de tres puntos consecutivos más allá de ±2σ en el mismo lado; cuatro de cinco puntos consecutivos más allá de ±1σ en el mismo lado; ocho puntos consecutivos en el mismo lado de la línea central.
 
 **Regresión lineal**
 Método estadístico que ajusta una línea recta a la relación entre dos variables, minimizando la suma de los cuadrados de las distancias verticales entre los puntos y la línea. La línea permite hacer predicciones de una variable a partir de la otra.
 
 **Remuestreo**
-Técnica de análisis de series temporales que consiste en calcular estadísticos (media, mediana) sobre ventanas de tiempo para suavizar la variabilidad y detectar tendencias.
+En series temporales, cambio de la frecuencia de los datos (por ejemplo, de mensual a anual) calculando un estadístico, como la media, para cada nuevo intervalo de tiempo. Suaviza la variabilidad y hace visible la tendencia. En pandas se hace con la función `resample()`.
 
 **Rendimiento quesero**
-Indicador de la eficiencia de la transformación quesera que relaciona la cantidad de queso obtenido con la cantidad de leche utilizada. Existen múltiples formas de calcularlo; en este libro se usa el coeficiente de recuperación ESM/MP que establece la relación entre el extracto seco magro del queso y la proteína puesta en cuba.
+Indicador de la eficiencia de la transformación quesera. Existen múltiples formas de calcularlo; la más directa relaciona la cantidad de queso obtenida con la de leche utilizada. En este libro se usa el coeficiente de recuperación ESM/MP.
 
 **Repetibilidad**
-Capacidad de un instrumento o analista de obtener resultados consistentes al repetir la misma medición en las mismas condiciones. Medida por la desviación típica de las repeticiones.
+Precisión en condiciones de repetibilidad: variación de los resultados cuando el mismo analista analiza la misma muestra varias veces en las mismas condiciones (mismo día, mismo instrumento, mismo procedimiento). Se cuantifica con la desviación típica de las repeticiones.
 
 **Réplica**
 En diseño de experimentos, repetición completa de una combinación de tratamiento. Las réplicas permiten estimar la variabilidad experimental y distinguirla del efecto real de los factores.
 
-**Reproducibilidad**
-Capacidad de obtener los mismos resultados al replicar un análisis utilizando los mismos datos y la misma metodología. Un análisis reproducible tiene el código visible y documentado, de modo que cualquier persona puede verificarlo y repetirlo.
+**Replicabilidad**
+Capacidad de obtener resultados consistentes al repetir un estudio con datos distintos, obtenidos siguiendo el mismo diseño. Responde a la pregunta «¿se confirman estos resultados con nuevos datos?». Distinta de la *reproducibilidad (de un análisis)*.
 
-**Reproducibilidad**
-En el análisis del sistema de medición: variación entre analistas al medir la misma muestra. En el sentido más amplio: capacidad de obtener los mismos resultados al replicar un análisis con los mismos datos y metodología.
+**Reproducibilidad (de un análisis)**
+Capacidad de verificar y repetir un análisis con los mismos datos y el mismo código, obteniendo los mismos resultados. Un análisis reproducible tiene el código visible y documentado. Distinta de la *replicabilidad*.
+
+**Reproducibilidad (metrológica)**
+Precisión en condiciones de reproducibilidad: variación de los resultados cuando la misma muestra se analiza en laboratorios diferentes, con analistas y equipos diferentes. Véase también *precisión intermedia*.
 
 **Respuesta**
 En diseño de experimentos, la variable que se mide para evaluar el efecto de los factores estudiados.
 
+**Robustez**
+Propiedad de un estadístico cuyo valor cambia poco cuando aparecen valores atípicos. La mediana y el rango intercuartil son robustos; la media y la desviación típica, no.
+
 **Script**
 Fichero de texto que contiene una secuencia de instrucciones de código que se ejecutan en orden. A diferencia de una hoja de cálculo, el script hace el análisis completamente visible y verificable.
+
+**seaborn**
+Librería de Python para la visualización estadística de datos, construida sobre matplotlib. Facilita la creación de gráficos estadísticos complejos con menos código.
 
 **Serie temporal**
 Secuencia de valores de una variable medidos a lo largo del tiempo en intervalos regulares. Su análisis permite detectar tendencias, estacionalidad y cambios en el proceso.
 
 **Sesgo**
-Diferencia sistemática entre el valor medido y el valor de referencia verdadero. Un sesgo constante indica un error sistemático del instrumento o del analista. Distinto de la dispersión, que es aleatoria.
+Diferencia sistemática entre la media de los resultados de medida y el valor verdadero o de referencia. Es la manifestación de la falta de veracidad de un método, de un instrumento o de un analista. Distinto de la dispersión, que es aleatoria.
 
-**Signo de estimación (℮)**
-Símbolo que el fabricante puede imprimir en los envases cuando realiza control estadístico de peso conforme al RD 1801/2008. Certifica que la media del lote es igual o superior al peso nominal y que el porcentaje de envases defectuosos está dentro de los límites legales.
+**Signo ℮ (signo de estimación)**
+Signo que el envasador puede imprimir de forma voluntaria en los envases sometidos al control estadístico por lotes del RD 1801/2008 (artículo 9). Certifica, bajo su responsabilidad, que el envase cumple el real decreto, y facilita la libre circulación del producto en el mercado europeo.
+
+**SIPOC**
+Diagrama que delimita el proceso que se va a estudiar: proveedores (*Suppliers*), entradas (*Inputs*), pasos del proceso (*Process*), salidas (*Outputs*) y clientes (*Customers*). Se usa en la fase Definir del DMAIC.
 
 **Six Sigma**
-Metodología de mejora que combina el ciclo DMAIC con herramientas estadísticas rigurosas para reducir la variabilidad de los procesos. El nombre hace referencia al objetivo estadístico de tener los límites de especificación a 6 desviaciones típicas de la media.
+Metodología de mejora que combina el ciclo DMAIC con herramientas estadísticas para reducir la variabilidad de los procesos. El nombre hace referencia al objetivo de que los límites de especificación estén a 6 desviaciones típicas de la media; admitiendo un desplazamiento de la media de 1,5σ, equivale a 3,4 defectos por millón de oportunidades.
 
 **Sobredosificación**
-En envasado de productos de peso fijo, cantidad de producto entregada por encima del peso nominal para garantizar el cumplimiento legal cuando el proceso tiene variabilidad. A mayor variabilidad, mayor sobredosificación necesaria.
+En el envasado de productos de cantidad nominal constante, producto entregado por encima de la cantidad nominal para garantizar el cumplimiento legal cuando el proceso tiene variabilidad. A mayor variabilidad, mayor sobredosificación necesaria.
 
 **Stemplot (diagrama de tallo y hojas)**
 Representación gráfica que muestra la distribución de un conjunto de datos usando los propios valores numéricos. Permite ver la forma de la distribución conservando los datos originales.
+
+**T1 y T2**
+Límites del RD 1801/2008 para el contenido de los envases. T1 es la cantidad nominal menos el EMDT: los envases por debajo son deficientes. T2 es la cantidad nominal menos el doble del EMDT: ningún envase puede quedar por debajo (artículo 7). Para 150 g, T1 = 143,2 g y T2 = 136,4 g.
 
 **Tendencia**
 En una serie temporal, variación sistemática y progresiva (creciente o decreciente) del nivel de la variable a lo largo del tiempo.
@@ -361,14 +452,26 @@ En una serie temporal, variación sistemática y progresiva (creciente o decreci
 **Tipificación**
 Transformación de una variable que resta la media y divide por la desviación típica, obteniendo la puntuación Z. Permite comparar valores de distribuciones con diferente escala y calcular probabilidades usando la distribución normal estándar.
 
+**Valor atípico (outlier)**
+Valor que se aleja notablemente del resto de los datos de un conjunto. En el diagrama de caja se considera atípico el valor situado a más de 1,5 veces el rango intercuartil por encima de Q3 o por debajo de Q1. Puede deberse a un error de medida o de entrada de datos, a un suceso inusual o a una subpoblación distinta en los datos.
+
 **Valor central**
 Estadístico que resume el nivel típico de un conjunto de datos. Los más usados son la media aritmética y la mediana.
+
+**Variabilidad**
+Hecho de que las sucesivas observaciones de una misma variable no den exactamente el mismo resultado. Es inherente a cualquier proceso real; lo importante es distinguir la variación atribuible a causas comunes de la que indica un problema que requiere intervención.
 
 **Variabilidad a corto plazo**
 Variabilidad que se manifiesta dentro de un turno o entre turnos consecutivos. Sus causas suelen ser visibles y trazables.
 
 **Variabilidad a largo plazo**
 Variabilidad que solo se hace visible al analizar datos de semanas o meses. Sus causas son más difíciles de identificar porque su efecto es gradual: deriva de la composición de materias primas, desgaste de equipos, deriva de procedimientos.
+
+**Variabilidad común**
+Véase *causas comunes*.
+
+**Variabilidad especial**
+Véase *causas especiales*.
 
 **Variabilidad natural**
 Variabilidad inherente a un proceso bajo control estadístico, producida por causas comunes. Define el límite de lo que el proceso puede producir sin cambiar el sistema.
@@ -382,17 +485,21 @@ Variable cuyos valores son categorías o etiquetas sin orden numérico intrínse
 **Variable cuantitativa**
 Variable cuyos valores son números con significado aritmético. Puede ser continua (cualquier valor en un intervalo) o discreta (solo valores enteros o contables).
 
+**Variable derivada**
+Variable que no se mide directamente, sino que se calcula a partir de otras variables medidas. Ejemplo: la humedad del queso desengrasado.
+
 **Varianza**
-Media de los cuadrados de las desviaciones de cada valor respecto a la media. Es la desviación típica elevada al cuadrado. Se usa menos en la práctica porque está expresada en unidades al cuadrado.
+Promedio de los cuadrados de las desviaciones de cada valor respecto a la media; cuando se calcula sobre una muestra, se divide por $n - 1$ (corrección de Bessel). Es la desviación típica elevada al cuadrado. Se usa menos en la práctica porque está expresada en unidades al cuadrado.
 
 **Veracidad**
-Grado de concordancia entre el valor medio de un conjunto de mediciones y el valor de referencia verdadero. Es el componente del sesgo en la norma ISO 5725-1. Distinta de la precisión, que describe la dispersión.
+Proximidad entre la media de un gran número de resultados y el valor verdadero o de referencia (ISO 5725-1). La falta de veracidad se manifiesta como un sesgo. Junto con la precisión, forma la exactitud.
 
 **Violin plot**
 Gráfico que combina el boxplot con una estimación de la densidad de la distribución, mostrando la forma completa de los datos a ambos lados. Especialmente útil para comparar distribuciones entre grupos.
 
 **X-barra (gráfico)**
-Gráfico de control que representa la media de subgrupos de datos a lo largo del tiempo. Detecta cambios en el nivel medio del proceso.
+Gráfico de control que representa la media de subgrupos de datos a lo largo del tiempo. Detecta cambios en el nivel medio del proceso. Se usa junto con el gráfico S.
+
 ---
 
-*Este glosario recoge los términos marcados como conceptos clave en los callouts de objetivos de aprendizaje de cada capítulo. Para una definición más detallada y ejemplos de aplicación, consultar el capítulo correspondiente.*
+*Este glosario recoge los principales conceptos clave de los callouts de objetivos de aprendizaje de cada capítulo. Para una definición más detallada y ejemplos de aplicación, consultar el capítulo correspondiente.*
