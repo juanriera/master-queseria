@@ -3,7 +3,7 @@ lang: es
 title: "La media aritmética como centro de gravedad de un grupo de datos"
 engine: knitr
 ---
-![Balanza tradicional romana](imagenes/220/roldana.jpg){width=50%}
+![Balanza tradicional romana](imagenes/360/roldana.jpg){width=50%}
 
 Para ver cómo la media aritmética equivale al punto de equilibrio o centro de gravedad de un grupo de datos, imaginaremos que tenemos un conjunto de datos cuyos valores se distribuyen en un eje longitudinal X. Podemos hacer equivalentes estos valores a un conjunto de pesos que se distribuyen a lo largo de una barra, y vamos a suponer que existe un punto a una distancia $x$ del origen de la barra en el cual dicha barra está en equilibrio. Para encontrar ese valor, empezaremos considerando el principio o ley de la palanca.
 
@@ -19,7 +19,7 @@ Donde:
 -   $R$ es la resistencia o carga.
 -   $d_r$ es la distancia desde el punto de apoyo hasta el punto donde se aplica la resistencia (BR: brazo de la resistencia).
 
-![Palanca de primer grado con el fulcro como punto de equilibrio](imagenes/220/palanca.jpeg){#fig-palanca}
+![Palanca de primer grado con el fulcro como punto de equilibrio](imagenes/360/palanca.jpeg){#fig-palanca-fulcro}
 
 ## Ejemplo
 
@@ -219,9 +219,9 @@ que es el mismo resultado que obteníamos con la fórmula de la media aritmétic
 Cuando las masas son idénticas, la media aritmética de las posiciones coincide con el centro de gravedad. Esto nos permite afirmar que en el caso de una dimensión (por ejemplo, la altura de los alumnos) la media aritmética de un conjunto de valores coincide con el centro de gravedad o punto de equilibrio de ese conjunto de valores. Este es un resultado interesante que muestra la conexión entre conceptos estadísticos y físicos.
 
 ::: {#fig-media-fulcro2 layout-ncol="2" layout-valign="bottom"}
-![La media como punto de equilibrio](imagenes/060/media-balanza.svg){#fig-media}
+![La media como punto de equilibrio](imagenes/360/media-balanza.svg){#fig-media}
 
-![Palanca de primer grado](imagenes/060/palanca.webp){#fig-palanca}
+![Palanca de primer grado](imagenes/360/palanca.webp){#fig-palanca}
 
 Comparación gráfica del significado de la media en un diagrama de puntos (*dotplot*) con una palanca de primer grado, con el fulcro como punto de equilibrio.
 :::
@@ -234,4 +234,4 @@ Cuando un conjunto de datos contiene un valor muy alejado del resto, ese valor a
 
 Este valor extremo tiene dos efectos simultáneos: la media deja de representar bien al grupo mayoritario de valores, y la varianza (el promedio de las distancias al cuadrado) aumenta de forma mucho más acusada, porque la distancia del valor extremo se eleva al cuadrado.
 
-La mediana, en cambio, no se ve afectada de la misma manera: al ser el valor central por orden de magnitud, un único dato extremo no puede desplazarla más allá de una posición. Por eso, ante distribuciones con valores atípicos, la mediana y el rango intercuartil son estadísticos más robustos y más fiables para describir el conjunto de datos.
+La mediana, en cambio, no se ve afectada de la misma manera: al ser el valor central por orden de magnitud, un único dato extremo no puede desplazarla más allá de una posición. Por eso, ante distribuciones con valores atípicos, la mediana y el rango intercuartil son estadísticos más robustos y más fiables para describir el conjunto de datos.

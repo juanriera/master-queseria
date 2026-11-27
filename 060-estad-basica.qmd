@@ -132,7 +132,7 @@ $$
 
  Utilicemos una hoja de cálculo para guardar nuestros valores.
 
-![](imagenes/050/aula1.webp)
+![](imagenes/060/aula1.webp)
 
 La fórmula para obtener la media en la hoja de cálculo, por ejemplo en la versión en español de *Microsoft Excel*, es `=PROMEDIO(...)`, donde los puntos suspensivos deben sustituirse por el rango a calcular. En nuestro ejemplo, introduciríamos la fórmula en la celda `B13` como `=PROMEDIO(B2:B12)` (Para más detalles, verificar la hoja Excel adjunta).
 
@@ -378,4 +378,4 @@ Para completar la descripción es necesario medir la dispersión, es decir, cuá
 
 Estos estadísticos paramétricos son muy potentes cuando los datos tienen una distribución aproximadamente simétrica, pero son sensibles a los valores extremos. En esos casos, la mediana y el rango intercuartil, ya vistos en el boxplot del capítulo 5, resultan más robustos y seguros. En la práctica, ambos tipos de estadísticos se usan de forma complementaria. 
 
-En el capítulo 12 aplicaremos todos estos conceptos al análisis de una fabricación real de queso camembert.
+En el capítulo 12 aplicaremos todos estos conceptos al análisis de una fabricación real de queso camembert.

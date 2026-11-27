@@ -308,7 +308,7 @@ plt.show()
 ## La regla 68-95-99,7 y el boxplot
 ¿Recuerdas el boxplot del capítulo 5? En una distribución normal, los bigotes del boxplot (que alcanzan, como máximo, 1,5 veces el rango intercuartil más allá de los bordes de la caja) capturan aproximadamente el 99,3% de los valores. Los puntos fuera de los bigotes corresponden aproximadamente al 0,7% de las observaciones, que es la región de las colas más allá de ±2,7$\sigma$.
 
-![Relación entre la campana de Gauss y el boxplot](imagenes/060/campana-de-gauss-boxplot.webp)
+![Relación entre la campana de Gauss y el boxplot](imagenes/070/campana-de-gauss-boxplot.webp)
 :::
 
 ### Tipificación y puntuación Z
@@ -438,4 +438,4 @@ Este capítulo ha establecido el puente entre las frecuencias relativas del hist
 
 Los cuatro tipos de distribución ilustrados con datos del libro (simétrica, asimétrica positiva, asimétrica positiva extrema y bimodal) permiten al alumno reconocer en sus propios datos la forma que subyace al proceso que los genera. La distribución normal se ha descrito en profundidad mediante sus parámetros $\mu$ y $\sigma$, la regla 68-95-99,7 y el cálculo de probabilidades con Python y R. El QQ-plot proporciona una herramienta visual sencilla para verificar si la hipótesis de normalidad es razonable antes de aplicar estos cálculos. 
 
-En el capítulo 14 aplicaremos estos conceptos a un problema real de control de calidad: el análisis del llenado de yogures según el RD 1801/2008.
+En el capítulo 14 aplicaremos estos conceptos a un problema real de control de calidad: el análisis del llenado de yogures según el RD 1801/2008.
